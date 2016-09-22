@@ -9,7 +9,7 @@ class InsertionSort {
         for(int i = 1; i < array.length; i++) {
             int key = array[i];
             int j;
-            for (j = i; j > -1; j--){
+            for (j = i-1; j > -1; j--){
                 if (array[j] > key) array[j+1] = array[j];
             }
             array[j+1] = key;
