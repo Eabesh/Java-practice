@@ -1,30 +1,31 @@
 package recursion.org.geekforgeeks.w3;
 
+import utilities.Stack;
 
-import java.util.Vector;
-
+/**
+ *  Reverse a stack without using any other data structure or
+ *  auxiliary space.
+ */
 class ReverseStack {
 
-    Vector<Integer> stack = new Vector<Integer>();
-
-    void reverse(ReverseStack reverseStack) {
-        if (!reverseStack.isEmpty()) {
-            push(reverseStack.pop());
-            reverse(reverseStack);
+    void reverse(Stack stack) {
+        if(!stack.isEmpty()) {
+            int top = stack.pop();
+            reverse(stack);
+            insertAtBottom(stack,top);
         }
     }
 
-    int pop() {
-        if (!isEmpty()) return stack.remove(stack.size()-1);
-        else return -1;
+    private void insertAtBottom(Stack stack, int elem) {
+        if (stack.isEmpty())
+            stack.push(elem);
+        else {
+            int top = stack.pop();
+            insertAtBottom(stack,elem);
+            stack.push(top);
+        }
     }
 
-    Boolean isEmpty() {
-        return stack.isEmpty();
-    }
 
-    void push(int elem) {
-        stack.add(elem);
-    }
 
 }
