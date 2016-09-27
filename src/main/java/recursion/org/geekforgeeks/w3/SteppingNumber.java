@@ -2,6 +2,11 @@ package recursion.org.geekforgeeks.w3;
 
 import java.util.Vector;
 
+/**
+ * A number is called as a stepping number if the adjacent digits are having a difference of 1.
+ * For eg. 8,343,545 are stepping numbers. While 890, 098 are not.
+ * The difference between a ‘9’ and ‘0’ should not be considered as 1.
+ */
 class SteppingNumber {
 
     void printNumber(Vector<Integer> choices, String soFar, int remaining) {
