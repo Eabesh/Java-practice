@@ -6,8 +6,8 @@ public class QueensProblemTest {
 
     @Test
     public void queenTest() {
-        int[][] board = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
-        new QueensProblem().solve(board,0,4);
+        int[][] board = new int[8][8];
+        new QueensProblem().solve(board,0,8);
     }
 
 }
