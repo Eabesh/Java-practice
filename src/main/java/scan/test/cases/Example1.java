@@ -11,10 +11,11 @@ public class Example1 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int noTestCases = in.nextInt();
-        int[] array = new int[noTestCases];
-        for (int i = 0; i < noTestCases; i++ ) {
-            array[i] = in.nextInt();
-        }
+        Integer[] array = new Integer[noTestCases];
+//        for (int i = 0; i < noTestCases; i++ ) {
+//            array[i] = in.nextInt();
+//        }
+        Arrays.fill(array,in.nextInt());
 //        for (int i = 0; i < noTestCases; i++ ) {
 //            System.out.println(array[i]);
 //        }
@@ -34,13 +35,14 @@ public class Example1 {
         return min;
     }
 
-    static int findMaxElement(int[] array){
+    static int findMaxElement(Integer[] array){
 
         Arrays.sort(array);
         Set<String> mySet = new HashSet<String>();
         for (int i = 0; i < array.length; i++ ) {
             mySet.add((Integer.toString(array[i])));
         }
+        HashSet<Integer> set = new HashSet<Integer>(Arrays.asList(array));
         int max = -1;
         for (int i = 0; i < array.length; i++ ) {
             int current = array[i];

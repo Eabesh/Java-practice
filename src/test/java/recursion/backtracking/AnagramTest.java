@@ -1,6 +1,7 @@
-package recursion;
+package recursion.backtracking;
 
 import org.junit.Test;
+import recursion.backtracking.Anagram;
 
 import java.util.Vector;
 
