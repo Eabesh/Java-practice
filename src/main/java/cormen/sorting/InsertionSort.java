@@ -1,8 +1,5 @@
 package cormen.sorting;
 
-/**
- * Created by pankaj.thakur on 17/09/16.
- */
 class InsertionSort {
 
     public int[] sort(int[] array) {

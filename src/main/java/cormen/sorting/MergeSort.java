@@ -1,8 +1,5 @@
 package cormen.sorting;
 
-/**
- * Created by pankaj.thakur on 20/09/16.
- */
 public class MergeSort {
 
     void mergeSort(int[] array, int start, int end) {

@@ -1,8 +1,5 @@
 package cormen.sorting;
 
-/**
- * Created by pankaj.thakur on 22/09/16.
- */
 public class BubbleSort {
 
     public void sort(int[] array) {
