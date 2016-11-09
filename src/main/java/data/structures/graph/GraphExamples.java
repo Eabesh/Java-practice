@@ -1,4 +1,4 @@
-package collections.graph;
+package data.structures.graph;
 
 public class GraphExamples {
 

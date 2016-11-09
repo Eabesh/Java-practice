@@ -1,6 +1,7 @@
 package data.structures.binarytrees;
 
 import org.junit.Test;
+import utilities.TreeNode;
 
 public class TraversalsTest {
 
@@ -8,9 +9,9 @@ public class TraversalsTest {
     @Test
     public void traversalTest() {
 
-        Node root = new Node(2);
-        Node node1 = new Node(1);
-        Node node2 = new Node(3);
+        TreeNode root = new TreeNode(2);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(3);
         root.left = node1;
         root.right = node2;
 

@@ -1,8 +1,10 @@
 package data.structures.binarytrees;
 
+import utilities.TreeNode;
+
 class Traversals {
 
-    void inorder(Node root) {
+    void inorder(TreeNode root) {
         if (root != null) {
             inorder(root.left);
             System.out.print(root.data + " ");
@@ -10,7 +12,7 @@ class Traversals {
         }
     }
 
-    void preorder(Node root) {
+    void preorder(TreeNode root) {
         if (root != null) {
             System.out.print(root.data + " ");
             preorder(root.left);
@@ -18,7 +20,7 @@ class Traversals {
         }
     }
 
-    void postorder(Node root) {
+    void postorder(TreeNode root) {
         if (root != null) {
             postorder(root.left);
             postorder(root.right);
