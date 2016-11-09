@@ -10,19 +10,17 @@ class RodCutting {
         else {
             int max = Integer.MIN_VALUE;
             for (int i = 1; i <= length; i++)
-                max = findMax(max, price[i] + rodCut(price,length - i));
+                max = Math.max(max, price[i] + rodCut(price,length - i));
             return max;
         }
     }
-
-    private int findMax(int left, int right) { return (left > right) ? left : right; }
 
     int rodCutDPTopDown(int[] price, int length) {
         if (length < 1) return 0;
         else if (store.containsKey(length)) return store.get(length);
         else {
             int max = Integer.MIN_VALUE;
-            for (int i = 1; i <= length; i++) max = findMax(max, price[i] + rodCutDPTopDown(price, length - i));
+            for (int i = 1; i <= length; i++) max = Math.max(max, price[i] + rodCutDPTopDown(price, length - i));
             store.put(length,max);
             return max;
         }
@@ -34,7 +32,7 @@ class RodCutting {
         for (int i = 1; i<= length; i++) {
             int max = Integer.MIN_VALUE;
             for (int j = 1; j <= i; j++)
-                max = findMax(max, price[j] + store.get(i - j));
+                max = Math.max(max, price[j] + store.get(i - j));
             store.put(i,max);
         }
         return store.get(length);
