@@ -1,4 +1,4 @@
 package data.structures.graph;
 
-public class BFS {
+public class GraphExamplesTest {
 }
