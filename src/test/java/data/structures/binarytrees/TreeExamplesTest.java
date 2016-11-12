@@ -156,4 +156,18 @@ public class TreeExamplesTest {
         assertEquals(4,new TreeExamples().diameter(root));
     }
 
+    @Test
+    public void LCATest() {
+        TreeNode root = new TreeNode(2);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(3);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node5 = new TreeNode(5);
+        root.left = node1;
+        root.right = node2;
+        node1.left = node4;
+        node1.right = node5;
+        assertEquals(1,new TreeExamples().LCA(root,4,5).data);
+    }
+
 }

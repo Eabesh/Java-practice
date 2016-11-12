@@ -15,7 +15,7 @@ public class FibonacciTest {
     @Test
     public void testFibDP() {
         double t1 = System.currentTimeMillis();
-        System.out.println(new Fibonacci().fibDP(46));
+        System.out.println(new Fibonacci().fibTopDown(46));
         double t2 = System.currentTimeMillis();
         System.out.println("time taken in secs : " + (t2 - t1)/1000);
     }
@@ -23,7 +23,7 @@ public class FibonacciTest {
     @Test
     public void testFibDP2() {
         double t1 = System.currentTimeMillis();
-        System.out.println(new Fibonacci().fibDP2(46));
+        System.out.println(new Fibonacci().fibBottomUp(46));
         double t2 = System.currentTimeMillis();
         System.out.println("time taken in secs : " + (t2 - t1)/1000);
     }

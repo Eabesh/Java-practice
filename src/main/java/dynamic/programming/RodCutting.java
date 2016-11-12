@@ -5,6 +5,7 @@ import java.util.HashMap;
 class RodCutting {
 
     HashMap<Integer,Integer> store = new HashMap<Integer, Integer>();
+
     int rodCut(int[] price, int length) {
         if (length < 1) return 0;
         else {

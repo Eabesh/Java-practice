@@ -154,4 +154,17 @@ public class TreeExamples {
         }
     }
 
+    /**
+     * 77. Lowest Common Ancestor in a Binary Tree.
+     */
+    TreeNode LCA(TreeNode root, int k1, int k2) {
+        if (root == null || root.data == k1 || root.data == k2) return root;
+        else {
+            TreeNode left = LCA(root.left,k1,k2);
+            TreeNode right = LCA(root.right,k1,k2);
+            if (left != null && right != null) return root;
+            else return left != null ? left : right;
+        }
+    }
+
 }

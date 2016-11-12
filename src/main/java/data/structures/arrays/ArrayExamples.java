@@ -92,11 +92,7 @@ public class ArrayExamples {
      */
 
     /**
-     * 53. Find subarray with given sum
-     */
-
-    /**
-     * 54. Maximum Sum Increasing Subsequence.
+     * 53. Find sub array with given sum
      */
 
     /**

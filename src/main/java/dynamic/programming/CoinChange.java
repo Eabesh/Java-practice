@@ -8,10 +8,12 @@ public class CoinChange {
         for (int i = 1; i < minCoins.length; i++) {
             int min = Integer.MAX_VALUE;
             for (int coin : coins) {
-                if (i - coin > 0) min = Math.min(min, minCoins[i - coin]);
+                if (i - coin >= 0)
+                    min = Math.min(min, 1 + minCoins[i - coin]);
             }
-
+            minCoins[i] = min;
         }
+        return minCoins[sum];
     }
 
 }
