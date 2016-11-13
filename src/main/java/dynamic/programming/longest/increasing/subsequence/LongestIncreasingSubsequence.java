@@ -1,4 +1,4 @@
-package dynamic.programming;
+package dynamic.programming.longest.increasing.subsequence;
 
 import java.util.Arrays;
 

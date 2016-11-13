@@ -1,5 +1,6 @@
-package dynamic.programming;
+package dynamic.programming.palindromes;
 
+import dynamic.programming.palindromes.MaxPalSubSequence;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

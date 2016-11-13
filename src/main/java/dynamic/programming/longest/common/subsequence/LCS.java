@@ -1,4 +1,4 @@
-package dynamic.programming;
+package dynamic.programming.longest.common.subsequence;
 
 public class LCS {
 
