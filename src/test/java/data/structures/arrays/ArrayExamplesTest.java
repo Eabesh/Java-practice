@@ -32,4 +32,18 @@ public class ArrayExamplesTest {
         assertEquals(19,result);
         assertEquals(-7,new ArrayExamples().maxSumNonContigous(b));
     }
+
+    @Test
+    public void minDiffTest() {
+        int arr[] = {1, 10, 14, 14, 14, 15};
+        assertEquals(5, new ArrayExamples().minDiff(arr,6));
+    }
+
+    @Test
+    public void minPalOpTest() {
+        int arr[] = {11, 14, 15, 99};
+        int[] arr2 = {1, 4, 5, 1};
+        assertEquals(3, new ArrayExamples().minPalindromeOperations(arr,0,arr.length - 1));
+        assertEquals(1, new ArrayExamples().minPalindromeOperations(arr2,0,arr2.length - 1));
+    }
 }

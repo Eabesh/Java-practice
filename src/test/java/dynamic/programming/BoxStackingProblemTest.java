@@ -8,11 +8,8 @@ public class BoxStackingProblemTest {
 
     @Test
     public void boxStackingProblemTest() {
-        int[][] b = { {4, 7, 9},
-                {5, 8, 9},
-                {11, 20, 40},
-                {1, 2, 3} };
-        assertEquals(78,new BoxStackingProblem().boxStacking(b));
+        int[][] b = { {4, 6, 7}, {1, 2, 3}, {4, 5, 6}, {10, 12, 32} };
+        assertEquals(60,new BoxStackingProblem().boxStacking(b));
     }
 
 }

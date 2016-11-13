@@ -34,11 +34,10 @@ public class BoxStackingProblem {
         for (int h = 0; h < b.length; h++) lis[h] = b[h].h;
         int maxSoFar = 0;
         for (int i = 1; i < b.length; i++) {
-            int max = Integer.MIN_VALUE;
+            int max = b[i].h;
             for (int j = 0; j < i; j++) {
-                if (b[i].l > b[j].l && b[i].b > b[i].b)
+                if (b[i].l < b[j].l && b[i].b < b[j].b)
                     max = Math.max(max, lis[j] + b[i].h);
-                else max = b[i].h;
             }
             lis[i] = max;
             maxSoFar = Math.max(maxSoFar,max);

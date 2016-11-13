@@ -1,6 +1,8 @@
 package data.structures.arrays;
 
 
+import java.util.Arrays;
+
 public class ArrayExamples {
 
     int maxSum = -1;
@@ -146,6 +148,64 @@ public class ArrayExamples {
     /**
      * 136. Trapping Rain Water
      */
+
+    /**
+     * 145. Longest Span with same Sum in two Binary arrays.
+     */
+
+    /**
+     * 147. Form minimum number from given sequence.
+     */
+
+    /**
+     * 149. Count Strictly Increasing Subarrays
+     */
+
+    /**
+     * 153. Count pairs with given sum.
+     */
+
+    /**
+     * 155. Find minimum number of merge operations to make an array palindrome.
+     * Given an array of positive integers. We need to make the given array a ‘Palindrome’.
+     * Only allowed operation on array is merge. Merging two adjacent elements means replacing them with their sum.
+     * The task is to find minimum number of merge operations required to make given array a ‘Palindrome’.
+     */
+    int minPalindromeOperations(int[] array, int start, int end) {
+        if (start >= end) return 0;
+        else if (array[start] == array[end]) return minPalindromeOperations(array, start + 1, end - 1);
+        else if (array[start] < array[end]) {
+            array[start] += array[start + 1];
+            return 1 + minPalindromeOperations(array, start + 1, end);
+        }
+        else {
+            array[end] += array[end -1];
+            return 1 + minPalindromeOperations(array, start, end - 1);
+        }
+    }
+
+    /**
+     * 156. Minimize the maximum difference between the heights.
+     * Given heights of n towers and a value k. We need to either increase or decrease height of every tower by k
+     * (only once) where k > 0. The task is to minimize the difference between the heights of the longest and the
+     * shortest tower after modifications, and output this difference.
+     */
+    int minDiff(int[] array, int k) {
+        Arrays.sort(array);
+        array[0] += k;
+        array[array.length - 1] -= k;
+        int min = Math.min(array[0], array[array.length - 1]);
+        int max = Math.max(array[0], array[array.length - 1]);
+        for (int j = 1; j < array.length - 1; j++) {
+            if (array[j] < min) array[j] += k;
+            else if (array[j] > max) array[j] -= k;
+            else if (max - array[j] < array[j] - min) array[j] += k;
+            else array[j] -= k;
+            min = Math.min(array[j], min);
+            max = Math.max(array[j], max);
+        }
+        return max - min;
+    }
 
 
 }
