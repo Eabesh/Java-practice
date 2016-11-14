@@ -1,5 +1,6 @@
-package dynamic.programming;
+package dynamic.programming.coin.change;
 
+import dynamic.programming.coin.change.MinJumps;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
