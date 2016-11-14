@@ -46,4 +46,11 @@ public class ArrayExamplesTest {
         assertEquals(3, new ArrayExamples().minPalindromeOperations(arr,0,arr.length - 1));
         assertEquals(1, new ArrayExamples().minPalindromeOperations(arr2,0,arr2.length - 1));
     }
+
+    @Test
+    public void maxDiffTest() {
+        int[] arr = {2, 3, 10, 6, 4, 8, 1};
+        assertEquals(8, new ArrayExamples().maxDiff(arr));
+    }
+
 }

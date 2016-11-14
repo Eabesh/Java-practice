@@ -62,7 +62,7 @@ public class ArrayExamples {
 
     private int getSum(String str) {
         int sum = 0;
-        for(String s : str.split(",")) if (!s.isEmpty()) sum += Integer.parseInt(s);
+        for(String s : str.split(",")) if (!(s.length() == 0)) sum += Integer.parseInt(s);
         return sum;
     }
 
@@ -84,6 +84,15 @@ public class ArrayExamples {
     /**
      * 23. Maximum difference between two elements such that larger element appears after the smaller element.
      */
+    public int maxDiff(int[] array) {
+        int maxDiffSoFar = 0;
+        int min = array[0];
+        for (int i = 1; i < array.length; i ++) {
+            maxDiffSoFar = Math.max(maxDiffSoFar, array[i] - min);
+            min = Math.min(min, array[i]);
+        }
+        return maxDiffSoFar;
+    }
 
     /**
      * 42. Maximum of all subarrays of size k.
