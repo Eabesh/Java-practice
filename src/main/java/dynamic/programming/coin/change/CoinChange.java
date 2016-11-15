@@ -1,7 +1,13 @@
 package dynamic.programming.coin.change;
 
-public class CoinChange {
+class CoinChange {
 
+
+    /**
+     * Given a value N, if we want to make change for N cents, and we have infinite supply of each of
+     * S = { S1, S2, .. , Sm} valued coins, how many ways can we make the change? The order of coins doesn’t matter.
+     * Time Complexity : O(mn)
+     */
     int change(int[] coins, int sum) {
         int[] minCoins = new int[sum + 1];
         for (int coin : coins) minCoins[coin] = 1;

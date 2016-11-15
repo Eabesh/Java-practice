@@ -44,6 +44,7 @@ public class MaxProfitShares {
      * we need to purchase it on any one of [0, i – 1] days. If we buy shares on jth day and sell it on ith day,
      * max profit will be price[i] – price[j] + profit[t-1][j] where j varies from 0 to i-1.
      * Here profit[t-1][j] is best we could have done with one less transaction till jth day.
+     * Time Complexity : O(k.n^2).
      */
     int maxProfit(int[] prices, int k) {
         int[][] profit = new int[k+1][prices.length + 1];
