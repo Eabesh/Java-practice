@@ -159,6 +159,12 @@ public class ArrayExamples {
      */
 
     /**
+     * 137. Convert array into Zig-Zag fashion.
+     * Given an array of distinct elements, rearrange the elements of array in zig-zag fashion in O(n) time.
+     * The converted array should be in form a < b > c < d > e < f.
+     */
+
+    /**
      * 145. Longest Span with same Sum in two Binary arrays.
      */
 

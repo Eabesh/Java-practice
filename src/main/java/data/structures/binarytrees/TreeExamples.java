@@ -155,6 +155,10 @@ public class TreeExamples {
     }
 
     /**
+     * 69. Check if all leaves are at same level.
+     */
+
+    /**
      * 77. Lowest Common Ancestor in a Binary Tree.
      */
     TreeNode LCA(TreeNode root, int k1, int k2) {
