@@ -211,17 +211,24 @@ public class ArrayExamples {
      */
 
     /**
-     *
-     * Problem:
+     * 18.
+     * Problem: Find the smallest and second smallest element in an array.
      *
      * Solution:
+     * 1) Initialize both first and second smallest as INT_MAX first = second = INT_MAX.
+     * 2) Loop through all the elements.
+     *      a) If the current element is smaller than first, then update first and second.
+     *      b) Else if the current element is smaller than second then update second.
+     *
+     * Or use heap which will take O(k.logn).
      */
 
     /**
+     * 19.
+     * Problem: Check for Majority Element in a sorted array.
+     * Find if a given integer x appears more than n/2 times in a sorted array of n integers.
      *
-     * Problem:
-     *
-     * Solution:
+     * Solution: Use modified binary search to find start and end index of element.
      */
 
     /**
