@@ -102,10 +102,11 @@ public class ArrayExamples {
      */
 
     /**
+     * 8.
+     * Problem: Median of two sorted arrays.
      *
-     * Problem:
-     *
-     * Solution:
+     * Solution: Either merge two arrays which will take O(m + n) or use divide and conquer by getting
+     * medians of each array and comparing till they are equal. O(logn).
      */
 
     /**
