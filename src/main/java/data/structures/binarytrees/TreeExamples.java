@@ -213,8 +213,8 @@ public class TreeExamples {
         if (root == null) return 0;
         if (isLeaf(root)) return root.data;
 
-        int leftSum  = updatetree(root.left);
-        int rightSum = updatetree(root.right);
+        int leftSum  = updateTree(root.left);
+        int rightSum = updateTree(root.right);
 
         root.data += leftSum;
 
