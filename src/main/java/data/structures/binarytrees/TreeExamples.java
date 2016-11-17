@@ -80,6 +80,24 @@ public class TreeExamples {
     private boolean isLeaf(TreeNode node) { return node.left == null && node.right == null; }
 
     /**
+     * 21. The Great Tree-List Recursion Problem.
+     */
+    TreeNode head = null, prev =null;
+    void treeToList(TreeNode root) {
+        if (root == null) return;
+
+        treeToList(root.left);
+        if (head == null) head = root;
+        else {
+            prev.right = root;
+            root.left = prev;
+        }
+        prev = root;
+        treeToList(root.right);
+    }
+
+
+    /**
      * 22. Count leaf nodes in a binary tree
      */
     int countLeaves(TreeNode root) {
