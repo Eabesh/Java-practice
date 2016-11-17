@@ -181,7 +181,8 @@ public class ArrayExamples {
      */
 
     /**
-     * 155. Find minimum number of merge operations to make an array palindrome.
+     * 155.
+     * Problem: Find minimum number of merge operations to make an array palindrome.
      * Given an array of positive integers. We need to make the given array a ‘Palindrome’.
      * Only allowed operation on array is merge. Merging two adjacent elements means replacing them with their sum.
      * The task is to find minimum number of merge operations required to make given array a ‘Palindrome’.
@@ -200,7 +201,8 @@ public class ArrayExamples {
     }
 
     /**
-     * 156. Minimize the maximum difference between the heights.
+     * 156.
+     * Problem: Minimize the maximum difference between the heights.
      * Given heights of n towers and a value k. We need to either increase or decrease height of every tower by k
      * (only once) where k > 0. The task is to minimize the difference between the heights of the longest and the
      * shortest tower after modifications, and output this difference.
