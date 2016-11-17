@@ -173,6 +173,18 @@ public class ArrayExamples {
      */
 
     /**
+     * 150.
+     * Problem: Subarray/Substring vs Subsequence and Programs to Generate them.
+     *
+     * Solution: In general, for an array/string of size n, there are n*(n+1)/2 non-empty subarrays/subsrings. We can
+     * generate all by sliding window algo.
+     *
+     * More generally, we can say that for a sequence of size n, we can have (2n-1) non-empty sub-sequences in total.
+     * Every subarray is a subsequence. More specifically, Subsequence is a generalization of substring.
+     * Subsequences are in fact subsets except for empty set.
+     */
+
+    /**
      * 149.
      * Problem: Count Strictly Increasing Subarrays.
      * Given an array of integers, count number of subarrays (of size more than one) that are strictly increasing.
