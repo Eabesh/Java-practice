@@ -193,69 +193,6 @@ public class ArrayExamples {
      */
 
     /**
-     *
-     * Problem:
-     *
-     * Solution:
-     */
-
-    /**
-     *
-     * Problem:
-     *
-     * Solution:
-     */
-
-    /**
-     *
-     * Problem:
-     *
-     * Solution:
-     */
-
-    /**
-     *
-     * Problem:
-     *
-     * Solution:
-     */
-
-    /**
-     *
-     * Problem:
-     *
-     * Solution:
-     */
-
-    /**
-     *
-     * Problem:
-     *
-     * Solution:
-     */
-
-    /**
-     *
-     * Problem:
-     *
-     * Solution:
-     */
-
-    /**
-     *
-     * Problem:
-     *
-     * Solution:
-     */
-
-    /**
-     *
-     * Problem:
-     *
-     * Solution:
-     */
-
-    /**
      * 16.
      * Problem: Count Inversions in an array.
      * Inversion Count for an array indicates – how far (or close) the array is from being sorted. If array is already sorted then inversion count is 0. If array is sorted in reverse order that inversion count is the maximum.
@@ -263,6 +200,70 @@ public class ArrayExamples {
      *
      * Solution: Use BST. Count of left children gives number of inversions of that element.
      */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
 
     /**
      * 23. Maximum difference between two elements such that larger element appears after the smaller element.
