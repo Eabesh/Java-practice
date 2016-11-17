@@ -177,6 +177,16 @@ public class ArrayExamples {
      */
 
     /**
+     * 151.
+     * Problem: Find minimum difference between any two elements.
+     * Given an unsorted array, find the minimum difference between any pair in given array.
+     *
+     * Solution: Sort and then compare adjust elements.
+     *
+     * Time Complexity: O(n.log(n))
+     */
+
+    /**
      * 152.
      * Problem: Find lost element from a duplicated array.
      * Given two arrays which are duplicates of each other except one element, that is one element
