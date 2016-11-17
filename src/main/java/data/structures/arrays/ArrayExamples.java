@@ -24,11 +24,19 @@ public class ArrayExamples {
      */
 
     /**
+     * 3.
+     * Problem: Find the Number Occurring Odd Number of Times.
+     * Given an array of positive integers. All numbers occur even number of times except one number which occurs odd
+     * number of times. Find the number in O(n) time & constant space.
      *
-     * Problem:
-     *
-     * Solution:
+     * Solution: Use XOR operator.
      */
+    int getOddOccurrence(int[] array) {
+        int res = 0;
+        for (int i = 0; i < array.length; i++)
+            res = res ^ array[i];
+        return res;
+    }
 
     /**
      *
