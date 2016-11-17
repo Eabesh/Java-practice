@@ -177,7 +177,10 @@ public class ArrayExamples {
      */
 
     /**
-     * 153. Count pairs with given sum.
+     * 153.
+     * Problem: Count pairs with given sum.
+     *
+     * Solution: Use hash set. Result will be count/2.
      */
 
     /**
