@@ -173,8 +173,23 @@ public class ArrayExamples {
      */
 
     /**
-     * 149. Count Strictly Increasing Subarrays
+     * 149.
+     * Problem: Count Strictly Increasing Subarrays.
+     * Given an array of integers, count number of subarrays (of size more than one) that are strictly increasing.
      */
+    int countSIS(int[] arr) {
+        int count = 0;
+        int sortedLen = 1;
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] < arr[i + 1]) sortedLen++;
+            else {
+                count += (sortedLen - 1) * sortedLen/2;
+                sortedLen = 1;
+            }
+        }
+        if (sortedLen > 1) count += (sortedLen - 1) * sortedLen/2;
+        return count;
+    }
 
     /**
      * 150.
