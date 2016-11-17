@@ -177,6 +177,85 @@ public class ArrayExamples {
     }
 
     /**
+     * 14.
+     * Problem: Leaders in an array.
+     * An element is leader if it is greater than all the elements to its right side. And the rightmost element is
+     * always a leader.
+     *
+     * Solution: Scan from right to left and find the leaders.
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
      * 16.
      * Problem: Count Inversions in an array.
      * Inversion Count for an array indicates – how far (or close) the array is from being sorted. If array is already sorted then inversion count is 0. If array is sorted in reverse order that inversion count is the maximum.
