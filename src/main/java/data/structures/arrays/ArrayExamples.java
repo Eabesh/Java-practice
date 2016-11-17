@@ -80,6 +80,14 @@ public class ArrayExamples {
         return Math.max(incl,excl);
     }
 
+    /**
+     * 16.
+     * Problem: Count Inversions in an array.
+     * Inversion Count for an array indicates – how far (or close) the array is from being sorted. If array is already sorted then inversion count is 0. If array is sorted in reverse order that inversion count is the maximum.
+     * Formally speaking, two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j.
+     *
+     * Solution: Use BST. Count of left children gives number of inversions of that element.
+     */
 
     /**
      * 23. Maximum difference between two elements such that larger element appears after the smaller element.
@@ -162,6 +170,15 @@ public class ArrayExamples {
      * 137. Convert array into Zig-Zag fashion.
      * Given an array of distinct elements, rearrange the elements of array in zig-zag fashion in O(n) time.
      * The converted array should be in form a < b > c < d > e < f.
+     */
+
+    /**
+     * 144.
+     * Problem: Count triplets with sum smaller than a given value.
+     * Given an array of distinct integers and a sum value. Find count of triplets with sum smaller than given sum value.
+     * Expected Time Complexity is O(n^2).
+     *
+     * Solution: Sort and then use duplet algo.
      */
 
     /**
