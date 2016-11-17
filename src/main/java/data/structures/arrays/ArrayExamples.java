@@ -177,6 +177,16 @@ public class ArrayExamples {
      */
 
     /**
+     * 152.
+     * Problem: Find lost element from a duplicated array.
+     * Given two arrays which are duplicates of each other except one element, that is one element
+     * from one of the array is missing, we need to find that missing element.
+     *
+     * Solution: If elements are sorted, use modified binary search starting with bigger array.
+     * Otherwise, use XOR operator.
+     */
+
+    /**
      * 153.
      * Problem: Count pairs with given sum.
      *
