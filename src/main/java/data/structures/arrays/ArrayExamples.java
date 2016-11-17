@@ -181,6 +181,17 @@ public class ArrayExamples {
      */
 
     /**
+     * 154.
+     * Problem: Count minimum steps to get the given desired array.
+     * Consider an array with n elements and value of all the elements is zero.
+     * We can perform following operations on the array.
+     * 1. Incremental operations:Choose 1 element from the array and increment its value by 1.
+     * 2. Doubling operation: Double the values of all the elements of array.
+     *
+     * Solution: The idea is to follow reverse steps, i.e. to convert target to array of zeros.
+     */
+
+    /**
      * 155.
      * Problem: Find minimum number of merge operations to make an array palindrome.
      * Given an array of positive integers. We need to make the given array a ‘Palindrome’.
