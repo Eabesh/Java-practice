@@ -202,10 +202,12 @@ public class ArrayExamples {
      */
 
     /**
+     * 17.
+     * Problem: Two elements whose sum is closest to zero.
+     * An Array of integers is given, both +ve and -ve. You need to find the two elements such that their sum is
+     * closest to zero.
      *
-     * Problem:
-     *
-     * Solution:
+     * Solution: Sort the elements. Use left and right pointer. Add them and if sum < 0, l++ else r--.
      */
 
     /**
