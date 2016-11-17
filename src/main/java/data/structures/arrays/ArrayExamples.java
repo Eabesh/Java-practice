@@ -39,66 +39,9 @@ public class ArrayExamples {
     }
 
     /**
-     *
-     * Problem:
-     *
-     * Solution:
-     */
-
-    /**
-     *
-     * Problem:
-     *
-     * Solution:
-     */
-
-    /**
-     *
-     * Problem:
-     *
-     * Solution:
-     */
-
-    /**
-     *
-     * Problem:
-     *
-     * Solution:
-     */
-
-    /**
-     *
-     * Problem:
-     *
-     * Solution:
-     */
-
-    /**
-     *
-     * Problem:
-     *
-     * Solution:
-     */
-
-    /**
-     *
-     * Problem:
-     *
-     * Solution:
-     */
-
-    /**
-     *
-     * Problem:
-     *
-     * Solution:
-     */
-
-
-    /**
      * 4. Maximum sum of contigous subarray for a non-empty array.
      */
-    public int maxSumContigous(int[] array) {
+    int maxSumContigous(int[] array) {
         int currentMax = array[0];
         int maxSumSofar = array[0];
         for(int i = 1; i < array.length; i++) {
@@ -125,6 +68,64 @@ public class ArrayExamples {
         if (negCount == array.length) return leastNeg;
         else return maxSum;
     }
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+
 
     /**
      * 13. Maximum sum such that no two elements are adjacent.
