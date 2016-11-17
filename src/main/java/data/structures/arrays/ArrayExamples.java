@@ -253,17 +253,26 @@ public class ArrayExamples {
      */
 
     /**
+     * 28.
+     * Problem: Find the two repeating elements in a given array.
+     * You are given an array of n+2 elements. All elements of the array are in range 1 to n. And all elements occur
+     * once except two numbers which occur twice. Find the two repeating numbers.
      *
-     * Problem:
-     *
-     * Solution:
+     * Solution: Let the repeating numbers be X and Y, if we xor all the elements in the array and all integers from
+     * 1 to n, then the result is X xor Y. The 1’s in binary representation of X xor Y is corresponding to the
+     * different bits between X and Y. Suppose that the kth bit of X xor Y is 1, we can xor all the elements in the
+     * array and all integers from 1 to n, whose kth bits are 1. The result will be one of X and Y.
      */
 
     /**
+     * 100.
+     * Problem: Move all zeroes to end of array.
+     * Given an array of random numbers, Push all the zero’s of a given array to the end of the array.
+     * For example, if the given arrays is {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0}, it should be changed to
+     * {1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0}. The order of all other elements should be same. Expected time complexity is
+     * O(n) and extra space is O(1).
      *
-     * Problem:
-     *
-     * Solution:
+     * Solution: Scan from left to right and keep track of last non zero index i, insert next non zero element at i+1.
      */
 
     /**
