@@ -190,6 +190,22 @@ public class TreeExamples {
     }
 
     /**
+     * 112. Expression Tree.
+     * Expression tree is a binary tree in which each internal node corresponds to operator and each leaf node
+     * corresponds to operand.
+     *
+     * Solution:
+     * If  t is not null then
+     *      If t.value is operand then
+     *          Return  t.value
+     *      A = solve(t.left)
+     *      B = solve(t.right)
+     *
+     *      calculate applies operator 't.value' on A and B, and returns value.
+     *      Return calculate(A, B, t.value)
+     */
+
+    /**
      * 114. Change a Binary Tree so that every node stores sum of all nodes in left subtree.
      */
     int updatetree(TreeNode root)
