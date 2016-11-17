@@ -186,10 +186,10 @@ public class ArrayExamples {
      */
 
     /**
+     * 15.
+     * Problem: Sort elements by frequency.
      *
-     * Problem:
-     *
-     * Solution:
+     * Solution: Use hash map and then sort by frequency. Or use heap.
      */
 
     /**
