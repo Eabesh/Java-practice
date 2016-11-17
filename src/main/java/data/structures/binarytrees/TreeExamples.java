@@ -189,4 +189,34 @@ public class TreeExamples {
         }
     }
 
+    /**
+     * 114. Change a Binary Tree so that every node stores sum of all nodes in left subtree.
+     */
+    int updatetree(TreeNode root)
+    {
+        if (root == null) return 0;
+        if (isLeaf(root)) return root.data;
+
+        int leftSum  = updatetree(root.left);
+        int rightSum = updatetree(root.right);
+
+        root.data += leftSum;
+
+        return root.data + rightSum;
+    }
+
+    /**
+     * 115. Iterative Search for a key ‘x’ in Binary Tree
+     *
+     * Solution: Use any traversal.
+     */
+
+    /**
+     * 116. Find maximum (or minimum) in Binary Tree.
+     */
+    int findMax(TreeNode root) {
+        if (root == null) return Integer.MIN_VALUE;
+        else return Math.max(Math.max(root.data,findMax(root.left)),findMax(root.right));
+    }
+
 }
