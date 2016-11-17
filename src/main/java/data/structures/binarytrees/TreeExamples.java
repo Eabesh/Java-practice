@@ -208,7 +208,7 @@ public class TreeExamples {
     /**
      * 114. Change a Binary Tree so that every node stores sum of all nodes in left subtree.
      */
-    int updatetree(TreeNode root)
+    int updateTree(TreeNode root)
     {
         if (root == null) return 0;
         if (isLeaf(root)) return root.data;
