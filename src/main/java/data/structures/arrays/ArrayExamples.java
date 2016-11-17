@@ -110,10 +110,11 @@ public class ArrayExamples {
      */
 
     /**
+     * 9.
+     * Problem: Write a program to reverse an array or string
      *
-     * Problem:
-     *
-     * Solution:
+     * Solution: Either use to pointer and swap iteratively or use stack frame in recursion to store
+     * elements and reverse the array in place.
      */
 
     /**
