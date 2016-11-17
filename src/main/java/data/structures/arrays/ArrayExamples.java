@@ -9,6 +9,85 @@ public class ArrayExamples {
     String path = "";
 
     /**
+     * 1.
+     * Problem: Given an array A[] and a number x, check for pair in A[] with sum as x.
+     *
+     * Solution: Use sorting or hashmap.
+     */
+
+    /**
+     * 2.
+     * Problem: Majority Element: A majority element in an array A[] of size n is an element that appears more than
+     * n/2 times (and hence there is at most one such element).
+     *
+     * Solution: Use BST or Moore's voting algorithm.
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+
+    /**
      * 4. Maximum sum of contigous subarray for a non-empty array.
      */
     public int maxSumContigous(int[] array) {
