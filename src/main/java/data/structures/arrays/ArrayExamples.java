@@ -79,17 +79,26 @@ public class ArrayExamples {
      */
 
     /**
+     * 6.
+     * Problem: Search an element in a sorted and rotated array.
      *
-     * Problem:
-     *
-     * Solution:
+     * Solution: Use modified binary search.
+     * 1) Find middle point mid = (l + h)/2
+     * 2) If key is present at middle point, return mid.
+     * 3) Else If arr[l..mid] is sorted
+     *      a) If key to be searched lies in range from arr[l] to arr[mid], recur for arr[l..mid].
+     *      b) Else recur for arr[mid+1..r]
+     * 4) Else (arr[mid+1..r] must be sorted)
+     *      a) If key to be searched lies in range from arr[mid+1]
+     *          to arr[r], recur for arr[mid+1..r].
+     *      b) Else recur for arr[l..mid]
      */
 
     /**
+     * 7.
+     * Problem: Merge an array of size n into another array of size m+n
      *
-     * Problem:
-     *
-     * Solution:
+     * Solution: Move all elements together in one pass. Then fill up bigger array using two pointers.
      */
 
     /**
