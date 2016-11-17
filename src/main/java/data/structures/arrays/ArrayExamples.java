@@ -118,34 +118,29 @@ public class ArrayExamples {
      */
 
     /**
+     * 10.
+     * Problem: Program for array rotation.
      *
-     * Problem:
-     *
-     * Solution:
+     * Solution: Use temp array or reversal algorithm.
      */
 
     /**
-     *
-     * Problem:
-     *
-     * Solution:
+     * 11.
+     * Problem: Program for array rotation using reversal algo.
      */
 
     /**
-     *
-     * Problem:
+     * 12.
+     * Problem: Block swap algo for rotation.
      *
      * Solution:
      */
-
-
 
     /**
      * 13. Maximum sum such that no two elements are adjacent.
      */
     int maxSum(int[] array) {
         sum("",array,0);
-//        System.out.println(path.replace(","," "));
         return maxSum;
     }
 
