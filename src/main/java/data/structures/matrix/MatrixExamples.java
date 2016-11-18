@@ -36,7 +36,12 @@ public class MatrixExamples {
     }
 
     /**
+     * Problem: A Boolean Matrix Question.
+     * Given a boolean matrix mat[M][N] of size M X N, modify it such that if a matrix cell mat[i][j] is 1 (or true)
+     * then make all the cells of ith row and jth column as 1.
      *
+     * Solution: Either use auxiliary matrix and two hashsets for row and column or to save space use first col and row
+     * as hashsets.
      */
 
 }
