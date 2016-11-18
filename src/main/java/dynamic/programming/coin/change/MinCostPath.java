@@ -26,7 +26,6 @@ public class MinCostPath {
         minPath[0][0] = mat[0][0];
         for (int i = 1; i < mat.length; i++) minPath[i][0] = minPath[i - 1][0] + mat[i][0] ;
         for (int i = 1; i < mat[0].length; i++) minPath[0][i] = minPath[0][i - 1] + mat[0][i];
-
         for (int i = 1; i < mat.length; i++)
             for (int j = 1; j < mat[0].length; j++)
                 minPath[i][j] = mat[i][j] + Math.min(minPath[i - 1][j], Math.min(minPath[i][j - 1], minPath[i - 1][j - 1]));
