@@ -128,19 +128,15 @@ public class BSTExamples {
     /**
      *  34. K’th Largest Element in BST when modification to BST is not allowed
      */
-    static int c = 0;
-    static TreeNode result = null;
-
-    public static void kthLargestNode(TreeNode root, int k) {
-
-        if (root == null || c >= k) return;
-        kthLargestNode(root.right, k);
-        c++;
-        if (k == c) {
-            result = root;
-            return ;
+    int kthLargestNode(TreeNode root, int k, int count) {
+        if (root == null || count >= k) return -1;
+        else {
+            int left =kthLargestNode(root.right, k, count + 1);
+            count++;
+            if (k == count) return root.data;
+            int right = kthLargestNode(root.left, k, count);
+            return left != -1 ? left : right;
         }
-        kthLargestNode(root.left, k);
     }
 
 }
