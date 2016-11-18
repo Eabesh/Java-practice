@@ -1,14 +1,16 @@
 package data.structures.graph;
 
-public class GraphExamples {
+class GraphExamples {
 
-
+    /**
+     *
+     */
 
     /**
      * Given a matrix of 0's and 1's find the count of biggest area covered by adjacent 1's.
      * Hint: We can use DFS here.
      */
-    public int maxConnectedCell(int[][] grid) {
+    int maxConnectedCell(int[][] grid) {
 
         int m = grid.length;
         int n = grid.length;
@@ -17,7 +19,8 @@ public class GraphExamples {
         int max = 0;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if(!isVisited[i][j] && grid[i][j] == 1) max = Math.max(max, dfs(grid, i, j, isVisited));
+                if(!isVisited[i][j] && grid[i][j] == 1)
+                    max = Math.max(max, dfs(grid, i, j, isVisited));
             }
         }
 
