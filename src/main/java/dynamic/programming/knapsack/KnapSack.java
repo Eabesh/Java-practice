@@ -1,6 +1,6 @@
 package dynamic.programming.knapsack;
 
-public class KnapSack {
+class KnapSack {
 
     int knapSack(int Capacity, int[] weights, int[] values, int n) {
         if (n == 0 || Capacity == 0) return 0;

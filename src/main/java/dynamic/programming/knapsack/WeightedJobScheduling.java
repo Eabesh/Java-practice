@@ -38,11 +38,11 @@ public class WeightedJobScheduling {
     int maxProfitRec(Job[] jobs, int n) {
         if (n == 1) return jobs[0].profit;
         else {
-            int exluded = maxProfitRec(jobs, n-1);
+            int excluded = maxProfitRec(jobs, n-1);
             int included = jobs[n-1].profit;
             int j = nextValidJobIndex(jobs,n-1);
             if (j > 0) included += maxProfitRec(jobs,j+1);
-            return Math.max(exluded, included);
+            return Math.max(excluded, included);
         }
     }
 
