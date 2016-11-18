@@ -452,7 +452,7 @@ public class ArrayExamples {
      * Problem: Find minimum difference between any two elements.
      * Given an unsorted array, find the minimum difference between any pair in given array.
      *
-     * Solution: Sort and then compare adjust elements.
+     * Solution: Sort and then compare adjacent elements.
      *
      * Time Complexity: O(n.log(n))
      */
