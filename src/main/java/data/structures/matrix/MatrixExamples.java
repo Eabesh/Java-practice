@@ -44,4 +44,45 @@ public class MatrixExamples {
      * as hashsets.
      */
 
+    /**
+     * Problem: Collect maximum coins before hitting a dead end
+     Given a character matrix where every cell has one of the following values.
+
+     'C' -->  This cell has coin
+
+     '#' -->  This cell is a blocking cell.
+     We can not go anywhere from this.
+
+     'E' -->  This cell is empty. We don't get
+     a coin, but we can move from here.
+     Initial position is cell (0, 0) and initial direction is right.
+
+     Following are rules for movements across cells.
+
+     If face is Right, then we can move to below cells
+
+     1. Move one step ahead, i.e., cell (i, j+1) and direction remains right.
+     2. Move one step down and face left, i.e., cell (i+1, j) and direction becomes left.
+     If face is Left, then we can move to below cells
+
+     1. Move one step ahead, i.e., cell (i, j-1) and direction remains left.
+     2. Move one step down and face right, i.e., cell (i+1, j) and direction becomes right.
+     Final position can be anywhere and final direction can also be anything. The target is to collect maximum coins.
+     */
+    int R = 5;
+    int C = 5;
+    int maxCoinsRec(char[][] arr,  int i, int j, int dir) {
+        if (!isValid(i,j) || arr[i][j] == '#') return 0;
+
+        int result = (arr[i][j] == 'C')? 1: 0;
+
+        if (dir == 1) return result + Math.max(maxCoinsRec(arr, i+1, j, 0), maxCoinsRec(arr, i, j+1, 1));
+
+        return  result + Math.max(maxCoinsRec(arr, i+1, j, 1), maxCoinsRec(arr, i, j-1, 0));
+    }
+
+    boolean isValid(int i, int j) {
+        return (i >=0 && i < R && j >=0 && j < C);
+    }
+
 }
