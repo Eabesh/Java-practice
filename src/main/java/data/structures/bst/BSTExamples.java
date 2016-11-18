@@ -125,4 +125,22 @@ public class BSTExamples {
         else return root;
     }
 
+    /**
+     *  34. K’th Largest Element in BST when modification to BST is not allowed
+     */
+    static int c = 0;
+    static TreeNode result = null;
+
+    public static void kthLargestNode(TreeNode root, int k) {
+
+        if (root == null || c >= k) return;
+        kthLargestNode(root.right, k);
+        c++;
+        if (k == c) {
+            result = root;
+            return ;
+        }
+        kthLargestNode(root.left, k);
+    }
+
 }

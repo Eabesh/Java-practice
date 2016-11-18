@@ -2,7 +2,7 @@ package data.structures.binarytrees;
 
 import utilities.TreeNode;
 
-public class TreeExamples {
+class TreeExamples {
 
     /**
      * 9. Level Order Tree Traversal
@@ -84,18 +84,17 @@ public class TreeExamples {
      */
     TreeNode head = null, prev =null;
     void treeToList(TreeNode root) {
-        if (root == null) return;
-
-        treeToList(root.left);
-        if (head == null) head = root;
-        else {
-            prev.right = root;
-            root.left = prev;
+        if (root != null) {
+            treeToList(root.left);
+            if (head == null) head = root;
+            else {
+                prev.right = root;
+                root.left = prev;
+            }
+            prev = root;
+            treeToList(root.right);
         }
-        prev = root;
-        treeToList(root.right);
     }
-
 
     /**
      * 22. Count leaf nodes in a binary tree
