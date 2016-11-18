@@ -14,9 +14,9 @@ public class MinJumps {
         Arrays.fill(jumps,array.length+1);
         jumps[0] = 0;
         for(int i = 0; i < jumps.length - 1; i++) {
-            int jump = 1 + jumps[i];
             for (int j = 0; j < array[i]; j++) {
-                if(i + j + 1 < array.length) jumps[i + j + 1] = Math.min(jumps[i + j + 1], jump);
+                if(i + j + 1 < array.length)
+                    jumps[i + j + 1] = Math.min(jumps[i + j + 1], 1 + jumps[i]);
             }
         }
         if(jumps[array.length-1] > array.length) return -1;
