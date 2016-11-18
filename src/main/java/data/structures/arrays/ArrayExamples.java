@@ -371,6 +371,8 @@ public class ArrayExamples {
      * 137. Convert array into Zig-Zag fashion.
      * Given an array of distinct elements, rearrange the elements of array in zig-zag fashion in O(n) time.
      * The converted array should be in form a < b > c < d > e < f.
+     *
+     * Solution: Scan left to right and swap at odd and even places according to condition given above.
      */
 
     /**
