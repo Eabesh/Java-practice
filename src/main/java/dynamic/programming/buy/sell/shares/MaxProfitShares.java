@@ -48,8 +48,8 @@ public class MaxProfitShares {
      */
     int maxProfit(int[] prices, int k) {
         int[][] profit = new int[k+1][prices.length + 1];
-        for (int i = 0; i <= k; i++) profit[i][0] = 0;
-        for (int j= 0; j <= prices.length; j++) profit[0][j] = 0;
+        for (int t = 0; t <= k; t++) profit[t][0] = 0;
+        for (int i = 0; i <= prices.length; i++) profit[0][i] = 0;
         for (int t = 1; t <= k; t++ ) {
             for (int i = 0; i <= prices.length; i++) {
                 int max = Integer.MIN_VALUE;
