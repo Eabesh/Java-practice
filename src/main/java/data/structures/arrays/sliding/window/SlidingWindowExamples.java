@@ -12,9 +12,7 @@ public class SlidingWindowExamples {
      at index 1.
      */
     int maxAverage(int[] array, int k) {
-        int currMax = 0;
-        int max = 0;
-        int index = 0;
+        int currMax = 0; int max = 0; int index = 0;
         for (int i = 0; i < k; i++) currMax += array[i];
         int windowL;
         int windowR = k - 1;
