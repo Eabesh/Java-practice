@@ -1,4 +1,4 @@
-package mit.introduction.to.algorithms;
+package cormen.sorting;
 
 import org.junit.Test;
 
