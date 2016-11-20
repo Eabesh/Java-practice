@@ -265,6 +265,15 @@ public class ArrayExamples {
      */
 
     /**
+     * 31.
+     * Problem: Find duplicates in O(n) time and O(1) extra space.
+     * Given an array of n elements which contains elements from 0 to n-1, with any of these numbers appearing any
+     * number of times. Find these repeating numbers in O(n) and using only constant memory space.
+     *
+     * Solution: Use the array itself as a hash map and mark the index corresponding to the element as negative.
+     */
+
+    /**
      * 100.
      * Problem: Move all zeroes to end of array.
      * Given an array of random numbers, Push all the zero’s of a given array to the end of the array.
