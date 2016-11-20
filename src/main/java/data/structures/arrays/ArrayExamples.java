@@ -274,6 +274,86 @@ public class ArrayExamples {
      */
 
     /**
+     * 32.
+     * Problem: Equilibrium index of an array.
+     * Equilibrium index of an array is an index such that the sum of elements at lower indexes is equal to the sum
+     * of elements at higher indexes.
+     *
+     * Solution: Initialize left sum as 0 and right sum as  sum of all elements. Scan from left to right and keep
+     * updating sums till the are equal.
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
+     *
+     * Problem:
+     *
+     * Solution:
+     */
+
+    /**
      * 100.
      * Problem: Move all zeroes to end of array.
      * Given an array of random numbers, Push all the zero’s of a given array to the end of the array.
