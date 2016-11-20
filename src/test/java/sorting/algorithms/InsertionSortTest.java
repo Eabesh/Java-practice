@@ -1,23 +1,21 @@
-package cormen.sorting;
+package sorting.algorithms;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by pankaj.thakur on 20/09/16.
- */
-public class MergeSortTest {
+public class InsertionSortTest {
 
     @Test
-    public void mergeSort() {
+    public void sortTest() {
         int[] a = new int[3];
         a[0] = 3;
         a[1] = 2;
         a[2] = 1;
-        new MergeSort().mergeSort(a,0,a.length-1);
+        new InsertionSort().sort(a);
         assertEquals(1,a[0]);
         assertEquals(2,a[1]);
         assertEquals(3,a[2]);
     }
+
 }

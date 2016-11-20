@@ -1,10 +1,13 @@
-package cormen.sorting;
+package sorting.algorithms;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class InsertionSortTest {
+/**
+ * Created by pankaj.thakur on 22/09/16.
+ */
+public class BubbleSortTest {
 
     @Test
     public void sortTest() {
@@ -12,7 +15,7 @@ public class InsertionSortTest {
         a[0] = 3;
         a[1] = 2;
         a[2] = 1;
-        new InsertionSort().sort(a);
+        new BubbleSort().sort(a);
         assertEquals(1,a[0]);
         assertEquals(2,a[1]);
         assertEquals(3,a[2]);

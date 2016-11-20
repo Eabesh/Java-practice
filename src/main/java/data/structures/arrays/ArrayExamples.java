@@ -454,7 +454,15 @@ public class ArrayExamples {
      */
 
     /**
-     * 83. Tug of War
+     * 83.
+     * Problem: Tug of War
+     * Given a set of n integers, divide the set in two subsets of n/2 sizes each such that the difference of the sum of
+     * two subsets is as minimum as possible. If n is even, then sizes of two subsets must be strictly n/2 and if n is
+     * odd, then size of one subset must be (n-1)/2 and size of other subset must be (n+1)/2.
+     *
+     * Solution: Try every possible subset of half size. If one subset of half size is formed, the remaining elements
+     * form the other subset. We check whether this solutions is better than the best solution available so far.
+     * If it is, then we update the best solution.
      */
 
     /**
@@ -462,11 +470,26 @@ public class ArrayExamples {
      */
 
     /**
-     * 88. Stock Buy Sell to Maximize Profit
-     */
-
-    /**
-     * 97. Stable Marriage Problem
+     * 97.
+     * Problem: Stable Marriage Problem.
+     * Given N men and N women, where each person has ranked all members of the opposite sex in order of preference,
+     * marry the men and women together such that there are no two people of opposite sex who would both rather have
+     * each other than their current partners. If there are no such people, all the marriages are “stable”.
+     *
+     * Solution: Gale–Shapley algorithm.
+     * Initialize all men and women to free
+     * while there exist a free man m who still has a woman w to propose to
+     * {
+     *      w = m's highest ranked such woman to whom he has not yet proposed
+     *      if w is free
+     *          (m, w) become engaged
+     *      else some pair (m', w) already exists
+     *          if w prefers m to m'
+     *              (m, w) become engaged
+     *              and m' becomes free
+     *          else
+     *              (m', w) remain engaged
+     * }
      */
 
     /**

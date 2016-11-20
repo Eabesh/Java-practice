@@ -1,4 +1,4 @@
-package cormen.sorting;
+package sorting.algorithms;
 
 import org.junit.Test;
 
