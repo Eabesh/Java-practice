@@ -17,7 +17,7 @@ class TreeExamples {
 
     private void level(TreeNode root, int level) {
         if (root != null) {
-            if (level < 2) System.out.print(root.data + " ");
+            if (level <= 1) System.out.print(root.data + " ");
             else {
                 level(root.left, level - 1);
                 level(root.right, level - 1);
@@ -37,7 +37,8 @@ class TreeExamples {
      * 15. Determine if Two Trees are Identical
      */
     boolean isIdentical(TreeNode root1, TreeNode root2) {
-        return root1 == null && root2 == null || root1 != null && root2 != null && root1.data == root2.data &&
+        return root1 == null && root2 == null ||
+                root1 != null && root2 != null && root1.data == root2.data &&
                 isIdentical(root1.left,root2.left) &&
                 isIdentical(root1.right,root2.right);
     }
@@ -135,10 +136,10 @@ class TreeExamples {
      * 24. Check for Children Sum Property in a Binary Tree.
      */
     boolean hasChildSum(TreeNode root) {
-        if (root == null || isLeaf(root)) return true;
-        else {
-            return root.data == getChildSum(root) && hasChildSum(root.left) && hasChildSum(root.right);
-        }
+        return root == null || isLeaf(root) ||
+                root.data == getChildSum(root) &&
+                        hasChildSum(root.left) &&
+                        hasChildSum(root.right);
     }
 
     int getChildSum(TreeNode node) {

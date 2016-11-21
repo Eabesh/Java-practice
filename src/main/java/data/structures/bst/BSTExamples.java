@@ -131,7 +131,7 @@ public class BSTExamples {
     int kthLargestNode(TreeNode root, int k, int count) {
         if (root == null || count >= k) return -1;
         else {
-            int left =kthLargestNode(root.right, k, count + 1);
+            int left = kthLargestNode(root.right, k, count + 1);
             count++;
             if (k == count) return root.data;
             int right = kthLargestNode(root.left, k, count);
