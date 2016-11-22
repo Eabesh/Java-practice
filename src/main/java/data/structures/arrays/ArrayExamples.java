@@ -489,8 +489,8 @@ public class ArrayExamples {
     }
 
     private boolean isMinimum(int[] array, int mid) {
-        int left = mid - 1 >= 0 ? array[mid - 1] : Integer.MIN_VALUE;
-        int right = mid + 1 < array.length ? array[mid + 1] : Integer.MIN_VALUE;
+        int left = mid - 1 >= 0 ? array[mid - 1] : Integer.MAX_VALUE;
+        int right = mid + 1 < array.length ? array[mid + 1] : Integer.MAX_VALUE;
         return array[mid] < left && array[mid] < right;
     }
 
