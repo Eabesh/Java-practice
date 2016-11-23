@@ -12,7 +12,12 @@ public class ArrayExamples {
      * 1.
      * Problem: Given an array A[] and a number x, check for pair in A[] with sum as x.
      *
-     * Solution: Use sorting or hashmap.
+     * Solution: Use sorting and use left and right pointers. Or
+     * Use hash map :
+     * 1) Initialize Binary Hash Map M[] = {0, 0, ...}
+     * 2) Do following for each element A[i] in A[]
+     *      (a)	If M[x - A[i]] is set then print the pair (A[i], x - A[i])
+     *      (b)	Set M[A[i]].
      */
 
     /**
@@ -691,6 +696,5 @@ public class ArrayExamples {
         }
         return max - min;
     }
-
 
 }
