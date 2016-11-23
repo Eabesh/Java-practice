@@ -363,21 +363,13 @@ public class ArrayExamples {
      */
 
     /**
+     * 47.
+     * Problem: Find a Fixed Point in a given array.
+     * Given an array of n distinct integers sorted in ascending order, write a function that returns a Fixed Point
+     * in the array, if there is any Fixed Point present in array, else returns -1. Fixed Point in an array is an
+     * index i such that arr[i] is equal to i. Note that integers in array can be negative.
      *
-     * Problem:
-     *
-     * Solution:
-     */
-
-
-
-
-    /**
-     * 42. Maximum of all subarrays of size k.
-     */
-
-    /**
-     * 46. Median in a stream of integers (running integers).
+     * Solution: Use binary search.
      */
 
     /**
