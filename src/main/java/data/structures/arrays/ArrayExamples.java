@@ -373,6 +373,16 @@ public class ArrayExamples {
      */
 
     /**
+     * 50.
+     * Problem: Count smaller elements on right side.
+     * Write a function to count number of smaller elements on right of each element in an array. Given an unsorted
+     * array arr[] of distinct integers, construct another array countSmaller[] such that countSmaller[i] contains
+     * count of smaller elements on right side of each element arr[i] in array.
+     *
+     * Solution: Use self balancing BST.
+     */
+
+    /**
      * 53. Find sub array with given sum
      */
 
