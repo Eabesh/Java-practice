@@ -39,8 +39,8 @@ public class ArrayExamples {
      * Solution: Use XOR operator.
      */
     int getOddOccurrence(int[] array) {
-        int res = 0;
-        for (int i = 0; i < array.length; i++)
+        int res = array[0];
+        for (int i = 1; i < array.length; i++)
             res = res ^ array[i];
         return res;
     }
