@@ -26,6 +26,8 @@ public class ArrayExamples {
      * n/2 times (and hence there is at most one such element).
      *
      * Solution: Use BST or Moore's voting algorithm.
+     * 1. Find candidate.
+     * 2. Check if this candidate is majority element.
      */
 
     /**
