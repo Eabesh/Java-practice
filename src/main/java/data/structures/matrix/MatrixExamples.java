@@ -11,7 +11,7 @@ public class MatrixExamples {
      */
 
     /**
-     * Print a given matrix in spiral form.
+     * Problem: Print a given matrix in spiral form.
      *
      * Solution: Use 4 for loops.
      */
@@ -35,6 +35,7 @@ public class MatrixExamples {
 
     }
 
+
     /**
      * Problem: A Boolean Matrix Question.
      * Given a boolean matrix mat[M][N] of size M X N, modify it such that if a matrix cell mat[i][j] is 1 (or true)
@@ -42,6 +43,43 @@ public class MatrixExamples {
      *
      * Solution: Either use auxiliary matrix and two hashsets for row and column or to save space use first col and row
      * as hashsets.
+     */
+
+     /**
+     * Problem: Print unique rows in a given boolean matrix.
+     * Given a binary matrix, print all unique rows of the given matrix.
+     *
+     * Solution:
+     * 1.Use Binary Search Tree.
+     *      Find the decimal equivalent of each row and insert it into BST. Each node of the BST will contain two
+     *      fields, one field for the decimal value, other for row number. Do not insert a node if it is duplicated.
+     *      Finally, traverse the BST and print the corresponding rows.
+     * 2. Use Trie data structure.
+     *      Since the matrix is boolean, a variant of Trie data structure can be used where each node will be having
+     *      two children one for 0 and other for 1. Insert each row in the Trie. If the row is already there, don’t
+     *      print the row. If row is not there in Trie, insert it in Trie and print it.
+     */
+
+    /**
+     * Problem: Print Matrix Diagonally.
+     * Given a 2D matrix, print all elements of the given matrix in diagonal order.
+     */
+    void printDiagonal(int[][] matrix) {
+        int rows = matrix.length;
+        int columns = matrix[0].length;
+        for (int line = 1; line <= rows + columns + 1; line++) {
+            int startColumn = Math.max(0,line - rows);
+            int count = Math.min(line,Math.min(columns-startColumn,rows));
+            for (int i = 0; i < count; i++) System.out.print(matrix[Math.min(rows,line)-i-1][startColumn+i]);
+            System.out.println("");
+        }
+    }
+
+    /**
+     * Problem: Rotate Matrix Elements.
+     * Given a matrix, clockwise rotate elements in it.
+     *
+     * Solution: Code is similar to printing matrix in spiral form.
      */
 
     /**
