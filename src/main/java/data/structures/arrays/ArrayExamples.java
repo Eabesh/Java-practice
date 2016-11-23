@@ -354,16 +354,7 @@ public class ArrayExamples {
      * Solution:
      */
 
-    /**
-     * 100.
-     * Problem: Move all zeroes to end of array.
-     * Given an array of random numbers, Push all the zero’s of a given array to the end of the array.
-     * For example, if the given arrays is {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0}, it should be changed to
-     * {1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0}. The order of all other elements should be same. Expected time complexity is
-     * O(n) and extra space is O(1).
-     *
-     * Solution: Scan from left to right and keep track of last non zero index i, insert next non zero element at i+1.
-     */
+
 
     /**
      *
@@ -435,24 +426,33 @@ public class ArrayExamples {
     private boolean knows(int[][] m, int a, int b) { if (m[a][b] == 1) return true; else return false;}
 
     /**
-     * 60. Longest Bitonic Subsequence
-     */
-
-    /**
      * 63. Partition problem.
      */
 
     /**
-     * 67. Maximum Length Chain of Pairs
+     * 71.
+     * Problem: Maximum circular subarray sum
+     * Given n numbers (both +ve and -ve), arranged in a circle, fnd the maximum sum of consecutive number.
+     *
+     * Solution: Wrapping of contributing elements implies non wrapping of non contributing elements, so find out the
+     * sum of non contributing elements and subtract this sum from the total sum. To find out the sum of non
+     * contributing, invert sign of each element and then run Kadane’s algorithm.
+     * Two cases
+     * 1. Simple contigious subaraay sum.
+     * 2. contigious sum with ring. (remove chains of negative numbers : total sum - (-invert number and find sum)
+     * return Marx(1, 2)
      */
 
-    /**
-     * 77. Find the number of islands using DFS.
-     */
-
-    /**
-     * 81. Pancake sorting
-     */
+    int maxSumCircularSubarray(int[] arr) {
+        int totalSum = 0, withoutCircleSum = 0, circularSum = 0;
+        withoutCircleSum = maxSumContigous(arr);
+        for (int i = 0; i < arr.length; i++) {
+            totalSum += arr[i];
+            arr[i] = - arr[i];
+        }
+        circularSum = totalSum + maxSumContigous(arr);
+        return Math.max(withoutCircleSum, circularSum);
+    }
 
     /**
      * 83.
@@ -464,10 +464,6 @@ public class ArrayExamples {
      * Solution: Try every possible subset of half size. If one subset of half size is formed, the remaining elements
      * form the other subset. We check whether this solutions is better than the best solution available so far.
      * If it is, then we update the best solution.
-     */
-
-    /**
-     * 84. Maximum Subarray Sum
      */
 
     /**
@@ -517,16 +513,21 @@ public class ArrayExamples {
      * }
      */
 
+
+
+    /**
+     * 100.
+     * Problem: Move all zeroes to end of array.
+     * Given an array of random numbers, Push all the zero’s of a given array to the end of the array.
+     * For example, if the given arrays is {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0}, it should be changed to
+     * {1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0}. The order of all other elements should be same. Expected time complexity is
+     * O(n) and extra space is O(1).
+     *
+     * Solution: Scan from left to right and keep track of last non zero index i, insert next non zero element at i+1.
+     */
+
     /**
      * 129. Online algorithm for checking palindrome in a stream
-     */
-
-    /**
-     *
-     */
-
-    /**
-     * 136. Trapping Rain Water
      */
 
     /**
