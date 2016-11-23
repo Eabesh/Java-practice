@@ -50,18 +50,18 @@ public class ArrayExamples {
      */
     int maxSumContigous(int[] array) {
         int currentMax = array[0];
-        int maxSumSofar = array[0];
+        int maxSumSoFar = array[0];
         for(int i = 1; i < array.length; i++) {
             currentMax = Math.max(array[i], currentMax + array[i]);
-            maxSumSofar = Math.max(maxSumSofar,currentMax);
+            maxSumSoFar = Math.max(maxSumSoFar,currentMax);
         }
-        return maxSumSofar;
+        return maxSumSoFar;
     }
 
     /**
      * Maximum sum of not necessarily contigous array for a non empty array.
      */
-    public int maxSumNonContigous(int [] array) {
+    int maxSumNonContigous(int [] array) {
         int maxSum = 0;
         int leastNeg = Integer.MIN_VALUE;
         int negCount = 0;
@@ -103,7 +103,9 @@ public class ArrayExamples {
 
     /**
      * 7.
-     * Problem: Merge an array of size n into another array of size m+n
+     * Problem: Merge an array of size n into another array of size m+n.
+     * There are two sorted arrays. First one is of size m+n containing only m elements. Another one is of size n and
+     * contains n elements. Merge these two arrays into the first array of size m+n such that the output is sorted.
      *
      * Solution: Move all elements together in one pass. Then fill up bigger array using two pointers.
      */
@@ -144,33 +146,8 @@ public class ArrayExamples {
      */
 
     /**
-     * 13. Maximum sum such that no two elements are adjacent.
-     */
-    int maxSum(int[] array) {
-        sum("",array,0);
-        return maxSum;
-    }
-
-    private void sum(String soFar, int[] array, int start) {
-        if (start >= array.length) {
-            if (maxSum < getSum(soFar)) {
-                maxSum = getSum(soFar);
-                path = soFar;
-            }
-        }
-        else for(int i = start; i < array.length; i++) sum(soFar + "," + array[i], array, i + 2);
-
-
-    }
-
-    private int getSum(String str) {
-        int sum = 0;
-        for(String s : str.split(",")) if (!(s.length() == 0)) sum += Integer.parseInt(s);
-        return sum;
-    }
-
-    /**
-     *  Linear time algo for above.
+     * 13.
+     * Problem: Maximum sum such that no two elements are adjacent.
      */
     int maxSumLinear(int[] array) {
         int incl = array[0];
