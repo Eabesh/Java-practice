@@ -217,10 +217,25 @@ public class ArrayExamples {
      */
 
     /**
-     * 20.
-     * Problem:
+     * 23.
+     * Problem: Maximum difference between two elements such that larger element appears after the smaller element.
+     */
+    int maxDiff(int[] array) {
+        int maxDiffSoFar = 0;
+        int min = array[0];
+        for (int i = 1; i < array.length; i ++) {
+            maxDiffSoFar = Math.max(maxDiffSoFar, array[i] - min);
+            min = Math.min(min, array[i]);
+        }
+        return maxDiffSoFar;
+    }
+
+    /**
+     * 25.
+     * Problem: Floor and Ceiling in a sorted array.
      *
-     * Solution:
+     * Solution: Use modified binary search to find floor and ceiling separately.
+     * Hint: If x is greater than arr[mid], then either arr[mid + 1] is ceiling of x or ceiling lies in arr[mid+1...high]
      */
 
     /**
@@ -264,7 +279,7 @@ public class ArrayExamples {
      * Equilibrium index of an array is an index such that the sum of elements at lower indexes is equal to the sum
      * of elements at higher indexes.
      *
-     * Solution: Initialize left sum as 0 and right sum as  sum of all elements. Scan from left to right and keep
+     * Solution: Initialize left sum as 0 and right sum as sum of all elements. Scan from left to right and keep
      * updating sums till the are equal.
      */
 
@@ -355,18 +370,7 @@ public class ArrayExamples {
      */
 
 
-    /**
-     * 23. Maximum difference between two elements such that larger element appears after the smaller element.
-     */
-    public int maxDiff(int[] array) {
-        int maxDiffSoFar = 0;
-        int min = array[0];
-        for (int i = 1; i < array.length; i ++) {
-            maxDiffSoFar = Math.max(maxDiffSoFar, array[i] - min);
-            min = Math.min(min, array[i]);
-        }
-        return maxDiffSoFar;
-    }
+
 
     /**
      * 42. Maximum of all subarrays of size k.
