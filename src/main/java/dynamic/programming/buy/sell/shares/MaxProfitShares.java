@@ -51,9 +51,9 @@ public class MaxProfitShares {
         for (int t = 0; t <= k; t++) profit[t][0] = 0;
         for (int i = 0; i <= prices.length; i++) profit[0][i] = 0;
         for (int t = 1; t <= k; t++ ) {
-            for (int i = 0; i <= prices.length; i++) {
+            for (int i = 0; i < prices.length; i++) {
                 int max = Integer.MIN_VALUE;
-                for (int j = 0; j <= i; j++) {
+                for (int j = 0; j < i; j++) {
                     max = Math.max(max,prices[i] - prices[j] + profit[t-1][j]);
                 }
                 profit[t][i] = Math.max(max, profit[t][i-1]);
