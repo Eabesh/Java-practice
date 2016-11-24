@@ -1,5 +1,7 @@
 package dynamic.programming.coin.change;
 
+import java.util.HashMap;
+
 class CoinChange {
 
 
@@ -9,7 +11,34 @@ class CoinChange {
      *
      * Time Complexity : O(mn)
      */
+
+    HashMap<Integer,Integer> store = new HashMap<Integer, Integer>();
+
     int change(int[] coins, int sum) {
+        if (sum <= 0 || coins.length < 1) return 0;
+        else {
+            int min = Integer.MAX_VALUE;
+            for (int coin : coins)
+                if (coin <= sum)
+                    min = Math.min(min, 1 + change(coins, sum - coin));
+            return min;
+        }
+    }
+
+    int changeDPTopDown(int[] coins, int sum) {
+        if (store.containsKey(sum)) return store.get(sum);
+        else if (sum <= 0 || coins.length < 1) return 0;
+        else {
+            int min = Integer.MAX_VALUE;
+            for (int coin : coins)
+                if (coin <= sum)
+                    min = Math.min(min, 1 + changeDPTopDown(coins, sum - coin));
+            store.put(sum,min);
+            return store.get(sum);
+        }
+    }
+
+    int changeDPBottomUp(int[] coins, int sum) {
         int[] minCoins = new int[sum + 1];
         for (int coin : coins) minCoins[coin] = 1;
         for (int i = 1; i < minCoins.length; i++) {
