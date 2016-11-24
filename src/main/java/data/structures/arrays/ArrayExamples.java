@@ -220,10 +220,10 @@ public class ArrayExamples {
      * 23.
      * Problem: Maximum difference between two elements such that larger element appears after the smaller element.
      */
-    int maxDiff(int[] array) {
+    public int maxDiff(int[] array) {
         int maxDiffSoFar = 0;
         int min = array[0];
-        for (int i = 1; i < array.length; i ++) {
+        for (int i = 1; i < array.length; i++) {
             maxDiffSoFar = Math.max(maxDiffSoFar, array[i] - min);
             min = Math.min(min, array[i]);
         }
