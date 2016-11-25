@@ -2,6 +2,7 @@ package data.structures.arrays;
 
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class ArrayExamples {
 
@@ -517,7 +518,69 @@ public class ArrayExamples {
      */
 
     /**
+     * 119.
+     * Problem: Find the smallest positive integer value that cannot be represented as sum of any subset of a
+     * given array.
+     * Given a sorted array (sorted in non-decreasing order) of positive numbers, find the smallest positive integer
+     * value that cannot be represented as sum of elements of any subset of given set.
+     * Expected time complexity is O(n).
+     *
+     * Solution:
+     * 1. Initialize result = 1 (smallest possible outcome).
+     * 2. if ( arr[i] > result) found gap and res is the answer.
+     * 3. else add arr[i] to result.
+     */
+    int findSmallest(int[] arr) {
+        int res = 1;
+        for (int i = 0; i < arr.length && res >= arr[i]; i++) res += arr[i];
+        return res;
+    }
+
+    /**
+     * 121.
+     * Problem: Find position of an element in a sorted array of infinite numbers.
+     *
+     * Solution: Use modified binary search.
+     * Let low be pointing to 1st element and high pointing to 2nd element of array. Now compare key with high
+     * index element:
+     * ->if it is greater than high index element then copy high index in low index and double the high index.
+     * ->if it is smaller, then apply binary search on high and low indices found.
+     */
+
+    /**
+     * 123.
+     * Problem: Check if a given array contains duplicate elements within k distance from each other.
+     * Given an unsorted array that may contain duplicates. Also given a number k which is smaller than size of array.
+     */
+    void checkDuplicatesKDistance(int[] arr, int k) {
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for (int i = 0; i < k; i++) {
+            if (map.containsValue(arr[i])) System.out.print(arr[i] + " ");
+            map.put(i, arr[i]);
+        }
+        for (int windowR = k; windowR < arr.length; windowR++) {
+            map.remove(arr[windowR - k]);
+            if(map.containsValue(arr[windowR])) System.out.print(arr[windowR] + " ");
+            map.put(windowR, arr[windowR]);
+        }
+    }
+
+
+    /**
      * 129. Online algorithm for checking palindrome in a stream
+     */
+
+    /**
+     * 130.
+     * Problem: Pythagorean Triplet in an array.
+     * Given an array of integers, write a function that returns true if there is a triplet (a, b, c) that satisfies
+     * a2 + b2 = c2.
+     *
+     * Solution:
+     * 1) Do square of every element in input array. This step takes O(n) time.
+     * 2) Sort the squared array in increasing order. This step takes O(nLogn) time.
+     * 3) To find a triplet (a, b, c) such that a = b + c, fix a as last element and search b and c in between first
+     *    element and a. We can use left and right pointers for this.
      */
 
     /**
