@@ -7,14 +7,6 @@ import static org.junit.Assert.assertEquals;
 public class ArrayExamplesTest {
 
     @Test
-    public void maxSumTest() {
-        int[] a = {3,2,7,10};
-        int result = new ArrayExamples().maxSum(a);
-        assertEquals(13,result);
-        assertEquals(13,new ArrayExamples().maxSumLinear(a));
-    }
-
-    @Test
     public void maxSumContigousTest() {
         int[] a = {3,2,7,10};
         int[] b = {-3,-22,-7,-10};

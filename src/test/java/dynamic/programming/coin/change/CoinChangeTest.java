@@ -11,6 +11,8 @@ public class CoinChangeTest {
     public void changeTest() {
         int[] a = {1, 2, 3};
         assertEquals(2,new CoinChange().change(a,6));
+        assertEquals(2,new CoinChange().changeDPTopDown(a,6));
+        assertEquals(2,new CoinChange().changeDPBottomUp(a,6));
     }
 
 }

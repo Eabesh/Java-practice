@@ -14,7 +14,7 @@ class CoinChange {
     HashMap<Integer,Integer> store = new HashMap<Integer, Integer>();
 
     int change(int[] coins, int sum) {
-        if (sum <= 0 || coins.length < 1) return 0;
+        if (sum <= 0) return 0;
         else {
             int min = Integer.MAX_VALUE;
             for (int coin : coins)
@@ -25,8 +25,8 @@ class CoinChange {
     }
 
     int changeDPTopDown(int[] coins, int sum) {
+        store.put(0,0);
         if (store.containsKey(sum)) return store.get(sum);
-        else if (sum <= 0 || coins.length < 1) return 0;
         else {
             int min = Integer.MAX_VALUE;
             for (int coin : coins)
@@ -39,13 +39,13 @@ class CoinChange {
 
     int changeDPBottomUp(int[] coins, int sum) {
         int[] minCoins = new int[sum + 1];
-        for (int s = 0; s <= minCoins.length; s++) {
+        for (int s = 0; s < minCoins.length; s++) {
             int min = Integer.MAX_VALUE;
             for (int coin : coins) {
                 if (coin <= s)
                     min = Math.min(min, 1 + minCoins[s - coin]);
             }
-            minCoins[s] = min;
+            if (min != Integer.MAX_VALUE) minCoins[s] = min;
         }
         return minCoins[sum];
     }
