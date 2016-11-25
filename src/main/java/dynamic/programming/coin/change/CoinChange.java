@@ -39,13 +39,13 @@ class CoinChange {
 
     int changeDPBottomUp(int[] coins, int sum) {
         int[] minCoins = new int[sum + 1];
-        for (int s = 0; s < minCoins.length; s++) {
+        for (int s = 1; s <= sum; s++) {
             int min = Integer.MAX_VALUE;
             for (int coin : coins) {
                 if (coin <= s)
-                    min = Math.min(min, 1 + minCoins[s - coin]);
+                    min = Math.min(min, minCoins[s-coin] != Integer.MAX_VALUE ? 1 + minCoins[s - coin] : Integer.MAX_VALUE);
             }
-            if (min != Integer.MAX_VALUE) minCoins[s] = min;
+            minCoins[s] = min;
         }
         return minCoins[sum];
     }

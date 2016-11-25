@@ -41,9 +41,8 @@ class LongestIncreasingSubsequence {
         int maxSoFar = 1;
         for (int i = 1; i < array.length; i++) {
             int max = 1;
-            for (int j = 0; j < i; j++) {
+            for (int j = 0; j < i; j++)
                 if (array[j] < array[i]) max = Math.max(max, 1 + lis[j]);
-            }
             lis[i] = max;
             maxSoFar = Math.max(maxSoFar,max);
         }
