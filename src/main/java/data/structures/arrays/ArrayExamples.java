@@ -616,7 +616,7 @@ public class ArrayExamples {
      */
 
     /**
-     * 150.
+     * 148.
      * Problem: Subarray/Substring vs Subsequence and Programs to Generate them.
      *
      * Solution: In general, for an array/string of size n, there are n*(n+1)/2 non-empty subarrays/subsrings. We can

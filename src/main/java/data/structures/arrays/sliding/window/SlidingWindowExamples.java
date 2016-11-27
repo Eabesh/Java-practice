@@ -28,13 +28,12 @@ public class SlidingWindowExamples {
     }
 
     /**
-     * 143. Find maximum average subarray of k length.
-     */
-
-    /**
      * 141. Given a binary array and an integer m, find the position of zeroes flipping which creates maximum
      * number of consecutive 1s in array.
      */
 
+    /**
+     * 143. Find minimum average subarray of k length.
+     */
 
 }
