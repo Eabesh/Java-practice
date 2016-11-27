@@ -709,11 +709,11 @@ public class ArrayExamples {
         if (start >= end) return 0;
         else if (array[start] == array[end]) return minPalindromeOperations(array, start + 1, end - 1);
         else if (array[start] < array[end]) {
-            array[start] += array[start + 1];
+            array[start + 1] += array[start];
             return 1 + minPalindromeOperations(array, start + 1, end);
         }
         else {
-            array[end] += array[end -1];
+            array[end - 1] += array[end];
             return 1 + minPalindromeOperations(array, start, end - 1);
         }
     }
