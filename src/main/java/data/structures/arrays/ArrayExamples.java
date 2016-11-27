@@ -6,9 +6,6 @@ import java.util.HashMap;
 
 public class ArrayExamples {
 
-    int maxSum = -1;
-    String path = "";
-
     /**
      * 1.
      * Problem: Given an array A[] and a number x, check for pair in A[] with sum as x.
