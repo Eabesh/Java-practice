@@ -8,6 +8,24 @@ import static org.junit.Assert.assertEquals;
 public class TreeExamplesTest {
 
     @Test
+    public void traversalTest() {
+
+        TreeNode root = new TreeNode(2);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(3);
+        root.left = node1;
+        root.right = node2;
+
+        TreeExamples traversals = new TreeExamples();
+        traversals.inorder(root);
+        System.out.println("");
+        traversals.preorder(root);
+        System.out.println("");
+        traversals.postorder(root);
+
+    }
+
+    @Test
     public void sizeTest() {
         TreeNode root = new TreeNode(2);
         TreeNode node1 = new TreeNode(1);

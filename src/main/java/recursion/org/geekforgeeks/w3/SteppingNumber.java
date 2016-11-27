@@ -13,11 +13,10 @@ class SteppingNumber {
         if (remaining == 0) System.out.print(soFar + " ");
         else {
             for (int choice: choices) {
-                int next = remaining - 1;
                 Vector<Integer> newChoices = new Vector<Integer>();
                 newChoices.add(choice + 1);
                 newChoices.add(choice - 1);
-                printNumber(newChoices, soFar + choice,next);
+                printNumber(newChoices, soFar + choice, remaining - 1);
             }
         }
     }

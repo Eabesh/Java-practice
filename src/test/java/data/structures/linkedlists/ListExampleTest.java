@@ -33,12 +33,6 @@ public class ListExampleTest {
         assertEquals(20,new ListExample().reverseListRec(head).data);
     }
 
-    @Test
-    public void removeDuplicatesTest() {
-        getList(3);
-        assertEquals(3,new ListExample().removeDuplicates(head).next.data);
-    }
-
     private void getList(int n) {
         ListNode current = head;
         for (int i = 1; i <= n; i++) {
