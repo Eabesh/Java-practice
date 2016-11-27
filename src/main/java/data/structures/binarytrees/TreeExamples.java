@@ -192,7 +192,8 @@ class TreeExamples {
     int diameter(TreeNode root) {
         if (root == null) return 0;
         else {
-            return Math.max(height(root.left) + 1 + height(root.right), Math.max(diameter(root.left), diameter(root.right)));
+            return Math.max(height(root.left) + 1 + height(root.right),
+                    Math.max(diameter(root.left), diameter(root.right)));
         }
     }
 

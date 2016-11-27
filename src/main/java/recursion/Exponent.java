@@ -2,7 +2,7 @@ package recursion;
 
 class Exponent {
 
-    private int getExponent(int base, int exp) {
+    int getExponent(int base, int exp) {
         if (exp == 0) return 1;
         else return base * getExponent(base, exp -1);
     }
