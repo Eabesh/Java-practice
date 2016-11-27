@@ -8,7 +8,14 @@ public class LCS {
      * For example, “abc”, “abg”, “bdf”, “aeg”, ‘”acefg”, .. etc are subsequences of “abcdefg”.
      * So a string of length n has 2^n different possible subsequences.
      */
-    int lcs(String s1, String s2) {
+    int lcs(String x, String y) {
+        if (x.isEmpty() || y.isEmpty()) return 0;
+        else if (x.charAt(x.length()-1) == y.charAt(y.length()-1))
+            return 1 + lcs(x.substring(0,x.length()-1),y.substring(0,y.length()-1));
+        else return Math.max(lcs(x,y.substring(0,y.length()-1)),lcs(x.substring(0,x.length()-1),y));
+    }
+
+    int lcsBottomUp(String s1, String s2) {
         int[][] c = new int[s1.length()+1][s2.length()+1];
         for (int i = 1; i <= s1.length(); i++) {
             for (int j = 1; j <= s2.length(); j++) {
