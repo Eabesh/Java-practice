@@ -1,0 +1,38 @@
+1.
+Problem: Fruit Jar Problem.
+You have 3 jars that are all mislabeled. One jar contains Apples, another contains Oranges and the third jar
+contains a mixture of both Apples and Oranges. You are allowed to pick as many fruits as you want from each jar
+to fix the labels on the jars. What is the minimum number of fruits that you have to pick and from which jars
+to correctly label them?
+
+Solution: Just once. Let the mislabeled jars be O, A , O+A. Since all jars are mislabeled, the correct label of O+A
+should be either O or A. Pick one item from O+A.
+Case 1: Picked item is O. Then the correct label of O+A is O. Now A could have been O or O+A. But since O+A is O,
+therefore A is O+A. Hence O is A.
+Case 2. Picked item is O. Similar process can be followed.
+
+
+2.
+Problem: A Man with Burning Ropes.
+A man has two ropes of varying thickness, those two ropes are not identical, they are not the same density nor the
+same length nor the same width. Each rope burns in 60 minutes. How can he measure 45 minutes using only these two
+ropes. He can’t cut the one rope in half because the ropes are non-homogeneous and he can’t be sure how long it
+will burn.
+
+Solution: Light both ends of rope AA, and one end of rope BB. When rope AA is burnt out, after 30 minutes, light
+the other end of rope BB. Rope BB will be burnt out after a further 15 minutes.
+
+
+3.
+Problem: 12 Identical Balls Problem.
+You are give 12 identical looking balls. One of them is fake (could be heavier or lighter) than the rest of the 11
+(all the others weight exactly the same). You a provided with a simple mechanical balance and you are restricted to
+only 3 uses. Find the fake ball.
+
+Solution: First we weigh {1,2,3,4} on the left and {5,6,7,8} on the right. There are three scenarios which can
+arise from this:
+a) If they balance: Then we know 9, 10, 11 or 12 is fake.
+
+b) If {1,2,3,4} is heavier:
+
+c) If {5,6,7,8} is heavier : Its same as second case.
