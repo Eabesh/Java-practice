@@ -253,6 +253,37 @@ class TreeExamples {
     }
 
     /**
+     * Short circuited solution
+     */
+    boolean isBalancedS(TreeNode root) {
+        if (root == null) return true;
+        else {
+            if (!isBalancedS(root.left)) return false;
+            else if (!isBalancedS(root.right)) return false;
+            else {
+                int leftHeight = height(root.left);
+                int rightHeight = height(root.right);
+                return Math.abs(leftHeight - rightHeight) <=1;
+            }
+        }
+    }
+
+    /**
+     * Optimized solution
+     */
+    boolean isBal = true;
+    int isBalancedOpt(TreeNode root) {
+        if (root == null) return 0;
+        else {
+            int leftHeight = isBalancedOpt(root.left);
+            int rightHeight = isBalancedOpt(root.right);
+            int difference = Math.abs(leftHeight - rightHeight);
+            if (difference > 1) isBal = false;
+            return 1 + Math.max(leftHeight,rightHeight);
+        }
+    }
+
+    /**
      * 69. Check if all leaves are at same level.
      */
 
