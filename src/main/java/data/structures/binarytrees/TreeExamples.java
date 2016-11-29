@@ -4,6 +4,10 @@ import utilities.TreeNode;
 
 class TreeExamples {
 
+    /**
+     * 1.
+     * Problem: Tree traversals.
+     */
     void inorder(TreeNode root) {
         if (root != null) {
             inorder(root.left);
@@ -29,7 +33,111 @@ class TreeExamples {
     }
 
     /**
-     * 9. Level Order Tree Traversal
+     * 2.
+     * Problem: Size of a tree
+     */
+    int size(TreeNode node) {
+        if (node == null) return 0;
+        else return 1 + size(node.left) + size(node.right);
+    }
+
+    /**
+     * 3.
+     * Problem: Determine if Two Trees are Identical
+     */
+    boolean isIdentical(TreeNode root1, TreeNode root2) {
+        return root1 == null && root2 == null ||
+                root1 != null && root2 != null && root1.data == root2.data &&
+                isIdentical(root1.left,root2.left) &&
+                isIdentical(root1.right,root2.right);
+    }
+
+     /**
+     * 4.
+     * Problem: Maximum Depth or Height of a Tree
+     */
+    int height(TreeNode node) {
+        if (node == null) return 0;
+        else return 1 + Math.max(height(node.left), height(node.right));
+    }
+
+    /**
+     * 5.
+     * Problem: Delete a tree.
+     *
+     * Solution: Do a post order traversal and make the node as null.
+     */
+
+     /**
+     * 6.
+     * Problem: Convert a Binary Tree into its Mirror Tree
+     */
+    void mirror(TreeNode root) {
+        if (root != null) {
+            TreeNode temp = root.left;
+            root.left = root.right;
+            root.right = temp;
+            mirror(root.left);
+            mirror(root.right);
+        }
+    }
+
+    /**
+     * 7.
+     * Problem: If you are given two traversal sequences, can you construct the binary tree?
+     *
+     * Solution: It depends on what traversals are given. If one of the traversal methods is Inorder then
+     * the tree can be constructed, otherwise not.
+     */
+
+    /**
+     * 8.
+     * Problem: Print out all of its root-to-leaf paths one per line.
+     */
+    void rootToLeafPath(String path, TreeNode root) {
+        if (root != null) {
+            if (isLeaf(root)) System.out.println(path + root.data);
+            else {
+                rootToLeafPath(path + root.data + "->", root.left);
+                rootToLeafPath(path + root.data + "->", root.right);
+            }
+        }
+    }
+
+    /**
+     * 9. Lowest Common Ancestor in a Binary Tree.
+     */
+    TreeNode LCA(TreeNode root, int k1, int k2) {
+        if (root == null || root.data == k1 || root.data == k2) return root;
+        else {
+            TreeNode left = LCA(root.left,k1,k2);
+            TreeNode right = LCA(root.right,k1,k2);
+            if (left != null && right != null) return root;
+            else return left != null ? left : right;
+        }
+    }
+
+    /**
+     * 10.
+     * Problem: The Great Tree-List Recursion Problem.
+     */
+    TreeNode head = null, prev =null;
+    void treeToList(TreeNode root) {
+        if (root != null) {
+            treeToList(root.left);
+            if (head == null) head = root;
+            else {
+                prev.right = root;
+                root.left = prev;
+            }
+            prev = root;
+            treeToList(root.right);
+        }
+    }
+
+    /**
+     * 11. Problem:
+     * Level Order Tree Traversal
      */
     void levelOrder(TreeNode root) {
         int height = height(root);
@@ -50,79 +158,8 @@ class TreeExamples {
     }
 
     /**
-     * 14. Size of a tree
-     */
-    int size(TreeNode node) {
-        if (node == null) return 0;
-        else return 1 + size(node.left) + size(node.right);
-    }
-
-    /**
-     * 15. Determine if Two Trees are Identical
-     */
-    boolean isIdentical(TreeNode root1, TreeNode root2) {
-        return root1 == null && root2 == null ||
-                root1 != null && root2 != null && root1.data == root2.data &&
-                isIdentical(root1.left,root2.left) &&
-                isIdentical(root1.right,root2.right);
-    }
-
-    /**
-     * 16. Maximum Depth or Height of a Tree
-     */
-    int height(TreeNode node) {
-        if (node == null) return 0;
-        else return 1 + Math.max(height(node.left), height(node.right));
-    }
-
-
-    /**
-     * 18. Convert a Binary Tree into its Mirror Tree
-     */
-    void mirror(TreeNode root) {
-        if (root != null) {
-            TreeNode temp = root.left;
-            root.left = root.right;
-            root.right = temp;
-            mirror(root.left);
-            mirror(root.right);
-        }
-    }
-
-    /**
-     * 20. Print out all of its root-to-leaf paths one per line.
-     */
-    void rootToLeafPath(String path, TreeNode root) {
-        if (root != null) {
-            if (isLeaf(root)) System.out.println(path + root.data);
-            else {
-                rootToLeafPath(path + root.data + "->", root.left);
-                rootToLeafPath(path + root.data + "->", root.right);
-            }
-        }
-    }
-
-    private boolean isLeaf(TreeNode node) { return node.left == null && node.right == null; }
-
-    /**
-     * 21. The Great Tree-List Recursion Problem.
-     */
-    TreeNode head = null, prev =null;
-    void treeToList(TreeNode root) {
-        if (root != null) {
-            treeToList(root.left);
-            if (head == null) head = root;
-            else {
-                prev.right = root;
-                root.left = prev;
-            }
-            prev = root;
-            treeToList(root.right);
-        }
-    }
-
-    /**
-     * 22. Count leaf nodes in a binary tree
+     * 12.
+     * Problem: Count leaf nodes in a binary tree
      */
     int countLeaves(TreeNode root) {
         if (root == null) return 0;
@@ -130,8 +167,11 @@ class TreeExamples {
         else return countLeaves(root.right) + countLeaves(root.left);
     }
 
+    private boolean isLeaf(TreeNode node) { return node.left == null && node.right == null; }
+
     /**
-     * 23. Level order traversal in spiral form
+     * 13.
+     * Problem: Level order traversal in spiral form
      */
     void levelOrderSpiral(TreeNode root) {
         int height = height(root);
@@ -155,9 +195,9 @@ class TreeExamples {
         }
     }
 
-
     /**
-     * 24. Check for Children Sum Property in a Binary Tree.
+     * 14.
+     * Problem: Check for Children Sum Property in a Binary Tree.
      */
     boolean hasChildSum(TreeNode root) {
         return root == null || isLeaf(root) ||
@@ -174,7 +214,8 @@ class TreeExamples {
     }
 
     /**
-     * 25. Convert an arbitrary Binary Tree to a tree that holds Children Sum Property
+     * 15.
+     * Problem: Convert an arbitrary Binary Tree to a tree that holds Children Sum Property
      */
     TreeNode convertToChildSum(TreeNode root) {
         if (root == null || isLeaf(root)) return root;
@@ -187,7 +228,8 @@ class TreeExamples {
     }
 
     /**
-     * 26. Diameter of a Binary Tree
+     * 16.
+     * Problem: Diameter of a Binary Tree
      */
     int diameter(TreeNode root) {
         if (root == null) return 0;
@@ -198,23 +240,23 @@ class TreeExamples {
     }
 
     /**
-     * 69. Check if all leaves are at same level.
+     * 17.
+     * Problem: How to determine if a binary tree is height-balanced?
      */
-
-    /**
-     * 77. Lowest Common Ancestor in a Binary Tree.
-     */
-    TreeNode LCA(TreeNode root, int k1, int k2) {
-        if (root == null || root.data == k1 || root.data == k2) return root;
+    boolean isBalanced(TreeNode root) {
+        if (root == null) return true;
         else {
-            TreeNode left = LCA(root.left,k1,k2);
-            TreeNode right = LCA(root.right,k1,k2);
-            if (left != null && right != null) return root;
-            else return left != null ? left : right;
+            int leftHeight = height(root.left);
+            int rightHeight = height(root.right);
+            return Math.abs(leftHeight - rightHeight) <=1 && isBalanced(root.left) && isBalanced(root.right);
         }
     }
 
     /**
+     * 69. Check if all leaves are at same level.
+     */
+
+   /**
      * 112. Expression Tree.
      * Expression tree is a binary tree in which each internal node corresponds to operator and each leaf node
      * corresponds to operand.
