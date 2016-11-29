@@ -457,8 +457,75 @@ public class ArrayExamples {
     }
 
     /**
-     * 63. Partition problem.
+     * 63.
+     * Problem: Partition problem.
+     * Partition problem is to determine whether a given set can be partitioned into two subsets such that the sum of
+     * elements in both subsets is same.
+     *
+     * Solution:
+     * Method 1: Recursive solution with Time Complexity as O(2^n).
+     *
+     * Method 2: Dynamic Programming Solution.
+     * The problem can be solved using dynamic programming when the sum of the elements is not too big. We can
+     * create a 2D array part[][] of size (sum/2)*(n+1). And we can construct the solution in bottom up manner such
+     * that every filled entry has following property:
+     *         part[i][j] = true if a subset of {arr[0], arr[1], ..arr[j-1]} has sum
+     *         equal to i, otherwise false
      */
+    boolean findPartition(int[] array) {
+        int sum = getSum(array);
+        if (isOdd(sum)) return false;
+        else {
+            boolean[][] partition = new boolean[sum / 2 + 1][array.length + 1];
+            for (int i = 0; i <= array.length; i++) partition[0][i] = true;
+            for (int i = 1; i <= sum / 2; i++) partition[i][0] = false;
+            for (int i = 1; i <= sum / 2; i++) {
+                for (int j = 1; j <= array.length; j++) {
+                    partition[i][j] = partition[i][j-1];
+                    if (i >= array[j-1])
+                        partition[i][j] = partition[i][j] || partition[i-array[j-1]][j-1];
+                }
+            }
+            return partition[sum/2][array.length];
+        }
+    }
+
+    private boolean isOdd(int n) { return n % 2 != 0;}
+
+    private int getSum(int[] array) {
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) sum += array[i];
+        return sum;
+    }
+
+    /**
+     * 64.
+     * Problem: Maximum Product Subarray.
+     * Given an array that contains both positive and negative integers, find the product of the maximum product
+     * subarray. Expected Time complexity is O(n) and only O(1) extra space can be used.
+     *
+     * Solution: This is similar to maximum subarray. Unlike sum, the sign of number affect the product value.
+     * When iterating the array, each element has two possibilities: positive number or negative number. We need to
+     * track a minimum value, so that when a negative number is given, it can also find the maximum value. We define
+     * two local variables, one tracks the maximum and the other tracks the minimum.
+     */
+    int maxProduct(int[] nums) {
+        int[] max = new int[nums.length];
+        int[] min = new int[nums.length];
+        max[0] = min[0] = nums[0];
+        int result = nums[0];
+        for (int i = 1; i < nums.length; i++){
+            if (nums[i] > 0){
+                max[i] = Math.max(nums[i], max[i-1]*nums[i]);
+                min[i] = Math.min(nums[i], min[i-1]*nums[i]);
+            } else {
+                max[i] = Math.max(nums[i], min[i-1]*nums[i]);
+                min[i] = Math.min(nums[i], max[i-1]*nums[i]);
+            }
+            result = Math.max(result, max[i]);
+        }
+        return result;
+    }
 
     /**
      * 71.
