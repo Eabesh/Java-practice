@@ -1,5 +1,7 @@
 package data.structures.arrays.sliding.window;
 
+import java.util.Arrays;
+
 public class SlidingWindowExamples {
 
     /**
@@ -12,8 +14,8 @@ public class SlidingWindowExamples {
      at index 1.
      */
     int maxAverage(int[] array, int k) {
-        int currMax = 0; int max = 0; int index = 0;
-        for (int i = 0; i < k; i++) currMax += array[i];
+        int currMax = Arrays.stream(array).limit(k).sum();
+        int max = 0; int index = 0;
         int windowL;
         int windowR = k - 1;
         for (windowL = 0; windowL <= array.length - k; windowL++) {

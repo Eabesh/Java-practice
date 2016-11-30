@@ -37,10 +37,7 @@ public class ArrayExamples {
      * Solution: Use XOR operator.
      */
     int getOddOccurrence(int[] array) {
-        int res = array[0];
-        for (int i = 1; i < array.length; i++)
-            res = res ^ array[i];
-        return res;
+        return Arrays.stream(array).reduce(0, (a,b) -> a ^ b);
     }
 
     /**
@@ -121,7 +118,7 @@ public class ArrayExamples {
      * 9.
      * Problem: Write a program to reverse an array or string
      *
-     * Solution: Either use to pointer and swap iteratively or use stack frame in recursion to store
+     * Solution: Either use two pointer and swap iteratively or use stack frame in recursion to store
      * elements and reverse the array in place.
      */
 
@@ -473,7 +470,7 @@ public class ArrayExamples {
      *         equal to i, otherwise false
      */
     boolean findPartition(int[] array) {
-        int sum = getSum(array);
+        int sum = Arrays.stream(array).sum();
         if (isOdd(sum)) return false;
         else {
             boolean[][] partition = new boolean[sum / 2 + 1][array.length + 1];
@@ -491,12 +488,6 @@ public class ArrayExamples {
     }
 
     private boolean isOdd(int n) { return n % 2 != 0;}
-
-    private int getSum(int[] array) {
-        int sum = 0;
-        for (int i = 0; i < array.length; i++) sum += array[i];
-        return sum;
-    }
 
     /**
      * 64.
