@@ -36,3 +36,19 @@ a) If they balance: Then we know 9, 10, 11 or 12 is fake.
 b) If {1,2,3,4} is heavier:
 
 c) If {5,6,7,8} is heavier : Its same as second case.
+
+
+4.
+Problem: There are n balls where only one is defective and weighs lighter. Find minimum
+no of comparisons to find out the defective ball.
+
+Solution: Min comparisons = log3(n).
+
+5.
+Problem: There is a river and gold has to be transported from one side to the other.
+The boat person is a thief and can steal anything except the locked box. We are given
+lock and key pairs on either side. Find a way to move gold to the other end.
+
+Solution: Put the gold in the box and lock the box. Tell the person at other end to put
+his own lock and send back the box. Remove the previous lock and send back the box.
+Remove the other lock too and get the gold.

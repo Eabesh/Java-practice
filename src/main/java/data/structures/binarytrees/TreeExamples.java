@@ -284,6 +284,46 @@ class TreeExamples {
     }
 
     /**
+     * 18.
+     * Problem: Inorder Tree Traversal without Recursion
+     *
+     * Solution:
+     * 1) Create an empty stack S.
+     * 2) Initialize current node as root
+     * 3) Push the current node to S and set current = current->left until current is NULL
+     * 4) If current is NULL and stack is not empty then
+     *      a) Pop the top item from stack.
+     *      b) Print the popped item, set current = popped_item->right
+     *      c) Go to step 3.
+     * 5) If current is NULL and stack is empty then we are done.
+     */
+
+    /**
+     * 19.
+     * Problem: Inorder Tree Traversal without recursion and without stack!
+     *
+     * Solution: Use Morris Traversal.
+     * 1. Initialize current as root
+     * 2. While current is not NULL
+     * If current does not have left child
+     *      a) Print current’s data
+     *      b) Go to the right, i.e., current = current->right
+     * Else
+     *      a) Make current as right child of the rightmost node in current's left subtree
+     *      b) Go to this left child, i.e., current = current->left
+     */
+
+    /**
+     * 20.
+     * Problem: Root to leaf path sum equal to a given number
+     */
+    boolean existsPathSum(TreeNode root, int sum) {
+        if (root == null) return false;
+        else if (isLeaf(root)) return sum == root.data;
+        else return existsPathSum(root.left, sum - root.data) || existsPathSum(root.right, sum - root.data);
+    }
+
+    /**
      * 69. Check if all leaves are at same level.
      */
 
