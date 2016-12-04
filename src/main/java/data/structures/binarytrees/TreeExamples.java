@@ -324,10 +324,23 @@ class TreeExamples {
     }
 
     /**
+     * 28.
+     * Problem: Get Level of a node in a Binary Tree
+     * Given a Binary Tree and a key, write a function that returns level of the key.
+     * Solution: The idea is to start from the root and level as 1.
+     * If the key matches with root’s data, return level. Else recursively call for left and right subtrees with level as level + 1.
+     */
+    int getLevel(TreeNode root, TreeNode node, int level) {
+        if (root == null) return 0;
+        else if (root == node) return level;
+        else return getLevel(root.left, node, level + 1) + getLevel(root.right, node, level + 1);
+    }
+
+    /**
      * 69. Check if all leaves are at same level.
      */
 
-   /**
+    /**
      * 112. Expression Tree.
      * Expression tree is a binary tree in which each internal node corresponds to operator and each leaf node
      * corresponds to operand.
@@ -346,8 +359,7 @@ class TreeExamples {
     /**
      * 114. Change a Binary Tree so that every node stores sum of all nodes in left subtree.
      */
-    int updateTree(TreeNode root)
-    {
+    int updateTree(TreeNode root) {
         if (root == null) return 0;
         if (isLeaf(root)) return root.data;
 
@@ -372,5 +384,148 @@ class TreeExamples {
         if (root == null) return Integer.MIN_VALUE;
         else return Math.max(Math.max(root.data,findMax(root.left)),findMax(root.right));
     }
+
+    /**
+     * Page 2.
+     * 142. Problem: Print cousins of a given node in Binary Tree
+     * Solution:
+     */
+    void printCousins(TreeNode root, TreeNode node) {
+        if (root == null) return;
+        int level = getLevel(root, node, 1);
+        printCousinsNodes(root, node, level);
+    }
+
+    void printCousinsNodes(TreeNode root, TreeNode node, int level) {
+        if (root != null && level > 1) {
+            if (level == 2) {
+                if (root.left != node && root.right != node) {
+                    if (root.left != null) System.out.print(root.data + " ");
+                    else if (root.right != null) System.out.print(root.data + " ");
+                }
+            } else {
+                printCousinsNodes(root.left, node, level - 1);
+                printCousinsNodes(root.right, node, level - 1);
+            }
+        }
+    }
+
+    /**
+     * Page 1.
+     * 143. Problem: Print extreme nodes of each level of Binary Tree in alternate order
+     */
+    void printExtremeNodesAlt(TreeNode root) {
+        for (int i = 0; i < height(root); i++) printLevelSpiral(root, i, i % 2 == 0);
+    }
+
+    boolean printLevelSpiral(TreeNode root, int level, boolean flag) {
+        if (root == null) return true;
+        else if (level == 0) {
+            System.out.print(root.data + " ");
+            return true;
+        }
+        else if (flag) {
+            if (printLevelSpiral(root.left, level - 1, flag)) return true;
+            else if (printLevelSpiral(root.right, level - 1, flag)) return true;
+            else return false;
+        }
+        else {
+            if (printLevelSpiral(root.right, level - 1, flag)) return true;
+            else if (printLevelSpiral(root.left, level - 1, flag)) return true;
+            else return false;
+        }
+    }
+
+    /**
+     * Page 1.
+     * 145. Problem: Find a number in minimum steps.
+     * Given an infinite number line from -INFINITY to +INFINITY and we are on zero. We can move n steps either
+     * side at each n’th time.
+     */
+    int minSteps(int source, int dest, int steps) {
+        if (Math.abs(source) > dest) return Integer.MAX_VALUE;
+        else if (source == dest) return steps;
+        else return Math.min(minSteps(source - steps - 1, dest, steps + 1),
+                    minSteps(source + steps + 1, dest, steps + 1));
+    }
+
+    /**
+     * Page 1.
+     * 146. Problem: Find height of a special binary tree whose leaf nodes are connected
+     * Given a special binary tree whose leaf nodes are connected to form a circular doubly linked list,
+     * find its height.
+     *
+     * Solution: Node is leaf if (node.left.right = node && node.right.left == node)
+     */
+    int maxDepth(TreeNode node) {
+        if (node == null) return 0;
+        else if (isLeafModified(node)) return 1;
+        return 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
+    }
+
+    boolean isLeafModified(TreeNode node) {
+        return node.left != null && node.right != null && node.left.right == node && node.right.left == node;
+    }
+
+    /**
+     * Page 1.
+     * 147. Problem: Convert a Binary Tree to a Circular Doubly Link List
+     * Given a Binary Tree, convert it to a Circular Doubly Linked List (In-Place).
+     */
+    TreeNode head = null;
+    TreeNode prev = null;
+    void convertToCDLL(TreeNode root) {
+        if (root == null) return;
+        convertToCDLL(root.left);
+        if (head == null) head = root;
+        else {
+            prev.right = root;
+            root.left = prev;
+        }
+        prev = root;
+        convertToCDLL(root.right);
+    }
+
+    void convertToCircularDLL(TreeNode root) {
+        convertToCDLL(root);
+        head.left = prev;
+        prev.right = head;
+    }
+
+    /**
+     * Page 1.
+     * 151. Problem: Longest consecutive sequence in Binary tree
+     * Given a Binary Tree find the length of the longest path which comprises of nodes with consecutive values
+     * in increasing order. Every node is considered as a path of length 1.
+     */
+    int findLCP(TreeNode root, int parent, int pathLength, int maxLength) {
+        if (root == null) return maxLength;
+        else {
+            if (root.data == parent + 1) pathLength++;
+            else pathLength = 1;
+            maxLength = Math.max(pathLength, maxLength);
+            return Math.max(findLCP(root.left, root.data, pathLength, maxLength),
+                    findLCP(root.right, root.data, pathLength, maxLength));
+        }
+    }
+
+    /**
+     * Page 1.
+     * 153. Problem: Check if there is a root to leaf path with given sequence
+     * Given a binary tree and an array, the task is to find if the given array sequence is present as a root to
+     * leaf path in given tree.
+     */
+    boolean existsPath(TreeNode root, int[] array, int start) {
+        if (root == null) return start == array.length;
+        else return compareNodes(root, array, start) &&
+                existsPath(root.left, array, start + 1) ||
+                existsPath(root.right, array, start + 1);
+    }
+
+    boolean compareNodes(TreeNode root, int[] array, int index) {
+        if (index >= array.length) return false;
+        else return root.data == array[index];
+    }
+
 
 }
