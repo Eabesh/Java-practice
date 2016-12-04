@@ -124,16 +124,16 @@ class TreeExamples {
      * 10.
      * Problem: The Great Tree-List Recursion Problem.
      */
-    TreeNode head = null, prev =null;
+    TreeNode head1 = null, prev1 = null;
     void treeToList(TreeNode root) {
         if (root != null) {
             treeToList(root.left);
-            if (head == null) head = root;
+            if (head1 == null) head1 = root;
             else {
-                prev.right = root;
-                root.left = prev;
+                prev1.right = root;
+                root.left = prev1;
             }
-            prev = root;
+            prev1 = root;
             treeToList(root.right);
         }
     }
