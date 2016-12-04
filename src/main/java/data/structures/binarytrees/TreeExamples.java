@@ -430,7 +430,6 @@ class TreeExamples {
         }
     }
 
-
     private boolean isValidParent(TreeNode parent, TreeNode node) {
         if (parent.left == null && parent.right == null) return false;
         else if (parent.left != null && parent.right != null) return parent.left != node && parent.right != node;
