@@ -388,7 +388,9 @@ class TreeExamples {
     /**
      * Page 2.
      * 142. Problem: Print cousins of a given node in Binary Tree
-     * Solution:
+     *
+     * Solution: Get the level and stop at penultimate level and check if the either child node is not equal to
+     * given node.
      */
     void printCousins(TreeNode root, TreeNode node) {
         if (root == null) return;
@@ -398,15 +400,11 @@ class TreeExamples {
 
     void printCousinsNodes(TreeNode root, TreeNode node, int level) {
         if (root != null && level > 1) {
-            if (level == 2) {
-                if (root.left != node && root.right != node) {
-                    if (root.left != null) System.out.print(root.data + " ");
-                    else if (root.right != null) System.out.print(root.data + " ");
-                }
-            } else {
-                printCousinsNodes(root.left, node, level - 1);
-                printCousinsNodes(root.right, node, level - 1);
-            }
+            if (level == 2 && root.left != null && root.left != node || root.right != null && root.right != node)
+                System.out.print(root.data + " ");
+        } else {
+            printCousinsNodes(root.left, node, level - 1);
+            printCousinsNodes(root.right, node, level - 1);
         }
     }
 
