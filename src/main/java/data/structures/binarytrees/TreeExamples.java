@@ -2,6 +2,9 @@ package data.structures.binarytrees;
 
 import utilities.TreeNode;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 class TreeExamples {
 
     /**
@@ -357,6 +360,24 @@ class TreeExamples {
      */
 
     /**
+     * 113.
+     * Problem: Maximum difference between node and its ancestor in Binary Tree
+     * Given a binary tree, we need to find maximum value we can get by subtracting value of node B from value of node A,
+     * where A and B are two nodes of the binary tree and A is an ancestor of B. Expected time complexity is O(n).
+     */
+    int findAmplitude(TreeNode root, ArrayList<Integer> path) {
+        if (isLeaf(root)) {
+            path.add(root.data);
+            return Collections.max(path) - Collections.min(path);
+        } else {
+            ArrayList<Integer> newPath = new ArrayList<Integer>();
+            newPath.addAll(path);
+            newPath.add(root.data);
+            return Math.max(findAmplitude(root.left, newPath), findAmplitude(root.right, newPath));
+        }
+    }
+
+    /**
      * 114. Change a Binary Tree so that every node stores sum of all nodes in left subtree.
      */
     int updateTree(TreeNode root) {
@@ -400,12 +421,21 @@ class TreeExamples {
 
     void printCousinsNodes(TreeNode root, TreeNode node, int level) {
         if (root != null && level > 1) {
-            if (level == 2 && root.left != null && root.left != node || root.right != null && root.right != node)
-                System.out.print(root.data + " ");
+            if (level == 2 && isValidParent(root, node))
+                System.out.print(root.left.data + " ");
+            System.out.print(root.right.data + " ");
         } else {
             printCousinsNodes(root.left, node, level - 1);
             printCousinsNodes(root.right, node, level - 1);
         }
+    }
+
+
+    private boolean isValidParent(TreeNode parent, TreeNode node) {
+        if (parent.left == null && parent.right == null) return false;
+        else if (parent.left != null && parent.right != null) return parent.left != node && parent.right != node;
+        else if (parent.right != null) return parent.right != node;
+        else return parent.left != node;
     }
 
     /**
