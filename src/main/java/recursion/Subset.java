@@ -2,12 +2,12 @@ package recursion;
 
 class Subset {
 
-    void subset(String sofar, String remaining) {
-        if (remaining.length() == 0) System.out.println(sofar);
+    void subset(String soFar, String remaining) {
+        if (remaining.length() == 0) System.out.println(soFar);
         else {
             String next = remaining.substring(1);
-            subset(sofar,next);
-            subset(sofar+remaining.charAt(0),next);
+            subset(soFar, next);
+            subset(soFar + remaining.charAt(0), next);
         }
     }
 
