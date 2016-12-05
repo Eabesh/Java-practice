@@ -2,10 +2,7 @@ package recursion;
 
 import utilities.ListNode;
 
-/**
- *  1 -> 2 -> 3 -> NULL
- */
-public class ReverseLinkedList {
+class ReverseLinkedList {
 
     ListNode reverseList(ListNode current) {
         if (current == null || current.next == null) return current;
