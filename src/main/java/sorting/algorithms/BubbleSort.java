@@ -1,6 +1,6 @@
 package sorting.algorithms;
 
-public class BubbleSort {
+class BubbleSort {
 
     public void sort(int[] array) {
         for(int i = 0; i < array.length;  i++) {
@@ -15,6 +15,5 @@ public class BubbleSort {
         a[i] = a[j];
         a[j] = temp;
     }
-
 
 }
