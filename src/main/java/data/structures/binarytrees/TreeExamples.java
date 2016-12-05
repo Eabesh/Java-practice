@@ -97,12 +97,12 @@ class TreeExamples {
      * 8.
      * Problem: Print out all of its root-to-leaf paths one per line.
      */
-    void rootToLeafPath(String path, TreeNode root) {
+    void rootToLeafPath(TreeNode root, String path) {
         if (root != null) {
             if (isLeaf(root)) System.out.println(path + root.data);
             else {
-                rootToLeafPath(path + root.data + "->", root.left);
-                rootToLeafPath(path + root.data + "->", root.right);
+                rootToLeafPath(root.left, path + root.data + "->");
+                rootToLeafPath(root.right, path + root.data + "->");
             }
         }
     }
@@ -382,14 +382,13 @@ class TreeExamples {
      */
     int updateTree(TreeNode root) {
         if (root == null) return 0;
-        if (isLeaf(root)) return root.data;
-
-        int leftSum  = updateTree(root.left);
-        int rightSum = updateTree(root.right);
-
-        root.data += leftSum;
-
-        return root.data + rightSum;
+        else if (isLeaf(root)) return root.data;
+        else {
+            int leftSum  = updateTree(root.left);
+            int rightSum = updateTree(root.right);
+            root.data += leftSum;
+            return root.data + rightSum;
+        }
     }
 
     /**
@@ -414,16 +413,18 @@ class TreeExamples {
      * given node.
      */
     void printCousins(TreeNode root, TreeNode node) {
-        if (root == null) return;
-        int level = getLevel(root, node, 1);
-        printCousinsNodes(root, node, level);
+        if (root != null) {
+            int level = getLevel(root, node, 1);
+            printCousinsNodes(root, node, level);
+        }
     }
 
     void printCousinsNodes(TreeNode root, TreeNode node, int level) {
         if (root != null && level > 1) {
-            if (level == 2 && isValidParent(root, node))
-                System.out.print(root.left.data + " ");
-            System.out.print(root.right.data + " ");
+            if (level == 2 && isValidParent(root, node)) {
+               if (root.right != null) System.out.print(root.right.data + " ");
+               else if (root.left != null) System.out.print(root.left.data + " ");
+            }
         } else {
             printCousinsNodes(root.left, node, level - 1);
             printCousinsNodes(root.right, node, level - 1);
@@ -487,7 +488,7 @@ class TreeExamples {
     int maxDepth(TreeNode node) {
         if (node == null) return 0;
         else if (isLeafModified(node)) return 1;
-        return 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
+        else return 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
     }
 
     boolean isLeafModified(TreeNode node) {

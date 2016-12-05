@@ -402,14 +402,13 @@ public class ArrayExamples {
             else b--;
         }
         for (int i = 0; i < matrix.length; i++) {
-            if (i != a) {
+            if (i != a)
                 if (knows(matrix,a,i) || !knows(matrix,i,a)) return -1;
-            }
         }
         return a;
     }
 
-    private boolean knows(int[][] m, int a, int b) { if (m[a][b] == 1) return true; else return false;}
+    private boolean knows(int[][] m, int a, int b) { return m[a][b] == 1 ;}
 
     /**
      * 61.
@@ -428,7 +427,7 @@ public class ArrayExamples {
     int sortedSequence(int[] array) {
         int[] smaller = new int[array.length];
         smaller[0] = -1;
-        int min = array[0];
+        int min = 0;
         for (int i = 1; i < array.length; i++) {
             if (array[i] > array[min])
                 smaller[i] = min;
@@ -439,7 +438,7 @@ public class ArrayExamples {
         }
         int[] greater = new int[array.length];
         greater[array.length - 1] = -1;
-        int max = array[array.length - 1];
+        int max = array.length - 1;
         for (int j = array.length - 2; j <= 0; j--) {
             if (array[j] < array[max])
                 greater[j] = max;
