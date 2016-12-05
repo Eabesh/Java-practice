@@ -7,7 +7,7 @@ import java.util.HashSet;
  */
 class PrintString {
 
-    void print(HashSet<Character> set, int k) { printString("",set,k); }
+    void print(HashSet<Character> set, int k) { printString("", set, k); }
 
     private void printString(String soFar, HashSet<Character> set, int k) {
         if (soFar.length() == k) System.out.println(soFar);
