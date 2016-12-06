@@ -18,13 +18,13 @@ public class PanCakeSort {
 
     void panCakeSort(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            int maxIndex = getMax(array, array.length - i);
+            int maxIndex = getMaxIndex(array, array.length - i);
             flip(array, 0, maxIndex);
             flip(array, 0, array.length - i);
         }
     }
 
-    private int getMax(int[] array, int length) {
+    private int getMaxIndex(int[] array, int length) {
         int max = Integer.MIN_VALUE;
         int maxIndex = 0;
         for (int i = 0; i < length; i++) {
