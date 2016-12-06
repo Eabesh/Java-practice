@@ -3,8 +3,7 @@ package dynamic.programming.palindromes;
 public class MinPalPartition {
 
     int minPalPartition(String s) {
-        if (s.length() == 1) return 0;
-        else if (isPalindrome(s)) return 0;
+        if (s.length() <= 1 || isPalindrome(s)) return 0;
         else {
             int min = Integer.MAX_VALUE;
             for (int k = 1; k <= s.length(); k++) {
