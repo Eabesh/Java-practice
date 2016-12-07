@@ -11,9 +11,9 @@ class BubbleSort {
     }
 
     private void swap(int[] a, int i, int j) {
-        int temp1 = a[i];
+        int temp = a[i];
         a[i] = a[j];
-        a[j] = temp1;
+        a[j] = temp;
     }
 
 }
