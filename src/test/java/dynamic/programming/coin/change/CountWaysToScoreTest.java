@@ -1,5 +1,6 @@
 package dynamic.programming.coin.change;
 
+import algorithms.programming.coin.change.CountWaysToScore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

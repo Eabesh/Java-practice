@@ -1,5 +1,6 @@
 package dynamic.programming;
 
+import algorithms.programming.RodCutting;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

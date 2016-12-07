@@ -1,6 +1,6 @@
 package dynamic.programming.longest.common.subsequence;
 
-import dynamic.programming.longest.common.subsequence.LCS;
+import algorithms.dynamic.programming.longest.common.subsequence.LCS;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

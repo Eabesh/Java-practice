@@ -1,6 +1,6 @@
 package dynamic.programming.knapsack;
 
-import dynamic.programming.knapsack.KnapSack;
+import algorithms.programming.knapsack.KnapSack;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

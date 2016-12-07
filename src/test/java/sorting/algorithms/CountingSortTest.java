@@ -1,5 +1,6 @@
 package sorting.algorithms;
 
+import algorithms.searching.and.sorting.algorithms.CountingSort;
 import org.junit.Test;
 
 

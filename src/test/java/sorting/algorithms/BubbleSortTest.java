@@ -1,5 +1,6 @@
 package sorting.algorithms;
 
+import algorithms.searching.and.sorting.algorithms.BubbleSort;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

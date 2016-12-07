@@ -1,5 +1,6 @@
 package dynamic.programming.longest.common.subsequence;
 
+import algorithms.dynamic.programming.longest.common.subsequence.KPalindrome;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

@@ -1,6 +1,6 @@
 package dynamic.programming.coin.change;
 
-import dynamic.programming.coin.change.CoinChange;
+import algorithms.programming.coin.change.CoinChange;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

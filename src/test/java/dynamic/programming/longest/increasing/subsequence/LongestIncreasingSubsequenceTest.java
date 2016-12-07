@@ -1,5 +1,6 @@
 package dynamic.programming.longest.increasing.subsequence;
 
+import algorithms.programming.longest.increasing.subsequence.LongestIncreasingSubsequence;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

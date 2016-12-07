@@ -1,6 +1,6 @@
 package dynamic.programming.fibonacci;
 
-import dynamic.programming.fibonacci.Fibonacci;
+import algorithms.programming.fibonacci.Fibonacci;
 import org.junit.Test;
 
 public class FibonacciTest {

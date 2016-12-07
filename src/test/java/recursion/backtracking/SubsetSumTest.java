@@ -1,5 +1,6 @@
 package recursion.backtracking;
 
+import algorithms.backtracking.SubsetSum;
 import org.junit.Test;
 
 import java.util.HashSet;

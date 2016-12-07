@@ -1,5 +1,6 @@
 package recursion.backtracking;
 
+import algorithms.backtracking.QueensProblem;
 import org.junit.Test;
 
 public class QueensProblemTest {

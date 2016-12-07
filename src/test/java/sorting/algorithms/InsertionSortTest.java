@@ -1,5 +1,6 @@
 package sorting.algorithms;
 
+import algorithms.searching.and.sorting.algorithms.InsertionSort;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
