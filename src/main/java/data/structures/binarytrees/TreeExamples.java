@@ -639,6 +639,16 @@ class TreeExamples {
      * Solution:
      */
 
+    public void printLeftView(TreeNode root, int level, int[] maxLevel) {
+        if (root == null) return;
+        if (level > maxLevel[0]) {
+            System.out.print(root.data + " ");
+            maxLevel[0] = level;
+        }
+        printLeftView(root.left, level + 1, maxLevel);
+        printLeftView(root.right, level + 1, maxLevel);
+    }
+
 
     /**
      * 59.
@@ -663,6 +673,18 @@ class TreeExamples {
 
      * Solution:
      */
+
+    TreeNode deepestLeftNode = null;
+    public  void printDeepestLeftNode(TreeNode root, int level, TreeNode parent, int[] maxLevel){
+        if (root == null) return;
+        if (isLeaf(root) && isLeft(parent, root) && level > maxLevel[0]) {
+            maxLevel[0] = level;
+            deepestLeftNode = root;
+        }
+        printDeepestLeftNode(root.left, level + 1, root, maxLevel);
+        printDeepestLeftNode(root.left, level + 1, root, maxLevel);
+    }
+
 
 
     /**
