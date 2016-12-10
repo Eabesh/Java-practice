@@ -26,6 +26,19 @@ public class TreeExamplesTest {
     }
 
     @Test
+    public void sumOfRootToLeafTest(){
+        TreeNode root = new TreeNode(6);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(1);
+//        root.left.left = new TreeNode(2);
+//        root.left.right = new TreeNode(5);
+//        root.left.right.right = new TreeNode(4);
+//        root.left.right.left = new TreeNode(7);
+//        root.right.right.right = new TreeNode(4);
+        assertEquals(122, new TreeExamples().sumOfRootToLeafPath(root, 0));
+    }
+
+    @Test
     public void sizeTest() {
         TreeNode root = new TreeNode(2);
         TreeNode node1 = new TreeNode(1);
@@ -33,7 +46,7 @@ public class TreeExamplesTest {
         root.left = node1;
         root.right = node2;
 
-        assertEquals(3,new TreeExamples().size(root));
+        assertEquals(3, new TreeExamples().size(root));
     }
 
     @Test
@@ -86,7 +99,7 @@ public class TreeExamplesTest {
         root.right = node2;
         node1.left = node4;
         node1.right = node5;
-        new TreeExamples().rootToLeafPath("",root);
+      //  new TreeExamples().rootToLeafPath("",root);
     }
 
     @Test

@@ -641,12 +641,14 @@ class TreeExamples {
 
     public void printLeftView(TreeNode root, int level, int[] maxLevel) {
         if (root == null) return;
-        if (level > maxLevel[0]) {
+        else if (level > maxLevel[0]) {
             System.out.print(root.data + " ");
             maxLevel[0] = level;
         }
-        printLeftView(root.left, level + 1, maxLevel);
-        printLeftView(root.right, level + 1, maxLevel);
+        else {
+            printLeftView(root.left, level + 1, maxLevel);
+            printLeftView(root.right, level + 1, maxLevel);
+        }
     }
 
 
@@ -670,19 +672,21 @@ class TreeExamples {
      * Page 9.
      * 61.
      * Problem: Deepest left leaf node in a binary tree
-
+     * Given a Binary Tree, find the deepest leaf node that is left child of its parent.
      * Solution:
      */
 
     TreeNode deepestLeftNode = null;
     public  void printDeepestLeftNode(TreeNode root, int level, TreeNode parent, int[] maxLevel){
         if (root == null) return;
-        if (isLeaf(root) && isLeft(parent, root) && level > maxLevel[0]) {
+        else if (isLeaf(root) && isLeft(parent, root) && level > maxLevel[0]) {
             maxLevel[0] = level;
             deepestLeftNode = root;
         }
-        printDeepestLeftNode(root.left, level + 1, root, maxLevel);
-        printDeepestLeftNode(root.left, level + 1, root, maxLevel);
+        else {
+            printDeepestLeftNode(root.left, level + 1, root, maxLevel);
+            printDeepestLeftNode(root.left, level + 1, root, maxLevel);
+        }
     }
 
 
@@ -691,16 +695,23 @@ class TreeExamples {
      * Page 8.
      *  62.
      * Problem: Find next right node of a given key
-
      * Solution:
      */
 
     /**
      * 63.
      * Problem: Sum of all the numbers that are formed from root to leaf paths
-
+     * Given a binary tree, where every node value is a Digit from 1-9 .
+     * Find the sum of all the numbers which are formed from root to leaf paths.
      * Solution:
      */
+
+    public  int sumOfRootToLeafPath(TreeNode root, int num) {
+        if (root == null) return 0;
+        else if (isLeaf(root)) return num * 10 + root.data;
+        else return sumOfRootToLeafPath(root.left, num * 10 + root.data) +
+                    sumOfRootToLeafPath(root.right, num * 10 + root.data);
+    }
 
 
     /**

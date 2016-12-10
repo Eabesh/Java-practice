@@ -11,7 +11,7 @@ public class MaxPalSubSequence {
      * “BBBBB” and “BBCBB” are also palindromic subsequences of the given sequence, but not the longest ones.
      */
     int maxPal(String s) {
-        else if (s.length() <= 1) return s.length();
+         if (s.length() <= 1) return s.length();
         else if (s.charAt(0) == s.charAt(s.length()-1)) return 2 + maxPal(s.substring(1,s.length()-1));
         else return Math.max(maxPal(s.substring(1)),maxPal(s.substring(0,s.length()-1)));
     }
