@@ -2,8 +2,7 @@ package data.structures.binarytrees;
 
 import utilities.TreeNode;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 class TreeExamples {
 
@@ -124,11 +123,11 @@ class TreeExamples {
      * 10.
      * Problem: The Great Tree-List Recursion Problem.
      */
-    TreeNode head1 = null, prev1 = null;
+    TreeNode head2 = null, prev1 = null;
     void treeToList(TreeNode root) {
         if (root != null) {
             treeToList(root.left);
-            if (head1 == null) head1 = root;
+            if (head2 == null) head2 = root;
             else {
                 prev1.right = root;
                 root.left = prev1;
@@ -338,6 +337,864 @@ class TreeExamples {
         else if (root == node) return level;
         else return getLevel(root.left, node, level + 1) + getLevel(root.right, node, level + 1);
     }
+
+
+
+
+
+
+    /**
+     * Page 12.
+     * 29.
+     * Problem: Print Ancestors of a given node in Binary Tree
+
+     * Solution:
+     */
+
+    /**
+     * 30.
+     * Problem: Check if a given Binary Tree is SumTree
+
+     * Solution:
+     */
+
+
+    /**
+     * 31.
+     * Problem: Check if a binary tree is subtree of another binary tree | Set 1
+
+     * Solution:
+     */
+
+
+
+    /**
+     * 32.
+     * Problem: Connect nodes at same level
+
+     * Solution:
+     */
+
+
+
+    /**
+     * 33.
+     * Problem: Connect nodes at same level using constant extra space
+
+     * Solution:
+     */
+    /**
+     * 34.
+     * Problem: Populate Inorder Successor for all nodes
+
+     * Solution:
+     */
+
+
+
+    /**
+     * 35.
+     * Problem: Convert a given tree to its Sum Tree
+
+     * Solution:
+     */
+
+
+    /**
+     * 36.
+     * Problem: Vertical Sum in a given Binary Tree | Set 1
+
+     * Solution:
+     */
+
+
+    /**
+     * 37.
+     * Problem: Find the maximum sum leaf to root path in a Binary Tree
+     * Given a Binary Tree, find the maximum sum path from a leaf to root.
+     * For example, in the following tree, there are three leaf to root paths 8->-2->10, -4->-2->10 and 7->10.
+     * The sums of these three paths are 16, 4 and 17 respectively. The maximum of them is 17 and the path for maximum is 7->10.
+     * Solution:
+     */
+    public  int maxRootToLeaOfPath(TreeNode root) {
+        if (root == null) return 0;
+        else return root.data + Math.max(maxRootToLeaOfPath(root.left), maxRootToLeaOfPath(root.right));
+
+    }
+
+
+
+    /**
+     * 38.
+     * Problem: Construct Special Binary Tree from given Inorder traversal
+
+     * Solution:
+     */
+
+
+    /**
+     * 39.
+     * Problem: Construct a special tree from given preorder traversal
+
+     * Solution:
+     */
+
+
+    /**
+     * Page 11.
+     * 40.
+     * Problem: Check whether a given Binary Tree is Complete or not | Set 1 (Iterative Solution)
+
+     * Solution:
+     */
+
+
+    /**
+     * Page 10.
+     * 41.
+     * Problem: Boundary Traversal of binary tree
+
+     * Solution:
+     */
+    public  void printLeaves(TreeNode root) {
+        if (root == null) return;
+        else if (isLeaf(root)) System.out.print(root.data + " ");
+        else {
+            printLeaves(root.left);
+            printLeaves(root.right);
+        }
+    }
+
+    public  void printLeftBoundry(TreeNode root) {
+        if (root != null) {
+            if (!isLeaf(root)) {
+                System.out.print(root.data + " ");
+                printLeftBoundry(root.left);
+            }
+            else printLeftBoundry(root.right);
+        }
+    }
+
+    public  void printRightBounday(TreeNode root) {
+        if (root != null) {
+            if (!isLeaf(root)) {
+                printRightBounday(root.right);
+                System.out.print(root.data + " ");
+            }
+            else printRightBounday(root.left);
+        }
+    }
+    public  void printBoundary(TreeNode root) {
+        if (root == null) return;
+        else {
+            System.out.print(root.data + " ");
+            printLeftBoundry(root.left);
+            printLeaves(root);
+            printRightBounday(root.right);
+        }
+    }
+
+    /**
+     * 42.
+     * Problem: Construct Full Binary Tree from given preorder and postorder traversals
+
+     * Solution:
+     */
+
+
+    /**
+     * 43.
+     * Problem: Iterative Preorder Traversal
+
+     * Solution:
+     */
+
+
+    /**
+     * 44.
+     * Problem: Morris traversal for Preorder
+
+     * Solution:
+     */
+
+
+    /**
+     * 45.
+     * Problem: Linked complete binary tree & its creation
+
+     * Solution:
+     */
+
+
+    /**
+     * 46.
+     * Problem: Iterative Postorder Traversal | Set 2 (Using One Stack)
+
+     * Solution:
+     */
+
+
+    /**
+     * 47.
+     * Problem: Reverse Level Order Traversal
+
+     * Solution:
+     */
+    public  void printReverseLevel(TreeNode root) {
+        for (int i = height(root); i >=0; i--) printReverseLevel(root, i);
+    }
+    public  void printReverseLevel(TreeNode root, int level) {
+        if (level == 0) System.out.print(root.data);
+        else {
+            printReverseLevel(root.left, level - 1);
+            printReverseLevel(root.right, level - 1);
+        }
+
+    }
+
+
+    /**
+     * 48.
+     * Problem: Construct Complete Binary Tree from its Linked List Representation
+
+     * Solution:
+     */
+
+    /**
+     * 49.
+     * Problem: Convert a given Binary Tree to Doubly Linked List | Set 1
+
+     * Solution:
+     */
+
+
+    /**
+     * Page 10
+     * 50.
+     * Problem: Tree Isomorphism Problem
+
+     * Solution:
+     */
+
+
+    /**
+     * Page 9.
+     * 51.
+     * Problem: Iterative Method to find Height of Binary Tree
+
+     * Solution:
+     */
+
+
+    /**
+     * 52.
+     * Problem: Custom Tree Problem
+
+     * Solution:
+     */
+
+
+    /**
+     * 53.
+     * Problem: Convert a given Binary Tree to Doubly Linked List | Set 2
+     * Solution:
+     */
+
+
+    /**
+     * 54.
+     * Problem: Difference between sums of odd level and even level nodes of a Binary Tree
+
+     * Solution:
+     */
+
+
+    /**
+     * 55.
+     * Problem: Print Postorder traversal from given Inorder and Preorder traversals
+
+     * Solution:
+     */
+
+    /**
+     * 56.
+     * Problem: Find depth of the deepest odd level leaf node
+
+     * Solution:
+     */
+
+
+    /**
+     * 57.
+     * Problem: Check if all leaves are at same level
+
+     * Solution:
+     */
+
+
+    /**
+     * 58.
+     * Problem: Print Left View of a Binary Tree
+
+     * Solution:
+     */
+
+    public void printLeftView(TreeNode root, int level, int[] maxLevel) {
+        if (root == null) return;
+        else if (level > maxLevel[0]) {
+            System.out.print(root.data + " ");
+            maxLevel[0] = level;
+        }
+        else {
+            printLeftView(root.left, level + 1, maxLevel);
+            printLeftView(root.right, level + 1, maxLevel);
+        }
+    }
+
+
+    /**
+     * 59.
+     * Problem: Remove all nodes which don’t lie in any path with sum>= k
+
+     * Solution:
+     */
+
+
+    /**
+     * 60.
+     * Problem: Extract Leaves of a Binary Tree in a Doubly Linked List
+
+     * Solution:
+     */
+
+
+    /**
+     * Page 9.
+     * 61.
+     * Problem: Deepest left leaf node in a binary tree
+     * Given a Binary Tree, find the deepest leaf node that is left child of its parent.
+     * Solution:
+     */
+
+    TreeNode deepestLeftNode = null;
+    public  void printDeepestLeftNode(TreeNode root, int level, TreeNode parent, int[] maxLevel){
+        if (root == null) return;
+        else if (isLeaf(root) && isLeft(parent, root) && level > maxLevel[0]) {
+            maxLevel[0] = level;
+            deepestLeftNode = root;
+        }
+        else {
+            printDeepestLeftNode(root.left, level + 1, root, maxLevel);
+            printDeepestLeftNode(root.left, level + 1, root, maxLevel);
+        }
+    }
+
+
+
+    /**
+     * Page 8.
+     *  62.
+     * Problem: Find next right node of a given key
+     * Solution:
+     */
+
+    /**
+     * 63.
+     * Problem: Sum of all the numbers that are formed from root to leaf paths
+     * Given a binary tree, where every node value is a Digit from 1-9 .
+     * Find the sum of all the numbers which are formed from root to leaf paths.
+     * Solution:
+     */
+
+    public  int sumOfRootToLeafPath(TreeNode root, int num) {
+        if (root == null) return 0;
+        else if (isLeaf(root)) return num * 10 + root.data;
+        else return sumOfRootToLeafPath(root.left, num * 10 + root.data) +
+                    sumOfRootToLeafPath(root.right, num * 10 + root.data);
+    }
+
+
+    /**
+     * 64.
+     * Problem: Convert a given Binary Tree to Doubly Linked List | Set 3
+
+     * Solution:
+     */
+
+
+    /**
+     * 65.
+     * Problem: Print all nodes that don’t have sibling
+
+     * Solution:
+     */
+
+
+    /**
+     * 66.
+     * Problem: Lowest Common Ancestor in a Binary Tree | Set 1
+
+     * Solution:
+     */
+
+
+    /**
+     * 67.
+     * Problem: Find distance between two given keys of a Binary Tree
+
+     * Solution:
+     */
+
+
+    /**
+     * 68.
+     * Problem: Print all nodes that are at distance k from a leaf node
+
+     * Solution:
+     */
+
+    /**
+     * 69.
+     * Problem: Check if a given Binary Tree is height balanced like a Red-Black Tree
+
+     * Solution:
+     */
+
+    /**
+     * 70.
+     * Problem: Print a Binary Tree in Vertical Order | Set 1
+
+     * Solution:
+     */
+
+    /**
+     * 71.
+     * Problem: Print all nodes at distance k from a given node
+
+     * Solution:
+     */
+
+    /**
+     * 72.
+     * Problem: Construct a tree from Inorder and Level order traversals
+
+     * Solution:
+     */
+
+    /**
+     * Page 7.
+     * 73.
+     * Problem: Print Right View of a Binary Tree
+
+     * Solution:
+     */
+
+    /**
+     * 74.
+     * Problem: Print a Binary Tree in Vertical Order | Set 2 (Hashmap based Method)
+     * Solution:
+     */
+
+    /**
+     * 75.
+     * Problem: Reverse alternate levels of a perfect binary tree
+
+     * Solution:
+     */
+
+    /**
+     * 76.
+     * Problem: Find the maximum path sum between two leaves of a binary tree
+
+     * Solution:
+     */
+
+    /**
+     * 77.
+     * Problem: Check if a binary tree is subtree of another binary tree | Set 2
+
+     * Solution:
+     */
+
+    /**
+     * 78.
+     * Problem: Check if two nodes are cousins in a Binary Tree
+
+     * Solution:
+     */
+
+    /**
+     * Page 7.
+     *  79.
+     * Problem: Minimum no. of iterations to pass information to all nodes in the tree
+
+     * Solution:
+     */
+
+    /**
+     * Page 7.
+     * 80.
+     * Problem: Find Height of Binary Tree represented by Parent array
+
+     * Solution:
+     */
+
+    /**
+     * Page 7.
+     * 81.
+     * Problem: Print nodes between two given level numbers of a binary tree
+
+     * Solution:
+     */
+
+    /**
+     * Page 7.
+     * 82.
+     * Problem: Serialize and Deserialize a Binary Tree
+
+     * Solution:
+     */
+
+    /**
+     * Page 7.
+     * 83.
+     * Problem: Serialize and Deserialize an N-ary Tree
+
+     * Solution:
+     */
+
+    /**
+     * Page 6.
+     * 84.
+     * Problem: Convert a Binary Tree to Threaded binary tree
+
+     * Solution:
+     */
+
+    /**
+     * Page 6.
+     * 85.
+     * Problem: Print Nodes in Top View of Binary Tree
+     * Top view of a binary tree is the set of nodes visible when the tree is viewed from the top.
+     * Given a binary tree, print the top view of it. The output nodes can be printed in any order.
+     * Expected time complexity is O(n)
+
+     * Solution: Use HasSet, BFS, and mark the position.
+     */
+
+    public  void printTopView(TreeNode root) {
+        if (root == null) return;
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.add(root);
+        Set<Integer> set = new HashSet<Integer>();
+        HashMap<TreeNode, Integer> map = new HashMap<TreeNode, Integer>();
+        map.put(root, 0);
+        while (!queue.isEmpty()) {
+            TreeNode curr = queue.poll();
+            int position = map.get(curr);
+            if (set.add(position)) System.out.print(curr.data + " ");
+            if (curr.left != null) {
+                queue.add(curr.left);
+                map.put(curr.left, map.get(curr) - 1);
+            }
+            if (curr.right != null) {
+                queue.add(curr.right);
+                map.put(curr.right, map.get(curr) + 1);
+            }
+        }
+    }
+
+
+    /**
+     * Page 6.
+     * 86.
+     * Problem: Perfect Binary Tree Specific Level Order Traversal
+
+     * Solution:
+     */
+
+    /**
+     * Page 6.
+     * 87.
+     * Problem: Bottom View of a Binary Tree
+
+     * Solution: Use BFS and  TreeMap to store pos - > Node and replace every pos with new Node
+     */
+    public  void bottomView(TreeNode root) {
+        if (root == null) return;
+        TreeMap<Integer, TreeNode> resultMap = new TreeMap<Integer, TreeNode>();
+        Map<TreeNode, Integer> map = new HashMap<TreeNode, Integer>();
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.add(root);
+        map.put(root, 0);
+        while (!queue.isEmpty()) {
+            TreeNode curr = queue.poll();
+            int position = map.get(curr);
+            resultMap.put(position, curr);
+            if (curr.left != null) {
+                queue.add(curr.left);
+                map.put(curr.left, map.get(curr) - 1);
+            }
+            if (curr.right != null) {
+                queue.add(curr.right);
+                map.put(curr.right, map.get(curr) + 1);
+            }
+        }
+        for (int key : resultMap.keySet()) System.out.print(resultMap.get(key).data + " ");
+
+    }
+
+    /**
+     * Page 6.
+     * 88.
+     * Problem: Diagonal Sum of a Binary Tree
+
+     * Solution:
+     */
+
+
+
+    /**
+     * Page 6.
+     * 89.
+     * Problem: Find the closest leaf in a Binary Tree
+
+     * Solution:
+     */
+
+    /**
+     * Page 6.
+     * 90.
+     * Problem: Remove nodes on root to leaf paths of length < K
+
+     * Solution:
+     */
+
+    /**
+     * Page 6.
+     * 91.
+     * Problem: Convert a given Binary Tree to Doubly Linked List | Set 3
+
+     * Solution:
+     */
+     TreeNode head1 = null;
+    public  void convertDLL(TreeNode root) {
+        if (root == null) return;
+        else {
+            convertDLL(root.right);
+            root.right = head1;
+            if (head1 != null) {
+                head1.left = root;
+            }
+            head1 = root;
+            convertDLL(root.left);
+        }
+    }
+
+
+    /**
+     * Page 6.
+     * 92.
+     * Problem: Find sum of all left leaves in a given Binary Tree
+     * Solution: The idea is to traverse the tree return sum of all left leaves.
+     */
+    public  int sumOfLeftLeaves(TreeNode root, boolean isLeftLeaf) {
+        if (root == null) return 0;
+        else if (isLeaf(root) && isLeftLeaf) return root.data;
+        else return sumOfLeftLeaves(root.left, true) + sumOfLeftLeaves(root.right, false);
+    }
+
+    public  boolean isLeft(TreeNode parent, TreeNode node) {
+        if (parent == null) return false;
+        else return parent.left == node;
+    }
+
+    public  int sumOfLeftLeaves2(TreeNode root, TreeNode parent) {
+        if (root == null) return 0;
+        else if (isLeaf(root) && parent.left == root) return root.data;
+        else return sumOfLeftLeaves2(root.left, root) + sumOfLeftLeaves2(root.right, root);
+
+    }
+
+
+
+    /**
+     * Page 6.
+     * 93.
+     * Problem: Check whether a binary tree is a full binary tree or not
+
+     * Solution:
+     */
+
+
+    /**
+     * Page 6.
+     * 94.
+     * Problem: Check whether a binary tree is a complete tree or not | Set 2 (Recursive Solution)
+
+     * Solution:
+     */
+
+    /**
+     * Page 6.
+     * 95. Problem: Given a binary tree, how do you remove all the half nodes?
+
+     * Solution:
+     */
+
+    /**
+     * Page 5.
+     * 96. Problem: Handshaking Lemma and Interesting Tree Properties
+     * Solution:
+     */
+
+
+
+    /**
+     * 97
+     * Problem: Expression Tree
+
+     * Solution:
+     */
+
+    /**
+     * 98
+     * Problem: Maximum Path Sum in a Binary Tree
+
+     * Solution:
+     */
+
+    /**
+     * 99
+     * Problem: Find Minimum Depth of a Binary Tree
+
+     * Solution:
+     */
+
+    /**
+     * 100
+     * Problem: Symmetric Tree (Mirror Image of itself)
+
+     * Solution:
+     */
+
+
+
+
+    /**
+     * 101.
+     * Problem: Construct Binary Tree from given Parent Array representation
+
+     * Solution:
+     */
+
+    /**
+     * 102.
+     * Problem: Succinct Encoding of Binary Tree
+
+     * Solution:
+     */
+
+    /**
+     * 103
+     * Problem: Mirror of n-ary Tree
+
+     * Solution:
+     */
+
+    /**
+     * 104.
+     * Problem: Check if a given array can represent Preorder Traversal of Binary Search Tree
+
+     * Solution:
+     */
+
+
+    /**
+     * 105
+     * Problem: Find Count of Single Valued Subtrees
+
+     * Solution:
+     */
+
+    /**
+     * 106
+     * Problem: Find multiplication of sums of data of leaves at same levels
+
+     * Solution:
+     */
+
+    /**
+     * 107
+     * Problem: Find LCA in Binary Tree using RMQ
+
+     * Solution:
+     */
+
+    /**
+     * 108
+     * Problem: Find all possible binary trees with given Inorder Traversal
+
+     * Solution:
+     */
+
+
+
+    /**
+     * 109.
+     * Problem: Locking and Unlocking of Resources arranged in the form of n-ary Tree
+
+     * Solution:
+     */
+
+    /**
+     * 110.
+     * Problem: Closest leaf to a given node in Binary Tree
+
+     * Solution:
+     */
+
+    /**
+     * 111.
+     * Problem: Check if leaf traversal of two Binary Trees is same?
+
+     * Solution:
+     */
+
+    /**
+     * 112.
+     * Problem: Inorder Non-threaded Binary Tree Traversal without Recursion or Stack
+
+     * Solution:
+     */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * 69. Check if all leaves are at same level.
