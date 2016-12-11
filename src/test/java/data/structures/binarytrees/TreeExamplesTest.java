@@ -3,6 +3,9 @@ package data.structures.binarytrees;
 import org.junit.Test;
 import utilities.TreeNode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.junit.Assert.assertEquals;
 
 public class TreeExamplesTest {
@@ -28,16 +31,57 @@ public class TreeExamplesTest {
     @Test
     public void sumOfRootToLeafTest(){
         TreeNode root = new TreeNode(6);
-        root.left = new TreeNode(1);
-        root.right = new TreeNode(1);
-//        root.left.left = new TreeNode(2);
-//        root.left.right = new TreeNode(5);
-//        root.left.right.right = new TreeNode(4);
-//        root.left.right.left = new TreeNode(7);
-//        root.right.right.right = new TreeNode(4);
-        assertEquals(122, new TreeExamples().sumOfRootToLeafPath(root, 0));
+        root.left = new TreeNode(3);
+        root.right = new TreeNode(5);
+        root.left.left = new TreeNode(2);
+        root.left.right = new TreeNode(5);
+        root.right.right = new TreeNode(4);
+        root.left.right.left = new TreeNode(7);
+        root.left.right.right = new TreeNode(4);
+        assertEquals(13997, new TreeExamples().sumOfRootToLeafPath(root, 0));
     }
 
+    @Test
+    public void printWithNoSiblingTest() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+//        root.left.left = new TreeNode(2);
+        root.left.right = new TreeNode(4);
+        root.right.left = new TreeNode(5);
+        root.right.left.left = new TreeNode(6);
+//        root.left.right.right = new TreeNode(4);
+        new TreeExamples().printWithNoSibling(root, null);
+    }
+
+    @Test
+    public void printKDistanceLeafTest() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.right.left = new TreeNode(6);
+        root.right.right = new TreeNode(7);
+        root.right.left.right = new TreeNode(8);
+        Set<TreeNode> set = new HashSet<>();
+        new TreeExamples().printKNodeFromLeaf(root, 2, set);
+        for (TreeNode node : set) System.out.print(node.data + " ");
+    }
+
+    @Test
+    public void areCousinsTest() {
+        TreeNode root = new TreeNode(2);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(3);
+        root.left = node1;
+        root.right = node2;
+        root.left.left = new TreeNode(5);
+        root.left.right = new TreeNode(8);
+        root.right.right = new TreeNode(9);
+
+        assertEquals(true, new TreeExamples().areCousins(root, root.left.left, root.right.right));
+    }
     @Test
     public void sizeTest() {
         TreeNode root = new TreeNode(2);
@@ -45,6 +89,10 @@ public class TreeExamplesTest {
         TreeNode node2 = new TreeNode(3);
         root.left = node1;
         root.right = node2;
+        root.left.left = new TreeNode(5);
+        root.left.right = new TreeNode(8);
+        root.right.right = new TreeNode(9);
+
 
         assertEquals(3, new TreeExamples().size(root));
     }

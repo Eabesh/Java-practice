@@ -706,7 +706,7 @@ class TreeExamples {
      * Solution:
      */
 
-    public  int sumOfRootToLeafPath(TreeNode root, int num) {
+    int sumOfRootToLeafPath(TreeNode root, int num) {
         if (root == null) return 0;
         else if (isLeaf(root)) return num * 10 + root.data;
         else return sumOfRootToLeafPath(root.left, num * 10 + root.data) +
@@ -717,17 +717,44 @@ class TreeExamples {
     /**
      * 64.
      * Problem: Convert a given Binary Tree to Doubly Linked List | Set 3
-
+     *
      * Solution:
      */
+    TreeNode head3 = null;
+    void convertTreeToDLL(TreeNode root) {
+        if (root == null) return;
+        else {
+            convertToCDLL(root.right);
+            if (head3 == null) root.right = head3;
+            else {
+                head.left = root;
+                head = root;
+            }
+            convertToCDLL(root.right);
+        }
+    }
+
 
 
     /**
      * 65.
      * Problem: Print all nodes that don’t have sibling
-
+     * Given a Binary Tree, print all nodes that don’t have a sibling (a sibling is a node that has same parent.
+     * In a Binary Tree, there can be at most one sibling). Root should not be printed as root cannot have a sibling.
      * Solution:
      */
+    boolean isOnlyChild(TreeNode parent) {
+        if (parent == null) return false;
+        else return parent.left == null && parent.right != null || parent.left != null && parent.right == null;
+    }
+    void printWithNoSibling(TreeNode root, TreeNode parent) {
+        if (root == null) return;
+        else {
+            if (isOnlyChild(parent)) System.out.print(root.data);
+            printWithNoSibling(root.left, root);
+            printWithNoSibling(root.right, root);
+        }
+    }
 
 
     /**
@@ -738,20 +765,33 @@ class TreeExamples {
      */
 
 
+
+
     /**
      * 67.
      * Problem: Find distance between two given keys of a Binary Tree
-
+     * Find the distance between two keys in a binary tree, no parent pointers are given.
+     * Distance between two nodes is the minimum number of edges to be traversed to reach one node from other.
      * Solution:
      */
+
+    int findDistance(TreeNode root, TreeNode node1, TreeNode node2) {
+        TreeNode lca = LCA(root, node1.data, node2.data);
+        if (lca != null) return getLevel(lca, node1, 1) + getLevel(lca, node2, 1);
+        else return -1;
+    }
 
 
     /**
      * 68.
      * Problem: Print all nodes that are at distance k from a leaf node
-
+     * Given a Binary Tree and a positive integer k, print all nodes that are distance k from a leaf node.
      * Solution:
      */
+
+    void printKNodeFromLeaf(TreeNode root, int k, Set<TreeNode> set) {
+
+    }
 
     /**
      * 69.
@@ -805,9 +845,30 @@ class TreeExamples {
     /**
      * 76.
      * Problem: Find the maximum path sum between two leaves of a binary tree
-
+     * Given a binary tree in which each node element contains a number.
+     * Find the maximum possible sum from one leaf node to another.
      * Solution:
      */
+
+    public int maxPathBetweenTwoLeaf(TreeNode root) {
+        int[] res = new int[1];
+        res[0] = Integer.MIN_VALUE;
+        maxPathBetweenTwoLeaves(root, res);
+        return res[0];
+    }
+    int maxPathBetweenTwoLeaves(TreeNode root, int[] res) {
+        if (root == null) return 0;
+        else if (isLeaf(root)) return root.data;
+        else {
+           int leftSum = maxPathBetweenTwoLeaves(root.left, res);
+           int rightSum = maxPathBetweenTwoLeaves(root.right, res);
+           if (root.left != null && root.right != null) {
+               res[0] = Math.max(res[0], leftSum + rightSum + root.data);
+               return Math.max(leftSum, rightSum) + root.data;
+           }
+           else return (root.left == null) ? rightSum + root.data : leftSum + root.data;
+        }
+    }
 
     /**
      * 77.
@@ -819,9 +880,20 @@ class TreeExamples {
     /**
      * 78.
      * Problem: Check if two nodes are cousins in a Binary Tree
-
+     * Given the binary Tree and the two nodes say ‘a’ and ‘b’,
+     * determine whether the two nodes are cousins of each other or not.
+     * Two nodes are cousins of each other if they are at same level and have different parents.
      * Solution:
      */
+    boolean areSibling(TreeNode root, TreeNode node1, TreeNode node2) {
+        if (root == null) return false;
+        else return root.left == node1 && root.right == node2 || root.right == node1 && root.left  == node2 ||
+                areSibling(root.left, node1, node2) || areSibling(root.right, node1, node2);
+    }
+     boolean areCousins(TreeNode root, TreeNode node1, TreeNode node2) {
+         if (root == null) return false;
+         else return getLevel(root, node1, 1) == getLevel(root, node2, 1) && !areSibling(root, node1, node2);
+     }
 
     /**
      * Page 7.
