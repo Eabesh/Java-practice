@@ -358,17 +358,30 @@ class TreeExamples {
      * 22.
      * Problem: Given a binary tree, print all root-to-leaf paths
 
-     * Solution:
+     * Solution: same as Problem 8
      */
 
     /**
      * 23.
      * Problem: Double Tree
+     * Write a program that converts a given tree to its Double tree.
+     * To create Double tree of the given tree, create a new duplicate for each node,
+     * and insert the duplicate as the left child of the original node.
 
      * Solution:
      */
 
-
+    public TreeNode doubleTree(TreeNode root){
+        if (root == null) return  null;
+        else {
+            root.left = doubleTree(root.left);
+            root.right = doubleTree(root.right);
+            TreeNode leftSubTree = root.left;
+            root.left = new TreeNode(root.data);
+            root.left.left = leftSubTree;
+            return root;
+        }
+    }
     /**
      * 24.
      * Problem: Maximum width of a binary tree

@@ -24,6 +24,20 @@ public class TreeExamplesTest {
 
     }
     @Test
+    public void doubleTreeTest() {
+        TreeNode root = new TreeNode(1);
+        TreeNode node1 = new TreeNode(2);
+        TreeNode node2 = new TreeNode(3);
+        root.left = node1;
+        root.right = node2;
+//        root.left.left = new TreeNode(4);
+//        root.left.right = new TreeNode(5);
+        TreeExamples doubleTree = new TreeExamples();
+        TreeNode newRoot = doubleTree.doubleTree(root);
+        doubleTree.preorder(newRoot);
+
+    }
+    @Test
     public void constructTreeTest() {
         int[] pre = {1, 2, 3};
         int[] in = {2, 1, 3};
