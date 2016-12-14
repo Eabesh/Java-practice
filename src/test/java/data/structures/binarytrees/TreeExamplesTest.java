@@ -1,15 +1,11 @@
 package data.structures.binarytrees;
-
 import org.junit.Test;
 import utilities.TreeNode;
-
 import java.util.HashSet;
 import java.util.Set;
-
 import static org.junit.Assert.assertEquals;
 
 public class TreeExamplesTest {
-
     @Test
     public void traversalTest() {
 
@@ -27,7 +23,13 @@ public class TreeExamplesTest {
         traversals.postorder(root);
 
     }
-
+    @Test
+    public void constructTreeTest() {
+        int[] pre = {1, 2, 3};
+        int[] in = {2, 1, 3};
+        TreeNode root = new TreeExamples().constructTree(pre, in, 0, in.length - 1);
+        new TreeExamples().preorder(root);
+    }
     @Test
     public void sumOfRootToLeafTest(){
         TreeNode root = new TreeNode(6);
