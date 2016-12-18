@@ -9,7 +9,22 @@ class TreeExamples {
     /**
      * 1.
      * Problem: Tree traversals.
+     * Unlike linear data structures (Array, Linked List, Queues, Stacks, etc)
+     * which have only one logical way to traverse them, trees can be traversed in different ways.
+     * Following are the generally used ways for traversing trees.
+     *
+     * Depth First Traversals:
+     * (a) Inorder (Left, Root, Right) : 4 2 5 1 3
+     * (b) Preorder (Root, Left, Right) : 1 2 4 5 3
+     * (c) Postorder (Left, Right, Root) : 4 5 2 3 1
+     * Breadth First or Level Order Traversal : 1 2 3 4 5
      */
+
+    /*
+    * Uses of Inorder
+    * In case of binary search trees (BST), Inorder traversal gives nodes in non-decreasing order.
+    * To get nodes of BST in non-increasing order, a variation of Inorder traversal where Inorder itraversal's reversed, can be used.
+    * */
     void inorder(TreeNode root) {
         if (root != null) {
             inorder(root.left);
@@ -18,6 +33,12 @@ class TreeExamples {
         }
     }
 
+    /*
+    *Uses of Preorder
+    * Preorder traversal is used to create a copy of the tree.
+    * Preorder traversal is also used to get prefix expression on of an expression tree.
+    * */
+
     void preorder(TreeNode root) {
         if (root != null) {
             System.out.print(root.data + " ");
@@ -25,6 +46,12 @@ class TreeExamples {
             preorder(root.right);
         }
     }
+
+    /*
+    * Uses of Postorder
+    * Postorder traversal is used to delete the tree. Please see the question for deletion of tree for details.
+    * Postorder traversal is also useful to get the postfix expression of an expression tree
+    * */
 
     void postorder(TreeNode root) {
         if (root != null) {
@@ -68,7 +95,16 @@ class TreeExamples {
      * Problem: Delete a tree.
      *
      * Solution: Do a post order traversal and make the node as null.
+     * Postorder, because before deleting the parent node we should delete its children nodes first
      */
+
+    public void deleteTree(TreeNode root) {
+        if (root != null) {
+            deleteTree(root.left);
+            deleteTree(root.right);
+            root = null;
+        }
+    }
 
      /**
      * 6.
@@ -385,17 +421,41 @@ class TreeExamples {
     /**
      * 24.
      * Problem: Maximum width of a binary tree
-
+     * Given a binary tree, write a function to get the maximum width of the given tree.
+     * Width of a tree is maximum of widths of all levels.
      * Solution:
      */
+    public int maxWidth(TreeNode root) {
+        int height = height(root);
+        int[] levelWidth = new int[height];
+        findMaxWidth(root, 0, levelWidth);
+        int max = Integer.MIN_VALUE;
+        for (int n : levelWidth) if (n > max) max = n;
+        return max;
+    }
+
+    public void findMaxWidth(TreeNode root, int level, int[] levelWidth) {
+        if (root != null) {
+            levelWidth[level]++;
+            findMaxWidth(root.left, level + 1, levelWidth);
+            findMaxWidth(root.right, level + 1, levelWidth);
+        }
+    }
 
 
     /**
      * 25.
      * Problem: Foldable Binary Trees
-
+     * Given a binary tree, find out if the tree can be folded or not.
      * Solution:
      */
+    public boolean isFoldable(TreeNode root) {
+        return root == null || isFoldable(root.left, root.right);
+    }
+    public boolean isFoldable(TreeNode node1, TreeNode node2) {
+        return node1 == null && node2 == null || node1 != null && node2 != null && isFoldable(node1.left, node2.right)
+                && isFoldable(node1.right, node2.left);
+    }
 
 
     /**
@@ -435,18 +495,21 @@ class TreeExamples {
     }
 
 
-
-
-
-
     /**
      * Page 12.
      * 29.
      * Problem: Print Ancestors of a given node in Binary Tree
-
+     * Given a Binary Tree and a key, write a function that prints all the ancestors of the key in the given binary tree.
      * Solution:
      */
-
+    public void printAncestors(TreeNode root, TreeNode key, String soFar) {
+        if (root == null) return;
+        else if (root == key) System.out.print(soFar);
+        else {
+            printAncestors(root.left, key, soFar + root.data + " ");
+            printAncestors(root.right, key, soFar + root.data + " ");
+        }
+    }
     /**
      * 30.
      * Problem: Check if a given Binary Tree is SumTree

@@ -23,6 +23,49 @@ public class TreeExamplesTest {
         traversals.postorder(root);
 
     }
+
+    @Test
+    public void maxWidthTest() {
+        TreeNode root = new TreeNode(1);
+        TreeNode node1 = new TreeNode(2);
+        TreeNode node2 = new TreeNode(3);
+        root.left = node1;
+        root.right = node2;
+//        root.left.left = new TreeNode(4);
+//        root.left.right = new TreeNode(5);
+        TreeExamples maxWidth = new TreeExamples();
+        assertEquals(2, maxWidth.maxWidth(root));
+
+    }
+    @Test
+    public void printAncestorsTest() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.left.left.left = new TreeNode(7);
+
+        TreeExamples treeExamples = new TreeExamples();
+        treeExamples.printAncestors(root, root.left.left.left, "");
+
+    }
+
+    @Test
+    public void isFoldableTest() {
+        TreeNode root = new TreeNode(1);
+        TreeNode node1 = new TreeNode(2);
+        TreeNode node2 = new TreeNode(3);
+        root.left = node1;
+        root.right = node2;
+        root.left.right = new TreeNode(5);
+        root.right.left = new TreeNode(4);
+//        root.left.left = new TreeNode(4);
+//        root.left.right = new TreeNode(5);
+        TreeExamples treeExamples = new TreeExamples();
+        assertEquals(true, treeExamples.isFoldable(root));
+
+    }
     @Test
     public void doubleTreeTest() {
         TreeNode root = new TreeNode(1);
