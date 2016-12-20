@@ -52,6 +52,21 @@ public class TreeExamplesTest {
     }
 
     @Test
+    public void isSumTreeTest() {
+        TreeNode root = new TreeNode(26);
+        root.left = new TreeNode(10);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(6);
+        root.right.right = new TreeNode(3);
+
+        TreeExamples treeExamples = new TreeExamples();
+        assertEquals(true, treeExamples.isSumTree(root));
+
+    }
+
+
+    @Test
     public void isFoldableTest() {
         TreeNode root = new TreeNode(1);
         TreeNode node1 = new TreeNode(2);

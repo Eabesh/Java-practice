@@ -340,7 +340,7 @@ class TreeExamples {
 
     /**
      * 19.
-     * Problem: Inorder Tree Traversal without recursion and without stack!
+     * Problem: Inorder Tree Traversal without recursion and without stack! (Morris Traversal)
      *
      * Solution: Use Morris Traversal.
      * 1. Initialize current as root
@@ -352,6 +352,10 @@ class TreeExamples {
      *      a) Make current as right child of the rightmost node in current's left subtree
      *      b) Go to this left child, i.e., current = current->left
      */
+
+    public void morrisTraversal(TreeNode root) {
+
+    }
 
     /**
      * 20.
@@ -513,19 +517,38 @@ class TreeExamples {
     /**
      * 30.
      * Problem: Check if a given Binary Tree is SumTree
-
+     * A SumTree is a Binary Tree where the value of a node is equal to sum of the nodes present in its left subtree
+     * and right subtree. An empty tree is SumTree and sum of an empty tree can be considered as 0. A leaf node is also considered as SumTree.
      * Solution:
      */
+    public boolean isSumTree(TreeNode root) {
+        if (root == null || isLeaf(root)) return true;
+        else return isSumTree(root.left) && isSumTree(root.right) && hasSumProperty(root);
+    }
+    public boolean hasSumProperty(TreeNode root) {
+        if (root == null) return true;
+        else if (root.right == null && isLeaf(root.left)) return root.data == root.left.data;
+        else if (root.left == null && isLeaf(root.right)) return root.data == root.right.data;
+        else if (isLeaf(root.left) && isLeaf(root.right)) return root.data == root.left.data + root.right.data;
+        else if (root.left != null && root.right != null) return root.data == 2 * (root.left.data + root.right.data);
+        else if (root.left != null && root.right == null) return root.data == 2 * (root.left.data);
+        else return root.data == 2 * (root.right.data);
 
+    }
 
     /**
      * 31.
      * Problem: Check if a binary tree is subtree of another binary tree | Set 1
-
-     * Solution:
+     * Given two binary trees, check if the first tree is subtree of the second one. A subtree of a tree T is a tree S
+     * consisting of a node in T and all of its descendants in T. The subtree corresponding to the root node is the entire tree; the subtree corresponding to any other node is called a proper subtree.
+     * Solution: Complexity O(mn), we can solve this in O(n) too.
      */
-
-
+    public boolean isSubTree(TreeNode root1, TreeNode root2) {
+        if (root1 == null) return false;
+        else if (root2 == null) return true;
+        else if (isIdentical(root1, root2)) return true;
+        else return isSubTree(root1.left, root2) || isSubTree(root1.right, root2);
+    }
 
     /**
      * 32.
@@ -554,7 +577,6 @@ class TreeExamples {
     /**
      * 35.
      * Problem: Convert a given tree to its Sum Tree
-
      * Solution:
      */
 
@@ -676,6 +698,10 @@ class TreeExamples {
      * Solution:
      */
 
+    public void morrisTraversalPreoder(TreeNode root) {
+
+    }
+
 
     /**
      * 45.
@@ -725,7 +751,16 @@ class TreeExamples {
 
      * Solution:
      */
-
+    TreeNode headDLL = null;
+    public void convertToDLL(TreeNode root) {
+        if (root != null) {
+            convertToCDLL(root.right);
+            root.right = headDLL;
+            if (headDLL != null)  headDLL.left = root;
+            headDLL = root;
+            convertToCDLL(root.left);
+        }
+    }
 
     /**
      * Page 10
@@ -1515,9 +1550,12 @@ class TreeExamples {
     /**
      * 121.
      * Problem: Print leftmost and rightmost nodes of a Binary Tree
-
+     * Given a Binary Tree, Print the corner nodes at each level.The node at the leftmost and the node at the rightmost.
      * Solution:
      */
+
+
+
 
     /**
      * 122.
@@ -1647,9 +1685,14 @@ class TreeExamples {
     /**
      * 138.
      * Problem: Check if two trees are Mirror
-
+     * Given two Binary Trees, write a function that returns true if two trees are mirror of each other, else false.
+     * For example, the function should return true for following input trees.
      * Solution:
      */
+    public boolean areMirror(TreeNode root1, TreeNode root2) {
+        return root1 == null && root2 == null || root1 != null && root2 != null && root1.data == root2.data
+                && areMirror(root1.left, root2.right) && areMirror(root1.right, root2.left);
+    }
 
     /**
      * 139.
@@ -1779,14 +1822,16 @@ class TreeExamples {
     TreeNode prev = null;
     void convertToCDLL(TreeNode root) {
         if (root == null) return;
-        convertToCDLL(root.left);
-        if (head == null) head = root;
         else {
-            prev.right = root;
-            root.left = prev;
+            convertToCDLL(root.left);
+            if (head == null) head = root;
+            else {
+                prev.right = root;
+                root.left = prev;
+            }
+            prev = root;
+            convertToCDLL(root.right);
         }
-        prev = root;
-        convertToCDLL(root.right);
     }
 
     void convertToCircularDLL(TreeNode root) {
@@ -1862,6 +1907,38 @@ class TreeExamples {
         if (index >= array.length) return false;
         else return root.data == array[index];
     }
+
+
+    /**
+     * 1001.Problem: Print Right View of a Binary Tree
+     * Given a Binary Tree, print Right view of it.
+     * Right view of a Binary Tree is set of nodes visible when tree is visited from Right side.
+     */
+    int maxLevel = -1;
+    public void printRightView(TreeNode root, int level) {
+        if (root != null) {
+            if (level > maxLevel) {
+                System.out.print(root.data + " ");
+                maxLevel = level;
+            }
+            printRightView(root.right, level + 1);
+            printRightView(root.left, level + 1);
+        }
+    }
+
+    /**
+     * 1002.Problem: Print Left View of a Binary Tree
+     * Given a Binary Tree, print Left view of it.
+     * Left view of a Binary Tree is set of nodes visible when tree is visited from Left side.
+     */
+
+
+
+
+
+
+
+
 
 
 
