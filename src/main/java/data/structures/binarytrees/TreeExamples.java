@@ -23,7 +23,8 @@ class TreeExamples {
     /*
     * Uses of Inorder
     * In case of binary search trees (BST), Inorder traversal gives nodes in non-decreasing order.
-    * To get nodes of BST in non-increasing order, a variation of Inorder traversal where Inorder itraversal's reversed, can be used.
+    * To get nodes of BST in non-increasing order, a variation of Inorder traversal where Inorder itraversal's reversed,
+    * can be used.
     * */
     void inorder(TreeNode root) {
         if (root != null) {
@@ -93,7 +94,6 @@ class TreeExamples {
     /**
      * 5.
      * Problem: Delete a tree.
-     *
      * Solution: Do a post order traversal and make the node as null.
      * Postorder, because before deleting the parent node we should delete its children nodes first
      */
