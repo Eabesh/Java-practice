@@ -1,23 +1,23 @@
 package recursion.org.geekforgeeks.w3;
 
-public class RecursionExamples {
+class RecursionExamples {
 
   /**
    * 1.
    * Problem: Exponent of a number
-   *
-   * Solution: base*base^exp - 1
+   * Solution: base*base^(exp - 1)
    */
-
   int getExponent(int base, int exp) {
     if (exp == 0) return 1;
     else return base * getExponent(base, exp - 1);
   }
-  // More Efficient
-  int getExpEff(int base, int exp) {
+  /**
+   * More efficient.
+   */
+  int getExponentEfficient(int base, int exp) {
     if (exp == 0) return 1;
     else {
-      int half = base * getExpEff(base, exp - 1);
+      int half = base * getExponentEfficient((base, exp - 1);
       if (exp % 2 == 0) return half * half;
       else return base * half * half;
     }
@@ -27,10 +27,8 @@ public class RecursionExamples {
   /**
    * 2.
    * Problem: Given a string, check whether palindrome or not.
-   *
    * Solution:
    */
-
   boolean isPalindrome(String str) {
     return (str.length() <=1) || str.charAt(0) == str.charAt(str.length() - 1)
             && isPalindrome(str.substring(1, str.length() - 2));
@@ -39,14 +37,12 @@ public class RecursionExamples {
   /**
    * 3.
    * Problem: Factorial of a number
-   *
    * Solution:
    */
   int factorial(int num) {
     if (num == 0 || num == 1) return num;
     else return num * factorial(num - 1);
   }
-
   // Tail recursive
 
   int factTailRecusive(int num, int acc) {
@@ -54,15 +50,11 @@ public class RecursionExamples {
     else return factTailRecusive(num - 1, acc * num);
   }
 
-
-
   /**
    * 4.
    * Problem: Tower of Hanoi
-   *
    * Solution:
    */
-
   void towerOfHanoi(int disk, String source, String dest, String temp){
     if (disk > 0) {
       towerOfHanoi(disk - 1, "A", "C", "B");
@@ -77,7 +69,6 @@ public class RecursionExamples {
    *
    * Solution:
    */
-
   void printPermutation(String sofar, String remaining) {
     if (remaining == "") System.out.print(sofar);
     else {
