@@ -1,5 +1,7 @@
 package data.structures.arrays.sliding.window;
 
+import algorithms.dynamic.programming.longest.common.subsequence.EditDistance;
+
 import java.util.Arrays;
 
 public class SlidingWindowExamples {
@@ -34,8 +36,30 @@ public class SlidingWindowExamples {
      * number of consecutive 1s in array.
      */
 
+   public int maxLength(int[] array, int k) {
+        int windowR = 0, windowL = 0, maxLength = 0, numZeroes = 0;
+
+       //for (int windowR = 0; windowR < array.length; windowR++) {
+        while (windowR < array.length) {
+           if (numZeroes <= k) {
+                if (windowR < array.length && array[windowR] == 0) numZeroes++;
+                windowR++;
+           }
+           if (numZeroes > k) {
+               if (windowL < array.length && array[windowL] == 0) numZeroes--;
+               windowL++;
+           }
+           maxLength = Math.max(maxLength, windowR - windowL);
+       }
+
+       return maxLength;
+    }
+
+
+
     /**
      * 143. Find minimum average subarray of k length.
      */
+
 
 }
