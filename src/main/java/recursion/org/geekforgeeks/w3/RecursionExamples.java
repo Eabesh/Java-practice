@@ -17,12 +17,11 @@ class RecursionExamples {
   int getExponentEfficient(int base, int exp) {
     if (exp == 0) return 1;
     else {
-      int half = base * getExponentEfficient((base, exp - 1);
+      int half = base * getExponentEfficient(base, exp - 1);
       if (exp % 2 == 0) return half * half;
       else return base * half * half;
     }
   }
-
 
   /**
    * 2.
