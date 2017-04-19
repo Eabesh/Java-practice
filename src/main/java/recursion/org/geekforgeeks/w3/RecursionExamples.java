@@ -30,7 +30,7 @@ class RecursionExamples {
    */
   boolean isPalindrome(String str) {
     return (str.length() <=1) || str.charAt(0) == str.charAt(str.length() - 1)
-            && isPalindrome(str.substring(1, str.length() - 2));
+            && isPalindrome(str.substring(1, str.length() - 1));
   }
 
   /**
@@ -39,14 +39,16 @@ class RecursionExamples {
    * Solution:
    */
   int factorial(int num) {
-    if (num == 0 || num == 1) return num;
+    if (num == 0) return 1;
     else return num * factorial(num - 1);
   }
-  // Tail recursive
 
-  int factTailRecusive(int num, int acc) {
-    if ( num == 0 || num == 1) return acc;
-    else return factTailRecusive(num - 1, acc * num);
+  /**
+   * Tail recursive
+   */
+  int factTailRecursive(int num, int acc) {
+    if (num == 0) return acc;
+    else return factTailRecursive(num - 1, acc * num);
   }
 
   /**
@@ -65,7 +67,6 @@ class RecursionExamples {
   /**
    * 5.
    * Problem: Permutation of String
-   *
    * Solution:
    */
   void printPermutation(String sofar, String remaining) {
@@ -80,10 +81,8 @@ class RecursionExamples {
   /**
    * 6.
    * Problem: Subset of String.
-   *
    * Solution:
    */
-
   void printSubset(String sofar, String remaining) {
     if (remaining == "") System.out.println(sofar);
     else {
@@ -92,14 +91,11 @@ class RecursionExamples {
     }
   }
 
-
   /**
    * 7.
    * Problem: Combination
-   *
    * Solution:
    */
-
   int combination(int n, int k) {
     if (n == k || k == 0) return 1;
     else return combination(n - 1, k) + combination(n - 1, k - 1);
@@ -108,21 +104,18 @@ class RecursionExamples {
   /**
    * 8.
    * Problem: BinarySearch
-   *
    * Solution:
    */
 
   /**
    * 9.
    * Problem: Fibbonacci
-   *
    * Solution:
    */
 
   /**
    * 10.
    * Problem: Reverse a LinkedList
-   *
    * Solution:
    */
 
@@ -134,38 +127,26 @@ class RecursionExamples {
    * For example, 12321 is palindrome, but 1451 is not palindrome.
    * Solution:
    */
-
   boolean isPalindromeNumber(int num, int numCopy, int reverse) {
     if (numCopy == 0) return num == reverse;
     return isPalindromeNumber(num, numCopy/10, reverse * 10  + numCopy % 10);
   }
 
-
-
-
   /**
    * 12.
    * Problem: Print all possible combinations of r elements in a given array of size n
-   *
    * Solution:
    */
-
 
   /**
    * 13.
    * Problem: Print all possible strings of length k that can be formed from a set of n characters
-   *
    * Solution:
    */
-
-
-
-
 
   /**
    * 14.
    * Problem: Tail Recursion
-   *
    * Solution:
    */
 
@@ -173,7 +154,6 @@ class RecursionExamples {
   /**
    * 15.
    * Problem: Print all increasing sequences of length k from first n natural numbers
-   *
    * Solution:
    */
 
@@ -181,16 +161,13 @@ class RecursionExamples {
   /**
    * 16.
    * Problem: Generate all possible sorted arrays from alternate elements of two given sorted arrays
-   *
    * Solution:
    */
-
 
 
   /**
    * 17.
    * Problem: Minimum steps to reach a destination
-   *
    * Solution:
    */
 
@@ -198,7 +175,6 @@ class RecursionExamples {
   /**
    * 18.
    * Problem: Given a string, print all possible palindromic partitions
-   *
    * Solution:
    */
 
@@ -206,7 +182,6 @@ class RecursionExamples {
   /**
    * .
    * Problem: Print a pattern without using any loop
-   *
    * Solution:
    */
 
@@ -214,7 +189,6 @@ class RecursionExamples {
   /**
    * .
    * Problem: Print all non-increasing sequences of sum equal to a given number x
-   *
    * Solution:
    */
 
@@ -222,7 +196,6 @@ class RecursionExamples {
   /**
    * .
    * Problem: Sort a stack using recursion
-   *
    * Solution:
    */
 
@@ -230,7 +203,6 @@ class RecursionExamples {
   /**
    * .
    * Problem: Print all n-digit strictly increasing numbers
-   *
    * Solution:
    */
 
@@ -239,7 +211,6 @@ class RecursionExamples {
   /**
    * .
    * Problem: Find all even length binary sequences with same sum of first and second half bits
-   *
    * Solution:
    */
 
@@ -248,7 +219,6 @@ class RecursionExamples {
   /**
    * .
    * Problem: Print all possible expressions that evaluate to a target
-   *
    * Solution:
    */
 
@@ -256,7 +226,6 @@ class RecursionExamples {
   /**
    * .
    * Problem: Print sums of all subsets of a given set
-   *
    * Solution:
    */
 
@@ -265,7 +234,6 @@ class RecursionExamples {
   /**
    * .
    * Problem: String with additive sequence
-   *
    * Solution:
    */
 
@@ -274,7 +242,6 @@ class RecursionExamples {
   /**
    * .
    * Problem: Print all longest common sub-sequences in lexicographical order
-   *
    * Solution:
    */
 
@@ -282,7 +249,6 @@ class RecursionExamples {
   /**
    * .
    * Problem: Program for Chocolate and Wrapper Puzzle
-   *
    * Solution:
    */
 
@@ -291,7 +257,6 @@ class RecursionExamples {
   /**
    * .
    * Problem: Recursion
-   *
    * Solution:
    */
 
@@ -300,7 +265,6 @@ class RecursionExamples {
   /**
    * .
    * Problem:  program to implement Collatz Conjecture
-   *
    * Solution:
    */
 
@@ -309,7 +273,6 @@ class RecursionExamples {
    * .
    * Problem: Generate all binary strings without consecutive 1’s.
    * Given a integer K. Task is Print All binary string of size K (Given number).
-   *
    * Solution:
    */
 
@@ -318,11 +281,8 @@ class RecursionExamples {
   /**
    * .
    * Problem: Recursive Bubble Sort
-   *
    * Solution:
    */
-
-
   public void recusiveBSort(int[] array, int lastIndex) {
 
     if (lastIndex == 1) return;
@@ -340,14 +300,11 @@ class RecursionExamples {
   }
 
 
-
-
   /**
    *
    * Problem. A number is called as a stepping number if the adjacent digits are having a difference of 1.
    * For eg. 8,343,545 are stepping numbers. While 890, 098 are not.
    * The difference between a ‘9’ and ‘0’ should not be considered as 1.
-   *
    * Solution:
    */
 
@@ -359,7 +316,6 @@ class RecursionExamples {
    */
 
   /**
-   *
    *  Problem.We have bunnies standing in a line, numbered 1, 2, ... The odd bunnies (1, 3, ..) have the normal 2 ears.
    *  The even bunnies (2, 4, ..) we'll say have 3 ears, because they each have a raised foot.
    *  Recursively return the number of "ears" in the bunny line 1, 2, ... n (without loops or multiplication).
@@ -384,12 +340,10 @@ class RecursionExamples {
    *  triangle(1) → 1
    *  triangle(2) → 3
    */
-
   int triangle(int rows) {
     if (rows < 2) return rows;
     else return rows + triangle(rows - 1);
   }
-
 
   /**
    *
