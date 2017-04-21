@@ -1,8 +1,5 @@
 package recursion.org.geekforgeeks.w3;
-
-import com.sun.deploy.util.StringUtils;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 public class RecursionExamplesTest {
@@ -41,12 +38,13 @@ public class RecursionExamplesTest {
 
   @Test
   public void towerOfHanoi() throws Exception {
-
+   // assertEquals(, new RecursionExamples().factTailRecursive(0, 1));
+    new RecursionExamples().towerOfHanoi(2, "Pin1", "Pin2", "Pin3");
   }
 
   @Test
   public void printPermutation() throws Exception {
-
+    assertEquals(1, new RecursionExamples().factTailRecursive(1,1));
   }
 
   @Test
@@ -56,7 +54,16 @@ public class RecursionExamplesTest {
 
   @Test
   public void combination() throws Exception {
+    assertEquals(1, new RecursionExamples().combination(1,0));
+    assertEquals(1, new RecursionExamples().combination(1,0));
+  }
 
+  @Test
+  public void binarySeach() throws Exception {
+    int [] array = {1, 2, 3, 5};
+    assertEquals(1, new RecursionExamples().binarySearch(array,0, array.length - 1, 2));
+    assertEquals(0, new RecursionExamples().binarySearch(array,0, array.length - 1, 1));
+    assertEquals(-1, new RecursionExamples().binarySearch(array,0, array.length - 1, 4));
   }
 
   @Test

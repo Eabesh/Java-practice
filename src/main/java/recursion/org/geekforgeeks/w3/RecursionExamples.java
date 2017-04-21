@@ -58,9 +58,9 @@ class RecursionExamples {
    */
   void towerOfHanoi(int disk, String source, String dest, String temp){
     if (disk > 0) {
-      towerOfHanoi(disk - 1, "A", "C", "B");
-      System.out.print(source + " -> " + dest);
-      towerOfHanoi(disk - 1, "C", "B", "A");
+      towerOfHanoi(disk - 1, source, temp, dest);
+      System.out.println(source + " -> " + dest);
+      towerOfHanoi(disk - 1, temp, dest, source);
     }
   }
 
@@ -70,7 +70,7 @@ class RecursionExamples {
    * Solution:
    */
   void printPermutation(String sofar, String remaining) {
-    if (remaining == "") System.out.print(sofar);
+    if (remaining.isEmpty()) System.out.print(sofar);
     else {
       for (int i = 0; i < remaining.length(); i++)
         printPermutation(sofar + remaining.charAt(i),
@@ -106,6 +106,14 @@ class RecursionExamples {
    * Problem: BinarySearch
    * Solution:
    */
+  int binarySearch(int[] array, int startIndex, int endIndex, int value) {
+    if (startIndex <= endIndex) {
+      int midIndex = startIndex + (endIndex - startIndex)/ 2;
+      if (value == array[midIndex]) return midIndex;
+      else if (value < array[midIndex]) return binarySearch(array, startIndex, midIndex - 1, value);
+      else return binarySearch(array, midIndex + 1, endIndex, value);
+    } else return -1;
+  }
 
   /**
    * 9.
