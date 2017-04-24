@@ -22,6 +22,14 @@ public class ListExampleTest {
     }
 
     @Test
+    public void getReverseKNode() {
+        getList(10);
+        ListNode newHead = new ListExample().reverseKNodes(head, 5, 10);
+        System.out.print(newHead.data);
+
+    }
+
+    @Test
     public void reverseListTest() {
         getList(10);
         assertEquals(10,new ListExample().reverseList(head).data);

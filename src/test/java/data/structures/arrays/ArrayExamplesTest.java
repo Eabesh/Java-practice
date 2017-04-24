@@ -1,5 +1,6 @@
 package data.structures.arrays;
 
+import data.structures.arrays.sliding.window.SlidingWindowExamples;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -13,6 +14,14 @@ public class ArrayExamplesTest {
         int result = new ArrayExamples().maxSumContigous(a);
         assertEquals(22,result);
         assertEquals(-3,new ArrayExamples().maxSumContigous(b));
+    }
+
+    @Test
+    public void maxSumContigousLenthTest() {
+        int[] arr= {0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1};
+
+        int result = new SlidingWindowExamples().maxLength(arr, 3);
+        assertEquals(9, result);
     }
 
 

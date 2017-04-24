@@ -46,6 +46,43 @@ class ListExample {
         }
     }
 
+    ListNode reverseKNodes(ListNode head, int k, int length) {
+        ListNode newHead = head;
+        if (head != null && head.next != null && length > k) {
+            HeadTail headTail = reverseKNode(head, k);
+            newHead = headTail.head;
+            head.next = reverseKNodes(headTail.rest, k, length);
+        }
+        return newHead;
+    }
+
+    int size(ListNode head) {
+        if (head == null) return 0;
+        else return 1 + size(head.next);
+    }
+
+    class HeadTail {
+        ListNode head, rest;
+    }
+    HeadTail reverseKNode(ListNode head, int k ){
+        HeadTail headTail  = new HeadTail();
+        ListNode current= head;
+        ListNode prev = null;
+        ListNode nextNode = null;
+        int count = 0;
+        while (current != null && count < k) {
+            nextNode = current.next;
+            current.next = prev;
+            prev = current;
+            current = nextNode;
+            count++;
+            }
+            headTail.head = prev;
+            headTail.rest = nextNode;
+
+        return headTail;
+    }
+
     /**
      * 22. Function to check if a singly linked list is palindrome.
      *
