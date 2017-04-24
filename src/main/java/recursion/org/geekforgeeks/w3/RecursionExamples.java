@@ -1,5 +1,7 @@
 package recursion.org.geekforgeeks.w3;
 
+import java.util.HashSet;
+
 class RecursionExamples {
 
   /**
@@ -35,74 +37,6 @@ class RecursionExamples {
 
   /**
    * 3.
-   * Problem: Factorial of a number
-   * Solution:
-   */
-  int factorial(int num) {
-    if (num == 0) return 1;
-    else return num * factorial(num - 1);
-  }
-
-  /**
-   * Tail recursive
-   */
-  int factTailRecursive(int num, int acc) {
-    if (num == 0) return acc;
-    else return factTailRecursive(num - 1, acc * num);
-  }
-
-  /**
-   * 4.
-   * Problem: Tower of Hanoi
-   * Solution:
-   */
-  void towerOfHanoi(int disk, String source, String dest, String temp){
-    if (disk > 0) {
-      towerOfHanoi(disk - 1, source, temp, dest);
-      System.out.println(source + " -> " + dest);
-      towerOfHanoi(disk - 1, temp, dest, source);
-    }
-  }
-
-  /**
-   * 5.
-   * Problem: Permutation of String
-   * Solution:
-   */
-  void printPermutation(String sofar, String remaining) {
-    if (remaining.isEmpty()) System.out.print(sofar);
-    else {
-      for (int i = 0; i < remaining.length(); i++)
-        printPermutation(sofar + remaining.charAt(i),
-                remaining.substring(0, i) + remaining.substring(i + 1));
-    }
-  }
-
-  /**
-   * 6.
-   * Problem: Subset of String.
-   * Solution:
-   */
-  void printSubset(String sofar, String remaining) {
-    if (remaining == "") System.out.println(sofar);
-    else {
-      printSubset(sofar + remaining.charAt(0), remaining.substring(1));
-      printSubset(sofar, remaining.substring(1));
-    }
-  }
-
-  /**
-   * 7.
-   * Problem: Combination
-   * Solution:
-   */
-  int combination(int n, int k) {
-    if (n == k || k == 0) return 1;
-    else return combination(n - 1, k) + combination(n - 1, k - 1);
-  }
-
-  /**
-   * 8.
    * Problem: BinarySearch
    * Solution:
    */
@@ -116,20 +50,138 @@ class RecursionExamples {
   }
 
   /**
+   * 4.
+   * Problem: Combination
+   * Solution:
+   */
+  int combination(int n, int k) {
+    if (n == k || k == 0) return 1;
+    else return combination(n - 1, k) + combination(n - 1, k - 1);
+  }
+
+  /**
+   * 5.
+   * Problem: Tower of Hanoi
+   * Solution:
+   */
+  void towerOfHanoi(int disk, String source, String dest, String temp){
+    if (disk > 0) {
+      towerOfHanoi(disk - 1, source, temp, dest);
+      System.out.println(source + " -> " + dest);
+      towerOfHanoi(disk - 1, temp, dest, source);
+    }
+  }
+
+  /**
+   * 6.
+   * Problem: Permutation of String
+   * Solution:
+   */
+  void printPermutation(String sofar, String remaining) {
+    if (remaining.isEmpty()) System.out.print(sofar);
+    else {
+      for (int i = 0; i < remaining.length(); i++)
+        printPermutation(sofar + remaining.charAt(i),
+                remaining.substring(0, i) + remaining.substring(i + 1));
+    }
+  }
+
+  /**
+   * 7.
+   * Problem: Subset of String.
+   * Solution:
+   */
+  void printSubset(String sofar, String remaining) {
+    if (remaining == "") System.out.println(sofar);
+    else {
+      printSubset(sofar + remaining.charAt(0), remaining.substring(1));
+      printSubset(sofar, remaining.substring(1));
+    }
+  }
+
+  /**
+   * 8.
+   * Problem: AnagramFinder
+   * Solution: Use backtracking
+   *  boolean solve( configuration conf) {
+   *    // BASE CASE
+   *    if ( no more choices )
+   *      return (conf is in gaol state);
+   *    else {
+   *      for (choice : choices) {
+   *        try one choice c;
+   *        // solve from here, if work out, you are done
+   *        if (solve(conf with choice c made) return true;
+   *        unmake choice c;
+   *      }
+   *
+   *      return false;  // tried all choices, no solution found.
+   *    }
+   *  }
+   */
+  boolean isAnagram(String soFar, String remaining, HashSet<String> dictionary) {
+    if (remaining.isEmpty()) return dictionary.contains(soFar);
+    else {
+      for (int i = 0; i < remaining.length(); i++) {
+        if (isAnagram(soFar + remaining.charAt(i), remaining.substring(0, i) + remaining.substring(i + 1), dictionary))
+          return true;
+      }
+    }
+    return false;
+  }
+
+  /**
    * 9.
-   * Problem: Fibbonacci
+   * Problem: N Queens Problems
+   * Solution:
+   */
+  void placeQueen(int[][] board, int row, int column) {
+    board[row][column] = 1;
+  }
+
+  void removeQueen(int[][] board, int row, int column) {
+    board[row][column] = 0;
+  }
+
+  boolean isSafe(int[][] board, int row, int column) {
+    for (int c = column; c >= 0 ; c--)
+      if (board[row][c] == 1) return false;
+
+    for (int r = row,  c = column; r >= 0 && c >=0; r--, c--)
+      if (board[r][c] == 1) return false;
+
+    for (int r = row, c = column; r >= 0 && c > board[0].length; r--, c++)
+      if(board[r][c] == 1) return false;
+
+    return true;
+  }
+
+  boolean solveNQueen(int[][] board, int column) {
+    if (column >= board[0].length) return true;
+    else {
+      for (int row = 0; row < board.length; row++) {
+        if (isSafe(board, row, column)) {
+          placeQueen(board, row, column);
+          if (solveNQueen(board, column + 1)) return true;
+          removeQueen(board, row, column);
+        }
+      }
+    }
+    return false;
+  }
+
+  /**
+   * Geeksforgeeks Problems.
+   */
+
+  /**
+   * 1.
+   * Problem: Reverse a stack using recursion.
    * Solution:
    */
 
   /**
-   * 10.
-   * Problem: Reverse a LinkedList
-   * Solution:
-   */
-
-
-  /**
-   * 11.
+   * 2.
    * Problem: Check if a number is Palindrome
    * Given an integer, write a function that returns true if the given number is palindrome, else false.
    * For example, 12321 is palindrome, but 1451 is not palindrome.
@@ -141,75 +193,75 @@ class RecursionExamples {
   }
 
   /**
-   * 12.
+   * 3.
    * Problem: Print all possible combinations of r elements in a given array of size n
    * Solution:
    */
 
   /**
-   * 13.
+   * 4.
    * Problem: Print all possible strings of length k that can be formed from a set of n characters
    * Solution:
    */
 
   /**
-   * 14.
+   * 5.
    * Problem: Tail Recursion
    * Solution:
    */
 
 
   /**
-   * 15.
+   * 6.
    * Problem: Print all increasing sequences of length k from first n natural numbers
    * Solution:
    */
 
 
   /**
-   * 16.
+   * 7.
    * Problem: Generate all possible sorted arrays from alternate elements of two given sorted arrays
    * Solution:
    */
 
 
   /**
-   * 17.
+   * 8.
    * Problem: Minimum steps to reach a destination
    * Solution:
    */
 
 
   /**
-   * 18.
+   * 9.
    * Problem: Given a string, print all possible palindromic partitions
    * Solution:
    */
 
 
   /**
-   * .
+   * 10.
    * Problem: Print a pattern without using any loop
    * Solution:
    */
 
 
   /**
-   * .
+   * 11.
    * Problem: Print all non-increasing sequences of sum equal to a given number x
    * Solution:
    */
 
 
   /**
-   * .
+   * 12.
    * Problem: Sort a stack using recursion
    * Solution:
    */
 
 
   /**
-   * .
+   * 13.
    * Problem: Print all n-digit strictly increasing numbers
    * Solution:
    */
@@ -217,7 +269,7 @@ class RecursionExamples {
 
 
   /**
-   * .
+   * 14.
    * Problem: Find all even length binary sequences with same sum of first and second half bits
    * Solution:
    */
@@ -225,14 +277,14 @@ class RecursionExamples {
 
 
   /**
-   * .
+   * 15.
    * Problem: Print all possible expressions that evaluate to a target
    * Solution:
    */
 
 
   /**
-   * .
+   * 16.
    * Problem: Print sums of all subsets of a given set
    * Solution:
    */
@@ -240,7 +292,7 @@ class RecursionExamples {
 
 
   /**
-   * .
+   * 17.
    * Problem: String with additive sequence
    * Solution:
    */
@@ -248,46 +300,39 @@ class RecursionExamples {
 
 
   /**
-   * .
+   * 18.
    * Problem: Print all longest common sub-sequences in lexicographical order
    * Solution:
    */
 
 
   /**
-   * .
+   * 19.
    * Problem: Program for Chocolate and Wrapper Puzzle
    * Solution:
    */
 
-
-
   /**
-   * .
+   * 20.
    * Problem: Recursion
    * Solution:
    */
 
-
-
   /**
-   * .
+   * 21.
    * Problem:  program to implement Collatz Conjecture
    * Solution:
    */
 
-
   /**
-   * .
+   * 22.
    * Problem: Generate all binary strings without consecutive 1’s.
    * Given a integer K. Task is Print All binary string of size K (Given number).
    * Solution:
    */
 
-
-
   /**
-   * .
+   * 23.
    * Problem: Recursive Bubble Sort
    * Solution:
    */
@@ -307,14 +352,31 @@ class RecursionExamples {
     array[y] = temp;
   }
 
-
   /**
-   *
-   * Problem. A number is called as a stepping number if the adjacent digits are having a difference of 1.
+   * 24.
+   * Problem. A number is called as a stepping number if the adjacent digits
+   * are having a difference of 1.
    * For eg. 8,343,545 are stepping numbers. While 890, 098 are not.
    * The difference between a ‘9’ and ‘0’ should not be considered as 1.
    * Solution:
    */
+
+  /**
+   * 25.
+   * Problem: Recaman’s sequence
+   * Solution:
+   */
+
+
+
+
+
+
+
+
+
+
+
 
 
   /**
@@ -525,6 +587,18 @@ class RecursionExamples {
 
 
 
+  int factorial(int num) {
+    if (num == 0) return 1;
+    else return num * factorial(num - 1);
+  }
+
+  /**
+   * Tail recursive
+   */
+  int factTailRecursive(int num, int acc) {
+    if (num == 0) return acc;
+    else return factTailRecursive(num - 1, acc * num);
+  }
 
 
 

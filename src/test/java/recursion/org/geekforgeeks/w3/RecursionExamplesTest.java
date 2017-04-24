@@ -1,8 +1,35 @@
 package recursion.org.geekforgeeks.w3;
 import org.junit.Test;
+
+import java.util.HashSet;
+
 import static org.junit.Assert.*;
 
 public class RecursionExamplesTest {
+  @Test
+  public void isAnagram() throws Exception {
+    HashSet<String> dictionary = new HashSet<>();
+    dictionary.add("one");
+    dictionary.add("there");
+    dictionary.add("here");
+    dictionary.add("icecream");
+    dictionary.add("two");
+
+    assertEquals(true, new RecursionExamples().isAnagram("", "creamice", dictionary));
+    assertEquals(true, new RecursionExamples().isAnagram("", "owt", dictionary));
+
+  }
+
+  @Test
+  public void solveNQueen() throws Exception {
+    int[][] board = new int[4][4];
+    new RecursionExamples().solveNQueen(board, 0);
+    for (int i = 0; i < board.length; i++) {
+      for (int j = 0; j < board[0].length; j++)
+        System.out.print(board[i][j]);
+    System.out.println();
+    }
+  }
 
   @Test
   public void getExponent() throws Exception {
