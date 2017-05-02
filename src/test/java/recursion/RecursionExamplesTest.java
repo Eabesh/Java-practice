@@ -103,6 +103,20 @@ public class RecursionExamplesTest {
   }
 
   @Test
+  public void factorial() throws Exception {
+    assertEquals(1, new RecursionExamples().factorial(0));
+    assertEquals(1, new RecursionExamples().factorial(1));
+    assertEquals(120, new RecursionExamples().factorial(5));
+  }
+
+  @Test
+  public void factTailRecusive() throws Exception {
+    assertEquals(1, new RecursionExamples().factTailRecursive(0, 1));
+    assertEquals(1, new RecursionExamples().factTailRecursive(1,1));
+    assertEquals(120, new RecursionExamples().factTailRecursive(5, 1));
+  }
+
+  @Test
   public void findUniqueWays() throws Exception {
     assertEquals(1, new RecursionExamples().findUniqueWays(10, 2, 1));
     assertEquals(3, new RecursionExamples().findUniqueWays(100, 2, 1));
@@ -169,18 +183,5 @@ public class RecursionExamplesTest {
 
   }
 
-  @Test
-  public void factorial() throws Exception {
-    assertEquals(1, new RecursionExamples().factorial(0));
-    assertEquals(1, new RecursionExamples().factorial(1));
-    assertEquals(120, new RecursionExamples().factorial(5));
-  }
-
-  @Test
-  public void factTailRecusive() throws Exception {
-    assertEquals(1, new RecursionExamples().factTailRecursive(0, 1));
-    assertEquals(1, new RecursionExamples().factTailRecursive(1,1));
-    assertEquals(120, new RecursionExamples().factTailRecursive(5, 1));
-  }
 
 }

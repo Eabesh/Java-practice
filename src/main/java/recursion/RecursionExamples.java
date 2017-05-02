@@ -241,7 +241,7 @@ class RecursionExamples {
    * tail-recursion can be optimized by compiler. The idea used by compilers to optimize
    * tail-recursive functions is simple, since the recursive call is the last statement,
    * there is nothing left to do in the current function, so saving the current function’s
-   * stack frame is of no use
+   * stack frame is of no use.
    */
   int factorial(int num) {
     if (num == 0) return 1;
@@ -251,9 +251,9 @@ class RecursionExamples {
   /**
    * Tail recursive
    */
-  int factTailRecursive(int num, int acc) {
-    if (num == 0) return acc;
-    else return factTailRecursive(num - 1, acc * num);
+  int factTailRecursive(int num, int accumulator) {
+    if (num == 0) return accumulator;
+    else return factTailRecursive(num - 1, accumulator * num);
   }
 
   /**
