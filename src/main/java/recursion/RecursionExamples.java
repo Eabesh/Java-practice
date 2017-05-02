@@ -1,4 +1,6 @@
-package recursion.org.geekforgeeks.w3;
+package recursion;
+
+import utilities.Stack;
 
 import java.util.HashSet;
 
@@ -13,6 +15,7 @@ class RecursionExamples {
     if (exp == 0) return 1;
     else return base * getExponent(base, exp - 1);
   }
+
   /**
    * More efficient.
    */
@@ -28,7 +31,6 @@ class RecursionExamples {
   /**
    * 2.
    * Problem: Given a string, check whether palindrome or not.
-   * Solution:
    */
   boolean isPalindrome(String str) {
     return (str.length() <=1) || str.charAt(0) == str.charAt(str.length() - 1)
@@ -38,7 +40,6 @@ class RecursionExamples {
   /**
    * 3.
    * Problem: BinarySearch
-   * Solution:
    */
   int binarySearch(int[] array, int startIndex, int endIndex, int value) {
     if (startIndex <= endIndex) {
@@ -52,7 +53,6 @@ class RecursionExamples {
   /**
    * 4.
    * Problem: Combination
-   * Solution:
    */
   int combination(int n, int k) {
     if (n == k || k == 0) return 1;
@@ -62,7 +62,6 @@ class RecursionExamples {
   /**
    * 5.
    * Problem: Tower of Hanoi
-   * Solution:
    */
   void towerOfHanoi(int disk, String source, String dest, String temp){
     if (disk > 0) {
@@ -74,14 +73,13 @@ class RecursionExamples {
 
   /**
    * 6.
-   * Problem: Permutation of String
-   * Solution:
+   * Problem: Permutations of a string
    */
-  void printPermutation(String sofar, String remaining) {
-    if (remaining.isEmpty()) System.out.print(sofar);
+  void printPermutations(String sofar, String remaining) {
+    if (remaining.isEmpty()) System.out.println(sofar);
     else {
       for (int i = 0; i < remaining.length(); i++)
-        printPermutation(sofar + remaining.charAt(i),
+        printPermutations(sofar + remaining.charAt(i),
                 remaining.substring(0, i) + remaining.substring(i + 1));
     }
   }
@@ -89,13 +87,12 @@ class RecursionExamples {
   /**
    * 7.
    * Problem: Subset of String.
-   * Solution:
    */
-  void printSubset(String sofar, String remaining) {
-    if (remaining == "") System.out.println(sofar);
+  void printSubsets(String sofar, String remaining) {
+    if (remaining.isEmpty()) System.out.println(sofar);
     else {
-      printSubset(sofar + remaining.charAt(0), remaining.substring(1));
-      printSubset(sofar, remaining.substring(1));
+      printSubsets(sofar + remaining.charAt(0), remaining.substring(1));
+      printSubsets(sofar, remaining.substring(1));
     }
   }
 
@@ -103,9 +100,9 @@ class RecursionExamples {
    * 8.
    * Problem: AnagramFinder
    * Solution: Use backtracking
-   *  boolean solve( configuration conf) {
+   *  boolean solve(configuration conf) {
    *    // BASE CASE
-   *    if ( no more choices )
+   *    if (no more choices)
    *      return (conf is in gaol state);
    *    else {
    *      for (choice : choices) {
@@ -114,7 +111,6 @@ class RecursionExamples {
    *        if (solve(conf with choice c made) return true;
    *        unmake choice c;
    *      }
-   *
    *      return false;  // tried all choices, no solution found.
    *    }
    *  }
@@ -171,21 +167,37 @@ class RecursionExamples {
   }
 
   /**
-   * Geeksforgeeks Problems.
+   * Problems from Geeksforgeeks.
    */
 
   /**
    * 1.
-   * Problem: Reverse a stack using recursion.
-   * Solution:
+   * Problem: Reverse a stack using recursion. Or reverse a stack without using any other data structure or
+   * auxiliary space.
    */
+  void reverseStack(Stack stack) {
+    if(!stack.isEmpty()) {
+      int top = stack.pop();
+      reverseStack(stack);
+      insertAtBottom(stack,top);
+    }
+  }
+
+  private void insertAtBottom(Stack stack, int elem) {
+    if (stack.isEmpty())
+      stack.push(elem);
+    else {
+      int top = stack.pop();
+      insertAtBottom(stack,elem);
+      stack.push(top);
+    }
+  }
 
   /**
    * 2.
    * Problem: Check if a number is Palindrome
    * Given an integer, write a function that returns true if the given number is palindrome, else false.
    * For example, 12321 is palindrome, but 1451 is not palindrome.
-   * Solution:
    */
   boolean isPalindromeNumber(int num, int numCopy, int reverse) {
     if (numCopy == 0) return num == reverse;
@@ -367,22 +379,8 @@ class RecursionExamples {
    * Solution:
    */
 
-
-
-
-
-
-
-
-
-
-
-
-
   /**
    *
-   *  Problem. Reverse a stack without using any other data structure or
-   *  auxiliary space.
    */
 
   /**
@@ -580,34 +578,19 @@ class RecursionExamples {
 
 
   /**
-   *
-   *  Problem.
+   * Problem. Calculate factorial of a number.
    */
-
-
-
-
   int factorial(int num) {
     if (num == 0) return 1;
     else return num * factorial(num - 1);
   }
 
   /**
-   * Tail recursive
+   * Tail recursive version.
    */
-  int factTailRecursive(int num, int acc) {
-    if (num == 0) return acc;
-    else return factTailRecursive(num - 1, acc * num);
+  int factTailRecursive(int num, int accumulator) {
+    if (num == 0) return accumulator;
+    else return factTailRecursive(num - 1, accumulator * num);
   }
-
-
-
-  /**
-   *
-   *  Problem.
-   */
-
-
-
 
 }
