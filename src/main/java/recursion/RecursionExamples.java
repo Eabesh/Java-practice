@@ -211,13 +211,11 @@ class RecursionExamples {
    * For example, if input array is {1, 2, 3, 4} and r is 2, then output should be {1, 2}, {1, 3}, {1, 4}, {2, 3}, {2, 4} and
    * {3,4}.
    */
-  void printCombinationOfArray(int[] array, String soFar, int r, int index) {
-      if (r == 0) System.out.println("{" + soFar + "}");
-      else {
-        for (int i = index; i < array.length; i++) {
-          printCombinationOfArray(array, soFar + array[i] +" ", r - 1, i + 1);
-        }
-      }
+  void printCombinationOfArray(int[] array, String soFar, int r, int beginIndex) {
+    if (r == 0) System.out.println("{" + soFar.substring(0, soFar.length() - 2) + "}");
+    else
+      for (int i = beginIndex; i < array.length; i++)
+        printCombinationOfArray(array, soFar + array[i] + ", ", r - 1, i + 1);
   }
 
   /**
@@ -225,11 +223,11 @@ class RecursionExamples {
    * Problem: Print all possible strings of length k that can be formed from a set of n characters
    * Solution:
    */
-  void printKLengthString(char[] array, int r, String soFar) {
-    if (r == 0) System.out.println(soFar);
+  void printKLengthString(char[] array, int length, String soFar) {
+    if (length == 0) System.out.println(soFar);
     else {
-      for (int i = 0; i < array.length; i++)
-        printKLengthString(array, r - 1, soFar + array[i]);
+        for (char ch : array)
+        printKLengthString(array, length - 1, soFar + ch);
     }
   }
 

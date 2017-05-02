@@ -91,6 +91,18 @@ public class RecursionExamplesTest {
   }
 
   @Test
+  public void printCombinationOfArray() throws Exception {
+    int[] array = {1, 2, 3, 4};
+    new RecursionExamples().printCombinationOfArray(array, "", 2, 0);
+  }
+
+  @Test
+  public void printKLengthString() throws Exception {
+    char[] array = {'a', 'b'};
+    new RecursionExamples().printKLengthString(array, 2, "");
+  }
+
+  @Test
   public void findUniqueWays() throws Exception {
     assertEquals(1, new RecursionExamples().findUniqueWays(10, 2, 1));
     assertEquals(3, new RecursionExamples().findUniqueWays(100, 2, 1));
@@ -111,17 +123,6 @@ public class RecursionExamplesTest {
     for (int i = 0; i < 11; i++) System.out.print(new RecursionExamples().recamanSequence(i) + " ");
   }
 
-  @Test
-  public void printKLengthString() throws Exception {
-    char[] array = {'a', 'b'};
-    new RecursionExamples().printKLengthString(array, 3, "");
-  }
-
-  @Test
-  public void printCombinationOfArray() throws Exception {
-    int[] array = {1, 2, 1};
-    new RecursionExamples().printCombinationOfArray(array, "", 2, 0);
-  }
 
   @Test
   public void recusiveBSort() throws Exception {
