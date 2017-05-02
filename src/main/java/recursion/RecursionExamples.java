@@ -1,5 +1,7 @@
 package recursion;
 
+import utilities.Stack;
+
 import java.util.HashSet;
 
 class RecursionExamples {
@@ -173,6 +175,23 @@ class RecursionExamples {
    * Problem: Reverse a stack using recursion.
    * Solution:
    */
+  void reverseStack(Stack stack) {
+    if(!stack.isEmpty()) {
+      int top = stack.pop();
+      reverseStack(stack);
+      insertAtBottom(stack,top);
+    }
+  }
+
+  private void insertAtBottom(Stack stack, int elem) {
+    if (stack.isEmpty())
+      stack.push(elem);
+    else {
+      int top = stack.pop();
+      insertAtBottom(stack,elem);
+      stack.push(top);
+    }
+  }
 
   /**
    * 2.

@@ -1,5 +1,6 @@
 package recursion;
 import org.junit.Test;
+import utilities.Stack;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -70,6 +71,17 @@ public class RecursionExamplesTest {
       for (int j = 0; j < board[0].length; j++) System.out.print(board[i][j]);
       System.out.println();
     }
+  }
+
+  @Test
+  public void reverseStack() {
+    Stack stack = new Stack();
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    new RecursionExamples().reverseStack(stack);
+    assertEquals(1, stack.pop());
+    assertEquals(2, stack.pop());
   }
 
   @Test
