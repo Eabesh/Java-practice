@@ -1,8 +1,9 @@
 package recursion;
 
 import utilities.Stack;
-
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Set;
 
 class RecursionExamples {
 
@@ -206,36 +207,86 @@ class RecursionExamples {
 
   /**
    * 3.
-   * Problem: Print all possible combinations of r elements in a given array of size n
+   * Problem: Print all possible combinations of r elements in a given array of size n.
+   * For example, if input array is {1, 2, 3, 4} and r is 2, then output should be {1, 2}, {1, 3}, {1, 4}, {2, 3}, {2, 4} and {3, 4}.
    * Solution:
    */
+  void printCombinationOfArray(int[] array, String soFar, int r, int index) {
+      if (r == 0) System.out.println("{" + soFar + "}");
+      else {
+        for (int i = index; i < array.length; i++) {
+          printCombinationOfArray(array, soFar + array[i] +" ", r - 1, i + 1);
+        }
+      }
+  }
 
   /**
    * 4.
    * Problem: Print all possible strings of length k that can be formed from a set of n characters
    * Solution:
    */
+  void printKLengthString(char[] array, int r, String soFar) {
+    if (r == 0) System.out.println(soFar);
+    else {
+      for (int i = 0; i < array.length; i++)
+        printKLengthString(array, r - 1, soFar + array[i]);
+    }
+  }
 
   /**
    * 5.
    * Problem: Tail Recursion
-   * Solution:
+   * Solution: A recursive function is tail recursive when recursive call is the last thing
+   * executed by the function.
+   * Why do we care?
+   * The tail recursive functions considered better than non tail recursive functions as
+   * tail-recursion can be optimized by compiler. The idea used by compilers to optimize
+   * tail-recursive functions is simple, since the recursive call is the last statement,
+   * there is nothing left to do in the current function, so saving the current function’s
+   * stack frame is of no use
    */
-
+  int factorial(int num) {
+    if (num == 0) return 1;
+    else return num * factorial(num - 1);
+  }
+  /**
+   * Tail recursive
+   */
+  int factTailRecursive(int num, int acc) {
+    if (num == 0) return acc;
+    else return factTailRecursive(num - 1, acc * num);
+  }
 
   /**
    * 6.
    * Problem: Print all increasing sequences of length k from first n natural numbers
+   * Input: k = 2, n = 3
+   * Output:
+   * 1 2
+   * 1 3
+   * 2 3
    * Solution:
    */
-
+  void printIncreasingSequence(String soFar, int n, int k, int index) {
+    if (k == 0) System.out.println(soFar);
+    else {
+      for (int i = index; i <= n; i++)
+        printIncreasingSequence(soFar + i + " ", n, k - 1, i + 1);
+    }
+  }
 
   /**
    * 7.
    * Problem: Generate all possible sorted arrays from alternate elements of two given sorted arrays
    * Solution:
    */
-
+//  void printSortedArrays(int[] arrayA, int[] arrayB, String soFar, int indexA, int indexB, int prevValue) {
+//    if (indexA <arrayA.length || indexB < arrayB.length){
+//      for (int i = indexA; i < arrayA.length; i++)
+//        printSortedArrays(arrayA, arrayB, soFar + arrayA[i], i + 1, indexB);
+//    }
+//  }
+//
 
   /**
    * 8.
@@ -278,8 +329,6 @@ class RecursionExamples {
    * Solution:
    */
 
-
-
   /**
    * 14.
    * Problem: Find all even length binary sequences with same sum of first and second half bits
@@ -314,6 +363,8 @@ class RecursionExamples {
   /**
    * 18.
    * Problem: Print all longest common sub-sequences in lexicographical order
+   * You are given two strings.Now you have to print all longest common sub-sequences in
+   * lexicographical order?
    * Solution:
    */
 
@@ -321,6 +372,18 @@ class RecursionExamples {
   /**
    * 19.
    * Problem: Program for Chocolate and Wrapper Puzzle
+   * Given following three values, the task is to find the total number of maximum chocolate
+   * you can eat.
+   * 1. money : Money you have to buy chocolates
+   * 2. price : Price of a chocolate.
+   * 3. wrap : Number of wrappers to be returned for getting one extra chocolate.
+   * Input :   money = 16, price = 2, wrap = 2
+   * Output :   15
+   * Price of a chocolate is 2. You can buy 8 chocolates from
+   * amount 16. You can return 8 wrappers back and get 4 more
+   * chocolates. Then you can return 4 wrappers and get 2 more
+   * chocolates. Finally you can return 2 wrappers to get 1
+   * more chocolate.
    * Solution:
    */
 
@@ -357,7 +420,6 @@ class RecursionExamples {
     recusiveBSort(array, lastIndex - 1);
   }
 
-
   public void swap(int[] array, int x, int y) {
     int temp = array[x];
     array[x] = array[y];
@@ -366,21 +428,89 @@ class RecursionExamples {
 
   /**
    * 24.
+   * Problem: Recursive Insertion Sort
+   * Solution:
+   */
+
+  /**
+   * 25.
+   * Problem: Find ways an Integer can be expressed as sum of exponent-th power of unique natural
+   * numbers.
+   * Given two numbers sum and exponent, find number of ways sum can be expressed as sum of exponent-th power
+   * of unique natural numbers.
+   * Input  : sum = 100, exponent = 2
+   * Output : 3
+   * Explanation: 100 = 10^2
+   * OR 6^2 + 8^2
+   * OR 1^2 + 3^2 + 4^2 + 5^2 + 7^2
+   * Hence total 3 possibilities
+   * Solution:
+   */
+  int findUniqueWays(int sum, int exponent, int start) {
+    if (sum < 0) return 0;
+    else if (sum == 0) return 1;
+    else {
+      int uniqueWays = 0;
+      for (int i = start; i <= Math.sqrt(sum); i++)
+          uniqueWays += findUniqueWays(sum -  (int) Math.pow(i, exponent), exponent, i + 1);
+      return uniqueWays;
+    }
+  }
+
+  /**
+   * 26.
+   * Problem: Recaman’s sequence
+   * Solution: a(n) = {a(n - 1) - n if (a(n - 1) - n > 0 && is new ; else a(n - 1) + n}
+   * a(1) = 1;
+   *
+   */
+  Set<Integer> set = new HashSet<>();
+  int recamanSequence(int n) {
+    if (n < 2) {
+      set.add(n);
+      return n;
+    }
+    else {
+      int prevTerm = recamanSequence(n - 1);
+      if (prevTerm - n > 0 && !set.contains(prevTerm - n)) {
+        set.add(prevTerm - n);
+        return prevTerm - n;
+      }
+      else {
+        set.add(prevTerm + n);
+        return prevTerm + n;
+      }
+    }
+  }
+
+
+  /**
+   *  CareerCup's Problems
+   */
+  /**
+   * 1.
    * Problem. A number is called as a stepping number if the adjacent digits
    * are having a difference of 1.
    * For eg. 8,343,545 are stepping numbers. While 890, 098 are not.
    * The difference between a ‘9’ and ‘0’ should not be considered as 1.
    * Solution:
    */
+  void printSteppingNumber(String soFar, int remaining, ArrayList<Integer> choices) {
+    if (remaining == 0) System.out.println(soFar + " ");
+    else {
+      for (int choice : choices){
+        ArrayList<Integer> newChoices = new ArrayList<>();
+        newChoices.add(choice + 1);
+        newChoices.add(choice - 1);
+        printSteppingNumber(soFar + choice, remaining - 1, newChoices);
+      }
+    }
+  }
 
   /**
-   * 25.
-   * Problem: Recaman’s sequence
-   * Solution:
-   */
-
-  /**
-   *
+   *  2.
+   *  Problem. Reverse a stack without using any other data structure or
+   *  auxiliary space.
    */
 
   /**
@@ -397,10 +527,7 @@ class RecursionExamples {
     else return 2 + bunnyEars2(bunnies - 1);
   }
 
-
-
   /**
-   *
    *  Problem.We have triangle made of blocks. The topmost row has 1 block, the next row down has 2 blocks,
    *  the next row has 3 blocks, and so on. Compute recursively (no loops or multiplication) the total number of blocks
    *  in such a triangle with the given number of rows.
@@ -422,31 +549,21 @@ class RecursionExamples {
    *  sumDigits(49) → 13
    *  sumDigits(12) → 3
    */
-
   int sumDigits(int n) {
     if (n == 0) return 0;
     else return n % 10 + sumDigits(n / 10);
   }
-
-
 
   /**
    *
    *  Problem.Given a non-negative int n, return the count of the occurrences of 7 as a digit,
    *  so for example 717 yields 2. (no loops).
    */
-
   int count7(int n) {
     if (n == 0) return 0;
     else if (n % 10 == 7) return 1 + count7(n / 10);
     else return count7(n /10);
   }
-
-
-
-
-
-
 
   /**
    *
@@ -456,14 +573,11 @@ class RecursionExamples {
    *  countHi("xhixhix") → 2
    *  countHi("hi") → 1
    */
-
   int countHi(String str) {
     if (str.length() < 2) return 0;
     else if ("hi".equals(str.substring(0, 2))) return 1 + countHi(str.substring(2));
     else return countHi(str.substring(1));
   }
-
-
 
   /**
    *
@@ -473,7 +587,6 @@ class RecursionExamples {
    *  changeXY("xxhixx") → "yyhiyy"
    *  changeXY("xhixhix") → "yhiyhiy"
    */
-
   String changeXY(String str) {
     return changeXY("", str);
   }
@@ -482,115 +595,6 @@ class RecursionExamples {
     if (rest.length() < 1) return sofar;
     else if (rest.charAt(0) == 'x') return changeXY(sofar + 'y', rest.substring(1));
     else return changeXY(sofar + rest.charAt(0), rest.substring(1));
-  }
-
-
-  /**
-   *
-   *  Problem.
-   */
-
-
-  /**
-   *
-   *  Problem.
-   */
-
-  /**
-   *
-   *  Problem.
-   */
-
-
-  /**
-   *
-   *  Problem.
-   */
-
-
-
-  /**
-   *
-   *  Problem.
-   */
-
-
-
-
-
-
-
-  /**
-   *
-   *  Problem.
-   */
-
-
-  /**
-   *
-   *  Problem.
-   */
-
-
-
-
-
-
-
-  /**
-   *
-   *  Problem.
-   */
-
-
-
-
-
-  /**
-   *
-   *  Problem.
-   */
-
-
-
-  /**
-   *
-   *  Problem.
-   */
-
-
-  /**
-   *
-   *  Problem.
-   */
-
-  /**
-   *
-   *  Problem.
-   */
-
-
-  /**
-   *
-   *  Problem.
-   */
-
-
-
-  /**
-   * Problem. Calculate factorial of a number.
-   */
-  int factorial(int num) {
-    if (num == 0) return 1;
-    else return num * factorial(num - 1);
-  }
-
-  /**
-   * Tail recursive version.
-   */
-  int factTailRecursive(int num, int accumulator) {
-    if (num == 0) return accumulator;
-    else return factTailRecursive(num - 1, accumulator * num);
   }
 
 }
