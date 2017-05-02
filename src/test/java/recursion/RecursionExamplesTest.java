@@ -110,7 +110,7 @@ public class RecursionExamplesTest {
   }
 
   @Test
-  public void factTailRecusive() throws Exception {
+  public void factTailRecursive() throws Exception {
     assertEquals(1, new RecursionExamples().factTailRecursive(0, 1));
     assertEquals(1, new RecursionExamples().factTailRecursive(1,1));
     assertEquals(120, new RecursionExamples().factTailRecursive(5, 1));
