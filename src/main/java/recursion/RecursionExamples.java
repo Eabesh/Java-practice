@@ -1,4 +1,4 @@
-package recursion.org.geekforgeeks.w3;
+package recursion;
 
 import java.util.HashSet;
 
@@ -13,6 +13,7 @@ class RecursionExamples {
     if (exp == 0) return 1;
     else return base * getExponent(base, exp - 1);
   }
+
   /**
    * More efficient.
    */
@@ -28,7 +29,6 @@ class RecursionExamples {
   /**
    * 2.
    * Problem: Given a string, check whether palindrome or not.
-   * Solution:
    */
   boolean isPalindrome(String str) {
     return (str.length() <=1) || str.charAt(0) == str.charAt(str.length() - 1)
@@ -38,7 +38,6 @@ class RecursionExamples {
   /**
    * 3.
    * Problem: BinarySearch
-   * Solution:
    */
   int binarySearch(int[] array, int startIndex, int endIndex, int value) {
     if (startIndex <= endIndex) {
@@ -52,7 +51,6 @@ class RecursionExamples {
   /**
    * 4.
    * Problem: Combination
-   * Solution:
    */
   int combination(int n, int k) {
     if (n == k || k == 0) return 1;
@@ -62,7 +60,6 @@ class RecursionExamples {
   /**
    * 5.
    * Problem: Tower of Hanoi
-   * Solution:
    */
   void towerOfHanoi(int disk, String source, String dest, String temp){
     if (disk > 0) {
@@ -74,14 +71,13 @@ class RecursionExamples {
 
   /**
    * 6.
-   * Problem: Permutation of String
-   * Solution:
+   * Problem: Permutations of a string
    */
-  void printPermutation(String sofar, String remaining) {
-    if (remaining.isEmpty()) System.out.print(sofar);
+  void printPermutations(String sofar, String remaining) {
+    if (remaining.isEmpty()) System.out.println(sofar);
     else {
       for (int i = 0; i < remaining.length(); i++)
-        printPermutation(sofar + remaining.charAt(i),
+        printPermutations(sofar + remaining.charAt(i),
                 remaining.substring(0, i) + remaining.substring(i + 1));
     }
   }
@@ -89,13 +85,12 @@ class RecursionExamples {
   /**
    * 7.
    * Problem: Subset of String.
-   * Solution:
    */
-  void printSubset(String sofar, String remaining) {
-    if (remaining == "") System.out.println(sofar);
+  void printSubsets(String sofar, String remaining) {
+    if (remaining.isEmpty()) System.out.println(sofar);
     else {
-      printSubset(sofar + remaining.charAt(0), remaining.substring(1));
-      printSubset(sofar, remaining.substring(1));
+      printSubsets(sofar + remaining.charAt(0), remaining.substring(1));
+      printSubsets(sofar, remaining.substring(1));
     }
   }
 
@@ -103,9 +98,9 @@ class RecursionExamples {
    * 8.
    * Problem: AnagramFinder
    * Solution: Use backtracking
-   *  boolean solve( configuration conf) {
+   *  boolean solve(configuration conf) {
    *    // BASE CASE
-   *    if ( no more choices )
+   *    if (no more choices)
    *      return (conf is in gaol state);
    *    else {
    *      for (choice : choices) {
@@ -114,7 +109,6 @@ class RecursionExamples {
    *        if (solve(conf with choice c made) return true;
    *        unmake choice c;
    *      }
-   *
    *      return false;  // tried all choices, no solution found.
    *    }
    *  }
@@ -171,7 +165,7 @@ class RecursionExamples {
   }
 
   /**
-   * Geeksforgeeks Problems.
+   * Problems from Geeksforgeeks.
    */
 
   /**
@@ -366,18 +360,6 @@ class RecursionExamples {
    * Problem: Recaman’s sequence
    * Solution:
    */
-
-
-
-
-
-
-
-
-
-
-
-
 
   /**
    *
