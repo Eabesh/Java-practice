@@ -172,8 +172,8 @@ class RecursionExamples {
 
   /**
    * 1.
-   * Problem: Reverse a stack using recursion.
-   * Solution:
+   * Problem: Reverse a stack using recursion. Or reverse a stack without using any other data structure or
+   * auxiliary space.
    */
   void reverseStack(Stack stack) {
     if(!stack.isEmpty()) {
@@ -198,7 +198,6 @@ class RecursionExamples {
    * Problem: Check if a number is Palindrome
    * Given an integer, write a function that returns true if the given number is palindrome, else false.
    * For example, 12321 is palindrome, but 1451 is not palindrome.
-   * Solution:
    */
   boolean isPalindromeNumber(int num, int numCopy, int reverse) {
     if (numCopy == 0) return num == reverse;
@@ -382,8 +381,6 @@ class RecursionExamples {
 
   /**
    *
-   *  Problem. Reverse a stack without using any other data structure or
-   *  auxiliary space.
    */
 
   /**

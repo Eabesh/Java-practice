@@ -85,6 +85,12 @@ public class RecursionExamplesTest {
   }
 
   @Test
+  public void isPalindromeNumber() throws Exception {
+    assertTrue(new RecursionExamples().isPalindromeNumber(12321,12321, 0));
+    assertFalse(new RecursionExamples().isPalindromeNumber(12322,12322, 0));
+  }
+
+  @Test
   public void factorial() throws Exception {
     assertEquals(1, new RecursionExamples().factorial(0));
     assertEquals(1, new RecursionExamples().factorial(1));
@@ -96,11 +102,6 @@ public class RecursionExamplesTest {
     assertEquals(1, new RecursionExamples().factTailRecursive(0, 1));
     assertEquals(1, new RecursionExamples().factTailRecursive(1,1));
     assertEquals(120, new RecursionExamples().factTailRecursive(5, 1));
-  }
-
-  @Test
-  public void isPalindromeNumber() throws Exception {
-
   }
 
   @Test
