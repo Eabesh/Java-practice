@@ -64,12 +64,6 @@ public class RecursionExamplesTest {
   }
 
   @Test
-  public void isPalindromeNumber() throws Exception {
-    assertTrue(new RecursionExamples().isPalindromeNumber(12321,12321, 0));
-    assertFalse(new RecursionExamples().isPalindromeNumber(12322,12322, 0));
-  }
-
-  @Test
   public void solveNQueen() throws Exception {
     int[][] board = new int[4][4];
     new RecursionExamples().solveNQueen(board, 0);
@@ -88,6 +82,12 @@ public class RecursionExamplesTest {
     stack.push(3);
     new RecursionExamples().reverseStack(stack);
     while (!stack.isEmpty()) System.out.println(stack.pop());
+  }
+
+  @Test
+  public void isPalindromeNumber() throws Exception {
+    assertTrue(new RecursionExamples().isPalindromeNumber(12321,12321, 0));
+    assertFalse(new RecursionExamples().isPalindromeNumber(12322,12322, 0));
   }
 
   @Test
