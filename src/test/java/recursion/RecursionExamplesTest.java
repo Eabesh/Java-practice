@@ -10,61 +10,6 @@ import static org.junit.Assert.*;
 public class RecursionExamplesTest {
 
   @Test
-  public void findUniqueWays() throws Exception {
-    assertEquals(1, new RecursionExamples().findUniqueWays(10, 2, 1));
-    assertEquals(3, new RecursionExamples().findUniqueWays(100, 2, 1));
-  }
-
-  @Test
-  public void printIncreasingSequence() throws Exception {
-    new RecursionExamples().printIncreasingSequence("", 3, 2, 1);
-  }
-
-  @Test
-  public void recamanSequence() throws Exception {
-//   assertEquals(2, new RecursionExamples().recamanSequence(4));
-//    assertEquals(3, new RecursionExamples().recamanSequence(2));
-//    assertEquals(6, new RecursionExamples().recamanSequence(3));
-//    assertEquals(2, new RecursionExamples().recamanSequence(4));
-//    assertEquals(7, new RecursionExamples().recamanSequence(5));
-    for (int i = 0; i < 11; i++) System.out.print(new RecursionExamples().recamanSequence(i) + " ");
-  }
-
-  @Test
-  public void printKLengthString() throws Exception {
-    char[] array = {'a', 'b'};
-    new RecursionExamples().printKLengthString(array, 3, "");
-  }
-
-  @Test
-  public void printCombinationOfArray() throws Exception {
-    int[] array = {1, 2, 1};
-    new RecursionExamples().printCombinationOfArray(array, "", 2, 0);
-  }
-
-  @Test
-  public void reverseStack() throws Exception {
-    Stack stack = new Stack();
-    stack.push(1);
-    stack.push(2);
-    stack.push(3);
-    new RecursionExamples().reverseStack(stack);
-    while (!stack.isEmpty()) System.out.println(stack.pop());
-  }
-
-
-  @Test
-  public void solveNQueen() throws Exception {
-    int[][] board = new int[4][4];
-    new RecursionExamples().solveNQueen(board, 0);
-    for (int i = 0; i < board.length; i++) {
-      for (int j = 0; j < board[0].length; j++)
-        System.out.print(board[i][j]);
-    System.out.println();
-    }
-  }
-
-  @Test
   public void getExponent() throws Exception {
     assertEquals(9, new RecursionExamples().getExponent(3, 2));
   }
@@ -124,7 +69,61 @@ public class RecursionExamplesTest {
     assertFalse(new RecursionExamples().isPalindromeNumber(12322,12322, 0));
   }
 
- @Test
+  @Test
+  public void solveNQueen() throws Exception {
+    int[][] board = new int[4][4];
+    new RecursionExamples().solveNQueen(board, 0);
+    for (int i = 0; i < board.length; i++) {
+      for (int j = 0; j < board[0].length; j++)
+        System.out.print(board[i][j]);
+    System.out.println();
+    }
+  }
+
+  @Test
+  public void reverseStack() throws Exception {
+    Stack stack = new Stack();
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    new RecursionExamples().reverseStack(stack);
+    while (!stack.isEmpty()) System.out.println(stack.pop());
+  }
+
+  @Test
+  public void findUniqueWays() throws Exception {
+    assertEquals(1, new RecursionExamples().findUniqueWays(10, 2, 1));
+    assertEquals(3, new RecursionExamples().findUniqueWays(100, 2, 1));
+  }
+
+  @Test
+  public void printIncreasingSequence() throws Exception {
+    new RecursionExamples().printIncreasingSequence("", 3, 2, 1);
+  }
+
+  @Test
+  public void recamanSequence() throws Exception {
+//   assertEquals(2, new RecursionExamples().recamanSequence(4));
+//    assertEquals(3, new RecursionExamples().recamanSequence(2));
+//    assertEquals(6, new RecursionExamples().recamanSequence(3));
+//    assertEquals(2, new RecursionExamples().recamanSequence(4));
+//    assertEquals(7, new RecursionExamples().recamanSequence(5));
+    for (int i = 0; i < 11; i++) System.out.print(new RecursionExamples().recamanSequence(i) + " ");
+  }
+
+  @Test
+  public void printKLengthString() throws Exception {
+    char[] array = {'a', 'b'};
+    new RecursionExamples().printKLengthString(array, 3, "");
+  }
+
+  @Test
+  public void printCombinationOfArray() throws Exception {
+    int[] array = {1, 2, 1};
+    new RecursionExamples().printCombinationOfArray(array, "", 2, 0);
+  }
+
+  @Test
   public void recusiveBSort() throws Exception {
 
   }
