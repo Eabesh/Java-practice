@@ -578,34 +578,19 @@ class RecursionExamples {
 
 
   /**
-   *
-   *  Problem.
+   * Problem. Calculate factorial of a number.
    */
-
-
-
-
   int factorial(int num) {
     if (num == 0) return 1;
     else return num * factorial(num - 1);
   }
 
   /**
-   * Tail recursive
+   * Tail recursive version.
    */
-  int factTailRecursive(int num, int acc) {
-    if (num == 0) return acc;
-    else return factTailRecursive(num - 1, acc * num);
+  int factTailRecursive(int num, int accumulator) {
+    if (num == 0) return accumulator;
+    else return factTailRecursive(num - 1, accumulator * num);
   }
-
-
-
-  /**
-   *
-   *  Problem.
-   */
-
-
-
 
 }
