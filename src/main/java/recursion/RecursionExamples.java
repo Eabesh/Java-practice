@@ -266,12 +266,11 @@ class RecursionExamples {
    * 2 3
    * Solution:
    */
-  void printIncreasingSequence(String soFar, int n, int k, int index) {
+  void printIncreasingSequence(String soFar, int n, int k, int begin) {
     if (k == 0) System.out.println(soFar);
-    else {
-      for (int i = index; i <= n; i++)
+    else
+      for (int i = begin; i <= n; i++)
         printIncreasingSequence(soFar + i + " ", n, k - 1, i + 1);
-    }
   }
 
   /**

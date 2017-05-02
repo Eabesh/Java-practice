@@ -117,15 +117,16 @@ public class RecursionExamplesTest {
   }
 
   @Test
+  public void printIncreasingSequence() throws Exception {
+    new RecursionExamples().printIncreasingSequence("", 3, 2, 1);
+  }
+
+  @Test
   public void findUniqueWays() throws Exception {
     assertEquals(1, new RecursionExamples().findUniqueWays(10, 2, 1));
     assertEquals(3, new RecursionExamples().findUniqueWays(100, 2, 1));
   }
 
-  @Test
-  public void printIncreasingSequence() throws Exception {
-    new RecursionExamples().printIncreasingSequence("", 3, 2, 1);
-  }
 
   @Test
   public void recamanSequence() throws Exception {
