@@ -130,7 +130,6 @@ class RecursionExamples {
   /**
    * 9.
    * Problem: N Queens Problems
-   * Solution:
    */
   void placeQueen(int[][] board, int row, int column) {
     board[row][column] = 1;
@@ -221,7 +220,6 @@ class RecursionExamples {
   /**
    * 4.
    * Problem: Print all possible strings of length k that can be formed from a set of n characters
-   * Solution:
    */
   void printKLengthString(char[] array, int length, String soFar) {
     if (length == 0) System.out.println(soFar);
@@ -264,7 +262,6 @@ class RecursionExamples {
    * 1 2
    * 1 3
    * 2 3
-   * Solution:
    */
   void printIncreasingSequence(String soFar, int n, int k, int begin) {
     if (k == 0) System.out.println(soFar);
@@ -276,7 +273,6 @@ class RecursionExamples {
   /**
    * 7.
    * Problem: Generate all possible sorted arrays from alternate elements of two given sorted arrays
-   * Solution:
    */
 //  void printSortedArrays(int[] arrayA, int[] arrayB, String soFar, int indexA, int indexB, int prevValue) {
 //    if (indexA <arrayA.length || indexB < arrayB.length){
@@ -289,7 +285,6 @@ class RecursionExamples {
   /**
    * 8.
    * Problem: Minimum steps to reach a destination
-   * Solution:
    */
 
 
