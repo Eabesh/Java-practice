@@ -202,14 +202,14 @@ class RecursionExamples {
    */
   boolean isPalindromeNumber(int num, int numCopy, int reverse) {
     if (numCopy == 0) return num == reverse;
-    return isPalindromeNumber(num, numCopy/10, reverse * 10  + numCopy % 10);
+    return isPalindromeNumber(num, numCopy / 10, reverse * 10  + numCopy % 10);
   }
 
   /**
    * 3.
    * Problem: Print all possible combinations of r elements in a given array of size n.
-   * For example, if input array is {1, 2, 3, 4} and r is 2, then output should be {1, 2}, {1, 3}, {1, 4}, {2, 3}, {2, 4} and {3, 4}.
-   * Solution:
+   * For example, if input array is {1, 2, 3, 4} and r is 2, then output should be {1, 2}, {1, 3}, {1, 4}, {2, 3}, {2, 4} and
+   * {3,4}.
    */
   void printCombinationOfArray(int[] array, String soFar, int r, int index) {
       if (r == 0) System.out.println("{" + soFar + "}");
