@@ -76,11 +76,11 @@ class RecursionExamples {
    * 6.
    * Problem: Permutations of a string
    */
-  void printPermutations(String sofar, String remaining) {
-    if (remaining.isEmpty()) System.out.println(sofar);
+  void printPermutations(String soFar, String remaining) {
+    if (remaining.isEmpty()) System.out.println(soFar);
     else {
       for (int i = 0; i < remaining.length(); i++)
-        printPermutations(sofar + remaining.charAt(i),
+        printPermutations(soFar + remaining.charAt(i),
                 remaining.substring(0, i) + remaining.substring(i + 1));
     }
   }
