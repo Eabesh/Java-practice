@@ -104,7 +104,7 @@ class RecursionExamples {
    *  boolean solve(configuration conf) {
    *    // BASE CASE
    *    if (no more choices)
-   *      return (conf is in gaol state);
+   *      return (conf is in goal state);
    *    else {
    *      for (choice : choices) {
    *        try one choice c;
@@ -340,8 +340,14 @@ class RecursionExamples {
   /**
    * 16.
    * Problem: Print sums of all subsets of a given set
-   * Solution:
    */
+  void printSubsetSum(int sum, int[] set, int beginIndex) {
+    if (beginIndex >= set.length) System.out.println(sum);
+    else {
+      printSubsetSum(sum + set[beginIndex], set, beginIndex + 1);
+      printSubsetSum(sum, set, beginIndex + 1);
+    }
+  }
 
 
 

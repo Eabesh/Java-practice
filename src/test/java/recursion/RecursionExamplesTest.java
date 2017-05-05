@@ -138,6 +138,11 @@ public class RecursionExamplesTest {
     for (int i = 0; i < 11; i++) System.out.print(new RecursionExamples().recamanSequence(i) + " ");
   }
 
+  @Test
+  public void printSubsetSum() throws Exception {
+    int[] set = {1, 2, 3};
+    new RecursionExamples().printSubsetSum(0, set, 0);
+  }
 
   @Test
   public void recusiveBSort() throws Exception {
