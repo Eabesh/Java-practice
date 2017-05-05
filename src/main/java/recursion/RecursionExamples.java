@@ -336,7 +336,6 @@ class RecursionExamples {
    * Solution:
    */
 
-
   /**
    * 16.
    * Problem: Print sums of all subsets of a given set
@@ -348,8 +347,6 @@ class RecursionExamples {
       printSubsetSum(sum, set, beginIndex + 1);
     }
   }
-
-
 
   /**
    * 17.
