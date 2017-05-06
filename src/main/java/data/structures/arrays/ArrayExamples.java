@@ -40,8 +40,14 @@ public class ArrayExamples {
      *
      * Solution: Use XOR operator.
      */
-    int getOddOccurrence(int[] array) {
+    int getOddOccurrenceWithLambda(int[] array) {
         return Arrays.stream(array).reduce(0, (a,b) -> a ^ b);
+    }
+
+    int getOddOccurrence(int[] array) {
+        int accumulator = 0;
+        for (int elem : array) accumulator ^= elem;
+        return accumulator;
     }
 
     /**
