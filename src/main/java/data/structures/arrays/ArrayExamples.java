@@ -56,9 +56,9 @@ public class ArrayExamples {
     int maxSumContigous(int[] array) {
         int currentMax = array[0];
         int maxSumSoFar = array[0];
-        for(int i = 1; i < array.length; i++) {
+        for (int i = 1; i < array.length; i++) {
             currentMax = Math.max(array[i], currentMax + array[i]);
-            maxSumSoFar = Math.max(maxSumSoFar,currentMax);
+            maxSumSoFar = Math.max(maxSumSoFar, currentMax);
         }
         return maxSumSoFar;
     }
