@@ -3,7 +3,6 @@ package data.structures.arrays;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 public class ArrayExamples {
 
@@ -162,15 +161,15 @@ public class ArrayExamples {
    * 13.
    * Problem: Maximum sum such that no two elements are adjacent.
    */
-  int maxSumLinear(int[] array) {
+  int maxSumNonAdjacent(int[] array) {
     int incl = array[0];
     int excl = 0;
     for (int i = 1; i < array.length; i++) {
       int previousIncl = incl;
       incl = excl + array[i];
-      excl = Math.max(previousIncl,excl);
+      excl = Math.max(previousIncl, excl);
     }
-    return Math.max(incl,excl);
+    return Math.max(incl, excl);
   }
 
   /**
