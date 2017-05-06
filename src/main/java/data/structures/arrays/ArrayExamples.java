@@ -23,7 +23,11 @@ public class ArrayExamples {
      * Problem: Majority Element: A majority element in an array A[] of size n is an element that appears more than
      * n/2 times (and hence there is at most one such element).
      *
-     * Solution: Use BST or Moore's voting algorithm.
+     * Solution:
+     * Using BST: Insert elements in BST one by one and if an element is already present then increment the
+     * count of the node. At any stage, if count of a node becomes more than n/2 then return.
+     *
+     * Moore's voting algorithm.
      * 1. Find candidate.
      * 2. Check if this candidate is majority element.
      */
