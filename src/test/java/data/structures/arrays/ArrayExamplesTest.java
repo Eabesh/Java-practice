@@ -8,14 +8,14 @@ import static org.junit.Assert.assertEquals;
 public class ArrayExamplesTest {
 
   @Test
-  public void getOddOccurrence() {
+  public void getOddOccurrence() throws Exception {
     int[] array = {1,2,3,1,2};
     assertEquals(3, new ArrayExamples().getOddOccurrence(array));
     assertEquals(3, new ArrayExamples().getOddOccurrenceWithLambda(array));
   }
 
   @Test
-  public void maxSumContigousTest() {
+  public void maxSumContigous() throws Exception {
     int[] a = {3,2,7,10};
     int[] b = {-3,-22,-7,-10};
     int result = new ArrayExamples().maxSumContigous(a);
@@ -24,21 +24,25 @@ public class ArrayExamplesTest {
   }
 
   @Test
-  public void maxSumContigousLenthTest() {
-    int[] arr= {0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1};
-
-    int result = new SlidingWindowExamples().maxLength(arr, 3);
-    assertEquals(9, result);
-  }
-
-
-  @Test
   public void maxSumNonContigousTest() {
     int[] a = {-3,2,7,10};
     int[] b = {-30,-22,-7,-10};
     int result = new ArrayExamples().maxSumNonContigous(a);
     assertEquals(19,result);
     assertEquals(-7,new ArrayExamples().maxSumNonContigous(b));
+  }
+
+  @Test
+  public void findMissingNumber() throws Exception {
+    int[] list = {1,2,3,5};
+    assertEquals(4, new ArrayExamples().findMissingNumber(list, 5));
+  }
+
+  @Test
+  public void maxSumContigousLenthTest() {
+    int[] arr= {0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1};
+    int result = new SlidingWindowExamples().maxLength(arr, 3);
+    assertEquals(9, result);
   }
 
   @Test

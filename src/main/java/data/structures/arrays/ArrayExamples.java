@@ -3,6 +3,7 @@ package data.structures.arrays;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class ArrayExamples {
 
@@ -90,6 +91,12 @@ public class ArrayExamples {
    *
    * Solution: Use sum formulae or XOR operator.
    */
+  int findMissingNumber(int[] list, int n) {
+    int x1 = Arrays.stream(list).reduce(0, (a, b) -> a ^ b);
+    int x2 = 0;
+    for (int i = 1; i <= n; i++) x2 ^= i;
+    return x1 ^ x2;
+  }
 
   /**
    * 6.
