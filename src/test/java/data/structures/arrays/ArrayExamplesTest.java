@@ -19,8 +19,8 @@ public class ArrayExamplesTest {
     int[] a = {3,2,7,10};
     int[] b = {-3,-22,-7,-10};
     int result = new ArrayExamples().maxSumContigous(a);
-    assertEquals(22,result);
-    assertEquals(-3,new ArrayExamples().maxSumContigous(b));
+    assertEquals(22, result);
+    assertEquals(-3, new ArrayExamples().maxSumContigous(b));
   }
 
   @Test
@@ -29,7 +29,7 @@ public class ArrayExamplesTest {
     int[] b = {-30,-22,-7,-10};
     int result = new ArrayExamples().maxSumNonContigous(a);
     assertEquals(19,result);
-    assertEquals(-7,new ArrayExamples().maxSumNonContigous(b));
+    assertEquals(-7, new ArrayExamples().maxSumNonContigous(b));
   }
 
   @Test
@@ -40,9 +40,9 @@ public class ArrayExamplesTest {
 
   @Test
   public void maxSumContigousLenthTest() {
-    int[] arr= {0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1};
+    int[] arr = {0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1};
     int result = new SlidingWindowExamples().maxLength(arr, 3);
-    assertEquals(9, result);
+    assertEquals(10, result);
   }
 
   @Test

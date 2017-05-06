@@ -38,8 +38,6 @@ public class SlidingWindowExamples {
 
    public int maxLength(int[] array, int k) {
         int windowR = 0, windowL = 0, maxLength = 0, numZeroes = 0;
-
-       //for (int windowR = 0; windowR < array.length; windowR++) {
         while (windowR < array.length) {
            if (numZeroes <= k) {
                 if (windowR < array.length && array[windowR] == 0) numZeroes++;
@@ -51,7 +49,6 @@ public class SlidingWindowExamples {
            }
            maxLength = Math.max(maxLength, windowR - windowL);
        }
-
        return maxLength;
     }
 
