@@ -1,7 +1,5 @@
 package data.structures.arrays.sliding.window;
 
-import algorithms.dynamic.programming.longest.common.subsequence.EditDistance;
-
 import java.util.Arrays;
 
 public class SlidingWindowExamples {
