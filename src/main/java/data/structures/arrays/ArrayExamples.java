@@ -104,7 +104,7 @@ public class ArrayExamples {
    * Solution: Use modified binary search.
    * 1) Find middle point mid = (l + h)/2
    * 2) If key is present at middle point, return mid.
-   * 3) Else If arr[l..mid] is sorted
+   * 3) Else If arr[l..mid-1] is sorted
    *      a) If key to be searched lies in range from arr[l] to arr[mid], recur for arr[l..mid].
    *      b) Else recur for arr[mid+1..r]
    * 4) Else (arr[mid+1..r] must be sorted)
