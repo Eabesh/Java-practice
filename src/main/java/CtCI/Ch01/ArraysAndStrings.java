@@ -10,12 +10,15 @@ public class ArraysAndStrings {
    * What if you cannot use additional data structures?
    */
   boolean hasUniqueCharsWithExtraSpace(String string) {
-    HashSet<Character> chars = new HashSet<Character>();
-    for (char c : string.toCharArray()) {
-      if (chars.contains(c)) return false;
-      else chars.add(c);
+    if (string.length() > 128) return false;
+    else {
+      HashSet<Character> chars = new HashSet<>();
+      for (char c : string.toCharArray()) {
+        if (chars.contains(c)) return false;
+        else chars.add(c);
+      }
+      return true;
     }
-    return true;
   }
 
 }
