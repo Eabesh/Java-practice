@@ -1,5 +1,6 @@
 package CtCI.Ch01;
 
+import java.util.Arrays;
 import java.util.HashSet;
 
 class ArraysAndStrings {
@@ -41,5 +42,14 @@ class ArraysAndStrings {
    * 1.2
    * Problem: Check Permutation: Given two strings, write a method to decide if one is a permutation of the other.
    */
+  boolean checkPermutationUsingSorting(String string1, String string2) {
+    return string1.length() == string2.length() && sort(string1).equals(sort(string2));
+  }
+
+  private String sort(String str) {
+    char[] content = str.toCharArray();
+    Arrays.sort(content);
+    return new String(content);
+  }
 
 }

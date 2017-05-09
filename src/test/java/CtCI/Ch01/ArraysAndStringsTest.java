@@ -18,4 +18,10 @@ public class ArraysAndStringsTest {
     assertFalse(new ArraysAndStrings().hasUniqueChars("abca"));
   }
 
+  @Test
+  public void checkPermutationUsingSorting() throws Exception {
+    assertTrue(new ArraysAndStrings().checkPermutationUsingSorting("abc", "bca"));
+    assertFalse(new ArraysAndStrings().checkPermutationUsingSorting("abc", "aaa"));
+  }
+
 }
