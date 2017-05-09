@@ -2,7 +2,7 @@ package CtCI.Ch01;
 
 import java.util.HashSet;
 
-public class ArraysAndStrings {
+class ArraysAndStrings {
 
   /**
    * 1.1
