@@ -21,4 +21,25 @@ class ArraysAndStrings {
     }
   }
 
+  /**
+   * Assumes only letters a through z.
+   */
+  boolean hasUniqueChars(String string) {
+    if (string.length() > 26) return false;
+    else {
+      int checker = 0;
+      for (char c : string.toCharArray()) {
+        int asciiValue = c - 'a';
+        if ((checker & (1 << asciiValue)) > 0) return false;
+        checker |= (1 << asciiValue);
+      }
+      return true;
+    }
+  }
+
+  /**
+   * 1.2
+   * Problem: Check Permutation: Given two strings, write a method to decide if one is a permutation of the other.
+   */
+
 }

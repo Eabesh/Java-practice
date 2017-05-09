@@ -12,4 +12,10 @@ public class ArraysAndStringsTest {
     assertFalse(new ArraysAndStrings().hasUniqueCharsWithExtraSpace("abca"));
   }
 
+  @Test
+  public void hasUniqueChars() throws Exception {
+    assertTrue(new ArraysAndStrings().hasUniqueChars("abc"));
+    assertFalse(new ArraysAndStrings().hasUniqueChars("abca"));
+  }
+
 }
