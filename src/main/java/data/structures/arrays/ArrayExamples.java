@@ -143,30 +143,26 @@ public class ArrayExamples {
    * Problem: Merge an array of size n into another array of size m+n.
    * There are two sorted arrays. First one is of size m+n containing only m elements. Another one is of size n and
    * contains n elements. Merge these two arrays into the first array of size m+n such that the output is sorted.
-   *
    * Solution: Move all elements together in one pass. Then fill up bigger array using two pointers.
    */
 
   /**
-   * 8.
+   * 10.
    * Problem: Median of two sorted arrays.
-   *
    * Solution: Either merge two arrays which will take O(m + n) or use divide and conquer by getting
    * medians of each array and comparing till they are equal. O(logn).
    */
 
   /**
-   * 9.
+   * 11.
    * Problem: Write a program to reverse an array or string
-   *
    * Solution: Either use two pointer and swap iteratively or use stack frame in recursion to store
    * elements and reverse the array in place.
    */
 
   /**
-   * 10.
+   * 12.
    * Problem: Program for array rotation.
-   *
    * Solution: Use temp array or reversal algorithm.
    */
 
