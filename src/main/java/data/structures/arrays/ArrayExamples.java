@@ -143,7 +143,8 @@ public class ArrayExamples {
    * Problem: Merge an array of size n into another array of size m+n.
    * There are two sorted arrays. First one is of size m+n containing only m elements. Another one is of size n and
    * contains n elements. Merge these two arrays into the first array of size m+n such that the output is sorted.
-   * Solution: Move all elements together in one pass. Then fill up bigger array using two pointers.
+   * Solution: Move all elements together in one pass. Then fill up bigger array using two pointers starting from right
+   * and moving to left.
    */
 
   /**
