@@ -8,6 +8,18 @@ public class ArrayExamples {
 
   /**
    * 1.
+   * Problem: Search, insert and delete in an unsorted array.
+   * Solution: Linear search: O(n) Insert: O(1) Delete: O(n)
+   */
+
+  /**
+   * 2.
+   * Problem: Search, insert and delete in a sorted array.
+   * Solution: Binary search: log(n) Insert: O(n) Delete: O(n)
+   */
+
+  /**
+   * 3.
    * Problem: Given an array A[] and a number x, check for pair in A[] with sum as x.
    *
    * Solution: Use sorting and use left and right pointers. Or
@@ -19,7 +31,7 @@ public class ArrayExamples {
    */
 
   /**
-   * 2.
+   * 4.
    * Problem: Majority Element: A majority element in an array A[] of size n is an element that appears more than
    * n/2 times (and hence there is at most one such element).
    *
@@ -33,7 +45,7 @@ public class ArrayExamples {
    */
 
   /**
-   * 3.
+   * 5.
    * Problem: Find the Number Occurring Odd Number of Times.
    * Given an array of positive integers. All numbers occur even number of times except one number which occurs odd
    * number of times. Find the number in O(n) time & constant space.
@@ -51,7 +63,8 @@ public class ArrayExamples {
   }
 
   /**
-   * 4. Maximum sum of contigous subarray for a non-empty array.
+   * 6.
+   * Problem: Maximum sum of contigous subarray for a non-empty array.
    */
   int maxSumContigous(int[] array) {
     int currentMax = array[0];
@@ -82,7 +95,7 @@ public class ArrayExamples {
   }
 
   /**
-   * 5.
+   * 7.
    * Problem: Find the Missing Number.
    * You are given a list of n-1 integers and these integers are in the range of 1 to n. There are no duplicates
    * in list. One of the integers is missing in the list.
@@ -98,7 +111,7 @@ public class ArrayExamples {
   }
 
   /**
-   * 6.
+   * 8.
    * Problem: Search an element in a sorted and rotated array.
    *
    * Solution: Use modified binary search.
@@ -114,7 +127,7 @@ public class ArrayExamples {
    */
 
   /**
-   * 7.
+   * 9.
    * Problem: Merge an array of size n into another array of size m+n.
    * There are two sorted arrays. First one is of size m+n containing only m elements. Another one is of size n and
    * contains n elements. Merge these two arrays into the first array of size m+n such that the output is sorted.

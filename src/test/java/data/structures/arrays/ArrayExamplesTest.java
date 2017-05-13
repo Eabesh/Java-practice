@@ -36,6 +36,8 @@ public class ArrayExamplesTest {
   public void findMissingNumber() throws Exception {
     int[] list = {1,2,3,5};
     assertEquals(4, new ArrayExamples().findMissingNumber(list, 5));
+    int[] list2 = {1,2,3,5,6};
+    assertEquals(4, new ArrayExamples().findMissingNumber(list2, 6));
   }
 
   @Test
