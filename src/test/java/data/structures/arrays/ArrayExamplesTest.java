@@ -41,6 +41,15 @@ public class ArrayExamplesTest {
   }
 
   @Test
+  public void binarySearchRotated() throws Exception {
+    int[] array = {5,6,1,2,3,4};
+    assertEquals(0, new ArrayExamples().binarySearchRotated(array,5, 0, array.length - 1));
+    assertEquals(1, new ArrayExamples().binarySearchRotated(array,6, 0, array.length - 1));
+    assertEquals(2, new ArrayExamples().binarySearchRotated(array,1, 0, array.length - 1));
+    assertEquals(3, new ArrayExamples().binarySearchRotated(array,2, 0, array.length - 1));
+  }
+
+  @Test
   public void maxSumContigousLenthTest() {
     int[] arr = {0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1};
     int result = new SlidingWindowExamples().maxLength(arr, 3);

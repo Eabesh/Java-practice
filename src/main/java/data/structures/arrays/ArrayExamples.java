@@ -21,7 +21,6 @@ public class ArrayExamples {
   /**
    * 3.
    * Problem: Given an array A[] and a number x, check for pair in A[] with sum as x.
-   *
    * Solution: Use sorting and use left and right pointers. Or
    * Use hash map :
    * 1) Initialize Binary Hash Map M[] = {0, 0, ...}
@@ -34,11 +33,9 @@ public class ArrayExamples {
    * 4.
    * Problem: Majority Element: A majority element in an array A[] of size n is an element that appears more than
    * n/2 times (and hence there is at most one such element).
-   *
    * Solution:
    * Using BST: Insert elements in BST one by one and if an element is already present then increment the
    * count of the node. At any stage, if count of a node becomes more than n/2 then return.
-   *
    * Moore's voting algorithm.
    * 1. Find candidate.
    * 2. Check if this candidate is majority element.
@@ -49,7 +46,6 @@ public class ArrayExamples {
    * Problem: Find the Number Occurring Odd Number of Times.
    * Given an array of positive integers. All numbers occur even number of times except one number which occurs odd
    * number of times. Find the number in O(n) time & constant space.
-   *
    * Solution: Use XOR operator.
    */
   int getOddOccurrenceWithLambda(int[] array) {
@@ -100,7 +96,6 @@ public class ArrayExamples {
    * You are given a list of n-1 integers and these integers are in the range of 1 to n. There are no duplicates
    * in list. One of the integers is missing in the list.
    * Write an efficient code to find the missing integer.
-   *
    * Solution: Use sum formulae or XOR operator.
    */
   int findMissingNumber(int[] list, int n) {
@@ -125,6 +120,23 @@ public class ArrayExamples {
    *          to arr[r], recur for arr[mid+1..r].
    *      b) Else recur for arr[l..mid]
    */
+  int binarySearchRotated(int[] array, int key, int beginIndex, int endIndex) {
+    if (beginIndex <= endIndex) {
+      int mid = beginIndex + (endIndex - beginIndex) / 2;
+      if (array[mid] == key) return mid;
+      else {
+        if (array[beginIndex] < array[mid]) {
+          if (key < array[mid] && key >= array[beginIndex]) return binarySearchRotated(array, key, beginIndex, mid - 1);
+          else return binarySearchRotated(array, key, mid + 1, endIndex);
+        }
+        else {
+          if (key > array[mid] && key <= array[endIndex]) return binarySearchRotated(array, key, mid + 1, endIndex);
+          else return binarySearchRotated(array, key, beginIndex, mid - 1);
+        }
+      }
+    }
+    return -1;
+  }
 
   /**
    * 9.
