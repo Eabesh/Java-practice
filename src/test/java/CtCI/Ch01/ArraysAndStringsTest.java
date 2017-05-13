@@ -28,7 +28,7 @@ public class ArraysAndStringsTest {
   @Test
   public void checkPermutationUsingHashing() throws Exception {
     assertTrue(new ArraysAndStrings().checkPermutationUsingHashing("abc", "bca"));
-    assertTrue(new ArraysAndStrings().checkPermutationUsingSorting("ab", "ba"));
+    assertTrue(new ArraysAndStrings().checkPermutationUsingHashing("ab", "ba"));
     assertFalse(new ArraysAndStrings().checkPermutationUsingHashing("abc", "aaa"));
   }
 
