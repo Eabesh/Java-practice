@@ -50,6 +50,22 @@ public class ArrayExamplesTest {
   }
 
   @Test
+  public void reverseArray() throws Exception {
+    int[] array = {5,6,1,2,3,4};
+    new ArrayExamples().reverseArray(array, 0);
+    assertEquals(4, array[0]);
+    assertEquals(5, array[5]);
+  }
+
+
+  @Test
+  public void maxSumNonAdjacent() throws Exception {
+    int[] array = {5,4,1,3};
+    assertEquals(8, new ArrayExamples().maxSumNonAdjacent(array));
+  }
+
+
+  @Test
   public void maxSumContigousLenthTest() {
     int[] arr = {0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1};
     int result = new SlidingWindowExamples().maxLength(arr, 3);

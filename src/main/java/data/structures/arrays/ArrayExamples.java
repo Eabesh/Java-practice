@@ -160,6 +160,13 @@ public class ArrayExamples {
    * Solution: Either use two pointer and swap iteratively or use stack frame in recursion to store
    * elements and reverse the array in place.
    */
+  void reverseArray(int[] array, int index) {
+    if (index < array.length) {
+      int element = array[index];
+      reverseArray(array, index + 1);
+      array[array.length - 1 - index] = element;
+    }
+  }
 
   /**
    * 12.
@@ -168,19 +175,18 @@ public class ArrayExamples {
    */
 
   /**
-   * 11.
+   * 13.
    * Problem: Program for array rotation using reversal algo.
    */
 
   /**
-   * 12.
+   * 14.
    * Problem: Block swap algo for rotation.
-   *
    * Solution:
    */
 
   /**
-   * 13.
+   * 15.
    * Problem: Maximum sum such that no two elements are adjacent.
    */
   int maxSumNonAdjacent(int[] array) {
@@ -195,11 +201,10 @@ public class ArrayExamples {
   }
 
   /**
-   * 14.
+   * 16.
    * Problem: Leaders in an array.
    * An element is leader if it is greater than all the elements to its right side. And the rightmost element is
    * always a leader.
-   *
    * Solution: Scan from right to left and find the leaders.
    */
 
