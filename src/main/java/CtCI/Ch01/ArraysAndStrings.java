@@ -52,4 +52,14 @@ class ArraysAndStrings {
     return new String(content);
   }
 
+  boolean checkPermutationUsingHashing(String string1, String string2) {
+    int[] hash = new int[128];
+    for (char c : string1.toCharArray()) hash[c]++;
+    for (char c : string2.toCharArray()) {
+      hash[c]--;
+      if (hash[c] < 0) return false;
+    }
+    return true;
+  }
+
 }

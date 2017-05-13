@@ -21,7 +21,15 @@ public class ArraysAndStringsTest {
   @Test
   public void checkPermutationUsingSorting() throws Exception {
     assertTrue(new ArraysAndStrings().checkPermutationUsingSorting("abc", "bca"));
+    assertTrue(new ArraysAndStrings().checkPermutationUsingSorting("ab", "ba"));
     assertFalse(new ArraysAndStrings().checkPermutationUsingSorting("abc", "aaa"));
+  }
+
+  @Test
+  public void checkPermutationUsingHashing() throws Exception {
+    assertTrue(new ArraysAndStrings().checkPermutationUsingHashing("abc", "bca"));
+    assertTrue(new ArraysAndStrings().checkPermutationUsingSorting("ab", "ba"));
+    assertFalse(new ArraysAndStrings().checkPermutationUsingHashing("abc", "aaa"));
   }
 
 }
