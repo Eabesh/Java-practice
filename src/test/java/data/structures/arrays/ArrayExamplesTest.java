@@ -52,11 +52,18 @@ public class ArrayExamplesTest {
   @Test
   public void reverseArray() throws Exception {
     int[] array = {5,6,1,2,3,4};
-    new ArrayExamples().reverseArray(array, 0);
+    new ArrayExamples().reverseArray(array, 0,array.length - 1);
     assertEquals(4, array[0]);
     assertEquals(5, array[5]);
   }
 
+  @Test
+  public void rotateArray() throws Exception {
+    int[] array = {1,2,3,4,5};
+    new ArrayExamples().rotateArray(array, 2);
+    assertEquals(4, array[0]);
+    assertEquals(5, array[1]);
+  }
 
   @Test
   public void maxSumNonAdjacent() throws Exception {

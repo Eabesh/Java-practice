@@ -160,11 +160,15 @@ public class ArrayExamples {
    * Solution: Either use two pointer and swap iteratively or use stack frame in recursion to store
    * elements and reverse the array in place.
    */
-  void reverseArray(int[] array, int index) {
-    if (index < array.length) {
-      int element = array[index];
-      reverseArray(array, index + 1);
-      array[array.length - 1 - index] = element;
+  void reverseArray(int[] array, int startIndex, int endIndex) {
+    reverse(array, startIndex, 0, endIndex);
+  }
+
+  private void reverse(int[] array, int startIndex, int current, int endIndex) {
+    if (startIndex + current <= endIndex) {
+      int element = array[startIndex + current];
+      reverse(array, startIndex, current + 1, endIndex);
+      array[endIndex - current] = element;
     }
   }
 
@@ -177,12 +181,17 @@ public class ArrayExamples {
   /**
    * 13.
    * Problem: Program for array rotation using reversal algo.
+   * Solution: Let AB are the two parts of the input array. Reverse A and B. Reverse all to get BA.
    */
+  void rotateArray(int[] array, int pivot) {
+    reverseArray(array,0, pivot);
+    reverseArray(array,pivot + 1, array.length - 1);
+    reverseArray(array, 0, array.length - 1);
+  }
 
   /**
    * 14.
    * Problem: Block swap algo for rotation.
-   * Solution:
    */
 
   /**
@@ -205,14 +214,14 @@ public class ArrayExamples {
    * Problem: Leaders in an array.
    * An element is leader if it is greater than all the elements to its right side. And the rightmost element is
    * always a leader.
-   * Solution: Scan from right to left and find the leaders.
+   * Solution: Scan all the elements from right to left in array and keep track of maximum till now. When maximum
+   * changes it’s value, print it as it is a leader.
    */
 
   /**
-   * 15.
+   * 17.
    * Problem: Sort elements by frequency.
-   *
-   * Solution: Use hash map and then sort by frequency. Or use heap.
+   * Solution: Use hash map and then sort by frequency. Or use modified BST with count field.
    */
 
   /**
@@ -221,7 +230,6 @@ public class ArrayExamples {
    * Inversion Count for an array indicates – how far (or close) the array is from being sorted. If array is already
    * sorted then inversion count is 0. If array is sorted in reverse order that inversion count is the maximum.
    * Formally speaking, two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j.
-   *
    * Solution: Use BST. Count of left children gives number of inversions of that element.
    */
 
