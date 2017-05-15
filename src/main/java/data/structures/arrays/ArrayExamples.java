@@ -331,115 +331,33 @@ public class ArrayExamples {
    */
 
   /**
-   *
-   * Problem:
-   *
-   * Solution:
-   */
-
-  /**
-   *
-   * Problem:
-   *
-   * Solution:
-   */
-
-  /**
-   *
-   * Problem:
-   *
-   * Solution:
-   */
-
-  /**
-   *
-   * Problem:
-   *
-   * Solution:
-   */
-
-  /**
-   *
-   * Problem:
-   *
-   * Solution:
-   */
-
-  /**
-   *
-   * Problem:
-   *
-   * Solution:
-   */
-
-  /**
-   *
-   * Problem:
-   *
-   * Solution:
-   */
-
-  /**
-   *
-   * Problem:
-   *
-   * Solution:
-   */
-
-  /**
-   *
-   * Problem:
-   *
-   * Solution:
-   */
-
-  /**
-   *
-   * Problem:
-   *
-   * Solution:
-   */
-
-
-
-  /**
-   *
-   * Problem:
-   *
-   * Solution:
-   */
-
-  /**
-   * 47.
+   * 49.
    * Problem: Find a Fixed Point in a given array.
    * Given an array of n distinct integers sorted in ascending order, write a function that returns a Fixed Point
    * in the array, if there is any Fixed Point present in array, else returns -1. Fixed Point in an array is an
    * index i such that arr[i] is equal to i. Note that integers in array can be negative.
-   *
    * Solution: Use binary search.
    */
 
   /**
-   * 50.
+   * 52.
    * Problem: Count smaller elements on right side.
    * Write a function to count number of smaller elements on right of each element in an array. Given an unsorted
    * array arr[] of distinct integers, construct another array countSmaller[] such that countSmaller[i] contains
    * count of smaller elements on right side of each element arr[i] in array.
-   *
    * Solution: Use self balancing BST.
    */
 
   /**
-   * 53. Find sub array with given sum
+   * 55. Find sub array with given sum
    */
 
   /**
-   * 59.
+   * 61.
    * Problem: The Celebrity Problem.
    * In a party of N people, only one person is known to everyone. Such a person may be present in the party,
    * if yes, (s)he doesn’t know anyone in the party. We can only ask questions like “does A know B? “.
    * Find the stranger (celebrity) in minimum number of questions.
-   *
    * Solution: The idea is to use two pointers, one from start and one from the end. Assume the start person is A,
    * and the end person is B. If A knows B, then A must not be the celebrity. Else, B must not be the celebrity.
    * We will find a celebrity candidate at the end of the loop. Go through each person again and check whether
@@ -462,11 +380,10 @@ public class ArrayExamples {
   private boolean knows(int[][] m, int a, int b) { return m[a][b] == 1 ;}
 
   /**
-   * 61.
+   * 63.
    * Problem: Find a sorted subsequence of size 3 in linear time.
    * Given an array of n integers, find the 3 elements such that a[i] < a[j] < a[k] and i < j < k in 0(n) time.
    * If there are multiple such triplets, then print any one of them.
-   *
    * Solution:
    * 1) Create an auxiliary array smaller[0..n-1]. smaller[i] should store the index of a number which is smaller
    * than arr[i] and is on left side of arr[i]. smaller[i] should contain -1 if there is no such element.
@@ -504,14 +421,12 @@ public class ArrayExamples {
   }
 
   /**
-   * 63.
+   * 65.
    * Problem: Partition problem.
    * Partition problem is to determine whether a given set can be partitioned into two subsets such that the sum of
    * elements in both subsets is same.
-   *
    * Solution:
    * Method 1: Recursive solution with Time Complexity as O(2^n).
-   *
    * Method 2: Dynamic Programming Solution.
    * The problem can be solved using dynamic programming when the sum of the elements is not too big. We can
    * create a 2D array part[][] of size (sum/2)*(n+1). And we can construct the solution in bottom up manner such
@@ -540,11 +455,10 @@ public class ArrayExamples {
   private boolean isOdd(int n) { return n % 2 != 0;}
 
   /**
-   * 64.
+   * 66.
    * Problem: Maximum Product Subarray.
    * Given an array that contains both positive and negative integers, find the product of the maximum product
    * subarray. Expected Time complexity is O(n) and only O(1) extra space can be used.
-   *
    * Solution: This is similar to maximum subarray. Unlike sum, the sign of number affect the product value.
    * When iterating the array, each element has two possibilities: positive number or negative number. We need to
    * track a minimum value, so that when a negative number is given, it can also find the maximum value. We define
@@ -569,10 +483,9 @@ public class ArrayExamples {
   }
 
   /**
-   * 71.
+   * 73.
    * Problem: Maximum circular subarray sum
    * Given n numbers (both +ve and -ve), arranged in a circle, fnd the maximum sum of consecutive number.
-   *
    * Solution: Wrapping of contributing elements implies non wrapping of non contributing elements, so find out the
    * sum of non contributing elements and subtract this sum from the total sum. To find out the sum of non
    * contributing, invert sign of each element and then run Kadane’s algorithm.
@@ -581,7 +494,6 @@ public class ArrayExamples {
    * 2. contigious sum with ring. (remove chains of negative numbers : total sum - (-invert number and find sum)
    * return Marx(1, 2)
    */
-
   int maxSumCircularSubarray(int[] arr) {
     int totalSum = 0, withoutCircleSum = 0, circularSum = 0;
     withoutCircleSum = maxSumContigous(arr);
@@ -594,22 +506,20 @@ public class ArrayExamples {
   }
 
   /**
-   * 83.
+   * 85.
    * Problem: Tug of War
    * Given a set of n integers, divide the set in two subsets of n/2 sizes each such that the difference of the sum of
    * two subsets is as minimum as possible. If n is even, then sizes of two subsets must be strictly n/2 and if n is
    * odd, then size of one subset must be (n-1)/2 and size of other subset must be (n+1)/2.
-   *
    * Solution: Try every possible subset of half size. If one subset of half size is formed, the remaining elements
    * form the other subset. We check whether this solutions is better than the best solution available so far.
    * If it is, then we update the best solution.
    */
 
   /**
-   * 96.
+   * 98.
    * Problem: Find the minimum element in a sorted and rotated array
    * A sorted array is rotated at some unknown point, find the minimum element in it.
-   *
    * Solution: Use modified Binary Search.
    * Search for the element with greater prev element and next element if they are present.
    */
@@ -630,12 +540,11 @@ public class ArrayExamples {
   }
 
   /**
-   * 97.
+   * 99.
    * Problem: Stable Marriage Problem.
    * Given N men and N women, where each person has ranked all members of the opposite sex in order of preference,
    * marry the men and women together such that there are no two people of opposite sex who would both rather have
    * each other than their current partners. If there are no such people, all the marriages are “stable”.
-   *
    * Solution: Gale–Shapley algorithm.
    * Initialize all men and women to free
    * while there exist a free man m who still has a woman w to propose to
@@ -652,10 +561,8 @@ public class ArrayExamples {
    * }
    */
 
-
-
   /**
-   * 100.
+   * 102.
    * Problem: Move all zeroes to end of array.
    * Given an array of random numbers, Push all the zero’s of a given array to the end of the array.
    * For example, if the given arrays is {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0}, it should be changed to
@@ -666,13 +573,12 @@ public class ArrayExamples {
    */
 
   /**
-   * 119.
+   * 121.
    * Problem: Find the smallest positive integer value that cannot be represented as sum of any subset of a
    * given array.
    * Given a sorted array (sorted in non-decreasing order) of positive numbers, find the smallest positive integer
    * value that cannot be represented as sum of elements of any subset of given set.
    * Expected time complexity is O(n).
-   *
    * Solution:
    * 1. Initialize result = 1 (smallest possible outcome).
    * 2. if ( arr[i] > result) found gap and res is the answer.
@@ -685,9 +591,8 @@ public class ArrayExamples {
   }
 
   /**
-   * 121.
+   * 123.
    * Problem: Find position of an element in a sorted array of infinite numbers.
-   *
    * Solution: Use modified binary search.
    * Let low be pointing to 1st element and high pointing to 2nd element of array. Now compare key with high
    * index element:
@@ -696,7 +601,7 @@ public class ArrayExamples {
    */
 
   /**
-   * 123.
+   * 125.
    * Problem: Check if a given array contains duplicate elements within k distance from each other.
    * Given an unsorted array that may contain duplicates. Also given a number k which is smaller than size of array.
    */
@@ -713,17 +618,15 @@ public class ArrayExamples {
     }
   }
 
-
   /**
    * 129. Online algorithm for checking palindrome in a stream
    */
 
   /**
-   * 130.
+   * 132.
    * Problem: Pythagorean Triplet in an array.
    * Given an array of integers, write a function that returns true if there is a triplet (a, b, c) that satisfies
    * a2 + b2 = c2.
-   *
    * Solution:
    * 1) Do square of every element in input array. This step takes O(n) time.
    * 2) Sort the squared array in increasing order. This step takes O(nLogn) time.
@@ -732,7 +635,7 @@ public class ArrayExamples {
    */
 
   /**
-   * 137. Convert array into Zig-Zag fashion.
+   * 139. Convert array into Zig-Zag fashion.
    * Given an array of distinct elements, rearrange the elements of array in zig-zag fashion in O(n) time.
    * The converted array should be in form a < b > c < d > e < f.
    *
@@ -744,42 +647,38 @@ public class ArrayExamples {
    * Problem: Count triplets with sum smaller than a given value.
    * Given an array of distinct integers and a sum value. Find count of triplets with sum smaller than given sum value.
    * Expected Time Complexity is O(n^2).
-   *
    * Solution: Sort and then use duplet algo.
    */
 
   /**
-   * 145. Longest Span with same Sum in two Binary arrays.
-   */
-
-  /**
-   * 146.
-   * Problem: Merge two sorted arrays with O(1) extra space.
-   * We are given two sorted array. We need to merge these two arrays such that the initial numbers
-   * (after complete sorting) are in the first array and the remaining numbers are in the second array.
-   * Extra space allowed in O(1).
-   *
-   * Solution: Assume two arrays to be continous single array and use insertion sort logic.
-   */
-
-  /**
-   * 147. Form minimum number from given sequence.
+   * 147. Longest Span with same Sum in two Binary arrays.
    */
 
   /**
    * 148.
+   * Problem: Merge two sorted arrays with O(1) extra space.
+   * We are given two sorted array. We need to merge these two arrays such that the initial numbers
+   * (after complete sorting) are in the first array and the remaining numbers are in the second array.
+   * Extra space allowed in O(1).
+   * Solution: Assume two arrays to be continous single array and use insertion sort logic.
+   */
+
+  /**
+   * 149. Form minimum number from given sequence.
+   */
+
+  /**
+   * 150.
    * Problem: Subarray/Substring vs Subsequence and Programs to Generate them.
-   *
    * Solution: In general, for an array/string of size n, there are n*(n+1)/2 non-empty subarrays/subsrings. We can
    * generate all by sliding window algo.
-   *
    * More generally, we can say that for a sequence of size n, we can have (2n-1) non-empty sub-sequences in total.
    * Every subarray is a subsequence. More specifically, Subsequence is a generalization of substring.
    * Subsequences are in fact subsets except for empty set.
    */
 
   /**
-   * 149.
+   * 151.
    * Problem: Count Strictly Increasing Subarrays.
    * Given an array of integers, count number of subarrays (of size more than one) that are strictly increasing.
    */
@@ -798,11 +697,10 @@ public class ArrayExamples {
   }
 
   /**
-   * 150.
+   * 152.
    * Problem: Rearrange an array in maximum minimum form.
    * Given a sorted array of positive integers, rearrange the array alternately i.e first element should be maximum
    * value, second minimum value, third second max, fourth second min and so on.
-   *
    * Solution: With extra space it can be easily done using two pointers. For in place, use below :
    * Output index j for an element arr[i]
    * If (i < n/2) j = 2*i + 1
@@ -812,45 +710,40 @@ public class ArrayExamples {
    */
 
   /**
-   * 151.
+   * 153.
    * Problem: Find minimum difference between any two elements.
    * Given an unsorted array, find the minimum difference between any pair in given array.
-   *
    * Solution: Sort and then compare adjacent elements.
-   *
    * Time Complexity: O(n.log(n))
    */
 
   /**
-   * 152.
+   * 154.
    * Problem: Find lost element from a duplicated array.
    * Given two arrays which are duplicates of each other except one element, that is one element
    * from one of the array is missing, we need to find that missing element.
-   *
    * Solution: If elements are sorted, use modified binary search starting with bigger array.
    * Otherwise, use XOR operator.
    */
 
   /**
-   * 153.
+   * 155.
    * Problem: Count pairs with given sum.
-   *
    * Solution: Use hash set. Result will be count/2.
    */
 
   /**
-   * 154.
+   * 156.
    * Problem: Count minimum steps to get the given desired array.
    * Consider an array with n elements and value of all the elements is zero.
    * We can perform following operations on the array.
    * 1. Incremental operations:Choose 1 element from the array and increment its value by 1.
    * 2. Doubling operation: Double the values of all the elements of array.
-   *
    * Solution: The idea is to follow reverse steps, i.e. to convert target to array of zeros.
    */
 
   /**
-   * 155.
+   * 157.
    * Problem: Find minimum number of merge operations to make an array palindrome.
    * Given an array of positive integers. We need to make the given array a ‘Palindrome’.
    * Only allowed operation on array is merge. Merging two adjacent elements means replacing them with their sum.
@@ -870,7 +763,7 @@ public class ArrayExamples {
   }
 
   /**
-   * 156.
+   * 158.
    * Problem: Minimize the maximum difference between the heights.
    * Given heights of n towers and a value k. We need to either increase or decrease height of every tower by k
    * (only once) where k > 0. The task is to minimize the difference between the heights of the longest and the
