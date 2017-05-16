@@ -225,7 +225,7 @@ public class ArrayExamples {
    */
 
   /**
-   * 16.
+   * 18.
    * Problem: Count Inversions in an array.
    * Inversion Count for an array indicates – how far (or close) the array is from being sorted. If array is already
    * sorted then inversion count is 0. If array is sorted in reverse order that inversion count is the maximum.
@@ -234,40 +234,36 @@ public class ArrayExamples {
    */
 
   /**
-   * 17.
+   * 19.
    * Problem: Two elements whose sum is closest to zero.
    * An Array of integers is given, both +ve and -ve. You need to find the two elements such that their sum is
    * closest to zero.
-   *
    * Solution: Sort the elements. Use left and right pointer. Add them and if sum < 0, l++ else r--.
    */
 
   /**
-   * 18.
+   * 20.
    * Problem: Find the smallest and second smallest element in an array.
-   *
    * Solution:
    * 1) Initialize both first and second smallest as INT_MAX first = second = INT_MAX.
    * 2) Loop through all the elements.
    *      a) If the current element is smaller than first, then update first and second.
    *      b) Else if the current element is smaller than second then update second.
-   *
    * Or use heap which will take O(k.logn).
    */
 
   /**
-   * 19.
+   * 21.
    * Problem: Check for Majority Element in a sorted array.
    * Find if a given integer x appears more than n/2 times in a sorted array of n integers.
-   *
    * Solution: Use modified binary search to find start and end index of element.
    */
 
   /**
-   * 23.
+   * 25.
    * Problem: Maximum difference between two elements such that larger element appears after the smaller element.
    */
-  public int maxDiff(int[] array) {
+  int maxDiff(int[] array) {
     int maxDiffSoFar = 0;
     int min = array[0];
     for (int i = 1; i < array.length; i++) {
@@ -278,7 +274,7 @@ public class ArrayExamples {
   }
 
   /**
-   * 25.
+   * 27.
    * Problem: Floor and Ceiling in a sorted array.
    *
    * Solution: Use modified binary search to find floor and ceiling separately.

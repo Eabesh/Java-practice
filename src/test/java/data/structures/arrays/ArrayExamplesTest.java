@@ -66,6 +66,12 @@ public class ArrayExamplesTest {
   }
 
   @Test
+  public void maxDiffTest() throws Exception {
+    int[] arr = {2, 3, 10, 6, 4, 8, 1};
+    assertEquals(8, new ArrayExamples().maxDiff(arr));
+  }
+
+  @Test
   public void maxSumNonAdjacent() throws Exception {
     int[] array = {5,4,1,3};
     assertEquals(8, new ArrayExamples().maxSumNonAdjacent(array));
@@ -73,7 +79,7 @@ public class ArrayExamplesTest {
 
 
   @Test
-  public void maxSumContigousLenthTest() {
+  public void maxSumContigousLengthTest() {
     int[] arr = {0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1};
     int result = new SlidingWindowExamples().maxLength(arr, 3);
     assertEquals(10, result);
@@ -91,12 +97,6 @@ public class ArrayExamplesTest {
     int[] arr2 = {1, 4, 5, 1};
     assertEquals(3, new ArrayExamples().minPalindromeOperations(arr,0,arr.length - 1));
     assertEquals(1, new ArrayExamples().minPalindromeOperations(arr2,0,arr2.length - 1));
-  }
-
-  @Test
-  public void maxDiffTest() {
-    int[] arr = {2, 3, 10, 6, 4, 8, 1};
-    assertEquals(8, new ArrayExamples().maxDiff(arr));
   }
 
 }
