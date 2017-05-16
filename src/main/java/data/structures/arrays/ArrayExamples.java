@@ -276,17 +276,15 @@ public class ArrayExamples {
   /**
    * 27.
    * Problem: Floor and Ceiling in a sorted array.
-   *
    * Solution: Use modified binary search to find floor and ceiling separately.
    * Hint: If x is greater than arr[mid], then either arr[mid + 1] is ceiling of x or ceiling lies in arr[mid+1...high]
    */
 
   /**
-   * 26.
+   * 28.
    * Problem: A Product Array Puzzle.
    * Given an array arr[] of n integers, construct a Product Array prod[] (of same size) such that prod[i] is equal
    * to the product of all the elements of arr[] except arr[i]. Solve it without division operator and in O(n).
-   *
    * Solution:
    * 1) Construct a temporary array left[] such that left[i] contains product of all elements on left of arr[i]
    *    excluding arr[i].
@@ -296,11 +294,10 @@ public class ArrayExamples {
    */
 
   /**
-   * 28.
+   * 30.
    * Problem: Find the two repeating elements in a given array.
    * You are given an array of n+2 elements. All elements of the array are in range 1 to n. And all elements occur
    * once except two numbers which occur twice. Find the two repeating numbers.
-   *
    * Solution: Let the repeating numbers be X and Y, if we xor all the elements in the array and all integers from
    * 1 to n, then the result is X xor Y. The 1’s in binary representation of X xor Y is corresponding to the
    * different bits between X and Y. Suppose that the kth bit of X xor Y is 1, we can xor all the elements in the
@@ -308,20 +305,18 @@ public class ArrayExamples {
    */
 
   /**
-   * 31.
+   * 33.
    * Problem: Find duplicates in O(n) time and O(1) extra space.
    * Given an array of n elements which contains elements from 0 to n-1, with any of these numbers appearing any
    * number of times. Find these repeating numbers in O(n) and using only constant memory space.
-   *
    * Solution: Use the array itself as a hash map and mark the index corresponding to the element as negative.
    */
 
   /**
-   * 32.
+   * 34.
    * Problem: Equilibrium index of an array.
    * Equilibrium index of an array is an index such that the sum of elements at lower indexes is equal to the sum
    * of elements at higher indexes.
-   *
    * Solution: Initialize left sum as 0 and right sum as sum of all elements. Scan from left to right and keep
    * updating sums till they are equal.
    */
