@@ -481,15 +481,15 @@ class RecursionExamples {
 
 
   /**
-   *  CareerCup's Problems
+   *  Problems from CareerCup.
    */
+
   /**
    * 1.
    * Problem. A number is called as a stepping number if the adjacent digits
    * are having a difference of 1.
    * For eg. 8,343,545 are stepping numbers. While 890, 098 are not.
    * The difference between a ‘9’ and ‘0’ should not be considered as 1.
-   * Solution:
    */
   void printSteppingNumber(String soFar, int remaining, ArrayList<Integer> choices) {
     if (remaining == 0) System.out.println(soFar + " ");
