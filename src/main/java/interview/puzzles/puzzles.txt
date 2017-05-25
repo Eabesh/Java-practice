@@ -52,3 +52,9 @@ lock and key pairs on either side. Find a way to move gold to the other end.
 Solution: Put the gold in the box and lock the box. Tell the person at other end to put
 his own lock and send back the box. Remove the previous lock and send back the box.
 Remove the other lock too and get the gold.
+
+6.
+Problem: Fair toss with a biased coin.
+
+Solution: Toss the coin twice. HT and TH are considered as H and T and they have equal probability.
+Rest outcomes are discarded.
