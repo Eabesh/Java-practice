@@ -1,6 +1,8 @@
 package language.scanning.examples;
 
+import java.util.EmptyStackException;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class UserMainCode {
 
@@ -30,8 +32,6 @@ public class UserMainCode {
   static void m1() {
     UserMainCode u = new UserMainCode();
     System.out.println(u.a);
-    final int x;
-    x = 0;
   }
 
   public static int flip(int element) {
@@ -52,21 +52,78 @@ public class UserMainCode {
   }
 
   public static void main(String args[]) {
-    double a = 25.000;
-    a = a%10;
-    String s1 = "Its Great";
-    String s2 = "Its Tricky";
-    System.out.println(s1.concat(s2).length() + " ");
-    System.out.println(s1.concat(s2.substring(1,s1.length())).length() + " ");
+//    double a = 25.000;
+//    a = a%10;
+//    String s1 = "Its Great";
+//    String s2 = "Its Tricky";
+//    System.out.println(s1.concat(s2).length() + " ");
+//    System.out.println(s1.concat(s2.substring(1,s1.length())).length() + " ");
+//    Scanner in = new Scanner(System.in);
+//    int n = in.nextInt();
+//    int k = in.nextInt();
+//    int[] array = new int[n];
+//    for (int i = 0; i < k ; i++) {
+//      int index = in.nextInt();
+//      array[index - 1] = 1;
+//      System.out.println(findMaxSub(array));
+//    }
+
     Scanner in = new Scanner(System.in);
-    int n = in.nextInt();
-    int k = in.nextInt();
-    int[] array = new int[n];
-    for (int i = 0; i < k ; i++) {
-      int index = in.nextInt();
-      array[index - 1] = 1;
-      System.out.println(findMaxSub(array));
+    String str = in.nextLine();
+    Stack<Character> stack = new Stack<>();
+    try {
+      for (Character c : str.toCharArray()) {
+        if (c == '[') stack.push('[');
+        else if (c == '{') stack.push('{');
+        else if (c == '(') stack.push('(');
+        else if (c == ']') {
+          if (stack.peek() == '[') stack.pop();
+          else {
+            System.out.println("0");
+            return;
+          }
+        }
+        else if (c == '}') {
+          if (stack.peek() == '{') stack.pop();
+          else {
+            System.out.println("0");
+            return;
+          }
+        }
+        else if (c == ')') {
+          if (stack.peek() == '(') stack.pop();
+          else {
+            System.out.println("0");
+            return;
+          }
+        }
+      }
+    } catch (EmptyStackException e) {
+      System.out.println("0");
     }
+    if (stack.isEmpty())
+      System.out.println("1");
+    else System.out.println("0");
+  }
+
+  static int maxOnes(int [][]a, int N ) {
+    int max_row_index = 0;
+    int j = first(a, N);
+    if (j == -1) j = N - 1;
+    for (int i = 1; i < N; i++) {
+      while (j >= 0 && a[i][j] == 1) {
+        j = j-1;
+        max_row_index = i;
+      }
+    }
+    return max_row_index;
+  }
+
+  static int first(int [][]a, int N) {
+    for (int i = 1; i < N; i++) {
+      if (a[0][i] == 1) return i;
+    }
+    return -1;
   }
 
 }
