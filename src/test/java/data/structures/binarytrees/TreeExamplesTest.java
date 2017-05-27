@@ -4,42 +4,45 @@ import utilities.TreeNode;
 import java.util.HashSet;
 import java.util.Set;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TreeExamplesTest {
 
-  @Test
-  public void inOrder() throws Exception {
+  private TreeNode createTree() {
     TreeNode root = new TreeNode(2);
     TreeNode node1 = new TreeNode(1);
     TreeNode node2 = new TreeNode(3);
     root.left = node1;
     root.right = node2;
+    return root;
+  }
+
+  @Test
+  public void inOrder() throws Exception {
     TreeExamples traversals = new TreeExamples();
-    traversals.inorder(root);
-    System.out.println("");
-    traversals.preorder(root);
-    System.out.println("");
-    traversals.postorder(root);
+    traversals.inOrder(createTree());
   }
 
   @Test
-  public void preorder() throws Exception {
-
+  public void preOrder() throws Exception {
+    TreeExamples traversals = new TreeExamples();
+    traversals.preOrder(createTree());
   }
 
   @Test
-  public void postorder() throws Exception {
-
+  public void postOrder() throws Exception {
+    TreeExamples traversals = new TreeExamples();
+    traversals.postOrder(createTree());
   }
 
   @Test
   public void size() throws Exception {
-
+    assertEquals(3, new TreeExamples().size(createTree()));
   }
 
   @Test
   public void isIdentical() throws Exception {
-
+    assertTrue(new TreeExamples().isIdentical(createTree(), createTree()));
   }
 
   @Test
@@ -501,7 +504,7 @@ public class TreeExamplesTest {
 //        root.left.right = new TreeNode(5);
         TreeExamples doubleTree = new TreeExamples();
         TreeNode newRoot = doubleTree.doubleTree(root);
-        doubleTree.preorder(newRoot);
+        doubleTree.preOrder(newRoot);
 
     }
     @Test
@@ -509,7 +512,7 @@ public class TreeExamplesTest {
         int[] pre = {1, 2, 3};
         int[] in = {2, 1, 3};
         TreeNode root = new TreeExamples().constructTree(pre, in, 0, in.length - 1);
-        new TreeExamples().preorder(root);
+        new TreeExamples().preOrder(root);
     }
     @Test
     public void sumOfRootToLeafTest(){
@@ -577,7 +580,7 @@ public class TreeExamplesTest {
         root.right.right = new TreeNode(9);
 
 
-        assertEquals(3, new TreeExamples().size(root));
+//        assertEquals(3, new TreeExamples().size(root));
     }
 
     @Test

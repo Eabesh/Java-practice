@@ -12,38 +12,37 @@ class TreeExamples {
    * Unlike linear data structures (Array, Linked List, Queues, Stacks, etc)
    * which have only one logical way to traverse them, trees can be traversed in different ways.
    * Following are the generally used ways for traversing trees.
-   *
    * Depth First Traversals:
-   * (a) Inorder (Left, Root, Right) : 4 2 5 1 3
+   * (a) In-order (Left, Root, Right) : 4 2 5 1 3
    * (b) Preorder (Root, Left, Right) : 1 2 4 5 3
    * (c) Postorder (Left, Right, Root) : 4 5 2 3 1
    * Breadth First or Level Order Traversal : 1 2 3 4 5
    */
 
   /**
-   * Uses of Inorder
-   * In case of binary search trees (BST), Inorder traversal gives nodes in non-decreasing order.
-   * To get nodes of BST in non-increasing order, a variation of Inorder traversal where Inorder itraversal's reversed,
-   * can be used.
+   * Uses of in-order
+   * In case of binary search trees (BST), in-order traversal gives nodes in non-decreasing order.
+   * To get nodes of BST in non-increasing order, a variation of in-order traversal where in-order is traversal's
+   * reversed, can be used.
    */
-  void inorder(TreeNode root) {
+  void inOrder(TreeNode root) {
     if (root != null) {
-      inorder(root.left);
+      inOrder(root.left);
       System.out.print(root.data + " ");
-      inorder(root.right);
+      inOrder(root.right);
     }
   }
 
   /**
-   *Uses of Preorder
+   * Uses of Preorder
    * Preorder traversal is used to create a copy of the tree.
    * Preorder traversal is also used to get prefix expression on of an expression tree.
    */
-  void preorder(TreeNode root) {
+  void preOrder(TreeNode root) {
     if (root != null) {
       System.out.print(root.data + " ");
-      preorder(root.left);
-      preorder(root.right);
+      preOrder(root.left);
+      preOrder(root.right);
     }
   }
 
@@ -52,10 +51,10 @@ class TreeExamples {
    * Postorder traversal is used to delete the tree. Please see the question for deletion of tree for details.
    * Postorder traversal is also useful to get the postfix expression of an expression tree
    */
-  void postorder(TreeNode root) {
+  void postOrder(TreeNode root) {
     if (root != null) {
-      postorder(root.left);
-      postorder(root.right);
+      postOrder(root.left);
+      postOrder(root.right);
       System.out.print(root.data + " ");
     }
   }
@@ -76,8 +75,8 @@ class TreeExamples {
   boolean isIdentical(TreeNode root1, TreeNode root2) {
     return root1 == null && root2 == null ||
             root1 != null && root2 != null && root1.data == root2.data &&
-                    isIdentical(root1.left,root2.left) &&
-                    isIdentical(root1.right,root2.right);
+                    isIdentical(root1.left, root2.left) &&
+                    isIdentical(root1.right, root2.right);
   }
 
   /**
@@ -606,7 +605,7 @@ class TreeExamples {
 
   /**
    * 39.
-   * Problem: Construct a special tree from given preorder traversal
+   * Problem: Construct a special tree from given preOrder traversal
 
    * Solution:
    */
@@ -668,7 +667,7 @@ class TreeExamples {
 
   /**
    * 42.
-   * Problem: Construct Full Binary Tree from given preorder and postorder traversals
+   * Problem: Construct Full Binary Tree from given preOrder and postOrder traversals
 
    * Solution:
    */
@@ -1493,7 +1492,7 @@ class TreeExamples {
 
   /**
    * 115.
-   * Problem: Construct a Binary Search Tree from given postorder
+   * Problem: Construct a Binary Search Tree from given postOrder
 
    * Solution:
    */
