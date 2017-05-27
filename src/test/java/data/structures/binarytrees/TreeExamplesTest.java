@@ -6,21 +6,430 @@ import java.util.Set;
 import static org.junit.Assert.assertEquals;
 
 public class TreeExamplesTest {
-    @Test
+
+  @Test
+  public void inOrder() throws Exception {
+    TreeNode root = new TreeNode(2);
+    TreeNode node1 = new TreeNode(1);
+    TreeNode node2 = new TreeNode(3);
+    root.left = node1;
+    root.right = node2;
+    TreeExamples traversals = new TreeExamples();
+    traversals.inorder(root);
+    System.out.println("");
+    traversals.preorder(root);
+    System.out.println("");
+    traversals.postorder(root);
+  }
+
+  @Test
+  public void preorder() throws Exception {
+
+  }
+
+  @Test
+  public void postorder() throws Exception {
+
+  }
+
+  @Test
+  public void size() throws Exception {
+
+  }
+
+  @Test
+  public void isIdentical() throws Exception {
+
+  }
+
+  @Test
+  public void height() throws Exception {
+
+  }
+
+  @Test
+  public void deleteTree() throws Exception {
+
+  }
+
+  @Test
+  public void mirror() throws Exception {
+
+  }
+
+  @Test
+  public void rootToLeafPath() throws Exception {
+
+  }
+
+  @Test
+  public void LCA() throws Exception {
+
+  }
+
+  @Test
+  public void treeToList() throws Exception {
+
+  }
+
+  @Test
+  public void levelOrder() throws Exception {
+
+  }
+
+  @Test
+  public void countLeaves() throws Exception {
+
+  }
+
+  @Test
+  public void levelOrderSpiral() throws Exception {
+
+  }
+
+  @Test
+  public void hasChildSum() throws Exception {
+
+  }
+
+  @Test
+  public void getChildSum() throws Exception {
+
+  }
+
+  @Test
+  public void convertToChildSum() throws Exception {
+
+  }
+
+  @Test
+  public void diameter() throws Exception {
+
+  }
+
+  @Test
+  public void isBalanced() throws Exception {
+
+  }
+
+  @Test
+  public void isBalancedS() throws Exception {
+
+  }
+
+  @Test
+  public void isBalancedOpt() throws Exception {
+
+  }
+
+  @Test
+  public void morrisTraversal() throws Exception {
+
+  }
+
+  @Test
+  public void existsPathSum() throws Exception {
+
+  }
+
+  @Test
+  public void constructTree() throws Exception {
+
+  }
+
+  @Test
+  public void getInorderIndex() throws Exception {
+
+  }
+
+  @Test
+  public void doubleTree() throws Exception {
+
+  }
+
+  @Test
+  public void maxWidth() throws Exception {
+
+  }
+
+  @Test
+  public void findMaxWidth() throws Exception {
+
+  }
+
+  @Test
+  public void isFoldable() throws Exception {
+
+  }
+
+  @Test
+  public void isFoldable1() throws Exception {
+
+  }
+
+  @Test
+  public void printNodesAtKdistance() throws Exception {
+
+  }
+
+  @Test
+  public void getLevel() throws Exception {
+
+  }
+
+  @Test
+  public void printAncestors() throws Exception {
+
+  }
+
+  @Test
+  public void isSumTree() throws Exception {
+
+  }
+
+  @Test
+  public void hasSumProperty() throws Exception {
+
+  }
+
+  @Test
+  public void isSubTree() throws Exception {
+
+  }
+
+  @Test
+  public void maxRootToLeaOfPath() throws Exception {
+
+  }
+
+  @Test
+  public void printLeaves() throws Exception {
+
+  }
+
+  @Test
+  public void printLeftBoundry() throws Exception {
+
+  }
+
+  @Test
+  public void printRightBounday() throws Exception {
+
+  }
+
+  @Test
+  public void printBoundary() throws Exception {
+
+  }
+
+  @Test
+  public void morrisTraversalPreoder() throws Exception {
+
+  }
+
+  @Test
+  public void printReverseLevel() throws Exception {
+
+  }
+
+  @Test
+  public void printReverseLevel1() throws Exception {
+
+  }
+
+  @Test
+  public void convertToDLL() throws Exception {
+
+  }
+
+  @Test
+  public void printLeftView() throws Exception {
+
+  }
+
+  @Test
+  public void printDeepestLeftNode() throws Exception {
+
+  }
+
+  @Test
+  public void sumOfRootToLeafPath() throws Exception {
+
+  }
+
+  @Test
+  public void convertTreeToDLL() throws Exception {
+
+  }
+
+  @Test
+  public void isOnlyChild() throws Exception {
+
+  }
+
+  @Test
+  public void printWithNoSibling() throws Exception {
+
+  }
+
+  @Test
+  public void findDistance() throws Exception {
+
+  }
+
+  @Test
+  public void printKNodeFromLeaf() throws Exception {
+
+  }
+
+  @Test
+  public void maxPathBetweenTwoLeaf() throws Exception {
+
+  }
+
+  @Test
+  public void maxPathBetweenTwoLeaves() throws Exception {
+
+  }
+
+  @Test
+  public void areSibling() throws Exception {
+
+  }
+
+  @Test
+  public void areCousins() throws Exception {
+
+  }
+
+  @Test
+  public void printTopView() throws Exception {
+
+  }
+
+  @Test
+  public void bottomView() throws Exception {
+
+  }
+
+  @Test
+  public void convertDLL() throws Exception {
+
+  }
+
+  @Test
+  public void sumOfLeftLeaves() throws Exception {
+
+  }
+
+  @Test
+  public void isLeft() throws Exception {
+
+  }
+
+  @Test
+  public void sumOfLeftLeaves2() throws Exception {
+
+  }
+
+  @Test
+  public void isMirror() throws Exception {
+
+  }
+
+  @Test
+  public void isSymmetricTree() throws Exception {
+
+  }
+
+  @Test
+  public void findAmplitude() throws Exception {
+
+  }
+
+  @Test
+  public void areMirror() throws Exception {
+
+  }
+
+  @Test
+  public void printCousins() throws Exception {
+
+  }
+
+  @Test
+  public void printCousinsNodes() throws Exception {
+
+  }
+
+  @Test
+  public void printExtremeNodesAlt() throws Exception {
+
+  }
+
+  @Test
+  public void printLevelSpiral() throws Exception {
+
+  }
+
+  @Test
+  public void minSteps() throws Exception {
+
+  }
+
+  @Test
+  public void maxDepth() throws Exception {
+
+  }
+
+  @Test
+  public void isLeafModified() throws Exception {
+
+  }
+
+  @Test
+  public void convertToCDLL() throws Exception {
+
+  }
+
+  @Test
+  public void convertToCircularDLL() throws Exception {
+
+  }
+
+  @Test
+  public void findLCP() throws Exception {
+
+  }
+
+  @Test
+  public void existsPath() throws Exception {
+
+  }
+
+  @Test
+  public void compareNodes() throws Exception {
+
+  }
+
+  @Test
+  public void printRightView() throws Exception {
+
+  }
+
+  @Test
+  public void updateTree() throws Exception {
+
+  }
+
+  @Test
+  public void findMax() throws Exception {
+
+  }
+
+  @Test
     public void traversalTest() {
 
-        TreeNode root = new TreeNode(2);
-        TreeNode node1 = new TreeNode(1);
-        TreeNode node2 = new TreeNode(3);
-        root.left = node1;
-        root.right = node2;
-
-        TreeExamples traversals = new TreeExamples();
-        traversals.inorder(root);
-        System.out.println("");
-        traversals.preorder(root);
-        System.out.println("");
-        traversals.postorder(root);
 
     }
 
