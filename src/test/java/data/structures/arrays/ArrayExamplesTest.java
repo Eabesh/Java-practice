@@ -2,9 +2,18 @@ package data.structures.arrays;
 
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ArrayExamplesTest {
+
+  @Test
+  public void checkPair1() throws Exception {
+    int[] array = {1,2,3,1,2};
+    assertTrue(new ArrayExamples().checkPair1(array, 5));
+    assertFalse(new ArrayExamples().checkPair1(array, 10));
+  }
 
   @Test
   public void getOddOccurrence() throws Exception {

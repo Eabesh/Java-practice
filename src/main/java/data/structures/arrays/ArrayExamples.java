@@ -8,18 +8,6 @@ public class ArrayExamples {
 
   /**
    * 1.
-   * Problem: Search, insert and delete in an unsorted array.
-   * Solution: Linear search: O(n) Insert: O(1) Delete: O(n)
-   */
-
-  /**
-   * 2.
-   * Problem: Search, insert and delete in a sorted array.
-   * Solution: Binary search: log(n) Insert: O(n) Delete: O(n)
-   */
-
-  /**
-   * 3.
    * Problem: Given an array A[] and a number x, check for pair in A[] with sum as x.
    * Solution: Use sorting and use left and right pointers. Or
    * Use hash map :
@@ -28,6 +16,18 @@ public class ArrayExamples {
    *      (a)	If M[x - A[i]] is set then print the pair (A[i], x - A[i])
    *      (b)	Set M[A[i]].
    */
+  boolean checkPair1(int[] array, int sum) {
+    Arrays.sort(array);
+    int left = 0;
+    int right = array.length - 1;
+    while (left < right) {
+      int currentSum = array[left] + array[right];
+      if (currentSum == sum) return true;
+      else if (currentSum < sum) left++;
+      else right--;
+    }
+    return false;
+  }
 
   /**
    * 4.
@@ -888,5 +888,17 @@ public class ArrayExamples {
       if (ratings[i] > ratings[i+1]) candies[i] = Math.max(candies[i], candies[i + 1] + 1);
     return Arrays.stream(candies).sum();
   }
+
+  /**
+   * 1.
+   * Problem: Search, insert and delete in an unsorted array.
+   * Solution: Linear search: O(n) Insert: O(1) Delete: O(n)
+   */
+
+  /**
+   * 2.
+   * Problem: Search, insert and delete in a sorted array.
+   * Solution: Binary search: log(n) Insert: O(n) Delete: O(n)
+   */
 
 }
