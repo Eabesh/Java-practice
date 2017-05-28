@@ -3,6 +3,7 @@ package data.structures.arrays;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class ArrayExamples {
 
@@ -25,6 +26,15 @@ public class ArrayExamples {
       if (currentSum == sum) return true;
       else if (currentSum < sum) left++;
       else right--;
+    }
+    return false;
+  }
+
+  boolean checkPair2(int[] array, int sum) {
+    HashSet<Integer> set = new HashSet<>();
+    for (int element : array) {
+      if (set.contains(sum - element)) return true;
+      else set.add(element);
     }
     return false;
   }

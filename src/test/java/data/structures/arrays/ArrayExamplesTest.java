@@ -16,6 +16,13 @@ public class ArrayExamplesTest {
   }
 
   @Test
+  public void checkPair2() throws Exception {
+    int[] array = {-1,2,3,1,2};
+    assertTrue(new ArrayExamples().checkPair2(array, 5));
+    assertTrue(new ArrayExamples().checkPair2(array, 0));
+  }
+
+  @Test
   public void getOddOccurrence() throws Exception {
     int[] array = {1,2,3,1,2};
     assertEquals(3, new ArrayExamples().getOddOccurrence(array));
