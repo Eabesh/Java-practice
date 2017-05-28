@@ -40,7 +40,7 @@ public class ArrayExamples {
   }
 
   /**
-   * 4.
+   * 2.
    * Problem: Majority Element: A majority element in an array A[] of size n is an element that appears more than
    * n/2 times (and hence there is at most one such element).
    * Solution:
@@ -52,7 +52,7 @@ public class ArrayExamples {
    */
 
   /**
-   * 5.
+   * 3.
    * Problem: Find the Number Occurring Odd Number of Times.
    * Given an array of positive integers. All numbers occur even number of times except one number which occurs odd
    * number of times. Find the number in O(n) time & constant space.
@@ -116,9 +116,8 @@ public class ArrayExamples {
   }
 
   /**
-   * 8.
+   * 4.
    * Problem: Search an element in a sorted and rotated array.
-   *
    * Solution: Use modified binary search.
    * 1) Find middle point mid = (l + h)/2
    * 2) If key is present at middle point, return mid.
