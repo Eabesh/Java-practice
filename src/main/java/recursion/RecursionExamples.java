@@ -1,5 +1,6 @@
 package recursion;
 
+import utilities.ListNode;
 import utilities.Stack;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -172,6 +173,20 @@ class RecursionExamples {
 
   /**
    * 1.
+   * Reverse a linked list using recursion.
+   */
+  ListNode reverseList(ListNode current) {
+    if (current == null || current.next == null) return current;
+    else {
+      ListNode head = reverseList(current.next);
+      current.next.next = current;
+      current.next = null;
+      return head;
+    }
+  }
+
+  /**
+   * 2.
    * Problem: Reverse a stack using recursion. Or reverse a stack without using any other data structure or
    * auxiliary space.
    */

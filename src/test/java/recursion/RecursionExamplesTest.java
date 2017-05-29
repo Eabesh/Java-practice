@@ -1,5 +1,6 @@
 package recursion;
 import org.junit.Test;
+import utilities.ListNode;
 import utilities.Stack;
 
 import java.util.Arrays;
@@ -125,6 +126,16 @@ public class RecursionExamplesTest {
   public void findUniqueWays() throws Exception {
     assertEquals(1, new RecursionExamples().findUniqueWays(10, 2, 1));
     assertEquals(3, new RecursionExamples().findUniqueWays(100, 2, 1));
+  }
+
+  @Test
+  public void reverseList() throws Exception {
+    ListNode node1 = new ListNode(1);
+    ListNode node2 = new ListNode(2);
+    ListNode node3 = new ListNode(3);
+    node1.next = node2;
+    node2.next = node3;
+    assertEquals(3, new RecursionExamples().reverseList(node1).data);
   }
 
 
