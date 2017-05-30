@@ -132,11 +132,11 @@ class RecursionExamples {
    * 9.
    * Problem: N Queens Problems
    */
-  void placeQueen(int[][] board, int row, int column) {
+  private void placeQueen(int[][] board, int row, int column) {
     board[row][column] = 1;
   }
 
-  void removeQueen(int[][] board, int row, int column) {
+  private void removeQueen(int[][] board, int row, int column) {
     board[row][column] = 0;
   }
 
