@@ -90,11 +90,11 @@ class RecursionExamples {
    * 7.
    * Problem: Subset of String.
    */
-  void printSubsets(String sofar, String remaining) {
-    if (remaining.isEmpty()) System.out.println(sofar);
+  void printSubsets(String soFar, String remaining) {
+    if (remaining.isEmpty()) System.out.println(soFar);
     else {
-      printSubsets(sofar + remaining.charAt(0), remaining.substring(1));
-      printSubsets(sofar, remaining.substring(1));
+      printSubsets(soFar + remaining.charAt(0), remaining.substring(1));
+      printSubsets(soFar, remaining.substring(1));
     }
   }
 
