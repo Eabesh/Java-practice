@@ -209,7 +209,7 @@ class RecursionExamples {
   }
 
   /**
-   * 2.
+   * 3.
    * Problem: Check if a number is Palindrome
    * Given an integer, write a function that returns true if the given number is palindrome, else false.
    * For example, 12321 is palindrome, but 1451 is not palindrome.
@@ -220,7 +220,7 @@ class RecursionExamples {
   }
 
   /**
-   * 3.
+   * 4.
    * Problem: Print all possible combinations of r elements in a given array of size n.
    * For example, if input array is {1, 2, 3, 4} and r is 2, then output should be {1, 2}, {1, 3}, {1, 4}, {2, 3}, {2, 4} and
    * {3,4}.
@@ -233,7 +233,7 @@ class RecursionExamples {
   }
 
   /**
-   * 4.
+   * 5.
    * Problem: Print all possible strings of length k that can be formed from a set of n characters
    */
   void printKLengthString(char[] array, int length, String soFar) {
@@ -245,7 +245,7 @@ class RecursionExamples {
   }
 
   /**
-   * 5.
+   * 6.
    * Problem: Tail Recursion
    * Solution: A recursive function is tail recursive when recursive call is the last thing
    * executed by the function.
@@ -270,7 +270,7 @@ class RecursionExamples {
   }
 
   /**
-   * 6.
+   * 7.
    * Problem: Print all increasing sequences of length k from first n natural numbers
    * Input: k = 2, n = 3
    * Output:
@@ -286,7 +286,7 @@ class RecursionExamples {
   }
 
   /**
-   * 7.
+   * 8.
    * Problem: Generate all possible sorted arrays from alternate elements of two given sorted arrays
    */
 //  void printSortedArrays(int[] arrayA, int[] arrayB, String soFar, int indexA, int indexB, int prevValue) {
@@ -298,61 +298,59 @@ class RecursionExamples {
 //
 
   /**
-   * 8.
+   * 9.
    * Problem: Minimum steps to reach a destination
    */
 
 
   /**
-   * 9.
+   * 10.
    * Problem: Given a string, print all possible palindromic partitions
    * Solution:
    */
 
 
   /**
-   * 10.
+   * 11.
    * Problem: Print a pattern without using any loop
    * Solution:
    */
 
 
   /**
-   * 11.
+   * 12.
    * Problem: Print all non-increasing sequences of sum equal to a given number x
    * Solution:
    */
 
 
   /**
-   * 12.
+   * 13.
    * Problem: Sort a stack using recursion
    * Solution:
    */
 
 
   /**
-   * 13.
+   * 14.
    * Problem: Print all n-digit strictly increasing numbers
    * Solution:
    */
 
   /**
-   * 14.
-   * Problem: Find all even length binary sequences with same sum of first and second half bits
-   * Solution:
-   */
-
-
-
-  /**
    * 15.
-   * Problem: Print all possible expressions that evaluate to a target
+   * Problem: Find all even length binary sequences with same sum of first and second half bits
    * Solution:
    */
 
   /**
    * 16.
+   * Problem: Print all possible expressions that evaluate to a target
+   * Solution:
+   */
+
+  /**
+   * 17.
    * Problem: Print sums of all subsets of a given set
    */
   void printSubsetSum(int sum, int[] set, int beginIndex) {
@@ -364,15 +362,13 @@ class RecursionExamples {
   }
 
   /**
-   * 17.
+   * 18.
    * Problem: String with additive sequence
    * Solution:
    */
 
-
-
   /**
-   * 18.
+   * 19.
    * Problem: Print all longest common sub-sequences in lexicographical order
    * You are given two strings.Now you have to print all longest common sub-sequences in
    * lexicographical order?
@@ -381,7 +377,7 @@ class RecursionExamples {
 
 
   /**
-   * 19.
+   * 20.
    * Problem: Program for Chocolate and Wrapper Puzzle
    * Given following three values, the task is to find the total number of maximum chocolate
    * you can eat.
@@ -399,31 +395,30 @@ class RecursionExamples {
    */
 
   /**
-   * 20.
+   * 21.
    * Problem: Recursion
    * Solution:
    */
 
   /**
-   * 21.
+   * 22.
    * Problem:  program to implement Collatz Conjecture
    * Solution:
    */
 
   /**
-   * 22.
+   * 23.
    * Problem: Generate all binary strings without consecutive 1’s.
    * Given a integer K. Task is Print All binary string of size K (Given number).
    * Solution:
    */
 
   /**
-   * 23.
+   * 24.
    * Problem: Recursive Bubble Sort
    * Solution:
    */
   public void recusiveBSort(int[] array, int lastIndex) {
-
     if (lastIndex == 1) return;
     for (int i = 0; i < lastIndex - 1; i++) {
       if (array[i] > array[i + 1]) swap(array, i, i + 1);
@@ -438,13 +433,13 @@ class RecursionExamples {
   }
 
   /**
-   * 24.
+   * 25.
    * Problem: Recursive Insertion Sort
    * Solution:
    */
 
   /**
-   * 25.
+   * 26.
    * Problem: Find ways an Integer can be expressed as sum of exponent-th power of unique natural
    * numbers.
    * Given two numbers sum and exponent, find number of ways sum can be expressed as sum of exponent-th power
@@ -469,7 +464,7 @@ class RecursionExamples {
   }
 
   /**
-   * 26.
+   * 27.
    * Problem: Recaman’s sequence
    * Solution: a(n) = {a(n - 1) - n if (a(n - 1) - n > 0 && is new ; else a(n - 1) + n}
    * a(1) = 1;
@@ -493,7 +488,6 @@ class RecursionExamples {
       }
     }
   }
-
 
   /**
    *  Problems from CareerCup.
