@@ -140,7 +140,7 @@ class RecursionExamples {
     board[row][column] = 0;
   }
 
-  boolean isSafe(int[][] board, int row, int column) {
+  private boolean isSafe(int[][] board, int row, int column) {
     for (int c = column; c >= 0 ; c--)
       if (board[row][c] == 1) return false;
 
