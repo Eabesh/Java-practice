@@ -418,15 +418,13 @@ class RecursionExamples {
    * Problem: Recursive Bubble Sort
    * Solution:
    */
-  public void recusiveBSort(int[] array, int lastIndex) {
-    if (lastIndex == 1) return;
-    for (int i = 0; i < lastIndex - 1; i++) {
-      if (array[i] > array[i + 1]) swap(array, i, i + 1);
-    }
-    recusiveBSort(array, lastIndex - 1);
+  void recursiveBSort(int[] array, int length) {
+    if (length == 1) return;
+    for (int i = 0; i < length - 1; i++) if (array[i] > array[i + 1]) swap(array, i, i + 1);
+    recursiveBSort(array, length - 1);
   }
 
-  public void swap(int[] array, int x, int y) {
+  private void swap(int[] array, int x, int y) {
     int temp = array[x];
     array[x] = array[y];
     array[y] = temp;

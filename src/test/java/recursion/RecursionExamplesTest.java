@@ -156,8 +156,10 @@ public class RecursionExamplesTest {
   }
 
   @Test
-  public void recusiveBSort() throws Exception {
-
+  public void recursiveBSort() throws Exception {
+    int[] array = {3, 2, 1};
+    new RecursionExamples().recursiveBSort(array, array.length);
+    assertEquals(1, array[0]);
   }
 
   @Test
