@@ -562,8 +562,8 @@ class RecursionExamples {
 
   /**
    * 6.
-   * Problem: Given a non-negative int n, return the count of the occurrences of 7 as a digit,
-   * so for example 717 yields 2. (no loops).
+   * Problem: Given a non-negative int n, return the count of the occurrences of 7 as a digit, so for example 717
+   * yields 2. (no loops).
    */
   int count7(int n) {
     if (n == 0) return 0;
@@ -573,8 +573,7 @@ class RecursionExamples {
 
   /**
    * 7.
-   * Problem: Given a string, compute recursively (no loops) the number of times lowercase
-   * hi" appears in the string.
+   * Problem: Given a string, compute recursively (no loops) the number of times lowercase "hi" appears in the string.
    * countHi("xxhixx") → 1
    * countHi("xhixhix") → 2
    * countHi("hi") → 1
