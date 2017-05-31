@@ -493,7 +493,7 @@ class RecursionExamples {
 
   /**
    * 1.
-   * Problem. Given two integers ‘n’ and ‘m’, find all the stepping numbers in range [n, m].
+   * Problem: Given two integers ‘n’ and ‘m’, find all the stepping numbers in range [n, m].
    * A number is called as a stepping number if the adjacent digits are having a difference of 1.
    * For eg. 8,343,545 are stepping numbers. While 890, 098 are not.
    * The difference between a ‘9’ and ‘0’ should not be considered as 1.
@@ -513,18 +513,18 @@ class RecursionExamples {
   }
 
   /**
-   *  2.
-   *  Problem. Reverse a stack without using any other data structure or
-   *  auxiliary space.
+   * 2.
+   * Problem: Reverse a stack without using any other data structure or auxiliary space.
    */
 
   /**
-   *  Problem.We have bunnies standing in a line, numbered 1, 2, ... The odd bunnies (1, 3, ..) have the normal 2 ears.
-   *  The even bunnies (2, 4, ..) we'll say have 3 ears, because they each have a raised foot.
-   *  Recursively return the number of "ears" in the bunny line 1, 2, ... n (without loops or multiplication).
-   *  bunnyEars2(0) → 0
-   *  bunnyEars2(1) → 2
-   *  bunnyEars2(2) → 5
+   * 3.
+   * Problem: We have bunnies standing in a line, numbered 1, 2, ... The odd bunnies (1, 3, ..) have the normal 2 ears.
+   * The even bunnies (2, 4, ..) we'll say have 3 ears, because they each have a raised foot.
+   * Recursively return the number of "ears" in the bunny line 1, 2, ... n (without loops or multiplication).
+   * bunnyEars2(0) → 0
+   * bunnyEars2(1) → 2
+   * bunnyEars2(2) → 5
    */
   int bunnyEars2(int bunnies) {
     if (bunnies == 0) return 0;
@@ -533,12 +533,13 @@ class RecursionExamples {
   }
 
   /**
-   *  Problem.We have triangle made of blocks. The topmost row has 1 block, the next row down has 2 blocks,
-   *  the next row has 3 blocks, and so on. Compute recursively (no loops or multiplication) the total number of blocks
-   *  in such a triangle with the given number of rows.
-   *  triangle(0) → 0
-   *  triangle(1) → 1
-   *  triangle(2) → 3
+   * 4.
+   * Problem: We have triangle made of blocks. The topmost row has 1 block, the next row down has 2 blocks,
+   * the next row has 3 blocks, and so on. Compute recursively (no loops or multiplication) the total number of blocks
+   * in such a triangle with the given number of rows.
+   * triangle(0) → 0
+   * triangle(1) → 1
+   * triangle(2) → 3
    */
   int triangle(int rows) {
     if (rows < 2) return rows;
@@ -546,13 +547,13 @@ class RecursionExamples {
   }
 
   /**
-   *
-   *  Problem.Given a non-negative int n, return the sum of its digits recursively (no loops).
-   *  Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6),
-   *  while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
-   *  sumDigits(126) → 9
-   *  sumDigits(49) → 13
-   *  sumDigits(12) → 3
+   * 5.
+   * Problem: Given a non-negative int n, return the sum of its digits recursively (no loops).
+   * Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6),
+   * while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
+   * sumDigits(126) → 9
+   * sumDigits(49) → 13
+   * sumDigits(12) → 3
    */
   int sumDigits(int n) {
     if (n == 0) return 0;
@@ -560,23 +561,23 @@ class RecursionExamples {
   }
 
   /**
-   *
-   *  Problem.Given a non-negative int n, return the count of the occurrences of 7 as a digit,
-   *  so for example 717 yields 2. (no loops).
+   * 6.
+   * Problem: Given a non-negative int n, return the count of the occurrences of 7 as a digit,
+   * so for example 717 yields 2. (no loops).
    */
   int count7(int n) {
     if (n == 0) return 0;
     else if (n % 10 == 7) return 1 + count7(n / 10);
-    else return count7(n /10);
+    else return count7(n / 10);
   }
 
   /**
-   *
-   *  Problem. Given a string, compute recursively (no loops) the number of times lowercase
-   *  hi" appears in the string.
-   *  countHi("xxhixx") → 1
-   *  countHi("xhixhix") → 2
-   *  countHi("hi") → 1
+   * 7.
+   * Problem: Given a string, compute recursively (no loops) the number of times lowercase
+   * hi" appears in the string.
+   * countHi("xxhixx") → 1
+   * countHi("xhixhix") → 2
+   * countHi("hi") → 1
    */
   int countHi(String str) {
     if (str.length() < 2) return 0;
@@ -585,21 +586,21 @@ class RecursionExamples {
   }
 
   /**
-   *
-   *  Problem.Given a string, compute recursively (no loops) a new string where all
-   *  the lowercase 'x' chars have been changed to 'y' chars.
-   *  changeXY("codex") → "codey"
-   *  changeXY("xxhixx") → "yyhiyy"
-   *  changeXY("xhixhix") → "yhiyhiy"
+   * 8.
+   * Problem.Given a string, compute recursively (no loops) a new string where all the lowercase 'x' chars have been
+   * changed to 'y' chars.
+   * changeXY("codex") → "codey"
+   * changeXY("xxhixx") → "yyhiyy"
+   * changeXY("xhixhix") → "yhiyhiy"
    */
   String changeXY(String str) {
     return changeXY("", str);
   }
 
-  String changeXY(String sofar, String rest) {
-    if (rest.length() < 1) return sofar;
-    else if (rest.charAt(0) == 'x') return changeXY(sofar + 'y', rest.substring(1));
-    else return changeXY(sofar + rest.charAt(0), rest.substring(1));
+  String changeXY(String soFar, String rest) {
+    if (rest.length() < 1) return soFar;
+    else if (rest.charAt(0) == 'x') return changeXY(soFar + 'y', rest.substring(1));
+    else return changeXY(soFar + rest.charAt(0), rest.substring(1));
   }
 
 }

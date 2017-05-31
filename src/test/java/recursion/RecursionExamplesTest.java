@@ -175,44 +175,34 @@ public class RecursionExamplesTest {
   }
 
   @Test
-  public void swap() throws Exception {
-
-  }
-
-  @Test
   public void bunnyEars2() throws Exception {
-
+    assertEquals(5, new RecursionExamples().bunnyEars2(2));
   }
 
   @Test
   public void triangle() throws Exception {
-
+    assertEquals(3, new RecursionExamples().triangle(2));
   }
 
   @Test
   public void sumDigits() throws Exception {
-
+    assertEquals(3, new RecursionExamples().sumDigits(12));
   }
 
   @Test
   public void count7() throws Exception {
-
+    assertEquals(2, new RecursionExamples().count7(717));
   }
 
   @Test
   public void countHi() throws Exception {
-
+    assertEquals(2, new RecursionExamples().countHi("xhixhix"));
   }
 
   @Test
   public void changeXY() throws Exception {
-
+    assertEquals("yy", new RecursionExamples().changeXY("xy"));
+    assertEquals("codey", new RecursionExamples().changeXY("codex"));
   }
-
-  @Test
-  public void changeXY1() throws Exception {
-
-  }
-
 
 }
