@@ -493,19 +493,20 @@ class RecursionExamples {
 
   /**
    * 1.
-   * Problem. A number is called as a stepping number if the adjacent digits
-   * are having a difference of 1.
+   * Problem. Given two integers ‘n’ and ‘m’, find all the stepping numbers in range [n, m].
+   * A number is called as a stepping number if the adjacent digits are having a difference of 1.
    * For eg. 8,343,545 are stepping numbers. While 890, 098 are not.
    * The difference between a ‘9’ and ‘0’ should not be considered as 1.
    */
-  void printSteppingNumber(String soFar, int remaining, ArrayList<Integer> choices) {
-    if (remaining == 0) System.out.println(soFar + " ");
-    else {
-      for (int choice : choices){
+  void printSteppingNumber(int soFar, int n, int m, ArrayList<Integer> choices) {
+    if (soFar < m) {
+      for (int choice : choices) {
         ArrayList<Integer> newChoices = new ArrayList<>();
-        newChoices.add(choice + 1);
-        newChoices.add(choice - 1);
-        printSteppingNumber(soFar + choice, remaining - 1, newChoices);
+        if (choice + 1 <= 9) newChoices.add(choice + 1);
+        if (choice - 1 >= 0) newChoices.add(choice - 1);
+        int steppingNumber = soFar * 10 + choice;
+        if (steppingNumber >= n && steppingNumber <= m) System.out.println(steppingNumber);
+        printSteppingNumber(steppingNumber, n, m, newChoices);
       }
     }
   }

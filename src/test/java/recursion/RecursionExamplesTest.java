@@ -3,6 +3,7 @@ import org.junit.Test;
 import utilities.ListNode;
 import utilities.Stack;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -160,6 +161,12 @@ public class RecursionExamplesTest {
     int[] array = {3, 2, 1};
     new RecursionExamples().recursiveBSort(array, array.length);
     assertEquals(1, array[0]);
+  }
+
+  @Test
+  public void printSteppingNumber() throws Exception {
+    ArrayList<Integer> arrayList = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9));
+    new RecursionExamples().printSteppingNumber(0,10, 15, arrayList);
   }
 
   @Test
