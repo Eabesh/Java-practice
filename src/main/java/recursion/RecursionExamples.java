@@ -596,7 +596,7 @@ class RecursionExamples {
     return changeXY("", str);
   }
 
-  String changeXY(String soFar, String rest) {
+  private String changeXY(String soFar, String rest) {
     if (rest.length() < 1) return soFar;
     else if (rest.charAt(0) == 'x') return changeXY(soFar + 'y', rest.substring(1));
     else return changeXY(soFar + rest.charAt(0), rest.substring(1));
