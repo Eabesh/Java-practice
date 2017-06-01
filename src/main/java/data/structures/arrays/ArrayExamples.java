@@ -69,6 +69,38 @@ public class ArrayExamples {
   }
 
   /**
+   * 4.
+   * Problem: Search an element in a sorted and rotated array.
+   * Solution: Use modified binary search.
+   * 1) Find middle point mid = (l + h)/2
+   * 2) If key is present at middle point, return mid.
+   * 3) Else If arr[l..mid-1] is sorted
+   *      a) If key to be searched lies in range from arr[l] to arr[mid], recur for arr[l..mid].
+   *      b) Else recur for arr[mid+1..r]
+   * 4) Else (arr[mid+1..r] must be sorted)
+   *      a) If key to be searched lies in range from arr[mid+1]
+   *          to arr[r], recur for arr[mid+1..r].
+   *      b) Else recur for arr[l..mid]
+   */
+  int binarySearchRotated(int[] array, int key, int beginIndex, int endIndex) {
+    if (beginIndex <= endIndex) {
+      int mid = beginIndex + (endIndex - beginIndex) / 2;
+      if (array[mid] == key) return mid;
+      else {
+        if (array[beginIndex] < array[mid]) {
+          if (key < array[mid] && key >= array[beginIndex]) return binarySearchRotated(array, key, beginIndex, mid - 1);
+          else return binarySearchRotated(array, key, mid + 1, endIndex);
+        }
+        else {
+          if (key > array[mid] && key <= array[endIndex]) return binarySearchRotated(array, key, mid + 1, endIndex);
+          else return binarySearchRotated(array, key, beginIndex, mid - 1);
+        }
+      }
+    }
+    return -1;
+  }
+
+  /**
    * 6.
    * Problem: Maximum sum of contigous subarray for a non-empty array.
    */
@@ -113,38 +145,6 @@ public class ArrayExamples {
     int x2 = 0;
     for (int i = 1; i <= n; i++) x2 ^= i;
     return x1 ^ x2;
-  }
-
-  /**
-   * 4.
-   * Problem: Search an element in a sorted and rotated array.
-   * Solution: Use modified binary search.
-   * 1) Find middle point mid = (l + h)/2
-   * 2) If key is present at middle point, return mid.
-   * 3) Else If arr[l..mid-1] is sorted
-   *      a) If key to be searched lies in range from arr[l] to arr[mid], recur for arr[l..mid].
-   *      b) Else recur for arr[mid+1..r]
-   * 4) Else (arr[mid+1..r] must be sorted)
-   *      a) If key to be searched lies in range from arr[mid+1]
-   *          to arr[r], recur for arr[mid+1..r].
-   *      b) Else recur for arr[l..mid]
-   */
-  int binarySearchRotated(int[] array, int key, int beginIndex, int endIndex) {
-    if (beginIndex <= endIndex) {
-      int mid = beginIndex + (endIndex - beginIndex) / 2;
-      if (array[mid] == key) return mid;
-      else {
-        if (array[beginIndex] < array[mid]) {
-          if (key < array[mid] && key >= array[beginIndex]) return binarySearchRotated(array, key, beginIndex, mid - 1);
-          else return binarySearchRotated(array, key, mid + 1, endIndex);
-        }
-        else {
-          if (key > array[mid] && key <= array[endIndex]) return binarySearchRotated(array, key, mid + 1, endIndex);
-          else return binarySearchRotated(array, key, beginIndex, mid - 1);
-        }
-      }
-    }
-    return -1;
   }
 
   /**
