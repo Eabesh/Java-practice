@@ -45,6 +45,16 @@ class ListExample {
    */
 
   /**
+   * 5.
+   * Problem: Write a function to delete a Linked List.
+   * Solution:
+   * Algorithm For C/C++: Iterate through the linked list and delete all the nodes one by one. Main point here is not
+   * to access next of the current pointer if current pointer is deleted.
+   * In Java: Automatic garbage collection happens, so deleting a linked list is easy. We just need to change head to
+   * null.
+   */
+
+  /**
    * 16. Problem: Reverse linked list.
    */
   ListNode reverseList(ListNode head) {
