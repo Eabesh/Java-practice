@@ -10,13 +10,19 @@ public class ListExampleTest {
   @Test
   public void getNthNodeTest() {
     ListNode head = createList(10);
+    assertEquals(0, new ListExample().getNthNode(head,0).data);
     assertEquals(5, new ListExample().getNthNode(head,5).data);
+    assertEquals(9, new ListExample().getNthNode(head,9).data);
+    assertEquals(null, new ListExample().getNthNode(head,20));
   }
 
   @Test
   public void getNthNodeRecTest() {
     ListNode head = createList(10);
-    assertEquals(5,new ListExample().getNthNodeRec(head,5).data);
+    assertEquals(0, new ListExample().getNthNodeRec(head,0).data);
+    assertEquals(5, new ListExample().getNthNodeRec(head,5).data);
+    assertEquals(9, new ListExample().getNthNodeRec(head,9).data);
+    assertEquals(null, new ListExample().getNthNodeRec(head,20));
   }
 
   @Test
@@ -42,7 +48,7 @@ public class ListExampleTest {
   private ListNode createList(int n) {
     ListNode head = null;
     ListNode current = null;
-    for (int i = 1; i <= n; i++) {
+    for (int i = 0; i < n; i++) {
       ListNode node = getNode(i);
       if (isFirstNode(node)) {
         head = node;
@@ -57,7 +63,7 @@ public class ListExampleTest {
   }
 
   private boolean isFirstNode(ListNode listNode) {
-    return listNode.data == 1;
+    return listNode.data == 0;
   }
 
   private ListNode getNode(int data) {
