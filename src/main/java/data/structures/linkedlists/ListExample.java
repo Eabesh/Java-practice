@@ -148,6 +148,35 @@ class ListExample {
    */
 
   /**
+   * 16.
+   * Problem: Write a recursive function to print reverse of a Linked List.
+   */
+
+  /**
+   * 11.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 11.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 11.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 11.
+   * Problem:
+   * Solution:
+   */
+
+  /**
    * 11.
    * Problem:
    * Solution:
