@@ -37,6 +37,14 @@ class ListExample {
    */
 
   /**
+   * 4.
+   * Problem: Find n’th node from the end of a Linked List.
+   * Solution: Maintain two pointers – reference pointer and main pointer. Initialize both reference and main pointers
+   * to head. First move reference pointer to n nodes from head. Now move both pointers one by one until reference
+   * pointer reaches end. Now main pointer will point to nth node from the end. Return main pointer.
+   */
+
+  /**
    * 16. Problem: Reverse linked list.
    */
   ListNode reverseList(ListNode head) {
