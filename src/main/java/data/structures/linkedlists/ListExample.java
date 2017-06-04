@@ -139,9 +139,12 @@ class ListExample {
    */
 
   /**
-   * 11.
-   * Problem:
+   * 15.
+   * Problem: Write a function to get the intersection point of two Linked Lists.
    * Solution:
+   * 1. Using difference of node counts.
+   * 2. Make circle in first list: Traverse the first linked list(count the elements) and make a circular linked list.
+   * Now view the problem as find the loop in the second linked list.
    */
 
   /**
