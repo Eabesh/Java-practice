@@ -112,7 +112,40 @@ class ListExample {
    */
 
   /**
-   * 6.
+   * 11.
+   * Problem: The Great Tree-List Recursion Problem.
+   * Solution: Done in tree section.
+   */
+
+  /**
+   * 12.
+   * Problem: Clone a linked list with next and random pointer.
+   * Solution:
+   */
+
+  /**
+   * 13.
+   * Problem: Write a code for implementation of doubly linked list with use of single pointer in each node.
+   * Solution: The alternative implementation is based on pointer distance, so I call it the pointer distance
+   * implementation for this discussion. Each node would carry only one pointer field to traverse the list back and
+   * forth. In a conventional implementation, we need to keep a forward pointer to the next item on the list and a
+   * backward pointer to the previous item.
+   */
+
+  /**
+   * 14.
+   * Problem: Given a linked list which is sorted, how will you insert in sorted way.
+   * Solution: Use two pointers and reach to the ceiling of the given node.
+   */
+
+  /**
+   * 11.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 11.
    * Problem:
    * Solution:
    */
