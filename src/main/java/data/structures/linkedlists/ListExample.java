@@ -103,9 +103,12 @@ class ListExample {
    */
 
   /**
-   * 6.
-   * Problem:
+   * 10.
+   * Problem: Function to check if a singly linked list is palindrome.
    * Solution:
+   * 1. Use a stack to store all elements and compare with all elements.
+   * 2. Find mid using fast, slow pointer approach. Compare to first half and reverse of second half.
+   * 3. Using recursion.
    */
 
   /**
@@ -155,8 +158,6 @@ class ListExample {
   /**
    * 22. Function to check if a singly linked list is palindrome.
    *
-   * Solution: 1. Use a stack to store all elements and compare with all elements.
-   * 2. Find mid using fast, slow pointer approach. Compare to first half and reverse of second half.
    */
 
   /**
