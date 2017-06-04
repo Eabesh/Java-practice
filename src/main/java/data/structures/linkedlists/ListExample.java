@@ -55,7 +55,19 @@ class ListExample {
    */
 
   /**
-   * 16. Problem: Reverse linked list.
+   * 6.
+   * Problem: Write a function that counts the number of times a given int occurs in a Linked List
+   * Solution: Loop through the list and return the count.
+   */
+
+  /**
+   * 7.
+   * Problem: Same as problem 2.
+   */
+
+  /**
+   * 8.
+   * Problem: Write a function to reverse a linked list.
    */
   ListNode reverseList(ListNode head) {
     ListNode current = head, previous = null, next;
@@ -77,6 +89,31 @@ class ListExample {
       return newHead;
     }
   }
+
+  /**
+   * 9.
+   * Problem: Write a program function to detect loop in a linked list.
+   * Solution:
+   * 1. Use Hashing: Traverse the list one by one and keep putting the node addresses in a Hash Table.
+   * 2. Mark Visited Nodes: This solution requires modifications to basic linked list data structure. Have a visited
+   * flag with each node. Traverse the linked list and keep marking visited nodes.
+   * 3. Floyd’s Cycle-Finding Algorithm: Traverse linked list using two pointers. Move one pointer by one and other
+   * pointer by two. If these pointers meet at some node then there is a loop. If pointers do not meet then linked list
+   * doesn’t have loop.
+   */
+
+  /**
+   * 6.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 6.
+   * Problem:
+   * Solution:
+   */
+
 
   ListNode reverseKNodes(ListNode head, int k, int length) {
     ListNode newHead = head;
