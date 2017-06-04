@@ -24,6 +24,19 @@ class ListExample {
   }
 
   /**
+   * 2.
+   * Problem: Given only a pointer/reference to a node to be deleted in a singly linked list, how do you delete it?
+   * Solution: Fast solution is to copy the data from the next node to the node to be deleted and delete the next node.
+   */
+
+  /**
+   * 3.
+   * Problem: Find the middle of a given linked list.
+   * Solution: Traverse linked list using two pointers. Move one pointer by one and other pointer by two.
+   * When the fast pointer reaches end slow pointer will reach middle of the linked list.
+   */
+
+  /**
    * 16. Problem: Reverse linked list.
    */
   ListNode reverseList(ListNode head) {
