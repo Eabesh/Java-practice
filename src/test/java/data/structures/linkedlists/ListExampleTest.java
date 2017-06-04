@@ -7,23 +7,21 @@ import static org.junit.Assert.assertEquals;
 
 public class ListExampleTest {
 
-  ListNode head;
-
   @Test
   public void getNthNodeTest() {
-    createList(10);
-    assertEquals(5,new ListExample().getNthNode(head,5).data);
+    ListNode head = createList(10);
+    assertEquals(5, new ListExample().getNthNode(head,5).data);
   }
 
   @Test
   public void getNthNodeRecTest() {
-    createList(10);
+    ListNode head = createList(10);
     assertEquals(5,new ListExample().getNthNodeRec(head,5).data);
   }
 
   @Test
   public void getReverseKNode() {
-    createList(10);
+    ListNode head = createList(10);
     ListNode newHead = new ListExample().reverseKNodes(head, 5, 10);
     System.out.print(newHead.data);
 
@@ -31,29 +29,31 @@ public class ListExampleTest {
 
   @Test
   public void reverseListTest() {
-    createList(10);
-    assertEquals(10,new ListExample().reverseList(head).data);
+    ListNode head = createList(10);
+    assertEquals(10, new ListExample().reverseList(head).data);
   }
 
   @Test
   public void reverseListRecTest() {
-    createList(20);
-    assertEquals(20,new ListExample().reverseListRec(head).data);
+    ListNode head = createList(20);
+    assertEquals(20, new ListExample().reverseListRec(head).data);
   }
 
-  private void createList(int n) {
-    ListNode current = head;
+  private ListNode createList(int n) {
+    ListNode head = null;
+    ListNode current = null;
     for (int i = 1; i <= n; i++) {
       ListNode node = getNode(i);
       if (isFirstNode(node)) {
         head = node;
         current = node;
       }
-      else {
+      else if (current != null) {
         current.next = node;
         current = current.next;
       }
     }
+    return head;
   }
 
   private boolean isFirstNode(ListNode listNode) {
