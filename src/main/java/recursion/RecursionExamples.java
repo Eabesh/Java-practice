@@ -1,5 +1,6 @@
 package recursion;
 
+import utilities.ListNode;
 import utilities.Stack;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -89,11 +90,11 @@ class RecursionExamples {
    * 7.
    * Problem: Subset of String.
    */
-  void printSubsets(String sofar, String remaining) {
-    if (remaining.isEmpty()) System.out.println(sofar);
+  void printSubsets(String soFar, String remaining) {
+    if (remaining.isEmpty()) System.out.println(soFar);
     else {
-      printSubsets(sofar + remaining.charAt(0), remaining.substring(1));
-      printSubsets(sofar, remaining.substring(1));
+      printSubsets(soFar + remaining.charAt(0), remaining.substring(1));
+      printSubsets(soFar, remaining.substring(1));
     }
   }
 
@@ -131,15 +132,15 @@ class RecursionExamples {
    * 9.
    * Problem: N Queens Problems
    */
-  void placeQueen(int[][] board, int row, int column) {
+  private void placeQueen(int[][] board, int row, int column) {
     board[row][column] = 1;
   }
 
-  void removeQueen(int[][] board, int row, int column) {
+  private void removeQueen(int[][] board, int row, int column) {
     board[row][column] = 0;
   }
 
-  boolean isSafe(int[][] board, int row, int column) {
+  private boolean isSafe(int[][] board, int row, int column) {
     for (int c = column; c >= 0 ; c--)
       if (board[row][c] == 1) return false;
 
@@ -172,6 +173,20 @@ class RecursionExamples {
 
   /**
    * 1.
+   * Reverse a linked list using recursion.
+   */
+  ListNode reverseList(ListNode current) {
+    if (current == null || current.next == null) return current;
+    else {
+      ListNode head = reverseList(current.next);
+      current.next.next = current;
+      current.next = null;
+      return head;
+    }
+  }
+
+  /**
+   * 2.
    * Problem: Reverse a stack using recursion. Or reverse a stack without using any other data structure or
    * auxiliary space.
    */
@@ -194,7 +209,7 @@ class RecursionExamples {
   }
 
   /**
-   * 2.
+   * 3.
    * Problem: Check if a number is Palindrome
    * Given an integer, write a function that returns true if the given number is palindrome, else false.
    * For example, 12321 is palindrome, but 1451 is not palindrome.
@@ -205,7 +220,7 @@ class RecursionExamples {
   }
 
   /**
-   * 3.
+   * 4.
    * Problem: Print all possible combinations of r elements in a given array of size n.
    * For example, if input array is {1, 2, 3, 4} and r is 2, then output should be {1, 2}, {1, 3}, {1, 4}, {2, 3}, {2, 4} and
    * {3,4}.
@@ -218,7 +233,7 @@ class RecursionExamples {
   }
 
   /**
-   * 4.
+   * 5.
    * Problem: Print all possible strings of length k that can be formed from a set of n characters
    */
   void printKLengthString(char[] array, int length, String soFar) {
@@ -230,7 +245,7 @@ class RecursionExamples {
   }
 
   /**
-   * 5.
+   * 6.
    * Problem: Tail Recursion
    * Solution: A recursive function is tail recursive when recursive call is the last thing
    * executed by the function.
@@ -255,7 +270,7 @@ class RecursionExamples {
   }
 
   /**
-   * 6.
+   * 7.
    * Problem: Print all increasing sequences of length k from first n natural numbers
    * Input: k = 2, n = 3
    * Output:
@@ -271,7 +286,7 @@ class RecursionExamples {
   }
 
   /**
-   * 7.
+   * 8.
    * Problem: Generate all possible sorted arrays from alternate elements of two given sorted arrays
    */
 //  void printSortedArrays(int[] arrayA, int[] arrayB, String soFar, int indexA, int indexB, int prevValue) {
@@ -283,61 +298,59 @@ class RecursionExamples {
 //
 
   /**
-   * 8.
+   * 9.
    * Problem: Minimum steps to reach a destination
    */
 
 
   /**
-   * 9.
+   * 10.
    * Problem: Given a string, print all possible palindromic partitions
    * Solution:
    */
 
 
   /**
-   * 10.
+   * 11.
    * Problem: Print a pattern without using any loop
    * Solution:
    */
 
 
   /**
-   * 11.
+   * 12.
    * Problem: Print all non-increasing sequences of sum equal to a given number x
    * Solution:
    */
 
 
   /**
-   * 12.
+   * 13.
    * Problem: Sort a stack using recursion
    * Solution:
    */
 
 
   /**
-   * 13.
+   * 14.
    * Problem: Print all n-digit strictly increasing numbers
    * Solution:
    */
 
   /**
-   * 14.
-   * Problem: Find all even length binary sequences with same sum of first and second half bits
-   * Solution:
-   */
-
-
-
-  /**
    * 15.
-   * Problem: Print all possible expressions that evaluate to a target
+   * Problem: Find all even length binary sequences with same sum of first and second half bits
    * Solution:
    */
 
   /**
    * 16.
+   * Problem: Print all possible expressions that evaluate to a target
+   * Solution:
+   */
+
+  /**
+   * 17.
    * Problem: Print sums of all subsets of a given set
    */
   void printSubsetSum(int sum, int[] set, int beginIndex) {
@@ -349,15 +362,13 @@ class RecursionExamples {
   }
 
   /**
-   * 17.
+   * 18.
    * Problem: String with additive sequence
    * Solution:
    */
 
-
-
   /**
-   * 18.
+   * 19.
    * Problem: Print all longest common sub-sequences in lexicographical order
    * You are given two strings.Now you have to print all longest common sub-sequences in
    * lexicographical order?
@@ -366,7 +377,7 @@ class RecursionExamples {
 
 
   /**
-   * 19.
+   * 20.
    * Problem: Program for Chocolate and Wrapper Puzzle
    * Given following three values, the task is to find the total number of maximum chocolate
    * you can eat.
@@ -384,52 +395,49 @@ class RecursionExamples {
    */
 
   /**
-   * 20.
+   * 21.
    * Problem: Recursion
    * Solution:
    */
 
   /**
-   * 21.
+   * 22.
    * Problem:  program to implement Collatz Conjecture
    * Solution:
    */
 
   /**
-   * 22.
+   * 23.
    * Problem: Generate all binary strings without consecutive 1’s.
    * Given a integer K. Task is Print All binary string of size K (Given number).
    * Solution:
    */
 
   /**
-   * 23.
+   * 24.
    * Problem: Recursive Bubble Sort
    * Solution:
    */
-  public void recusiveBSort(int[] array, int lastIndex) {
-
-    if (lastIndex == 1) return;
-    for (int i = 0; i < lastIndex - 1; i++) {
-      if (array[i] > array[i + 1]) swap(array, i, i + 1);
-    }
-    recusiveBSort(array, lastIndex - 1);
+  void recursiveBSort(int[] array, int length) {
+    if (length == 1) return;
+    for (int i = 0; i < length - 1; i++) if (array[i] > array[i + 1]) swap(array, i, i + 1);
+    recursiveBSort(array, length - 1);
   }
 
-  public void swap(int[] array, int x, int y) {
+  private void swap(int[] array, int x, int y) {
     int temp = array[x];
     array[x] = array[y];
     array[y] = temp;
   }
 
   /**
-   * 24.
+   * 25.
    * Problem: Recursive Insertion Sort
    * Solution:
    */
 
   /**
-   * 25.
+   * 26.
    * Problem: Find ways an Integer can be expressed as sum of exponent-th power of unique natural
    * numbers.
    * Given two numbers sum and exponent, find number of ways sum can be expressed as sum of exponent-th power
@@ -454,7 +462,7 @@ class RecursionExamples {
   }
 
   /**
-   * 26.
+   * 27.
    * Problem: Recaman’s sequence
    * Solution: a(n) = {a(n - 1) - n if (a(n - 1) - n > 0 && is new ; else a(n - 1) + n}
    * a(1) = 1;
@@ -479,43 +487,44 @@ class RecursionExamples {
     }
   }
 
-
   /**
    *  Problems from CareerCup.
    */
 
   /**
    * 1.
-   * Problem. A number is called as a stepping number if the adjacent digits
-   * are having a difference of 1.
+   * Problem: Given two integers ‘n’ and ‘m’, find all the stepping numbers in range [n, m].
+   * A number is called as a stepping number if the adjacent digits are having a difference of 1.
    * For eg. 8,343,545 are stepping numbers. While 890, 098 are not.
    * The difference between a ‘9’ and ‘0’ should not be considered as 1.
    */
-  void printSteppingNumber(String soFar, int remaining, ArrayList<Integer> choices) {
-    if (remaining == 0) System.out.println(soFar + " ");
-    else {
-      for (int choice : choices){
+  public HashSet<Integer> steppingNumbersSet = new HashSet<>();
+  void printSteppingNumber(int soFar, int n, int m, ArrayList<Integer> choices) {
+    if (soFar < m) {
+      for (int choice : choices) {
         ArrayList<Integer> newChoices = new ArrayList<>();
-        newChoices.add(choice + 1);
-        newChoices.add(choice - 1);
-        printSteppingNumber(soFar + choice, remaining - 1, newChoices);
+        if (choice + 1 <= 9) newChoices.add(choice + 1);
+        if (choice - 1 >= 0) newChoices.add(choice - 1);
+        int steppingNumber = soFar * 10 + choice;
+        if (steppingNumber >= n && steppingNumber <= m) steppingNumbersSet.add(steppingNumber);
+        printSteppingNumber(steppingNumber, n, m, newChoices);
       }
     }
   }
 
   /**
-   *  2.
-   *  Problem. Reverse a stack without using any other data structure or
-   *  auxiliary space.
+   * 2.
+   * Problem: Reverse a stack without using any other data structure or auxiliary space.
    */
 
   /**
-   *  Problem.We have bunnies standing in a line, numbered 1, 2, ... The odd bunnies (1, 3, ..) have the normal 2 ears.
-   *  The even bunnies (2, 4, ..) we'll say have 3 ears, because they each have a raised foot.
-   *  Recursively return the number of "ears" in the bunny line 1, 2, ... n (without loops or multiplication).
-   *  bunnyEars2(0) → 0
-   *  bunnyEars2(1) → 2
-   *  bunnyEars2(2) → 5
+   * 3.
+   * Problem: We have bunnies standing in a line, numbered 1, 2, ... The odd bunnies (1, 3, ..) have the normal 2 ears.
+   * The even bunnies (2, 4, ..) we'll say have 3 ears, because they each have a raised foot.
+   * Recursively return the number of "ears" in the bunny line 1, 2, ... n (without loops or multiplication).
+   * bunnyEars2(0) → 0
+   * bunnyEars2(1) → 2
+   * bunnyEars2(2) → 5
    */
   int bunnyEars2(int bunnies) {
     if (bunnies == 0) return 0;
@@ -524,12 +533,13 @@ class RecursionExamples {
   }
 
   /**
-   *  Problem.We have triangle made of blocks. The topmost row has 1 block, the next row down has 2 blocks,
-   *  the next row has 3 blocks, and so on. Compute recursively (no loops or multiplication) the total number of blocks
-   *  in such a triangle with the given number of rows.
-   *  triangle(0) → 0
-   *  triangle(1) → 1
-   *  triangle(2) → 3
+   * 4.
+   * Problem: We have triangle made of blocks. The topmost row has 1 block, the next row down has 2 blocks,
+   * the next row has 3 blocks, and so on. Compute recursively (no loops or multiplication) the total number of blocks
+   * in such a triangle with the given number of rows.
+   * triangle(0) → 0
+   * triangle(1) → 1
+   * triangle(2) → 3
    */
   int triangle(int rows) {
     if (rows < 2) return rows;
@@ -537,13 +547,13 @@ class RecursionExamples {
   }
 
   /**
-   *
-   *  Problem.Given a non-negative int n, return the sum of its digits recursively (no loops).
-   *  Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6),
-   *  while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
-   *  sumDigits(126) → 9
-   *  sumDigits(49) → 13
-   *  sumDigits(12) → 3
+   * 5.
+   * Problem: Given a non-negative int n, return the sum of its digits recursively (no loops).
+   * Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6),
+   * while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
+   * sumDigits(126) → 9
+   * sumDigits(49) → 13
+   * sumDigits(12) → 3
    */
   int sumDigits(int n) {
     if (n == 0) return 0;
@@ -551,23 +561,22 @@ class RecursionExamples {
   }
 
   /**
-   *
-   *  Problem.Given a non-negative int n, return the count of the occurrences of 7 as a digit,
-   *  so for example 717 yields 2. (no loops).
+   * 6.
+   * Problem: Given a non-negative int n, return the count of the occurrences of 7 as a digit, so for example 717
+   * yields 2. (no loops).
    */
   int count7(int n) {
     if (n == 0) return 0;
     else if (n % 10 == 7) return 1 + count7(n / 10);
-    else return count7(n /10);
+    else return count7(n / 10);
   }
 
   /**
-   *
-   *  Problem. Given a string, compute recursively (no loops) the number of times lowercase
-   *  hi" appears in the string.
-   *  countHi("xxhixx") → 1
-   *  countHi("xhixhix") → 2
-   *  countHi("hi") → 1
+   * 7.
+   * Problem: Given a string, compute recursively (no loops) the number of times lowercase "hi" appears in the string.
+   * countHi("xxhixx") → 1
+   * countHi("xhixhix") → 2
+   * countHi("hi") → 1
    */
   int countHi(String str) {
     if (str.length() < 2) return 0;
@@ -576,21 +585,21 @@ class RecursionExamples {
   }
 
   /**
-   *
-   *  Problem.Given a string, compute recursively (no loops) a new string where all
-   *  the lowercase 'x' chars have been changed to 'y' chars.
-   *  changeXY("codex") → "codey"
-   *  changeXY("xxhixx") → "yyhiyy"
-   *  changeXY("xhixhix") → "yhiyhiy"
+   * 8.
+   * Problem.Given a string, compute recursively (no loops) a new string where all the lowercase 'x' chars have been
+   * changed to 'y' chars.
+   * changeXY("codex") → "codey"
+   * changeXY("xxhixx") → "yyhiyy"
+   * changeXY("xhixhix") → "yhiyhiy"
    */
   String changeXY(String str) {
     return changeXY("", str);
   }
 
-  String changeXY(String sofar, String rest) {
-    if (rest.length() < 1) return sofar;
-    else if (rest.charAt(0) == 'x') return changeXY(sofar + 'y', rest.substring(1));
-    else return changeXY(sofar + rest.charAt(0), rest.substring(1));
+  private String changeXY(String soFar, String rest) {
+    if (rest.length() < 1) return soFar;
+    else if (rest.charAt(0) == 'x') return changeXY(soFar + 'y', rest.substring(1));
+    else return changeXY(soFar + rest.charAt(0), rest.substring(1));
   }
 
 }

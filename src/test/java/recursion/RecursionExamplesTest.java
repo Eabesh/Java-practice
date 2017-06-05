@@ -1,7 +1,9 @@
 package recursion;
 import org.junit.Test;
+import utilities.ListNode;
 import utilities.Stack;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -127,6 +129,16 @@ public class RecursionExamplesTest {
     assertEquals(3, new RecursionExamples().findUniqueWays(100, 2, 1));
   }
 
+  @Test
+  public void reverseList() throws Exception {
+    ListNode node1 = new ListNode(1);
+    ListNode node2 = new ListNode(2);
+    ListNode node3 = new ListNode(3);
+    node1.next = node2;
+    node2.next = node3;
+    assertEquals(3, new RecursionExamples().reverseList(node1).data);
+  }
+
 
   @Test
   public void recamanSequence() throws Exception {
@@ -145,49 +157,52 @@ public class RecursionExamplesTest {
   }
 
   @Test
-  public void recusiveBSort() throws Exception {
-
+  public void recursiveBSort() throws Exception {
+    int[] array = {3, 2, 1};
+    new RecursionExamples().recursiveBSort(array, array.length);
+    assertEquals(1, array[0]);
   }
 
   @Test
-  public void swap() throws Exception {
-
+  public void printSteppingNumber() throws Exception {
+    ArrayList<Integer> arrayList = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9));
+    RecursionExamples recursionExamples = new RecursionExamples();
+    recursionExamples.printSteppingNumber(0,10, 15, arrayList);
+    System.out.println(recursionExamples.steppingNumbersSet);
+    recursionExamples.steppingNumbersSet.clear();
+    recursionExamples.printSteppingNumber(0,0, 21, arrayList);
+    System.out.println(recursionExamples.steppingNumbersSet);
   }
 
   @Test
   public void bunnyEars2() throws Exception {
-
+    assertEquals(5, new RecursionExamples().bunnyEars2(2));
   }
 
   @Test
   public void triangle() throws Exception {
-
+    assertEquals(3, new RecursionExamples().triangle(2));
   }
 
   @Test
   public void sumDigits() throws Exception {
-
+    assertEquals(3, new RecursionExamples().sumDigits(12));
   }
 
   @Test
   public void count7() throws Exception {
-
+    assertEquals(2, new RecursionExamples().count7(717));
   }
 
   @Test
   public void countHi() throws Exception {
-
+    assertEquals(2, new RecursionExamples().countHi("xhixhix"));
   }
 
   @Test
   public void changeXY() throws Exception {
-
+    assertEquals("yy", new RecursionExamples().changeXY("xy"));
+    assertEquals("codey", new RecursionExamples().changeXY("codex"));
   }
-
-  @Test
-  public void changeXY1() throws Exception {
-
-  }
-
 
 }
