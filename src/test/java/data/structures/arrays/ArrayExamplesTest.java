@@ -30,6 +30,16 @@ public class ArrayExamplesTest {
   }
 
   @Test
+  public void mergeArray() throws Exception {
+    int[] array1 = {1, 2, 3};
+    int[] array2 = {4, 5, 0, 0, 0};
+    int[] array3 = new ArrayExamples().mergeArray(array1, array2);
+    for (int element : array3) {
+      System.out.println(element);
+    }
+  }
+
+  @Test
   public void maxSumContigous() throws Exception {
     int[] a = {3,2,7,10};
     int[] b = {-3,-22,-7,-10};
