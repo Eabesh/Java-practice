@@ -45,6 +45,12 @@ public class ListExampleTest {
     assertEquals(20, new ListExample().reverseListRec(head).data);
   }
 
+  @Test
+  public void printReverse() {
+    ListNode head = createList(20);
+    new ListExample().printReverse(head);
+  }
+
   private ListNode createList(int n) {
     ListNode head = null;
     ListNode current = null;

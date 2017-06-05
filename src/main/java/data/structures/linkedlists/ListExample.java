@@ -151,9 +151,15 @@ class ListExample {
    * 16.
    * Problem: Write a recursive function to print reverse of a Linked List.
    */
+  void printReverse(ListNode head) {
+    if (head != null) {
+      printReverse(head.next);
+      System.out.print(head.data + " ");
+    }
+  }
 
   /**
-   * 11.
+   * 17.
    * Problem:
    * Solution:
    */
