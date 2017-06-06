@@ -103,6 +103,13 @@ public class ListExampleTest {
     assertEquals(2, newHead.data);
   }
 
+  @Test
+  public void deleteAlternate() throws Exception {
+    ListNode head = createList(10);
+    printList(head);
+    printList(new ListExample().deleteAlternate(head));
+  }
+
   private boolean isFirstNode(ListNode listNode) {
     return listNode.data == 0;
   }
