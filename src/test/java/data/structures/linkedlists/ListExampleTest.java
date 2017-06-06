@@ -4,6 +4,7 @@ import org.junit.Test;
 import utilities.ListNode;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ListExampleTest {
 
@@ -91,12 +92,15 @@ public class ListExampleTest {
   @Test
   public void intersectionOfLists() {
     ListNode head = createList(7);
+    printList(head);
     ListNode head1 = new ListNode(2);
     head1.next = new ListNode(4);
     head1.next.next = new ListNode(6);
     head1.next.next.next = new ListNode(8);
+    printList(head1);
     ListNode newHead = new ListExample().intersectionOfLists(head, head1);
     printList(newHead);
+    assertEquals(2, newHead.data);
   }
 
   private boolean isFirstNode(ListNode listNode) {

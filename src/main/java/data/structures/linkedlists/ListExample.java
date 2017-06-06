@@ -243,24 +243,27 @@ class ListExample {
    * Solution:
    */
   ListNode intersectionOfLists(ListNode head1, ListNode head2) {
-    ListNode current1 = head1, current2 = head2, newHead = null, tail = null;
+    ListNode current1 = head1, current2 = head2, head = null, tail = null;
     while (current1 != null && current2 != null) {
       if (current1.data < current2.data) current1 = current1.next;
       else if (current2.data < current1.data) current2 = current1.next;
       else {
-        ListNode newNode = new ListNode(current1.data);
-        if(tail == null) {
-          newHead = newNode;
-          tail = newHead;
-        }else {
-          tail.next = newNode;
-          tail = tail.next;
+        if (head == null) {
+         head = new ListNode(current1.data);
+         tail = head;
         }
+        else tail = insertAtEnd(tail, current1.data);
         current1 = current1.next;
         current2 = current2.next;
       }
     }
-    return newHead;
+    return head;
+  }
+
+  private ListNode insertAtEnd(ListNode tail, int data) {
+    tail.next = new ListNode(data);
+    tail = tail.next;
+    return tail;
   }
 
   /**
@@ -272,7 +275,7 @@ class ListExample {
    * Solution:
    */
   ListNode deleteAlternate(ListNode head) {
-    if(head == null || head.next.next == null) return null;
+    if(head == null) return null;
     else {
       head.next = deleteAlternate(head.next.next);
       return head;
