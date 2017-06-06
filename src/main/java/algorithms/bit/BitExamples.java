@@ -19,9 +19,13 @@ public class BitExamples {
 
   /**
    * 2.
-   * Problem:
+   * Problem: Write an Efficient Method to Check if a Number is Multiple of 3.
    * Solution:
+   * 1) Get count of all set bits at odd positions (For 23 it’s 3).
+   * 2) Get count of all set bits at even positions (For 23 it’s 1).
+   * 3) If difference of above two counts is a multiple of 3 then number is also a multiple of 3.
    */
+
 
   /**
    * 1.
