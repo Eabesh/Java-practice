@@ -8,12 +8,12 @@ public class BitExamples {
    */
   int getNextPowerOf2(int n) {
     int power = 1;
-    if (exactPowerOf2(n)) return n;
+    if (isExactPowerOf2(n)) return n;
     else while (power < n) power <<= 1;
     return power;
   }
 
-  private boolean exactPowerOf2(int n) {
+  private boolean isExactPowerOf2(int n) {
     return n > 0 && (n & (n - 1)) == 0;
   }
 
