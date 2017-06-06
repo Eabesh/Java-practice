@@ -202,22 +202,641 @@ class ListExample {
   }
 
   /**
-   * 11.
-   * Problem:
+   * 19.
+   * Problem: Reverse a Doubly Linked List.
    * Solution:
    */
 
   /**
-   * 11.
-   * Problem:
+   * 20.
+   * Problem: Split a Circular Linked List into two halves.
    * Solution:
    */
 
   /**
-   * 11.
-   * Problem:
+   * 21.
+   * Problem: Move last element to front of a given Linked List.
    * Solution:
    */
+
+  /**
+   * 22.
+   * Problem: Pairwise swap elements of a given linked list.
+   * Solution:
+   */
+
+
+  /**
+   * 23.
+   * Problem: Delete a node in a Doubly Linked List.
+   * Solution:
+   */
+
+  /**
+   * 24.
+   * Problem: Intersection of two Sorted Linked Lists.
+   * Solution:
+   */
+
+  /**
+   * 25.
+   * Problem: Delete alternate nodes of a Linked List.
+   * Solution:
+   */
+
+  /**
+   * 26.
+   * Problem: Alternating split of a given Singly Linked List.
+   * Solution:
+   */
+
+  /**
+   * 27.
+   * Problem: Merge two sorted linked lists.
+   * Solution:
+   */
+
+  /**
+   * 28.
+   * Problem: Identical Linked Lists.
+   * Solution:
+   */
+  /**
+   * 29.
+   * Problem: Merge Sort for Linked Lists
+   * Solution:
+   */
+  /**
+   * 30.
+   * Problem: Reverse a Linked List in groups of given size
+   * Solution:
+   */
+  /**
+   * 31.
+   * Problem: Linked List vs Array
+   * Solution:
+   */
+
+  /**
+   * 32.
+   * Problem: Sorted insert for circular linked list
+   * Solution:
+   */
+
+
+  /**
+   * 33.
+   * Problem: Reverse alternate K nodes in a Singly Linked List
+   * Solution:
+   */
+
+  /**
+   * 34.
+   * Problem: Delete nodes which have a greater value on right side.
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Segregate even and odd nodes in a Linked List
+   * Solution:
+   */
+
+  /**
+   * 36.
+   * Problem: Detect and Remove Loop in a Linked List.
+   * Solution:
+   */
+
+
+
+  /**
+   * 37.
+   * Problem: XOR Linked List – A Memory Efficient Doubly Linked List | Set 1.
+   * Solution:
+   */
+  /**
+   * 38.
+   * Problem: Add two numbers represented by linked lists | Set 1.
+   * Solution:
+   */
+  /**
+   * 39.
+   * Problem: How to write C functions that modify head pointer of a Linked List?.
+   * Solution:
+   */
+
+  /**
+   * 40.
+   * Problem: Delete a given node in Linked List under given constraints.
+   * Solution:
+   */
+
+  /**
+   * 41.
+   * Problem: Sorted Linked List to Balanced BST.
+   * Solution:
+   */
+  /**
+   * 42.
+   * Problem: In-place conversion of Sorted DLL to Balanced BST
+   * Solution:
+   */
+  /**
+   * 43.
+   * Problem: Union and Intersection of two Linked Lists
+   * Solution:
+   */
+  /**
+   * 44.
+   * Problem: XOR Linked List – A Memory Efficient Doubly Linked List | Set 2.
+   * Solution:
+   */
+  /**
+   * 45.
+   * Problem: Find a triplet from three linked lists with sum equal to a given number
+   * Solution:
+   */
+  /**
+   * 46.
+   * Problem: Rotate a Linked List
+   * Solution:
+   */
+  /**
+   * 47.
+   * Problem: Flattening a Linked List
+   * Solution:
+   */
+  /**
+   * 48.
+   * Problem: Add two numbers represented by linked lists | Set 2
+   * Solution:
+   */
+
+  /**
+   * 49.
+   * Problem: Sort a linked list of 0s, 1s and 2s
+   * Solution:
+   */
+
+  /**
+   * 50.
+   * Problem: Flatten a multilevel linked list
+   * Solution:
+   */
+
+  /**
+   * 51.
+   * Problem: Linked List | Set 1 (Introduction)
+   * Solution:
+   */
+
+  /**
+   * 52.
+   * Problem: Linked List | Set 2 (Inserting a node)
+   * Solution:
+   */
+  /**
+   * 53.
+   * Problem: QuickSort on Doubly Linked List
+   * Solution:
+   */
+  /**
+   * 54.
+   * Problem: Swap Kth node from beginning with Kth node from end in a Linked List
+   * Solution:
+   */
+  /**
+   * 55.
+   * Problem: Delete N nodes after M nodes of a linked list.
+   * Solution:
+   */
+  /**
+   * 56.
+   * Problem: QuickSort on Singly Linked List
+   * Solution:
+   */
+
+  /**
+   * 57.
+   * Problem: Merge a linked list into another linked list at alternate positions.
+   * Solution:
+   */
+
+  /**
+   * 58.
+   * Problem: Pairwise swap elements of a given linked list by changing links
+   * Solution:
+   */
+
+
+
+  /**
+   * 59.
+   * Problem: C Program for Bubble Sort on Linked List.
+   * Solution:
+   */
+
+
+  /**
+   * 60.
+   * Problem: Queue | Set 2 (Linked List Implementation).
+   * Solution:
+   */
+
+  /**
+   * 61.
+   * Problem: Given a linked list, reverse alternate nodes and append at the end.
+   * Solution:
+   */
+  /**
+   * 62.
+   * Problem: Doubly Linked List | Set 1 (Introduction and Insertion).
+   * Solution:
+   */
+  /**
+   * 63.
+   * Problem: Circular Linked List | Set 1 (Introduction and Applications).
+   * Solution:
+   */
+  /**
+   * 64.
+   * Problem: Circular Linked List | Set 2 (Traversal).
+   * Solution:
+   */
+  /**
+   * 65.
+   * Problem: Linked List | Set 3 (Deleting a node).
+   * Solution:
+   */
+  /**
+   * 66.
+   * Problem: A Programmer’s approach of looking at Array vs. Linked List.
+   * Solution:
+   */
+  /**
+   * 67.
+   * Problem: Can we reverse a linked list in less than O(n)?
+   * Solution:
+   */
+  /**
+   * 68.
+   * Problem: Delete all occurrences of a given key in a linked list
+   * Solution:
+   */
+  /**
+   * 69.
+   * Problem: Construct a Maximum Sum Linked List out of two Sorted Linked Lists having some Common nodes.
+   * Solution:
+   */
+  /**
+   * 70.
+   * Problem: Given a linked list of line segments, remove middle points
+   * Solution:
+   */
+  /**
+   * 71.
+   * Problem: Clone a linked list with next and random pointer | Set 2
+   * Solution:
+   */
+  /**
+   * 72.
+   * Problem: Find Length of a Linked List (Iterative and Recursive)
+   * Solution:
+   */
+  /**
+   * 73.
+   * Problem: Search an element in a Linked List (Iterative and Recursive).
+   * Solution:
+   */
+  /**
+   * 74.
+   * Problem: Generic Linked List in C.
+   * Solution:
+   */
+  /**
+   * 75.
+   * Problem: Swap nodes in a linked list without swapping data.
+   * Solution:
+   */
+  /**
+   * 76.
+   * Problem: Point to next higher value node in a linked list with an arbitrary pointer
+   * Solution:
+   */
+  /**
+   * 77.
+   * Problem: Merge Sort for Doubly Linked List.
+   * Solution:
+   */
+  /**
+   * 78.
+   * Problem: Insertion Sort for Singly Linked List
+   * Solution:
+   */
+  /**
+   * 79.
+   * Problem: Select a Random Node from a Singly Linked List.
+   * Solution:
+   */
+  /**
+   * 80.
+   * Problem: Sort a linked list that is sorted alternating ascending and descending orders?
+   * Solution:
+   */
+  /**
+   * 81.
+   * Problem: Rearrange a given linked list in-place.
+   * Solution:
+   */
+  /**
+   * 82.
+   * Problem: Compare two strings represented as linked lists.
+   * Solution:
+   */
+  /**
+   * 83.
+   * Problem: Delete a Linked List node at a given position.
+   * Solution:
+   */
+  /**
+   * 84.
+   * Problem: Merge two sorted linked lists such that merged list is in reverse order.
+   * Solution:
+   */
+  /**
+   * 85.
+   * Problem: LinkedList in java.
+   * Solution:
+   */
+  /**
+   * 86.
+   * Problem: Delete last occurrence of an item from linked list
+   * Solution:
+   */
+
+  /**
+   * 87.
+   * Problem: Rearrange a linked list such that all even and odd positioned nodes are together.
+   * Solution:
+   */
+
+  /**
+   * 88.
+   * Problem: Rearrange a Linked List in Zig-Zag fashion.
+   * Solution:
+   */
+
+  /**
+   * 89.
+   * Problem: Add 1 to a number represented as linked list.
+   * Solution:
+   */
+
+  /**
+   * 90.
+   * Problem: Point arbit pointer to greatest value right side node in a linked list.
+   * Solution:
+   */
+
+
+  /**
+   * 91.
+   * Problem: Check if a linked list of strings forms a palindrome.
+   * Solution:
+   */
+
+  /**
+   * 92.
+   * Problem: Convert a given Binary Tree to Doubly Linked List | Set 4.
+   * Solution:
+   */
+
+
+  /**
+   * 93.
+   * Problem: Sort linked list which is already sorted on absolute values.
+   * Solution:
+   */
+
+  /**
+   * 94.
+   * Problem: Create a Doubly Linked List from a Ternary Tree.
+   * Solution:
+   */
+
+
+
+
+  /**
+   * 95.
+   * Problem: In-place Merge two linked lists without changing links of first list.
+   * Solution:
+   */
+
+  /**
+   * 96.
+   * Problem: Delete middle of linked list.
+   * Solution:
+   */
+
+
+
+  /**
+   * 97.
+   * Problem: Check if a linked list is Circular Linked List.
+   * Solution:
+   */
+
+  /**
+   * 98.
+   * Problem: Merge K sorted linked lists.
+   * Solution:
+   */
+
+  /**
+   * 99.
+   * Problem: Decimal Equivalent of Binary Linked List.
+   * Solution:
+   */
+
+  /**
+   * 100.
+   * Problem: Flatten a multi-level linked list | Set 2 (Depth wise).
+   * Solution:
+   */
+
+
+  /**
+   * 101.
+   * Problem: Rearrange a given list such that it consists of alternating minimum maximum elements.
+   * Solution:
+   */
+
+  /**
+   * 102.
+   * Problem: Subtract Two Numbers represented as Linked Lists.
+   * Solution:
+   */
+
+
+  /**
+   * 103.
+   * Problem: Convert a Binary Tree to a Circular Doubly Link List
+   * Solution:
+   */
+
+  /**
+   * 104.
+   * Problem: Unrolled Linked List | Set 1 (Introduction).
+   * Solution:
+   */
+
+
+
+
+  /**
+   * 105.
+   * Problem: Find pairs with given sum in doubly linked list.
+   * Solution:
+   */
+
+  /**
+   * 106.
+   * Problem: Find pair for given sum in a sorted singly linked without extra space
+   * Solution:
+   */
+  /**
+   * 107.
+   * Problem: Iteratively Reverse a linked list using only 2 pointers (An Interesting Method).
+   * Solution:
+   */
+
+  /**
+   * 108.
+   * Problem: Partitioning a linked list around a given value and keeping the original order.
+   * Solution:
+   */
+
+  /**
+   * 109.
+   * Problem: Sublist Search (Search a linked list in another list).
+   * Solution:
+   */
+
+  /**
+   * 110.
+   * Problem: Check linked list with a loop is palindrome or not.
+   * Solution:
+   */
+
+
+  /**
+   * 112.
+   * Problem: Clone a linked list with next and random pointer in O(1) space.
+   * Solution:
+   */
+
+  /**
+   * 113.
+   * Problem: Length of longest palindrome list in a linked list using O(1) extra space
+   * Solution:
+   */
+
+
+  /**
+   * 114.
+   * Problem: Adding two polynomials using Linked List.
+   * Solution:
+   */
+
+  /**
+   * 115.
+   * Problem: Circular Singly Linked List | Insertion
+   * Solution:
+   */
+
+
+
+  /**
+   * 116.
+   * Problem: Implementing Iterator pattern of a single Linked List.
+   * Solution:
+   */
+
+  /**
+   * 117.
+   * Problem: Move all occurrences of an element to end in a linked list.
+   * Solution:
+   */
+  /**
+   * 118.
+   * Problem: How to insert elements in C++ STL List ?
+   * Solution:
+   */
+
+  /**
+   * 119.
+   * Problem: Deletion from a Circular Linked List.
+   * Solution:
+   */
+
+  /**
+   * 120.
+   * Problem: Doubly Circular Linked List | Set 1 (Introduction and Insertion).
+   * Solution:
+   */
+
+  /**
+   * 121.
+   * Problem: Doubly Circular Linked List | Set 2 (Deletion)
+   * Solution:
+   */
+
+
+  /**
+   * 122.
+   * Problem: Circular Queue | Set 2 (Circular Linked List Implementation).
+   * Solution:
+   */
+
+  /**
+   * 123.
+   * Problem: Remove all occurrences of duplicates from a sorted Linked List
+   * Solution:
+   */
+
+
+  /**
+   * 124.
+   * Problem: Partitioning a linked list around a given value and If we don’t care about making the elements of the list “stable”
+   * Solution:
+   */
+
+  /**
+   * 125.
+   * Problem: Remove every k-th node of the linked list.
+   * Solution:
+   */
+
+
+  /**
+   * 126.
+   * Problem: Linked List representation of Disjoint Set Data Structures.
+   * Solution:
+   */
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   ListNode reverseKNodes(ListNode head, int k, int length) {
