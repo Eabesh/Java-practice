@@ -187,17 +187,16 @@ class ListExample {
    */
   ListNode removeDuplicatesUnsorted(ListNode head) {
     HashSet<Integer> set = new HashSet<>();
-    ListNode prev, current = head;
+    ListNode prev = null, current = head;
     while (current != null) {
-      if (set.contains(current.data)){
-       prev = current.next;
-       current = prev.next;
-      }
+      if (set.contains(current.data))
+        prev.next = current.next;
       else {
         set.add(current.data);
         prev = current;
-        current = current.next;
       }
+      current = prev.next;
+
     }
     return head;
   }

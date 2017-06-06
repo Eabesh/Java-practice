@@ -53,11 +53,12 @@ public class ListExampleTest {
 
   @Test
   public void removeDuplicatesUnsorted() {
-    ListNode head = createList(20);
-    //ListNode head2 = createList(10);
-    ListNode newNode = createList(1);
-    newNode.next = head;
-    head = newNode;
+   ListNode head;
+   ListNode newNode = new ListNode(1);
+   head = newNode;
+   newNode.next = new ListNode(2);
+   newNode.next.next = new ListNode(1);
+   newNode.next.next.next = new ListNode(2);
 
     printList(head);
     ListNode newHead = new ListExample().removeDuplicatesUnsorted(head);
@@ -65,9 +66,10 @@ public class ListExampleTest {
   }
   void printList(ListNode head) {
     while (head != null) {
-      System.out.println(head.data);
+      System.out.print(head.data + " ");
       head = head.next;
     }
+    System.out.println();
   }
   private ListNode createList(int n) {
     ListNode head = null;
