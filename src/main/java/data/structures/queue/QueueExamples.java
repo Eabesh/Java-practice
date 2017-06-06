@@ -38,6 +38,10 @@ public class QueueExamples {
    * getHighestPriority(): Returns the highest priority item.
    * deleteHighestPriority(): Removes the highest priority item.
    * It can be implemented using array, linked list or heap.
+   * Applications of Priority Queue:
+   * 1) CPU Scheduling
+   * 2) Graph algorithms like Dijkstra’s shortest path algorithm, Prim’s Minimum Spanning Tree, etc
+   * 3) All queue applications where priority is involved.
    */
 
   /**
