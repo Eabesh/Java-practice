@@ -235,14 +235,46 @@ class ListExample {
   /**
    * 24.
    * Problem: Intersection of two Sorted Linked Lists.
+   * Given two lists sorted in increasing order, create and return a new list representing the
+   * intersection of the two lists. The new list should be made with its own memory — the original
+   * lists should not be changed
+   * For example, let the first linked list be 1->2->3->4->6 and second linked list be 2->4->6->8, then
+   * your function should create and return a third list as 2->4->6.
    * Solution:
    */
+  ListNode intersectionOfLists(ListNode head1, ListNode head2) {
+    ListNode current1 = head1, current2 = head2, newHead = null, tail = null;
+    while (current1 != null && current2 != null) {
+      if (current1.data < current2.data) current1 = current1.next;
+      else if (current2.data < current1.data) current2 = current1.next;
+      else {
+        ListNode newNode = new ListNode(current1.data);
+        if(tail == null) {
+          newHead = newNode;
+          tail = newHead;
+        }else {
+          tail.next = newNode;
+          tail = tail.next;
+        }
+        current1 = current1.next;
+        current2 = current2.next;
+      }
+    }
+    return newHead;
+  }
 
   /**
    * 25.
    * Problem: Delete alternate nodes of a Linked List.
+   * Given a Singly Linked List, starting from the second node delete all alternate nodes of it.
+   * For example, if the given linked list is 1->2->3->4->5 then your function should convert it to
+   * 1->3->5, and if the given linked list is 1->2->3->4 then convert it to 1->3.
    * Solution:
    */
+
+  ListNode deleteAlternate(ListNode head) {
+
+  }
 
   /**
    * 26.

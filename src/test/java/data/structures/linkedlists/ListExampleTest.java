@@ -88,6 +88,17 @@ public class ListExampleTest {
     return head;
   }
 
+  @Test
+  public void intersectionOfLists() {
+    ListNode head = createList(7);
+    ListNode head1 = new ListNode(2);
+    head1.next = new ListNode(4);
+    head1.next.next = new ListNode(6);
+    head1.next.next.next = new ListNode(8);
+    ListNode newHead = new ListExample().intersectionOfLists(head, head1);
+    printList(newHead);
+  }
+
   private boolean isFirstNode(ListNode listNode) {
     return listNode.data == 0;
   }
