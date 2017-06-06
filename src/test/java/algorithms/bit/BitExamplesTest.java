@@ -12,4 +12,10 @@ public class BitExamplesTest {
     assertEquals(16, new BitExamples().getNextPowerOf2(15));
   }
 
+  @Test
+  public void isPowerOf2() throws Exception {
+    assertTrue(new BitExamples().isPowerOf2(4));
+    assertTrue(new BitExamples().isPowerOf2(8));
+  }
+
 }

@@ -8,13 +8,9 @@ public class BitExamples {
    */
   int getNextPowerOf2(int n) {
     int power = 1;
-    if (isExactPowerOf2(n)) return n;
+    if (isPowerOf2(n)) return n;
     else while (power < n) power <<= 1;
     return power;
-  }
-
-  private boolean isExactPowerOf2(int n) {
-    return n > 0 && (n & (n - 1)) == 0;
   }
 
   /**
@@ -34,16 +30,19 @@ public class BitExamples {
    */
 
   /**
-   * 1.
-   * Problem:
+   * 4.
+   * Problem: Efficient way to multiply with 7.
    * Solution:
    */
 
   /**
-   * 1.
-   * Problem:
-   * Solution:
+   * 5.
+   * Problem: Program to find whether a no is power of two.
    */
+  boolean isPowerOf2(int n) {
+    return n != 0 && (n & (n - 1)) == 0;
+  }
+
 
   /**
    * 1.
