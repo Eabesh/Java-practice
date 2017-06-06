@@ -28,8 +28,8 @@ public class BitExamples {
 
 
   /**
-   * 1.
-   * Problem:
+   * 3.
+   * Problem: Write a C program to find the parity of an unsigned integer.
    * Solution:
    */
 
