@@ -22,15 +22,22 @@ public class QueueExamples {
    */
 
   /**
-   * 1.
-   * Problem:
-   * Solution:
+   * 2.
+   * Problem: Linked List Implementation.
    */
 
   /**
-   * 1.
-   * Problem:
-   * Solution:
+   * 3.
+   * Problem: Priority Queue.
+   * Solution: Priority Queue is an extension of queue with following properties.
+   * 1) Every item has a priority associated with it.
+   * 2) An element with high priority is dequeued before an element with low priority.
+   * 3) If two elements have the same priority, they are served according to their order in the queue.
+   * A typical priority queue supports following operations.
+   * insert(item, priority): Inserts an item with given priority.
+   * getHighestPriority(): Returns the highest priority item.
+   * deleteHighestPriority(): Removes the highest priority item.
+   * It can be implemented using array, linked list or heap.
    */
 
   /**
