@@ -2,6 +2,9 @@ package data.structures.linkedlists;
 
 import utilities.ListNode;
 
+import java.util.HashSet;
+import java.util.List;
+
 
 class ListExample {
 
@@ -160,15 +163,44 @@ class ListExample {
 
   /**
    * 17.
-   * Problem:
-   * Solution:
+   * Problem: Remove duplicates from a sorted linked list.
+   * Solution: Traverse the list from the head (or start) node. While traversing, compare each node with its next node.
+   * If data of next node is same as current node then delete the next node. Before we delete a node, we need to store
+   * next pointer of the node.
    */
+  ListNode removeDuplicates(ListNode head) {
+    if (head != null || head.next != null) {
+      ListNode previous = head, current = head.next;
+      while (previous.next != null) {
+        if (previous.data == current.data) previous.next = current.next;
+        previous = previous.next;
+        if (previous.next != null) current = previous.next;
+      }
+    }
+    return head;
+  }
 
   /**
-   * 11.
-   * Problem:
-   * Solution:
+   * 18.
+   * Problem: Remove duplicates from an unsorted linked list.
+   * Solution: Use HashSet.
    */
+  ListNode removeDuplicatesUnsorted(ListNode head) {
+    HashSet<Integer> set = new HashSet<>();
+    ListNode prev, current = head;
+    while (current != null) {
+      if (set.contains(current.data)){
+       prev = current.next;
+       current = prev.next;
+      }
+      else {
+        set.add(current.data);
+        prev = current;
+        current = current.next;
+      }
+    }
+    return head;
+  }
 
   /**
    * 11.
@@ -249,21 +281,6 @@ class ListExample {
     return head;
   }
 
-  /**
-   *
-   * @param head
-   * @return
-   */
-  ListNode removeDuplicates(ListNode head) {
-    if (head != null || head.next != null) {
-      ListNode previous = head, current = head.next;
-      while (previous.next != null) {
-        if (previous.data == current.data) previous.next = current.next;
-        previous = previous.next;
-        if (previous.next != null) current = previous.next;
-      }
-    }
-    return head;
-  }
+
 
 }

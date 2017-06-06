@@ -51,6 +51,22 @@ public class ListExampleTest {
     new ListExample().printReverse(head);
   }
 
+  @Test
+  public void removeDuplicatesUnsorted() {
+    ListNode head = createList(20);
+    //ListNode head2 = createList(10);
+    ListNode newNode = createList(1);
+    newNode.next = head;
+    head = newNode;
+    ListNode newList = new ListExample().removeDuplicatesUnsorted(head);
+    printList(newList);
+  }
+  void printList(ListNode head) {
+    while (head != null) {
+      System.out.println(head.data);
+      head = head.next;
+    }
+  }
   private ListNode createList(int n) {
     ListNode head = null;
     ListNode current = null;
