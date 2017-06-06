@@ -58,8 +58,10 @@ public class ListExampleTest {
     ListNode newNode = createList(1);
     newNode.next = head;
     head = newNode;
-    ListNode newList = new ListExample().removeDuplicatesUnsorted(head);
-    printList(newList);
+
+    printList(head);
+    ListNode newHead = new ListExample().removeDuplicatesUnsorted(head);
+    printList(newHead);
   }
   void printList(ListNode head) {
     while (head != null) {
