@@ -271,9 +271,12 @@ class ListExample {
    * 1->3->5, and if the given linked list is 1->2->3->4 then convert it to 1->3.
    * Solution:
    */
-
   ListNode deleteAlternate(ListNode head) {
-
+    if(head == null || head.next.next == null) return null;
+    else {
+      head.next = deleteAlternate(head.next.next);
+      return head;
+    }
   }
 
   /**
