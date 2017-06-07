@@ -1,0 +1,49 @@
+package algorithms.sorting;
+
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class SortingExamplesTest {
+
+  @Test
+  public void bubbleSort() throws Exception {
+
+  }
+
+  @Test
+  public void insertionSort() throws Exception {
+
+  }
+
+  @Test
+  public void countingSort() throws Exception {
+
+  }
+
+  @Test
+  public void selectionSort() throws Exception {
+
+  }
+
+  @Test
+  public void panCakeSort() throws Exception {
+
+  }
+
+  @Test
+  public void mergeSort() throws Exception {
+
+  }
+
+  @Test
+  public void heapSort() throws Exception {
+
+  }
+
+  @Test
+  public void quickSort() throws Exception {
+
+  }
+
+}
