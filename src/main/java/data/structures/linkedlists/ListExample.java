@@ -216,9 +216,20 @@ class ListExample {
   /**
    * 21.
    * Problem: Move last element to front of a given Linked List.
+   * Write a function that moves last element to front in a given Singly
+   * Linked List. For example, if the given Linked List is 1->2->3->4->5, then
+   * the function should change the list to 5->1->2->3->4.
    * Solution:
    */
-
+  void moveLastToFront(ListNode head) {
+    ListNode current = head, prevOfLast = null;
+    while (current.next != null) {
+      prevOfLast = current;
+      current = current.next;
+    }
+    prevOfLast.next = null;
+    current.next = head;
+  }
   /**
    * 22.
    * Problem: Pairwise swap elements of a given linked list.
@@ -293,7 +304,6 @@ class ListExample {
    * Problem: Merge two sorted linked lists.
    * Solution:
    */
-
   ListNode sortedMerge(ListNode head1, ListNode head2) {
     ListNode head = null, tail = null;
     while (head1 != null && head2 != null) {
@@ -302,26 +312,26 @@ class ListExample {
             head = head1;
             tail = head1;
           }
-          else{
-            tail.next = head1;
-            tail = tail.next;
-          }
+          else tail = insertAtLast(tail, head1);
           head1 = head1.next;
         }else {
           if (head == null) {
             head = head2;
             tail = head2;
           }
-          else {
-            tail.next = head2;
-            tail = tail.next;
-          }
+          else tail = insertAtLast(tail, head2);
           head2 = head2.next;
         }
       }
       if (head1 != null) tail.next = head1;
       if (head2 != null) tail.next = head2;
       return head;
+  }
+
+  ListNode insertAtLast(ListNode tail, ListNode head) {
+    tail.next = head;
+    tail = tail.next;
+    return tail;
   }
   //Space Inefficient.
   ListNode sortedMergeRec(ListNode head1, ListNode head2) {
@@ -421,6 +431,7 @@ class ListExample {
    * Problem: Sorted Linked List to Balanced BST.
    * Solution:
    */
+
   /**
    * 42.
    * Problem: In-place conversion of Sorted DLL to Balanced BST
@@ -444,8 +455,28 @@ class ListExample {
   /**
    * 46.
    * Problem: Rotate a Linked List
-   * Solution:
+   * Given a singly linked list, rotate the linked list counter-clockwise by k
+   * nodes. Where k is a given positive integer. For example, if the given
+   * linked list is 10->20->30->40->50->60 and k is 4, the list should be
+   * modified to 50->60->10->20->30->40. Assume that k is smaller than the count
+   * of nodes in linked lis
+   * Solution:To rotate the linked list, we need to change next of kth node to
+   * NULL, next of last node to previous head node, and finally change head to
+   * (k+1)th node. So we need to get hold of three nodes: kth node, (k+1)th node
+   * and last node.
    */
+  ListNode rotateList(ListNode head, int k) {
+    ListNode current = head, newHead, kthNode;
+    for (int i = 1; i < k && current != null; i++) current = current.next;
+    if (current == null) return head;
+    newHead = current.next;
+    kthNode = current;
+    while (current.next != null) current = current.next;
+    kthNode.next = null;
+    current.next = head;
+    return newHead;
+  }
+
   /**
    * 47.
    * Problem: Flattening a Linked List
@@ -960,28 +991,9 @@ class ListExample {
     return headTail;
   }
 
-  /**
-   * 22. Function to check if a singly linked list is palindrome.
-   *
-   */
 
-  /**
-   * 18. Merge two sorted linked lists.
-   */
-  ListNode merge(ListNode head1, ListNode head2) {
-    ListNode head;
-    if (head1 == null) return head2;
-    else if (head2 == null) return head1;
-    else if (head1.data < head2.data) {
-      head = head1;
-      head.next = merge(head1.next,head2);
-    }
-    else {
-      head = head2;
-      head.next = merge(head1,head2.next);
-    }
-    return head;
-  }
+
+
 
 
 

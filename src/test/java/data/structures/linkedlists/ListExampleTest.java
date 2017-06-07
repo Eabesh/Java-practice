@@ -118,6 +118,16 @@ public class ListExampleTest {
     ListNode head = new ListExample().sortedMerge(head1, head2);
     printList(head);
   }
+
+
+  @Test
+  public void rotateList() throws Exception {
+    ListNode head = createList(7);
+    printList(head);
+    ListNode newHead = new ListExample().rotateList(head, 4);
+    printList(newHead);
+  }
+
   private boolean isFirstNode(ListNode listNode) {
     return listNode.data == 0;
   }
