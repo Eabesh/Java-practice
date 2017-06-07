@@ -109,7 +109,15 @@ public class ListExampleTest {
     printList(head);
     printList(new ListExample().deleteAlternate(head));
   }
-
+  @Test
+  public void sortedMerge() throws Exception {
+    ListNode head1 = new ListNode(1);
+    head1.next = new ListNode(3);
+    ListNode head2 = new ListNode(2);
+    head2.next = new ListNode(4);
+    ListNode head = new ListExample().sortedMerge(head1, head2);
+    printList(head);
+  }
   private boolean isFirstNode(ListNode listNode) {
     return listNode.data == 0;
   }
