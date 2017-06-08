@@ -302,10 +302,8 @@ class ListExample {
    */
   ListNode deleteAlternate(ListNode head) {
     if(head == null || head.next == null) return head;
-    else {
-      head.next = deleteAlternate(head.next.next);
-      return head;
-    }
+    else head.next = deleteAlternate(head.next.next);
+    return head;
   }
 
   /**
