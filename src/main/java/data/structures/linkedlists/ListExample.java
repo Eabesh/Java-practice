@@ -237,7 +237,19 @@ class ListExample {
    * For example, if the linked list is 1->2->3->4->5 then the function should
    * change it to 2->1->4->3->5, and if the linked list is 1->2->3->4->5->6
    * then the function should change it to 2->1->4->3->6->5.
+   * Solution: Swap data of first two nodes and recur the rest.
    */
+  void pairwiseSwapData(ListNode head) {
+    if (head != null && head.next != null) {
+      swapTwoNodeData(head, head.next);
+      pairwiseSwapData(head.next.next);
+    }
+  }
+  void swapTwoNodeData(ListNode node1, ListNode node2){
+    int temp = node1.data;
+    node1.data = node2.data;
+    node2.data = temp;
+  }
 
 
 

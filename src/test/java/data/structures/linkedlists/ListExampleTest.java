@@ -129,6 +129,14 @@ public class ListExampleTest {
   }
 
   @Test
+  public void pairwiseSwapData() throws Exception {
+    ListNode head = createList(7);
+    printList(head);
+    new ListExample().pairwiseSwapData(head);
+    printList(head);
+  }
+
+  @Test
   public void pairwiseSwap() throws Exception {
     ListNode head = createList(7);
     printList(head);
