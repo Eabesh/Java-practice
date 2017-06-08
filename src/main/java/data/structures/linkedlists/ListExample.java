@@ -248,7 +248,6 @@ class ListExample {
       head.next.next = pairwiseSwap(thirdNode);
       return head;
     }
-
   }
 
 
