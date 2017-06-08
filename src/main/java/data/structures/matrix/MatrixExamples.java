@@ -7,13 +7,12 @@ public class MatrixExamples {
    * Problem: Search in a row wise and column wise sorted matrix.
    * Given an n x n matrix, where every row and column is sorted in increasing order. Given a number x, how to
    * decide whether this x is in the matrix. The designed algorithm should have linear time complexity.
-   *
    * Solution: Start from top right corner. To get smaller element move left and for bigger elements go down.
    */
 
   /**
+   * 2.
    * Problem: Print a given matrix in spiral form.
-   *
    * Solution: Use 4 for loops.
    */
   void spiralPrint(int[][] matrix) {
@@ -38,18 +37,18 @@ public class MatrixExamples {
 
 
   /**
+   * 3.
    * Problem: A Boolean Matrix Question.
    * Given a boolean matrix mat[M][N] of size M X N, modify it such that if a matrix cell mat[i][j] is 1 (or true)
    * then make all the cells of ith row and jth column as 1.
-   *
    * Solution: Either use auxiliary matrix and two hashsets for row and column or to save space use first col and row
    * as hashsets.
    */
 
   /**
+   * 4.
    * Problem: Print unique rows in a given boolean matrix.
    * Given a binary matrix, print all unique rows of the given matrix.
-   *
    * Solution:
    * 1.Use Binary Search Tree.
    *      Find the decimal equivalent of each row and insert it into BST. Each node of the BST will contain two
@@ -62,6 +61,7 @@ public class MatrixExamples {
    */
 
   /**
+   * 7.
    * Problem: Print Matrix Diagonally.
    * Given a 2D matrix, print all elements of the given matrix in diagonal order.
    */
