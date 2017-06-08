@@ -128,6 +128,14 @@ public class ListExampleTest {
     printList(newHead);
   }
 
+  @Test
+  public void pairwiseSwap() throws Exception {
+    ListNode head = createList(7);
+    printList(head);
+    ListNode newHead = new ListExample().pairwiseSwap(head);
+    printList(newHead);
+  }
+
   private boolean isFirstNode(ListNode listNode) {
     return listNode.data == 0;
   }

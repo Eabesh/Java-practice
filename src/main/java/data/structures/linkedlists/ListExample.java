@@ -233,11 +233,26 @@ class ListExample {
   /**
    * 22.
    * Problem: Pairwise swap elements of a given linked list.
+   * Given a singly linked list, write a function to swap elements pairwise.
+   * For example, if the linked list is 1->2->3->4->5 then the function should
+   * change it to 2->1->4->3->5, and if the linked list is 1->2->3->4->5->6
+   * then the function should change it to 2->1->4->3->6->5.
    * Solution:
    */
+  ListNode pairwiseSwap(ListNode head) {
+    if (head == null || head.next == null) return head;
+    else {
+      ListNode thirdNode = head.next.next;
+      head.next.next = null;
+      head = reverseList(head);
+      head.next.next = pairwiseSwap(thirdNode);
+    }
+    return head;
+  }
 
 
-  /**
+  /**\
+   *
    * 23.
    * Problem: Delete a node in a Doubly Linked List.
    * Solution:
