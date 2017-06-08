@@ -246,8 +246,9 @@ class ListExample {
       head.next.next = null;
       head = reverseList(head);
       head.next.next = pairwiseSwap(thirdNode);
+      return head;
     }
-    return head;
+
   }
 
 
