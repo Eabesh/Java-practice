@@ -121,9 +121,9 @@ public class SortingExamples {
   void mergeSort(int[] array, int start, int end) {
     if (start < end) {
       int mid = (start + end) / 2;
-      mergeSort(array,start,mid);
-      mergeSort(array,mid+1,end);
-      merge(array,start,mid,end);
+      mergeSort(array, start, mid);
+      mergeSort(array,mid + 1, end);
+      merge(array, start, mid, end);
     }
   }
 
@@ -177,7 +177,7 @@ public class SortingExamples {
   }
 
   private void buildMaxHeap(int[] array, int heapSize) {
-    for (int i = heapSize/2 - 1; i >= 0 ; i--) heapify(array,i,heapSize);
+    for (int i = heapSize/2 - 1; i >= 0 ; i--) heapify(array, i, heapSize);
   }
 
   private void heapify(int[] array, int i, int heapSize) {
