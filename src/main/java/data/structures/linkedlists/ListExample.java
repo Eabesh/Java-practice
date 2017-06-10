@@ -230,6 +230,7 @@ class ListExample {
     prevOfLast.next = null;
     current.next = head;
   }
+
   /**
    * 22.
    * Problem: Pairwise swap elements of a given linked list.
@@ -250,8 +251,6 @@ class ListExample {
     node1.data = node2.data;
     node2.data = temp;
   }
-
-
 
   /**\
    *
@@ -778,16 +777,38 @@ class ListExample {
   /**
    * 96.
    * Problem: Delete middle of linked list.
+   * Given a singly linked list, delete middle of the linked list. For
+   * example, if given linked list is 1->2->3->4->5 then linked list should
+   * be modified to 1->2->4->5
+   * If there are even nodes, then there would be two middle nodes, we need
+   * to delete the second middle element. For example, if given linked list
+   * is 1->2->3->4->5->6 then it should be modified to 1->2->3->5->6.
    * Solution:
    */
-
-
+  void deleteMidNode(ListNode head) {
+    if (head != null && head.next != null) {
+      ListNode prevOfMidNode = getPrevOfMidNode(head, head, null);
+      prevOfMidNode.next = prevOfMidNode.next.next;
+    }
+  }
+  ListNode getPrevOfMidNode(ListNode fast, ListNode slow, ListNode prev) {
+    if (fast == null || fast.next == null) return prev;
+    else return getPrevOfMidNode(fast.next.next, slow.next, slow);
+  }
 
   /**
    * 97.
    * Problem: Check if a linked list is Circular Linked List.
    * Solution:
    */
+  boolean isCircular(ListNode head) {
+   return isCircularList(head.next, head);
+  }
+  boolean isCircularList(ListNode fast, ListNode slow) {
+    if(fast == null || fast.next == null) return false;
+    else if (fast == slow) return true;
+    else return isCircularList(fast.next.next, slow.next);
+  }
 
   /**
    * 98.
@@ -959,6 +980,10 @@ class ListExample {
    * Problem: Remove every k-th node of the linked list.
    * Solution:
    */
+  ListNode removeEveryKNode(ListNode head, int size, int k) {
+    if (size < k) return head;
+    else
+  }
 
 
   /**

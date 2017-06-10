@@ -1,9 +1,11 @@
 package data.structures.linkedlists;
 
+import org.junit.Assert;
 import org.junit.Test;
 import utilities.ListNode;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class ListExampleTest {
@@ -143,6 +145,24 @@ public class ListExampleTest {
     ListNode newHead = new ListExample().pairwiseSwap(head);
     printList(newHead);
   }
+
+  @Test
+  public void deleteMidNode() throws Exception {
+    ListNode head = createList(7);
+    printList(head);
+    new ListExample().deleteMidNode(head);
+    printList(head);
+  }
+  @Test
+  public void isCircular() throws Exception {
+    ListNode head = createList(7);
+    ListNode head1 = new ListNode(1);
+    head1.next = new ListNode(2);
+    head1.next.next = head1;
+    assertFalse(new ListExample().isCircular(head));
+    assertTrue(new ListExample().isCircular(head1));
+  }
+
 
   private boolean isFirstNode(ListNode listNode) {
     return listNode.data == 0;
