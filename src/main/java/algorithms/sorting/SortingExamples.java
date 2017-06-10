@@ -1,5 +1,7 @@
 package algorithms.sorting;
 
+import java.util.Arrays;
+
 public class SortingExamples {
 
   /**
@@ -23,7 +25,7 @@ public class SortingExamples {
    * Insertion sort
    * Complexity: O(n^2)
    */
-  public int[] insertionSort(int[] array) {
+  int[] insertionSort(int[] array) {
     for(int i = 1; i < array.length; i++) {
       int key = array[i];
       int j = i - 1;
@@ -46,6 +48,7 @@ public class SortingExamples {
    * significantly greater than the number of items.
    * Because counting sort uses key values as indexes into an array, it is not a comparison sort, and the Ω(n log n)
    * lower bound for comparison sorting does not apply to it.
+   * Time Complexity: O(n+k)
    */
   void countingSort(int[] array, int k) {
     int[] hash = new int[k+1];
@@ -54,6 +57,19 @@ public class SortingExamples {
       if (hash[i] > 0)
         for (int j = 0; j < hash[i]; j++)
           System.out.print(i + " ");
+  }
+
+
+  void countingSort2(int[] array, int k) {
+    int[] hash = new int[k + 1];
+    for (int elem : array) hash[elem]++;
+    for (int i = 1; i < hash.length; i++) hash[i] += hash[i - 1];
+    int[] output = new int[array.length];
+    for (int elem : array) {
+      output[hash[elem] - 1] = elem;
+      hash[elem]--;
+    }
+    System.arraycopy(output, 0, array, 0, array.length);
   }
 
   /**
