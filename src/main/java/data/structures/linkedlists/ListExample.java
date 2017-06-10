@@ -980,10 +980,10 @@ class ListExample {
    * Problem: Remove every k-th node of the linked list.
    * Solution:
    */
-  ListNode removeEveryKNode(ListNode head, int size, int k) {
-    if (size < k) return head;
-    else
-  }
+//  ListNode removeEveryKNode(ListNode head, int size, int k) {
+//    if (size < k) return head;
+//    else
+//  }
 
 
   /**
