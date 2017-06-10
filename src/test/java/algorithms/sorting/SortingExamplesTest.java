@@ -62,26 +62,3 @@ public class SortingExamplesTest {
   }
 
 }
-  }
-
-  @Test
-  public void panCakeSort() throws Exception {
-
-  }
-
-  @Test
-  public void mergeSort() throws Exception {
-
-  }
-
-  @Test
-  public void heapSort() throws Exception {
-
-  }
-
-  @Test
-  public void quickSort() throws Exception {
-
-  }
-
-}
