@@ -8,7 +8,7 @@ public class SortingExamplesTest {
 
   @Test
   public void bubbleSort() throws Exception {
-    int[] array = {2,1,3,8,4};
+    int[] array = {2, 1, 3, 8, 4};
     new SortingExamples().bubbleSort(array);
     assertEquals(1, array[0]);
     assertEquals(8, array[4]);
@@ -16,7 +16,10 @@ public class SortingExamplesTest {
 
   @Test
   public void insertionSort() throws Exception {
-
+    int[] array = {2,1,3,8,4};
+    new SortingExamples().insertionSort(array);
+    assertEquals(1, array[0]);
+    assertEquals(8, array[4]);
   }
 
   @Test
