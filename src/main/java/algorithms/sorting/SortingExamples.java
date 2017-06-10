@@ -102,18 +102,19 @@ public class SortingExamples {
    * b) Call flip(arr, mi)
    * c) Call flip(arr, curr_size-1)
    */
-  void panCakeSort(int[] array) {
-    for (int i = 0; i < array.length; i++) {
-      int maxIndex = getMaxIndex(array, array.length - i);
+  void panCakeSort(int[] array, int end) {
+    if (end > 0) {
+      int maxIndex = getMaxIndex(array, end);
       flip(array, 0, maxIndex);
-      flip(array, 0, array.length - i);
+      flip(array, 0, end);
+      panCakeSort(array, end - 1);
     }
   }
 
   private int getMaxIndex(int[] array, int length) {
     int max = Integer.MIN_VALUE;
     int maxIndex = 0;
-    for (int i = 0; i < length; i++) {
+    for (int i = 0; i <= length; i++) {
       if (max < array[i]) {
         max = array[i];
         maxIndex = i;

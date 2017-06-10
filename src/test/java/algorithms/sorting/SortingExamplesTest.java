@@ -43,7 +43,10 @@ public class SortingExamplesTest {
 
   @Test
   public void panCakeSort() throws Exception {
-
+    int[] array = {2,1,4};
+    new SortingExamples().panCakeSort(array, array.length - 1);
+    assertEquals(1, array[0]);
+    assertEquals(4, array[2]);
   }
 
   @Test
