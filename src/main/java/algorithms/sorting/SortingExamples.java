@@ -16,9 +16,11 @@ public class SortingExamples {
   }
 
   private void swap(int[] a, int i, int j) {
-    a[i] = a[i] ^ a[j];
-    a[j] = a[i] ^ a[j];
-    a[i] = a[i] ^ a[j];
+    if (i != j) {
+      a[i] = a[i] ^ a[j];
+      a[j] = a[i] ^ a[j];
+      a[i] = a[i] ^ a[j];
+    }
   }
 
   /**
@@ -134,7 +136,7 @@ public class SortingExamples {
 
   /**
    * Merge sort
-   * Complexity: nlog(n)
+   * Complexity: O(nlog(n))
    */
   void mergeSort(int[] array, int start, int end) {
     if (start < end) {
@@ -145,44 +147,31 @@ public class SortingExamples {
     }
   }
 
-  void merge(int[] array, int start, int mid, int end) {
-    int[] temp = new int[array.length];
-    for(int i = 0; i < array.length; i++)
-      temp[i] = array[i];
-
-    int left = start;
-    int right = mid + 1;
-    int index = 0;
-    while (left <= mid && right <= end) {
-      if (temp[left] <= temp[right]) {
-        array[index] = temp[left];
-        left++;
+  private void merge(int[] array, int start, int mid, int end) {
+    int leftCount = mid - start + 1;
+    int rightCount = end - mid;
+    int[] left = new int[leftCount + 1];
+    int[] right = new int[rightCount + 1];
+    System.arraycopy(array, start, left, 0, leftCount);
+    System.arraycopy(array, mid + 1, right, 0, rightCount);
+    left[leftCount] = Integer.MAX_VALUE;
+    right[rightCount] = Integer.MAX_VALUE;
+    int leftPointer = 0;
+    int rightPointer = 0;
+    for (int i = start; i <= end; i++) {
+      if (left[leftPointer] <= right[rightPointer]) {
+        array[i] = left[leftPointer];
+        leftPointer++;
+      } else {
+        array[i] = right[rightPointer];
+        rightPointer++;
       }
-      else {
-        array[index] = temp[right];
-        right++;
-      }
-      index++;
-    }
-    if(left <= mid) {
-      copy(temp,array,left,mid,index);
-    }
-    if(right <= end) {
-      copy(temp,array,right,end,index);
-    }
-  }
-
-  void copy(int[] array, int[] sorted, int s, int e, int index) {
-    while (s <= e) {
-      sorted[index] = array[s];
-      s++;
-      index++;
     }
   }
 
   /**
    * Heap sort
-   * Complexity: nlog(n)
+   * Complexity: O(nlog(n))
    */
   void heapSort(int[] array) {
     int heapSize = array.length;
@@ -202,8 +191,8 @@ public class SortingExamples {
     int left = 2 * i + 1;
     int right = 2 * i + 2;
     int max = i;
-    if (left < heapSize && array[left] > array[i]) max = left;
-    if (right < heapSize && array[right] > array[i]) max = right;
+    if (left < heapSize && array[left] > array[max]) max = left;
+    if (right < heapSize && array[right] > array[max]) max = right;
     if (array[i] < array[max]) {
       swap(array, i, max);
       heapify(array, max, heapSize);
@@ -218,7 +207,7 @@ public class SortingExamples {
 
   /**
    * Quick sort
-   * Complexity: nlog(n)
+   * Complexity: O(nlog(n))
    */
   public void quickSort(int[] array, int start, int end) {
     if (start < end) {
@@ -229,16 +218,16 @@ public class SortingExamples {
   }
 
   private int partition(int[] array, int start, int end) {
-    int x = array[end];
-    int i = start - 1;
+    int pivot = array[end];
+    int soFar = start - 1;
     for (int j = 0; j < end; j++) {
-      if (array[j] <= x) {
-        i++;
-        swap(array, i, j);
+      if (array[j] <= pivot) {
+        soFar++;
+        swap(array, soFar, j);
       }
-    swap(array, i + 1, end);
     }
-    return i + 1;
+    swap(array, soFar + 1, end);
+    return soFar + 1;
   }
 
 }

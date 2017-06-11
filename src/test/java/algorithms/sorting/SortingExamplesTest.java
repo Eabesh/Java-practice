@@ -51,17 +51,26 @@ public class SortingExamplesTest {
 
   @Test
   public void mergeSort() throws Exception {
-
+    int[] array = {2,1,3,8,4};
+    new SortingExamples().mergeSort(array, 0, array.length - 1);
+    assertEquals(1, array[0]);
+    assertEquals(8, array[4]);
   }
 
   @Test
   public void heapSort() throws Exception {
-
+    int[] array = {2,1,3,8,4};
+    new SortingExamples().heapSort(array);
+    assertEquals(1, array[0]);
+    assertEquals(8, array[4]);
   }
 
   @Test
   public void quickSort() throws Exception {
-
+    int[] array = {2,1,3,8,4};
+    new SortingExamples().quickSort(array, 0, array.length - 1);
+    assertEquals(1, array[0]);
+    assertEquals(8, array[4]);
   }
 
 }
