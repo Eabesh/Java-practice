@@ -978,12 +978,27 @@ class ListExample {
   /**
    * 125.
    * Problem: Remove every k-th node of the linked list.
+   * Given a singly linked list, Your task is to remove every K-th node of
+   * the linked list.
+   * Input : 1->2->3->4->5->6->7->8
+   * k = 3
+   * Output : 1->2->4->5->7->8
    * Solution:
    */
-//  ListNode removeEveryKNode(ListNode head, int size, int k) {
-//    if (size < k) return head;
-//    else
-//  }
+  ListNode removeEveryKNode(ListNode head, int k) {
+    ListNode prevOfKNode = getPrevOfKNode(head, k);
+    if (prevOfKNode == null) return head;
+    else {
+      prevOfKNode.next = prevOfKNode.next.next;
+      prevOfKNode.next = removeEveryKNode(prevOfKNode.next, k);
+      return head;
+    }
+  }
+  ListNode getPrevOfKNode(ListNode head, int k) {
+    if (k > 0 && head == null) return head;
+    else if(k == 2) return head;
+    else return getPrevOfKNode(head.next, k - 1);
+  }
 
 
   /**

@@ -162,6 +162,13 @@ public class ListExampleTest {
     assertFalse(new ListExample().isCircular(head));
     assertTrue(new ListExample().isCircular(head1));
   }
+  @Test
+  public void removeEveryKNode() throws Exception {
+    ListNode head = createList(9);
+    printList(head);
+    ListNode result = new ListExample().removeEveryKNode(head, 3);
+    printList(result);
+  }
 
 
   private boolean isFirstNode(ListNode listNode) {
