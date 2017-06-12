@@ -429,7 +429,13 @@ class ListExample {
   /**
    * 36.
    * Problem: Detect and Remove Loop in a Linked List.
-   * Solution:
+   * Solution:1) Detect Loop using Floyd’s Cycle detection algo and get
+   * the pointer to a loop node.
+   * 2) Count the number of nodes in loop. Let the count be k.
+   * 3) Fix one pointer to the head and another to kth node from head.
+   * 4) Move both pointers at the same pace, they will meet at loop
+   * starting node.
+   5) Get pointer to the last node of loop and make next of it as NULL.
    */
 
 
