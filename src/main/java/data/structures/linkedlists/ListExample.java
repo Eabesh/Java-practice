@@ -384,7 +384,21 @@ class ListExample {
   /**
    * 31.
    * Problem: Linked List vs Array
-   * Solution:
+   * Solution: Both Arrays and Linked List can be used to store linear
+   * data of similar types, but they both have some advantages and
+   * disadvantages over each other.
+   * (1)	The size of the arrays is fixed:
+   * 2)	Inserting a new element in an array of elements is expensive
+   * Linked list provides following two advantages over arrays
+   * 1)	Dynamic size
+   * 2)	Ease of insertion/deletion
+   *
+   * Linked lists have following drawbacks:
+   * 1)	Random access is not allowed.
+   * 2)	Extra memory space for a pointer is required with each element of
+   * the list.
+   * 3) Arrays have better cache locality that can make a pretty big
+   * difference in performance.
    */
 
   /**
@@ -965,9 +979,27 @@ class ListExample {
   /**
    * 123.
    * Problem: Remove all occurrences of duplicates from a sorted Linked List
+   * Given a sorted linked list, delete all nodes that have duplicate
+   * numbers (all occurrences), leaving only numbers that appear once in
+   * the original list.
+   * Input : 23->28->28->35->49->49->53->53
+   * Output : 23->35
+   *Input : 11->11->11->11->75->75
+   * Output : empty List
    * Solution:
    */
-
+  ListNode removeDuplicateOcc(ListNode prevNode, ListNode currNode) {
+    if(currNode == null) return currNode;
+    else {
+      ListNode nextNode = currNode.next;
+      while (nextNode != null && currNode.data == nextNode.data) {
+        prevNode.next = nextNode.next;
+        nextNode = prevNode.next;
+      }
+      removeDuplicateOcc( prevNode.next, nextNode);
+      return prevNode.next;
+    }
+  }
 
   /**
    * 124.
@@ -987,7 +1019,8 @@ class ListExample {
    */
   ListNode removeEveryKNode(ListNode head, int k) {
     ListNode prevOfKNode = getPrevOfKNode(head, k);
-    if (prevOfKNode == null) return head;
+    if (k == 1 && prevOfKNode == null) return null;
+    else if (prevOfKNode == null) return head;
     else {
       prevOfKNode.next = prevOfKNode.next.next;
       prevOfKNode.next = removeEveryKNode(prevOfKNode.next, k);
@@ -995,7 +1028,9 @@ class ListExample {
     }
   }
   ListNode getPrevOfKNode(ListNode head, int k) {
-    if (k > 0 && head == null) return head;
+    if (k == 1 || head == null) return null;
+    else if (k > 0 && head == null) return head;
+    else if (head.next == null) return null;
     else if(k == 2) return head;
     else return getPrevOfKNode(head.next, k - 1);
   }
