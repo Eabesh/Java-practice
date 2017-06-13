@@ -124,8 +124,8 @@ public class SortingExamples {
   void panCakeSort(int[] array, int endIndex) {
     if (endIndex > 0) {
       int maxIndex = getMaxIndex(array, endIndex);
-      flip(array, maxIndex);
-      flip(array, endIndex);
+      flip(array, 0, maxIndex);
+      flip(array, 0, endIndex);
       panCakeSort(array, endIndex - 1);
     }
   }
@@ -137,12 +137,10 @@ public class SortingExamples {
     return maxIndex;
   }
 
-  private void flip(int[] array, int end) {
-    int start = 0;
-    while (start < end) {
-      swap(array, start, end);
-      start++;
-      end--;
+  private void flip(int[] array, int startIndex, int endIndex) {
+    if (startIndex < endIndex) {
+      swap(array, startIndex, endIndex);
+      flip(array, startIndex + 1, endIndex - 1);
     }
   }
 
