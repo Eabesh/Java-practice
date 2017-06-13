@@ -160,20 +160,20 @@ public class SortingExamples {
   private void merge(int[] array, int start, int mid, int end) {
     int leftCount = mid - start + 1;
     int rightCount = end - mid;
-    int[] left = new int[leftCount + 1];
-    int[] right = new int[rightCount + 1];
-    System.arraycopy(array, start, left, 0, leftCount);
-    System.arraycopy(array, mid + 1, right, 0, rightCount);
-    left[leftCount] = Integer.MAX_VALUE;
-    right[rightCount] = Integer.MAX_VALUE;
+    int[] leftArray = new int[leftCount + 1];
+    int[] rightArray = new int[rightCount + 1];
+    System.arraycopy(array, start, leftArray, 0, leftCount);
+    System.arraycopy(array, mid + 1, rightArray, 0, rightCount);
+    leftArray[leftCount] = Integer.MAX_VALUE;
+    rightArray[rightCount] = Integer.MAX_VALUE;
     int leftPointer = 0;
     int rightPointer = 0;
     for (int i = start; i <= end; i++) {
-      if (left[leftPointer] <= right[rightPointer]) {
-        array[i] = left[leftPointer];
+      if (leftArray[leftPointer] <= rightArray[rightPointer]) {
+        array[i] = leftArray[leftPointer];
         leftPointer++;
       } else {
-        array[i] = right[rightPointer];
+        array[i] = rightArray[rightPointer];
         rightPointer++;
       }
     }
@@ -210,9 +210,7 @@ public class SortingExamples {
   }
 
   private void extractMax(int[] array, int heapSize) {
-    int max = array[heapSize -1];
-    array[heapSize - 1] = array[0];
-    array[0] = max;
+    swap(array, 0, heapSize - 1);
   }
 
   /**
