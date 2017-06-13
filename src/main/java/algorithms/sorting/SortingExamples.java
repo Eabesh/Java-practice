@@ -13,6 +13,12 @@ public class SortingExamples {
     }
   }
 
+  void recursiveBSort(int[] array, int length) {
+    if (length == 1) return;
+    for (int i = 0; i < length - 1; i++) if (array[i] > array[i + 1]) swap(array, i, i + 1);
+    recursiveBSort(array, length - 1);
+  }
+
   private void swap(int[] a, int i, int j) {
     if (i != j) {
       a[i] = a[i] ^ a[j];
@@ -59,7 +65,6 @@ public class SortingExamples {
           System.out.print(i + " ");
   }
 
-
   void countingSort2(int[] array, int k) {
     int[] hash = new int[k + 1];
     for (int elem : array) hash[elem]++;
@@ -90,6 +95,20 @@ public class SortingExamples {
     }
   }
 
+  void recursiveSelectionSort(int[] array, int startIndex) {
+    if (startIndex < array.length - 1) {
+      swap(array, startIndex, getMinIndex(array, startIndex));
+      recursiveSelectionSort(array, startIndex + 1);
+    }
+  }
+
+  private int getMinIndex(int[] array, int startIndex) {
+    int minIndex = startIndex;
+    for (int j = startIndex + 1; j < array.length; j++)
+      if (array[minIndex] > array[j]) minIndex = j;
+    return minIndex;
+  }
+
   /**
    * Pancake sorting.
    * Given an an unsorted array, sort the given array. You are allowed to do only following operation on array.
@@ -102,24 +121,19 @@ public class SortingExamples {
    * b) Call flip(arr, mi)
    * c) Call flip(arr, curr_size-1)
    */
-  void panCakeSort(int[] array, int end) {
-    if (end > 0) {
-      int maxIndex = getMaxIndex(array, end);
+  void panCakeSort(int[] array, int endIndex) {
+    if (endIndex > 0) {
+      int maxIndex = getMaxIndex(array, endIndex);
       flip(array, maxIndex);
-      flip(array, end);
-      panCakeSort(array, end - 1);
+      flip(array, endIndex);
+      panCakeSort(array, endIndex - 1);
     }
   }
 
   private int getMaxIndex(int[] array, int length) {
-    int max = Integer.MIN_VALUE;
     int maxIndex = 0;
-    for (int i = 0; i <= length; i++) {
-      if (max < array[i]) {
-        max = array[i];
-        maxIndex = i;
-      }
-    }
+    for (int i = 1; i <= length; i++)
+      if (array[maxIndex] < array[i]) maxIndex = i;
     return maxIndex;
   }
 

@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 class SubsetSum {
 
     boolean find(HashSet<Integer> subset, int[] array, int sum) {
-        if (subset.stream().collect(Collectors.summingInt(e -> (Integer)e)) == sum) return true;
+        if (subset.stream().mapToInt(e -> e).sum() == sum) return true;
         else if (array.length == 0) return false;
         else {
             HashSet<Integer> next = new HashSet<Integer>();

@@ -157,13 +157,6 @@ public class RecursionExamplesTest {
   }
 
   @Test
-  public void recursiveBSort() throws Exception {
-    int[] array = {3, 2, 1};
-    new RecursionExamples().recursiveBSort(array, array.length);
-    assertEquals(1, array[0]);
-  }
-
-  @Test
   public void printSteppingNumber() throws Exception {
     ArrayList<Integer> arrayList = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9));
     RecursionExamples recursionExamples = new RecursionExamples();

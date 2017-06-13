@@ -15,6 +15,13 @@ public class SortingExamplesTest {
   }
 
   @Test
+  public void recursiveBSort() throws Exception {
+    int[] array = {3, 2, 1};
+    new SortingExamples().recursiveBSort(array, array.length);
+    assertEquals(1, array[0]);
+  }
+
+  @Test
   public void insertionSort() throws Exception {
     int[] array = {2,1,3,8,4};
     new SortingExamples().insertionSort(array);
@@ -37,6 +44,14 @@ public class SortingExamplesTest {
   public void selectionSort() throws Exception {
     int[] array = {2,1,3,8,4};
     new SortingExamples().selectionSort(array);
+    assertEquals(1, array[0]);
+    assertEquals(8, array[4]);
+  }
+
+  @Test
+  public void recursiveSelectionSort() throws Exception {
+    int[] array = {2,1,3,8,4};
+    new SortingExamples().recursiveSelectionSort(array, 0);
     assertEquals(1, array[0]);
     assertEquals(8, array[4]);
   }
