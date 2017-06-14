@@ -162,8 +162,28 @@ public class ListExampleTest {
     assertFalse(new ListExample().isCircular(head));
     assertTrue(new ListExample().isCircular(head1));
   }
+  @Test
+  public void removeEveryKNode() throws Exception {
+    ListNode head = createList(1);
+    printList(head);
+    ListNode result = new ListExample().removeEveryKNode(head, 2);
+    printList(result);
+  }
 
-
+  @Test
+  public void removeDuplicateOcc() throws Exception {
+    ListNode head;
+    ListNode newNode = new ListNode(28);
+    head = newNode;
+//    newNode.next = new ListNode(28);
+//    newNode.next.next = new ListNode(28);
+//    newNode.next.next.next = new ListNode(28);
+    printList(head);
+    ListNode prevNode = new ListNode(1);
+    prevNode.next = head;
+    ListNode result = new ListExample().removeDuplicateOcc(prevNode, head);
+    printList(result);
+  }
   private boolean isFirstNode(ListNode listNode) {
     return listNode.data == 0;
   }
