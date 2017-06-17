@@ -1,6 +1,6 @@
 package algorithms.sorting;
 
-public class SortingExamples {
+class SortingExamples {
 
   /**
    * Bubble sort
