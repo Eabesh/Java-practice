@@ -1,6 +1,7 @@
 package data.structures.linkedlists;
 
 import utilities.ListNode;
+import utilities.TreeNode;
 
 import java.util.HashSet;
 import java.util.List;
@@ -417,8 +418,36 @@ class ListExample {
   /**
    * 34.
    * Problem: Delete nodes which have a greater value on right side.
+   * The list 12->15->10->11->5->6->2->3->NULL should be changed to
+   * 15->11->6->3->NULL
    * Solution:
+   * 1. Reverse the list.
+   * 2. Traverse the reversed list. Keep max till now. If next node < max,
+   * then delete the next node, otherwise max = next node. 3. Reverse the
+   * list again to retain the original order.
    */
+  void deleteSmallerNode(ListNode head) {
+   if (head == null) return;
+   else {
+     head = reverseList(head);
+     deleteNodes(head.next, head, head.data);
+     head = reverseList(head);
+   }
+  }
+  void deleteNodes(ListNode current, ListNode prevNode, int max) {
+    if (current != null){
+    if (max > current.data) {
+      prevNode.next = current.next;
+      current = prevNode.next;
+    }else {
+      prevNode = current;
+      current = current.next;
+      max = current.data;
+    }
+    deleteNodes(current.next, current, max);
+    }
+
+  }
 
   /**
    * 35.
@@ -437,6 +466,28 @@ class ListExample {
    * starting node.
    5) Get pointer to the last node of loop and make next of it as NULL.
    */
+  void removeLoop(ListNode head) {
+    ListNode commonPoint = findCommonPoint(head, head.next);
+    int loopCount = countLoopNodes(commonPoint, commonPoint, 0);
+    ListNode node1 = head, node2 = head;
+    for (int i = 0; i < loopCount; i++) node1 = node1.next;
+    while (node2 != node1) {
+      node1 = node1.next;
+      node2 = node2.next;
+    }
+    while (node2 .next != node1) node2 = node2.next;
+    node2.next = null;
+  }
+  ListNode findCommonPoint(ListNode fast, ListNode slow) {
+    if (fast.next == null || fast.next.next == null) return null;
+    if (fast == slow) return slow;
+    return findCommonPoint(fast.next.next, slow.next);
+
+  }
+  int countLoopNodes(ListNode current, ListNode commonPoint, int count) {
+    if (current.next == commonPoint) return 1 + count;
+    else return countLoopNodes(current.next, commonPoint, count + 1);
+  }
 
 
 
@@ -833,8 +884,26 @@ class ListExample {
   /**
    * 98.
    * Problem: Merge K sorted linked lists.
+   * Given K sorted linked lists of size N each, merge them and print the
+   * sorted output.
+   * Input: k = 3, n =  4
+   * list1 = 1->3->5->7->NULL
+   * list2 = 2->4->6->8->NULL
+   * list3 = 0->9->10->11
+   * Output:
+   * 0->1->2->3->4->5->6->7->8->9->10->11
    * Solution:
+   *
+   * Method 1(Using Min Heap)
+   * A Better solution is to use Min Heap based solution
+   * Time complexity of this solution would be O(nk Log k)
+   *
+   * Method 2 (Using Divide and Conquer))
+   * Divide and Conquer approach is discussed. This approach doesn’t
+   * require extra space for heap and works in O(nk Log k)
    */
+
+
 
   /**
    * 99.
@@ -867,6 +936,11 @@ class ListExample {
    * Problem: Convert a Binary Tree to a Circular Doubly Link List
    * Solution:
    */
+
+  void convertBTreeToCDLL(TreeNode root) {
+    if (root != null) {
+    }
+  }
 
   /**
    * 104.
