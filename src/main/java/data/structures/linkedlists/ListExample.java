@@ -573,15 +573,16 @@ class ListExample {
   TreeNode sortedListToBST(ListNode head) {
     if (head == null) return null;
     else {
-      ListNode mid = getMid(head);
+      ListNode mid = getMid(head, head);
       TreeNode root = new TreeNode(mid.data);
       root.left = sortedListToBST(head);
       root.right = sortedListToBST(mid.next);
       return root;
     }
   }
-  ListNode getMid(ListNode head) {
-    return head;
+  ListNode getMid(ListNode fast, ListNode slow) {
+    if (fast == null || fast.next == null) return slow;
+    else return getMid(fast.next.next, slow.next);
   }
 
   //Method 2 (Tricky)(O(n) time)
