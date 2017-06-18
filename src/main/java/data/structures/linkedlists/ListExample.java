@@ -873,7 +873,8 @@ class ListExample {
    * Solution:
    */
   boolean isCircular(ListNode head) {
-   return isCircularList(head.next, head);
+   if (head == null) return false;
+   else return isCircularList(head.next, head);
   }
   boolean isCircularList(ListNode fast, ListNode slow) {
     if(fast == null || fast.next == null) return false;
