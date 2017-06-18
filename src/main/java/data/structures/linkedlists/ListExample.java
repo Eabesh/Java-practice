@@ -561,8 +561,31 @@ class ListExample {
    * Given a Singly Linked List which has data members sorted in
    * ascending order. Construct a Balanced Binary Search Tree which has
    * same data members as the given Linked List.
-   * Solution:
+   * Solution:Method 1 (Simple)
+   * 1) Get the Middle of the linked list and make it root.
+   * 2) Recursively do same for left half and right half.
+   * a) Get the middle of left half and make it left child of the root
+   * created in step 1.
+   * b) Get the middle of right half and make it right child of the
+   * root created in step 1.
+   * Time complexity: O(nLogn) where n is the number of nodes in LinkedList.
    */
+  TreeNode sortedListToBST(ListNode head) {
+    if (head == null) return null;
+    else {
+      ListNode mid = getMid(head);
+      TreeNode root = new TreeNode(mid.data);
+      root.left = sortedListToBST(head);
+      root.right = sortedListToBST(mid.next);
+      return root;
+    }
+  }
+  ListNode getMid(ListNode head) {
+    return head;
+  }
+
+  //Method 2 (Tricky)(O(n) time)
+
 
   /**
    * 42.
