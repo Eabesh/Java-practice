@@ -452,8 +452,50 @@ class ListExample {
   /**
    * 35.
    * Problem: Segregate even and odd nodes in a Linked List
-   * Solution:
+   * Given a Linked List of integers, write a function to modify the
+   * linked list such that all even numbers appear before all the odd
+   * numbers in the modified linked list. Also, keep the order of even
+   * and odd numbers same.
+   * Input: 17->15->8->12->10->5->4->1->7->6->NULL
+   * Output: 8->12->10->4->6->17->15->5->1->7->NULL
+   *
    */
+  ListNode segregateEvenOdd(ListNode head) {
+    ListNode evenStart = null;
+    ListNode evenEnd = null;
+    ListNode oddStart = null;
+    ListNode oddEnd = null;
+    ListNode currentNode = head;
+    while (currentNode != null){
+      if (currentNode.data % 2 == 0) {
+        if (evenStart == null) {
+          evenStart = currentNode;
+          evenEnd = evenStart;
+        }else {
+          evenEnd.next = currentNode;
+          evenEnd = evenEnd.next;
+        }
+      }else {
+        if (oddStart == null){
+          oddStart = currentNode;
+          oddEnd = oddStart;
+        }else {
+          oddEnd.next = currentNode;
+          oddEnd = oddEnd.next;
+        }
+      }
+      currentNode = currentNode.next;
+    }
+
+    if(oddStart == null || evenStart == null) {
+      return null;
+    }
+
+    evenEnd.next = oddStart;
+    oddEnd.next = null;
+    return evenStart;
+  }
+
 
   /**
    * 36.
