@@ -976,273 +976,273 @@ public class DPExamples {
 
   /**
    * 35.
-   * Problem:
+   * Problem: Ways to write n as sum of two or more positive integers
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Unbounded Knapsack (Repetition of items allowed)
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Minimum number of elements which are not part of Increasing or decreasing subsequence in array
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
-   * Solution:
-   */
-
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
+   * Problem: LCS (Longest Common Subsequence) of three strings
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Probability of Knight to remain in the chessboard
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Find Maximum dot product of two arrays with insertion of 0’s
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Check whether row or column swaps produce maximum size binary sub-matrix with all 1s
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Count of AP (Arithmetic Progression) Subsequences in an array
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
-   * Solution:
-   */
-
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
+   * Problem: Maximum points collected by two persons allowed to meet once
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Maximum path sum in a triangle.
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Printing brackets in Matrix Chain Multiplication Problem
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Minimum Sum Path In 3-D Array
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Friends Pairing Problem
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
-   * Solution:
-   */
-
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
+   * Problem: Check if all people can vote on two machines
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Count binary strings with k times appearing adjacent two set bits
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Probability of getting at least K heads in N tosses of Coins
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Size of array after repeated deletion of LIS
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Maximum path sum that starting with any cell of 0-th row and ending with any cell of (N-1)-th row
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
-   * Solution:
-   */
-
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
+   * Problem: Number of subsequences in a string divisible by n
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Finding the maximum square sub-matrix with all equal elements
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Gold Mine Problem
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Highway Billboard Problem
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Count of strings that can be formed using a, b and c under given constraints
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Modify array to maximize sum of adjacent differences
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem: Sum of all substrings of a string representing a number | Set 1
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Number of subsequences of the form a^i b^j c^k
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Count ways to increase LCS length of two strings by one
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Find number of endless points
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: How to solve a Dynamic Programming Problem ?
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem: Tabulation vs Memoizatation
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Perfect Sum Problem (Print all subsets with given sum)
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Largest sum Zigzag sequence in a matrix
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Maximum sum of a path in a Right Number Triangle
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Subset with sum divisible by m
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem: Digit DP | Introduction
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Smallest length string with repeated replacement of two distinct adjacent
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Temple Offerings
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Count of arrays in which all adjacent elements are such that one of them divide the another
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Minimum number of deletions to make a string palindrome
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem: Minimum steps to minimize n as per given condition
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Clustering/Partitioning an array such that sum of square differences is minimum
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Longest alternating subsequence
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Minimum steps to delete a string after repeated deletion of palindrome substrings
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Minimum number of deletions to make a sorted sequence
    * Solution:
    */
 
