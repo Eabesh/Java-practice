@@ -1,5 +1,6 @@
 package data.structures.linkedlists;
 
+import org.omg.PortableServer.LIFESPAN_POLICY_ID;
 import utilities.ListNode;
 import utilities.TreeNode;
 
@@ -861,6 +862,7 @@ class ListExample {
    * Problem: Compare two strings represented as linked lists.
    * Solution:
    */
+
   /**
    * 83.
    * Problem: Delete a Linked List node at a given position.
@@ -871,6 +873,20 @@ class ListExample {
    * Output: Linked List =  8->3->1->7
    * Solution:
    */
+  void deleteNodeWithPos(ListNode head, int pos) {
+    if (head != null) {
+      ListNode targetNode = findTargetNode(head, pos);
+      if (targetNode.next != null) {
+        targetNode.data = targetNode.next.data;
+        targetNode = targetNode.next.next;
+      }
+    }
+  }
+
+  ListNode findTargetNode(ListNode head, int pos) {
+    if (head.data == pos) return head;
+    else return findTargetNode(head.next, pos);
+  }
 
 
 
@@ -947,6 +963,7 @@ class ListExample {
     }
     return head;
   }
+
   ListNode findLastOcc(ListNode head, int key, ListNode prev) {
     if (head.next == null) return prev;
     else if (head.next.data == key) return findLastOcc(head.next, key, head);
