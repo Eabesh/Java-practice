@@ -879,8 +879,27 @@ class ListExample {
   /**
    * 86.
    * Problem: Delete last occurrence of an item from linked list
+   * Given a liked list and a key to be deleted. Delete last occurrence
+   * of key from linked. The list may have duplicates.
+   * Examples:
+   * Input:   1->2->3->5->2->10, key = 2
+   * Output:  1->2->3->5->10
    * Solution:
    */
+  ListNode deleteLastOcc(ListNode head, int key) {
+    if (head != null || head.next == null && head.data == key) return null;
+    else {
+      ListNode prevOfastOcc = null;
+      prevOfastOcc = findLastOcc(head, key, prevOfastOcc);
+      if (prevOfastOcc != null) prevOfastOcc.next = prevOfastOcc.next.next;
+    }
+    return head;
+  }
+  ListNode findLastOcc(ListNode head, int key, ListNode prev) {
+    if (head == null) return prev;
+    else if (head.next.data == key) return findLastOcc(head.next, key, head);
+    else return findLastOcc(head.next, key, prev);
+  }
 
   /**
    * 87.
