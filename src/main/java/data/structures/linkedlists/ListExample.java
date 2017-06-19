@@ -883,9 +883,30 @@ class ListExample {
 
   /**
    * 87.
-   * Problem: Rearrange a linked list such that all even and odd positioned nodes are together.
+   * Problem: Rearrange a linked list such that all even and odd
+   * positioned nodes are together.
+   * Input:   1->2->3->4
+   * Output:  1->3->2->4
    * Solution:
    */
+  void  rearrage(ListNode current) {
+    if (current != null || current.next != null){
+      ListNode even = current.next, odd = current, evenFirst = even;
+      rearrangeOddEven(even.next, even, odd, 3);
+      odd.next = evenFirst;
+    }
+  }
+  void rearrangeOddEven(ListNode current, ListNode even, ListNode odd, int pos) {
+    if (current != null) {
+      if (pos % 2 == 0) {
+        even.next = current;
+        rearrangeOddEven(current.next, even.next, odd, pos + 1);
+      }else {
+        odd.next = current;
+        rearrangeOddEven(current.next, even, odd.next, pos + 1);
+      }
+    }
+  }
 
   /**
    * 88.
