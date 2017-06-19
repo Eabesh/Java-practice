@@ -197,6 +197,13 @@ public class ListExampleTest {
     printList(head);
   }
 
+  @Test
+  public void rearrange() throws Exception {
+    ListNode head = createList(10);
+    printList(head);
+    new ListExample().rearrage(head);
+    printList(head);
+  }
   private boolean isFirstNode(ListNode listNode) {
     return listNode.data == 0;
   }

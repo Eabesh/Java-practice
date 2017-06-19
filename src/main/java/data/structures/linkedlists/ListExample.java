@@ -247,7 +247,8 @@ class ListExample {
       pairwiseSwapData(head.next.next);
     }
   }
-  void swapTwoNodeData(ListNode node1, ListNode node2){
+
+  void swapTwoNodeData(ListNode node1, ListNode node2) {
     int temp = node1.data;
     node1.data = node2.data;
     node2.data = temp;
@@ -277,10 +278,9 @@ class ListExample {
       else if (current2.data < current1.data) current2 = current1.next;
       else {
         if (head == null) {
-         head = new ListNode(current1.data);
-         tail = head;
-        }
-        else tail = insertAtEnd(tail, current1.data);
+          head = new ListNode(current1.data);
+          tail = head;
+        } else tail = insertAtEnd(tail, current1.data);
         current1 = current1.next;
         current2 = current2.next;
       }
@@ -303,7 +303,7 @@ class ListExample {
    * Solution:
    */
   ListNode deleteAlternate(ListNode head) {
-    if(head == null || head.next == null) return head;
+    if (head == null || head.next == null) return head;
     else {
       head.next = deleteAlternate(head.next.next);
       return head;
@@ -324,25 +324,23 @@ class ListExample {
   ListNode sortedMerge(ListNode head1, ListNode head2) {
     ListNode head = null, tail = null;
     while (head1 != null && head2 != null) {
-        if (head1.data < head2.data) {
-          if (head == null) {
-            head = head1;
-            tail = head1;
-          }
-          else tail = insertAtLast(tail, head1);
-          head1 = head1.next;
-        }else {
-          if (head == null) {
-            head = head2;
-            tail = head2;
-          }
-          else tail = insertAtLast(tail, head2);
-          head2 = head2.next;
-        }
+      if (head1.data < head2.data) {
+        if (head == null) {
+          head = head1;
+          tail = head1;
+        } else tail = insertAtLast(tail, head1);
+        head1 = head1.next;
+      } else {
+        if (head == null) {
+          head = head2;
+          tail = head2;
+        } else tail = insertAtLast(tail, head2);
+        head2 = head2.next;
       }
-      if (head1 != null) tail.next = head1;
-      if (head2 != null) tail.next = head2;
-      return head;
+    }
+    if (head1 != null) tail.next = head1;
+    if (head2 != null) tail.next = head2;
+    return head;
   }
 
   ListNode insertAtLast(ListNode tail, ListNode head) {
@@ -350,16 +348,17 @@ class ListExample {
     tail = tail.next;
     return tail;
   }
+
   //Space Inefficient.
   ListNode sortedMergeRec(ListNode head1, ListNode head2) {
     if (head1 == null) return head2;
-    else if(head2 == null) return head1;
+    else if (head2 == null) return head1;
     else {
       ListNode head;
-      if (head1.data < head2.data){
+      if (head1.data < head2.data) {
         head = head1;
         head.next = sortedMerge(head1.next, head2);
-      }else {
+      } else {
         head = head2;
         head.next = sortedMerge(head1, head2.next);
       }
@@ -427,24 +426,25 @@ class ListExample {
    * list again to retain the original order.
    */
   void deleteSmallerNode(ListNode head) {
-   if (head == null) return;
-   else {
-     head = reverseList(head);
-     deleteNodes(head.next, head, head.data);
-     head = reverseList(head);
-   }
-  }
-  void deleteNodes(ListNode current, ListNode prevNode, int max) {
-    if (current != null){
-    if (max > current.data) {
-      prevNode.next = current.next;
-      current = prevNode.next;
-    }else {
-      prevNode = current;
-      current = current.next;
-      max = current.data;
+    if (head == null) return;
+    else {
+      head = reverseList(head);
+      deleteNodes(head.next, head, head.data);
+      head = reverseList(head);
     }
-    deleteNodes(current.next, current, max);
+  }
+
+  void deleteNodes(ListNode current, ListNode prevNode, int max) {
+    if (current != null) {
+      if (max > current.data) {
+        prevNode.next = current.next;
+        current = prevNode.next;
+      } else {
+        prevNode = current;
+        current = current.next;
+        max = current.data;
+      }
+      deleteNodes(current.next, current, max);
     }
 
   }
@@ -458,7 +458,6 @@ class ListExample {
    * and odd numbers same.
    * Input: 17->15->8->12->10->5->4->1->7->6->NULL
    * Output: 8->12->10->4->6->17->15->5->1->7->NULL
-   *
    */
   ListNode segregateEvenOdd(ListNode head) {
     ListNode evenStart = null;
@@ -466,20 +465,20 @@ class ListExample {
     ListNode oddStart = null;
     ListNode oddEnd = null;
     ListNode currentNode = head;
-    while (currentNode != null){
+    while (currentNode != null) {
       if (currentNode.data % 2 == 0) {
         if (evenStart == null) {
           evenStart = currentNode;
           evenEnd = evenStart;
-        }else {
+        } else {
           evenEnd.next = currentNode;
           evenEnd = evenEnd.next;
         }
-      }else {
-        if (oddStart == null){
+      } else {
+        if (oddStart == null) {
           oddStart = currentNode;
           oddEnd = oddStart;
-        }else {
+        } else {
           oddEnd.next = currentNode;
           oddEnd = oddEnd.next;
         }
@@ -487,7 +486,7 @@ class ListExample {
       currentNode = currentNode.next;
     }
 
-    if(oddStart == null || evenStart == null) {
+    if (oddStart == null || evenStart == null) {
       return null;
     }
 
@@ -506,7 +505,7 @@ class ListExample {
    * 3) Fix one pointer to the head and another to kth node from head.
    * 4) Move both pointers at the same pace, they will meet at loop
    * starting node.
-   5) Get pointer to the last node of loop and make next of it as NULL.
+   * 5) Get pointer to the last node of loop and make next of it as NULL.
    */
   void removeLoop(ListNode head) {
     ListNode commonPoint = findCommonPoint(head, head.next);
@@ -517,20 +516,21 @@ class ListExample {
       node1 = node1.next;
       node2 = node2.next;
     }
-    while (node2 .next != node1) node2 = node2.next;
+    while (node2.next != node1) node2 = node2.next;
     node2.next = null;
   }
+
   ListNode findCommonPoint(ListNode fast, ListNode slow) {
     if (fast.next == null || fast.next.next == null) return null;
     if (fast == slow) return slow;
     return findCommonPoint(fast.next.next, slow.next);
 
   }
+
   int countLoopNodes(ListNode current, ListNode commonPoint, int count) {
     if (current.next == commonPoint) return 1 + count;
     else return countLoopNodes(current.next, commonPoint, count + 1);
   }
-
 
 
   /**
@@ -580,6 +580,7 @@ class ListExample {
       return root;
     }
   }
+
   ListNode getMid(ListNode fast, ListNode slow) {
     if (fast == null || fast.next == null) return slow;
     else return getMid(fast.next.next, slow.next);
@@ -658,7 +659,7 @@ class ListExample {
     populateCount(head, count);
     int i = 0;
     ListNode current = head;
-    while (current != null){
+    while (current != null) {
       if (count[i] == 0) i++;
       else {
         current.data = i;
@@ -889,23 +890,27 @@ class ListExample {
    * Output:  1->3->2->4
    * Solution:
    */
-  void  rearrage(ListNode current) {
-    if (current != null || current.next != null){
+  void rearrage(ListNode current) {
+    if (current != null || current.next != null) {
       ListNode even = current.next, odd = current, evenFirst = even;
-      rearrangeOddEven(even.next, even, odd, 3);
+      odd = rearrangeOddEven(even.next, even, odd, 3);
       odd.next = evenFirst;
     }
   }
-  void rearrangeOddEven(ListNode current, ListNode even, ListNode odd, int pos) {
+
+  ListNode rearrangeOddEven(ListNode current, ListNode even, ListNode odd, int pos) {
     if (current != null) {
       if (pos % 2 == 0) {
         even.next = current;
-        rearrangeOddEven(current.next, even.next, odd, pos + 1);
-      }else {
+        even = even.next;
+      } else {
         odd.next = current;
-        rearrangeOddEven(current.next, even, odd.next, pos + 1);
+        odd = odd.next;
       }
+      if (odd.next == null) even.next = null;
+      odd = rearrangeOddEven(current.next, even, odd, pos + 1);
     }
+    return odd;
   }
 
   /**
@@ -953,8 +958,6 @@ class ListExample {
    */
 
 
-
-
   /**
    * 95.
    * Problem: In-place Merge two linked lists without changing links of first list.
@@ -978,6 +981,7 @@ class ListExample {
       prevOfMidNode.next = prevOfMidNode.next.next;
     }
   }
+
   ListNode getPrevOfMidNode(ListNode fast, ListNode slow, ListNode prev) {
     if (fast == null || fast.next == null) return prev;
     else return getPrevOfMidNode(fast.next.next, slow.next, slow);
@@ -989,8 +993,8 @@ class ListExample {
    * Solution:
    */
   boolean isCircular(ListNode head) {
-   if (head == null) return false;
-   else return isCircularList(head.next, head);
+    if (head == null) return false;
+    else return isCircularList(head.next, head);
   }
 
   private boolean isCircularList(ListNode fast, ListNode slow) {
@@ -1018,7 +1022,6 @@ class ListExample {
    * Divide and Conquer approach is discussed. This approach doesn’t
    * require extra space for heap and works in O(nk Log k)
    */
-
 
 
   /**
@@ -1063,8 +1066,6 @@ class ListExample {
    * Problem: Unrolled Linked List | Set 1 (Introduction).
    * Solution:
    */
-
-
 
 
   /**
@@ -1129,7 +1130,6 @@ class ListExample {
    */
 
 
-
   /**
    * 116.
    * Problem: Implementing Iterator pattern of a single Linked List.
@@ -1180,18 +1180,18 @@ class ListExample {
    * the original list.
    * Input : 23->28->28->35->49->49->53->53
    * Output : 23->35
-   *Input : 11->11->11->11->75->75
+   * Input : 11->11->11->11->75->75
    * Output : empty List
    * Solution:
    */
   ListNode removeDuplicateOcc(ListNode prevNode, ListNode currNode) {
-   if (currNode != null) {
-     while (currNode.next != null && prevNode.next.data == currNode.next.data) currNode = currNode.next;
-     if (prevNode.next == currNode) prevNode = prevNode.next;
-     else prevNode.next = currNode.next;
-     removeDuplicateOcc(prevNode, currNode.next);
-   }
-   return prevNode.next;
+    if (currNode != null) {
+      while (currNode.next != null && prevNode.next.data == currNode.next.data) currNode = currNode.next;
+      if (prevNode.next == currNode) prevNode = prevNode.next;
+      else prevNode.next = currNode.next;
+      removeDuplicateOcc(prevNode, currNode.next);
+    }
+    return prevNode.next;
   }
 
   /**
@@ -1220,11 +1220,12 @@ class ListExample {
       return head;
     }
   }
+
   ListNode getPrevOfKNode(ListNode head, int k) {
     if (k == 1 || head == null) return null;
     else if (k > 0 && head == null) return head;
     else if (head.next == null) return null;
-    else if(k == 2) return head;
+    else if (k == 2) return head;
     else return getPrevOfKNode(head.next, k - 1);
   }
 
@@ -1234,18 +1235,6 @@ class ListExample {
    * Problem: Linked List representation of Disjoint Set Data Structures.
    * Solution:
    */
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   ListNode reverseKNodes(ListNode head, int k, int length) {
@@ -1266,9 +1255,10 @@ class ListExample {
   class HeadTail {
     ListNode head, rest;
   }
-  HeadTail reverseKNode(ListNode head, int k ){
-    HeadTail headTail  = new HeadTail();
-    ListNode current= head;
+
+  HeadTail reverseKNode(ListNode head, int k) {
+    HeadTail headTail = new HeadTail();
+    ListNode current = head;
     ListNode prev = null;
     ListNode nextNode = null;
     int count = 0;
@@ -1284,11 +1274,6 @@ class ListExample {
 
     return headTail;
   }
-
-
-
-
-
 
 
 }
