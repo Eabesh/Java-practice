@@ -418,13 +418,13 @@ public class DPExamples {
 
   /**
    * 35.
-   * Problem:
+   * Problem: Compute sum of digits in all numbers from 1 to n
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Shortest Common Supersequence
    * Solution:
    */
 
