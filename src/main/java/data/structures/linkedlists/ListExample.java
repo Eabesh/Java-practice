@@ -1164,16 +1164,13 @@ class ListExample {
    * Solution:
    */
   ListNode removeDuplicateOcc(ListNode prevNode, ListNode currNode) {
-    if(currNode == null) return currNode;
-    else {
-      ListNode nextNode = currNode.next;
-      while (nextNode != null && currNode.data == nextNode.data) {
-        prevNode.next = nextNode.next;
-        nextNode = prevNode.next;
-      }
-      removeDuplicateOcc( prevNode.next, nextNode);
-      return prevNode.next;
-    }
+   if (currNode != null) {
+     while (currNode.next != null && prevNode.next.data == currNode.next.data) currNode = currNode.next;
+     if (prevNode.next == currNode) prevNode = prevNode.next;
+     else prevNode.next = currNode.next;
+     removeDuplicateOcc(prevNode, currNode.next);
+   }
+   return prevNode.next;
   }
 
   /**

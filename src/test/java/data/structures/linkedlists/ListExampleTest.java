@@ -175,9 +175,9 @@ public class ListExampleTest {
     ListNode head;
     ListNode newNode = new ListNode(28);
     head = newNode;
-//    newNode.next = new ListNode(28);
-//    newNode.next.next = new ListNode(28);
-//    newNode.next.next.next = new ListNode(28);
+    newNode.next = new ListNode(28);
+    newNode.next.next = new ListNode(1);
+    newNode.next.next.next = new ListNode(1);
     printList(head);
     ListNode prevNode = new ListNode(1);
     prevNode.next = head;
