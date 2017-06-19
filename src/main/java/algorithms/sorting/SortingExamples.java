@@ -193,6 +193,10 @@ class SortingExamples {
     }
   }
 
+  /**
+   * An n-element heap has height floor(logn) and at most ceiling(n/(2^(h+1))) nodes of any height h.
+   * So summation of no of nodes from 0 to height x O(h) reduces to linear time O(n).
+   */
   private void buildMaxHeap(int[] array, int heapSize) {
     for (int i = heapSize/2 - 1; i >= 0 ; i--) heapify(array, i, heapSize);
   }
