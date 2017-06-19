@@ -467,45 +467,45 @@ public class DPExamples {
 
   /**
    * 35.
-   * Problem:
+   * Problem: Minimum Initial Points to Reach Destination
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Count of n digit numbers whose sum of digits equals to given sum
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Count total number of N digit numbers such that the difference between sum of even and odd digits is 1
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Maximum weight transformation of a given string
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Bitmasking and Dynamic Programming | Set 1 (Count ways to assign unique cap to every person)
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Longest Repeating Subsequence
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Count even length binary sequences with same sum of first and second half bits
    * Solution:
    */
 
