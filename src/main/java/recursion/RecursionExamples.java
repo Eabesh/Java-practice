@@ -144,7 +144,7 @@ class RecursionExamples {
     for (int c = column; c >= 0 ; c--)
       if (board[row][c] == 1) return false;
 
-    for (int r = row,  c = column; r >= 0 && c >=0; r--, c--)
+    for (int r = row, c = column; r >= 0 && c >=0; r--, c--)
       if (board[r][c] == 1) return false;
 
     for (int r = row, c = column; r >= 0 && c > board[0].length; r--, c++)
