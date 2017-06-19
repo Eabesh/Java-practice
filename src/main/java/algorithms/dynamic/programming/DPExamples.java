@@ -1249,93 +1249,93 @@ public class DPExamples {
 
   /**
    * 35.
-   * Problem:
+   * Problem: Count number of ways to jump to reach end
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Minimum number of deletions and insertions to transform one string into another
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Shortest Uncommon Subsequence
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Minimum insertions to sort an array
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
-   * Solution:
-   */
-
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
+   * Problem: Dynamic Programming | Building Bridges
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Number of substrings divisible by 8 but not by 3
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Sequences of given length where every element is more than or equal to twice of previous
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Ways to sum to N using array elements with repetition allowed
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Maximum sum in a 2 x n grid such that no two elements are adjacent
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Count the number of ways to tile the floor of size n x m using 1 x m size tiles
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem: Pyramid form (increasing then decreasing) consecutive array using reduce operations
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Counts paths from a point to reach Origin
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Minimum time to write characters using insert, delete and copy operation
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Count Balanced Binary Trees of Height h
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Choose maximum weight with given weight and value ratio
    * Solution:
    */
 
