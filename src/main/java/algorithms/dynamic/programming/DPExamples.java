@@ -703,13 +703,13 @@ public class DPExamples {
 
   /**
    * 35.
-   * Problem:
+   * Problem: Find minimum adjustment cost of an array
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Printing Maximum Sum Increasing Subsequence
    * Solution:
    */
 
