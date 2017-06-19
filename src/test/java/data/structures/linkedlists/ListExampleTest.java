@@ -212,6 +212,17 @@ public class ListExampleTest {
     new ListExample().deleteLastOcc(head, 7);
     printList(head);
   }
+
+  @Test
+  public void mergeReverseOrder() throws Exception {
+    ListNode head1 = createList(3);
+    ListNode head = new ListNode(10);
+    head.next = new ListNode(13);
+    head.next.next = new ListNode(14);
+    ListNode mergeList = null;
+    mergeList = new ListExample().mergeReverseOrder(head1, head, mergeList);
+    printList(mergeList);
+  }
   private boolean isFirstNode(ListNode listNode) {
     return listNode.data == 0;
   }

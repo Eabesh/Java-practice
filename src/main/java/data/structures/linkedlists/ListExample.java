@@ -884,11 +884,17 @@ class ListExample {
    * beginning of the result list
    */
   ListNode mergeReverseOrder(ListNode head1, ListNode head2, ListNode mergedList) {
-    if (head1 == null) return head2;
-    else if (head2 == null) return head1;
+    if (head1 == null && head2 == null) return mergedList;
+    else if (head1 == null && head2 != null) {
+      mergedList = insertAtBeg(mergedList, head2.data);
+      return mergeReverseOrder(head1, head2.next, mergedList);
+    }else if (head2 == null && head1 != null) {
+      mergedList = insertAtBeg(mergedList, head1.data);
+      return mergeReverseOrder(head1.next, head2, mergedList);
+    }
     else if (head1.data < head2.data) {
       mergedList = insertAtBeg(mergedList, head1.data);
-      mergeReverseOrder(head1.next, head2, mergedList);
+      return mergeReverseOrder(head1.next, head2, mergedList);
     }
     else {
       mergedList = insertAtBeg(mergedList, head2.data);
