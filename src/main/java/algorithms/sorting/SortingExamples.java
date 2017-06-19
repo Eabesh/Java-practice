@@ -221,7 +221,7 @@ class SortingExamples {
    * Quick sort
    * Complexity: O(nlog(n))
    */
-  public void quickSort(int[] array, int start, int end) {
+  void quickSort(int[] array, int start, int end) {
     if (start < end) {
       int pivot = partition(array, start, end);
       quickSort(array, start, pivot - 1);
@@ -232,7 +232,7 @@ class SortingExamples {
   private int partition(int[] array, int start, int end) {
     int pivot = array[end];
     int soFar = start - 1;
-    for (int j = 0; j < end; j++) {
+    for (int j = start; j < end; j++) {
       if (array[j] <= pivot) {
         soFar++;
         swap(array, soFar, j);
