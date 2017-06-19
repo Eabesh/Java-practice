@@ -715,113 +715,113 @@ public class DPExamples {
 
   /**
    * 35.
-   * Problem:
+   * Problem: Printing Longest Bitonic Subsequence
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Find Jobs involved in Weighted Job Scheduling
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Print Maximum Length Chain of Pairs
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Weighted Job Scheduling | Set 2 (Using LIS)
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Longest Geometric Progression
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
-   * Solution:
-   */
-
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
+   * Problem: Find all combinations of k-bit numbers with n bits set where 1 <= n <= k in sorted order
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Minimum Cost To Make Two Strings Identical
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Find number of times a string occurs as a subsequence in given string
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: A Space Optimized DP solution for 0-1 Knapsack Problem
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Minimum cost to fill given weight in a bag
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Count digit groupings of a number with given constraints
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Non-crossing lines to connect points in a circle
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Count Distinct Subsequences
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Find minimum sum such that one of every three consecutive elements is taken
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Longest repeating and non-overlapping substring
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Count distinct occurrences as a subsequence
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem: Count all increasing subsequences
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: All ways to add parenthesis for evaluation
    * Solution:
    */
 
