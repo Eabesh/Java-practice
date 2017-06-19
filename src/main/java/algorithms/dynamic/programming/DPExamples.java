@@ -697,7 +697,7 @@ public class DPExamples {
 
   /**
    * 35.
-   * Problem:
+   * Problem: Dynamic Programming | High-effort vs. Low-effort Tasks Problem
    * Solution:
    */
 
