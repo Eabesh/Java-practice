@@ -883,7 +883,30 @@ class ListExample {
    * current nodes of both lists and insert smaller of two at the
    * beginning of the result list
    */
+  ListNode mergeReverseOrder(ListNode head1, ListNode head2, ListNode mergedList) {
+    if (head1 == null) return head2;
+    else if (head2 == null) return head1;
+    else if (head1.data < head2.data) {
+      mergedList = insertAtBeg(mergedList, head1.data);
+      mergeReverseOrder(head1.next, head2, mergedList);
+    }
+    else {
+      mergedList = insertAtBeg(mergedList, head2.data);
+      mergeReverseOrder(head1, head2.next, mergedList);
+    }
+    return mergedList;
+  }
 
+  ListNode insertAtBeg(ListNode head, int data) {
+    ListNode newNode = new ListNode(data);
+    if (head == null) {
+      head = newNode;
+    }else {
+      newNode.next = head;
+      head = newNode;
+    }
+    return head;
+  }
   /**
    * 85.
    * Problem: LinkedList in java.
