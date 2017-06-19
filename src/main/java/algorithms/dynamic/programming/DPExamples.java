@@ -181,44 +181,44 @@ public class DPExamples {
 
   /**
    * 25.
-   * Problem:
+   * Problem: Dynamic Programming | Set 19 (Word Wrap Problem)
    * Solution:
    */
 
 
   /**
    * 26.
-   * Problem:
+   * Problem: Dynamic Programming | Set 20 (Maximum Length Chain of Pairs)
    * Solution:
    */
 
   /**
    * 27.
-   * Problem:
+   * Problem: Dynamic Programming | Set 21 (Variations of LIS)
    * Solution:
    */
 
   /**
    * 28.
-   * Problem:
+   * Problem: Dynamic Programming | Set 22 (Box Stacking Problem)
    * Solution:
    */
 
   /**
    * 29.
-   * Problem:
+   * Problem: Longest Palindromic Substring | Set 1
    * Solution:
    */
 
   /**
    * 30.
-   * Problem:
+   * Problem: Dynamic Programming | Set 23 (Bellman–Ford Algorithm)
    * Solution:
    */
 
   /**
    * 31.
-   * Problem:
+   * Problem: Dynamic Programming | Set 24 (Optimal Binary Search Tree)
    * Solution:
    */
   /**
