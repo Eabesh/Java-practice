@@ -75,13 +75,13 @@ public class DPExamples {
 
   /**
    * 8.
-   * Problem:
+   * Problem: Dynamic Programming | Set 4 (Longest Common Subsequence)
    * Solution:
    */
 
   /**
    * 9.
-   * Problem:
+   * Problem: Dynamic Programming | Set 5 (Edit Distance)
    * Solution:
    */
 
