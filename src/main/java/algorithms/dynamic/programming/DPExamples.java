@@ -641,57 +641,57 @@ public class DPExamples {
 
   /**
    * 35.
-   * Problem:
+   * Problem: Find maximum length Snake sequence
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Find if string is K-Palindrome or not | Set 1
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
-   * Solution:
-   */
-
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
+   * Problem: Wildcard Pattern Matching
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Longest Common Increasing Subsequence (LCS + LIS)
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Printing Longest Common Subsequence | Set 2 (Printing All)
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Printing Shortest Common Supersequence
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Find if string is K-Palindrome or not | Set 2
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Construction of Longest Increasing Subsequence using Dynamic Programming
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem: Maximize arr[j] – arr[i] + arr[l] – arr[k], such that i < j < k < l
    * Solution:
    */
 
