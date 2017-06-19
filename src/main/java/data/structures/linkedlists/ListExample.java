@@ -971,10 +971,9 @@ class ListExample {
    if (head == null) return false;
    else return isCircularList(head.next, head);
   }
-  boolean isCircularList(ListNode fast, ListNode slow) {
-    if(fast == null || fast.next == null) return false;
-    else if (fast == slow) return true;
-    else return isCircularList(fast.next.next, slow.next);
+
+  private boolean isCircularList(ListNode fast, ListNode slow) {
+    return (fast == null || fast.next == null) && (fast == slow || isCircularList(fast.next.next, slow.next));
   }
 
   /**
