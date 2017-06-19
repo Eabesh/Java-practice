@@ -864,8 +864,16 @@ class ListExample {
   /**
    * 83.
    * Problem: Delete a Linked List node at a given position.
+   * Given a singly linked list and a position, delete a linked list
+   * node at the given position.
+   * Example:
+   * Input: position = 1, Linked List = 8->2->3->1->7
+   * Output: Linked List =  8->3->1->7
    * Solution:
    */
+
+
+
   /**
    * 84.
    * Problem: Merge two sorted linked lists such that merged list is in reverse order.
@@ -913,11 +921,13 @@ class ListExample {
     }
     return head;
   }
+
   /**
    * 85.
    * Problem: LinkedList in java.
    * Solution:
    */
+
   /**
    * 86.
    * Problem: Delete last occurrence of an item from linked list
