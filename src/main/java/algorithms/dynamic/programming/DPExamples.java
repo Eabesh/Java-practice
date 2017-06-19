@@ -325,13 +325,13 @@ public class DPExamples {
 
   /**
    * 35.
-   * Problem:
+   * Problem: Dynamic Programming | Set 37 (Boolean Parenthesization Problem)
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Count number of binary strings without consecutive 1’s
    * Solution:
    */
 
