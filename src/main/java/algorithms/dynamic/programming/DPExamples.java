@@ -883,94 +883,94 @@ public class DPExamples {
 
   /**
    * 35.
-   * Problem:
+   * Problem: Maximum subsequence sum such that no three are consecutive
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Count All Palindrome Sub-Strings in a String
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Sum of average of all subsets
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
-   * Solution:
-   */
-
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
+   * Problem: Longest subsequence such that difference between adjacents is one
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Maximum decimal value path in a binary matrix
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Maximum sum subarray removing at most one element
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Number of palindromic paths in a matrix
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Minimum and Maximum values of an expression with * and +
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Minimum cost to sort strings using reversal operations of different costs
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Minimum sum subsequence such that at least one of every four consecutive elements is picked
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Count number of ways to reach destination in a Maze
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Maximum path sum for each position with jumps under divisibility condition
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Super Ugly Number (Number whose prime factors are in given set)
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Maximum sum Bi-tonic Sub-sequence
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem: Find all distinct subset (or subsequence) sums of an array
    * Solution:
    */
 
