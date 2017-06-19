@@ -204,6 +204,14 @@ public class ListExampleTest {
     new ListExample().rearrage(head);
     printList(head);
   }
+
+  @Test
+  public void deleteLastOcc() throws Exception {
+    ListNode head = createList(10);
+    printList(head);
+    new ListExample().deleteLastOcc(head, 7);
+    printList(head);
+  }
   private boolean isFirstNode(ListNode listNode) {
     return listNode.data == 0;
   }

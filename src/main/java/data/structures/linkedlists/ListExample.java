@@ -869,8 +869,21 @@ class ListExample {
   /**
    * 84.
    * Problem: Merge two sorted linked lists such that merged list is in reverse order.
-   * Solution:
+   * Given two linked lists sorted in increasing order. Merge them such
+   * a way that the result list is in decreasing order (reverse order).
+   * Solution:A Simple Solution is to do following.
+   * 1) Reverse first list ‘a’.
+   * 2) Reverse second list ‘b’.
+   * 3) Merge two reversed lists.
+   *
+   * How to solve without reverse, O(1) auxiliary space (in-place) and
+   * only one traversal of both lists?
+   * The idea is to follow merge style process. Initialize result list
+   * as empty. Traverse both lists from beginning to end. Compare
+   * current nodes of both lists and insert smaller of two at the
+   * beginning of the result list
    */
+
   /**
    * 85.
    * Problem: LinkedList in java.
@@ -887,16 +900,16 @@ class ListExample {
    * Solution:
    */
   ListNode deleteLastOcc(ListNode head, int key) {
-    if (head != null || head.next == null && head.data == key) return null;
+    if (head == null || head.next == null && head.data == key) return null;
     else {
-      ListNode prevOfastOcc = null;
-      prevOfastOcc = findLastOcc(head, key, prevOfastOcc);
-      if (prevOfastOcc != null) prevOfastOcc.next = prevOfastOcc.next.next;
+      ListNode prevOfLastOcc = null;
+      prevOfLastOcc = findLastOcc(head, key, prevOfLastOcc);
+      if (prevOfLastOcc != null) prevOfLastOcc.next = prevOfLastOcc.next.next;
     }
     return head;
   }
   ListNode findLastOcc(ListNode head, int key, ListNode prev) {
-    if (head == null) return prev;
+    if (head.next == null) return prev;
     else if (head.next.data == key) return findLastOcc(head.next, key, head);
     else return findLastOcc(head.next, key, prev);
   }
