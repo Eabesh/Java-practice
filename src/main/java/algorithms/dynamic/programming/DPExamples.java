@@ -827,57 +827,57 @@ public class DPExamples {
 
   /**
    * 35.
-   * Problem:
+   * Problem: Choice of Area
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Number of permutation with K inversions
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
-   * Solution:
-   */
-
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
+   * Problem: Maximum weight path ending at any element of last row in a matrix
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Print all longest common sub-sequences in lexicographical order
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Count All Palindromic Subsequence in a given String
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Recursively break a number in 3 parts to get maximum sum
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Path with maximum average value
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Maximum sum of pairs with specific difference
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem: Maximum sum alternating subsequence
    * Solution:
    */
 
