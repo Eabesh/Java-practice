@@ -45,7 +45,7 @@ class RecursionExamples {
    */
   int binarySearch(int[] array, int startIndex, int endIndex, int value) {
     if (startIndex <= endIndex) {
-      int midIndex = startIndex + (endIndex - startIndex)/ 2;
+      int midIndex = startIndex + (endIndex - startIndex) / 2;
       if (value == array[midIndex]) return midIndex;
       else if (value < array[midIndex]) return binarySearch(array, startIndex, midIndex - 1, value);
       else return binarySearch(array, midIndex + 1, endIndex, value);
@@ -144,7 +144,7 @@ class RecursionExamples {
     for (int c = column; c >= 0 ; c--)
       if (board[row][c] == 1) return false;
 
-    for (int r = row,  c = column; r >= 0 && c >=0; r--, c--)
+    for (int r = row, c = column; r >= 0 && c >=0; r--, c--)
       if (board[r][c] == 1) return false;
 
     for (int r = row, c = column; r >= 0 && c > board[0].length; r--, c++)

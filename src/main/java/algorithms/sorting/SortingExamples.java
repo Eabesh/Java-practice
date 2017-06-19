@@ -193,6 +193,10 @@ class SortingExamples {
     }
   }
 
+  /**
+   * An n-element heap has height floor(logn) and at most ceiling(n/(2^(h+1))) nodes of any height h.
+   * So summation of no of nodes from 0 to height x O(h) reduces to linear time O(n).
+   */
   private void buildMaxHeap(int[] array, int heapSize) {
     for (int i = heapSize/2 - 1; i >= 0 ; i--) heapify(array, i, heapSize);
   }
@@ -217,7 +221,7 @@ class SortingExamples {
    * Quick sort
    * Complexity: O(nlog(n))
    */
-  public void quickSort(int[] array, int start, int end) {
+  void quickSort(int[] array, int start, int end) {
     if (start < end) {
       int pivot = partition(array, start, end);
       quickSort(array, start, pivot - 1);
@@ -228,7 +232,7 @@ class SortingExamples {
   private int partition(int[] array, int start, int end) {
     int pivot = array[end];
     int soFar = start - 1;
-    for (int j = 0; j < end; j++) {
+    for (int j = start; j < end; j++) {
       if (array[j] <= pivot) {
         soFar++;
         swap(array, soFar, j);
