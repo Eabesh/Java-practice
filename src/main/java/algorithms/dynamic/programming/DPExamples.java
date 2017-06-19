@@ -616,26 +616,26 @@ public class DPExamples {
 
   /**
    * 35.
-   * Problem:
+   * Problem: Ways to arrange Balls such that adjacent balls are of different types
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: A Space Optimized Solution of LCS
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Maximum profit by buying and selling a share at most k times
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Minimum time to finish tasks without skipping two consecutive
    * Solution:
    */
 
