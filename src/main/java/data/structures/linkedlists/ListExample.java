@@ -654,6 +654,22 @@ class ListExample {
    * nodes with 1 and finally n3 nodes with 2.
    */
   void sortList(ListNode head) {
+    int[] count = new int[3];
+    ListNode current = head;
+    while (current != null) {
+      count[current.data]++;
+      current = current.next;
+    }
+    int i = 0;
+    current = head;
+    while (current != null){
+      if (count[i] == 0) i++;
+      else {
+        current.data = i;
+        count[i]--;
+        current = current.next;
+      }
+    }
   }
 
   /**
