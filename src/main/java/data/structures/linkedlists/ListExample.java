@@ -655,13 +655,9 @@ class ListExample {
    */
   void sortList(ListNode head) {
     int[] count = new int[3];
-    ListNode current = head;
-    while (current != null) {
-      count[current.data]++;
-      current = current.next;
-    }
+    populateCount(head, count);
     int i = 0;
-    current = head;
+    ListNode current = head;
     while (current != null){
       if (count[i] == 0) i++;
       else {
@@ -669,6 +665,14 @@ class ListExample {
         count[i]--;
         current = current.next;
       }
+    }
+  }
+
+  private void populateCount(ListNode head, int[] count) {
+    ListNode current = head;
+    while (current != null) {
+      count[current.data]++;
+      current = current.next;
     }
   }
 

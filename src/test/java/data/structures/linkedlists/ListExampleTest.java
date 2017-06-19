@@ -184,6 +184,19 @@ public class ListExampleTest {
     ListNode result = new ListExample().removeDuplicateOcc(prevNode, head);
     printList(result);
   }
+
+  @Test
+  public void sortList() {
+    ListNode head = new ListNode(1);
+    head.next = new ListNode(2);
+    head.next.next = new ListNode(2);
+    head.next.next.next = new ListNode(1);
+    head.next.next.next.next = new ListNode(0);
+    head.next.next.next.next.next = new ListNode(0);
+    new ListExample().sortList(head);
+    printList(head);
+  }
+
   private boolean isFirstNode(ListNode listNode) {
     return listNode.data == 0;
   }
