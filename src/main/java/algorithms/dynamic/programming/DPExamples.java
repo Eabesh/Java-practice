@@ -87,95 +87,95 @@ public class DPExamples {
 
   /**
    * 10.
-   * Problem:
+   * Problem: Dynamic Programming | Set 6 (Min Cost Path)
    * Solution:
    */
 
   /**
    * 11.
-   * Problem:
+   * Problem: Length of the longest substring without repeating characters
    * Solution:
    */
 
 
   /**
    * 12.
-   * Problem:
+   * Problem: Minimum number of jumps to reach end
    * Solution:
    */
 
   /**
    * 13.
-   * Problem:
+   * Problem: Dynamic Programming | Set 7 (Coin Change)
    * Solution:
    */
 
 
   /**
    * 14.
-   * Problem:
+   * Problem: Dynamic Programming | Set 8 (Matrix Chain Multiplication)
    * Solution:
    */
 
   /**
    * 15.
-   * Problem:
+   * Problem: Dynamic Programming | Set 9 (Binomial Coefficient)
    * Solution:
    */
 
 
   /**
    * 16.
-   * Problem:
+   * Problem: Dynamic Programming | Set 10 ( 0-1 Knapsack Problem)
    * Solution:
    */
 
   /**
    * 17.
-   * Problem:
+   * Problem: Dynamic Programming | Set 11 (Egg Dropping Puzzle)
    * Solution:
    */
 
 
   /**
    * 18.
-   * Problem:
+   * Problem: Dynamic Programming | Set 12 (Longest Palindromic Subsequence)
    * Solution:
    */
 
   /**
    * 19.
-   * Problem:
+   * Problem: Dynamic Programming | Set 13 (Cutting a Rod)
    * Solution:
    */
 
   /**
    * 20.
-   * Problem:
+   * Problem: Dynamic Programming | Set 14 (Maximum Sum Increasing Subsequence)
    * Solution:
    */
 
   /**
    * 21.
-   * Problem:
+   * Problem: Dynamic Programming | Set 15 (Longest Bitonic Subsequence)
    * Solution:
    */
 
   /**
    * 22.
-   * Problem:
+   * Problem: Dynamic Programming | Set 16 (Floyd Warshall Algorithm)
    * Solution:
    */
 
   /**
    * 23.
-   * Problem:
+   * Problem: Dynamic Programming | Set 17 (Palindrome Partitioning)
    * Solution:
    */
 
   /**
    * 24.
-   * Problem:
+   * Problem: Dynamic Programming | Set 18 (Partition problem)
    * Solution:
    */
 
