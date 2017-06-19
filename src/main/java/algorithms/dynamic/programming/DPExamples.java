@@ -430,38 +430,38 @@ public class DPExamples {
 
   /**
    * 35.
-   * Problem:
+   * Problem: Collect maximum points in a grid using two traversals
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Find minimum number of coins that make a given value
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Minimum number of squares whose sum equals to given number n
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Tiling Problem
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Find length of the longest consecutive path from a given starting character
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Total number of non-decreasing numbers with n digits
    * Solution:
    */
 
