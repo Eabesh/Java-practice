@@ -26,37 +26,50 @@ public class DPExamples {
 
   /**
    * 2.
-   * Problem:
+   * Problem: Ugly Numbers
+   * Ugly numbers are numbers whose only prime factors are 2, 3 or 5. The
+   * sequence 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, … shows the first 11
+   * ugly numbers. By convention, 1 is included.
+   * Given a number n, the task is to find n’th Ugly number.
+   * Input  : n = 7
+   * Output : 8
+   * Input  : n = 10
+   * Output : 12
+   * Input  : n = 15
+   * Output : 24
+   * Input  : n = 150
+   * Output : 5832
+
    * Solution:
    */
 
   /**
    * 3.
-   * Problem:
+   * Problem: Maximum size square sub-matrix with all 1s
    * Solution:
    */
 
   /**
    * 4.
-   * Problem:
+   * Problem: Program for Fibonacci numbers
    * Solution:
    */
 
   /**
    * 5.
-   * Problem:
+   * Problem: Dynamic Programming | Set 1 (Overlapping Subproblems Property)
    * Solution:
    */
 
   /**
    * 6.
-   * Problem:
+   * Problem: Dynamic Programming | Set 2 (Optimal Substructure Property)
    * Solution:
    */
 
   /**
    * 7.
-   * Problem:
+   * Problem: Dynamic Programming | Set 3 (Longest Increasing Subsequence)
    * Solution:
    */
 
