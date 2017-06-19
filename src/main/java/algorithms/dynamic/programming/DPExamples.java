@@ -511,94 +511,94 @@ public class DPExamples {
 
   /**
    * 35.
-   * Problem:
+   * Problem: Count number of ways to cover a distance
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Find the longest path in a matrix with given constraints
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Find number of solutions of a linear equation of n variables
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
-   * Solution:
-   */
-
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
+   * Problem: Find minimum possible size of array with given rules for removing elements
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Number of paths with exactly k coins
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Collect maximum coins before hitting a dead end
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Bell Numbers (Number of ways to Partition a Set)
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Count number of ways to partition a set into k subsets
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Count number of paths with at-most k turns
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Count Derangements (Permutation such that no element appears in its original position)
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Partition a set into two subsets such that the difference of subset sums is minimum
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Compute nCr % p | Set 1 (Introduction and Dynamic Programming Solution)
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Longest Zig-Zag Subsequence
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Permutation Coefficient
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem: Count number of subsets having a particular XOR value
    * Solution:
    */
 
