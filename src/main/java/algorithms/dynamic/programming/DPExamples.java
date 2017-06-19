@@ -604,7 +604,7 @@ public class DPExamples {
 
   /**
    * 35.
-   * Problem:
+   * Problem: Weighted Job Scheduling in O(n Log n) time
    * Solution:
    */
 
