@@ -337,57 +337,57 @@ public class DPExamples {
 
   /**
    * 35.
-   * Problem:
+   * Problem: Count Possible Decodings of a given Digit Sequence
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
-   * Solution:
-   */
-
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem:
+   * Problem: Count all possible walks from a source to a destination with exactly k edges
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Shortest path with exactly k edges in a directed and weighted graph
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Mobile Numeric Keypad Problem
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Minimum Cost Polygon Triangulation
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Longest Even Length Substring such that Sum of First and Second Half is same
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Weighted Job Scheduling
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem: Count number of ways to reach a given score in a game
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Vertex Cover Problem | Set 2 (Dynamic Programming Solution for Tree)
    * Solution:
    */
 
