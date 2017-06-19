@@ -223,18 +223,108 @@ public class DPExamples {
    */
   /**
    * 32.
-   * Problem:
+   * Problem: Dynamic Programming | Set 25 (Subset Sum Problem)
    * Solution:
    */
 
   /**
    * 33.
-   * Problem:
+   * Problem: Dynamic Programming | Set 26 (Largest Independent Set Problem)
    * Solution:
    */
 
   /**
    * 34.
+   * Problem: Dynamic Programming | Set 27 (Maximum sum rectangle in a 2D matrix)
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Dynamic Programming | Set 28 (Minimum insertions to form a palindrome)
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Dynamic Programming | Set 29 (Longest Common Substring)
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Dynamic Programming | Set 30 (Dice Throw)
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem: Dynamic Programming | Set 31 (Optimal Strategy for a Game)
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem: Dynamic Programming | Set 32 (Word Break Problem)
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Dynamic Programming | Set 33 (Find if a string is interleaved of two other strings)
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem: Dynamic Programming | Set 34 (Assembly Line Scheduling)
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem: Dynamic Programming | Set 35 (Longest Arithmetic Progression)
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Dynamic Programming | Set 36 (Maximum Product Cutting)
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Travelling Salesman Problem | Set 1 (Naive and Dynamic Programming)
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Count all possible paths from top left to bottom right of a mXn matrix
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Remove minimum elements from either side such that 2*min becomes more than max
+   * Solution:
+   */
+
+
+
+  /**
+   * 35.
+   * Problem: Program for nth Catalan Number
+   * Solution:
+   */
+
+  /**
+   * 35.
    * Problem:
    * Solution:
    */
@@ -244,6 +334,1011 @@ public class DPExamples {
    * Problem:
    * Solution:
    */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem:
+   * Solution:
+   */
+
 
 
 
