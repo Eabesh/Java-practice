@@ -393,26 +393,26 @@ public class DPExamples {
 
   /**
    * 35.
-   * Problem:
+   * Problem: Find the minimum cost to reach destination using a train
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: How to print maximum number of A’s using given four keys
    * Solution:
    */
 
   /**
    * 35.
-   * Problem:
+   * Problem: Maximum profit by buying and selling a share at most twice
    * Solution:
    */
 
 
   /**
    * 35.
-   * Problem:
+   * Problem: Count possible ways to construct buildings
    * Solution:
    */
 
