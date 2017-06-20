@@ -108,6 +108,7 @@ public class ArrayExamplesTest {
     int[] arr = {0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1};
     int result = new ArrayExamples().maxLength(arr, 3);
     assertEquals(10, result);
+    assertEquals(11, new ArrayExamples().maxLength(arr, 4));
   }
 
   @Test

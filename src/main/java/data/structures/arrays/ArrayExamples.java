@@ -723,22 +723,22 @@ public class ArrayExamples {
 
   /**
    * 141.
-   * Problem: Given a binary array and an integer m, find the position of zeroes flipping which creates maximum
+   * Problem: Given a binary array and an integer k, find the position of zeroes flipping which creates maximum
    * number of consecutive 1s in array.
    */
 
   int maxLength(int[] array, int k) {
-    int windowR = 0, windowL = 0, maxLength = 0, numZeroes = 0;
+    int windowR = 0, windowL = 0, maxLength = 0, zeroesFlipped = 0;
     while (windowR < array.length) {
-      if (numZeroes <= k) {
-        if (windowR < array.length && array[windowR] == 0) numZeroes++;
+      if ((zeroesFlipped < k || array[windowR] == 1) && windowR < array.length) {
+        if (array[windowR] == 0) zeroesFlipped++;
         windowR++;
       }
-      if (numZeroes > k) {
-        if (windowL < array.length && array[windowL] == 0) numZeroes--;
+      else {
+        maxLength = Math.max(maxLength, windowR - windowL);
+        if (windowL < array.length && array[windowL] == 0) zeroesFlipped--;
         windowL++;
       }
-      maxLength = Math.max(maxLength, windowR - windowL);
     }
     return maxLength;
   }
