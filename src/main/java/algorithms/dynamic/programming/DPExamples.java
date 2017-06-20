@@ -154,6 +154,9 @@ public class DPExamples {
   /**
    * 7.
    * Problem: Dynamic Programming | Set 3 (Longest Increasing Subsequence)
+   * Input  : arr[] = {3, 10, 2, 1, 20}
+   * Output : Length of LIS = 3
+   * The longest increasing subsequence is 3, 10, 20
    * Solution:
    */
 
