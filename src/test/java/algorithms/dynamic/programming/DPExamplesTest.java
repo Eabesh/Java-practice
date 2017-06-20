@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
  * Created by abhay on 20/06/17.
  */
 public class DPExamplesTest {
+
   @Test
   public void maxContinousSubArray1() throws Exception {
   }
@@ -30,5 +31,10 @@ public class DPExamplesTest {
     }
   }
 
+  @Test
+  public void fibonnaciDP() throws Exception {
+    assertEquals(34, new DPExamples().fibonnaciDP(9));
+    assertEquals(55 , new DPExamples().fibonnaciDP(10));
+  }
 
 }
