@@ -91,9 +91,23 @@ public class DPExamples {
   /**
    * 4.
    * Problem: Program for Fibonacci numbers
+   * The Fibonacci numbers are the numbers in the following integer sequence.
+   * 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144,
    * Solution:
    */
+  int fibonacci(int n) {
+    if (n == 0 || n == 1) return n;
+    else return fibonacci(n - 1) + fibonacci(n - 2);
+  }
 
+  int fibonnaciDP(int n) {
+    int[] dp = new int[n + 1];
+    for (int i = 0; i < dp.length; i++) {
+      if (i == 0 || i == 1) dp[i] = i;
+      else dp[i] = dp[i - 1] + dp[i - 2];
+    }
+    return dp[n];
+  }
   /**
    * 5.
    * Problem: Dynamic Programming | Set 1 (Overlapping Subproblems Property)
