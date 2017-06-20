@@ -1,5 +1,7 @@
 package algorithms.dynamic.programming;
 
+import java.util.Arrays;
+
 /**
  * Created by abhay on 02/05/17.
  */
@@ -157,8 +159,22 @@ public class DPExamples {
    * Input  : arr[] = {3, 10, 2, 1, 20}
    * Output : Length of LIS = 3
    * The longest increasing subsequence is 3, 10, 20
-   * Solution:
+   * Solution:Then, L(i) can be recursively written as:
+   * L(i) = 1 + max( L(j) ) where 0 < j < i and arr[j] < arr[i]; or
+   * L(i) = 1, if no such j exists.
    */
+  int findLISRecu(int[] array) {
+    int[] dp = new int[array.length];
+    Arrays.fill(array, 1);
+    for (int i = 1; i < dp.length; i++) {
+      for (int j = 0; j < i; j++) {
+        if (array[i] > array[j] && dp[i] < dp[j] + 1) dp[i] = dp[j] + 1;
+      }
+    }
+    int max = 0;
+    for (int i = 0; i < dp.length; i++) max = Math.max(max, dp[i]);
+    return max;
+  }
 
   /**
    * 8.
