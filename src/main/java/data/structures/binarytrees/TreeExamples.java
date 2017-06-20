@@ -9,8 +9,8 @@ class TreeExamples {
   /**
    * 1.
    * Problem: Tree traversals.
-   * Unlike linear data structures (Array, Linked List, Queues, Stacks, etc)
-   * which have only one logical way to traverse them, trees can be traversed in different ways.
+   * Unlike linear data structures (Array, Linked List, Queues, Stacks, etc) which have only one logical way to
+   * traverse them, trees can be traversed in different ways.
    * Following are the generally used ways for traversing trees.
    * Depth First Traversals:
    * (a) In-order (Left, Root, Right) : 4 2 5 1 3
@@ -92,13 +92,14 @@ class TreeExamples {
    * 5.
    * Problem: Delete a tree.
    * Solution: Do a post order traversal and make the node as null.
-   * Postorder, because before deleting the parent node we should delete its children nodes first
+   * Postorder, because before deleting the parent node we should delete its children nodes first.
+   * Note: Java manipulates objects 'by reference,' but it passes object references to methods 'by value.'
    */
   void deleteTree(TreeNode root) {
     if (root != null) {
       deleteTree(root.left);
       deleteTree(root.right);
-      root = null;
+      root.left = root.right = null;
     }
   }
 
@@ -182,7 +183,7 @@ class TreeExamples {
 
   private void level(TreeNode root, int level) {
     if (root != null) {
-      if (level <= 1) System.out.print(root.data + " ");
+      if (level == 1) System.out.print(root.data + " ");
       else {
         level(root.left, level - 1);
         level(root.right, level - 1);
@@ -241,7 +242,7 @@ class TreeExamples {
                     hasChildSum(root.right);
   }
 
-  int getChildSum(TreeNode node) {
+  private int getChildSum(TreeNode node) {
     int sum = 0;
     if (node.left != null) sum += node.left.data;
     if (node.right != null) sum += node.right.data;

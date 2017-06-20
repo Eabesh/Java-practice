@@ -47,12 +47,14 @@ public class TreeExamplesTest {
 
   @Test
   public void height() throws Exception {
-
+    assertEquals(2, new TreeExamples().height(createTree()));
   }
 
   @Test
   public void deleteTree() throws Exception {
-
+    TreeNode root = createTree();
+    new TreeExamples().deleteTree(root);
+    assertEquals(null, root.left);
   }
 
   @Test
@@ -62,7 +64,7 @@ public class TreeExamplesTest {
 
   @Test
   public void rootToLeafPath() throws Exception {
-
+    new TreeExamples().rootToLeafPath(createTree(), "");
   }
 
   @Test
@@ -77,7 +79,7 @@ public class TreeExamplesTest {
 
   @Test
   public void levelOrder() throws Exception {
-
+    new TreeExamples().levelOrder(createTree());
   }
 
   @Test
