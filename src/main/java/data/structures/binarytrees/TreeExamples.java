@@ -183,7 +183,7 @@ class TreeExamples {
 
   private void level(TreeNode root, int level) {
     if (root != null) {
-      if (level <= 1) System.out.print(root.data + " ");
+      if (level == 1) System.out.print(root.data + " ");
       else {
         level(root.left, level - 1);
         level(root.right, level - 1);

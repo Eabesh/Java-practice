@@ -64,7 +64,7 @@ public class TreeExamplesTest {
 
   @Test
   public void rootToLeafPath() throws Exception {
-
+    new TreeExamples().rootToLeafPath(createTree(), "");
   }
 
   @Test
@@ -79,7 +79,7 @@ public class TreeExamplesTest {
 
   @Test
   public void levelOrder() throws Exception {
-
+    new TreeExamples().levelOrder(createTree());
   }
 
   @Test
