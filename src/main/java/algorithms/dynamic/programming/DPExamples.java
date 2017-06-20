@@ -95,19 +95,31 @@ public class DPExamples {
    * 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144,
    * Solution:
    */
-  int fibonacci(int n) {
-    if (n == 0 || n == 1) return n;
-    else return fibonacci(n - 1) + fibonacci(n - 2);
-  }
+   int fibonacci(int n) {
+     if (n == 0 || n == 1) return n;
+     else return fibonacci(n - 1) + fibonacci(n - 2);
+   }
 
-  int fibonnaciDP(int n) {
-    int[] dp = new int[n + 1];
-    for (int i = 0; i < dp.length; i++) {
-      if (i == 0 || i == 1) dp[i] = i;
-      else dp[i] = dp[i - 1] + dp[i - 2];
+   int fibonnaciDP(int n) {
+     int[] dp = new int[n + 1];
+     for (int i = 0; i < dp.length; i++) {
+       if (i == 0 || i == 1) dp[i] = i;
+       else dp[i] = dp[i - 1] + dp[i - 2];
     }
     return dp[n];
-  }
+   }
+
+  /**
+   *  Space Optimized Method
+   *  We can optimize the space used in above method by storing the previous two numbers
+   *  only because that is all we need to get the next Fibonacci number in series.
+   */
+   int fibonnaciSpaceOpt(int n, int first, int second, int sumOfLastTerms) {
+     if (n == 0) return first;
+     else if (n == 1) return second;
+     else return fibonnaciSpaceOpt(n - 1, second, sumOfLastTerms,  first + second);
+   }
+
   /**
    * 5.
    * Problem: Dynamic Programming | Set 1 (Overlapping Subproblems Property)
