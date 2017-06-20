@@ -21,6 +21,7 @@ public class DPExamplesTest {
     dp = new DPExamples().maxSizeSquareMat(mat, dp);
     printMatrix(dp);
   }
+
   void printMatrix(int[][] dp) {
 
     for (int i = 0; i < dp.length; i++) {
@@ -33,6 +34,12 @@ public class DPExamplesTest {
 
   @Test
   public void fibonnaciDP() throws Exception {
+    assertEquals(34, new DPExamples().fibonnaciDP(9));
+    assertEquals(55 , new DPExamples().fibonnaciDP(10));
+  }
+
+  @Test
+  public void fibonnaciSpaceOpt() throws Exception {
     assertEquals(34, new DPExamples().fibonnaciDP(9));
     assertEquals(55 , new DPExamples().fibonnaciDP(10));
   }
