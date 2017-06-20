@@ -118,9 +118,7 @@ public class ArrayExamples {
    * Maximum sum of not necessarily contigous array for a non empty array.
    */
   int maxSumNonContigous(int [] array) {
-    int maxSum = 0;
-    int leastNeg = Integer.MIN_VALUE;
-    int negCount = 0;
+    int maxSum = 0, leastNeg = Integer.MIN_VALUE, negCount = 0;
     for (int elem : array) {
       if (elem > 0) maxSum += elem;
       else {
