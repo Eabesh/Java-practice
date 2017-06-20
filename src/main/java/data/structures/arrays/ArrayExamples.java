@@ -159,7 +159,6 @@ public class ArrayExamples {
     int arr1Last = arr1.length - 1;
     int arr2Last = arr2.length - arr1.length - 1;
     int last = arr2.length - 1;
-
     while (arr2Last >= 0 && arr1Last >=0) {
       if (arr2[arr2Last] > arr1[arr1Last])
         arr2[last--] = arr2[arr2Last--];
