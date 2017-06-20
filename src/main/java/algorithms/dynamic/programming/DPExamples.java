@@ -124,6 +124,8 @@ public class DPExamples {
    * 5.
    * Problem: Dynamic Programming | Set 1 (Overlapping Subproblems Property)
    * Solution:
+   * 1) Overlapping Subproblems:
+   Like Divide and Conquer, Dynamic Programming combines solutions to sub-problems. Dynamic Programming is mainly used when solutions of same subproblems are needed again and again.
    */
 
   /**
