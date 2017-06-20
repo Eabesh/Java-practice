@@ -92,7 +92,8 @@ class TreeExamples {
    * 5.
    * Problem: Delete a tree.
    * Solution: Do a post order traversal and make the node as null.
-   * Postorder, because before deleting the parent node we should delete its children nodes first
+   * Postorder, because before deleting the parent node we should delete its children nodes first.
+   * Note: Java manipulates objects 'by reference,' but it passes object references to methods 'by value.'
    */
   void deleteTree(TreeNode root) {
     if (root != null) {
