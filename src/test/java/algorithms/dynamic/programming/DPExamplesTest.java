@@ -44,4 +44,9 @@ public class DPExamplesTest {
     assertEquals(55 , new DPExamples().fibonnaciDP(10));
   }
 
+  @Test
+  public void findLISBottomUp() throws Exception {
+    int[] array = {3 , 10, 2, 1, 20};
+    assertEquals(3, new DPExamples().findLISBottomUp(array));
+  }
 }

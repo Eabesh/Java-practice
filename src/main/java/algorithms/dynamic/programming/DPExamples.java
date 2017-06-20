@@ -163,9 +163,9 @@ public class DPExamples {
    * L(i) = 1 + max( L(j) ) where 0 < j < i and arr[j] < arr[i]; or
    * L(i) = 1, if no such j exists.
    */
-  int findLISRecu(int[] array) {
+  int findLISBottomUp(int[] array) {
     int[] dp = new int[array.length];
-    Arrays.fill(array, 1);
+    Arrays.fill(dp, 1);
     for (int i = 1; i < dp.length; i++) {
       for (int j = 0; j < i; j++) {
         if (array[i] > array[j] && dp[i] < dp[j] + 1) dp[i] = dp[j] + 1;
