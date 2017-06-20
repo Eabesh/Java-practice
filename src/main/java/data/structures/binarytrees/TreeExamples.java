@@ -242,7 +242,7 @@ class TreeExamples {
                     hasChildSum(root.right);
   }
 
-  int getChildSum(TreeNode node) {
+  private int getChildSum(TreeNode node) {
     int sum = 0;
     if (node.left != null) sum += node.left.data;
     if (node.right != null) sum += node.right.data;
