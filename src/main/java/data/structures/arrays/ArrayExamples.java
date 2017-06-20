@@ -181,15 +181,16 @@ public class ArrayExamples {
    * elements and reverse the array in place.
    */
   void reverseArray(int[] array, int startIndex, int endIndex) {
-    reverse(array, startIndex, 0, endIndex);
+    if (startIndex < endIndex) {
+      swap(array, startIndex, endIndex);
+      reverseArray(array, startIndex + 1, endIndex - 1);
+    }
   }
 
-  private void reverse(int[] array, int startIndex, int current, int endIndex) {
-    if (startIndex + current <= endIndex) {
-      int element = array[startIndex + current];
-      reverse(array, startIndex, current + 1, endIndex);
-      array[endIndex - current] = element;
-    }
+  private void swap(int[] array, int i, int j) {
+    array[i] = array[i] ^ array[j];
+    array[j] = array[i] ^ array[j];
+    array[i] = array[i] ^ array[j];
   }
 
   /**
