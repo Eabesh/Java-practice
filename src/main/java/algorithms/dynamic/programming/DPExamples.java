@@ -33,10 +33,23 @@ public class DPExamples {
     return maxSoFar;
   }
 
-/**
- *To print the subarray with the maximum sum, we maintain indices
- * whenever we get the maximum sum.
- */
+  /**
+  *To print the subarray with the maximum sum, we maintain indices
+  * whenever we get the maximum sum.
+  */
+  int printContinousSubArray(int[] array) {
+    int maxSoFar = array[0], currMax = array[0], start = 0, end = 0, currStart = 0;
+    for (int i = 1; i < array.length; i++) {
+      currMax = Math.max(array[i], currMax + array[i]);
+      if (currMax + array[i] < array[i]) currMax = i;
+      if (maxSoFar < currMax) {
+        maxSoFar = currMax;
+        start = currStart;
+        end = i;
+      }
+    }
+    return maxSoFar;
+  }
 
 
   /**
