@@ -18,10 +18,13 @@ public class DPExamples {
    * Solution: Kadane’s Algorithm:
    * Initialize:
    * maxSoFar = 0, currMax = 0;
+   * for each element
+   * currMax = currMax + arr[i]
    * if (currMax < 0) currMax = 0;
    * if (maxSoFar < currMax) maxSoFar = currMax
    * return maxSoFar
    */
+
 
 
   /**
