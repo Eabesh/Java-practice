@@ -77,6 +77,16 @@ public class DPExamples {
    * Given a binary matrix, find out the maximum size square sub-matrix with all 1s.
    * Solution:
    */
+   int[][] maxSizeSquareMat(int[][] mat, int[][] dp) {
+     for (int i = 0; i < mat.length; i++){
+       for (int j = 0; j < mat[0].length; j++) {
+         if (i == 0 || j == 0) dp[i][j] = mat[i][j];
+         else if (mat[i][j] == 0) dp[i][j] = 0;
+         else dp[i][j] = 1 + Math.min(dp[i - 1][j], Math.min(dp[i][j - 1], dp[i - 1][j - 1]));
+       }
+     }
+     return dp;
+   }
 
   /**
    * 4.
