@@ -98,7 +98,7 @@ class TreeExamples {
     if (root != null) {
       deleteTree(root.left);
       deleteTree(root.right);
-      root = null;
+      root.left = root.right = null;
     }
   }
 
