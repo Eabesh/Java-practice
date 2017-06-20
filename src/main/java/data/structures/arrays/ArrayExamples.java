@@ -121,11 +121,11 @@ public class ArrayExamples {
     int maxSum = 0;
     int leastNeg = Integer.MIN_VALUE;
     int negCount = 0;
-    for(int i = 0; i < array.length; i++) {
-      if (array[i] > 0) maxSum += array[i];
+    for (int elem : array) {
+      if (elem > 0) maxSum += elem;
       else {
         negCount++;
-        if (array[i] > leastNeg) leastNeg = array[i];
+        if (elem > leastNeg) leastNeg = elem;
       }
     }
     if (negCount == array.length) return leastNeg;
