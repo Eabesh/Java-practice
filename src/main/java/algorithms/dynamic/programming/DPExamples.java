@@ -24,7 +24,19 @@ public class DPExamples {
    * if (maxSoFar < currMax) maxSoFar = currMax
    * return maxSoFar
    */
+  int maxContinousSubArray(int[] array) {
+    int maxSoFar = array[0], currMax = array[0];
+    for (int i = 1; i < array.length; i++) {
+      currMax = Math.max(array[i], currMax + array[i]);
+      maxSoFar = Math.max(maxSoFar, currMax);
+    }
+    return maxSoFar;
+  }
 
+/**
+ *To print the subarray with the maximum sum, we maintain indices
+ * whenever we get the maximum sum.
+ */
 
 
   /**
