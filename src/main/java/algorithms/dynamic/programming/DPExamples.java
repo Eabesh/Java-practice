@@ -220,9 +220,11 @@ public class DPExamples {
     else if (str2Len == 0) return str1Len;
     else if (str1.charAt(str1Len - 1) == str2.charAt(str2Len - 1)) return editDistance(str1, str2, str1Len - 1,
             str2Len - 1);
-    else return Math.min(1 + editDistance(str1, str2, str1Len, str2Len - 1), Math.min(1 + editDistance(str1, str2,
+    else return 1 + Math.min(editDistance(str1, str2, str1Len, str2Len - 1), Math.min(editDistance(str1, str2,
               str1Len - 1, str2Len), editDistance(str1, str2, str1Len - 1, str2Len - 1)));
   }
+
+
 
   /**
    * 10.

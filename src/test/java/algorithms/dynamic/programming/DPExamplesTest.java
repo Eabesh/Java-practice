@@ -61,4 +61,10 @@ public class DPExamplesTest {
     String str = "abc", str2 = "babc";
     assertEquals(3, new DPExamples().LISBottomUp(str, str2));
   }
+
+  @Test
+  public void editDistace() throws Exception {
+    String str = "abc", str2 = "babc";
+    assertEquals(1, new DPExamples().editDistance(str, str2, str.length(), str2.length()));
+  }
 }
