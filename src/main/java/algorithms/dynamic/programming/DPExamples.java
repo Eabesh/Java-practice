@@ -208,8 +208,21 @@ public class DPExamples {
   /**
    * 9.
    * Problem: Dynamic Programming | Set 5 (Edit Distance)
+   * Given two strings str1 and str2 and below operations that can performed on str1. Find minimum number of edits (operations) required to
+   * convert ‘str1’ into ‘str2’.
+   * Insert
+   * Remove
+   * Replace
    * Solution:
    */
+  int editDistance(String str1, String str2, int str1Len, int str2Len) {
+    if (str1Len == 0) return str2Len;
+    else if (str2Len == 0) return str1Len;
+    else if (str1.charAt(str1Len - 1) == str2.charAt(str2Len - 1)) return editDistance(str1, str2, str1Len - 1,
+            str2Len - 1);
+    else return Math.min(1 + editDistance(str1, str2, str1Len, str2Len - 1), Math.min(1 + editDistance(str1, str2,
+              str1Len - 1, str2Len), editDistance(str1, str2, str1Len - 1, str2Len - 1)));
+  }
 
   /**
    * 10.
