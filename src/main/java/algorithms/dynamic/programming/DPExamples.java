@@ -191,7 +191,18 @@ public class DPExamples {
     else return Math.max(findLongestCommonSeq(str1, str2, i + 1, j), findLongestCommonSeq(str1, str2, i, j + 1));
   }
 
-  int findLCSeq(String str1, String str2, int )
+  int findLCSeqBottomUp(String str1, String str2) {
+    int[][] dp = new int[str1.length()][str2.length()];
+    for (int i = 0; i < dp.length; i++) {
+      for (int j = 0; j < dp[0].length; j++) {
+        if (i == 0 || j == 0 ) dp[i][j] = 0;
+        else if (str1.charAt(i) == str2.charAt(j)) dp[i][j] = 1 + dp[i - 1][j - 1];
+        else return dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]);
+      }
+    }
+
+
+  }
 
   /**
    * 9.
