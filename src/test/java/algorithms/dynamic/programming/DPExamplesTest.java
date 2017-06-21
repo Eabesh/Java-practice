@@ -51,14 +51,14 @@ public class DPExamplesTest {
   }
 
   @Test
-  public void findLongestCommonSeq() throws Exception {
+  public void LIS() throws Exception {
     String str = "abc", str2 = "babc";
-    assertEquals(3, new DPExamples().findLongestCommonSeq(str, str2, str.length(), str2.length()));
+    assertEquals(3, new DPExamples().LIS(str, str2, str.length(), str2.length()));
   }
 
   @Test
-  public void findLCSeqBottomUp() throws Exception {
+  public void LISBottomUp() throws Exception {
     String str = "abc", str2 = "babc";
-    assertEquals(3, new DPExamples().findLCSeqBottomUp(str, str2));
+    assertEquals(3, new DPExamples().LISBottomUp(str, str2));
   }
 }
