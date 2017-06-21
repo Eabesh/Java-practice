@@ -49,4 +49,16 @@ public class DPExamplesTest {
     int[] array = {3 , 10, 2, 1, 20};
     assertEquals(3, new DPExamples().findLISBottomUp(array));
   }
+
+  @Test
+  public void findLongestCommonSeq() throws Exception {
+    String str = "abc", str2 = "babc";
+    assertEquals(3, new DPExamples().findLongestCommonSeq(str, str2, str.length(), str2.length()));
+  }
+
+  @Test
+  public void findLCSeqBottomUp() throws Exception {
+    String str = "abc", str2 = "babc";
+    assertEquals(3, new DPExamples().findLCSeqBottomUp(str, str2));
+  }
 }
