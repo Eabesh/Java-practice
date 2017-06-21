@@ -186,9 +186,9 @@ public class DPExamples {
    * Solution: Recursive Complexity = O(2^n).
    */
   int findLongestCommonSeq(String str1, String str2, int i, int j) {
-    if (i == str1.length() || j == str2.length()) return 0;
-    else if (str1.charAt(i) == str2.charAt(j)) return 1 + findLongestCommonSeq(str1, str2, i + 1 , j + 1);
-    else return Math.max(findLongestCommonSeq(str1, str2, i + 1, j), findLongestCommonSeq(str1, str2, i, j + 1));
+    if (i == 0 || j == 0) return 0;
+    else if (str1.charAt(i) == str2.charAt(j)) return 1 + findLongestCommonSeq(str1, str2, i - 1 , j - 1);
+    else return Math.max(findLongestCommonSeq(str1, str2, i - 1, j), findLongestCommonSeq(str1, str2, i, j - 1));
   }
 
   int findLCSeqBottomUp(String str1, String str2) {
