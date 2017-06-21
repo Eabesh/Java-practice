@@ -200,8 +200,7 @@ public class DPExamples {
         else return dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]);
       }
     }
-
-
+    return dp[str1.length()][str2.length()];
   }
 
   /**
