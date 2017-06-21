@@ -240,6 +240,19 @@ public class DPExamples {
             j - 1)));
   }
 
+  int minCostBotUP(int[][] mat) {
+    int[][] dp = new int[mat.length][mat[0].length];
+    for (int i = 0; i < mat.length; i++) {
+      for (int j = 0; j < mat[0].length; j++) {
+        if (i == 0 && j == 0) dp[i][j] = mat[0][0];
+        else if (i == 0) dp[i][j] = dp[i - 1][j] + mat[i][j];
+        else if (j == 0) dp[i][j] = dp[i][j - 1] + mat[i][j];
+        else dp[i][j] = mat[i][j] + Math.min(dp[i - 1][j], Math.min(dp[i][j - 1], dp[i - 1][j - 1]));
+      }
+    }
+    return dp[mat.length][mat[0].length];
+  }
+
   /**
    * 11.
    * Problem: Length of the longest substring without repeating characters
