@@ -185,19 +185,21 @@ public class DPExamples {
    * LCS for input Sequences “ABCDGH” and “AEDFHR” is “ADH” of length 3.
    * Solution: Recursive Complexity = O(2^n).
    */
-  int findLongestCommonSeq(String str1, String str2, int str1Length, int str2Length) {
+  int LIS(String str1, String str2, int str1Length, int str2Length) {
     if (str1Length == 0 || str2Length == 0) return 0;
-    else if (str1.charAt(str1Length - 1) == str2.charAt(str2Length - 1)) return 1 + findLongestCommonSeq(str1, str2, str1Length - 1 , str2Length - 1);
-    else return Math.max(findLongestCommonSeq(str1, str2, str1Length - 1, str2Length), findLongestCommonSeq(str1, str2, str1Length, str2Length - 1));
+    else if (str1.charAt(str1Length - 1) == str2.charAt(str2Length - 1))
+      return 1 + LIS(str1, str2, str1Length - 1 , str2Length - 1);
+    else
+      return Math.max(LIS(str1, str2, str1Length - 1, str2Length), LIS(str1, str2, str1Length, str2Length - 1));
   }
 
-  int findLCSeqBottomUp(String str1, String str2) {
+  int LISBottomUp(String str1, String str2) {
     int[][] dp = new int[str1.length() + 1][str2.length() + 1];
-    for (int i = 0; i <= str1.length(); i++) {
-      for (int j = 0; j <= str2.length(); j++) {
-        if (i == 0 || j == 0 ) dp[i][j] = 0;
-        else if (str1.charAt(i - 1) == str2.charAt(j - 1)) dp[i][j] = 1 + dp[i - 1][j - 1];
-        else dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]);
+    for (int str1Len = 0; str1Len <= str1.length(); str1Len++) {
+      for (int str2Len= 0; str2Len <= str2.length(); str2Len++) {
+        if (str1Len == 0 || str2Len == 0 ) dp[str1Len][str2Len] = 0;
+        else if (str1.charAt(str1Len - 1) == str2.charAt(str2Len - 1)) dp[str1Len][str2Len] = 1 + dp[str1Len - 1][str2Len - 1];
+        else dp[str1Len][str2Len] = Math.max(dp[str1Len][str2Len - 1], dp[str1Len - 1][str2Len]);
       }
     }
     return dp[str1.length()][str2.length()];
