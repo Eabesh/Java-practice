@@ -1348,6 +1348,23 @@ public class DPExamples {
    * the elements in this submatrix must be same.
    * Solution:
    */
+  int largestKSqSubMat(int[][] mat) {
+    int[][] dp = new int[mat.length][mat[0].length];
+    int result = 0;
+    for (int i = 0; i < dp.length; i++) {
+      for (int j = 0; j < dp.length; j++) {
+        if (i == 0 || j == 0) dp[i][j] = 1;
+        else if (sameNeighbours(mat[i - 1][j], mat[i][j - 1], mat[i - 1][j - 1])) dp[i][j] = Math.min(dp[i - 1][j],
+                Math.min(dp[i][j - 1], dp[i - 1][j - 1]));
+        else dp[i][j] = 1;
+        result = Math.max(result, dp[i][j]);
+      }
+    }
+    return result;
+  }
+  boolean sameNeighbours(int x, int y, int z){
+    return x == y && y == z;
+  }
 
   /**
    * 172.
