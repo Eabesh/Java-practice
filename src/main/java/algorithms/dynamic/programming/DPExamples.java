@@ -406,8 +406,17 @@ public class DPExamples {
   /**
    * 32.
    * Problem: Dynamic Programming | Set 25 (Subset Sum Problem)
+   * Given a set of non-negative integers, and a value sum, determine if there is a subset of the given set with sum equal to given sum.
+   * Examples: set[] = {3, 34, 4, 12, 5, 2}, sum = 9
+   * Output:  True  //There is a subset (4, 5) with sum 9.
    * Solution:
    */
+  boolean hasSubsetSum(int[] set, int setLen, int sum) {
+    if (sum == 0) return true;
+    else if (sum < 0) return false;
+    else return hasSubsetSum(set,setLen - 1, sum - set[setLen - 1]) ||
+              hasSubsetSum(set, setLen - 1, sum);
+  }
 
   /**
    * 33.
