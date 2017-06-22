@@ -471,6 +471,7 @@ public class DPExamples {
   /**
    * 35.
    * Problem: Dynamic Programming | Set 29 (Longest Common Substring)
+   * Given two strings ‘X’ and ‘Y’, find the length of the longest common substring.
    * Solution:
    */
 

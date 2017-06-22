@@ -82,7 +82,7 @@ public class DPExamplesTest {
   }
   @Test
   public void minInsertion() {
-    String str = "abc";
+    String str = "aac";
     System.out.println(new DPExamples().minInsertion(str, 0, str.length() - 1));
   }
 }
