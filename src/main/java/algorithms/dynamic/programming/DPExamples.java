@@ -411,11 +411,12 @@ public class DPExamples {
    * Output:  True  //There is a subset (4, 5) with sum 9.
    * Solution:
    */
-  boolean hasSubsetSum(int[] set, int setLen, int sum) {
+  boolean isSubsetSum(int[] set, int setLen, int sum) {
     if (sum == 0) return true;
-    else if (sum < 0) return false;
-    else return hasSubsetSum(set,setLen - 1, sum - set[setLen - 1]) ||
-              hasSubsetSum(set, setLen - 1, sum);
+    else if (setLen == 0 && sum > 0) return false;
+    else if (sum < set[setLen - 1]) return isSubsetSum(set, setLen - 1, sum);
+    else return isSubsetSum(set,setLen - 1, sum - set[setLen - 1]) ||
+              isSubsetSum(set, setLen - 1, sum);
   }
 
   /**
