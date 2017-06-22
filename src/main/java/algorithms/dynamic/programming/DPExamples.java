@@ -2,10 +2,7 @@ package algorithms.dynamic.programming;
 
 import java.util.Arrays;
 
-/**
- * Created by abhay on 02/05/17.
- */
-public class DPExamples {
+class DPExamples {
 
   /**
    * GeeksForGeeks Problems
@@ -60,7 +57,6 @@ public class DPExamples {
       System.out.println(array[j]);
     }
   }
-
 
   /**
    * 2.
