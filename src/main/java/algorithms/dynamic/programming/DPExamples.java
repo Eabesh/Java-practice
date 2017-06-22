@@ -35,21 +35,30 @@ public class DPExamples {
   }
 
   /**
-  *To print the subarray with the maximum sum, we maintain indices
+  * To print the subarray with the maximum sum, we maintain indices
   * whenever we get the maximum sum.
   */
   int printContinousSubArray(int[] array) {
     int maxSoFar = array[0], currMax = array[0], start = 0, end = 0, currStart = 0;
     for (int i = 1; i < array.length; i++) {
-      currMax = Math.max(array[i], currMax + array[i]);
-      if (currMax + array[i] < array[i]) currMax = i;
+      if (currMax + array[i] < array[i]) {
+        currStart = i;
+        currMax = Math.max(currMax + array[i], array[i]);
+      }
       if (maxSoFar < currMax) {
         maxSoFar = currMax;
         start = currStart;
         end = i;
       }
+      printArray(array, start, end);
     }
     return maxSoFar;
+  }
+
+  private void printArray(int[] array, int start, int end) {
+    for (int j = start; j <= end; j++) {
+      System.out.println(array[j]);
+    }
   }
 
 
