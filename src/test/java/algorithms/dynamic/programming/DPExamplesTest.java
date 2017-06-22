@@ -91,5 +91,11 @@ public class DPExamplesTest {
     assertEquals(0, new DPExamples().findWays(4, 2, 1, 0));
   }
 
+  @Test
+  public void countPathsToOri() {
+    assertEquals(84, new DPExamples().countPathsToOri(3, 6));
+    assertEquals(1, new DPExamples().countPathsToOri(3, 0));
+  }
+
 
 }

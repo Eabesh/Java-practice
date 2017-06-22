@@ -1567,8 +1567,19 @@ public class DPExamples {
   /**
    * 207.
    * Problem: Counts paths from a point to reach Origin
+   *You are standing on a point (n, m) and you want to go to origin (0, 0) by taking steps either left or down i.e.
+   * from each point you are allowed to move either in (n-1, m) or (n, m-1). Find the number of paths from point to origin.
+   * Input : 3 6
+   * Output : Number of Paths 84
+   *
+   * Input : 3 0
+   * Output : Number of Paths 1
    * Solution:
    */
+  int countPathsToOri(int x, int y) {
+    if (x == 0 || y == 0) return 1;
+    else return countPathsToOri(x - 1, y) + countPathsToOri(x, y - 1);
+  }
 
   /**
    * 208.
