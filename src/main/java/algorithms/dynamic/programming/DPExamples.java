@@ -1343,19 +1343,21 @@ public class DPExamples {
 
   /**
    * 171.
-   * Problem: Finding the maximum square sub-matrix with all equal elements
+   * Problem: Finding the maximum square sub-matrix with all equal elements.
+   * Given a N x N matrix, determine the maximum K such that K x K is a submatrix with all equal elements i.e., all
+   * the elements in this submatrix must be same.
    * Solution:
    */
 
   /**
    * 172.
-   * Problem: Gold Mine Problem
+   * Problem: Gold Mine Problem.
    * Solution:
    */
 
   /**
    * 173.
-   * Problem: Highway Billboard Problem
+   * Problem: Highway Billboard Problem.
    * Solution:
    */
 
@@ -1443,6 +1445,7 @@ public class DPExamples {
    * Output : NO
    * Solution:
    */
+
 
 
   /**
