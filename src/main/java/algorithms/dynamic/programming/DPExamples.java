@@ -258,7 +258,15 @@ public class DPExamples {
    * Problem: Length of the longest substring without repeating characters
    * Given a string, find the length of the longest substring without repeating characters. For example, the longest
    * substrings without repeating characters for “ABDEFGABEF” are “BDEFGA” and “DEFGAB”, with length 6.
+   * For “BBBB” the longest substring is “B”, with length 1.
    * Solution:
+   * Method 1 (Simple)
+   * We can consider all substrings one by one and check for each substring whether it contains all unique characters or not.
+   * There will be n*(n+1)/2 substrings. Whether a substirng contains all unique characters or not can be checked in
+   * linear time by scanning it from left to right and keeping a map of visited characters. Time complexity of this
+   * solution would be O(n^3).
+   *
+   *
    */
 
 
@@ -271,8 +279,18 @@ public class DPExamples {
   /**
    * 13.
    * Problem: Dynamic Programming | Set 7 (Coin Change)
+   * iven a value N, if we want to make change for N cents, and we have infinite supply of each of S = { S1, S2, .. , Sm}
+   * valued coins, how many ways can we make the change? The order of coins doesn’t matter.
+   * For example, for N = 4 and S = {1,2,3}, there are four solutions: {1,1,1,1},{1,1,2},{2,2},{1,3}. So output should be 4.
    * Solution:
    */
+  int coinChange(int coins[], int numOfCoins, int sum) {
+    if (sum == 0) return 1;
+    else if (sum < 0) return 0;
+    else if (numOfCoins <= 0 && sum > 0) return 0;
+    else return coinChange(coins, numOfCoins, sum - coins[numOfCoins - 1]) +
+              coinChange(coins, numOfCoins - 1, sum);
+  }
 
 
   /**

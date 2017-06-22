@@ -67,4 +67,10 @@ public class DPExamplesTest {
     String str = "abc", str2 = "babc";
     assertEquals(1, new DPExamples().editDistance(str, str2, str.length(), str2.length()));
   }
+
+  @Test
+  public void coinChange() throws Exception {
+    int[] coins = {1, 2, 3};
+    assertEquals(4, new DPExamples().coinChange(coins, coins.length, 4));
+  }
 }
