@@ -548,8 +548,15 @@ public class DPExamples {
   /**
    * 35.
    * Problem: Count all possible paths from top left to bottom right of a mXn matrix
+   * The problem is to count all the possible paths from top left to bottom right of a mXn matrix with the constraints
+   * that from each cell you can either move only to right or down
    * Solution:
    */
+  int countPaths(int x, int y) {
+    if (x == 1 || y == 1) return 1;
+    else return 1 + countPaths(x - 1, y) + countPaths(x, y - 1);
+  }
+
 
   /**
    * 35.

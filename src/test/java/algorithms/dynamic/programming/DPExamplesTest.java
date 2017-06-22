@@ -83,12 +83,12 @@ public class DPExamplesTest {
   @Test
   public void minInsertion() {
     String str = "aac";
-    System.out.println(new DPExamples().minInsertion(str, 0, str.length() - 1));
+    assertEquals(1, new DPExamples().minInsertion(str, 0, str.length() - 1));
   }
   @Test
-  public void LCSubtring() {
-    String str = "aac";
-    System.out.println(new DPExamples().minInsertion(str, 0, str.length() - 1));
+  public void findWays() {
+    assertEquals(1, new DPExamples().findWays(2, 6, 2, 0));
+    assertEquals(0, new DPExamples().findWays(4, 2, 1, 0));
   }
 
 
