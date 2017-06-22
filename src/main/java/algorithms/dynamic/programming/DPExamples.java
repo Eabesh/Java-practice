@@ -1461,8 +1461,23 @@ public class DPExamples {
   /**
    * 190.
    * Problem: Minimum number of deletions to make a string palindrome
+   * Given a string of size ‘n’. The task is to remove or delete minimum number of characters from the string so that the
+   * resultant string is palindrome.
+   * Note: The order of characters should be maintained.
+   * Examples:
+   * Input : aebcbda
+   * Output : 2
+   * Remove characters 'e' and 'd'
+   * Resultant string will be 'abcba'which is a palindromic string
    * Solution:
    */
+  int minDeletion(String str, int left, int right) {
+    if (left > right) return Integer.MAX_VALUE;
+    else if (left == right) return 0;
+    else if (left + 1 == right) return (str.charAt(left) == str.charAt(right)) ? 0 : 1;
+    else if (str.charAt(left) == str.charAt(right)) return minDeletion(str, left + 1, right - 1);
+    else return  Math.min(2 + minDeletion(str, left + 1, right - 1), 1 + Math.min(minDeletion(str, left + 1, right), minDeletion(str, left, right - 1)));
+  }
 
 
   /**
