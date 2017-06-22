@@ -85,6 +85,11 @@ public class DPExamplesTest {
     String str = "aac";
     System.out.println(new DPExamples().minInsertion(str, 0, str.length() - 1));
   }
+  @Test
+  public void LCSubtring() {
+    String str = "aac";
+    System.out.println(new DPExamples().minInsertion(str, 0, str.length() - 1));
+  }
 
 
 }

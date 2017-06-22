@@ -185,12 +185,12 @@ public class DPExamples {
    * LCS for input Sequences “ABCDGH” and “AEDFHR” is “ADH” of length 3.
    * Solution: Recursive Complexity = O(2^n).
    */
-  int LIS(String str1, String str2, int str1Length, int str2Length) {
-    if (str1Length == 0 || str2Length == 0) return 0;
-    else if (str1.charAt(str1Length - 1) == str2.charAt(str2Length - 1))
-      return 1 + LIS(str1, str2, str1Length - 1 , str2Length - 1);
+  int LIS(String str1, String str2, int str1Len, int str2Len) {
+    if (str1Len == 0 || str2Len == 0) return 0;
+    else if (str1.charAt(str1Len - 1) == str2.charAt(str2Len - 1))
+      return 1 + LIS(str1, str2, str1Len - 1 , str2Len - 1);
     else
-      return Math.max(LIS(str1, str2, str1Length - 1, str2Length), LIS(str1, str2, str1Length, str2Length - 1));
+      return Math.max(LIS(str1, str2, str1Len - 1, str2Len), LIS(str1, str2, str1Len, str2Len - 1));
   }
 
   int LISBottomUp(String str1, String str2) {
@@ -480,18 +480,24 @@ public class DPExamples {
    * The longest common substring is "abcd" and is of length 4.
    * Solution:
    */
-  int LCSubtring(String str1, String str2, int str1Len, int str2Len) {
-    if (str1Len == 0 || str1Len == 0) return 0;
-    else if (str1.charAt(str1Len - 1) == str2.charAt(str2Len - 1)) return 1 + LCSubtring(str1, str2, str1Len - 1, str2Len - 1);
-    else return Math.max(LCSubtring(str1, str2, str1Len - 1, str2Len), LCSubtring(str1, str2, str1Len, str2Len - 1));
-  }
+
 
 
   /**
    * 35.
    * Problem: Dynamic Programming | Set 30 (Dice Throw)
+   * Given n dice each with m faces, numbered from 1 to m, find the number of ways to get sum X. X is the summation of
+   * values on each face when all the dice are thrown.
    * Solution:
    */
+  int findWays(int dices, int faces, int sum, int totalWays) {
+    if (sum < 1) return 0;
+    else if (dices == 1) return sum <= faces ? 1 : 0;
+    else {
+      for (int i = 1; i <= faces; i++) totalWays += findWays(dices - 1, faces, sum - i, 0);
+      return totalWays;
+    }
+  }
 
 
   /**
