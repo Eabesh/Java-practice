@@ -1499,8 +1499,12 @@ public class DPExamples {
   /**
    * 196.
    * Problem: Count number of ways to jump to reach end
+   * Given an array of numbers where each element represents the max number of jumps that can be made forward from that element.
+   * For each array element, count number of ways jumps can be made from that element to reach the end of the array.
+   * If an element is 0, then move cannot be made through that element. The element that cannot reach to the end should have a count “-1”.
    * Solution:
    */
+
 
   /**
    * 197.
