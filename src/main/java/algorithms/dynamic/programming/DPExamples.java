@@ -466,7 +466,7 @@ public class DPExamples {
     else if (left == right) return 0;
     else if (left + 1 == right) return (str.charAt(left) == str.charAt(right)) ? 0 : 1;
     else if (str.charAt(left) == str.charAt(right)) return minInsertion(str, left + 1, right - 1);
-    else return Math.min(minInsertion(str, left + 1, right), minInsertion(str, left, right - 1));
+    else return 1 + Math.min(minInsertion(str, left + 1, right), minInsertion(str, left, right - 1));
   }
   /**
    * 35.

@@ -80,4 +80,9 @@ public class DPExamplesTest {
     assertEquals(true, new DPExamples().isSubsetSum(coins, coins.length, 5));
     assertFalse(new DPExamples().isSubsetSum(coins, coins.length, 8));
   }
+  @Test
+  public void minInsertion() {
+    String str = "abc";
+    System.out.println(new DPExamples().minInsertion(str, 0, str.length() - 1));
+  }
 }
