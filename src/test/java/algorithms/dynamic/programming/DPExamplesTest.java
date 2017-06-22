@@ -97,5 +97,10 @@ public class DPExamplesTest {
     assertEquals(1, new DPExamples().countPathsToOri(3, 0));
   }
 
+  @Test
+  public void minDeletion() {
+    String str = "abc";
+    assertEquals(2, new DPExamples().minDeletion(str, 0, str.length() - 1));
+  }
 
 }
