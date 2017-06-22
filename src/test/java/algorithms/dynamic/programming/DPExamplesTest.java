@@ -73,4 +73,11 @@ public class DPExamplesTest {
     int[] coins = {1, 2, 3};
     assertEquals(4, new DPExamples().coinChange(coins, coins.length, 4));
   }
+
+  @Test
+  public void isSubsetSum() throws Exception {
+    int[] coins = {1, 2, 3};
+    assertEquals(true, new DPExamples().isSubsetSum(coins, coins.length, 5));
+    assertFalse(new DPExamples().isSubsetSum(coins, coins.length, 8));
+  }
 }
