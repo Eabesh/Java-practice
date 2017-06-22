@@ -474,14 +474,18 @@ public class DPExamples {
    * Given two strings ‘X’ and ‘Y’, find the length of the longest common substring.
    * Input : X = "GeeksforGeeks", y = "GeeksQuiz"
    * Output : 5
-   * The longest common substring is "Geeks" and is of
-   * length 5.
+   * The longest common substring is "Geeks" and is of length 5.
    * Input : X = "abcdxyz", y = "xyzabcd"
    * Output : 4
-   * The longest common substring is "abcd" and is of
-   * length 4.
+   * The longest common substring is "abcd" and is of length 4.
    * Solution:
    */
+  int LCSubtring(String str1, String str2, int str1Len, int str2Len) {
+    if (str1Len == 0 || str1Len == 0) return 0;
+    else if (str1.charAt(str1Len - 1) == str2.charAt(str2Len - 1)) return 1 + LCSubtring(str1, str2, str1Len - 1, str2Len - 1);
+    else return Math.max(LCSubtring(str1, str2, str1Len - 1, str2Len), LCSubtring(str1, str2, str1Len, str2Len - 1));
+  }
+
 
   /**
    * 35.
