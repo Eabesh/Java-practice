@@ -14,9 +14,8 @@ public class DPExamples {
   /**
    * 1.
    * Problem: Largest Sum Contiguous Subarray.
-   * Write an efficient C program to find the sum of contiguous
-   * sub array within a one-dimensional array of numbers which has
-   * the largest sum.
+   * Write an efficient C program to find the sum of contiguous sub array within a one-dimensional array of numbers
+   * which has the largest sum.
    * Solution: Kadane’s Algorithm:
    * Initialize:
    * maxSoFar = 0, currMax = 0;
@@ -1282,6 +1281,15 @@ public class DPExamples {
   /**
    * 162.
    * Problem: Maximum path sum in a triangle.
+   * We have given numbers in form of triangle, by starting at the top of the triangle and moving to adjacent numbers
+   * on the row below, find the maximum total from top to bottom.
+   * Input :
+   *      3
+   *    7   4
+   *  2    4   6
+   *  8  5  9  3
+   Output : 23
+   Explanation : 3 + 7 + 4 + 9 = 23
    * Solution:
    */
 
