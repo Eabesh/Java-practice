@@ -104,7 +104,7 @@ public class StackExamples {
     Stack<Integer> indexStack = new Stack<>();
     int currIndex = 0, maxArea = -1, currArea;
     while (currIndex < array.length) {
-      if(indexStack.isEmpty() || array[indexStack.peek()] <= array[currIndex]) indexStack.push(currIndex);
+      if(indexStack.isEmpty() || array[indexStack.peek()] <= array[currIndex]) indexStack.push(currIndex++);
       else {
         currArea = calculateArea(array, indexStack, currIndex);
         maxArea = Math.max(currArea, maxArea);
