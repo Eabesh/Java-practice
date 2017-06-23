@@ -308,6 +308,10 @@ public class MatrixExamples {
    * find area for that row
    * and update maximum area so far
    */
+  int largestRect(int[][] mat) {
+
+  }
+
 
 
 
