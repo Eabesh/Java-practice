@@ -136,14 +136,14 @@ public class MatrixExamples {
    */
 
   /**
-   * .
+   * 10.
    * Problem: Create a matrix with alternating rectangles of O and X
 
    */
 
 
   /**
-   * .
+   * 11.
    * Problem: Find the row with maximum number of 1s
 
    */
@@ -153,7 +153,7 @@ public class MatrixExamples {
 
 
   /**
-   * .
+   * 12.
    * Problem: Print all elements in sorted order from row and column wise sorted matrix
 
    */
@@ -161,32 +161,32 @@ public class MatrixExamples {
 
 
   /**
-   * .
+   * 13.
    * Problem: Given an n x n square matrix, find sum of all sub-squares of size k x k
 
    */
 
   /**
-   * .
+   * 14.
    * Problem: Count number of islands where every island is row-wise and column-wise separated
 
    */
 
   /**
-   * .
+   * 15.
    * Problem: Given a matrix of ‘O’ and ‘X’, replace ‘O’ with ‘X’ if surrounded by ‘X’
 
    */
 
   /**
-   * .
+   * 16.
    * Problem: Find the longest path in a matrix with given constraints
 
    */
 
 
   /**
-   * .
+   * 17.
    * Problem: Given a Boolean Matrix, find k such that all elements in k’th row are 0 and k’th column are 1.
 
    */
@@ -196,7 +196,7 @@ public class MatrixExamples {
 
 
   /**
-   * .
+   * 18.
    * Problem: Find the largest rectangle of 1’s with swapping of columns allowed
 
    */
@@ -204,32 +204,32 @@ public class MatrixExamples {
 
 
   /**
-   * .
+   * 19.
    * Problem: Validity of a given Tic-Tac-Toe board configuration
 
    */
 
   /**
-   * .
+   * 20.
    * Problem: Minimum Initial Points to Reach Destination
 
    */
 
   /**
-   * .
+   * 21.
    * Problem: Find length of the longest consecutive path from a given starting character
 
    */
 
   /**
-   * .
+   * 22.
    * Problem: Collect maximum points in a grid using two traversals
 
    */
 
 
   /**
-   * .
+   * 23.
    * Problem: Rotate Matrix Elements
 
    */
@@ -239,7 +239,7 @@ public class MatrixExamples {
 
 
   /**
-   * .
+   * 24.
    * Problem: Find sum of all elements in a matrix except the elements in row and/or column of given cell?
 
    */
@@ -247,13 +247,13 @@ public class MatrixExamples {
 
 
   /**
-   * .
+   * 25.
    * Problem: Find a common element in all rows of a given row-wise sorted matrix
 
    */
 
   /**
-   * .
+   * 26.
    * Problem: Number of paths with exactly k coins
 
    */
@@ -262,20 +262,20 @@ public class MatrixExamples {
 
 
   /**
-   * .
+   * 27.
    * Problem: Collect maximum coins before hitting a dead end
 
    */
 
   /**
-   * .
+   * 28.
    * Problem: Program for Rank of Matrix
 
    */
 
 
   /**
-   * .
+   * 29.
    * Problem: Submatrix Sum Queries
 
    */
@@ -285,7 +285,7 @@ public class MatrixExamples {
 
 
   /**
-   * .
+   * 30.
    * Problem: Maximum size rectangle binary sub-matrix with all 1s
 
    */
@@ -293,13 +293,13 @@ public class MatrixExamples {
 
 
   /**
-   * .
+   * 31.
    * Problem: Count Negative Numbers in a Column-Wise and Row-Wise Sorted Matrix
 
    */
 
   /**
-   * .
+   * 32.
    * Problem: Construct Ancestor Matrix from a Given Binary Tree
 
    */
@@ -309,20 +309,20 @@ public class MatrixExamples {
 
 
   /**
-   * .
+   * 33.
    * Problem: Construct tree from ancestor matrix
 
    */
 
   /**
-   * .
+   * 34.
    * Problem: In-place convert matrix in specific order
 
    */
 
 
   /**
-   * .
+   * 35.
    * Problem: Common elements in all rows of a given matrix
 
    */
@@ -332,40 +332,23 @@ public class MatrixExamples {
 
 
   /**
-   * .
-   * Problem:
+   * 36.
+   * Problem: Print maximum sum square sub-matrix of given size
+
    */
 
 
 
   /**
-   * .
-   * Problem:
+   * 37.
+   * Problem: Find a specific pair in Matrix
+
    */
 
   /**
-   * .
-   * Problem:
-   */
+   * 38.
+   * Problem: Find orientation of a pattern in a matrix
 
-
-
-
-
-  /**
-   * .
-   * Problem:
-   */
-
-  /**
-   * .
-   * Problem:
-   */
-
-
-  /**
-   * .
-   * Problem:
    */
 
 
@@ -373,19 +356,23 @@ public class MatrixExamples {
 
 
   /**
-   * .
-   * Problem:
-   */
+   * 39.
+   * Problem: Shortest path in a Binary Maze
 
-
-
-  /**
-   * .
-   * Problem:
    */
 
   /**
-   * .
-   * Problem:
+   * 40.
+   * Problem: Inplace rotate square matrix by 90 degrees
+
    */
+
+
+  /**
+   * 41.
+   * Problem: Return previous element in an expanding matrix
+
+   */
+
+
 }
