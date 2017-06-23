@@ -195,74 +195,74 @@ public class StackExamples {
    */
 
   /**
-   * 2.
+   * 33.
    * Problem: Stack Class in Java
    */
 
 
   /**
-   * 1.
+   * 34.
    * Problem: Design a stack that supports getMin() in O(1) time and O(1) extra space
    */
 
 
   /**
-   * 1.
+   * 35.
    * Problem: Implement a stack using single queue
    */
 
 
   /**
-   * 1.
+   * 36.
    * Problem: Find if an expression has duplicate parenthesis or not
    */
 
 
   /**
-   * 2.
+   * 37.
    * Problem: Find maximum difference between nearest left and right smaller elements
    */
 
 
 
   /**
-   * 2.
+   * 38.
    * Problem: Find next Smaller of next Greater in an array
    */
 
   /**
-   * 2.
+   * 39.
    * Problem: Find maximum sum possible equal sum of three stacks
    */
 
 
   /**
-   * 1.
+   * 40.
    * Problem: Count natural numbers whose all permutation are greater than that number
    */
 
 
   /**
-   * 1.
+   * 41.
    * Problem: Stack Data Structure (Introduction and Program)
    */
 
 
   /**
-   * 1.
+   * 42.
    * Problem: How to implement stack using priority queue or heap?
    */
   /**
-   * 1.
+   * 43.
    * Problem: Delete consecutive same words in a sequence
    */
 
   /**
-   * 1.
+   * 44.
    * Problem: Decode a string recursively encoded as count followed by substring
    */
   /**
-   * 1.
+   * 45.
    * Problem: Bubble sort using two Stacks
    */
 
