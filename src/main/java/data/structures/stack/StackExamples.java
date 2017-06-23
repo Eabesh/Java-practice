@@ -109,11 +109,10 @@ public class StackExamples {
         currArea = calculateArea(array, indexStack, currIndex);
         maxArea = Math.max(currArea, maxArea);
       }
-
-      while (!indexStack.isEmpty()) {
-        currArea = calculateArea(array, indexStack, currIndex);
-        maxArea = Math.max(currArea, maxArea);
-      }
+    }
+    while (!indexStack.isEmpty()) {
+      currArea = calculateArea(array, indexStack, currIndex);
+      maxArea = Math.max(currArea, maxArea);
     }
     return maxArea;
   }
@@ -121,7 +120,7 @@ public class StackExamples {
   int calculateArea(int[] array, Stack<Integer> integerStack, int currIndex) {
     int topIndex = integerStack.pop();
     if (integerStack.isEmpty()) return array[topIndex] * currIndex;
-    else return array[currIndex] * currIndex - topIndex - 1;
+    else return array[topIndex] * (currIndex - integerStack.peek() - 1);
   }
 
 
