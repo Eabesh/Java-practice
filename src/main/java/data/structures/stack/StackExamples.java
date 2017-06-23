@@ -1,5 +1,7 @@
 package data.structures.stack;
 
+import java.util.Stack;
+
 /**
  * Created by abhay on 23/06/17.
  */
@@ -95,8 +97,32 @@ public class StackExamples {
    * Find the largest rectangular area possible in a given histogram where the largest rectangle can be made of a number
    * of contiguous bars. For simplicity, assume that all bars have same width and the width is 1 unit.
    * For example, consider the following histogram with 7 bars of heights {6, 2, 5, 4, 5, 1, 6}. The largest possible
-   * rectangle possible is 12
+   * rectangle possible is 12.
+   * Solution
    */
+  int maxRectangleArea(int[] array) {
+    Stack<Integer> indexStack = new Stack<>();
+    int currIndex = 0, maxArea = -1, currArea;
+    while (currIndex < array.length) {
+      if(indexStack.isEmpty() || array[indexStack.peek()] <= array[currIndex]) indexStack.push(currIndex);
+      else {
+        currArea = calculateArea(array, indexStack, currIndex);
+        maxArea = Math.max(currArea, maxArea);
+      }
+
+      while (!indexStack.isEmpty()) {
+        currArea = calculateArea(array, indexStack, currIndex);
+        maxArea = Math.max(currArea, maxArea);
+      }
+    }
+    return maxArea;
+  }
+
+  int calculateArea(int[] array, Stack<Integer> integerStack, int currIndex) {
+    int topIndex = integerStack.pop();
+    if (integerStack.isEmpty()) return array[topIndex] * currIndex;
+    else return array[currIndex] * currIndex - topIndex - 1;
+  }
 
 
   /**
