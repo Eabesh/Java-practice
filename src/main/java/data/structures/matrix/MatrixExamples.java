@@ -309,7 +309,7 @@ public class MatrixExamples {
    * and update maximum area so far
    */
   int largestRect(int[][] mat) {
-
+    return 0;
   }
 
 
