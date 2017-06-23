@@ -124,4 +124,268 @@ public class MatrixExamples {
     return (i >=0 && i < R && j >=0 && j < C);
   }
 
+  /**
+   * 8.
+   * Problem: Dynamic Programming | Set 27 (Maximum sum rectangle in a 2D matrix)
+   */
+
+  /**
+   * 9.
+   * Problem: Strassen’s Matrix Multiplication
+
+   */
+
+  /**
+   * .
+   * Problem: Create a matrix with alternating rectangles of O and X
+
+   */
+
+
+  /**
+   * .
+   * Problem: Find the row with maximum number of 1s
+
+   */
+
+
+
+
+
+  /**
+   * .
+   * Problem: Print all elements in sorted order from row and column wise sorted matrix
+
+   */
+
+
+
+  /**
+   * .
+   * Problem: Given an n x n square matrix, find sum of all sub-squares of size k x k
+
+   */
+
+  /**
+   * .
+   * Problem: Count number of islands where every island is row-wise and column-wise separated
+
+   */
+
+  /**
+   * .
+   * Problem: Given a matrix of ‘O’ and ‘X’, replace ‘O’ with ‘X’ if surrounded by ‘X’
+
+   */
+
+  /**
+   * .
+   * Problem: Find the longest path in a matrix with given constraints
+
+   */
+
+
+  /**
+   * .
+   * Problem: Given a Boolean Matrix, find k such that all elements in k’th row are 0 and k’th column are 1.
+
+   */
+
+
+
+
+
+  /**
+   * .
+   * Problem: Find the largest rectangle of 1’s with swapping of columns allowed
+
+   */
+
+
+
+  /**
+   * .
+   * Problem: Validity of a given Tic-Tac-Toe board configuration
+
+   */
+
+  /**
+   * .
+   * Problem: Minimum Initial Points to Reach Destination
+
+   */
+
+  /**
+   * .
+   * Problem: Find length of the longest consecutive path from a given starting character
+
+   */
+
+  /**
+   * .
+   * Problem: Collect maximum points in a grid using two traversals
+
+   */
+
+
+  /**
+   * .
+   * Problem: Rotate Matrix Elements
+
+   */
+
+
+
+
+
+  /**
+   * .
+   * Problem: Find sum of all elements in a matrix except the elements in row and/or column of given cell?
+
+   */
+
+
+
+  /**
+   * .
+   * Problem: Find a common element in all rows of a given row-wise sorted matrix
+
+   */
+
+  /**
+   * .
+   * Problem: Number of paths with exactly k coins
+
+   */
+
+
+
+
+  /**
+   * .
+   * Problem: Collect maximum coins before hitting a dead end
+
+   */
+
+  /**
+   * .
+   * Problem: Program for Rank of Matrix
+
+   */
+
+
+  /**
+   * .
+   * Problem: Submatrix Sum Queries
+
+   */
+
+
+
+
+
+  /**
+   * .
+   * Problem: Maximum size rectangle binary sub-matrix with all 1s
+
+   */
+
+
+
+  /**
+   * .
+   * Problem: Count Negative Numbers in a Column-Wise and Row-Wise Sorted Matrix
+
+   */
+
+  /**
+   * .
+   * Problem: Construct Ancestor Matrix from a Given Binary Tree
+
+   */
+
+
+
+
+
+  /**
+   * .
+   * Problem: Construct tree from ancestor matrix
+
+   */
+
+  /**
+   * .
+   * Problem: In-place convert matrix in specific order
+
+   */
+
+
+  /**
+   * .
+   * Problem: Common elements in all rows of a given matrix
+
+   */
+
+
+
+
+
+  /**
+   * .
+   * Problem:
+   */
+
+
+
+  /**
+   * .
+   * Problem:
+   */
+
+  /**
+   * .
+   * Problem:
+   */
+
+
+
+
+
+  /**
+   * .
+   * Problem:
+   */
+
+  /**
+   * .
+   * Problem:
+   */
+
+
+  /**
+   * .
+   * Problem:
+   */
+
+
+
+
+
+  /**
+   * .
+   * Problem:
+   */
+
+
+
+  /**
+   * .
+   * Problem:
+   */
+
+  /**
+   * .
+   * Problem:
+   */
 }
