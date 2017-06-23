@@ -287,7 +287,26 @@ public class MatrixExamples {
   /**
    * 30.
    * Problem: Maximum size rectangle binary sub-matrix with all 1s
-
+   * Given a binary matrix, find the maximum size rectangle binary-sub-matrix with all 1’s.
+   * Input :
+   * 0 1 1 0
+   * 1 1 1 1
+   * 1 1 1 1
+   * 1 1 0 0
+   * Output :
+   * 1 1 1 1
+   * 1 1 1 1
+   * Solution. The idea is to update each column of a given row with corresponding column of previous row and find
+   * largest histogram area for for that row.
+   * Step 1: Find maximum area for row[0]
+   * Step 2:
+   * for each row in 1 to N - 1
+   * for each column in that row
+   * if A[row][column] == 1
+   * update A[row][column] with
+   * A[row][column] += A[row - 1][column]
+   * find area for that row
+   * and update maximum area so far
    */
 
 
