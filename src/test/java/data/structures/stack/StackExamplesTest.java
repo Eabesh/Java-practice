@@ -10,8 +10,10 @@ import static org.junit.Assert.*;
 public class StackExamplesTest {
   @Test
   public void maxRectangleArea() throws Exception {
-    int hist[] = {6, 2, 5, 4, 5, 1, 6};
+    int[] hist = {6, 2, 5, 4, 5, 1, 6};
     assertEquals(12, new StackExamples().maxRectangleArea(hist));
+    int[] hist2 = {5};
+    assertEquals(5, new StackExamples().maxRectangleArea(hist2));
   }
 
 }

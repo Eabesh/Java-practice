@@ -101,18 +101,12 @@ public class StackExamples {
    */
   int maxRectangleArea(int[] array) {
     Stack<Integer> indexStack = new Stack<>();
-    int currIndex = 0, maxArea = -1, currArea;
+    int currIndex = 0, maxArea = -1;
     while (currIndex < array.length) {
       if(indexStack.isEmpty() || array[indexStack.peek()] <= array[currIndex]) indexStack.push(currIndex++);
-      else {
-        currArea = calculateArea(array, indexStack, currIndex);
-        maxArea = Math.max(currArea, maxArea);
-      }
+      else maxArea = Math.max(calculateArea(array, indexStack, currIndex), maxArea);
     }
-    while (!indexStack.isEmpty()) {
-      currArea = calculateArea(array, indexStack, currIndex);
-      maxArea = Math.max(currArea, maxArea);
-    }
+    while (!indexStack.isEmpty()) maxArea = Math.max(calculateArea(array, indexStack, currIndex), maxArea);
     return maxArea;
   }
 
