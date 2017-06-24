@@ -124,4 +124,278 @@ public class MatrixExamples {
     return (i >=0 && i < R && j >=0 && j < C);
   }
 
+  /**
+   * 8.
+   * Problem: Dynamic Programming | Set 27 (Maximum sum rectangle in a 2D matrix)
+   */
+
+  /**
+   * 9.
+   * Problem: Strassen’s Matrix Multiplication
+
+   */
+
+  /**
+   * 10.
+   * Problem: Create a matrix with alternating rectangles of O and X
+
+   */
+
+
+  /**
+   * 11.
+   * Problem: Find the row with maximum number of 1s
+
+   */
+
+
+
+
+
+  /**
+   * 12.
+   * Problem: Print all elements in sorted order from row and column wise sorted matrix
+
+   */
+
+
+
+  /**
+   * 13.
+   * Problem: Given an n x n square matrix, find sum of all sub-squares of size k x k
+
+   */
+
+  /**
+   * 14.
+   * Problem: Count number of islands where every island is row-wise and column-wise separated
+
+   */
+
+  /**
+   * 15.
+   * Problem: Given a matrix of ‘O’ and ‘X’, replace ‘O’ with ‘X’ if surrounded by ‘X’
+
+   */
+
+  /**
+   * 16.
+   * Problem: Find the longest path in a matrix with given constraints
+
+   */
+
+
+  /**
+   * 17.
+   * Problem: Given a Boolean Matrix, find k such that all elements in k’th row are 0 and k’th column are 1.
+
+   */
+
+
+
+
+
+  /**
+   * 18.
+   * Problem: Find the largest rectangle of 1’s with swapping of columns allowed
+
+   */
+
+
+
+  /**
+   * 19.
+   * Problem: Validity of a given Tic-Tac-Toe board configuration
+
+   */
+
+  /**
+   * 20.
+   * Problem: Minimum Initial Points to Reach Destination
+
+   */
+
+  /**
+   * 21.
+   * Problem: Find length of the longest consecutive path from a given starting character
+
+   */
+
+  /**
+   * 22.
+   * Problem: Collect maximum points in a grid using two traversals
+
+   */
+
+
+  /**
+   * 23.
+   * Problem: Rotate Matrix Elements
+
+   */
+
+
+
+
+
+  /**
+   * 24.
+   * Problem: Find sum of all elements in a matrix except the elements in row and/or column of given cell?
+
+   */
+
+
+
+  /**
+   * 25.
+   * Problem: Find a common element in all rows of a given row-wise sorted matrix
+
+   */
+
+  /**
+   * 26.
+   * Problem: Number of paths with exactly k coins
+
+   */
+
+
+
+
+  /**
+   * 27.
+   * Problem: Collect maximum coins before hitting a dead end
+
+   */
+
+  /**
+   * 28.
+   * Problem: Program for Rank of Matrix
+
+   */
+
+
+  /**
+   * 29.
+   * Problem: Submatrix Sum Queries
+
+   */
+
+
+
+
+
+  /**
+   * 30.
+   * Problem: Maximum size rectangle binary sub-matrix with all 1s
+   * Given a binary matrix, find the maximum size rectangle binary-sub-matrix with all 1’s.
+   * Input :
+   * 0 1 1 0
+   * 1 1 1 1
+   * 1 1 1 1
+   * 1 1 0 0
+   * Output :
+   * 1 1 1 1
+   * 1 1 1 1
+   * Solution. The idea is to update each column of a given row with corresponding column of previous row and find
+   * largest histogram area for for that row.
+   * Step 1: Find maximum area for row[0]
+   * Step 2:
+   * for each row in 1 to N - 1
+   * for each column in that row
+   * if A[row][column] == 1
+   * update A[row][column] with
+   * A[row][column] += A[row - 1][column]
+   * find area for that row
+   * and update maximum area so far
+   */
+  int largestRect(int[][] mat) {
+    return 0;
+  }
+
+
+
+
+  /**
+   * 31.
+   * Problem: Count Negative Numbers in a Column-Wise and Row-Wise Sorted Matrix
+
+   */
+
+  /**
+   * 32.
+   * Problem: Construct Ancestor Matrix from a Given Binary Tree
+
+   */
+
+
+
+
+
+  /**
+   * 33.
+   * Problem: Construct tree from ancestor matrix
+
+   */
+
+  /**
+   * 34.
+   * Problem: In-place convert matrix in specific order
+
+   */
+
+
+  /**
+   * 35.
+   * Problem: Common elements in all rows of a given matrix
+
+   */
+
+
+
+
+
+  /**
+   * 36.
+   * Problem: Print maximum sum square sub-matrix of given size
+
+   */
+
+
+
+  /**
+   * 37.
+   * Problem: Find a specific pair in Matrix
+
+   */
+
+  /**
+   * 38.
+   * Problem: Find orientation of a pattern in a matrix
+
+   */
+
+
+
+
+
+  /**
+   * 39.
+   * Problem: Shortest path in a Binary Maze
+
+   */
+
+  /**
+   * 40.
+   * Problem: Inplace rotate square matrix by 90 degrees
+
+   */
+
+
+  /**
+   * 41.
+   * Problem: Return previous element in an expanding matrix
+
+   */
+
+
 }
