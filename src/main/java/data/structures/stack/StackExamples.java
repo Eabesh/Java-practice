@@ -116,7 +116,6 @@ public class StackExamples {
     else return array[topIndex] * (currIndex - 1 - integerStack.peek());
   }
 
-
   /**
    * 16.
    * Problem: Expression Evaluation
