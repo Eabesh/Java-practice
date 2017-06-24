@@ -98,7 +98,6 @@ public class StackExamples {
    * of contiguous bars. For simplicity, assume that all bars have same width and the width is 1 unit.
    * For example, consider the following histogram with 7 bars of heights {6, 2, 5, 4, 5, 1, 6}. The largest possible
    * rectangle possible is 12.
-   * Solution
    */
   int maxRectangleArea(int[] array) {
     Stack<Integer> indexStack = new Stack<>();
@@ -117,7 +116,7 @@ public class StackExamples {
     return maxArea;
   }
 
-  int calculateArea(int[] array, Stack<Integer> integerStack, int currIndex) {
+  private int calculateArea(int[] array, Stack<Integer> integerStack, int currIndex) {
     int topIndex = integerStack.pop();
     if (integerStack.isEmpty()) return array[topIndex] * currIndex;
     else return array[topIndex] * (currIndex - integerStack.peek() - 1);
