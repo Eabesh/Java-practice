@@ -231,6 +231,20 @@ public class ArrayExamples {
    */
 
   /**
+   * 18.
+   * Problem: Maximum difference between two elements such that larger element appears after the smaller element.
+   */
+  public int maxDiff(int[] array) {
+    int maxDiffSoFar = 0;
+    int min = array[0];
+    for (int i = 1; i < array.length; i++) {
+      maxDiffSoFar = Math.max(maxDiffSoFar, array[i] - min);
+      min = Math.min(min, array[i]);
+    }
+    return maxDiffSoFar;
+  }
+
+  /**
    * 6.
    * Problem: Maximum sum of contigous subarray for a non-empty array.
    */
@@ -290,22 +304,7 @@ public class ArrayExamples {
    * Formally speaking, two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j.
    * Solution: Use BST. Count of left children gives number of inversions of that element.
    */
-
  /**
-   * 25.
-   * Problem: Maximum difference between two elements such that larger element appears after the smaller element.
-   */
-  public int maxDiff(int[] array) {
-    int maxDiffSoFar = 0;
-    int min = array[0];
-    for (int i = 1; i < array.length; i++) {
-      maxDiffSoFar = Math.max(maxDiffSoFar, array[i] - min);
-      min = Math.min(min, array[i]);
-    }
-    return maxDiffSoFar;
-  }
-
-  /**
    * 27.
    * Problem: Floor and Ceiling in a sorted array.
    * Solution: Use modified binary search to find floor and ceiling separately.
