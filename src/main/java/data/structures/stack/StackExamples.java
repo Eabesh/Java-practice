@@ -2,10 +2,7 @@ package data.structures.stack;
 
 import java.util.Stack;
 
-/**
- * Created by abhay on 23/06/17.
- */
-public class StackExamples {
+class StackExamples {
 
   /**
    * 1.
