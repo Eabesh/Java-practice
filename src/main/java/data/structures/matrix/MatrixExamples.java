@@ -1,5 +1,8 @@
 package data.structures.matrix;
 import data.structures.stack.StackExamples;
+
+import java.util.Arrays;
+
 public class MatrixExamples {
 
   /**
@@ -337,9 +340,7 @@ public class MatrixExamples {
     return maxArea;
   }
   private  int[] getRow(int[][] mat, int rowNumber) {
-    int[] row = new int[mat[0].length];
-    System.arraycopy(mat[rowNumber], 0, row, 0, row.length);
-    return row;
+    return Arrays.copyOf(mat[rowNumber], mat[rowNumber].length);
   }
 
 
