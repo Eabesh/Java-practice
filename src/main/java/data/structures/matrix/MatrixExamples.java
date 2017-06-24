@@ -281,7 +281,6 @@ public class MatrixExamples {
   /**
    * 27.
    * Problem: Collect maximum coins before hitting a dead end
-
    */
 
   /**
