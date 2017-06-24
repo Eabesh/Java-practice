@@ -255,7 +255,6 @@ public class MatrixExamples {
   /**
    * 26.
    * Problem: Number of paths with exactly k coins
-
    */
 
 
