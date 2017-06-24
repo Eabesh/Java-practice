@@ -1,5 +1,5 @@
 package data.structures.matrix;
-
+import data.structures.stack.StackExamples;
 public class MatrixExamples {
 
   /**
@@ -309,7 +309,21 @@ public class MatrixExamples {
    * and update maximum area so far
    */
   int largestRect(int[][] mat) {
-    return 0;
+   int[] row = getRow(mat, 0);
+   int maxArea = new StackExamples().maxRectangleArea(row);
+    for (int i = 1; i < mat.length; i++) {
+      for (int j = 0; j < mat[0].length; j++) {
+        if (mat[i][j] == 1) mat[i][j] += mat[i - 1][j];
+      }
+      row = getRow(mat, i);
+      maxArea = Math.max(maxArea, new StackExamples().maxRectangleArea(row));
+    }
+    return maxArea;
+  }
+  private  int[] getRow(int[][] mat, int rowNumber) {
+    int[] row = new int[mat[rowNumber].length];
+    for (int i = 0; i < row.length; i++) row[i] = mat[rowNumber][i];
+    return row;
   }
 
 

@@ -2,7 +2,7 @@ package data.structures.stack;
 
 import java.util.Stack;
 
-class StackExamples {
+public class StackExamples {
 
   /**
    * 1.
@@ -96,7 +96,7 @@ class StackExamples {
    * For example, consider the following histogram with 7 bars of heights {6, 2, 5, 4, 5, 1, 6}. The largest possible
    * rectangle possible is 12.
    */
-  int maxRectangleArea(int[] array) {
+  public int maxRectangleArea(int[] array) {
     Stack<Integer> indexStack = new Stack<>();
     int currIndex = 0, maxArea = -1;
     while (currIndex < array.length) {
