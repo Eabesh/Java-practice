@@ -225,6 +225,12 @@ public class ArrayExamples {
    */
 
   /**
+   * 17. k largest(or smallest) elements in an array.
+   * Solution: 1. Use Bubble k times. O(nk)
+   * 2. Use Max Heap. Build a Max Heap tree in O(n)and use Extract Max k times to get k maximum elements. O(n + klogn)
+   */
+
+  /**
    * 6.
    * Problem: Maximum sum of contigous subarray for a non-empty array.
    */
