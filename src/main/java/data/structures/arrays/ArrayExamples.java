@@ -930,4 +930,29 @@ public class ArrayExamples {
    * Solution: Binary search: log(n) Insert: O(n) Delete: O(n)
    */
 
+  /**
+   * 197. Count all sub-arrays having sum divisible by k.
+   * Solution:
+   * 1. Create auxiliary hash array to count frequency of remainders.
+   * 2. Compute cumulative sum and take remainder of this current cumulative sum and increase count by 1 for this
+   * remainder in mod[] array.
+   * 3. As the sum can be negative, taking modulo twice.
+   * 4. If there are more than one prefix subarrays with a particular mod value.
+   * 5. Add the elements which are divisible by k itself i.e., the elements whose sum = 0
+   */
+  int subArrayCount(int[] array, int k) {
+    int sum = 0;
+    int[] mod = new int[array.length];
+    for (int elem : array) {
+      sum += elem;
+      mod[((sum % k) + k) % k]++;
+    }
+    int result = 0;
+    for (int elem : mod) {
+      if (elem > 0) result += (elem * (elem - 1)) / 2;
+    }
+    result += mod[0];
+    return result;
+  }
+
 }

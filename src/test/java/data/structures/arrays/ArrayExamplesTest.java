@@ -125,5 +125,13 @@ public class ArrayExamplesTest {
     assertEquals(1, new ArrayExamples().minPalindromeOperations(arr2,0,arr2.length - 1));
   }
 
+  @Test
+  public void subArrayCount() {
+    int arr[] = {4, 5, 0, -2, -3, 1};
+    assertEquals(7, new ArrayExamples().subArrayCount(arr, 5));
+    int arr1[] = {4, 5, 0, -12, -23, 1};
+    assertEquals(7, new ArrayExamples().subArrayCount(arr1, 5));
+  }
+
 }
 
