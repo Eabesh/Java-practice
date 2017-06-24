@@ -25,5 +25,11 @@ public class MatrixExamplesTest {
     int[][] mat = {{0, 1, 1, 0},{1, 1, 1, 1},{1, 1, 1, 1},{1, 1, 0, 0}};
     assertEquals(8, new MatrixExamples().largestRect(mat));
   }
+  @Test
+  public void countPathsKCoins() throws Exception {
+    int[][] mat = { {1, 2, 3}, {4, 6, 5}, {3, 2, 1} };
+    int k = 12;
+    assertEquals(2, new MatrixExamples().countPathsKCoins(mat, mat.length - 1, mat[0].length - 1, k));
+  }
 
 }
