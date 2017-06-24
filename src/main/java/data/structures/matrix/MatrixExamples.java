@@ -321,7 +321,7 @@ public class MatrixExamples {
     return maxArea;
   }
   private  int[] getRow(int[][] mat, int rowNumber) {
-    int[] row = new int[mat[rowNumber].length];
+    int[] row = new int[mat[0].length];
     for (int i = 0; i < row.length; i++) row[i] = mat[rowNumber][i];
     return row;
   }
