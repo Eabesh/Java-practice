@@ -338,7 +338,7 @@ public class MatrixExamples {
   }
   private  int[] getRow(int[][] mat, int rowNumber) {
     int[] row = new int[mat[0].length];
-    for (int i = 0; i < row.length; i++) row[i] = mat[rowNumber][i];
+    System.arraycopy(mat[rowNumber], 0, row, 0, row.length);
     return row;
   }
 
