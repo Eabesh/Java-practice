@@ -328,12 +328,10 @@ public class MatrixExamples {
    * and update maximum area so far
    */
   int largestRect(int[][] mat) {
-   int[] row = Arrays.copyOf(mat[0], mat[0].length);
-   int maxArea = new StackExamples().maxRectangleArea(row);
+   int maxArea = new StackExamples().maxRectangleArea(Arrays.copyOf(mat[0], mat[0].length));
     for (int i = 1; i < mat.length; i++) {
       for (int j = 0; j < mat[0].length; j++) if (mat[i][j] == 1) mat[i][j] += mat[i - 1][j];
-      row = Arrays.copyOf(mat[i], mat[i].length);
-      maxArea = Math.max(maxArea, new StackExamples().maxRectangleArea(row));
+      maxArea = Math.max(maxArea, new StackExamples().maxRectangleArea(Arrays.copyOf(mat[i], mat[i].length)));
     }
     return maxArea;
   }
