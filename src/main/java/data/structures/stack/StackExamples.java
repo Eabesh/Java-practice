@@ -113,7 +113,7 @@ public class StackExamples {
   private int calculateArea(int[] array, Stack<Integer> integerStack, int currIndex) {
     int topIndex = integerStack.pop();
     if (integerStack.isEmpty()) return array[topIndex] * currIndex;
-    else return array[topIndex] * (currIndex - integerStack.peek() - 1);
+    else return array[topIndex] * (currIndex - 1 - integerStack.peek());
   }
 
 
