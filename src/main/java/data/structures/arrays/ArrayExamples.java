@@ -10,110 +10,239 @@ public class ArrayExamples {
   /**
    * 1.
    * Problem: Given an array A[] and a number x, check for pair in A[] with sum as x.
-   * Solution:
+   * Solution: Use sorting and use left and right pointers. Or
+   * Use hash map :
+   * 1) Initialize Binary Hash Map M[] = {0, 0, ...}
+   * 2) Do following for each element A[i] in A[]
+   *      (a)	If M[x - A[i]] is set then print the pair (A[i], x - A[i])
+   *      (b)	Set M[A[i]].
    */
+  boolean checkPair1(int[] array, int sum) {
+    Arrays.sort(array);
+    int left = 0;
+    int right = array.length - 1;
+    while (left < right) {
+      int currentSum = array[left] + array[right];
+      if (currentSum == sum) return true;
+      else if (currentSum < sum) left++;
+      else right--;
+    }
+    return false;
+  }
+
+  boolean checkPair2(int[] array, int sum) {
+    HashSet<Integer> set = new HashSet<>();
+    for (int element : array) {
+      if (set.contains(sum - element)) return true;
+      else set.add(element);
+    }
+    return false;
+  }
 
   /**
    * 2.
-   * Problem: Majority Element.
+   * Problem: Majority Element: A majority element in an array A[] of size n is an element that appears more than
+   * n/2 times (and hence there is at most one such element).
    * Solution:
+   * Using BST: Insert elements in BST one by one and if an element is already present then increment the
+   * count of the node. At any stage, if count of a node becomes more than n/2 then return.
+   * Moore's voting algorithm.
+   * 1. Find candidate.
+   * 2. Check if this candidate is majority element.
    */
 
   /**
    * 3.
    * Problem: Find the Number Occurring Odd Number of Times.
-   * Solution:
+   * Given an array of positive integers. All numbers occur even number of times except one number which occurs odd
+   * number of times. Find the number in O(n) time & constant space.
+   * Solution: Use XOR operator.
    */
+  int getOddOccurrenceWithLambda(int[] array) {
+    return Arrays.stream(array).reduce(0, (a,b) -> a ^ b);
+  }
+
+  int getOddOccurrence(int[] array) {
+    int accumulator = 0;
+    for (int elem : array) accumulator ^= elem;
+    return accumulator;
+  }
 
   /**
    * 4.
-   * Problem: Search an element in a sorted and rotated  array.
-   * Solution:
+   * Problem: Search an element in a sorted and rotated array.
+   * Solution: Use modified binary search.
+   * 1) Find middle point mid = (l + h)/2
+   * 2) If key is present at middle point, return mid.
+   * 3) Else If arr[l..mid-1] is sorted
+   *      a) If key to be searched lies in range from arr[l] to arr[mid], recur for arr[l..mid].
+   *      b) Else recur for arr[mid+1..r]
+   * 4) Else (arr[mid+1..r] must be sorted)
+   *      a) If key to be searched lies in range from arr[mid+1]
+   *          to arr[r], recur for arr[mid+1..r].
+   *      b) Else recur for arr[l..mid]
    */
+  int binarySearchRotated(int[] array, int key, int beginIndex, int endIndex) {
+    if (beginIndex <= endIndex) {
+      int mid = beginIndex + (endIndex - beginIndex) / 2;
+      if (array[mid] == key) return mid;
+      else {
+        if (array[beginIndex] < array[mid]) {
+          if (key < array[mid] && key >= array[beginIndex]) return binarySearchRotated(array, key, beginIndex, mid - 1);
+          else return binarySearchRotated(array, key, mid + 1, endIndex);
+        }
+        else {
+          if (key > array[mid] && key <= array[endIndex]) return binarySearchRotated(array, key, mid + 1, endIndex);
+          else return binarySearchRotated(array, key, beginIndex, mid - 1);
+        }
+      }
+    }
+    return -1;
+  }
 
   /**
    * 5.
    * Problem: Merge an array of size n into another array of size m+n.
-   * Solution:
+   * There are two sorted arrays. First one is of size m+n containing only m elements. Another one is of size n and
+   * contains n elements. Merge these two arrays into the first array of size m+n such that the output is sorted.
+   * Solution: Move all elements together in one pass. Then fill up bigger array using two pointers starting from right
+   * and moving to left.
    */
+  int[] mergeArray(int[] arr1, int[] arr2) {
+    int arr1Last = arr1.length - 1;
+    int arr2Last = arr2.length - arr1.length - 1;
+    int last = arr2.length - 1;
+    while (arr2Last >= 0 && arr1Last >=0) {
+      if (arr2[arr2Last] > arr1[arr1Last]) arr2[last--] = arr2[arr2Last--];
+      else arr2[last--] = arr1[arr1Last--];
+    }
+    while(arr1Last >= 0) arr2[last--] = arr1[arr1Last--];
+    return arr2;
+  }
 
   /**
    * 6.
-   * Problem: Write a program to reverse an array or string.
-   * Solution:
+   * Problem: Write a program to reverse an array or string
+   * Solution: Either use two pointer and swap iteratively or use stack frame in recursion to store
+   * elements and reverse the array in place.
    */
+  void reverseArray(int[] array, int startIndex, int endIndex) {
+    if (startIndex < endIndex) {
+      swap(array, startIndex, endIndex);
+      reverseArray(array, startIndex + 1, endIndex - 1);
+    }
+  }
+
+  private void swap(int[] array, int i, int j) {
+    array[i] = array[i] ^ array[j];
+    array[j] = array[i] ^ array[j];
+    array[i] = array[i] ^ array[j];
+  }
 
   /**
    * 7.
    * Problem: Program for array rotation.
-   * Solution:
+   * Solution: Use temp array or reversal algorithm.
    */
 
   /**
    * 8.
-   * Problem: Reversal algorithm for array rotation.
-   * Solution:
+   * Problem: Program for array rotation using reversal algo.
+   * Solution: Let AB are the two parts of the input array. Reverse A and B. Reverse all to get BA.
    */
+  void rotateArray(int[] array, int pivot) {
+    reverseArray(array,0, pivot);
+    reverseArray(array,pivot + 1, array.length - 1);
+    reverseArray(array, 0, array.length - 1);
+  }
 
   /**
    * 9.
-   * Problem: Block swap algorithm for array rotation.
-   * Solution:
+   * Problem: Block swap algo for rotation.
    */
 
   /**
    * 10.
    * Problem: Maximum sum such that no two elements are adjacent.
-   * Solution:
+   * Given an array of positive numbers, find the maximum sum of a subsequence with the constraint that no 2 numbers in
+   * the sequence should be adjacent in the array.
    */
+  int maxSumNonAdjacent(int[] array) {
+    int incl = array[0];
+    int excl = 0;
+    for (int i = 1; i < array.length; i++) {
+      int previousIncl = incl;
+      incl = excl + array[i];
+      excl = Math.max(previousIncl, excl);
+    }
+    return Math.max(incl, excl);
+  }
 
   /**
    * 11.
    * Problem: Leaders in an array.
-   * Solution:
+   * An element is leader if it is greater than all the elements to its right side. And the rightmost element is
+   * always a leader.
+   * Solution: Scan all the elements from right to left in array and keep track of maximum till now. When maximum
+   * changes it’s value, print it as it is a leader.
    */
 
   /**
    * 12.
-   * Problem: Sort elements by frequency | Set 1.
-   * Solution:
+   * Problem: Sort elements by frequency.
+   * Solution: Use hash map and then sort by frequency. Or use modified BST with count field.
    */
 
   /**
    * 13.
    * Problem: Two elements whose sum is closest to zero.
-   * Solution:
+   * An Array of integers is given, both +ve and -ve. You need to find the two elements such that their sum is
+   * closest to zero.
+   * Solution: Sort the elements. Use left and right pointer. Add them and if sum < 0, l++ else r--.
    */
 
   /**
    * 14.
-   * Problem: Find the smallest and second smallest elements in an array.
+   * Problem: Find the smallest and second smallest element in an array.
    * Solution:
+   * 1) Initialize both first and second smallest as INT_MAX first = second = INT_MAX.
+   * 2) Loop through all the elements.
+   *      a) If the current element is smaller than first, then update first and second.
+   *      b) Else if the current element is smaller than second then update second.
+   * Or use heap which will take O(k.logn).
    */
 
   /**
    * 15.
    * Problem: Check for Majority Element in a sorted array.
-   * Solution:
+   * Find if a given integer x appears more than n/2 times in a sorted array of n integers.
+   * Solution: Use modified binary search to find start and end index of element.
    */
 
   /**
-   * 16.
-   * Problem: Segregate 0s and 1s in an array.
-   * Solution:
+   * 16. Segregate 0s and 1s in an array.
+   * Solution: Count 0s and fill array with 0s and remaining with 1s.
    */
 
   /**
-   * 17.
-   * Problem: k largest(or smallest) elements in an array | added Min Heap method.
-   * Solution:
+   * 17. k largest(or smallest) elements in an array.
+   * Solution: 1. Use Bubble k times. O(nk)
+   * 2. Use Max Heap. Build a Max Heap tree in O(n)and use Extract Max k times to get k maximum elements. O(n + klogn)
    */
 
   /**
    * 18.
-   * Problem: Maximum difference between two elements such that larger element appears after the smaller number.
-   * Solution:
+   * Problem: Maximum difference between two elements such that larger element appears after the smaller element.
    */
+  public int maxDiff(int[] array) {
+    int maxDiffSoFar = 0;
+    int min = array[0];
+    for (int i = 1; i < array.length; i++) {
+      maxDiffSoFar = Math.max(maxDiffSoFar, array[i] - min);
+      min = Math.min(min, array[i]);
+    }
+    return maxDiffSoFar;
+  }
 
   /**
    * 19.
@@ -2065,242 +2194,6 @@ public class ArrayExamples {
    * Solution:
    */
 
-  /**
-   * 1.
-   * Problem: Given an array A[] and a number x, check for pair in A[] with sum as x.
-   * Solution: Use sorting and use left and right pointers. Or
-   * Use hash map :
-   * 1) Initialize Binary Hash Map M[] = {0, 0, ...}
-   * 2) Do following for each element A[i] in A[]
-   *      (a)	If M[x - A[i]] is set then print the pair (A[i], x - A[i])
-   *      (b)	Set M[A[i]].
-   */
-  boolean checkPair1(int[] array, int sum) {
-    Arrays.sort(array);
-    int left = 0;
-    int right = array.length - 1;
-    while (left < right) {
-      int currentSum = array[left] + array[right];
-      if (currentSum == sum) return true;
-      else if (currentSum < sum) left++;
-      else right--;
-    }
-    return false;
-  }
-
-  boolean checkPair2(int[] array, int sum) {
-    HashSet<Integer> set = new HashSet<>();
-    for (int element : array) {
-      if (set.contains(sum - element)) return true;
-      else set.add(element);
-    }
-    return false;
-  }
-
-  /**
-   * 2.
-   * Problem: Majority Element: A majority element in an array A[] of size n is an element that appears more than
-   * n/2 times (and hence there is at most one such element).
-   * Solution:
-   * Using BST: Insert elements in BST one by one and if an element is already present then increment the
-   * count of the node. At any stage, if count of a node becomes more than n/2 then return.
-   * Moore's voting algorithm.
-   * 1. Find candidate.
-   * 2. Check if this candidate is majority element.
-   */
-
-  /**
-   * 3.
-   * Problem: Find the Number Occurring Odd Number of Times.
-   * Given an array of positive integers. All numbers occur even number of times except one number which occurs odd
-   * number of times. Find the number in O(n) time & constant space.
-   * Solution: Use XOR operator.
-   */
-  int getOddOccurrenceWithLambda(int[] array) {
-    return Arrays.stream(array).reduce(0, (a,b) -> a ^ b);
-  }
-
-  int getOddOccurrence(int[] array) {
-    int accumulator = 0;
-    for (int elem : array) accumulator ^= elem;
-    return accumulator;
-  }
-
-  /**
-   * 4.
-   * Problem: Search an element in a sorted and rotated array.
-   * Solution: Use modified binary search.
-   * 1) Find middle point mid = (l + h)/2
-   * 2) If key is present at middle point, return mid.
-   * 3) Else If arr[l..mid-1] is sorted
-   *      a) If key to be searched lies in range from arr[l] to arr[mid], recur for arr[l..mid].
-   *      b) Else recur for arr[mid+1..r]
-   * 4) Else (arr[mid+1..r] must be sorted)
-   *      a) If key to be searched lies in range from arr[mid+1]
-   *          to arr[r], recur for arr[mid+1..r].
-   *      b) Else recur for arr[l..mid]
-   */
-  int binarySearchRotated(int[] array, int key, int beginIndex, int endIndex) {
-    if (beginIndex <= endIndex) {
-      int mid = beginIndex + (endIndex - beginIndex) / 2;
-      if (array[mid] == key) return mid;
-      else {
-        if (array[beginIndex] < array[mid]) {
-          if (key < array[mid] && key >= array[beginIndex]) return binarySearchRotated(array, key, beginIndex, mid - 1);
-          else return binarySearchRotated(array, key, mid + 1, endIndex);
-        }
-        else {
-          if (key > array[mid] && key <= array[endIndex]) return binarySearchRotated(array, key, mid + 1, endIndex);
-          else return binarySearchRotated(array, key, beginIndex, mid - 1);
-        }
-      }
-    }
-    return -1;
-  }
-
-  /**
-   * 5.
-   * Problem: Merge an array of size n into another array of size m+n.
-   * There are two sorted arrays. First one is of size m+n containing only m elements. Another one is of size n and
-   * contains n elements. Merge these two arrays into the first array of size m+n such that the output is sorted.
-   * Solution: Move all elements together in one pass. Then fill up bigger array using two pointers starting from right
-   * and moving to left.
-   */
-  int[] mergeArray(int[] arr1, int[] arr2) {
-    int arr1Last = arr1.length - 1;
-    int arr2Last = arr2.length - arr1.length - 1;
-    int last = arr2.length - 1;
-    while (arr2Last >= 0 && arr1Last >=0) {
-      if (arr2[arr2Last] > arr1[arr1Last]) arr2[last--] = arr2[arr2Last--];
-      else arr2[last--] = arr1[arr1Last--];
-    }
-    while(arr1Last >= 0) arr2[last--] = arr1[arr1Last--];
-    return arr2;
-  }
-
-  /**
-   * 6.
-   * Problem: Write a program to reverse an array or string
-   * Solution: Either use two pointer and swap iteratively or use stack frame in recursion to store
-   * elements and reverse the array in place.
-   */
-  void reverseArray(int[] array, int startIndex, int endIndex) {
-    if (startIndex < endIndex) {
-      swap(array, startIndex, endIndex);
-      reverseArray(array, startIndex + 1, endIndex - 1);
-    }
-  }
-
-  private void swap(int[] array, int i, int j) {
-    array[i] = array[i] ^ array[j];
-    array[j] = array[i] ^ array[j];
-    array[i] = array[i] ^ array[j];
-  }
-
-  /**
-   * 7.
-   * Problem: Program for array rotation.
-   * Solution: Use temp array or reversal algorithm.
-   */
-
-  /**
-   * 8.
-   * Problem: Program for array rotation using reversal algo.
-   * Solution: Let AB are the two parts of the input array. Reverse A and B. Reverse all to get BA.
-   */
-  void rotateArray(int[] array, int pivot) {
-    reverseArray(array,0, pivot);
-    reverseArray(array,pivot + 1, array.length - 1);
-    reverseArray(array, 0, array.length - 1);
-  }
-
-  /**
-   * 9.
-   * Problem: Block swap algo for rotation.
-   */
-
-  /**
-   * 10.
-   * Problem: Maximum sum such that no two elements are adjacent.
-   * Given an array of positive numbers, find the maximum sum of a subsequence with the constraint that no 2 numbers in
-   * the sequence should be adjacent in the array.
-   */
-  int maxSumNonAdjacent(int[] array) {
-    int incl = array[0];
-    int excl = 0;
-    for (int i = 1; i < array.length; i++) {
-      int previousIncl = incl;
-      incl = excl + array[i];
-      excl = Math.max(previousIncl, excl);
-    }
-    return Math.max(incl, excl);
-  }
-
-  /**
-   * 11.
-   * Problem: Leaders in an array.
-   * An element is leader if it is greater than all the elements to its right side. And the rightmost element is
-   * always a leader.
-   * Solution: Scan all the elements from right to left in array and keep track of maximum till now. When maximum
-   * changes it’s value, print it as it is a leader.
-   */
-
-  /**
-   * 12.
-   * Problem: Sort elements by frequency.
-   * Solution: Use hash map and then sort by frequency. Or use modified BST with count field.
-   */
-
-  /**
-   * 13.
-   * Problem: Two elements whose sum is closest to zero.
-   * An Array of integers is given, both +ve and -ve. You need to find the two elements such that their sum is
-   * closest to zero.
-   * Solution: Sort the elements. Use left and right pointer. Add them and if sum < 0, l++ else r--.
-   */
-
-  /**
-   * 14.
-   * Problem: Find the smallest and second smallest element in an array.
-   * Solution:
-   * 1) Initialize both first and second smallest as INT_MAX first = second = INT_MAX.
-   * 2) Loop through all the elements.
-   *      a) If the current element is smaller than first, then update first and second.
-   *      b) Else if the current element is smaller than second then update second.
-   * Or use heap which will take O(k.logn).
-   */
-
-  /**
-   * 15.
-   * Problem: Check for Majority Element in a sorted array.
-   * Find if a given integer x appears more than n/2 times in a sorted array of n integers.
-   * Solution: Use modified binary search to find start and end index of element.
-   */
-
-  /**
-   * 16. Segregate 0s and 1s in an array.
-   * Solution: Count 0s and fill array with 0s and remaining with 1s.
-   */
-
-  /**
-   * 17. k largest(or smallest) elements in an array.
-   * Solution: 1. Use Bubble k times. O(nk)
-   * 2. Use Max Heap. Build a Max Heap tree in O(n)and use Extract Max k times to get k maximum elements. O(n + klogn)
-   */
-
-  /**
-   * 18.
-   * Problem: Maximum difference between two elements such that larger element appears after the smaller element.
-   */
-  public int maxDiff(int[] array) {
-    int maxDiffSoFar = 0;
-    int min = array[0];
-    for (int i = 1; i < array.length; i++) {
-      maxDiffSoFar = Math.max(maxDiffSoFar, array[i] - min);
-      min = Math.min(min, array[i]);
-    }
-    return maxDiffSoFar;
-  }
 
   /**
    * 6.
