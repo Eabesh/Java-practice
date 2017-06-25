@@ -156,9 +156,19 @@ public class BSTExamples {
 
   /**
    * 26.
-   * Problem: K&#8217;th Largest Element in BST when modification to BST is not allowed
+   * Problem: Kth Largest Element in BST when modification to BST is not allowed
    * Solution:
    */
+  int kthLargestNode(TreeNode root, int k, int count) {
+    if (root == null || count >= k) return -1;
+    else {
+      int left = kthLargestNode(root.right, k, count + 1);
+      count++;
+      if (k == count) return root.data;
+      int right = kthLargestNode(root.left, k, count);
+      return left != -1 ? left : right;
+    }
+  }
 
   /**
    * 27.
@@ -475,18 +485,5 @@ public class BSTExamples {
     else return root;
   }
 
-  /**
-   *  34. K’th Largest Element in BST when modification to BST is not allowed
-   */
-  int kthLargestNode(TreeNode root, int k, int count) {
-    if (root == null || count >= k) return -1;
-    else {
-      int left = kthLargestNode(root.right, k, count + 1);
-      count++;
-      if (k == count) return root.data;
-      int right = kthLargestNode(root.left, k, count);
-      return left != -1 ? left : right;
-    }
-  }
 
 }
