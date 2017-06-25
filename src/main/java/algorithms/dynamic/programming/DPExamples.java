@@ -5,10 +5,6 @@ import java.util.Arrays;
 class DPExamples {
 
   /**
-   * GeeksForGeeks Problems
-   */
-
-  /**
    * 1.
    * Problem: Largest Sum Contiguous Subarray.
    * Write an efficient C program to find the sum of contiguous sub array within a one-dimensional array of numbers
