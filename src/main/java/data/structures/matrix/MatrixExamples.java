@@ -107,7 +107,11 @@ public class MatrixExamples {
   private void dfs(int[][] mat, int x, int y, boolean[][] isVisited) {
     int[][] moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {1, -1}, {-1, 1}};
     isVisited[x][y] = true;
-
+    for (int[] move : moves)
+      if (isSafe(mat, x + move[0], y + move[1], isVisited)) dfs(mat, x + move[0], y + move[1], isVisited);
+  }
+  private boolean isSafe(int[][] mat, int x, int y, boolean[][] isVisited) {
+    return x >=0 && x < mat.length && y >=0 && y < mat[0].length && mat[x][y] == 1 && !isVisited[x][y];
   }
 
   /**
