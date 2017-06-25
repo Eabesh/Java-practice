@@ -81,9 +81,34 @@ public class MatrixExamples {
    * 12.
    * Problem: Find the number of islands | Set 1 (Using DFS).
    * Given a boolean 2D matrix, find the number of islands. A group of connected 1s forms an island. For example, the
-   * below matrix contains 5 islands
+   * below matrix contains 5 islands.
+   * Input : mat[][] =
+   * {{1, 1, 0, 0, 0},
+   * {0, 1, 0, 0, 1},
+   * {1, 0, 0, 1, 1},
+   * {0, 0, 0, 0, 0},
+   * {1, 0, 1, 0, 1}
+   * Output : 5
    * Solution:
    */
+  int countIslands(int[][] mat) {
+    int islandsCount = 0;
+    boolean[][] isVisited = new boolean[mat.length][mat[0].length];
+    for (int i = 0; i < mat.length; i++) {
+      for (int j = 0; j < mat[0].length; j++) {
+        if (mat[i][j] == 1 && !isVisited[i][j]) {
+          islandsCount++;
+          dfs(mat, i, j, isVisited);
+        }
+      }
+    }
+    return islandsCount;
+  }
+  private void dfs(int[][] mat, int x, int y, boolean[][] isVisited) {
+    int[][] moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {1, -1}, {-1, 1}};
+    isVisited[x][y] = true;
+
+  }
 
   /**
    * 13.
