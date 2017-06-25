@@ -32,4 +32,21 @@ public class MatrixExamplesTest {
     assertEquals(2, new MatrixExamples().countPathsKCoins(mat, mat.length - 1, mat[0].length - 1, k));
   }
 
+  @Test
+  public  void shortestPathInMaze() {
+    int[][] maze = {{1, 0, 1, 1, 1, 1, 0, 1, 1, 1 },
+            {1, 0, 1, 0, 1, 1, 1, 0, 1, 1 },
+            {1, 1, 1, 0, 1, 1, 0, 1, 0, 1 },
+            {0, 0, 0, 0, 1, 0, 0, 0, 0, 1 },
+            {1, 1, 1, 0, 1, 1, 1, 0, 1, 0 },
+            {1, 0, 1, 1, 1, 1, 0, 1, 0, 0 },
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
+            {1, 0, 1, 1, 1, 1, 0, 1, 1, 1 },
+            {1, 1, 0, 0, 0, 0, 1, 0, 0, 1 }};
+    int[] dest = {3, 4};
+    int[][] moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {1, -1}, {-1, 1}};
+    boolean[][] visited = new boolean[maze.length][maze[0].length];
+    assertEquals(11, new MatrixExamples().shortesPathInMaze(maze, dest, 0, 0, 0, moves, visited));
+  }
+
 }
