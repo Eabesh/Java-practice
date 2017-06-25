@@ -1,4 +1,5 @@
 package data.structures.matrix;
+import algorithms.dynamic.programming.DPExamples;
 import data.structures.stack.StackExamples;
 
 import java.awt.*;
@@ -11,6 +12,10 @@ public class MatrixExamples {
    * Problem: Maximum size square sub-matrix with all 1s.
    * Solution:
    */
+  int[][] maxSizeSubMatrix(int[][] mat, int[][] dp) {
+    return new DPExamples().maxSizeSquareMat(mat, dp);
+  }
+
 
   /**
    * 2.

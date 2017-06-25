@@ -2,7 +2,7 @@ package algorithms.dynamic.programming;
 
 import java.util.Arrays;
 
-class DPExamples {
+public class DPExamples {
 
   /**
    * 1.
@@ -77,7 +77,7 @@ class DPExamples {
    * Given a binary matrix, find out the maximum size square sub-matrix with all 1s.
    * Solution:
    */
-   int[][] maxSizeSquareMat(int[][] mat, int[][] dp) {
+   public int[][] maxSizeSquareMat(int[][] mat, int[][] dp) {
      for (int i = 0; i < mat.length; i++){
        for (int j = 0; j < mat[0].length; j++) {
          if (i == 0 || j == 0) dp[i][j] = mat[i][j];
