@@ -3,11 +3,97 @@ package data.structures.queue;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class QueueExamples {
+class QueueExamples {
 
   /**
    * 1.
-   * Problem: Introduction and Array Implementation
+   * Problem: Level Order Tree Traversal.
+   * Solution:
+   */
+
+  /**
+   * 2.
+   * Problem: Level order traversal in spiral form.
+   * Solution:
+   */
+
+  /**
+   * 3.
+   * Problem: Implement Queue using Stacks.
+   * Solution:
+   * By making deQueue operation costly:
+   * enQueue(q,  x)
+   *   1) Push x to stack1 (assuming size of stacks is unlimited).
+   * deQueue(q)
+   *   1) If both stacks are empty then error.
+   *   2) If stack2 is empty
+   *      While stack1 is not empty, push everything from stack1 to stack2.
+   *   3) Pop the element from stack2 and return it.
+   */
+
+  /**
+   * 4.
+   * Problem: Applications of Queue Data Structure.
+   * Solution:
+   */
+
+  /**
+   * 5.
+   * Problem: Sliding Window Maximum (Maximum of all subarrays of size k).
+   * Solution:
+   */
+
+  /**
+   * 6.
+   * Problem: Breadth First Traversal or BFS for a Graph.
+   * Solution:
+   */
+
+  /**
+   * 7.
+   * Problem: Check whether a given Binary Tree is Complete or not | Set 1 (Iterative Solution).
+   * Solution:
+   */
+
+  /**
+   * 8.
+   * Problem: Implement LRU Cache.
+   * Solution:
+   */
+
+  /**
+   * 9.
+   * Problem: Find the largest multiple of 3 | Set 1 (Using Queue).
+   * Solution:
+   */
+
+  /**
+   * 10.
+   * Problem: Implement Stack using Queues.
+   * Solution:
+   */
+
+  /**
+   * 11.
+   * Problem: Find the first circular tour that visits all petrol pumps.
+   * Solution:
+   */
+
+  /**
+   * 12.
+   * Problem: Construct Complete Binary Tree from its Linked List Representation.
+   * Solution:
+   */
+
+  /**
+   * 13.
+   * Problem: Iterative Method to find Height of Binary Tree.
+   * Solution:
+   */
+
+  /**
+   * 14.
+   * Problem: Queue | Set 1 (Introduction and Array Implementation).
    * Solution:  Queue is a linear structure which follows a particular order in which the operations are performed. The
    * order is First In First Out (FIFO).
    * Mainly the following four basic operations are performed on queue:
@@ -25,13 +111,14 @@ public class QueueExamples {
    */
 
   /**
-   * 2.
-   * Problem: Linked List Implementation.
+   * 15.
+   * Problem: Queue | Set 2 (Linked List Implementation).
+   * Solution:
    */
 
   /**
-   * 3.
-   * Problem: Priority Queue.
+   * 16.
+   * Problem: Priority Queue | Set 1 (Introduction).
    * Solution: Priority Queue is an extension of queue with following properties.
    * 1) Every item has a priority associated with it.
    * 2) An element with high priority is dequeued before an element with low priority.
@@ -48,7 +135,7 @@ public class QueueExamples {
    */
 
   /**
-   * 4.
+   * 17.
    * Problem: An Interesting Method to Generate Binary Numbers from 1 to n.
    * Solution: Do a BFS over the binary strings up to n.
    */
@@ -66,148 +153,92 @@ public class QueueExamples {
   }
 
   /**
-   * 5.
-   * Problem: How to efficiently implement k Queues in a single array?
-   * Solution:
-   */
-
-  /**
-   * 6.
-   * Problem: Deque or Double Ended Queue.
-   * Solution:
-   */
-
-  /**
-   * 7.
-   * Problem: Minimum time required to rot all oranges.
-   * Solution:
-   */
-
-  /**
-   * 8.
-   * Problem: Implement Queue using Stacks.
-   * Solution:
-   * By making deQueue operation costly:
-   * enQueue(q,  x)
-   *   1) Push x to stack1 (assuming size of stacks is unlimited).
-   * deQueue(q)
-   *   1) If both stacks are empty then error.
-   *   2) If stack2 is empty
-   *      While stack1 is not empty, push everything from stack1 to stack2.
-   *   3) Pop the element from stack2 and return it.
-   */
-
-  /**
-   * 9.
-   * Problem: Find maximum level sum in Binary Tree.
-   * Solution:
-   */
-
-  /**
-   * 10.
-   * Problem: Sum of minimum and maximum elements of all subarrays of size k.
-   * Solution:
-   */
-
-  /**
-   * 11.
-   * Problem: Distance of nearest cell having 1 in a binary matrix.
-   * Solution:
-   */
-
-  /**
-   * 12.
-   * Problem: Implementation of Deque using circular array.
-   * Solution:
-   */
-
-  /**
-   * 13.
-   * Problem: Circular Queue (Introduction and Array Implementation)
-   * Solution:
-   */
-
-  /**
-   * 14.
-   * Problem: Circular Queue (Circular Linked List Implementation)
-   * Solution:
-   */
-
-  /**
-   * 15.
-   * Problem: Applications of Priority Queue.
-   * Solution:
-   */
-
-  /**
-   * 16.
-   * Problem: Level Order Tree Traversal.
-   * Solution:
-   */
-
-  /**
-   * 17.
-   * Problem: Level order traversal in spiral form.
-   * Solution:
-   */
-
-  /**
    * 18.
-   * Problem: Implement Queue using Stacks.
+   * Problem: How to efficiently implement k Queues in a single array?.
    * Solution:
    */
 
   /**
    * 19.
-   * Problem: Sliding Window Maximum (Maximum of all subarrays of size k)
+   * Problem: Deque | Set 1 (Introduction and Applications).
    * Solution:
    */
 
   /**
    * 20.
-   * Problem: Breadth First Traversal or BFS for a Graph
+   * Problem: Minimum time required to rot all oranges.
    * Solution:
    */
 
   /**
    * 21.
-   * Problem: Check whether a given Binary Tree is Complete or not.
+   * Problem: Implement a stack using single queue.
    * Solution:
    */
 
   /**
    * 22.
-   * Problem: Implement LRU Cache.
+   * Problem: Find maximum level sum in Binary Tree.
    * Solution:
    */
 
   /**
    * 23.
-   * Problem: Find the largest multiple of 3.
+   * Problem: Sum of minimum and maximum elements of all subarrays of size k..
    * Solution:
    */
 
   /**
    * 24.
-   * Problem: Implement Stack using Queues.
+   * Problem: Distance of nearest cell having 1 in a binary matrix.
    * Solution:
    */
 
   /**
    * 25.
-   * Problem: Find the first circular tour that visits all petrol pumps.
+   * Problem: Implementation of Deque using circular array.
    * Solution:
    */
 
   /**
    * 26.
-   * Problem: Construct Complete Binary Tree from its Linked List Representation.
+   * Problem: Circular Queue | Set 1 (Introduction and Array Implementation).
    * Solution:
    */
 
   /**
    * 27.
-   * Problem: Iterative Method to find Height of Binary Tree.
+   * Problem: Circular Queue | Set 2 (Circular Linked List Implementation).
+   * Solution:
+   */
+
+  /**
+   * 28.
+   * Problem: Applications of Priority Queue.
+   * Solution:
+   */
+
+  /**
+   * 29.
+   * Problem: Level order traversal line by line | Set 2 (Using Two Queues).
+   * Solution:
+   */
+
+  /**
+   * 30.
+   * Problem: First negative integer in every window of size k.
+   * Solution:
+   */
+
+  /**
+   * 31.
+   * Problem: Minimum sum of squares of character counts in a given string after removing k characters.
+   * Solution:
+   */
+
+  /**
+   * 32.
+   * Problem: Program for Page Replacement Algorithms | Set 2 (FIFO).
    * Solution:
    */
 
