@@ -6,327 +6,356 @@ public class BSTExamples {
 
   /**
    * 1.
-   * Problem: Find median of BST in O(n) time and O(1) space
+   * Problem: Find the node with minimum value in a Binary Search Tree.
    * Solution:
    */
 
   /**
    * 2.
-   * Problem: Leaf nodes from Preorder of a Binary Search Tree
+   * Problem: A program to check if a binary tree is BST or not.
    * Solution:
    */
 
   /**
    * 3.
-   * Problem: Threaded Binary Search Tree | Deletion
+   * Problem: Total number of possible Binary Search Trees with n keys.
    * Solution:
    */
 
   /**
    * 4.
-   * Problem: Largest BST in a Binary Tree | Set 2
+   * Problem: Sorted order printing of a given array that represents a BST.
    * Solution:
    */
 
   /**
    * 5.
-   * Problem: Threaded Binary Tree | Insertion
+   * Problem: Inorder Successor in Binary Search Tree.
    * Solution:
    */
 
   /**
    * 6.
-   * Problem: Binary Search Tree insert with Parent Pointer
+   * Problem: Find k-th smallest element in BST (Order Statistics in BST).
    * Solution:
    */
 
   /**
    * 7.
-   * Problem: Maximum element between two nodes of BST
+   * Problem: Print BST keys in the given range.
    * Solution:
    */
 
   /**
    * 8.
-   * Problem: Sum of k smallest elements in BST
+   * Problem: Sorted Linked List to Balanced BST.
    * Solution:
    */
 
   /**
    * 9.
-   * Problem: Check whether BST contains Dead End or not
+   * Problem: Sorted Array to Balanced BST.
    * Solution:
    */
 
   /**
    * 10.
-   * Problem: Find the closest element in Binary Search Tree
+   * Problem: Find the largest BST subtree in a given Binary Tree | Set 1.
    * Solution:
    */
 
   /**
    * 11.
-   * Problem: Find pairs with given sum such that pair elements lie in different BSTs
+   * Problem: Merge Two Balanced Binary Search Trees.
    * Solution:
    */
 
   /**
    * 12.
-   * Problem: Check if given sorted sub-sequence exists in binary search tree
+   * Problem: Merge two BSTs with limited extra space.
    * Solution:
    */
 
   /**
    * 13.
-   * Problem: Replace every element with the least greater element on its right
+   * Problem: Binary Tree to Binary Search Tree Conversion.
    * Solution:
    */
 
   /**
    * 14.
-   * Problem: In-place Convert BST into a Min-Heap
+   * Problem: Check if each internal node of a BST has exactly one child.
    * Solution:
    */
 
   /**
    * 15.
-   * Problem: Count inversions in an array | Set 2 (Using Self-Balancing BST)
+   * Problem: Two nodes of a BST are swapped, correct the BST.
    * Solution:
    */
 
   /**
    * 16.
-   * Problem: Print Common Nodes in Two Binary Search Trees
+   * Problem: Construct BST from given preorder traversal | Set 1.
    * Solution:
    */
 
   /**
    * 17.
-   * Problem: How to implement decrease key or change key in Binary Search Tree?
+   * Problem: Construct BST from given preorder traversal | Set 2.
    * Solution:
    */
 
   /**
    * 18.
-   * Problem: Construct all possible BSTs for keys 1 to N
+   * Problem: Floor and Ceil from a BST.
    * Solution:
    */
 
   /**
    * 19.
-   * Problem: K&#8217;th smallest element in BST using O(1) Extra Space
+   * Problem: Convert a BST to a Binary Tree such that sum of all greater keys is added to every key.
    * Solution:
    */
 
   /**
    * 20.
-   * Problem: Count BST subtrees that lie in given range
+   * Problem: Find if there is a triplet in a Balanced BST that adds to zero.
    * Solution:
    */
 
   /**
    * 21.
-   * Problem: Count BST nodes that lie in a given range
+   * Problem: Find a pair with given sum in a Balanced BST.
    * Solution:
    */
 
   /**
    * 22.
-   * Problem: Second largest element in BST
+   * Problem: Remove BST keys outside the given range.
    * Solution:
    */
 
   /**
    * 23.
-   * Problem: Data Structure for a single resource reservations
+   * Problem: Check for Identical BSTs without building the trees.
    * Solution:
    */
 
   /**
    * 24.
-   * Problem: How to handle duplicates in Binary Search Tree?
+   * Problem: Add all greater values to every node in a given BST.
    * Solution:
    */
 
   /**
    * 25.
-   * Problem: Advantages of BST over Hash Table
+   * Problem: Binary Search Tree | Set 1 (Search and Insertion).
    * Solution:
    */
 
   /**
    * 26.
-   * Problem: Kth Largest Element in BST when modification to BST is not allowed
+   * Problem: Binary Search Tree | Set 2 (Delete).
    * Solution:
    */
 
   /**
    * 27.
-   * Problem: Given n appointments, find all conflicting appointments
+   * Problem: Transform a BST to greater sum tree.
    * Solution:
    */
 
   /**
    * 28.
-   * Problem: C Program for Red Black Tree Insertion
+   * Problem: Inorder predecessor and successor for a given key in BST.
    * Solution:
    */
 
   /**
    * 29.
-   * Problem: Inorder predecessor and successor for a given key in BST
+   * Problem: C Program for Red Black Tree Insertion.
    * Solution:
    */
 
   /**
    * 30.
-   * Problem: Transform a BST to greater sum tree
+   * Problem: Given n appointments, find all conflicting appointments.
    * Solution:
    */
 
   /**
    * 31.
-   * Problem: Binary Search Tree | Set 2 (Delete)
+   * Problem: Kth Largest Element in BST when modification to BST is not allowed.
    * Solution:
    */
+  int kthLargestNode(TreeNode root, int k, int count) {
+    if (root == null || count >= k) return -1;
+    else {
+      int left = kthLargestNode(root.right, k, count + 1);
+      count++;
+      if (k == count) return root.data;
+      int right = kthLargestNode(root.left, k, count);
+      return left != -1 ? left : right;
+    }
+  }
 
   /**
    * 32.
-   * Problem: Binary Search Tree | Set 1 (Search and Insertion)
+   * Problem: Advantages of BST over Hash Table.
    * Solution:
    */
 
   /**
    * 33.
-   * Problem: Add all greater values to every node in a given BST
+   * Problem: How to handle duplicates in Binary Search Tree?.
    * Solution:
    */
 
   /**
    * 34.
-   * Problem: Check for Identical BSTs without building the trees
+   * Problem: Data Structure for a single resource reservations.
    * Solution:
    */
 
   /**
    * 35.
-   * Problem: Remove BST keys outside the given range
+   * Problem: Second largest element in BST.
    * Solution:
    */
 
   /**
    * 36.
-   * Problem: Find a pair with given sum in a Balanced BST
+   * Problem: Count BST nodes that lie in a given range.
    * Solution:
    */
 
   /**
    * 37.
-   * Problem: Find if there is a triplet in a Balanced BST that adds to zero
+   * Problem: Count BST subtrees that lie in given range.
    * Solution:
    */
 
   /**
    * 38.
-   * Problem: Convert a BST to a Binary Tree such that sum of all greater keys is added to every key
+   * Problem: K&#8217;th smallest element in BST using O(1) Extra Space.
    * Solution:
    */
 
   /**
    * 39.
-   * Problem: Floor and Ceil from a BST
+   * Problem: Construct all possible BSTs for keys 1 to N.
    * Solution:
    */
 
   /**
    * 40.
-   * Problem: Construct BST from given preorder traversal | Set 2
+   * Problem: How to implement decrease key or change key in Binary Search Tree?.
    * Solution:
    */
 
   /**
    * 41.
-   * Problem: Construct BST from given preorder traversal | Set 1
+   * Problem: Print Common Nodes in Two Binary Search Trees.
    * Solution:
    */
 
   /**
    * 42.
-   * Problem: Two nodes of a BST are swapped, correct the BST
+   * Problem: Count inversions in an array | Set 2 (Using Self-Balancing BST).
    * Solution:
    */
 
   /**
    * 43.
-   * Problem: Check if each internal node of a BST has exactly one child
+   * Problem: In-place Convert BST into a Min-Heap.
    * Solution:
    */
 
   /**
    * 44.
-   * Problem: Binary Tree to Binary Search Tree Conversion
+   * Problem: Replace every element with the least greater element on its right.
    * Solution:
    */
 
   /**
    * 45.
-   * Problem: Merge two BSTs with limited extra space
+   * Problem: Check if given sorted sub-sequence exists in binary search tree.
    * Solution:
    */
 
   /**
    * 46.
-   * Problem: Merge Two Balanced Binary Search Trees
+   * Problem: Find pairs with given sum such that pair elements lie in different BSTs.
    * Solution:
    */
 
   /**
    * 47.
-   * Problem: Find the largest BST subtree in a given Binary Tree | Set 1
+   * Problem: Find the closest element in Binary Search Tree.
    * Solution:
    */
 
   /**
    * 48.
-   * Problem: Sorted Array to Balanced BST
+   * Problem: Check whether BST contains Dead End or not.
    * Solution:
    */
 
   /**
    * 49.
-   * Problem: Sorted Linked List to Balanced BST
+   * Problem: Sum of k smallest elements in BST.
    * Solution:
    */
 
   /**
    * 50.
-   * Problem: Print BST keys in the given range
+   * Problem: Maximum element between two nodes of BST.
    * Solution:
    */
 
   /**
    * 51.
-   * Problem: Find k-th smallest element in BST (Order Statistics in BST)
+   * Problem: Binary Search Tree insert with Parent Pointer.
    * Solution:
    */
 
   /**
    * 52.
-   * Problem: Inorder Successor in Binary Search Tree
+   * Problem: Threaded Binary Tree | Insertion.
    * Solution:
    */
 
   /**
    * 53.
-   * Problem: Sorted order printing of a given array that represents a BST
+   * Problem: Largest BST in a Binary Tree | Set 2.
    * Solution:
    */
 
   /**
    * 54.
-   * Problem: Total number of possible Binary Search Trees with n keys
+   * Problem: Threaded Binary Search Tree | Deletion.
    * Solution:
    */
+
+  /**
+   * 55.
+   * Problem: Leaf nodes from Preorder of a Binary Search Tree.
+   * Solution:
+   */
+
+  /**
+   * 56.
+   * Problem: Find median of BST in O(n) time and O(1) space.
+   * Solution:
+   */
+
+  /**
+   * 57.
+   * Problem: Convert BST to Min Heap.
+   * Solution:
+   */
+
 
   /**
    * 55.
@@ -473,20 +502,6 @@ public class BSTExamples {
     else if (root.data > k1 && root.data > k2) return LCA(root.left,k1,k2);
     else if (root.data < k1 && root.data < k2) return LCA(root.right,k1,k2);
     else return root;
-  }
-
-  /**
-   *  34. K’th Largest Element in BST when modification to BST is not allowed
-   */
-  int kthLargestNode(TreeNode root, int k, int count) {
-    if (root == null || count >= k) return -1;
-    else {
-      int left = kthLargestNode(root.right, k, count + 1);
-      count++;
-      if (k == count) return root.data;
-      int right = kthLargestNode(root.left, k, count);
-      return left != -1 ? left : right;
-    }
   }
 
 }
