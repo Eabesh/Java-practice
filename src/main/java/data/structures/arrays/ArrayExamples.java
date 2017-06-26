@@ -570,7 +570,7 @@ public class ArrayExamples {
 
   /**
    * 73.
-   * Problem: Rearrange an array such that &#8216;arr[j]&#8217; becomes &#8216;i&#8217; if  &#8216;arr[i]&#8217; is &#8216;j&#8217;.
+   * Problem: Rearrange an array such that &#8216;arr[j]' becomes &#8216;i' if  &#8216;arr[i]' is &#8216;j'.
    * Solution:
    */
 
@@ -684,7 +684,7 @@ public class ArrayExamples {
 
   /**
    * 92.
-   * Problem: Find zeroes to be flipped so that number of consecutive 1&#8217;s is maximized.
+   * Problem: Find zeroes to be flipped so that number of consecutive 1's is maximized.
    * Solution:
    */
 
@@ -1182,7 +1182,7 @@ public class ArrayExamples {
 
   /**
    * 175.
-   * Problem: Sum of all elements between k1&#8217;th and k2&#8217;th smallest elements.
+   * Problem: Sum of all elements between k1'th and k2'th smallest elements.
    * Solution:
    */
 
@@ -1351,8 +1351,8 @@ public class ArrayExamples {
 
   /**
    * 200.
-   * Problem: Find Maximum dot product of two arrays with insertion of 0&#8217;s.
-   * Solution:
+   * Problem: Find Maximum dot product of two arrays with insertion of 0's.
+   * Solution: Done as 158 in DPExamples.
    */
 
   /**
@@ -1555,7 +1555,7 @@ public class ArrayExamples {
 
   /**
    * 234.
-   * Problem: Count all Quadruples from four arrays such that their XOR equals to &#8216;x&#8217;.
+   * Problem: Count all Quadruples from four arrays such that their XOR equals to &#8216;x'.
    * Solution:
    */
 
@@ -1615,7 +1615,7 @@ public class ArrayExamples {
 
   /**
    * 244.
-   * Problem: Find N&#8217;th item in a set formed by sum of two arrays.
+   * Problem: Find N'th item in a set formed by sum of two arrays.
    * Solution:
    */
 
@@ -2053,7 +2053,7 @@ public class ArrayExamples {
 
   /**
    * 317.
-   * Problem: Fill array with 1&#8217;s using minimum iterations of filling neighbors.
+   * Problem: Fill array with 1's using minimum iterations of filling neighbors.
    * Solution:
    */
 

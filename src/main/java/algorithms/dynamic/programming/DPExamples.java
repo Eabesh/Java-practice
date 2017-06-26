@@ -1255,7 +1255,12 @@ public class DPExamples {
   /**
    * 158.
    * Problem: Find Maximum dot product of two arrays with insertion of 0’s
-   * Solution:
+   * Given two arrays of positive integers of size m and n where m > n. We need to maximize the dot product by
+   * inserting zeros in the second array but we cannot disturb the order of elements.
+   * Solution: Another way to look at this problem is, for every pair of elements element A[i] and B[j] where j >= i,
+   * we have two choices:
+   * We multiply A[i] and B[j] and add to product (We include A[i]).
+   * We exclude A[i] from product (In other words, we insert 0 at current position in B[])
    */
 
   /**
