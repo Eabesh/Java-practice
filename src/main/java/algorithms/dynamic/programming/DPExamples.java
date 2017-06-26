@@ -1265,18 +1265,17 @@ public class DPExamples {
 
   }
 
-  int maxDotProductBottomUp(int[] a, int[] b) {
-    int[][] dp = new int[a.length + 1][b.length + 1];
-    for (int aLength = 0;  aLength < a.length; aLength++) {
-      for (int bLength = 0; bLength < b.length; bLength++) {
-        if (aLength == 0 || bLength == 0) dp[aLength][bLength] = 0;
-        else dp[aLength][bLength] = Math.max(a[aLength - 1] * b[bLength - 1] + dp[aLength - 1][b.length - 1],
-                dp[aLength - 1][bLength]);
-      }
-    }
-    return dp[a.length][b.length];
-  }
-
+//  int maxDotProductBottomUp(int[] a, int[] b) {
+//    int[][] dp = new int[b.length + 1][a.length + 1];
+//    for (int aLength = 1;  aLength <= b.length; aLength++) {
+//      for (int bLength = aLength; bLength <= a.length; bLength++) {
+//        dp[aLength][bLength] = Math.max(a[aLength - 1] * b[bLength - 1] + dp[aLength - 1][b.length - 1],
+//                dp[aLength][bLength - 1]);
+//      }
+//    }
+//    return dp[b.length][a.length];
+//  }
+//
   /**
    * 159.
    * Problem: Check whether row or column swaps produce maximum size binary sub-matrix with all 1s
