@@ -851,7 +851,7 @@ public class MatrixExamples {
    * Solution:
    */
   int diagnalsDiff(int[][] mat) {
-    return Math.abs(diagnalSum(mat, 0, 0) - antiDiagnalSum(mat, 0, mat[0].length, 0));
+    return Math.abs(diagnalSum(mat, 0, 0) - antiDiagnalSum(mat, 0, mat[0].length - 1, 0));
   }
   private int diagnalSum(int[][] mat, int x, int sum) {
     if (x == mat.length - 1) return sum + mat[x][x];
