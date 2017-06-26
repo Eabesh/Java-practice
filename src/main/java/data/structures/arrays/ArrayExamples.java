@@ -4,6 +4,7 @@ package data.structures.arrays;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 public class ArrayExamples {
 
@@ -1358,8 +1359,25 @@ public class ArrayExamples {
   /**
    * 201.
    * Problem: Find element using minimum segments in Seven Segment Display.
+   * A Seven Segment Display can be used to to display numbers. Given an array of n natural numbers. The task is to find
+   * the number in the array which is using minimum segments to display number. If multiple numbers have a minimum number
+   * of segments, output the number having the smallest index.
    * Solution:
    */
+  int minSegments(int[] array) {
+    int[] segments = {6, 2, 5, 5, 4, 5, 6, 3, 7, 6};
+    int minSegments = Integer.MAX_VALUE;
+    int result = array[0];
+    for (int element : array) {
+      if (minSegments > countSegments(element, segments, 0)) result = element;
+    }
+    return result;
+  }
+
+  private int countSegments(int number, int[] segments, int count) {
+    if (number < 10) return segments[number];
+    else return countSegments(number / 10, segments, count + segments[number % 10]);
+  }
 
   /**
    * 202.

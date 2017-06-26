@@ -108,7 +108,6 @@ public class DPExamplesTest {
     int []  A = {2, 4, 6};
     int[] B = {1, 2};
     assertEquals(16, new DPExamples().maxDotProduct(A, B, A.length, B.length));
-    assertEquals(16, new DPExamples().maxDotProductBottomUp(A, B));
   }
 
 }

@@ -133,5 +133,11 @@ public class ArrayExamplesTest {
     assertEquals(7, new ArrayExamples().subArrayCount(arr1, 5));
   }
 
+  @Test
+  public void minSegments() throws Exception {
+    int arr[] = {4, 5, 0, 1};
+    assertEquals(1, new ArrayExamples().minSegments(arr));
+  }
+
 }
 
