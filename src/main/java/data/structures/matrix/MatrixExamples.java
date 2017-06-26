@@ -300,9 +300,27 @@ public class MatrixExamples {
 
   /**
    * 42.
-   * Problem: Number of paths with exactly k coins.
-   * Solution:
+   * Problem: Number of paths with exactly k coins
+   * Given a matrix where every cell has some number of coins. Count number of ways to reach bottom right from top left
+   * with exactly k coins. We can move to (i+1, j) and (i, j+1) from a cell (i, j).
+   * Example:
+   * Input:  k = 12
+   * mat[][] =
+   * { {1, 2, 3},
+   * {4, 6, 5},
+   * {3, 2, 1}};
+   * Output:  2
+   * There are two paths with 12 coins
+   * 1 -> 2 -> 6 -> 2 -> 1
+   * 1 -> 2 -> 3 -> 5 -> 1
    */
+  int countPathsKCoins(int[][] mat, int x, int y, int k) {
+    if (x == 0 && y == 0 && k == mat[0][0]) return 1;
+    else if (x < 0 || y < 0) return 0;
+    else return countPathsKCoins(mat, x - 1, y, k - mat[x][y])
+              + countPathsKCoins(mat, x, y -1, k - mat[x][y]);
+  }
+
 
   /**
    * 43.
@@ -1149,29 +1167,6 @@ public class MatrixExamples {
    * Problem: Find a common element in all rows of a given row-wise sorted matrix
 
    */
-
-  /**
-   * 26.
-   * Problem: Number of paths with exactly k coins
-   * Given a matrix where every cell has some number of coins. Count number of ways to reach bottom right from top left
-   * with exactly k coins. We can move to (i+1, j) and (i, j+1) from a cell (i, j).
-   * Example:
-   * Input:  k = 12
-   * mat[][] =
-   * { {1, 2, 3},
-   * {4, 6, 5},
-   * {3, 2, 1}};
-   * Output:  2
-   * There are two paths with 12 coins
-   * 1 -> 2 -> 6 -> 2 -> 1
-   * 1 -> 2 -> 3 -> 5 -> 1
-   */
-  int countPathsKCoins(int[][] mat, int x, int y, int k) {
-    if (x == 0 && y == 0 && k == mat[0][0]) return 1;
-    else if (x < 0 || y < 0) return 0;
-    else return countPathsKCoins(mat, x - 1, y, k - mat[x][y])
-            + countPathsKCoins(mat, x, y -1, k - mat[x][y]);
-  }
 
 
 
