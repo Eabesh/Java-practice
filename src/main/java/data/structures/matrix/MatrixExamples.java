@@ -129,9 +129,17 @@ public class MatrixExamples {
   /**
    * 15.
    * Problem: Print all possible paths from top left to bottom right of a mXn matrix.
+   * The problem is to print all the possible paths from top left to bottom right of a mXn matrix with the constraints
+   * that from each cell you can either move only to right or down.
    * Solution:
    */
-
+  void printAllPaths(int[][] mat, String path, int x, int y) {
+    if (x == mat.length - 1 && y == mat.length - 1) System.out.println(path);
+    else {
+      printAllPaths(mat, path + mat[x][y], x + 1, y );
+      printAllPaths(mat, path + mat[x][y], x, y + 1);
+    }
+  }
   /**
    * 16.
    * Problem: Count all possible paths from top left to bottom right of a mXn matrix.
