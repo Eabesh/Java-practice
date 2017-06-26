@@ -1257,6 +1257,12 @@ public class DPExamples {
    * Problem: Find Maximum dot product of two arrays with insertion of 0’s
    * Solution:
    */
+  int maxDotProduct(int[] a, int[] b, int aLength, int bLength, int prevSum) {
+    if (aLength == 0 || bLength == 0) return 0;
+    else {
+      return Math.max(maxDotProduct(a, b, aLength - 1, bLength - 1, prevSum + a[aLength - 1] * a[bLength - 1]), maxDotProduct(a, b, aLength - 1, bLength, prevSum));
+    }
+  }
 
   /**
    * 159.
