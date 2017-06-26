@@ -103,4 +103,12 @@ public class DPExamplesTest {
     assertEquals(2, new DPExamples().minDeletion(str, 0, str.length() - 1));
   }
 
+  @Test
+  public void maxDotProduct() {
+    int []  A = {2, 4, 6};
+    int[] B = {1, 2};
+    assertEquals(16, new DPExamples().maxDotProduct(A, B, A.length, B.length));
+    assertEquals(16, new DPExamples().maxDotProductBottomUp(A, B));
+  }
+
 }

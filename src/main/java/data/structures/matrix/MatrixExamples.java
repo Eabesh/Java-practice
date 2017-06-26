@@ -3,6 +3,7 @@ import algorithms.dynamic.programming.DPExamples;
 import data.structures.stack.StackExamples;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MatrixExamples {
@@ -1330,5 +1331,18 @@ public class MatrixExamples {
 
    */
 
-
+  void gvGenerator(String gv) {
+    ArrayList<String> choices = new ArrayList<>();
+    for (int i = 65; i < 91; i++) choices.add(Character.toString((char) i));
+//    for (int i = 0; i < 10; i++) choices.add(Integer.toString(i));
+    permute(gv, "", 4, choices);
+  }
+  private void permute(String gv, String sofar, int k, ArrayList<String> choices) {
+    if (k == 0) System.out.println(gv + sofar);
+    else {
+      for (int i = 0; i < choices.size(); i++) {
+        permute(gv, sofar + choices.get(i), k - 1, choices);
+      }
+    }
+  }
 }
