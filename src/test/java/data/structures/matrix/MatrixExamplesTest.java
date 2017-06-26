@@ -59,4 +59,10 @@ public class MatrixExamplesTest {
             {1, 1, 1, 0, 1}};
     assertEquals(3, new MatrixExamples().countIslands(mat));
   }
+
+  @Test
+  public void printAllPaths(){
+    int[][] mat = { {1, 2, 3}, {4, 5, 6} };
+    new MatrixExamples().printAllPaths(mat, "",  0, 0);
+  }
 }

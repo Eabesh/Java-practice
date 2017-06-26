@@ -134,10 +134,12 @@ public class MatrixExamples {
    * Solution:
    */
   void printAllPaths(int[][] mat, String path, int x, int y) {
-    if (x == mat.length - 1 && y == mat.length - 1) System.out.println(path);
+    if (x == mat.length - 1 && y == mat[0].length - 1) System.out.println(path + mat[mat.length - 1][mat[0].length - 1]);
     else {
+      if (x < mat.length  && y < mat[0].length) {
       printAllPaths(mat, path + mat[x][y], x + 1, y );
       printAllPaths(mat, path + mat[x][y], x, y + 1);
+       }
     }
   }
   /**
