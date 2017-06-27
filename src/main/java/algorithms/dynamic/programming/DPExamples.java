@@ -1597,11 +1597,17 @@ public class DPExamples {
    * from its position and then it is inserted to some other position. Thus, p contributes one to the deletion_count
    * and one to the insertion_count.
    * Solution:
+   * An efficient approach uses the concept of finding the length of the longest common subsequence of the given two sequences.
+   * ->str1 and str2 be the given strings.
+   * -->m and n be their lengths respectively.
+   * -->len be the length of the longest
+   * common subsequence of str1 and str2
+   * -->// minimum number of deletions
+   * minDel = m - len
+   * -->// minimum number of Insertions
+   * minInsert = n - len
    */
   int minInsertionDeletion(String str1, String str2, int m , int n) {
-    if (m == 0) return n;
-    else if (n == 0) return m;
-    else return
   }
 
   /**
