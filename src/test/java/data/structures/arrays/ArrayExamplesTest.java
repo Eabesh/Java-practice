@@ -39,16 +39,7 @@ public class ArrayExamplesTest {
     }
   }
 
-  @Test
-  public void maxSumContigous() throws Exception {
-    int[] a = {3,2,7,10};
-    int[] b = {-3,-22,-7,-10};
-    int result = new ArrayExamples().maxSumContigous(a);
-    assertEquals(22, result);
-    assertEquals(-3, new ArrayExamples().maxSumContigous(b));
-  }
-
-  @Test
+ @Test
   public void maxSumNonContigousTest() {
     int[] a = {-3,2,7,10};
     int[] b = {-30,-22,-7,-10};
@@ -131,12 +122,6 @@ public class ArrayExamplesTest {
     assertEquals(7, new ArrayExamples().subArrayCount(arr, 5));
     int arr1[] = {4, 5, 0, -12, -23, 1};
     assertEquals(7, new ArrayExamples().subArrayCount(arr1, 5));
-  }
-
-  @Test
-  public void minSegments() throws Exception {
-    int arr[] = {4, 5, 0, 1};
-    assertEquals(1, new ArrayExamples().minSegments(arr));
   }
 
 }

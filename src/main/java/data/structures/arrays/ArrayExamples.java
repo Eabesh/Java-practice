@@ -2231,21 +2231,6 @@ public class ArrayExamples {
    * Solution:
    */
 
-
-  /**
-   * 6.
-   * Problem: Maximum sum of contigous subarray for a non-empty array.
-   */
-  int maxSumContigous(int[] array) {
-    int currentMax = array[0];
-    int maxSumSoFar = array[0];
-    for (int i = 1; i < array.length; i++) {
-      currentMax = Math.max(array[i], currentMax + array[i]);
-      maxSumSoFar = Math.max(maxSumSoFar, currentMax);
-    }
-    return maxSumSoFar;
-  }
-
   /**
    * Maximum sum of not necessarily contigous array for a non empty array.
    */

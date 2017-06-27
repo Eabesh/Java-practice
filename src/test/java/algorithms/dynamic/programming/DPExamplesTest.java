@@ -10,6 +10,14 @@ import static org.junit.Assert.*;
 public class DPExamplesTest {
 
   @Test
+  public void maxSumContigous() throws Exception {
+    int[] a = {3,2,7,10};
+    int[] b = {-3,-22,-7,-10};
+    assertEquals(22, new DPExamples().maxContinousSubArray(a));
+    assertEquals(-3, new DPExamples().maxContinousSubArray(b));
+  }
+
+  @Test
   public void maxContinousSubArray1() throws Exception {
   }
 
