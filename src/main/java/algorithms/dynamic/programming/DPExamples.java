@@ -1310,6 +1310,12 @@ public class DPExamples {
    Explanation : 3 + 7 + 4 + 9 = 23
    * Solution:
    */
+  int maxPathInTriangle(int[][] mat, int i, int j) {
+    if (i == 0 || j == 0) return mat[0][0];
+    else if (i < 0 || j < 0) return Integer.MIN_VALUE;
+    else return mat[i][j] + Math.max(maxPathInTriangle(mat, i - 1, j), Math.max(maxPathInTriangle(mat, i, j - 1),
+              maxPathInTriangle(mat, i - 1, j - 1));
+  }
 
   /**
    * 162.
