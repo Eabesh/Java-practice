@@ -1756,8 +1756,9 @@ public class DPExamples {
    */
   int maxStealing(int[] array, int m) {
     if (m == 0) return 0;
-    else if (m < 0) return Integer.MIN_VALUE;
-    else return Math.max(array[m] + maxStealing(array, m - 2), maxStealing(array, m - 1));
+    else if (m == 1) return array[0];
+    else if (m == 2) return Math.max(array[0], array[1]);
+    else return Math.max(array[m - 1] + maxStealing(array, m - 2), maxStealing(array, m - 1));
   }
 
 }

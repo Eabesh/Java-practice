@@ -9,6 +9,14 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void maxStealing() throws Exception {
+    int[] hvals = {6, 7, 1, 3, 8, 2, 4};
+    int[] hvals2 = {5, 3, 4, 11, 2};
+    assertEquals(19, new DPExamples().maxStealing(hvals, hvals.length));
+    assertEquals(16, new DPExamples().maxStealing(hvals2, hvals2.length));
+  }
+
+  @Test
   public void minInsertionDeletionBottomUp() throws Exception {
     assertEquals(2, new DPExamples().minInsertionDeletionBottomUp("heap", "pea", 4, 3)[0]);
   }
