@@ -13,9 +13,7 @@ public class ArrayExamplesTest {
     int[] arr2 = {3, 4, 5, 6};
     int[] arr = new int[arr1.length + arr2.length];
     new ArrayExamples().mergeArrays(arr1, arr2, 0, 0, arr, 0);
-    for (int i : arr) {
-      System.out.println(i);
-    }
+    for (int i : arr) System.out.println(i);
   }
 
 
