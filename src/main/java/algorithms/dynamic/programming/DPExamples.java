@@ -1606,7 +1606,12 @@ public class DPExamples {
    * -->// minimum number of Insertions
    * minInsert = n - len
    */
-  int minInsertionDeletion(String str1, String str2, int m , int n) {
+  int[] minInsertionDeletion(String str1, String str2, int m , int n) {
+    int[] result = new int[2];
+    int len = new DPExamples().LISBottomUp(str1, str2);
+    result[0] = m - len;
+    result[1] = n - len;
+    return result;
   }
 
   /**
