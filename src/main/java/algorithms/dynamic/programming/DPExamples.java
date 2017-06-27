@@ -1573,8 +1573,14 @@ public class DPExamples {
    * Input : {5, 6, 1, 7, 4}
    * Output : 2
    * Removing 1 and 4 leaves the remaining sequence order as 5 6 7 which is a sorted sequence.
-   * Solution:
+   * Solution:A simple solution is to remove all subsequences one by one and check if remaining set of elements are in
+   * sorted order or not. Time complexity of this solution is exponential.
+   * An efficient approach uses the concept of finding the length of the longest increasing subsequence of a given sequence.
    */
+    int minDeletionToMakeSorted(int[] array) {
+      int len = new DPExamples().findLISBottomUp(array);
+      return array.length - len;
+    }
 
 
   /**
