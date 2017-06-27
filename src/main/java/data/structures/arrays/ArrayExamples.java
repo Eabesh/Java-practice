@@ -796,8 +796,26 @@ public class ArrayExamples {
   /**
    * 107.
    * Problem: Minimize the maximum difference between the heights.
-   * Solution:
+   * Given heights of n towers and a value k. We need to either increase or decrease height of every tower by k
+   * (only once) where k > 0. The task is to minimize the difference between the heights of the longest and the
+   * shortest tower after modifications, and output this difference.
    */
+  int minDiff(int[] array, int k) {
+    Arrays.sort(array);
+    array[0] += k;
+    array[array.length - 1] -= k;
+    int min = Math.min(array[0], array[array.length - 1]);
+    int max = Math.max(array[0], array[array.length - 1]);
+    for (int j = 1; j < array.length - 1; j++) {
+      if (array[j] < min) array[j] += k;
+      else if (array[j] > max) array[j] -= k;
+      else if (max - array[j] < array[j] - min) array[j] += k;
+      else array[j] -= k;
+      min = Math.min(array[j], min);
+      max = Math.max(array[j], max);
+    }
+    return max - min;
+  }
 
   /**
    * 108.
@@ -2787,30 +2805,6 @@ public class ArrayExamples {
       array[end - 1] += array[end];
       return 1 + minPalindromeOperations(array, start, end - 1);
     }
-  }
-
-  /**
-   * 158.
-   * Problem: Minimize the maximum difference between the heights.
-   * Given heights of n towers and a value k. We need to either increase or decrease height of every tower by k
-   * (only once) where k > 0. The task is to minimize the difference between the heights of the longest and the
-   * shortest tower after modifications, and output this difference.
-   */
-  int minDiff(int[] array, int k) {
-    Arrays.sort(array);
-    array[0] += k;
-    array[array.length - 1] -= k;
-    int min = Math.min(array[0], array[array.length - 1]);
-    int max = Math.max(array[0], array[array.length - 1]);
-    for (int j = 1; j < array.length - 1; j++) {
-      if (array[j] < min) array[j] += k;
-      else if (array[j] > max) array[j] -= k;
-      else if (max - array[j] < array[j] - min) array[j] += k;
-      else array[j] -= k;
-      min = Math.min(array[j], min);
-      max = Math.max(array[j], max);
-    }
-    return max - min;
   }
 
   /**
