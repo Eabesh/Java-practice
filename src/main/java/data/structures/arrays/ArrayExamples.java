@@ -2088,6 +2088,10 @@ public class ArrayExamples {
    * Problem: Sum of array elements using recursion.
    * Solution:
    */
+  int arraySum(int[] array, int sum, int m) {
+    if (m == array.length) return sum;
+    else return arraySum(array, sum + array[m], m + 1);
+  }
 
   /**
    * 311.
