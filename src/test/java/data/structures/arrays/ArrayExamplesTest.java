@@ -10,7 +10,10 @@ public class ArrayExamplesTest {
 
   @Test
   public void minSegments() throws Exception {
-
+    int[] array = { 1, 2, 3, 4, 5 };
+    assertEquals(1, new ArrayExamples().minSegments(array));
+    int[] array1 = { 489, 206, 745, 123, 756 };
+    assertEquals(745, new ArrayExamples().minSegments(array1));
   }
 
   @Test

@@ -1389,13 +1389,17 @@ public class ArrayExamples {
     int minSegments = Integer.MAX_VALUE;
     int result = array[0];
     for (int element : array) {
-      if (minSegments > countSegments(element, segments, 0)) result = element;
+      int currentSegments = countSegments(element, segments, 0);
+      if (currentSegments < minSegments) {
+        result = element;
+        minSegments = currentSegments;
+      }
     }
     return result;
   }
 
   private int countSegments(int number, int[] segments, int count) {
-    if (number < 10) return segments[number];
+    if (number < 10) return count + segments[number];
     else return countSegments(number / 10, segments, count + segments[number % 10]);
   }
 
