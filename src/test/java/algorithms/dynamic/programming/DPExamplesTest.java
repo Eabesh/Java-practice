@@ -13,7 +13,9 @@ public class DPExamplesTest {
     int[] hvals = {6, 7, 1, 3, 8, 2, 4};
     int[] hvals2 = {5, 3, 4, 11, 2};
     assertEquals(19, new DPExamples().maxStealing(hvals, hvals.length));
-    assertEquals(16, new DPExamples().maxStealing(hvals2, hvals2.length));
+    assertEquals(19, new DPExamples().maxStealing(hvals, hvals.length));
+    assertEquals(16, new DPExamples().maxStealingBottomUp(hvals2));
+    assertEquals(16, new DPExamples().maxStealingBottomUp(hvals2));
   }
 
   @Test
