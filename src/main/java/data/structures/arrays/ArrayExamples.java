@@ -2830,15 +2830,4 @@ public class ArrayExamples {
     return Arrays.stream(candies).sum();
   }
 
-  /**
-   * Problem: Search, insert and delete in an unsorted array.
-   * Solution: Linear search: O(n) Insert: O(1) Delete: O(n)
-   */
-
-  /**
-   * Problem: Search, insert and delete in a sorted array.
-   * Solution: Binary search: log(n) Insert: O(n) Delete: O(n)
-   */
-
-
 }
