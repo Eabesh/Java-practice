@@ -47,8 +47,29 @@ public class StackExamples {
   /**
    * 8.
    * Problem: The Celebrity Problem
+   * In a party of N people, only one person is known to everyone. Such a person may be present in the party,
+   * if yes, (s)he doesn’t know anyone in the party. We can only ask questions like “does A know B? “.
+   * Find the stranger (celebrity) in minimum number of questions.
+   * Solution: The idea is to use two pointers, one from start and one from the end. Assume the start person is A,
+   * and the end person is B. If A knows B, then A must not be the celebrity. Else, B must not be the celebrity.
+   * We will find a celebrity candidate at the end of the loop. Go through each person again and check whether
+   * this is the celebrity.
    */
+  int findCeleb(int[][] matrix) {
+    int a = 0;
+    int b = matrix.length - 1;
+    while (a < b) {
+      if (knows(matrix,a,b)) a++;
+      else b--;
+    }
+    for (int i = 0; i < matrix.length; i++) {
+      if (i != a)
+        if (knows(matrix,a,i) || !knows(matrix,i,a)) return -1;
+    }
+    return a;
+  }
 
+  private boolean knows(int[][] m, int a, int b) { return m[a][b] == 1 ;}
 
   /**
    * 9.

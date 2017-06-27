@@ -18,7 +18,7 @@ public class DPExamples {
    * if (maxSoFar < currMax) maxSoFar = currMax
    * return maxSoFar
    */
-  int maxContinousSubArray(int[] array) {
+  public int maxContinousSubArray(int[] array) {
     int maxSoFar = array[0], currMax = array[0];
     for (int i = 1; i < array.length; i++) {
       currMax = Math.max(array[i], currMax + array[i]);

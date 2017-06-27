@@ -1,6 +1,8 @@
 package data.structures.arrays;
 
 
+import algorithms.dynamic.programming.DPExamples;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -2367,33 +2369,6 @@ public class ArrayExamples {
    */
 
   /**
-   * 61.
-   * Problem: The Celebrity Problem.
-   * In a party of N people, only one person is known to everyone. Such a person may be present in the party,
-   * if yes, (s)he doesn’t know anyone in the party. We can only ask questions like “does A know B? “.
-   * Find the stranger (celebrity) in minimum number of questions.
-   * Solution: The idea is to use two pointers, one from start and one from the end. Assume the start person is A,
-   * and the end person is B. If A knows B, then A must not be the celebrity. Else, B must not be the celebrity.
-   * We will find a celebrity candidate at the end of the loop. Go through each person again and check whether
-   * this is the celebrity.
-   */
-  int findCeleb(int[][] matrix) {
-    int a = 0;
-    int b = matrix.length - 1;
-    while (a < b) {
-      if (knows(matrix,a,b)) a++;
-      else b--;
-    }
-    for (int i = 0; i < matrix.length; i++) {
-      if (i != a)
-        if (knows(matrix,a,i) || !knows(matrix,i,a)) return -1;
-    }
-    return a;
-  }
-
-  private boolean knows(int[][] m, int a, int b) { return m[a][b] == 1 ;}
-
-  /**
    * 63.
    * Problem: Find a sorted subsequence of size 3 in linear time.
    * Given an array of n integers, find the 3 elements such that a[i] < a[j] < a[k] and i < j < k in 0(n) time.
@@ -2510,12 +2485,12 @@ public class ArrayExamples {
    */
   int maxSumCircularSubarray(int[] arr) {
     int totalSum = 0, withoutCircleSum = 0, circularSum = 0;
-    withoutCircleSum = maxSumContigous(arr);
+    withoutCircleSum = new DPExamples().maxContinousSubArray(arr);
     for (int i = 0; i < arr.length; i++) {
       totalSum += arr[i];
       arr[i] = - arr[i];
     }
-    circularSum = totalSum + maxSumContigous(arr);
+    circularSum = totalSum + new DPExamples().maxContinousSubArray(arr);
     return Math.max(withoutCircleSum, circularSum);
   }
 
