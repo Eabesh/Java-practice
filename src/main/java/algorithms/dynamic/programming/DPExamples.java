@@ -1702,20 +1702,50 @@ public class DPExamples {
   }
 
   /**
-   * 208.
-   * Problem: Minimum time to write characters using insert, delete and copy operation
-   * Solution:
-   */
-
-  /**
-   * 209.
-   * Problem: Count Balanced Binary Trees of Height h
-   * Solution:
-   */
-
-  /**
    * 210.
-   * Problem: Choose maximum weight with given weight and value ratio
+   * Problem: Minimum time to write characters using insert, delete and copy operation.
+   * Solution:
+   */
+
+  /**
+   * 211.
+   * Problem: Count Balanced Binary Trees of Height h.
+   * Solution:
+   */
+
+  /**
+   * 212.
+   * Problem: Choose maximum weight with given weight and value ratio.
+   * Solution:
+   */
+
+  /**
+   * 213.
+   * Problem: Find the Longest Increasing Subsequence in Circular manner.
+   * Solution:
+   */
+
+  /**
+   * 214.
+   * Problem: Bitmasking and Dynamic Programming | Set-2 (TSP).
+   * Solution:
+   */
+
+  /**
+   * 215.
+   * Problem: Painting Fence Algorithm.
+   * Solution:
+   */
+
+  /**
+   * 216.
+   * Problem: Number of n-digits non-decreasing integers.
+   * Solution:
+   */
+
+  /**
+   * 217.
+   * Problem: Find maximum possible stolen value from houses.
    * Solution:
    */
 
