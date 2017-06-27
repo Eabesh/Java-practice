@@ -1740,6 +1740,10 @@ public class DPExamples {
   /**
    * 216.
    * Problem: Number of n-digits non-decreasing integers.
+   * Given an integer n > 0, which denotes the number of digits, the task to find total number of n-digit positive
+   * integers which are non-decreasing in nature.A non-decreasing integer is a one in which all the digits from left to
+   * right are in non-decreasing form. ex: 1234, 1135, ..etc. Note :Leading zeros also count in non-decreasing integers
+   * such as 0000, 0001, 0023, etc are also non-decreasing integers of 4-digits.
    * Solution:
    */
 
