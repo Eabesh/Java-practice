@@ -790,8 +790,22 @@ public class ArrayExamples {
   /**
    * 106.
    * Problem: Find minimum number of merge operations to make an array palindrome.
-   * Solution:
+   * Given an array of positive integers. We need to make the given array a ‘Palindrome’.
+   * Only allowed operation on array is merge. Merging two adjacent elements means replacing them with their sum.
+   * The task is to find minimum number of merge operations required to make given array a ‘Palindrome’.
    */
+  int minPalindromeOperations(int[] array, int start, int end) {
+    if (start >= end) return 0;
+    else if (array[start] == array[end]) return minPalindromeOperations(array, start + 1, end - 1);
+    else if (array[start] < array[end]) {
+      array[start + 1] += array[start];
+      return 1 + minPalindromeOperations(array, start + 1, end);
+    }
+    else {
+      array[end - 1] += array[end];
+      return 1 + minPalindromeOperations(array, start, end - 1);
+    }
+  }
 
   /**
    * 107.
@@ -2533,28 +2547,6 @@ public class ArrayExamples {
    */
 
   /**
-   * 99.
-   * Problem: Stable Marriage Problem.
-   * Given N men and N women, where each person has ranked all members of the opposite sex in order of preference,
-   * marry the men and women together such that there are no two people of opposite sex who would both rather have
-   * each other than their current partners. If there are no such people, all the marriages are “stable”.
-   * Solution: Gale–Shapley algorithm.
-   * Initialize all men and women to free
-   * while there exist a free man m who still has a woman w to propose to
-   * {
-   *      w = m's highest ranked such woman to whom he has not yet proposed
-   *      if w is free
-   *          (m, w) become engaged
-   *      else some pair (m', w) already exists
-   *          if w prefers m to m'
-   *              (m, w) become engaged
-   *              and m' becomes free
-   *          else
-   *              (m', w) remain engaged
-   * }
-   */
-
-  /**
    * 102.
    * Problem: Move all zeroes to end of array.
    * Given an array of random numbers, Push all the zero’s of a given array to the end of the array.
@@ -2786,26 +2778,6 @@ public class ArrayExamples {
    * 2. Doubling operation: Double the values of all the elements of array.
    * Solution: The idea is to follow reverse steps, i.e. to convert target to array of zeros.
    */
-
-  /**
-   * 157.
-   * Problem: Find minimum number of merge operations to make an array palindrome.
-   * Given an array of positive integers. We need to make the given array a ‘Palindrome’.
-   * Only allowed operation on array is merge. Merging two adjacent elements means replacing them with their sum.
-   * The task is to find minimum number of merge operations required to make given array a ‘Palindrome’.
-   */
-  int minPalindromeOperations(int[] array, int start, int end) {
-    if (start >= end) return 0;
-    else if (array[start] == array[end]) return minPalindromeOperations(array, start + 1, end - 1);
-    else if (array[start] < array[end]) {
-      array[start + 1] += array[start];
-      return 1 + minPalindromeOperations(array, start + 1, end);
-    }
-    else {
-      array[end - 1] += array[end];
-      return 1 + minPalindromeOperations(array, start, end - 1);
-    }
-  }
 
   /**
    * Problem: Candies distribution
