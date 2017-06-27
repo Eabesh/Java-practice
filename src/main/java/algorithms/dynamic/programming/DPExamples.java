@@ -1316,63 +1316,62 @@ public class DPExamples {
   }
 
   /**
-   * 162.
-   * Problem: Printing brackets in Matrix Chain Multiplication Problem
-   * Solution:
-   */
-
-  /**
    * 163.
-   * Problem: Minimum Sum Path In 3-D Array
+   * Problem: Printing brackets in Matrix Chain Multiplication Problem.
    * Solution:
    */
 
   /**
    * 164.
-   * Problem: Friends Pairing Problem
+   * Problem: Minimum Sum Path In 3-D Array.
    * Solution:
    */
 
   /**
    * 165.
-   * Problem: Check if all people can vote on two machines
+   * Problem: Friends Pairing Problem.
    * Solution:
    */
 
-
   /**
    * 166.
-   * Problem: Count binary strings with k times appearing adjacent two set bits
+   * Problem: Check if all people can vote on two machines.
    * Solution:
    */
 
   /**
    * 167.
-   * Problem: Probability of getting at least K heads in N tosses of Coins
+   * Problem: Count binary strings with k times appearing adjacent two set bits.
    * Solution:
    */
 
   /**
    * 168.
-   * Problem: Size of array after repeated deletion of LIS
+   * Problem: Probability of getting at least K heads in N tosses of Coins.
    * Solution:
    */
 
   /**
    * 169.
-   * Problem: Maximum path sum that starting with any cell of 0-th row and ending with any cell of (N-1)-th row
+   * Problem: Size of array after repeated deletion of LIS.
    * Solution:
    */
 
   /**
    * 170.
-   * Problem: Number of subsequences in a string divisible by n
+   * Problem: Maximum path sum that starting with any cell of 0-th row  and ending with any cell of (N-1)-th row.
+   * Solution:
+   */
+
+  /**
+   * 171.
+   * Problem: Number of subsequences in a string divisible by n.
    * Solution:
    */
 
 
   /**
-   * 171.
+   * 172.
    * Problem: Finding the maximum square sub-matrix with all equal elements.
    * Given a N x N matrix, determine the maximum K such that K x K is a submatrix with all equal elements i.e., all
    * the elements in this submatrix must be same.
