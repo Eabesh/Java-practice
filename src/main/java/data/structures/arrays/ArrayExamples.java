@@ -790,8 +790,22 @@ public class ArrayExamples {
   /**
    * 106.
    * Problem: Find minimum number of merge operations to make an array palindrome.
-   * Solution:
+   * Given an array of positive integers. We need to make the given array a ‘Palindrome’.
+   * Only allowed operation on array is merge. Merging two adjacent elements means replacing them with their sum.
+   * The task is to find minimum number of merge operations required to make given array a ‘Palindrome’.
    */
+  int minPalindromeOperations(int[] array, int start, int end) {
+    if (start >= end) return 0;
+    else if (array[start] == array[end]) return minPalindromeOperations(array, start + 1, end - 1);
+    else if (array[start] < array[end]) {
+      array[start + 1] += array[start];
+      return 1 + minPalindromeOperations(array, start + 1, end);
+    }
+    else {
+      array[end - 1] += array[end];
+      return 1 + minPalindromeOperations(array, start, end - 1);
+    }
+  }
 
   /**
    * 107.
@@ -2786,26 +2800,6 @@ public class ArrayExamples {
    * 2. Doubling operation: Double the values of all the elements of array.
    * Solution: The idea is to follow reverse steps, i.e. to convert target to array of zeros.
    */
-
-  /**
-   * 157.
-   * Problem: Find minimum number of merge operations to make an array palindrome.
-   * Given an array of positive integers. We need to make the given array a ‘Palindrome’.
-   * Only allowed operation on array is merge. Merging two adjacent elements means replacing them with their sum.
-   * The task is to find minimum number of merge operations required to make given array a ‘Palindrome’.
-   */
-  int minPalindromeOperations(int[] array, int start, int end) {
-    if (start >= end) return 0;
-    else if (array[start] == array[end]) return minPalindromeOperations(array, start + 1, end - 1);
-    else if (array[start] < array[end]) {
-      array[start + 1] += array[start];
-      return 1 + minPalindromeOperations(array, start + 1, end);
-    }
-    else {
-      array[end - 1] += array[end];
-      return 1 + minPalindromeOperations(array, start, end - 1);
-    }
-  }
 
   /**
    * Problem: Candies distribution
