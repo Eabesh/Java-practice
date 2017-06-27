@@ -93,6 +93,11 @@ public class ArrayExamplesTest {
     assertEquals(8, new ArrayExamples().maxSumNonAdjacent(array));
   }
 
+  @Test
+  public void findSmallest() throws Exception {
+    int[] array = {1, 3, 6, 10, 11, 15};
+    assertEquals(2, new ArrayExamples().findSmallest(array));
+  }
 
   @Test
   public void maxSumContigousLengthTest() {

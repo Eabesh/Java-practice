@@ -533,8 +533,19 @@ public class ArrayExamples {
   /**
    * 65.
    * Problem: Find the smallest positive integer value that cannot be represented as sum of any subset of a given array.
+   * Given a sorted array (sorted in non-decreasing order) of positive numbers, find the smallest positive integer
+   * value that cannot be represented as sum of elements of any subset of given set.
+   * Expected time complexity is O(n).
    * Solution:
+   * 1. Initialize result = 1 (smallest possible outcome).
+   * 2. if ( arr[i] > result) found gap and res is the answer.
+   * 3. else add arr[i] to result.
    */
+  int findSmallest(int[] arr) {
+    int res = 1;
+    for (int i = 0; i < arr.length && res >= arr[i]; i++) res += arr[i];
+    return res;
+  }
 
   /**
    * 66.
@@ -2537,24 +2548,6 @@ public class ArrayExamples {
    *
    * Solution: Scan from left to right and keep track of last non zero index i, insert next non zero element at i+1.
    */
-
-  /**
-   * 121.
-   * Problem: Find the smallest positive integer value that cannot be represented as sum of any subset of a
-   * given array.
-   * Given a sorted array (sorted in non-decreasing order) of positive numbers, find the smallest positive integer
-   * value that cannot be represented as sum of elements of any subset of given set.
-   * Expected time complexity is O(n).
-   * Solution:
-   * 1. Initialize result = 1 (smallest possible outcome).
-   * 2. if ( arr[i] > result) found gap and res is the answer.
-   * 3. else add arr[i] to result.
-   */
-  int findSmallest(int[] arr) {
-    int res = 1;
-    for (int i = 0; i < arr.length && res >= arr[i]; i++) res += arr[i];
-    return res;
-  }
 
   /**
    * 123.
