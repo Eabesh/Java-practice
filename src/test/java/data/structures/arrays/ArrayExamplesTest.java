@@ -9,6 +9,11 @@ import static org.junit.Assert.assertTrue;
 public class ArrayExamplesTest {
 
   @Test
+  public void minSegments() throws Exception {
+
+  }
+
+  @Test
   public void checkPair1() throws Exception {
     int[] array = {1,2,3,1,2};
     assertTrue(new ArrayExamples().checkPair1(array, 5));
