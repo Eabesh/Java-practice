@@ -2547,28 +2547,6 @@ public class ArrayExamples {
    */
 
   /**
-   * 99.
-   * Problem: Stable Marriage Problem.
-   * Given N men and N women, where each person has ranked all members of the opposite sex in order of preference,
-   * marry the men and women together such that there are no two people of opposite sex who would both rather have
-   * each other than their current partners. If there are no such people, all the marriages are “stable”.
-   * Solution: Gale–Shapley algorithm.
-   * Initialize all men and women to free
-   * while there exist a free man m who still has a woman w to propose to
-   * {
-   *      w = m's highest ranked such woman to whom he has not yet proposed
-   *      if w is free
-   *          (m, w) become engaged
-   *      else some pair (m', w) already exists
-   *          if w prefers m to m'
-   *              (m, w) become engaged
-   *              and m' becomes free
-   *          else
-   *              (m', w) remain engaged
-   * }
-   */
-
-  /**
    * 102.
    * Problem: Move all zeroes to end of array.
    * Given an array of random numbers, Push all the zero’s of a given array to the end of the array.
