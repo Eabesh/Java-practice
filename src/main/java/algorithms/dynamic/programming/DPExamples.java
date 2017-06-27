@@ -213,13 +213,13 @@ public class DPExamples {
    * Replace
    * Solution:
    */
-  int editDistance(String str1, String str2, int str1Len, int str2Len) {
-    if (str1Len == 0) return str2Len;
-    else if (str2Len == 0) return str1Len;
-    else if (str1.charAt(str1Len - 1) == str2.charAt(str2Len - 1)) return editDistance(str1, str2, str1Len - 1,
-            str2Len - 1);
-    else return 1 + Math.min(editDistance(str1, str2, str1Len, str2Len - 1), Math.min(editDistance(str1, str2,
-              str1Len - 1, str2Len), editDistance(str1, str2, str1Len - 1, str2Len - 1)));
+  int editDistance(String str1, String str2, int m, int n) {
+    if (m == 0) return n;
+    else if (n == 0) return m;
+    else if (str1.charAt(m - 1) == str2.charAt(n - 1)) return editDistance(str1, str2, m - 1,
+            n - 1);
+    else return 1 + Math.min(editDistance(str1, str2, m, n - 1), Math.min(editDistance(str1, str2,
+              m - 1, n), editDistance(str1, str2, m - 1, n - 1)));
   }
 
 
@@ -1586,8 +1586,23 @@ public class DPExamples {
   /**
    * 197.
    * Problem: Minimum number of deletions and insertions to transform one string into another
+   * Given two strings ‘str1’ and ‘str2’ of size m and n respectively. The task is to remove/delete and insert minimum
+   * number of characters from/in str1 so as to transform it into str2. It could be possible that the same character
+   * needs to be removed/deleted from one point of str1 and inserted to some another point.
+   * Input : str1 = "heap", str2 = "pea"
+   * Output : Minimum Deletion = 2 and
+   * Minimum Insertion = 1
+   * p and h deleted from heap
+   * Then, p is inserted at the beginning One thing to note, though p was required yet, it was removed/deleted first
+   * from its position and then it is inserted to some other position. Thus, p contributes one to the deletion_count
+   * and one to the insertion_count.
    * Solution:
    */
+  int minInsertionDeletion(String str1, String str2, int m , int n) {
+    if (m == 0) return n;
+    else if (n == 0) return m;
+    else return
+  }
 
   /**
    * 198.
