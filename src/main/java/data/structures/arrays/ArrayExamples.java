@@ -2506,29 +2506,6 @@ public class ArrayExamples {
    */
 
   /**
-   * 98.
-   * Problem: Find the minimum element in a sorted and rotated array
-   * A sorted array is rotated at some unknown point, find the minimum element in it.
-   * Solution: Use modified Binary Search.
-   * Search for the element with greater prev element and next element if they are present.
-   */
-  int findMinElement(int[] arr, int left, int right) {
-    if (left > right) return -1;
-    else {
-      int mid = left + (right - left) / 2;
-      if (isMinimum(arr,mid)) return arr[mid];
-      else if (arr[arr.length - 1] > arr[mid]) return findMinElement(arr, left, mid - 1);
-      else return findMinElement(arr, mid + 1, right);
-    }
-  }
-
-  private boolean isMinimum(int[] array, int mid) {
-    int left = mid - 1 >= 0 ? array[mid - 1] : Integer.MAX_VALUE;
-    int right = mid + 1 < array.length ? array[mid + 1] : Integer.MAX_VALUE;
-    return array[mid] < left && array[mid] < right;
-  }
-
-  /**
    * 99.
    * Problem: Stable Marriage Problem.
    * Given N men and N women, where each person has ranked all members of the opposite sex in order of preference,
