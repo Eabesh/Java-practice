@@ -2297,14 +2297,8 @@ public class ArrayExamples {
    * Formally speaking, two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j.
    * Solution: Use BST. Count of left children gives number of inversions of that element.
    */
- /**
-   * 27.
-   * Problem: Floor and Ceiling in a sorted array.
-   * Solution: Use modified binary search to find floor and ceiling separately.
-   * Hint: If x is greater than arr[mid], then either arr[mid + 1] is ceiling of x or ceiling lies in arr[mid+1...high]
-   */
 
- /**
+  /**
    * 30.
    * Problem: Find the two repeating elements in a given array.
    * You are given an array of n+2 elements. All elements of the array are in range 1 to n. And all elements occur

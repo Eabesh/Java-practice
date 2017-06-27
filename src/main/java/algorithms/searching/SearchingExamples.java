@@ -47,7 +47,8 @@ public class SearchingExamples {
   /**
    * 8.
    * Problem: Ceiling in a sorted array.
-   * Solution:
+   * Solution: Use modified binary search to find floor and ceiling separately.
+   * Hint: If x is greater than arr[mid], then either arr[mid + 1] is ceiling of x or ceiling lies in arr[mid+1...high]
    */
 
   /**
