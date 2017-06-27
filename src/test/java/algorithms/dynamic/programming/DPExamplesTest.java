@@ -10,8 +10,8 @@ import static org.junit.Assert.*;
 public class DPExamplesTest {
   @Test
   public void nonDecresingInCount() throws Exception {
-    assertEquals(10, new DPExamples().nonDecresingInCount(1, 0));
-    assertEquals(55, new DPExamples().nonDecresingInCount(2, 0) );
+    assertEquals(10, new DPExamples().nonDecreasingInCount(1, 0));
+    assertEquals(55, new DPExamples().nonDecreasingInCount(2, 0) );
   }
 
   @Test
