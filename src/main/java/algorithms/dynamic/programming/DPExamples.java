@@ -1761,4 +1761,15 @@ public class DPExamples {
     else return Math.max(array[m - 1] + maxStealing(array, m - 2), maxStealing(array, m - 1));
   }
 
+  int maxStealingBottomUp(int[] houseValues) {
+    int[] dp = new int[houseValues.length];
+    for (int i = 0; i < dp.length; i++) {
+     if (i == 0)  dp[i] = houseValues[0];
+     else if (i == 1) dp[i] = Math.max(houseValues[0], houseValues[1]);
+     else dp[i] = Math.max(houseValues[i] + dp[i - 2], dp[i - 1]);
+    }
+    return dp[houseValues.length - 1];
+  }
+
+
 }
