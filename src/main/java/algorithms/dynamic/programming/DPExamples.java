@@ -1494,31 +1494,37 @@ public class DPExamples {
 
 
   /**
-   * 186.
-   * Problem: Digit DP | Introduction
-   * Solution:
-   */
-
-  /**
    * 187.
-   * Problem: Smallest length string with repeated replacement of two distinct adjacent
+   * Problem: Digit DP | Introduction.
    * Solution:
    */
 
   /**
    * 188.
-   * Problem: Temple Offerings
+   * Problem: Top 20 Dynamic Programming Interview Questions.
    * Solution:
    */
 
   /**
    * 189.
-   * Problem: Count of arrays in which all adjacent elements are such that one of them divide the another
+   * Problem: Smallest length string with repeated replacement of two distinct adjacent.
    * Solution:
    */
 
   /**
    * 190.
+   * Problem: Temple Offerings.
+   * Solution:
+   */
+
+  /**
+   * 191.
+   * Problem: Count of arrays in which all adjacent elements are such that one of them divide the another.
+   * Solution:
+   */
+
+  /**
+   * 192.
    * Problem: Minimum number of deletions to make a string palindrome
    * Given a string of size ‘n’. The task is to remove or delete minimum number of characters from the string so that the
    * resultant string is palindrome.
