@@ -8,6 +8,10 @@ import static org.junit.Assert.*;
  * Created by abhay on 20/06/17.
  */
 public class DPExamplesTest {
+  @Test
+  public void minInsertionDeletion() throws Exception {
+    assertEquals(2, new DPExamples().minInsertionDeletion("heap", "pea", 4, 3)[0]);
+  }
 
   @Test
   public void maxSumContigous() throws Exception {
