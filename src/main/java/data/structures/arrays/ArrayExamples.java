@@ -254,7 +254,14 @@ public class ArrayExamples {
   /**
    * 20.
    * Problem: A Product Array Puzzle.
+   * Given an array arr[] of n integers, construct a Product Array prod[] (of same size) such that prod[i] is equal
+   * to the product of all the elements of arr[] except arr[i]. Solve it without division operator and in O(n).
    * Solution:
+   * 1) Construct a temporary array left[] such that left[i] contains product of all elements on left of arr[i]
+   *    excluding arr[i].
+   * 2) Construct another temporary array right[] such that right[i] contains product of all elements on on right
+   *    of arr[i] excluding arr[i].
+   * 3) To get prod[], multiply left[] and right[].
    */
 
   /**
@@ -2284,20 +2291,7 @@ public class ArrayExamples {
    * Hint: If x is greater than arr[mid], then either arr[mid + 1] is ceiling of x or ceiling lies in arr[mid+1...high]
    */
 
-  /**
-   * 28.
-   * Problem: A Product Array Puzzle.
-   * Given an array arr[] of n integers, construct a Product Array prod[] (of same size) such that prod[i] is equal
-   * to the product of all the elements of arr[] except arr[i]. Solve it without division operator and in O(n).
-   * Solution:
-   * 1) Construct a temporary array left[] such that left[i] contains product of all elements on left of arr[i]
-   *    excluding arr[i].
-   * 2) Construct another temporary array right[] such that right[i] contains product of all elements on on right
-   *    of arr[i] excluding arr[i].
-   * 3) To get prod[], multiply left[] and right[].
-   */
-
-  /**
+ /**
    * 30.
    * Problem: Find the two repeating elements in a given array.
    * You are given an array of n+2 elements. All elements of the array are in range 1 to n. And all elements occur
