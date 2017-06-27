@@ -183,21 +183,21 @@ public class DPExamples {
    * LCS for input Sequences “ABCDGH” and “AEDFHR” is “ADH” of length 3.
    * Solution: Recursive Complexity = O(2^n).
    */
-  int LIS(String str1, String str2, int str1Len, int str2Len) {
-    if (str1Len == 0 || str2Len == 0) return 0;
-    else if (str1.charAt(str1Len - 1) == str2.charAt(str2Len - 1))
-      return 1 + LIS(str1, str2, str1Len - 1 , str2Len - 1);
+  int LIS(String str1, String str2, int m, int n) {
+    if (m == 0 || n == 0) return 0;
+    else if (str1.charAt(m - 1) == str2.charAt(n - 1))
+      return 1 + LIS(str1, str2, m - 1 , n - 1);
     else
-      return Math.max(LIS(str1, str2, str1Len - 1, str2Len), LIS(str1, str2, str1Len, str2Len - 1));
+      return Math.max(LIS(str1, str2, m - 1, n), LIS(str1, str2, m, n - 1));
   }
 
   int LISBottomUp(String str1, String str2) {
     int[][] dp = new int[str1.length() + 1][str2.length() + 1];
-    for (int str1Len = 0; str1Len <= str1.length(); str1Len++) {
-      for (int str2Len= 0; str2Len <= str2.length(); str2Len++) {
-        if (str1Len == 0 || str2Len == 0 ) dp[str1Len][str2Len] = 0;
-        else if (str1.charAt(str1Len - 1) == str2.charAt(str2Len - 1)) dp[str1Len][str2Len] = 1 + dp[str1Len - 1][str2Len - 1];
-        else dp[str1Len][str2Len] = Math.max(dp[str1Len][str2Len - 1], dp[str1Len - 1][str2Len]);
+    for (int i = 0; i <= str1.length(); i++) {
+      for (int j= 0; j <= str2.length(); j++) {
+        if (i == 0 || j == 0 ) dp[i][j] = 0;
+        else if (str1.charAt(i - 1) == str2.charAt(j - 1)) dp[i][j] = 1 + dp[i - 1][j - 1];
+        else dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]);
       }
     }
     return dp[str1.length()][str2.length()];
