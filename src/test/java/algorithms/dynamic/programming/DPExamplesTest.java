@@ -9,8 +9,8 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
-  public void minInsertionDeletion() throws Exception {
-    assertEquals(2, new DPExamples().minInsertionDeletion("heap", "pea", 4, 3)[0]);
+  public void minInsertionDeletionBottomUp() throws Exception {
+    assertEquals(2, new DPExamples().minInsertionDeletionBottomUp("heap", "pea", 4, 3)[0]);
   }
 
   @Test
