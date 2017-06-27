@@ -1746,7 +1746,14 @@ public class DPExamples {
    * such as 0000, 0001, 0023, etc are also non-decreasing integers of 4-digits.
    * Solution:
    */
-
+  int nonDecresingInCount(int n) {
+    if (n  == 0) return 1;
+    else {
+      int  count = 0;
+      for(int i = 0; i <= 9; i++) count += nonDecresingInCount(n - 1);
+      return count;
+    }
+  }
 
 
   /**
