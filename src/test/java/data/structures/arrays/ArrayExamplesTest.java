@@ -8,6 +8,18 @@ import static org.junit.Assert.assertTrue;
 
 public class ArrayExamplesTest {
   @Test
+  public void mergeArrays() throws Exception {
+    int[] arr1 = {1, 2};
+    int[] arr2 = {3, 4, 5, 6};
+    int[] arr = new int[arr1.length + arr2.length];
+    new ArrayExamples().mergeArrays(arr1, arr2, 0, 0, arr, 0);
+    for (int i : arr) {
+      System.out.println(i);
+    }
+  }
+
+
+  @Test
   public void arraySum() throws Exception {
     int arr[] = {1, 7, 1, 1, 3, 1};
     assertEquals(14, new ArrayExamples().arraySum(arr, 0, 0));
