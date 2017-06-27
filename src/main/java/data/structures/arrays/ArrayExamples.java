@@ -2146,7 +2146,7 @@ public class ArrayExamples {
    * Solution:
    */
   int minValue(int[] array, int left, int right, int diff) {
-    if (left == right) return Math.abs(diff);
+    if (left > right) return Math.abs(diff);
     else return minValue(array,left + 1, right - 1, diff + array[left] - array[right]);
   }
 

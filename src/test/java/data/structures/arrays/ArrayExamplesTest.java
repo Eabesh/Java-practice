@@ -7,6 +7,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class ArrayExamplesTest {
+  @Test
+  public void minValue() throws Exception {
+    int arr[] = {1, 7, 1, 1, 3, 1};
+    assertEquals(4, new ArrayExamples().minValue(arr, 0, arr.length - 1, 0));
+  }
 
   @Test
   public void minSegments() throws Exception {
