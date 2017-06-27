@@ -2082,6 +2082,20 @@ public class ArrayExamples {
    * Problem: Merge two sorted arrays.
    * Solution:
    */
+  void mergeArrays(int[] array1, int[] array2, int index1, int index2, int[] array, int index) {
+    if (index1 == array1.length) System.arraycopy(array2, index2, array, index, array2.length - index2);
+    else if (index2 == array2.length) System.arraycopy(array1, index1, array, index, array1.length - index1);
+    else {
+      if (array1[index1] < array2[index2]) {
+        array[index] = array1[index1];
+        mergeArrays(array1, array2, index1 + 1, index2, array, index + 1);
+      }
+      else {
+        array[index] = array2[index2];
+        mergeArrays(array1, array2, index1, index2 + 1, array, index + 1);
+      }
+    }
+  }
 
   /**
    * 310.
