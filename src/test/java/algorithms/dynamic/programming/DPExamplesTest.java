@@ -9,6 +9,13 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void minDeletionToMakeSorted() throws Exception {
+    int[] arr = {30, 40, 2, 5, 1, 7, 45, 50, 8};
+    assertEquals(4, new DPExamples().minDeletionToMakeSorted(arr));
+
+  }
+
+  @Test
   public void nonDecresingInCount() throws Exception {
     assertEquals(10, new DPExamples().nonDecreasingInCount(1, 0));
     assertEquals(55, new DPExamples().nonDecreasingInCount(2, 0) );
