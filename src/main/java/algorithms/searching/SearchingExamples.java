@@ -28,7 +28,8 @@ public class SearchingExamples {
   /**
    * 3.
    * Problem: Median of two sorted arrays.
-   * Solution:
+   * Solution: Either merge two arrays which will take O(m + n) or use divide and conquer by getting
+   * medians of each array and comparing till they are equal. O(logn).
    */
 
   /**
