@@ -678,8 +678,22 @@ public class ArrayExamples {
   /**
    * 84.
    * Problem: Trapping Rain Water.
-   * Solution:
+   * Given n non-negative integers representing an elevation map where the width of each bar
+   * is 1, compute how much water it is able to trap after raining.
+   * For example, given [0,1,0,2,1,0,1,3,2,1,2,1], return 6.
    */
+  int rainWater(int[] array) {
+    int[] left = new int[array.length];
+    left[0] = array[0];
+    for (int i = 1; i < array.length; i++) left[i] = Math.max(left[i-1], array[i]);
+    int[] right = new int[array.length];
+    right[array.length - 1] = array[array.length - 1];
+    for (int i = array.length - 2; i >= 0 ; i--) right[i] = Math.max(right[i+1], array[i]);
+
+    int water = 0;
+    for(int i = 0; i < array.length; i++) water += Math.min(left[i], right[i]) - array[i];
+    return water;
+  }
 
   /**
    * 85.
@@ -2651,26 +2665,6 @@ public class ArrayExamples {
    * 3) To find a triplet (a, b, c) such that a = b + c, fix a as last element and search b and c in between first
    *    element and a. We can use left and right pointers for this.
    */
-
-  /**
-   * 136.
-   * Problem: Trapping Rain Water
-   * Given n non-negative integers representing an elevation map where the width of each bar
-   * is 1, compute how much water it is able to trap after raining.
-   * For example, given [0,1,0,2,1,0,1,3,2,1,2,1], return 6.
-   */
-  int rainWater(int[] array) {
-    int[] left = new int[array.length];
-    left[0] = array[0];
-    for (int i = 1; i < array.length; i++) left[i] = Math.max(left[i-1], array[i]);
-    int[] right = new int[array.length];
-    right[array.length - 1] = array[array.length - 1];
-    for (int i = array.length - 2; i >= 0 ; i--) right[i] = Math.max(right[i+1], array[i]);
-
-    int water = 0;
-    for(int i = 0; i < array.length; i++) water += Math.min(left[i], right[i]) - array[i];
-    return water;
-  }
 
   /**
    * 139.
