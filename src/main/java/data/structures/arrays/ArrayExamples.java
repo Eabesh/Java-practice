@@ -2497,15 +2497,6 @@ public class ArrayExamples {
    */
 
   /**
-   * 18.
-   * Problem: Count Inversions in an array.
-   * Inversion Count for an array indicates – how far (or close) the array is from being sorted. If array is already
-   * sorted then inversion count is 0. If array is sorted in reverse order that inversion count is the maximum.
-   * Formally speaking, two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j.
-   * Solution: Use BST. Count of left children gives number of inversions of that element.
-   */
-
-  /**
    * 30.
    * Problem: Find the two repeating elements in a given array.
    * You are given an array of n+2 elements. All elements of the array are in range 1 to n. And all elements occur
