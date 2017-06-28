@@ -2616,17 +2616,6 @@ public class ArrayExamples {
   }
 
   /**
-   * 85.
-   * Problem: Tug of War
-   * Given a set of n integers, divide the set in two subsets of n/2 sizes each such that the difference of the sum of
-   * two subsets is as minimum as possible. If n is even, then sizes of two subsets must be strictly n/2 and if n is
-   * odd, then size of one subset must be (n-1)/2 and size of other subset must be (n+1)/2.
-   * Solution: Try every possible subset of half size. If one subset of half size is formed, the remaining elements
-   * form the other subset. We check whether this solutions is better than the best solution available so far.
-   * If it is, then we update the best solution.
-   */
-
-  /**
    * 102.
    * Problem: Move all zeroes to end of array.
    * Given an array of random numbers, Push all the zero’s of a given array to the end of the array.
