@@ -275,7 +275,12 @@ public class ArrayExamples {
   /**
    * 22.
    * Problem: Find the two repeating elements in a given array.
-   * Solution:
+   * You are given an array of n+2 elements. All elements of the array are in range 1 to n. And all elements occur
+   * once except two numbers which occur twice. Find the two repeating numbers.
+   * Solution: Let the repeating numbers be X and Y, if we xor all the elements in the array and all integers from
+   * 1 to n, then the result is X xor Y. The 1’s in binary representation of X xor Y is corresponding to the
+   * different bits between X and Y. Suppose that the kth bit of X xor Y is 1, we can xor all the elements in the
+   * array and all integers from 1 to n, whose kth bits are 1. The result will be one of X and Y.
    */
 
   /**
@@ -2534,17 +2539,6 @@ public class ArrayExamples {
     if (negCount == array.length) return leastNeg;
     else return maxSum;
   }
-
-  /**
-   * 30.
-   * Problem: Find the two repeating elements in a given array.
-   * You are given an array of n+2 elements. All elements of the array are in range 1 to n. And all elements occur
-   * once except two numbers which occur twice. Find the two repeating numbers.
-   * Solution: Let the repeating numbers be X and Y, if we xor all the elements in the array and all integers from
-   * 1 to n, then the result is X xor Y. The 1’s in binary representation of X xor Y is corresponding to the
-   * different bits between X and Y. Suppose that the kth bit of X xor Y is 1, we can xor all the elements in the
-   * array and all integers from 1 to n, whose kth bits are 1. The result will be one of X and Y.
-   */
 
   /**
    * 150.
