@@ -475,7 +475,11 @@ public class ArrayExamples {
   /**
    * 52.
    * Problem: Move all zeroes to end of array.
-   * Solution:
+   * Given an array of random numbers, Push all the zero’s of a given array to the end of the array.
+   * For example, if the given arrays is {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0}, it should be changed to
+   * {1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0}. The order of all other elements should be same. Expected time complexity is
+   * O(n) and extra space is O(1).
+   * Solution: Scan from left to right and keep track of last non zero index i, insert next non zero element at i + 1.
    */
 
   /**
@@ -2624,35 +2628,6 @@ public class ArrayExamples {
       result = Math.max(result, max[i]);
     }
     return result;
-  }
-
-  /**
-   * 102.
-   * Problem: Move all zeroes to end of array.
-   * Given an array of random numbers, Push all the zero’s of a given array to the end of the array.
-   * For example, if the given arrays is {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0}, it should be changed to
-   * {1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0}. The order of all other elements should be same. Expected time complexity is
-   * O(n) and extra space is O(1).
-   *
-   * Solution: Scan from left to right and keep track of last non zero index i, insert next non zero element at i+1.
-   */
-
-  /**
-   * 125.
-   * Problem: Check if a given array contains duplicate elements within k distance from each other.
-   * Given an unsorted array that may contain duplicates. Also given a number k which is smaller than size of array.
-   */
-  void checkDuplicatesKDistance(int[] arr, int k) {
-    HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-    for (int i = 0; i < k; i++) {
-      if (map.containsValue(arr[i])) System.out.print(arr[i] + " ");
-      map.put(i, arr[i]);
-    }
-    for (int windowR = k; windowR < arr.length; windowR++) {
-      map.remove(arr[windowR - k]);
-      if(map.containsValue(arr[windowR])) System.out.print(arr[windowR] + " ");
-      map.put(windowR, arr[windowR]);
-    }
   }
 
   /**
