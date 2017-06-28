@@ -793,7 +793,10 @@ public class ArrayExamples {
   /**
    * 101.
    * Problem: Rearrange an array in maximum minimum form | Set 1.
-   * Solution:
+   * Given a sorted array of positive integers, rearrange the array alternately i.e first element should be maximum
+   * value, second minimum value, third second max, fourth second min and so on.
+   * Solution: With extra space it can be easily done using two pointers left and right. Keep moving them towards each
+   * other and keep copying alternate elements in an auxiliary array.
    */
 
   /**
@@ -2757,19 +2760,6 @@ public class ArrayExamples {
     if (sortedLen > 1) count += (sortedLen - 1) * sortedLen/2;
     return count;
   }
-
-  /**
-   * 152.
-   * Problem: Rearrange an array in maximum minimum form.
-   * Given a sorted array of positive integers, rearrange the array alternately i.e first element should be maximum
-   * value, second minimum value, third second max, fourth second min and so on.
-   * Solution: With extra space it can be easily done using two pointers. For in place, use below :
-   * Output index j for an element arr[i]
-   * If (i < n/2) j = 2*i + 1
-   * Else j = 2*(n-1-i);
-   * The idea is to use the fact that numbers are positive. One by one place numbers at their correct positions
-   * and mark them negative.
-   */
 
   /**
    * 154.
