@@ -329,7 +329,10 @@ public class ArrayExamples {
   /**
    * 31.
    * Problem: Count smaller elements on right side.
-   * Solution:
+   * Write a function to count number of smaller elements on right of each element in an array. Given an unsorted
+   * array arr[] of distinct integers, construct another array countSmaller[] such that countSmaller[i] contains
+   * count of smaller elements on right side of each element arr[i] in array.
+   * Solution: Use self balancing BST.
    */
 
   /**
@@ -2462,15 +2465,6 @@ public class ArrayExamples {
     }
     return maxDiff;
   }
-
-  /**
-   * 52.
-   * Problem: Count smaller elements on right side.
-   * Write a function to count number of smaller elements on right of each element in an array. Given an unsorted
-   * array arr[] of distinct integers, construct another array countSmaller[] such that countSmaller[i] contains
-   * count of smaller elements on right side of each element arr[i] in array.
-   * Solution: Use self balancing BST.
-   */
 
   /**
    * 55. Find sub array with given sum
