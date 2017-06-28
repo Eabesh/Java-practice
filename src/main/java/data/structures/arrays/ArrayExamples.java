@@ -2638,16 +2638,6 @@ public class ArrayExamples {
    */
 
   /**
-   * 123.
-   * Problem: Find position of an element in a sorted array of infinite numbers.
-   * Solution: Use modified binary search.
-   * Let low be pointing to 1st element and high pointing to 2nd element of array. Now compare key with high
-   * index element:
-   * ->if it is greater than high index element then copy high index in low index and double the high index.
-   * ->if it is smaller, then apply binary search on high and low indices found.
-   */
-
-  /**
    * 125.
    * Problem: Check if a given array contains duplicate elements within k distance from each other.
    * Given an unsorted array that may contain duplicates. Also given a number k which is smaller than size of array.

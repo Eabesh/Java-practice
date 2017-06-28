@@ -265,7 +265,11 @@ public class SearchingExamples {
   /**
    * 39.
    * Problem: Find position of an element in a sorted array of infinite numbers.
-   * Solution:
+   * Solution: Use modified binary search.
+   * Let low be pointing to 1st element and high pointing to 2nd element of array. Now compare key with high
+   * index element:
+   * ->if it is greater than high index element then copy high index in low index and double the high index.
+   * ->if it is smaller, then apply binary search on high and low indices found.
    */
 
   /**
