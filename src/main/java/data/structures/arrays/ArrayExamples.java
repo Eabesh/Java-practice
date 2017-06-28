@@ -2086,12 +2086,30 @@ public class ArrayExamples {
    * Problem: Merge two sorted arrays.
    * Solution:
    */
+  void mergeArrays(int[] array1, int[] array2, int index1, int index2, int[] array, int index) {
+    if (index1 == array1.length) System.arraycopy(array2, index2, array, index, array2.length - index2);
+    else if (index2 == array2.length) System.arraycopy(array1, index1, array, index, array1.length - index1);
+    else {
+      if (array1[index1] < array2[index2]) {
+        array[index] = array1[index1];
+        mergeArrays(array1, array2, index1 + 1, index2, array, index + 1);
+      }
+      else {
+        array[index] = array2[index2];
+        mergeArrays(array1, array2, index1, index2 + 1, array, index + 1);
+      }
+    }
+  }
 
   /**
    * 310.
    * Problem: Sum of array elements using recursion.
    * Solution:
    */
+  int arraySum(int[] array, int sum, int m) {
+    if (m == array.length) return sum;
+    else return arraySum(array, sum + array[m], m + 1);
+  }
 
   /**
    * 311.
@@ -2138,8 +2156,21 @@ public class ArrayExamples {
   /**
    * 318.
    * Problem: Find the minimum value to be added so that array becomes balanced.
+   * Given an array of even size, task is to find minimum value that can be added to an element so that array become
+   * balanced. An array is balanced if the sum of the left half of the array elements is equal to the sum of right half.
+   * Suppose, we have an array 1 3 1 2 4 3. The Sum of first three elements is 1 + 3 + 1 = 5 and sum of last three
+   * elements is 2 + 4 + 3 = 9
+   * Input : 1 2 1 2 1 3
+   * Output : 2
+   * Sum of first 3 elements is 1 + 2 + 1 = 4,
+   * sum of last three elements is 2 + 1 + 3 = 6
+   * To make the array balanced you can add 2.
    * Solution:
    */
+  int minValue(int[] array, int left, int right, int diff) {
+    if (left > right) return Math.abs(diff);
+    else return minValue(array,left + 1, right - 1, diff + array[left] - array[right]);
+  }
 
   /**
    * 319.
