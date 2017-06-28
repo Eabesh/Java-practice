@@ -689,7 +689,6 @@ public class ArrayExamples {
     int[] right = new int[array.length];
     right[array.length - 1] = array[array.length - 1];
     for (int i = array.length - 2; i >= 0 ; i--) right[i] = Math.max(right[i+1], array[i]);
-
     int water = 0;
     for(int i = 0; i < array.length; i++) water += Math.min(left[i], right[i]) - array[i];
     return water;
