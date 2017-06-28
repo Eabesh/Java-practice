@@ -867,7 +867,10 @@ public class ArrayExamples {
   /**
    * 103.
    * Problem: Find lost element from a duplicated array.
-   * Solution:
+   * Given two arrays which are duplicates of each other except one element, that is one element
+   * from one of the array is missing, we need to find that missing element.
+   * Solution: If elements are sorted, use modified binary search starting with bigger array.
+   * Otherwise, use XOR operator.
    */
 
   /**
@@ -2708,15 +2711,6 @@ public class ArrayExamples {
    * More generally, we can say that for a sequence of size n, we can have (2n-1) non-empty sub-sequences in total.
    * Every subarray is a subsequence. More specifically, Subsequence is a generalization of substring.
    * Subsequences are in fact subsets except for empty set.
-   */
-
-  /**
-   * 154.
-   * Problem: Find lost element from a duplicated array.
-   * Given two arrays which are duplicates of each other except one element, that is one element
-   * from one of the array is missing, we need to find that missing element.
-   * Solution: If elements are sorted, use modified binary search starting with bigger array.
-   * Otherwise, use XOR operator.
    */
 
   /**
