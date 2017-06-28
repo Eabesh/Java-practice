@@ -281,7 +281,9 @@ public class ArrayExamples {
   /**
    * 23.
    * Problem: Find duplicates in O(n) time and O(1) extra space | Set 1.
-   * Solution:
+   * Given an array of n elements which contains elements from 0 to n-1, with any of these numbers appearing any
+   * number of times. Find these repeating numbers in O(n) and using only constant memory space.
+   * Solution: Use the array itself as a hash map and mark the index corresponding to the element as negative.
    */
 
   /**
@@ -2526,14 +2528,6 @@ public class ArrayExamples {
    */
 
   /**
-   * 33.
-   * Problem: Find duplicates in O(n) time and O(1) extra space.
-   * Given an array of n elements which contains elements from 0 to n-1, with any of these numbers appearing any
-   * number of times. Find these repeating numbers in O(n) and using only constant memory space.
-   * Solution: Use the array itself as a hash map and mark the index corresponding to the element as negative.
-   */
-
-  /**
    * 41.
    * Problem: Given an array arr[], find the maximum j – i such that arr[j] > arr[i].
    * Solution : Create LeftMin and RightMax
@@ -2557,10 +2551,6 @@ public class ArrayExamples {
     }
     return maxDiff;
   }
-
-  /**
-   * 55. Find sub array with given sum
-   */
 
   /**
    * 150.
