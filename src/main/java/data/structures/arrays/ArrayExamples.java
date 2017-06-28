@@ -778,7 +778,7 @@ public class ArrayExamples {
   /**
    * 104.
    * Problem: Count pairs with given sum.
-   * Solution:
+   * Solution: Use hash set. Result will be count/2.
    */
 
   /**
@@ -2796,12 +2796,6 @@ public class ArrayExamples {
    * from one of the array is missing, we need to find that missing element.
    * Solution: If elements are sorted, use modified binary search starting with bigger array.
    * Otherwise, use XOR operator.
-   */
-
-  /**
-   * 155.
-   * Problem: Count pairs with given sum.
-   * Solution: Use hash set. Result will be count/2.
    */
 
   /**
