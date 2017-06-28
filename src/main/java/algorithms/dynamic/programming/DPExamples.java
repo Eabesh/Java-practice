@@ -1449,17 +1449,33 @@ public class DPExamples {
    * Output : 39
    * Solution:
    */
-
-
-  void printStringFormed(int n, String soFar, String a, String b , String c) {
-    if (n == 0) System.out.print(soFar + " ");
+  int countStringFormed(int n, String soFar, String[] choices, int[] remaining) {
+    if (n == 0) return 1;
     else {
-      printStringFormed(n - 1, soFar + a, a, b, c);
-      if (!b.isEmpty()) printStringFormed(n - 1, soFar + b.charAt(0), a, b.substring(1), c);
-      if (!c.isEmpty()) printStringFormed(n - 1, soFar + c.charAt(0), a, b, c.substring(1));
+      int count = 0;
+      for (int i = 0; i < choices.length; i++) {
+        if (remaining[i] > 0) {
+          remaining[i]--;
+          count +=countStringFormed(n - 1, soFar + choices[i].charAt(0), choices, remaining);
+          remaining[i]++;
+        }
+      }
+      return count;
     }
   }
 
+  void printStringFormed(int n, String soFar, String[] choices, int[] remaining) {
+    if (n == 0) System.out.print(soFar + " ");
+    else {
+      for (int i = 0; i < choices.length; i++) {
+        if (remaining[i] > 0) {
+          remaining[i]--;
+          printStringFormed(n - 1, soFar + choices[i].charAt(0), choices, remaining);
+          remaining[i]++;
+        }
+      }
+    }
+  }
   /**
    * 176.
    * Problem: Modify array to maximize sum of adjacent differences.

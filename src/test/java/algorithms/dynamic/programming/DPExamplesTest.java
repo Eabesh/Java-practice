@@ -9,8 +9,17 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void countStringFormed() throws Exception {
+    String[] choices = {"a", "b" ,"c"};
+    int[] remaining = {Integer.MAX_VALUE, 1, 2};
+    assertEquals(19 , new DPExamples().countStringFormed(3, "", choices, remaining));
+  }
+
+  @Test
   public void printStringsFormed() throws Exception {
-    new DPExamples().printStringFormed(3, "", "a", "b" ,"cc");
+    String[] choices = {"a", "b" ,"c", "d"};
+    int[] remaining = {Integer.MAX_VALUE, 1, 2, 3};
+    new DPExamples().printStringFormed(3, "", choices, remaining);
   }
 
   @Test
