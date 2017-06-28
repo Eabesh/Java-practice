@@ -287,7 +287,10 @@ public class ArrayExamples {
   /**
    * 24.
    * Problem: Equilibrium index of an array.
-   * Solution:
+   * Equilibrium index of an array is an index such that the sum of elements at lower indexes is equal to the sum
+   * of elements at higher indexes.
+   * Solution: Initialize left sum as 0 and right sum as sum of all elements. Scan from left to right and keep
+   * updating sums till they are equal.
    */
 
   /**
@@ -368,8 +371,43 @@ public class ArrayExamples {
   /**
    * 37.
    * Problem: Find a sorted subsequence of size 3 in linear time.
+   * Given an array of n integers, find the 3 elements such that a[i] < a[j] < a[k] and i < j < k in 0(n) time.
+   * If there are multiple such triplets, then print any one of them.
    * Solution:
+   * 1) Create an auxiliary array smaller[0..n-1]. smaller[i] should store the index of a number which is smaller
+   * than arr[i] and is on left side of arr[i]. smaller[i] should contain -1 if there is no such element.
+   * 2) Create another auxiliary array greater[0..n-1]. greater[i] should store the index of a number which is
+   * greater than arr[i] and is on right side of arr[i]. greater[i] should contain -1 if there is no such element.
+   * 3) Finally traverse both smaller[] and greater[] and find the index i for which both smaller[i] and greater[i]
+   * are not -1.
    */
+  int sortedSequence(int[] array) {
+    int[] smaller = new int[array.length];
+    smaller[0] = -1;
+    int min = 0;
+    for (int i = 1; i < array.length; i++) {
+      if (array[i] > array[min])
+        smaller[i] = min;
+      else {
+        min = i;
+        smaller[i] = -1;
+      }
+    }
+    int[] greater = new int[array.length];
+    greater[array.length - 1] = -1;
+    int max = array.length - 1;
+    for (int j = array.length - 2; j <= 0; j--) {
+      if (array[j] < array[max])
+        greater[j] = max;
+      else {
+        max = j;
+        greater[j] = -1;
+      }
+    }
+    for (int i = 0; i < array.length; i++)
+      if (smaller[i] != -1 && greater[i] != -1) return i;
+    return -1;
+  }
 
   /**
    * 38.
@@ -380,8 +418,30 @@ public class ArrayExamples {
   /**
    * 39.
    * Problem: Maximum Product Subarray.
-   * Solution:
+   * Given an array that contains both positive and negative integers, find the product of the maximum product
+   * subarray. Expected Time complexity is O(n) and only O(1) extra space can be used.
+   * Solution: This is similar to maximum subarray. Unlike sum, the sign of number affect the product value.
+   * When iterating the array, each element has two possibilities: positive number or negative number. We need to
+   * track a minimum value, so that when a negative number is given, it can also find the maximum value. We define
+   * two local variables, one tracks the maximum and the other tracks the minimum.
    */
+  int maxProduct(int[] nums) {
+    int[] max = new int[nums.length];
+    int[] min = new int[nums.length];
+    max[0] = min[0] = nums[0];
+    int result = nums[0];
+    for (int i = 1; i < nums.length; i++){
+      if (nums[i] > 0){
+        max[i] = Math.max(nums[i], max[i-1]*nums[i]);
+        min[i] = Math.min(nums[i], min[i-1]*nums[i]);
+      } else {
+        max[i] = Math.max(nums[i], min[i-1]*nums[i]);
+        min[i] = Math.min(nums[i], max[i-1]*nums[i]);
+      }
+      result = Math.max(result, max[i]);
+    }
+    return result;
+  }
 
   /**
    * 40.
@@ -475,7 +535,11 @@ public class ArrayExamples {
   /**
    * 52.
    * Problem: Move all zeroes to end of array.
-   * Solution:
+   * Given an array of random numbers, Push all the zero’s of a given array to the end of the array.
+   * For example, if the given arrays is {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0}, it should be changed to
+   * {1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0}. The order of all other elements should be same. Expected time complexity is
+   * O(n) and extra space is O(1).
+   * Solution: Scan from left to right and keep track of last non zero index i, insert next non zero element at i + 1.
    */
 
   /**
@@ -798,7 +862,9 @@ public class ArrayExamples {
   /**
    * 93.
    * Problem: Count triplets with sum smaller than a  given value.
-   * Solution:
+   * Given an array of distinct integers and a sum value. Find count of triplets with sum smaller than given sum value.
+   * Expected Time Complexity is O(n^2).
+   * Solution: Sort and then use duplet algo.
    */
 
   /**
@@ -2448,22 +2514,6 @@ public class ArrayExamples {
     else return maxSum;
   }
 
- /**
-   * 10.
-   * Problem: Median of two sorted arrays.
-   * Solution: Either merge two arrays which will take O(m + n) or use divide and conquer by getting
-   * medians of each array and comparing till they are equal. O(logn).
-   */
-
-  /**
-   * 18.
-   * Problem: Count Inversions in an array.
-   * Inversion Count for an array indicates – how far (or close) the array is from being sorted. If array is already
-   * sorted then inversion count is 0. If array is sorted in reverse order that inversion count is the maximum.
-   * Formally speaking, two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j.
-   * Solution: Use BST. Count of left children gives number of inversions of that element.
-   */
-
   /**
    * 30.
    * Problem: Find the two repeating elements in a given array.
@@ -2481,15 +2531,6 @@ public class ArrayExamples {
    * Given an array of n elements which contains elements from 0 to n-1, with any of these numbers appearing any
    * number of times. Find these repeating numbers in O(n) and using only constant memory space.
    * Solution: Use the array itself as a hash map and mark the index corresponding to the element as negative.
-   */
-
-  /**
-   * 34.
-   * Problem: Equilibrium index of an array.
-   * Equilibrium index of an array is an index such that the sum of elements at lower indexes is equal to the sum
-   * of elements at higher indexes.
-   * Solution: Initialize left sum as 0 and right sum as sum of all elements. Scan from left to right and keep
-   * updating sums till they are equal.
    */
 
   /**
@@ -2519,156 +2560,6 @@ public class ArrayExamples {
 
   /**
    * 55. Find sub array with given sum
-   */
-
-  /**
-   * 63.
-   * Problem: Find a sorted subsequence of size 3 in linear time.
-   * Given an array of n integers, find the 3 elements such that a[i] < a[j] < a[k] and i < j < k in 0(n) time.
-   * If there are multiple such triplets, then print any one of them.
-   * Solution:
-   * 1) Create an auxiliary array smaller[0..n-1]. smaller[i] should store the index of a number which is smaller
-   * than arr[i] and is on left side of arr[i]. smaller[i] should contain -1 if there is no such element.
-   * 2) Create another auxiliary array greater[0..n-1]. greater[i] should store the index of a number which is
-   * greater than arr[i] and is on right side of arr[i]. greater[i] should contain -1 if there is no such element.
-   * 3) Finally traverse both smaller[] and greater[] and find the index i for which both smaller[i] and greater[i]
-   * are not -1.
-   */
-  int sortedSequence(int[] array) {
-    int[] smaller = new int[array.length];
-    smaller[0] = -1;
-    int min = 0;
-    for (int i = 1; i < array.length; i++) {
-      if (array[i] > array[min])
-        smaller[i] = min;
-      else {
-        min = i;
-        smaller[i] = -1;
-      }
-    }
-    int[] greater = new int[array.length];
-    greater[array.length - 1] = -1;
-    int max = array.length - 1;
-    for (int j = array.length - 2; j <= 0; j--) {
-      if (array[j] < array[max])
-        greater[j] = max;
-      else {
-        max = j;
-        greater[j] = -1;
-      }
-    }
-    for (int i = 0; i < array.length; i++)
-      if (smaller[i] != -1 && greater[i] != -1) return i;
-    return -1;
-  }
-
-  /**
-   * 65.
-   * Problem: Partition problem.
-   * Partition problem is to determine whether a given set can be partitioned into two subsets such that the sum of
-   * elements in both subsets is same.
-   * Solution:
-   * Method 1: Recursive solution with Time Complexity as O(2^n).
-   * Method 2: Dynamic Programming Solution.
-   * The problem can be solved using dynamic programming when the sum of the elements is not too big. We can
-   * create a 2D array part[][] of size (sum/2)*(n+1). And we can construct the solution in bottom up manner such
-   * that every filled entry has following property:
-   *         part[i][j] = true if a subset of {arr[0], arr[1], ..arr[j-1]} has sum
-   *         equal to i, otherwise false
-   */
-  boolean findPartition(int[] array) {
-    int sum = Arrays.stream(array).sum();
-    if (isOdd(sum)) return false;
-    else {
-      boolean[][] partition = new boolean[sum / 2 + 1][array.length + 1];
-      for (int i = 0; i <= array.length; i++) partition[0][i] = true;
-      for (int i = 1; i <= sum / 2; i++) partition[i][0] = false;
-      for (int i = 1; i <= sum / 2; i++) {
-        for (int j = 1; j <= array.length; j++) {
-          partition[i][j] = partition[i][j-1];
-          if (i >= array[j-1])
-            partition[i][j] = partition[i][j] || partition[i-array[j-1]][j-1];
-        }
-      }
-      return partition[sum/2][array.length];
-    }
-  }
-
-  private boolean isOdd(int n) { return n % 2 != 0;}
-
-  /**
-   * 66.
-   * Problem: Maximum Product Subarray.
-   * Given an array that contains both positive and negative integers, find the product of the maximum product
-   * subarray. Expected Time complexity is O(n) and only O(1) extra space can be used.
-   * Solution: This is similar to maximum subarray. Unlike sum, the sign of number affect the product value.
-   * When iterating the array, each element has two possibilities: positive number or negative number. We need to
-   * track a minimum value, so that when a negative number is given, it can also find the maximum value. We define
-   * two local variables, one tracks the maximum and the other tracks the minimum.
-   */
-  int maxProduct(int[] nums) {
-    int[] max = new int[nums.length];
-    int[] min = new int[nums.length];
-    max[0] = min[0] = nums[0];
-    int result = nums[0];
-    for (int i = 1; i < nums.length; i++){
-      if (nums[i] > 0){
-        max[i] = Math.max(nums[i], max[i-1]*nums[i]);
-        min[i] = Math.min(nums[i], min[i-1]*nums[i]);
-      } else {
-        max[i] = Math.max(nums[i], min[i-1]*nums[i]);
-        min[i] = Math.min(nums[i], max[i-1]*nums[i]);
-      }
-      result = Math.max(result, max[i]);
-    }
-    return result;
-  }
-
-  /**
-   * 102.
-   * Problem: Move all zeroes to end of array.
-   * Given an array of random numbers, Push all the zero’s of a given array to the end of the array.
-   * For example, if the given arrays is {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0}, it should be changed to
-   * {1, 9, 8, 4, 2, 7, 6, 0, 0, 0, 0}. The order of all other elements should be same. Expected time complexity is
-   * O(n) and extra space is O(1).
-   *
-   * Solution: Scan from left to right and keep track of last non zero index i, insert next non zero element at i+1.
-   */
-
-  /**
-   * 123.
-   * Problem: Find position of an element in a sorted array of infinite numbers.
-   * Solution: Use modified binary search.
-   * Let low be pointing to 1st element and high pointing to 2nd element of array. Now compare key with high
-   * index element:
-   * ->if it is greater than high index element then copy high index in low index and double the high index.
-   * ->if it is smaller, then apply binary search on high and low indices found.
-   */
-
-  /**
-   * 125.
-   * Problem: Check if a given array contains duplicate elements within k distance from each other.
-   * Given an unsorted array that may contain duplicates. Also given a number k which is smaller than size of array.
-   */
-  void checkDuplicatesKDistance(int[] arr, int k) {
-    HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-    for (int i = 0; i < k; i++) {
-      if (map.containsValue(arr[i])) System.out.print(arr[i] + " ");
-      map.put(i, arr[i]);
-    }
-    for (int windowR = k; windowR < arr.length; windowR++) {
-      map.remove(arr[windowR - k]);
-      if(map.containsValue(arr[windowR])) System.out.print(arr[windowR] + " ");
-      map.put(windowR, arr[windowR]);
-    }
-  }
-
-  /**
-   * 144.
-   * Problem: Count triplets with sum smaller than a given value.
-   * Given an array of distinct integers and a sum value. Find count of triplets with sum smaller than given sum value.
-   * Expected Time Complexity is O(n^2).
-   * Solution: Sort and then use duplet algo.
    */
 
   /**

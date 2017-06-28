@@ -355,8 +355,36 @@ public class DPExamples {
   /**
    * 24.
    * Problem: Dynamic Programming | Set 18 (Partition problem)
+   * Partition problem is to determine whether a given set can be partitioned into two subsets such that the sum of
+   * elements in both subsets is same.
    * Solution:
+   * Method 1: Recursive solution with Time Complexity as O(2^n).
+   * Method 2: Dynamic Programming Solution.
+   * The problem can be solved using dynamic programming when the sum of the elements is not too big. We can
+   * create a 2D array part[][] of size (sum/2)*(n+1). And we can construct the solution in bottom up manner such
+   * that every filled entry has following property:
+   *         part[i][j] = true if a subset of {arr[0], arr[1], ..arr[j-1]} has sum
+   *         equal to i, otherwise false
    */
+  boolean findPartition(int[] array) {
+    int sum = Arrays.stream(array).sum();
+    if (isOdd(sum)) return false;
+    else {
+      boolean[][] partition = new boolean[sum / 2 + 1][array.length + 1];
+      for (int i = 0; i <= array.length; i++) partition[0][i] = true;
+      for (int i = 1; i <= sum / 2; i++) partition[i][0] = false;
+      for (int i = 1; i <= sum / 2; i++) {
+        for (int j = 1; j <= array.length; j++) {
+          partition[i][j] = partition[i][j-1];
+          if (i >= array[j-1])
+            partition[i][j] = partition[i][j] || partition[i-array[j-1]][j-1];
+        }
+      }
+      return partition[sum/2][array.length];
+    }
+  }
+
+  private boolean isOdd(int n) { return n % 2 != 0;}
 
   /**
    * 25.

@@ -1,5 +1,7 @@
 package data.structures.hashing;
 
+import java.util.HashMap;
+
 public class HashingExamples {
 
   /**
@@ -83,8 +85,20 @@ public class HashingExamples {
   /**
    * 14.
    * Problem: Check if a given array contains duplicate elements within k distance from each other.
-   * Solution:
+   * Given an unsorted array that may contain duplicates. Also given a number k which is smaller than size of array.
    */
+  void checkDuplicatesKDistance(int[] arr, int k) {
+    HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+    for (int i = 0; i < k; i++) {
+      if (map.containsValue(arr[i])) System.out.print(arr[i] + " ");
+      map.put(i, arr[i]);
+    }
+    for (int windowR = k; windowR < arr.length; windowR++) {
+      map.remove(arr[windowR - k]);
+      if(map.containsValue(arr[windowR])) System.out.print(arr[windowR] + " ");
+      map.put(windowR, arr[windowR]);
+    }
+  }
 
   /**
    * 15.
