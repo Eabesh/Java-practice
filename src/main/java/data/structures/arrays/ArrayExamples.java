@@ -813,7 +813,10 @@ public class ArrayExamples {
   /**
    * 97.
    * Problem: Merge two sorted arrays with O(1) extra space.
-   * Solution:
+   * We are given two sorted array. We need to merge these two arrays such that the initial numbers
+   * (after complete sorting) are in the first array and the remaining numbers are in the second array.
+   * Extra space allowed in O(1).
+   * Solution: Assume two arrays to be continous single array and use insertion sort logic.
    */
 
   /**
@@ -2692,15 +2695,6 @@ public class ArrayExamples {
    * Given an array of distinct integers and a sum value. Find count of triplets with sum smaller than given sum value.
    * Expected Time Complexity is O(n^2).
    * Solution: Sort and then use duplet algo.
-   */
-
-  /**
-   * 148.
-   * Problem: Merge two sorted arrays with O(1) extra space.
-   * We are given two sorted array. We need to merge these two arrays such that the initial numbers
-   * (after complete sorting) are in the first array and the remaining numbers are in the second array.
-   * Extra space allowed in O(1).
-   * Solution: Assume two arrays to be continous single array and use insertion sort logic.
    */
 
   /**
