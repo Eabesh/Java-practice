@@ -630,7 +630,13 @@ public class ArrayExamples {
   /**
    * 76.
    * Problem: Pythagorean Triplet in an array.
+   * Given an array of integers, write a function that returns true if there is a triplet (a, b, c) that satisfies
+   * a2 + b2 = c2.
    * Solution:
+   * 1) Do square of every element in input array. This step takes O(n) time.
+   * 2) Sort the squared array in increasing order. This step takes O(nLogn) time.
+   * 3) To find a triplet (a, b, c) such that a = b + c, fix a as last element and search b and c in between first
+   *    element and a. We can use left and right pointers for this.
    */
 
   /**
@@ -2656,18 +2662,6 @@ public class ArrayExamples {
 
   /**
    * 129. Online algorithm for checking palindrome in a stream
-   */
-
-  /**
-   * 132.
-   * Problem: Pythagorean Triplet in an array.
-   * Given an array of integers, write a function that returns true if there is a triplet (a, b, c) that satisfies
-   * a2 + b2 = c2.
-   * Solution:
-   * 1) Do square of every element in input array. This step takes O(n) time.
-   * 2) Sort the squared array in increasing order. This step takes O(nLogn) time.
-   * 3) To find a triplet (a, b, c) such that a = b + c, fix a as last element and search b and c in between first
-   *    element and a. We can use left and right pointers for this.
    */
 
   /**
