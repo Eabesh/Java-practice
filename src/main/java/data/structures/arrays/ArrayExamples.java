@@ -693,8 +693,26 @@ public class ArrayExamples {
   /**
    * 87.
    * Problem: Find maximum average subarray of k length.
-   * Solution:
+   * Given an array with positive and negative numbers, find the maximum average subarray of given length.
+   * Example:
+   * Input: arr[] = {1, 12, -5, -6, 50, 3}, k = 4
+   * Output: Maximum average subarray of length 4 begins at index 1.
    */
+  int maxAverage(int[] array, int k) {
+    int currMax = Arrays.stream(array).limit(k).sum();
+    int max = 0; int index = 0;
+    int windowL;
+    int windowR = k - 1;
+    for (windowL = 0; windowL <= array.length - k; windowL++) {
+      currMax -= array[windowL];
+      currMax += array[++windowR];
+      if (currMax > max) {
+        max = currMax;
+        index = windowL;
+      }
+    }
+    return index;
+  }
 
   /**
    * 88.
@@ -2657,39 +2675,11 @@ public class ArrayExamples {
   }
 
   /**
-   * 138.
-   * Problem: Find maximum average subarray of k length
-   * Given an array with positive and negative numbers, find the maximum average subarray of given length.
-   * Example:
-   * Input: arr[] = {1, 12, -5, -6, 50, 3}, k = 4
-   * Output: Maximum average subarray of length 4 begins at index 1.
-   */
-  int maxAverage(int[] array, int k) {
-    int currMax = Arrays.stream(array).limit(k).sum();
-    int max = 0; int index = 0;
-    int windowL;
-    int windowR = k - 1;
-    for (windowL = 0; windowL <= array.length - k; windowL++) {
-      currMax -= array[windowL];
-      currMax += array[++windowR];
-      if (currMax > max) {
-        max = currMax;
-        index = windowL;
-      }
-    }
-    return index;
-  }
-
-  /**
    * 139.
    * Problem: Convert array into Zig-Zag fashion.
    * Given an array of distinct elements, rearrange the elements of array in zig-zag fashion in O(n) time.
    * The converted array should be in form a < b > c < d > e < f.
    * Solution: Scan left to right and swap at odd and even places according to condition given above.
-   */
-
-  /**
-   * 143. Find minimum average subarray of k length.
    */
 
   /**
@@ -2701,20 +2691,12 @@ public class ArrayExamples {
    */
 
   /**
-   * 147. Longest Span with same Sum in two Binary arrays.
-   */
-
-  /**
    * 148.
    * Problem: Merge two sorted arrays with O(1) extra space.
    * We are given two sorted array. We need to merge these two arrays such that the initial numbers
    * (after complete sorting) are in the first array and the remaining numbers are in the second array.
    * Extra space allowed in O(1).
    * Solution: Assume two arrays to be continous single array and use insertion sort logic.
-   */
-
-  /**
-   * 149. Form minimum number from given sequence.
    */
 
   /**
