@@ -723,8 +723,24 @@ public class ArrayExamples {
   /**
    * 92.
    * Problem: Find zeroes to be flipped so that number of consecutive 1's is maximized.
-   * Solution:
+   * Given a binary array and an integer k, find the position of zeroes flipping which creates maximum
+   * number of consecutive 1s in array.
    */
+  int maxLength(int[] array, int k) {
+    int windowR = 0, windowL = 0, maxLength = 0, zeroesFlipped = 0;
+    while (windowR < array.length) {
+      if ((zeroesFlipped < k || array[windowR] == 1) && windowR < array.length) {
+        if (array[windowR] == 0) zeroesFlipped++;
+        windowR++;
+      }
+      else {
+        maxLength = Math.max(maxLength, windowR - windowL);
+        if (windowL < array.length && array[windowL] == 0) zeroesFlipped--;
+        windowL++;
+      }
+    }
+    return maxLength;
+  }
 
   /**
    * 93.
@@ -2683,28 +2699,6 @@ public class ArrayExamples {
    * The converted array should be in form a < b > c < d > e < f.
    * Solution: Scan left to right and swap at odd and even places according to condition given above.
    */
-
-  /**
-   * 141.
-   * Problem: Given a binary array and an integer k, find the position of zeroes flipping which creates maximum
-   * number of consecutive 1s in array.
-   */
-
-  int maxLength(int[] array, int k) {
-    int windowR = 0, windowL = 0, maxLength = 0, zeroesFlipped = 0;
-    while (windowR < array.length) {
-      if ((zeroesFlipped < k || array[windowR] == 1) && windowR < array.length) {
-        if (array[windowR] == 0) zeroesFlipped++;
-        windowR++;
-      }
-      else {
-        maxLength = Math.max(maxLength, windowR - windowL);
-        if (windowL < array.length && array[windowL] == 0) zeroesFlipped--;
-        windowL++;
-      }
-    }
-    return maxLength;
-  }
 
   /**
    * 143. Find minimum average subarray of k length.
