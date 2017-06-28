@@ -808,8 +808,21 @@ public class ArrayExamples {
   /**
    * 100.
    * Problem: Count Strictly Increasing Subarrays.
-   * Solution:
+   * Given an array of integers, count number of subarrays (of size more than one) that are strictly increasing.
    */
+  int countSIS(int[] arr) {
+    int count = 0;
+    int sortedLen = 1;
+    for (int i = 0; i < arr.length - 1; i++) {
+      if (arr[i] < arr[i + 1]) sortedLen++;
+      else {
+        count += (sortedLen - 1) * sortedLen/2;
+        sortedLen = 1;
+      }
+    }
+    if (sortedLen > 1) count += (sortedLen - 1) * sortedLen/2;
+    return count;
+  }
 
   /**
    * 101.
@@ -2693,25 +2706,6 @@ public class ArrayExamples {
    * Every subarray is a subsequence. More specifically, Subsequence is a generalization of substring.
    * Subsequences are in fact subsets except for empty set.
    */
-
-  /**
-   * 151.
-   * Problem: Count Strictly Increasing Subarrays.
-   * Given an array of integers, count number of subarrays (of size more than one) that are strictly increasing.
-   */
-  int countSIS(int[] arr) {
-    int count = 0;
-    int sortedLen = 1;
-    for (int i = 0; i < arr.length - 1; i++) {
-      if (arr[i] < arr[i + 1]) sortedLen++;
-      else {
-        count += (sortedLen - 1) * sortedLen/2;
-        sortedLen = 1;
-      }
-    }
-    if (sortedLen > 1) count += (sortedLen - 1) * sortedLen/2;
-    return count;
-  }
 
   /**
    * 154.
