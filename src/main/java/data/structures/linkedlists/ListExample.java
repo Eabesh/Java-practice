@@ -1323,8 +1323,6 @@ class ListExample {
    * Problem: Linked List representation of Disjoint Set Data Structures.
    * Solution:
    */
-
-
   ListNode reverseKNodes(ListNode head, int k, int length) {
     ListNode newHead = head;
     if (head != null && head.next != null && length > k) {
