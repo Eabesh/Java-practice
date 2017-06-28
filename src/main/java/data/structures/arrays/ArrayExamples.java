@@ -316,8 +316,27 @@ public class ArrayExamples {
   /**
    * 28.
    * Problem: Given an array arr[], find the maximum j - i such that arr[j] > arr[i].
-   * Solution:
+   * Solution : Create LeftMin and RightMax
+   * Compare both array at each index and update maxDiff.
+   * 34 1 2 10
    */
+  int maxDiffArray(int[] arr) {
+    int maxDiff = -1, x = 0, y = 0;
+    int[] leftMin = new int[arr.length];
+    int[] rightMax = new int[arr.length];
+    leftMin[0] = arr[0];
+    for (int i = 1; i < arr.length; i++) leftMin[i] = Math.min(leftMin[i - 1], arr[i]);
+    rightMax[arr.length - 1] = arr[arr.length - 1];
+    for (int i = arr.length - 2; i >=0; i--) rightMax[i] = Math.max(rightMax[i + 1], arr[i]);
+    while (x < arr.length && y < arr.length) {
+      if (arr[x] < arr[y]) {
+        maxDiff = Math.max(maxDiff, y - x);
+        y++;
+      }
+      else x++;
+    }
+    return maxDiff;
+  }
 
   /**
    * 29.
@@ -2526,31 +2545,6 @@ public class ArrayExamples {
    * different bits between X and Y. Suppose that the kth bit of X xor Y is 1, we can xor all the elements in the
    * array and all integers from 1 to n, whose kth bits are 1. The result will be one of X and Y.
    */
-
-  /**
-   * 41.
-   * Problem: Given an array arr[], find the maximum j – i such that arr[j] > arr[i].
-   * Solution : Create LeftMin and RightMax
-   * Compare both array at each index and update maxDiff.
-   * 34 1 2 10
-   */
-  int maxDiffArray(int[] arr) {
-    int maxDiff = -1, x = 0, y = 0;
-    int[] leftMin = new int[arr.length];
-    int[] rightMax = new int[arr.length];
-    leftMin[0] = arr[0];
-    for (int i = 1; i < arr.length; i++) leftMin[i] = Math.min(leftMin[i - 1], arr[i]);
-    rightMax[arr.length - 1] = arr[arr.length - 1];
-    for (int i = arr.length - 2; i >=0; i--) rightMax[i] = Math.max(rightMax[i + 1], arr[i]);
-    while (x < arr.length && y < arr.length) {
-      if (arr[x] < arr[y]) {
-        maxDiff = Math.max(maxDiff, y - x);
-        y++;
-      }
-      else x++;
-    }
-    return maxDiff;
-  }
 
   /**
    * 150.
