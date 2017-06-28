@@ -798,7 +798,9 @@ public class ArrayExamples {
   /**
    * 93.
    * Problem: Count triplets with sum smaller than a  given value.
-   * Solution:
+   * Given an array of distinct integers and a sum value. Find count of triplets with sum smaller than given sum value.
+   * Expected Time Complexity is O(n^2).
+   * Solution: Sort and then use duplet algo.
    */
 
   /**
@@ -2662,14 +2664,6 @@ public class ArrayExamples {
       map.put(windowR, arr[windowR]);
     }
   }
-
-  /**
-   * 144.
-   * Problem: Count triplets with sum smaller than a given value.
-   * Given an array of distinct integers and a sum value. Find count of triplets with sum smaller than given sum value.
-   * Expected Time Complexity is O(n^2).
-   * Solution: Sort and then use duplet algo.
-   */
 
   /**
    * 150.
