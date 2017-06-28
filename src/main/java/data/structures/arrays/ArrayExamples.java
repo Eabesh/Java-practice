@@ -683,15 +683,25 @@ public class ArrayExamples {
    * For example, given [0,1,0,2,1,0,1,3,2,1,2,1], return 6.
    */
   int rainWater(int[] array) {
-    int[] left = new int[array.length];
-    left[0] = array[0];
-    for (int i = 1; i < array.length; i++) left[i] = Math.max(left[i-1], array[i]);
-    int[] right = new int[array.length];
-    right[array.length - 1] = array[array.length - 1];
-    for (int i = array.length - 2; i >= 0 ; i--) right[i] = Math.max(right[i+1], array[i]);
+    int[] left = fillLeftArray(array);
+    int[] right = fillRightArray(array);
     int water = 0;
     for(int i = 0; i < array.length; i++) water += Math.min(left[i], right[i]) - array[i];
     return water;
+  }
+
+  private int[] fillLeftArray(int[] array) {
+    int[] left = new int[array.length];
+    left[0] = array[0];
+    for (int i = 1; i < array.length; i++) left[i] = Math.max(left[i-1], array[i]);
+    return left;
+  }
+
+  private int[] fillRightArray(int[] array) {
+    int[] right = new int[array.length];
+    right[array.length - 1] = array[array.length - 1];
+    for (int i = array.length - 2; i >= 0 ; i--) right[i] = Math.max(right[i+1], array[i]);
+    return right;
   }
 
   /**
