@@ -2661,10 +2661,6 @@ public class ArrayExamples {
   }
 
   /**
-   * 129. Online algorithm for checking palindrome in a stream
-   */
-
-  /**
    * 139.
    * Problem: Convert array into Zig-Zag fashion.
    * Given an array of distinct elements, rearrange the elements of array in zig-zag fashion in O(n) time.
