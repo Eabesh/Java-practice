@@ -766,7 +766,9 @@ public class ArrayExamples {
   /**
    * 102.
    * Problem: Find minimum difference between any two elements.
-   * Solution:
+   * Given an unsorted array, find the minimum difference between any pair in given array.
+   * Solution: Sort and then compare adjacent elements.
+   * Time Complexity: O(n.log(n))
    */
 
   /**
@@ -2779,14 +2781,6 @@ public class ArrayExamples {
    * Else j = 2*(n-1-i);
    * The idea is to use the fact that numbers are positive. One by one place numbers at their correct positions
    * and mark them negative.
-   */
-
-  /**
-   * 153.
-   * Problem: Find minimum difference between any two elements.
-   * Given an unsorted array, find the minimum difference between any pair in given array.
-   * Solution: Sort and then compare adjacent elements.
-   * Time Complexity: O(n.log(n))
    */
 
   /**
