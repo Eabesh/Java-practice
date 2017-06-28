@@ -2376,21 +2376,6 @@ public class ArrayExamples {
     else return maxSum;
   }
 
-  /**
-   * 7.
-   * Problem: Find the Missing Number.
-   * You are given a list of n-1 integers and these integers are in the range of 1 to n. There are no duplicates
-   * in list. One of the integers is missing in the list.
-   * Write an efficient code to find the missing integer.
-   * Solution: Use sum formulae or XOR operator.
-   */
-  int findMissingNumber(int[] list, int n) {
-    int x1 = Arrays.stream(list).reduce(0, (a, b) -> a ^ b);
-    int x2 = 0;
-    for (int i = 1; i <= n; i++) x2 ^= i;
-    return x1 ^ x2;
-  }
-
  /**
    * 10.
    * Problem: Median of two sorted arrays.

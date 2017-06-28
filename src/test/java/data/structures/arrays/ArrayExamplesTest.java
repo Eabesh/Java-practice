@@ -79,14 +79,6 @@ public class ArrayExamplesTest {
   }
 
   @Test
-  public void findMissingNumber() throws Exception {
-    int[] list = {1,2,3,5};
-    assertEquals(4, new ArrayExamples().findMissingNumber(list, 5));
-    int[] list2 = {1,2,3,5,6};
-    assertEquals(4, new ArrayExamples().findMissingNumber(list2, 6));
-  }
-
-  @Test
   public void binarySearchRotated() throws Exception {
     int[] array = {5,6,1,2,3,4};
     assertEquals(0, new ArrayExamples().binarySearchRotated(array,5, 0, array.length - 1));
