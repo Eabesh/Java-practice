@@ -591,7 +591,7 @@ public class ArrayExamples {
 
   /**
    * 73.
-   * Problem: Rearrange an array such that &#8216;arr[j]' becomes &#8216;i' if  &#8216;arr[i]' is &#8216;j'.
+   * Problem: Rearrange an array such that 'arr[j]' becomes 'i' if  'arr[i]' is 'j'.
    * Solution:
    */
 
@@ -1633,7 +1633,7 @@ public class ArrayExamples {
 
   /**
    * 234.
-   * Problem: Count all Quadruples from four arrays such that their XOR equals to &#8216;x'.
+   * Problem: Count all Quadruples from four arrays such that their XOR equals to 'x'.
    * Solution:
    */
 
