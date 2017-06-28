@@ -1584,7 +1584,7 @@ public class DPExamples {
    * An efficient approach uses the concept of finding the length of the longest increasing subsequence of a given sequence.
    */
     int minDeletionToMakeSorted(int[] array) {
-      return array.length - findLISBottomUp(array);;
+      return array.length - findLISBottomUp(array);
     }
 
 
