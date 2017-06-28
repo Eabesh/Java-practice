@@ -401,8 +401,25 @@ public class ArrayExamples {
   /**
    * 43.
    * Problem: Maximum circular subarray sum.
-   * Solution:
+   * Given n numbers (both +ve and -ve), arranged in a circle, fnd the maximum sum of consecutive number.
+   * Solution: Wrapping of contributing elements implies non wrapping of non contributing elements, so find out the
+   * sum of non contributing elements and subtract this sum from the total sum. To find out the sum of non
+   * contributing, invert sign of each element and then run Kadane’s algorithm.
+   * Two cases
+   * 1. Simple contigious subaraay sum.
+   * 2. contigious sum with ring. (remove chains of negative numbers : total sum - (-invert number and find sum)
+   * return Marx(1, 2)
    */
+  int maxSumCircularSubarray(int[] arr) {
+    int totalSum = 0, withoutCircleSum = 0, circularSum = 0;
+    withoutCircleSum = new DPExamples().maxContinousSubArray(arr);
+    for (int i = 0; i < arr.length; i++) {
+      totalSum += arr[i];
+      arr[i] = - arr[i];
+    }
+    circularSum = totalSum + new DPExamples().maxContinousSubArray(arr);
+    return Math.max(withoutCircleSum, circularSum);
+  }
 
   /**
    * 44.
@@ -2547,29 +2564,6 @@ public class ArrayExamples {
       result = Math.max(result, max[i]);
     }
     return result;
-  }
-
-  /**
-   * 73.
-   * Problem: Maximum circular subarray sum
-   * Given n numbers (both +ve and -ve), arranged in a circle, fnd the maximum sum of consecutive number.
-   * Solution: Wrapping of contributing elements implies non wrapping of non contributing elements, so find out the
-   * sum of non contributing elements and subtract this sum from the total sum. To find out the sum of non
-   * contributing, invert sign of each element and then run Kadane’s algorithm.
-   * Two cases
-   * 1. Simple contigious subaraay sum.
-   * 2. contigious sum with ring. (remove chains of negative numbers : total sum - (-invert number and find sum)
-   * return Marx(1, 2)
-   */
-  int maxSumCircularSubarray(int[] arr) {
-    int totalSum = 0, withoutCircleSum = 0, circularSum = 0;
-    withoutCircleSum = new DPExamples().maxContinousSubArray(arr);
-    for (int i = 0; i < arr.length; i++) {
-      totalSum += arr[i];
-      arr[i] = - arr[i];
-    }
-    circularSum = totalSum + new DPExamples().maxContinousSubArray(arr);
-    return Math.max(withoutCircleSum, circularSum);
   }
 
   /**
