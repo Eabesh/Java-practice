@@ -310,7 +310,7 @@ public class ArrayExamples {
 
   /**
    * 28.
-   * Problem: Given an array arr[], find the maximum j &#8211; i such that arr[j] > arr[i].
+   * Problem: Given an array arr[], find the maximum j - i such that arr[j] > arr[i].
    * Solution:
    */
 
@@ -603,7 +603,7 @@ public class ArrayExamples {
 
   /**
    * 75.
-   * Problem: Print missing elements that lie in range 0 &#8211; 99.
+   * Problem: Print missing elements that lie in range 0 - 99.
    * Solution:
    */
 
@@ -999,7 +999,7 @@ public class ArrayExamples {
 
   /**
    * 135.
-   * Problem: Maximize value of (arr[i] &#8211; i) &#8211; (arr[j] &#8211; j) in an array.
+   * Problem: Maximize value of (arr[i] - i) - (arr[j] - j) in an array.
    * Solution:
    */
 
@@ -1029,7 +1029,7 @@ public class ArrayExamples {
 
   /**
    * 140.
-   * Problem: Find Maximum value of abs(i &#8211; j) * min(arr[i], arr[j]) in an array arr[].
+   * Problem: Find Maximum value of abs(i - j) * min(arr[i], arr[j]) in an array arr[].
    * Solution:
    */
 
@@ -1921,7 +1921,7 @@ public class ArrayExamples {
 
   /**
    * 282.
-   * Problem: Prefix Sum Array &#8211; Implementation and Applications in Competitive Programming.
+   * Problem: Prefix Sum Array - Implementation and Applications in Competitive Programming.
    * Solution:
    */
 
