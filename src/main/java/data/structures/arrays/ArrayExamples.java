@@ -784,7 +784,11 @@ public class ArrayExamples {
   /**
    * 105.
    * Problem: Count minimum steps to get the given desired array.
-   * Solution:
+   * Consider an array with n elements and value of all the elements is zero.
+   * We can perform following operations on the array.
+   * 1. Incremental operations: Choose 1 element from the array and increment its value by 1.
+   * 2. Doubling operation: Double the values of all the elements of array.
+   * Solution: The idea is to follow reverse steps, i.e. to convert target to array of zeros.
    */
 
   /**
@@ -2767,16 +2771,6 @@ public class ArrayExamples {
    * 155.
    * Problem: Count pairs with given sum.
    * Solution: Use hash set. Result will be count/2.
-   */
-
-  /**
-   * 156.
-   * Problem: Count minimum steps to get the given desired array.
-   * Consider an array with n elements and value of all the elements is zero.
-   * We can perform following operations on the array.
-   * 1. Incremental operations:Choose 1 element from the array and increment its value by 1.
-   * 2. Doubling operation: Double the values of all the elements of array.
-   * Solution: The idea is to follow reverse steps, i.e. to convert target to array of zeros.
    */
 
   /**
