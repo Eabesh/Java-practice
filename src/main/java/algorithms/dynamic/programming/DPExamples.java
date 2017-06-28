@@ -1444,6 +1444,9 @@ public class DPExamples {
   /**
    * 176.
    * Problem: Modify array to maximize sum of adjacent differences.
+   * Given an array, we need to modify values of this array in such a way that sum of absolute differences between two
+   * consecutive elements is maximized. If the value of an array element is X, then we can change it to either 1 or X.
+
    * Solution:
    */
 
