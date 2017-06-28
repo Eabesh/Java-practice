@@ -287,7 +287,10 @@ public class ArrayExamples {
   /**
    * 24.
    * Problem: Equilibrium index of an array.
-   * Solution:
+   * Equilibrium index of an array is an index such that the sum of elements at lower indexes is equal to the sum
+   * of elements at higher indexes.
+   * Solution: Initialize left sum as 0 and right sum as sum of all elements. Scan from left to right and keep
+   * updating sums till they are equal.
    */
 
   /**
@@ -2528,15 +2531,6 @@ public class ArrayExamples {
    * Given an array of n elements which contains elements from 0 to n-1, with any of these numbers appearing any
    * number of times. Find these repeating numbers in O(n) and using only constant memory space.
    * Solution: Use the array itself as a hash map and mark the index corresponding to the element as negative.
-   */
-
-  /**
-   * 34.
-   * Problem: Equilibrium index of an array.
-   * Equilibrium index of an array is an index such that the sum of elements at lower indexes is equal to the sum
-   * of elements at higher indexes.
-   * Solution: Initialize left sum as 0 and right sum as sum of all elements. Scan from left to right and keep
-   * updating sums till they are equal.
    */
 
   /**
