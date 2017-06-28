@@ -1449,6 +1449,14 @@ public class DPExamples {
    * Output : 39
    * Solution:
    */
+  void printStringFormed(int n, String soFar, String a, String b , String c) {
+    if (n == 0) System.out.print(soFar + " ");
+    else {
+      printStringFormed(n - 1, soFar + a, a, b, c);
+      if (!b.isEmpty()) printStringFormed(n - 1, soFar + b.charAt(0), a, b.substring(1), c);
+      if (!c.isEmpty()) printStringFormed(n - 1, soFar + c.charAt(0), a, b, c.substring(1));
+    }
+  }
 
   /**
    * 176.

@@ -9,6 +9,11 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void printStringsFormed() throws Exception {
+    new DPExamples().printStringFormed(3, "", "a", "b" ,"cc");
+  }
+
+  @Test
   public void minDeletionToMakeSorted() throws Exception {
     int[] arr = {30, 40, 2, 5, 1, 7, 45, 50, 8};
     assertEquals(4, new DPExamples().minDeletionToMakeSorted(arr));
