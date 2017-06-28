@@ -1455,6 +1455,9 @@ public class DPExamples {
    * Output : 14
    * Solution:
    */
+  int maxSumAdjDiff(int[] arr, int m) {
+  return 0;
+  }
 
   /**
    * 177.
