@@ -22,7 +22,7 @@ public class SearchingExamples {
   /**
    * 2.
    * Problem: Search an element in a sorted and rotated  array.
-   * Solution:
+   * Solution: Done as problem 4 in ArrayExamples.
    */
 
   /**
