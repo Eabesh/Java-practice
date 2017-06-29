@@ -1388,6 +1388,17 @@ public class DPExamples {
   /**
    * 170.
    * Problem: Maximum path sum that starting with any cell of 0-th row  and ending with any cell of (N-1)-th row.
+   * Given a N X N matrix Mat[N][N] of positive integers. There are only three possible moves from a cell (i, j)
+   * (i+1, j)
+   * (i+1, j-1)
+   * (i+1, j+1)
+   * Starting from any column in row 0, return the largest sum of any of the paths up to row N-1.
+   *Input : mat[4][4] = { {4, 2, 3, 4},
+   * {2, 9, 1, 10},
+   * {15, 1, 3, 0},
+   * {16, 92, 41, 44} };
+   * Output :120
+   * path : 4 + 9 + 15 + 92 = 120
    * Solution:
    */
 
