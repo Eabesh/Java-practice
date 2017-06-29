@@ -1413,6 +1413,20 @@ public class DPExamples {
               maxSumPathUtil(mat, i - 1, j + 1)));
   }
 
+  int maxSumPathBottomUp(int[][] mat) {
+    int[][] dp = new int[mat.length][mat[0].length + 2];
+    for (int i = 0; i < mat.length; i++) {
+      for (int j = 0; j < mat[0].length; j++) {
+       if (i == 0) dp[i][j] = mat[i][j];
+       else if (j == 0 || j == mat[0].length - 1) dp[i][j] = Integer.MIN_VALUE;
+       else dp[i][j] = mat[i][j] + Math.max(dp[i - 1][j], Math.max(dp[i - 1][j - 1], dp[i - 1][j + 1]));
+      }
+    }
+    int maxSumPath = 0;
+    for (int j = 1; j < dp[0].length - 1; j++) maxSumPath = Math.max(maxSumPath, dp[mat.length - 1][j]);
+    return maxSumPath;
+  }
+
   /**
    * 171.
    * Problem: Number of subsequences in a string divisible by n.
