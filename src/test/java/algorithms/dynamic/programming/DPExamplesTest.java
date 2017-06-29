@@ -15,6 +15,7 @@ public class DPExamplesTest {
       {15, 1, 3, 0},
       {16, 92, 41, 44} };
     assertEquals(120, new DPExamples().maxSumPath(mat));
+    assertEquals(120, new DPExamples().maxSumPathBottomUp(mat));
   }
 
   @Test
