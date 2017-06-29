@@ -1401,6 +1401,17 @@ public class DPExamples {
    * path : 4 + 9 + 15 + 92 = 120
    * Solution:
    */
+  int maxSumPath(int[][] mat) {
+    int maxSumPath = 0;
+    for (int j = 0; j < mat[0].length; j++) maxSumPath = Math.max(maxSumPath, maxSumPathUtil(mat, mat.length - 1, j));
+    return maxSumPath;
+  }
+  int maxSumPathUtil(int[][] mat, int i, int j]){
+    if (i < 0 || j > mat[0].length || j < 0) return Integer.MIN_VALUE;
+    else if (i == 0) return mat[0][j];
+    else return mat[i][j] + Math.max(maxSumPathUtil(mat, i - 1, j), Math.max(maxSumPathUtil(mat, i - 1, j - 1),
+              maxSumPathUtil(mat, i - 1, j + 1)));
+  }
 
   /**
    * 171.
