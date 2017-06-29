@@ -9,6 +9,15 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void maxSumPath() throws Exception {
+    int[][]  mat = { {4, 2, 3, 4},
+      {2, 9, 1, 10},
+      {15, 1, 3, 0},
+      {16, 92, 41, 44} };
+    assertEquals(120, new DPExamples().maxSumPath(mat));
+  }
+
+  @Test
   public void countStringFormed() throws Exception {
     String[] choices = {"a", "b" ,"c"};
     int[] remaining = {Integer.MAX_VALUE, 1, 2};
