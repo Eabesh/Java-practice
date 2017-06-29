@@ -2,11 +2,32 @@ package data.structures.arrays;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class ArrayExamplesTest {
+
+  @Test
+  public void arrayUnion() throws Exception {
+    int[] arr1 = {1, 2, 4};
+    int[] arr2 = {2, 3, 4, 5, 6};
+    ArrayList<Integer> result = new ArrayExamples().arrayUnion(arr1, 0, arr2, 0, new ArrayList<>());
+    assertEquals(1, result.get(0).intValue());
+    assertEquals(3, result.get(2).intValue());
+  }
+
+  @Test
+  public void arrayIntersection() throws Exception {
+    int[] arr1 = {1, 2, 4};
+    int[] arr2 = {2, 3, 4, 5, 6};
+    ArrayList<Integer> result = new ArrayExamples().arrayIntersection(arr1, 0, arr2, 0, new ArrayList<>());
+    assertEquals(2, result.get(0).intValue());
+    assertEquals(4, result.get(1).intValue());
+  }
+
   @Test
   public void mergeArrays() throws Exception {
     int[] arr1 = {1, 2};

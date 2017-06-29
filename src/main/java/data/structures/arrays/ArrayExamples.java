@@ -3,6 +3,7 @@ package data.structures.arrays;
 
 import algorithms.dynamic.programming.DPExamples;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -252,6 +253,42 @@ public class ArrayExamples {
    * Problem: Union and Intersection of two sorted arrays.
    * Solution:
    */
+  ArrayList<Integer> arrayUnion(int[] array1, int index1, int[] array2, int index2, ArrayList<Integer> union) {
+    if (index1 == array1.length && index2 < array2.length) {
+      for (int i = 0; i < index2; i++) union.add(array2[i]);
+      return union;
+    }
+    else if (index2 == array2.length && index1 < array1.length) {
+      for (int i = 0; i < index1; i++) union.add(array1[i]);
+      return union;
+    }
+    else if (index1 == array1.length && index2 == array2.length) return union;
+    else {
+      if (array1[index1] < array2[index2]) {
+        union.add(array1[index1]);
+        return arrayUnion(array1, index1 + 1, array2, index2, union);
+      } else if (array1[index1] > array2[index2]) {
+        union.add(array2[index2]);
+        return arrayUnion(array1, index1, array2, index2 + 1, union);
+      }
+      else {
+        union.add(array1[index1]);
+        return arrayUnion(array1, index1 + 1, array2, index2 + 1, union);
+      }
+    }
+  }
+
+  ArrayList<Integer> arrayIntersection(int[] array1, int index1, int[] array2, int index2, ArrayList<Integer> intersection) {
+    if (index1 == array1.length || index2 == array2.length) return intersection;
+    else {
+      if (array1[index1] == array2[index2]) {
+        intersection.add(array1[index1]);
+        return arrayIntersection(array1, index1 + 1, array2, index2 + 1, intersection);
+      }
+      else if (array1[index1] < array2[index2]) return arrayIntersection(array1, index1 + 1, array2, index2, intersection);
+      else return arrayIntersection(array1, index1, array2, index2 + 1, intersection);
+    }
+  }
 
   /**
    * 20.
