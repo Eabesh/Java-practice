@@ -1195,8 +1195,17 @@ public class DPExamples {
   /**
    * 144.
    * Problem: Number of palindromic paths in a matrix
+   * Given a matrix containing lower alphabetical characters only, we need to count number of palindromic paths in given
+   * matrix. A path is defined as a sequence of cells starting from top-left cell and ending at bottom-right cell.
+   * We are allowed to move to right and down only from current cell.
+   * Input : mat[][] = {"aaab”,
+   * "baaa”
+   * “abba”}
+   * Output : 3
    * Solution:
    */
+
+
 
   /**
    * 145.
