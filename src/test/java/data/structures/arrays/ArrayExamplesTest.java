@@ -43,6 +43,7 @@ public class ArrayExamplesTest {
   public void arraySum() throws Exception {
     int arr[] = {1, 7, 1, 1, 3, 1};
     assertEquals(14, new ArrayExamples().arraySum(arr, 0, 0));
+    assertEquals(14, new ArrayExamples()._arraySum(arr));
   }
 
   @Test

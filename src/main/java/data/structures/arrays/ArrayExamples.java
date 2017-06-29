@@ -608,8 +608,10 @@ public class ArrayExamples {
   /**
    * 53.
    * Problem: Program to find sum of elements in a given array.
-   * Solution:
    */
+  int _arraySum(int[] array) {
+    return arraySum(array, 0, 0);
+  }
 
   /**
    * 54.
