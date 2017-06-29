@@ -640,8 +640,11 @@ public class ArrayExamples {
   /**
    * 58.
    * Problem: Program to find largest element in an array.
-   * Solution:
    */
+  int findLargest(int[] array, int index, int largest) {
+    if (index == array.length) return largest;
+    else return findLargest(array, index + 1, array[index] > largest ? array[index] : largest);
+  }
 
   /**
    * 59.
@@ -699,7 +702,7 @@ public class ArrayExamples {
   /**
    * 66.
    * Problem: Print All Distinct Elements of a given integer array.
-   * Solution:
+   * Solution: Use sorting or hash set.
    */
 
   /**

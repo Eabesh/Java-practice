@@ -11,6 +11,12 @@ import static org.junit.Assert.assertTrue;
 public class ArrayExamplesTest {
 
   @Test
+  public void findLargest() throws Exception {
+    int[] arr = {2, 3, 4, 5, 6};
+    assertEquals(6, new ArrayExamples().findLargest(arr, 0, Integer.MIN_VALUE));
+  }
+
+  @Test
   public void arrayUnion() throws Exception {
     int[] arr1 = {1, 2, 4};
     int[] arr2 = {2, 3, 4, 5, 6};
