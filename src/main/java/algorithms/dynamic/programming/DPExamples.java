@@ -1224,12 +1224,29 @@ public class DPExamples {
    * A cell in given maze has value -1 if it is a blockage or dead end, else 0.
    * From a given cell, we are allowed to move to cells (i+1, j) and (i, j+1) only.
    * Input: maze[R][C] =  {{0,  0, 0, 0},
-   {0, -1, 0, 0},
-   {-1, 0, 0, 0},
-   {0,  0, 0, 0}};
-   Output: 4
+   * {0, -1, 0, 0},
+   * {-1, 0, 0, 0},
+   * {0,  0, 0, 0}};
+   * Output: 4
    * Solution:
    */
+  int countWaysToReachDest(int[][] mat, int i, int j) {
+    if (i == 0 && j == 0 && mat[0][0] == 0) return 1;
+    else if (i < 0 || j < 0 || mat[i][j] == -1) return 0;
+    else return countWaysToReachDest(mat, i - 1, j) + countWaysToReachDest(mat, i, j - 1);
+  }
+
+  int countWaysToReachDestBottomUp(int[][] mat) {
+    int[][] dp = new int[mat.length + 1][mat[0].length + 1];
+    for (int i = 1; i < dp.length; i++) {
+      for (int j = 1; j < dp[0].length; j++) {
+        if (i == 1 && j == 1 && mat[0][0] == 0) dp[i][j] = 1;
+        else if (mat[i - 1][j - 1] == -1) dp[i][j] = 0;
+        else dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+      }
+    }
+    return dp[dp.length - 1][dp[0].length - 1];
+  }
 
   /**
    * 149.

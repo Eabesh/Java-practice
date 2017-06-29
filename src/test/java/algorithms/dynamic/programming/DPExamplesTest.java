@@ -9,6 +9,16 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void countWaysToReachDest() throws Exception {
+    int[][] mat =  {{0,  0, 0, 0},
+            {0, -1, 0, 0},
+            {-1, 0, 0, 0},
+            {0,  0, 0, 0}};
+    assertEquals(4, new DPExamples().countWaysToReachDest(mat, mat.length - 1, mat[0].length - 1));
+    assertEquals(4, new DPExamples().countWaysToReachDestBottomUp(mat));
+  }
+
+  @Test
   public void maxSumPath() throws Exception {
     int[][]  mat = { {4, 2, 3, 4},
       {2, 9, 1, 10},
