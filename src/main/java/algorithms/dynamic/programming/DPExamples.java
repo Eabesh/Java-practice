@@ -1192,10 +1192,9 @@ public class DPExamples {
    * Solution:
    */
   int countPSubstrings(String str, int left, int right) {
-
     if (left + 1 == right && str.charAt(left) == str.charAt(right)) return 1;
-    else if (left + 1 == right && str.charAt(left) != str.charAt(right) || left > right) return 0;
-    else if () return 1 + countPSubstrings(str, left + 1, right) +
+    else if (left + 1 == right && str.charAt(left) != str.charAt(right)) return 0;
+    else if (str.charAt(left) == str.charAt(right)) return 1 + countPSubstrings(str, left + 1, right) +
             countPSubstrings(str, left, right - 1) - countPSubstrings(str, left + 1, right - 1);
     return  countPSubstrings(str, left + 1, right) +
             countPSubstrings(str, left, right - 1) - countPSubstrings(str, left + 1, right - 1);
