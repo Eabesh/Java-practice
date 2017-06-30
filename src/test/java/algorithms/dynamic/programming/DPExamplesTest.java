@@ -9,6 +9,12 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void maxSubArraySum() throws Exception {
+    int[] arr = {-2, -3, 4, -1, -2, 1, 5, -3};
+    assertEquals(9, new DPExamples().maxSubArraySum(arr, arr.length));
+  }
+
+  @Test
   public void countWaysToReachDest() throws Exception {
     int[][] mat =  {{0,  0, 0, 0},
             {0, -1, 0, 0},

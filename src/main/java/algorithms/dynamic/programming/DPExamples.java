@@ -1195,9 +1195,20 @@ public class DPExamples {
    * Explanation : We can get maximum sum subarray by removing -4.
    * Solution:
    */
-  int maxSubArraySum(int[] array, int m) {
-    if (m == 0) return 0;
-    else return Math.max(array[m - 1] + maxSubArraySum(array, m - 1), maxSubArraySum(array, m - 1));
+  int maxSubArraySum(int[] array) {
+    int[] forWardSum = new int[array.length], backWardSum = new int[array.length];
+    int maxSoFar = array[0], currMax = array[0];
+    forWardSum[0] = array[0];
+    maxSubArraySumUtil(array, maxSoFar, currMax, 1);
+    maxSoFar = array[array.length - 1];
+    currMax = array[array.length - 1];
+    backWardSum[0] = array[array.length - 1];
+    int maxSum = maxSubArraySumUtil(array, maxSoFar, currMax, array.length - 2);
+    for (int i = 1; i < array.length - 1; i++) maxSum = Math.max(maxSum, forWardSum[i - 1] + backWardSum[i + 1]);
+    return maxSum;
+  }
+  private int maxSubArraySumUtil(int[] array, int maxSoFar, int currMax, int index) {
+
   }
 
   /**
