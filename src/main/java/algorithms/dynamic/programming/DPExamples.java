@@ -1170,8 +1170,17 @@ public class DPExamples {
   /**
    * 140.
    * Problem: Sum of average of all subsets
+   * Given an array arr of N integer elements, the task is to find sum of average of all subsets of this array.
    * Solution:
    */
+  double subsetAvgSum(int[] array, int m, int elementCount, int avgSum) {
+    if (m == 0 && elementCount == 0) return 0;
+    else if (m == 0) return avgSum / elementCount;
+    else return subsetAvgSum(array, m - 1 , elementCount + 1, avgSum + array[m - 1]) +
+            subsetAvgSum(array, m - 1, elementCount, avgSum);
+  }
+
+
 
   /**
    * 141.

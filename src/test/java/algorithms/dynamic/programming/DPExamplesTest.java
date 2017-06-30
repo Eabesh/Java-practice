@@ -9,6 +9,12 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void subsetAvgSum() throws Exception {
+    int[] array = {2, 3, 5};
+    assertEquals(23.33, new DPExamples().subsetAvgSum(array, array.length, 0, 0));
+  }
+
+  @Test
   public void maxSubArraySum() throws Exception {
     int[] arr = {-2, -3, 4, -1, -2, 1, 5, -3};
     assertEquals(9, new DPExamples().maxSubArraySum(arr));
