@@ -9,6 +9,12 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void countPSubstrings() throws Exception {
+    String str = "abaab";
+    assertEquals(3, new DPExamples().countPSubstrings(str, 0, str.length() - 1));
+  }
+
+  @Test
   public void maxAvgPath() throws Exception {
     int[][] mat = {{1,  2, 3},
     {4, 5, 6},

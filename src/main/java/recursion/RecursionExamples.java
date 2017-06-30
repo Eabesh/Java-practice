@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-class RecursionExamples {
+public class RecursionExamples {
 
   /**
    * 1.
@@ -34,7 +34,7 @@ class RecursionExamples {
    * 2.
    * Problem: Given a string, check whether palindrome or not.
    */
-  boolean isPalindrome(String str) {
+  public boolean isPalindrome(String str) {
     return (str.length() <=1) || str.charAt(0) == str.charAt(str.length() - 1)
             && isPalindrome(str.substring(1, str.length() - 1));
   }
