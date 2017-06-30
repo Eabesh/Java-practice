@@ -1197,24 +1197,33 @@ public class DPExamples {
    */
   int maxSubArraySum(int[] array) {
     int[] forWardSum = new int[array.length], backWardSum = new int[array.length];
-    int maxSoFar = array[0], currMax = array[0];
-    forWardSum[0] = array[0];
-    maxSubArraySumUtil(array,forWardSum, maxSoFar, currMax, 1);
-    maxSoFar = array[array.length - 1];
-    currMax = array[array.length - 1];
-    backWardSum[0] = array[array.length - 1];
-    int maxSum = maxSubArraySumUtil(array, backWardSum, maxSoFar, currMax, array.length - 2);
+    maxSubArraySumForward(array,forWardSum);
+    int maxSum = maxSubArraySumBackward(array, backWardSum);
     for (int i = 1; i < array.length - 1; i++) maxSum = Math.max(maxSum, forWardSum[i - 1] + backWardSum[i + 1]);
     return maxSum;
   }
-  private int maxSubArraySumUtil(int[] array, int[] sumArray, int maxSoFar, int currMax, int index) {
-    for (int i = index; i < array.length; i++) {
+  private int maxSubArraySumForward(int[] array, int[] forwardSumArray) {
+    int maxSoFar = array[0], currMax = array[0];
+    forwardSumArray[0] = array[0];
+    for (int i = 1; i < array.length; i++) {
       currMax = Math.max(currMax, currMax + array[i]);
       maxSoFar = Math.max(maxSoFar, currMax);
-      sumArray[i] = currMax;
+      forwardSumArray[i] = currMax;
     }
     return maxSoFar;
   }
+
+  private int maxSubArraySumBackward(int[] array, int[] backwardSumArray) {
+    int maxSoFar = array[array.length - 1], currMax = array[array.length - 1];
+    backwardSumArray[0] = array[array.length - 1];
+    for (int i = array.length - 2; i >= 0; i++) {
+      currMax = Math.max(currMax, currMax + array[i]);
+      maxSoFar = Math.max(maxSoFar, currMax);
+      backwardSumArray[i] = currMax;
+    }
+    return maxSoFar;
+  }
+
 
   /**
    * 144.

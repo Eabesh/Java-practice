@@ -11,7 +11,7 @@ public class DPExamplesTest {
   @Test
   public void maxSubArraySum() throws Exception {
     int[] arr = {-2, -3, 4, -1, -2, 1, 5, -3};
-    assertEquals(9, new DPExamples().maxSubArraySum(arr, arr.length));
+    assertEquals(9, new DPExamples().maxSubArraySum(arr));
   }
 
   @Test
