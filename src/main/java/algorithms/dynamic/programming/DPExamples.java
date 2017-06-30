@@ -1143,8 +1143,19 @@ public class DPExamples {
    * specific sequence of cells which starts from top left cell move only right or down and ends on bottom right cell.
    * We want to find a path with maximum average over all existing paths. Average is computed as total cost divided by
    * number of cells visited in path.
+   * Input : Matrix =
+   * [1, 2, 3
+   * 4, 5, 6
+   * 7, 8, 9]
+   * Output : 5.8
    * Solution:
    */
+  double maxAvgPath(int[][] mat, int i, int j, int pathLen, int pathSum) {
+    if (i == 0 && j == 0) return (double)(pathSum + mat[0][0]) / (double)(pathLen + 1);
+    else if(i < 0 || j < 0) return 0;
+    else return Math.max(maxAvgPath(mat, i - 1, j, pathLen + 1, pathSum + mat[i][j]),
+    maxAvgPath(mat, i, j - 1, pathLen + 1, pathSum + mat[i][j]));
+  }
 
   /**
    * 136.

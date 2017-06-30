@@ -9,6 +9,15 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void maxAvgPath() throws Exception {
+    int[][] mat = {{1,  2, 3},
+    {4, 5, 6},
+    {7, 8, 9}};
+    double res = new DPExamples().maxAvgPath(mat, mat.length - 1, mat[0].length - 1, 0, 0 );
+    System.out.println(res);
+  }
+
+  @Test
   public void subsetAvgSum() throws Exception {
     int[] array = {2, 3, 5};
     double res = new DPExamples().subsetAvgSum(array, array.length, 0, 0);
