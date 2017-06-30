@@ -1197,7 +1197,7 @@ public class DPExamples {
    */
   int maxSubArraySum(int[] array) {
     int[] forWardSum = new int[array.length], backWardSum = new int[array.length];
-    maxSubArraySumForward(array,forWardSum);
+    maxSubArraySumForward(array, forWardSum);
     int maxSum = maxSubArraySumBackward(array, backWardSum);
     for (int i = 1; i < array.length - 1; i++) maxSum = Math.max(maxSum, forWardSum[i - 1] + backWardSum[i + 1]);
     return maxSum;
@@ -1206,7 +1206,7 @@ public class DPExamples {
     int maxSoFar = array[0], currMax = array[0];
     forwardSumArray[0] = array[0];
     for (int i = 1; i < array.length; i++) {
-      currMax = Math.max(currMax, currMax + array[i]);
+      currMax = Math.max(array[i], currMax + array[i]);
       maxSoFar = Math.max(maxSoFar, currMax);
       forwardSumArray[i] = currMax;
     }
@@ -1215,9 +1215,9 @@ public class DPExamples {
 
   private int maxSubArraySumBackward(int[] array, int[] backwardSumArray) {
     int maxSoFar = array[array.length - 1], currMax = array[array.length - 1];
-    backwardSumArray[0] = array[array.length - 1];
-    for (int i = array.length - 2; i >= 0; i++) {
-      currMax = Math.max(currMax, currMax + array[i]);
+    backwardSumArray[array.length - 1] = array[array.length - 1];
+    for (int i = array.length - 2; i >= 0; i--) {
+      currMax = Math.max(array[i], currMax + array[i]);
       maxSoFar = Math.max(maxSoFar, currMax);
       backwardSumArray[i] = currMax;
     }
