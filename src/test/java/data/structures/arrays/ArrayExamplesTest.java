@@ -11,6 +11,15 @@ import static org.junit.Assert.assertTrue;
 public class ArrayExamplesTest {
 
   @Test
+  public void replaceWithMultiply() throws Exception {
+    int[] arr = {2, 3, 4, 5, 6};
+    new ArrayExamples().replaceWithMultiply(arr, 0, 1);
+    for (int elem : arr) {
+      System.out.println(elem);
+    }
+  }
+
+  @Test
   public void findLargest() throws Exception {
     int[] arr = {2, 3, 4, 5, 6};
     assertEquals(6, new ArrayExamples().findLargest(arr, 0, Integer.MIN_VALUE));

@@ -774,14 +774,24 @@ public class ArrayExamples {
   /**
    * 77.
    * Problem: Find Union and Intersection of two unsorted arrays.
-   * Solution:
+   * Solution: Use set if auxiliary space can be used in O(n). Else sort and use two pointers in O(nlogn) time.
    */
 
   /**
    * 78.
    * Problem: Replace every array element by multiplication of previous and next.
-   * Solution:
+   * Solution: Keep track of previous value and update array.
    */
+  void replaceWithMultiply(int[] array, int index, int previous) {
+    if(index < array.length) {
+      if (index == array.length - 1) array[index] = previous;
+      else {
+        int previousCopy = array[index];
+        array[index] = previous * array[index + 1];
+        replaceWithMultiply(array, index + 1, previousCopy);
+      }
+    }
+  }
 
   /**
    * 79.
