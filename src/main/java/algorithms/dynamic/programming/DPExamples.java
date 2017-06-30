@@ -1139,6 +1139,10 @@ public class DPExamples {
   /**
    * 135.
    * Problem: Path with maximum average value
+   * Given a square matrix of size N*N, where each cell is associated with a specific cost. A path is defined as a
+   * specific sequence of cells which starts from top left cell move only right or down and ends on bottom right cell.
+   * We want to find a path with maximum average over all existing paths. Average is computed as total cost divided by
+   * number of cells visited in path.
    * Solution:
    */
 
@@ -1179,8 +1183,6 @@ public class DPExamples {
     else return subsetAvgSum(array, m - 1 , elementCount + 1, avgSum + array[m - 1]) +
             subsetAvgSum(array, m - 1, elementCount, avgSum);
   }
-
-
 
   /**
    * 141.
