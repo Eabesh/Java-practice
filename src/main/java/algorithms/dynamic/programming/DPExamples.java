@@ -1157,6 +1157,11 @@ public class DPExamples {
     maxAvgPath(mat, i, j - 1, pathLen + 1, pathSum + mat[i][j]));
   }
 
+  int maxAvgPath(int[][] mat) {
+    double[][] dp = new double[mat.length][mat[0].length];
+    return 0;
+  }
+
   /**
    * 136.
    * Problem: Maximum sum of pairs with specific difference
