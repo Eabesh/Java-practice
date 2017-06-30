@@ -1184,8 +1184,21 @@ public class DPExamples {
   /**
    * 139.
    * Problem: Count All Palindrome Sub-Strings in a String
+   * Given a string, the task is to count all palindrome substring in a given string. Length of palindrome substring is
+   * greater then or equal to 2.
+   * Input : str = "abaab"
+   * Output: 3
+   * Explanation :All palindrome substring are :"aba" , "aa" , "baab"
    * Solution:
    */
+  int countPSubstrings(String str, int left, int right) {
+    if (left + 1 == right && str.charAt(left) == str.charAt(right)) return 1;
+    else if (left + 1 == right && str.charAt(left) != str.charAt(right)) return 0;
+    else if (str.charAt(left) == str.charAt(right)) return 1 + countPSubstrings(str, left + 1, right) +
+            countPSubstrings(str, left, right - 1) - countPSubstrings(str, left + 1, right - 1);
+    return  countPSubstrings(str, left + 1, right) +
+            countPSubstrings(str, left, right - 1) - countPSubstrings(str, left + 1, right - 1);
+  }
 
   /**
    * 140.
