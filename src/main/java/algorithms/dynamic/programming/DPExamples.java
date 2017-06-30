@@ -1,5 +1,7 @@
 package algorithms.dynamic.programming;
 
+import recursion.RecursionExamples;
+
 import java.util.Arrays;
 
 public class DPExamples {
@@ -1193,9 +1195,10 @@ public class DPExamples {
    */
   int countPSubstrings(String str, int left, int right) {
     if (left + 1 == right && str.charAt(left) == str.charAt(right)) return 1;
-    else if (left + 1 == right && str.charAt(left) != str.charAt(right)) return 0;
-    else if (str.charAt(left) == str.charAt(right)) return 1 + countPSubstrings(str, left + 1, right) +
-            countPSubstrings(str, left, right - 1) - countPSubstrings(str, left + 1, right - 1);
+    else if (left + 1 == right && str.charAt(left) != str.charAt(right) || left >= right) return 0;
+    else if (new RecursionExamples().isPalindrome(str.substring(left, right + 1))) return 1 +
+            countPSubstrings(str, left + 1, right) + countPSubstrings(str, left, right - 1) -
+            countPSubstrings(str, left + 1, right - 1);
     return  countPSubstrings(str, left + 1, right) +
             countPSubstrings(str, left, right - 1) - countPSubstrings(str, left + 1, right - 1);
   }

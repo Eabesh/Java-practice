@@ -10,8 +10,8 @@ import static org.junit.Assert.*;
 public class DPExamplesTest {
   @Test
   public void countPSubstrings() throws Exception {
-    String str = "abaab";
-    assertEquals(3, new DPExamples().countPSubstrings(str, 0, str.length() - 1));
+    String str = "abbaeae";
+    assertEquals(4, new DPExamples().countPSubstrings(str, 0, str.length() - 1));
   }
 
   @Test
