@@ -1189,8 +1189,16 @@ public class DPExamples {
   /**
    * 143.
    * Problem: Maximum sum subarray removing at most one element
+   * Given an array, we need to find maximum sum subarray, removing one element is also allowed to get the maximum sum.
+   * Input  : arr[] = {1, 2, 3, -4, 5}
+   * Output : 11
+   * Explanation : We can get maximum sum subarray by removing -4.
    * Solution:
    */
+  int maxSubArraySum(int[] array, int m) {
+    if (m == 0) return 0;
+    else return Math.max(array[m - 1] + maxSubArraySum(array, m - 1), maxSubArraySum(array, m - 1));
+  }
 
   /**
    * 144.
