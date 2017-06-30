@@ -1175,7 +1175,7 @@ public class DPExamples {
    */
   double subsetAvgSum(int[] array, int m, int elementCount, int avgSum) {
     if (m == 0 && elementCount == 0) return 0;
-    else if (m == 0) return avgSum / elementCount;
+    else if (m == 0) return (double) avgSum / elementCount;
     else return subsetAvgSum(array, m - 1 , elementCount + 1, avgSum + array[m - 1]) +
             subsetAvgSum(array, m - 1, elementCount, avgSum);
   }
