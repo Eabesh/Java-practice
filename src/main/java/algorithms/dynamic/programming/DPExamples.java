@@ -1199,16 +1199,21 @@ public class DPExamples {
     int[] forWardSum = new int[array.length], backWardSum = new int[array.length];
     int maxSoFar = array[0], currMax = array[0];
     forWardSum[0] = array[0];
-    maxSubArraySumUtil(array, maxSoFar, currMax, 1);
+    maxSubArraySumUtil(array,forWardSum, maxSoFar, currMax, 1);
     maxSoFar = array[array.length - 1];
     currMax = array[array.length - 1];
     backWardSum[0] = array[array.length - 1];
-    int maxSum = maxSubArraySumUtil(array, maxSoFar, currMax, array.length - 2);
+    int maxSum = maxSubArraySumUtil(array, backWardSum, maxSoFar, currMax, array.length - 2);
     for (int i = 1; i < array.length - 1; i++) maxSum = Math.max(maxSum, forWardSum[i - 1] + backWardSum[i + 1]);
     return maxSum;
   }
-  private int maxSubArraySumUtil(int[] array, int maxSoFar, int currMax, int index) {
-
+  private int maxSubArraySumUtil(int[] array, int[] sumArray, int maxSoFar, int currMax, int index) {
+    for (int i = index; i < array.length; i++) {
+      currMax = Math.max(currMax, currMax + array[i]);
+      maxSoFar = Math.max(maxSoFar, currMax);
+      sumArray[i] = currMax;
+    }
+    return maxSoFar;
   }
 
   /**
