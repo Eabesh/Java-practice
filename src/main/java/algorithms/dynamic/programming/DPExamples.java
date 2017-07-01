@@ -843,7 +843,7 @@ public class DPExamples {
    * Solution:
    */
   int countWaysToPartition(int n, int k) {
-    if (n == k) return 1;
+    if (n == k || k == 1) return 1;
     else return countWaysToPartition(n - 1, k - 1) + countWaysToPartition(n - 1, k);
   }
 
