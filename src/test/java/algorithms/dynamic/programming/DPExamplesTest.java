@@ -9,6 +9,44 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void countPSubstrings() throws Exception {
+    String str = "abbaeae";
+    assertEquals(4, new DPExamples().countPSubstrings(str, 0, str.length() - 1));
+  }
+
+  @Test
+  public void maxAvgPath() throws Exception {
+    int[][] mat = {{1,  2, 3},
+    {4, 5, 6},
+    {7, 8, 9}};
+    double res = new DPExamples().maxAvgPath(mat, mat.length - 1, mat[0].length - 1, 0, 0 );
+    System.out.println(res);
+  }
+
+  @Test
+  public void subsetAvgSum() throws Exception {
+    int[] array = {2, 3, 5};
+    double res = new DPExamples().subsetAvgSum(array, array.length, 0, 0);
+    System.out.println(res);
+  }
+
+  @Test
+  public void maxSubArraySum() throws Exception {
+    int[] arr = {-2, -3, 4, -1, -2, 1, 5, -3};
+    assertEquals(9, new DPExamples().maxSubArraySum(arr));
+  }
+
+  @Test
+  public void countWaysToReachDest() throws Exception {
+    int[][] mat =  {{0,  0, 0, 0},
+            {0, -1, 0, 0},
+            {-1, 0, 0, 0},
+            {0,  0, 0, 0}};
+    assertEquals(4, new DPExamples().countWaysToReachDest(mat, mat.length - 1, mat[0].length - 1));
+    assertEquals(4, new DPExamples().countWaysToReachDestBottomUp(mat));
+  }
+
+  @Test
   public void maxSumPath() throws Exception {
     int[][]  mat = { {4, 2, 3, 4},
       {2, 9, 1, 10},

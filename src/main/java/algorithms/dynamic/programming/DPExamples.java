@@ -1,5 +1,7 @@
 package algorithms.dynamic.programming;
 
+import recursion.RecursionExamples;
+
 import java.util.Arrays;
 
 public class DPExamples {
@@ -1139,8 +1141,28 @@ public class DPExamples {
   /**
    * 135.
    * Problem: Path with maximum average value
+   * Given a square matrix of size N*N, where each cell is associated with a specific cost. A path is defined as a
+   * specific sequence of cells which starts from top left cell move only right or down and ends on bottom right cell.
+   * We want to find a path with maximum average over all existing paths. Average is computed as total cost divided by
+   * number of cells visited in path.
+   * Input : Matrix =
+   * [1, 2, 3
+   * 4, 5, 6
+   * 7, 8, 9]
+   * Output : 5.8
    * Solution:
    */
+  double maxAvgPath(int[][] mat, int i, int j, int pathLen, int pathSum) {
+    if (i == 0 && j == 0) return (double)(pathSum + mat[0][0]) / (double)(pathLen + 1);
+    else if(i < 0 || j < 0) return 0;
+    else return Math.max(maxAvgPath(mat, i - 1, j, pathLen + 1, pathSum + mat[i][j]),
+    maxAvgPath(mat, i, j - 1, pathLen + 1, pathSum + mat[i][j]));
+  }
+
+  int maxAvgPath(int[][] mat) {
+    double[][] dp = new double[mat.length][mat[0].length];
+    return 0;
+  }
 
   /**
    * 136.
@@ -1164,14 +1186,35 @@ public class DPExamples {
   /**
    * 139.
    * Problem: Count All Palindrome Sub-Strings in a String
+   * Given a string, the task is to count all palindrome substring in a given string. Length of palindrome substring is
+   * greater then or equal to 2.
+   * Input : str = "abaab"
+   * Output: 3
+   * Explanation :All palindrome substring are :"aba" , "aa" , "baab"
    * Solution:
    */
+  int countPSubstrings(String str, int left, int right) {
+    if (left + 1 == right && str.charAt(left) == str.charAt(right)) return 1;
+    else if (left + 1 == right && str.charAt(left) != str.charAt(right) || left >= right) return 0;
+    else if (new RecursionExamples().isPalindrome(str.substring(left, right + 1))) return 1 +
+            countPSubstrings(str, left + 1, right) + countPSubstrings(str, left, right - 1) -
+            countPSubstrings(str, left + 1, right - 1);
+    return  countPSubstrings(str, left + 1, right) +
+            countPSubstrings(str, left, right - 1) - countPSubstrings(str, left + 1, right - 1);
+  }
 
   /**
    * 140.
    * Problem: Sum of average of all subsets
+   * Given an array arr of N integer elements, the task is to find sum of average of all subsets of this array.
    * Solution:
    */
+  double subsetAvgSum(int[] array, int m, int elementCount, int avgSum) {
+    if (m == 0 && elementCount == 0) return 0;
+    else if (m == 0) return (double) avgSum / elementCount;
+    else return subsetAvgSum(array, m - 1 , elementCount + 1, avgSum + array[m - 1]) +
+            subsetAvgSum(array, m - 1, elementCount, avgSum);
+  }
 
   /**
    * 141.
@@ -1189,14 +1232,56 @@ public class DPExamples {
   /**
    * 143.
    * Problem: Maximum sum subarray removing at most one element
+   * Given an array, we need to find maximum sum subarray, removing one element is also allowed to get the maximum sum.
+   * Input  : arr[] = {1, 2, 3, -4, 5}
+   * Output : 11
+   * Explanation : We can get maximum sum subarray by removing -4.
    * Solution:
    */
+  int maxSubArraySum(int[] array) {
+    int[] forWardSum = new int[array.length], backWardSum = new int[array.length];
+    maxSubArraySumForward(array, forWardSum);
+    int maxSum = maxSubArraySumBackward(array, backWardSum);
+    for (int i = 1; i < array.length - 1; i++) maxSum = Math.max(maxSum, forWardSum[i - 1] + backWardSum[i + 1]);
+    return maxSum;
+  }
+  private int maxSubArraySumForward(int[] array, int[] forwardSumArray) {
+    int maxSoFar = array[0], currMax = array[0];
+    forwardSumArray[0] = array[0];
+    for (int i = 1; i < array.length; i++) {
+      currMax = Math.max(array[i], currMax + array[i]);
+      maxSoFar = Math.max(maxSoFar, currMax);
+      forwardSumArray[i] = currMax;
+    }
+    return maxSoFar;
+  }
+
+  private int maxSubArraySumBackward(int[] array, int[] backwardSumArray) {
+    int maxSoFar = array[array.length - 1], currMax = array[array.length - 1];
+    backwardSumArray[array.length - 1] = array[array.length - 1];
+    for (int i = array.length - 2; i >= 0; i--) {
+      currMax = Math.max(array[i], currMax + array[i]);
+      maxSoFar = Math.max(maxSoFar, currMax);
+      backwardSumArray[i] = currMax;
+    }
+    return maxSoFar;
+  }
+
 
   /**
    * 144.
    * Problem: Number of palindromic paths in a matrix
+   * Given a matrix containing lower alphabetical characters only, we need to count number of palindromic paths in given
+   * matrix. A path is defined as a sequence of cells starting from top-left cell and ending at bottom-right cell.
+   * We are allowed to move to right and down only from current cell.
+   * Input : mat[][] = {"aaab”,
+   * "baaa”
+   * “abba”}
+   * Output : 3
    * Solution:
    */
+
+
 
   /**
    * 145.
@@ -1224,12 +1309,29 @@ public class DPExamples {
    * A cell in given maze has value -1 if it is a blockage or dead end, else 0.
    * From a given cell, we are allowed to move to cells (i+1, j) and (i, j+1) only.
    * Input: maze[R][C] =  {{0,  0, 0, 0},
-   {0, -1, 0, 0},
-   {-1, 0, 0, 0},
-   {0,  0, 0, 0}};
-   Output: 4
+   * {0, -1, 0, 0},
+   * {-1, 0, 0, 0},
+   * {0,  0, 0, 0}};
+   * Output: 4
    * Solution:
    */
+  int countWaysToReachDest(int[][] mat, int i, int j) {
+    if (i == 0 && j == 0 && mat[0][0] == 0) return 1;
+    else if (i < 0 || j < 0 || mat[i][j] == -1) return 0;
+    else return countWaysToReachDest(mat, i - 1, j) + countWaysToReachDest(mat, i, j - 1);
+  }
+
+  int countWaysToReachDestBottomUp(int[][] mat) {
+    int[][] dp = new int[mat.length + 1][mat[0].length + 1];
+    for (int i = 1; i < dp.length; i++) {
+      for (int j = 1; j < dp[0].length; j++) {
+        if (i == 1 && j == 1 && mat[0][0] == 0) dp[i][j] = 1;
+        else if (mat[i - 1][j - 1] == -1) dp[i][j] = 0;
+        else dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+      }
+    }
+    return dp[dp.length - 1][dp[0].length - 1];
+  }
 
   /**
    * 149.
