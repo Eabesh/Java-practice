@@ -1632,12 +1632,10 @@ public class ArrayExamples {
   /**
    * 197. Count all sub-arrays having sum divisible by k.
    * Solution:
-   * 1. Create auxiliary hash array to count frequency of remainders.
-   * 2. Compute cumulative sum and take remainder of this current cumulative sum and increase count by 1 for this
-   * remainder in mod[] array.
-   * 3. As the sum can be negative, take modulo twice.
-   * 4. There can be more than one prefix subarrays with a particular mod value.
-   * 5. Add the elements which are divisible by k itself i.e., the elements whose sum = 0
+   * Construct a hash-map which will store the cumulative sum of all the numbers thus far mod k mapped to the count of
+   * how often that remainder value appears (constructed in expected O(n)). Increase 0's value by one - this
+   * corresponds to the start of the array. Go through the hash-map and add nC2 (= value!/(2*(value-2)!)) to the count.
+   * The 2 we're choosing here are the starting and ending positions of the subarray.
    */
   int subArrayCount(int[] array, int k) {
     int[] mod = countRemainders(array, k);
