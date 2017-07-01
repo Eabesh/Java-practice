@@ -182,8 +182,8 @@ public class ArrayExamplesTest {
 
   @Test
   public void subArrayCount() {
-    int arr[] = {4, 5, 0, -2, -3, 1};
-    assertEquals(7, new ArrayExamples().subArrayCount(arr, 5));
+    int arr[] = {0, 5, 3, 8, 2, 1};
+    assertEquals(5, new ArrayExamples().subArrayCount(arr, 3));
     int arr1[] = {4, 5, 0, -12, -23, 1};
     assertEquals(7, new ArrayExamples().subArrayCount(arr1, 5));
   }

@@ -1642,14 +1642,14 @@ public class ArrayExamples {
   int subArrayCount(int[] array, int k) {
     int[] mod = countRemainders(array, k);
     int result = 0;
-    for (int elem : mod) if (elem > 1) result += (elem * (elem - 1)) / 2;
-    result += mod[0];
+    for (int elem : mod) result += (elem * (elem - 1)) / 2;
     return result;
   }
 
   private int[] countRemainders(int[] array, int k) {
     int sum = 0;
     int[] mod = new int[k];
+    mod[0]++;
     for (int elem : array) {
       sum += elem;
       mod[((sum % k) + k) % k]++;
