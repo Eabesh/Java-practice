@@ -842,9 +842,9 @@ public class DPExamples {
    * Explanation: There is only one way {{1, 2, 3}}
    * Solution:
    */
-  int countWaysToPartition(int n, int k) {
+  int countPartitions(int n, int k) {
     if (n == k || k == 1) return 1;
-    else return countWaysToPartition(n - 1, k - 1) + k * countWaysToPartition(n - 1, k);
+    else return countPartitions(n - 1, k - 1) + k * countPartitions(n - 1, k);
   }
 
   /**
