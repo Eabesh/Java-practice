@@ -1438,7 +1438,13 @@ public class DPExamples {
   /**
    * 156.
    * Problem: LCS (Longest Common Subsequence) of three strings
-   * Solution:
+   * Given 3 strings of all having length < 100,the task is to find the longest common sub-sequence in all three given sequences.
+   * Examples:
+   * Input : str1 = "geeks"
+   * str2 = "geeksfor"
+   * str3 = "geeksforgeeks"
+   * Output : 5
+   * Longest common subsequence is "geeks" i.e., length = 5
    */
 
 
