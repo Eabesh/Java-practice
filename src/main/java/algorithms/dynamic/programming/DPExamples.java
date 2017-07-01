@@ -844,7 +844,7 @@ public class DPExamples {
    */
   int countWaysToPartition(int n, int k) {
     if (n == k || k == 1) return 1;
-    else return countWaysToPartition(n - 1, k - 1) + countWaysToPartition(n - 1, k);
+    else return countWaysToPartition(n - 1, k - 1) + k * countWaysToPartition(n - 1, k);
   }
 
   /**
