@@ -788,8 +788,20 @@ public class DPExamples {
   /**
    * 78.
    * Problem: Count number of ways to cover a distance
+   * Given a distance ‘dist, count total number of ways to cover the distance with 1, 2 and 3 steps.
+   * Input:  n = 3
+   * Output: 4
+   * Below are the four ways
+   * 1 step + 1 step + 1 step
+   * 1 step + 2 step
+   * 2 step + 1 step
+   * 3 step
    * Solution:
    */
+  int distanceCountWays(int n) {
+    if (n == 0) return 0;
+    else return distanceCountWays(n - 1) + distanceCountWays(n - 2) + distanceCountWays(n - 3);
+  }
 
   /**
    * 79.
@@ -815,6 +827,14 @@ public class DPExamples {
    * Problem: Number of paths with exactly k coins
    * Solution:
    */
+  int countPathsKCoin(int[][] mat, int x, int y, int k) {
+    if (x == 0 && y == 0 && k == mat[0][0]) return 1;
+    else if (x < 0 || y < 0) return 0;
+    else return countPathsKCoin(mat, x - 1, y, k - mat[x][y])
+              + countPathsKCoin(mat, x, y -1, k - mat[x][y]);
+  }
+
+
 
   /**
    * 83.
