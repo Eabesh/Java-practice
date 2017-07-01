@@ -831,8 +831,22 @@ public class DPExamples {
   /**
    * 85.
    * Problem: Count number of ways to partition a set into k subsets
+   * Given two numbers n and k where n represents number of elements in a set, find number of ways to partition the
+   * set into k subsets.
+   * Input: n = 3, k = 2
+   * Output: 3
+   * Explanation: Let the set be {1, 2, 3}, we can partition it into 2 subsets in following ways
+   * {{1,2}, {3}},  {{1}, {2,3}},  {{1,3}, {2}}
+   * Input: n = 3, k = 1
+   * Output: 1
+   * Explanation: There is only one way {{1, 2, 3}}
    * Solution:
    */
+  int countPartitions(int n, int k) {
+    if (n == 0 || k == 0 || k > n) return 0;
+    else if (n == k || k == 1) return 1;
+    else return countPartitions(n - 1, k - 1) + k * countPartitions(n - 1, k);
+  }
 
   /**
    * 86.
@@ -1030,8 +1044,23 @@ public class DPExamples {
   /**
    * 117.
    * Problem: Minimum Cost To Make Two Strings Identical
+   * Given two strings X and Y, and two values costX and costY. We need to find minimum cost required to make the given
+   * two strings identical. We can delete characters from both the strings. The cost of deleting a character from string
+   * X is costX and from Y is costY. Cost of removing all characters from a string is same.
+   * Input :  X = "abcd", Y = "acdb", costX = 10, costY = 20.
+   * Output:  30
+   * For Making both strings identical we have to delete character 'b' from both the string, hence cost will be =
+   * 10 + 20 = 30.
+   * Input :  X = "ef", Y = "gh", costX = 10, costY = 20.
+   * Output:  60
+   * For making both strings identical, we have to delete 2-2 characters from both the strings, hence cost will be =
+   * 10 + 10 + 20 + 20 = 60.
    * Solution:
    */
+  int minCostForIdentical(String str1, String str2, int costX, int costY) {
+    int lenLCS = LISBottomUp(str1, str2);
+    return (str1.length() - lenLCS) * costX + (str2.length() - lenLCS) * costY;
+  }
 
   /**
    * 118.
