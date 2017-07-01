@@ -9,6 +9,11 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void distanceCountWays() throws Exception {
+    assertEquals(4, new DPExamples().distanceCountWays( 3));
+  }
+
+  @Test
   public void minCostForIdentical() throws Exception {
     String str1 = "ef", str2 = "gh";
     assertEquals(60, new DPExamples().minCostForIdentical(str1, str2, 10, 20));

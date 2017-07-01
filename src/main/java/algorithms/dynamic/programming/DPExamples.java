@@ -798,9 +798,10 @@ public class DPExamples {
    * 3 step
    * Solution:
    */
-  int distanceCountWays(int n) {
-    if (n == 0) return 0;
-    else return distanceCountWays(n - 1) + distanceCountWays(n - 2) + distanceCountWays(n - 3);
+  int distanceCountWays(int distance) {
+    if (distance == 0) return 1;
+    else if (distance < 0) return 0;
+    else return distanceCountWays(distance - 1) + distanceCountWays(distance - 2) + distanceCountWays(distance - 3);
   }
 
   /**
