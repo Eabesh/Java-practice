@@ -1043,9 +1043,9 @@ public class DPExamples {
    * 10 + 10 + 20 + 20 = 60.
    * Solution:
    */
-  int minCostForIdentical(String str1, String str2) {
+  int minCostForIdentical(String str1, String str2, int costX, int costY) {
     int lenLCS = LISBottomUp(str1, str2);
-    return (str1.length() - lenLCS) * 10 + (str2.length() - lenLCS) * 20;
+    return (str1.length() - lenLCS) * costX + (str2.length() - lenLCS) * costY;
   }
 
   /**

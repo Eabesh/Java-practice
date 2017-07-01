@@ -9,6 +9,12 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void minCostForIdentical() throws Exception {
+    String str1 = "abcd", str2 = "acdb";
+    assertEquals(30, new DPExamples().minCostForIdentical(str1, str2, 10, 20));
+  }
+
+  @Test
   public void countPSubstrings() throws Exception {
     String str = "abbaeae";
     assertEquals(4, new DPExamples().countPSubstrings(str, 0, str.length() - 1));
