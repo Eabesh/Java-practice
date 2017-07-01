@@ -843,7 +843,8 @@ public class DPExamples {
    * Solution:
    */
   int countPartitions(int n, int k) {
-    if (n == k || k == 1) return 1;
+    if (n == 0 || k == 0 || k > n) return 0;
+    else if (n == k || k == 1) return 1;
     else return countPartitions(n - 1, k - 1) + k * countPartitions(n - 1, k);
   }
 
