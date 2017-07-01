@@ -1030,8 +1030,23 @@ public class DPExamples {
   /**
    * 117.
    * Problem: Minimum Cost To Make Two Strings Identical
+   * Given two strings X and Y, and two values costX and costY. We need to find minimum cost required to make the given
+   * two strings identical. We can delete characters from both the strings. The cost of deleting a character from string
+   * X is costX and from Y is costY. Cost of removing all characters from a string is same.
+   * Input :  X = "abcd", Y = "acdb", costX = 10, costY = 20.
+   * Output:  30
+   * For Making both strings identical we have to delete character 'b' from both the string, hence cost will be =
+   * 10 + 20 = 30.
+   * Input :  X = "ef", Y = "gh", costX = 10, costY = 20.
+   * Output:  60
+   * For making both strings identical, we have to delete 2-2 characters from both the strings, hence cost will be =
+   * 10 + 10 + 20 + 20 = 60.
    * Solution:
    */
+  int minCostForIdentical(String str1, String str2) {
+    int lenLCS = LISBottomUp(str1, str2);
+    return (str1.length() - lenLCS) * 10 + (str2.length() - lenLCS) * 20;
+  }
 
   /**
    * 118.
