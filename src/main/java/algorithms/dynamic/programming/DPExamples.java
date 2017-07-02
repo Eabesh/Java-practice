@@ -1446,7 +1446,13 @@ public class DPExamples {
    * Output : 5
    * Longest common subsequence is "geeks" i.e., length = 5
    */
-
+  int threeStringsLCS(String str1, String str2, String str3, int m, int n, int o) {
+    if (m == 0 || n == 0 || o == 0) return 0;
+    else if (str1.charAt(m) == str2.charAt(n) && str1.charAt(m) == str3.charAt(o))
+      return 1 + threeStringsLCS(str1, str2, str3, m - 1, n - 1, o - 1);
+    else return Math.max(threeStringsLCS(str1, str2, str3, m - 1, n, o),
+              Math.max(threeStringsLCS(str1, str2, str3, m, n - 1, o), threeStringsLCS(str1, str2, str3, m, n, o - 1)));
+  }
 
   /**
    * 157.
