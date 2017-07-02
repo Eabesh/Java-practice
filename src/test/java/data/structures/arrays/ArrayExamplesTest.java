@@ -11,6 +11,20 @@ import static org.junit.Assert.assertTrue;
 public class ArrayExamplesTest {
 
   @Test
+  public void subArrayCountWithEvenSum() throws Exception {
+    int[] arr = {1, 2, 2, 3, 4, 1};
+    assertEquals(9, new ArrayExamples().subArrayCountWithEvenSum(arr));
+  }
+
+  @Test
+  public void findSubArrayWithSum() throws Exception {
+    int[] arr = {1, 4, 20, 3, 10, 5};
+    assertTrue(new ArrayExamples().findSubArrayWithSum(arr, 33));
+    int[] arr1 = {1, 4};
+    assertFalse(new ArrayExamples().findSubArrayWithSum(arr1, 0));
+  }
+
+  @Test
   public void replaceWithMultiply() throws Exception {
     int[] arr = {2, 3, 4, 5, 6};
     new ArrayExamples().replaceWithMultiply(arr, 0, 1);
