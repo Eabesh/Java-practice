@@ -402,8 +402,24 @@ public class ArrayExamples {
   /**
    * 32.
    * Problem: Find subarray with given sum | Set 1 (Nonnegative Numbers).
-   * Solution:
+   * Solution: Use two pointers like sliding window.
    */
+  boolean findSubArrayWithSum(int[] array, int sum) {
+    int currentSum = array[0], windowL = 0, windowR = 0;
+    while (windowR < array.length || windowL < windowR) {
+      if (currentSum == sum) return true;
+      else if (currentSum < sum || windowL == windowR - 1) {
+        windowR++;
+        currentSum += array[windowR];
+      }
+      else if (windowL < windowR - 1) {
+        currentSum -= array[windowL];
+        windowL++;
+      }
+    }
+    return false;
+  }
+
 
   /**
    * 33.
@@ -1142,6 +1158,9 @@ public class ArrayExamples {
    * Problem: Find number of subarrays with even sum.
    * Solution:
    */
+  int subArrayCountWithEvenSum(int[] array) {
+    return subArrayCount(array, 2);
+  }
 
   /**
    * 116.
