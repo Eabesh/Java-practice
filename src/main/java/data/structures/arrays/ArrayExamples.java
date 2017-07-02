@@ -405,14 +405,11 @@ public class ArrayExamples {
    * Solution: Use two pointers like sliding window.
    */
   boolean findSubArrayWithSum(int[] array, int sum) {
-    int currentSum = array[0], windowL = 0, windowR = 0;
-    while (windowR < array.length || windowL < windowR) {
+    int currentSum = array[0], windowL = 0;
+    for (int windowR = 1; windowR <= array.length; windowR++) {
       if (currentSum == sum) return true;
-      else if (currentSum < sum || windowL == windowR - 1) {
-        windowR++;
-        currentSum += array[windowR];
-      }
-      else if (windowL < windowR - 1) {
+      else if (windowR < array.length) currentSum += array[windowR];
+      while (currentSum < sum && windowL < windowR - 1) {
         currentSum -= array[windowL];
         windowL++;
       }
