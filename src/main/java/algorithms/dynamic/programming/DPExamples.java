@@ -1194,8 +1194,23 @@ public class DPExamples {
   /**
    * 134.
    * Problem: Recursively break a number in 3 parts to get maximum sum
+   * Given a number n, we can divide it in only three parts n/2, n/3 and n/4 (we will consider only integer part).
+   * The task is to find the maximum sum we can make by dividing number in three parts recursively and summing up them together.
    * Solution:
    */
+  int maxBreakingSum(int n) {
+    if (n == 0 || n == 1) return n;
+    else return Math.max(maxBreakingSum(n / 2) + maxBreakingSum(n / 3) + maxBreakingSum(n / 4), n);
+  }
+
+  int maxBreakingSumBottomUp(int n) {
+    int[] dp = new int[n + 1];
+    for (int i = 0; i < dp.length; i++) {
+     if (i == 0 || i == 1) dp[i] = i;
+     else dp[i] = Math.max(dp[i / 2] + dp[i / 3]  + dp[ i / 4], i);
+    }
+    return dp[n];
+  }
 
   /**
    * 135.
@@ -1426,6 +1441,7 @@ public class DPExamples {
    * Output : 0 20 30 50 70 80 100
    * Solution:
    */
+
 
   /**
    * 153.
