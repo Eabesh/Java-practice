@@ -10,6 +10,8 @@ import static org.junit.Assert.*;
 public class DPExamplesTest {
   @Test
   public void waysToSumToN() throws Exception {
+    int[] array = {1, 5, 6};
+    assertEquals(6, new DPExamples().waysToSumToN(7, array));
   }
 
   @Test
