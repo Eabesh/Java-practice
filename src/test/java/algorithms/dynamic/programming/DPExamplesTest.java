@@ -9,6 +9,16 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void countWalks() throws Exception {
+    int[][] graph = { {0, 1, 1, 1},
+            {0, 0, 0, 1},
+            {0, 0, 0, 1},
+            {0, 0, 0, 0}
+    };
+    assertEquals(2, new DPExamples().countWalks(graph, 0, 3, 2));
+  }
+
+  @Test
   public void countStrings() throws Exception {
     assertEquals(3, new DPExamples().countStrings(2));
   }

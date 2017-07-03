@@ -656,14 +656,18 @@ public class DPExamples {
    * edge from vertex i to vertex j and a value 0 indicates no edge from i to j.
    * Solution:
    */
-  int countWalks(int[][] graph, int source, int dest, int k, int count) {
+  int countWalks(int[][] graph, int source, int dest, int k) {
     if (k == 0 && source == dest) return 1;
     else if (k == 1 && graph[source][dest] == 1) return 1;
     else if (k <= 0) return 0;
-    else for (int i = 0; i < graph[0].length; i++)
-        if (graph[source][i] == 1) count += countWalks(graph, i, dest, k - 1, count);
-    return count;
+    else {
+      int count = 0;
+      for (int i = 0; i < graph[0].length; i++)
+        if (graph[source][i] == 1) count += countWalks(graph, i, dest, k - 1);
+      return count;
+    }
   }
+
 
 
   /**
