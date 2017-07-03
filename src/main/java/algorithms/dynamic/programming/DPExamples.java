@@ -580,7 +580,8 @@ public class DPExamples {
    * Solution:
    */
   int countPaths(int x, int y) {
-    if (x == 1 || y == 1) return 1;
+    if (x == 0 || y == 0) return 1;
+    else if (x < 0 || y < 0) return 0;
     else return 1 + countPaths(x - 1, y) + countPaths(x, y - 1);
   }
 
@@ -881,8 +882,30 @@ public class DPExamples {
   /**
    * 86.
    * Problem: Count number of paths with at-most k turns
+   * Given a “m x n” matrix, count number of paths to reach bottom right from top left with maximum k turns allowed.
+   * What is a turn? A movement is considered turn, if we were moving along row and now move along column.
+   * OR we were moving along column and now move along row.
    * Solution:
    */
+  //Not correct
+  int countPathsAtKTurns(int m, int n, int k) {
+    if (m == 0 && n == 0) return 1;
+    return countPathsAtKTurnsUtil(m - 1, n, k, true) +
+            countPathsAtKTurnsUtil(m, n - 1, k, false);
+  }
+  private int countPathsAtKTurnsUtil(int m, int n, int k, boolean direction) {
+    if (m == 0 && n == 0) return 1;
+    else if (m < 0 || n < 0) return 0;
+    else if (k == 0) {
+      if (m == 0 && false) return 1;
+      else if (n == 0 && true) return 1;
+      else return 0;
+    }
+    else if (direction) return countPathsAtKTurnsUtil(m - 1, n, k, direction) +
+            countPathsAtKTurnsUtil(m, n - 1, k - 1, !direction);
+    else return countPathsAtKTurnsUtil(m - 1, n, k - 1, !direction) +
+              countPathsAtKTurnsUtil(m, n - 1, k, direction);
+  }
 
 
   /**

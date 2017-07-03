@@ -9,6 +9,11 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void countPathsAtKTurns() throws Exception {
+    assertEquals(4, new DPExamples().countPathsAtKTurns(2, 2, 2));
+  }
+
+  @Test
   public void distanceCountWays() throws Exception {
     assertEquals(4, new DPExamples().distanceCountWays( 3));
   }
