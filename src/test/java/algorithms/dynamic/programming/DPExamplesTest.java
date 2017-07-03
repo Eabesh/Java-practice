@@ -9,6 +9,14 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void countWaysToScore() throws Exception {
+    int[] choices = { 3, 5, 10};
+    assertEquals(4, new DPExamples().countWaysToScore(20, choices, choices.length));
+    assertEquals(2, new DPExamples().countWaysToScore(13, choices, choices.length));
+    assertEquals(2, new DPExamples().countWaysToScoreBottomUp(13, choices, choices.length));
+  }
+
+  @Test
   public void countWalks() throws Exception {
     int[][] graph = { {0, 1, 1, 1},
             {0, 0, 0, 1},

@@ -719,6 +719,22 @@ public class DPExamples {
    * (3, 10)
    * Solution:
    */
+  int countWaysToScore(int n, int[] points, int index) {
+    if (n == 0) return 1;
+    if (index <= 0) return 0;
+    else if (n < points[index - 1]) return countWaysToScore(n, points, index - 1) ;
+    else
+        return countWaysToScore(n - points[index - 1], points, index)
+                + countWaysToScore(n, points, index - 1);
+  }
+
+  int countWaysToScoreBottomUp(int n, int[] points, int index) {
+    int[] dp = new int[n + 1];
+    dp[0] = 1;
+    for (int i = 0; i < points.length; i++)
+      for (int j = points[i]; j <= n; j++) dp[j] += dp[j - points[i]];
+    return dp[n];
+  }
 
 
   /**
