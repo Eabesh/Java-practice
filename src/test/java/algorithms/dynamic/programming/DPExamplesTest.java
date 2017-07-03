@@ -9,6 +9,15 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void minCostToDest() throws Exception {
+    int[][] cost = { {0, 15, 80, 90},
+            {Integer.MAX_VALUE, 0, 40, 50},
+            {Integer.MAX_VALUE, Integer.MAX_VALUE, 0, 70},
+            {Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, 0}
+    };
+  }
+
+  @Test
   public void countWaysToScore() throws Exception {
     int[] choices = { 3, 5, 10};
     assertEquals(4, new DPExamples().countWaysToScore(20, choices, choices.length));

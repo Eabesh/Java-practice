@@ -748,11 +748,15 @@ public class DPExamples {
    * Problem: Find the minimum cost to reach destination using a train
    * There are N stations on route of a train. The train goes from station 0 to N-1. The ticket cost for all pair of
    * stations (i, j) is given where j is greater than i. Find the minimum cost to reach the destination.
-
-
    * Solution:
    */
+  int minCostToDest(int[][] graph, int source, int dest) {
+      int min = Integer.MAX_VALUE;
+      for (int i = 0; i < graph[0].length; i++)
+        if (graph[source][i] != Integer.MAX_VALUE || graph[source][i] != 0)
+          return Math.min(min, graph[source][i] + minCostToDest(graph, i, dest));
 
+  }
   /**
    * 60.
    * Problem: How to print maximum number of A’s using given four keys
