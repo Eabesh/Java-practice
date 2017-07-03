@@ -579,11 +579,20 @@ public class DPExamples {
    * that from each cell you can either move only to right or down
    * Solution:
    */
-  int countPaths(int x, int y) {
-    if (x == 0 || y == 0) return 1;
-    else if (x < 0 || y < 0) return 0;
-    else return 1 + countPaths(x - 1, y) + countPaths(x, y - 1);
+  int countPaths(int m, int n) {
+    if (m == 0 || n == 0) return 1;
+    else return countPaths(m - 1, n) + countPaths(m, n - 1);
   }
+
+  int countPathsBottomUp(int m, int n) {
+    int[][] dp = new int[m][n];
+    for (int i = 0; i < dp.length; i++)
+      for (int j = 0; j < dp[0].length; j++)
+        if (i == 0 || j == 0) dp[i][j] = 1;
+        else dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+    return dp[m - 1][n - 1];
+  }
+
 
 
   /**
