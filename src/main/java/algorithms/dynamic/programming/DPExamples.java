@@ -2143,12 +2143,12 @@ public class DPExamples {
    * Output : 150
    * Solution:
    */
-  int waysToSumToN(int n, int[] array) {
-    if (n == 0) return 1;
+  int waysToSumToN(int sum, int[] array) {
+    if (sum == 0) return 1;
     else {
       int count = 0;
       for (int i : array)
-        if (n > i) count += waysToSumToN(n - i, array);
+        if (sum >= i) count += waysToSumToN(sum - i, array);
       return count;
     }
   }
