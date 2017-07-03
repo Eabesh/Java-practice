@@ -628,6 +628,18 @@ public class DPExamples {
    * // The 5 strings are 000, 001, 010, 100, 101
    * Solution:
    */
+  int countStrings(int n) {
+    return countWith1AtEnd(n) + countWith0AtEnd(n);
+  }
+  private int countWith1AtEnd(int n) {
+    if (n == 1) return 1;
+    else return countWith0AtEnd(n - 1);
+  }
+  private int countWith0AtEnd(int n) {
+    if (n == 1) return 1;
+    else return countWith1AtEnd(n - 1) + countWith0AtEnd(n - 1);
+  }
+
 
   /**
    * 50.
