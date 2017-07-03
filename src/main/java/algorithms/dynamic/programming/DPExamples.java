@@ -650,8 +650,20 @@ public class DPExamples {
   /**
    * 51.
    * Problem: Count all possible walks from a source to a destination with exactly k edges
+   * Given a directed graph and two vertices ‘u’ and ‘v’ in it, count all possible walks from ‘u’ to ‘v’ with exactly
+   * k edges on the walk.
+   * The graph is given as adjacency matrix representation where value of graph[i][j] as 1 indicates that there is an
+   * edge from vertex i to vertex j and a value 0 indicates no edge from i to j.
    * Solution:
    */
+  int countWalks(int[][] graph, int source, int dest, int k, int count) {
+    if (k == 0 && source == dest) return 1;
+    else if (k == 1 && graph[source][dest] == 1) return 1;
+    else if (k <= 0) return 0;
+    else for (int i = 0; i < graph[0].length; i++)
+        if (graph[source][i] == 1) count += countWalks(graph, i, dest, k - 1, count);
+    return count;
+  }
 
 
   /**
