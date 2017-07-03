@@ -12,6 +12,7 @@ public class DPExamplesTest {
   public void waysToSumToN() throws Exception {
     int[] array = {1, 5, 6};
     assertEquals(6, new DPExamples().waysToSumToN(7, array));
+    assertEquals(6, new DPExamples().waysToSumToNBottomUp(7, array));
   }
 
   @Test
