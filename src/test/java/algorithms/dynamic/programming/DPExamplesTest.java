@@ -15,6 +15,7 @@ public class DPExamplesTest {
             {Integer.MAX_VALUE, Integer.MAX_VALUE, 0, 70},
             {Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, 0}
     };
+    assertEquals(65, new DPExamples().minCostToDest(cost, 0, 3));
   }
 
   @Test

@@ -751,11 +751,13 @@ public class DPExamples {
    * Solution:
    */
   int minCostToDest(int[][] graph, int source, int dest) {
-      int min = Integer.MAX_VALUE;
-      for (int i = 0; i < graph[0].length; i++)
-        if (graph[source][i] != Integer.MAX_VALUE || graph[source][i] != 0)
-          return Math.min(min, graph[source][i] + minCostToDest(graph, i, dest));
-
+      if (source == dest) return graph[source][dest];
+      else {
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < graph[0].length; i++)
+          if (source < i) min = Math.min(min, graph[source][i] + minCostToDest(graph, i, dest));
+        return min;
+      }
   }
   /**
    * 60.
