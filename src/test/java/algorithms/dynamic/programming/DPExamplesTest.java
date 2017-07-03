@@ -9,6 +9,10 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void waysToSumToN() throws Exception {
+  }
+
+  @Test
   public void waysToConstructBuilding() throws Exception {
     assertEquals(4, new DPExamples().waysToConstructBuilding(1));
     assertEquals(25, new DPExamples().waysToConstructBuilding(3));

@@ -797,7 +797,7 @@ public class DPExamples {
      return (int) Math.pow(placeBuilding(n) + placeSpace(n), 2);
    }
    private int placeBuilding(int n) {
-     if (n == 0 || n == 1) return 1;
+     if (n == 0 || n == 1) return n;
      else return placeSpace(n - 1);
    }
    private int placeSpace(int n) {
@@ -2128,8 +2128,31 @@ public class DPExamples {
   /**
    * 205.
    * Problem: Ways to sum to N using array elements with repetition allowed.
+   * Given a set of m distinct positive integers and a value ‘N’. The problem is to count the total number of ways we
+   * can form ‘N’ by doing sum of the array elements. Repetitions and different arrangements are allowed.
+   * Input : arr = {1, 5, 6}, N = 7
+   * Output : 6
+   * The different ways are:
+   * 1+1+1+1+1+1+1
+   * 1+1+5
+   * 1+5+1
+   * 5+1+1
+   * 1+6
+   * 6+1
+   * Input : arr = {12, 3, 1, 9}, N = 14
+   * Output : 150
    * Solution:
    */
+  int waysToSumToN(int n, int[] array) {
+    if (n == 0) return 1;
+    else {
+      int count = 0;
+      for (int i : array)
+        if (n > i) count += waysToSumToN(n - i, array);
+      return count;
+    }
+  }
+
 
   /**
    * 206.
