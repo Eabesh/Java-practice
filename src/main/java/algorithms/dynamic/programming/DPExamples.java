@@ -2153,6 +2153,14 @@ public class DPExamples {
     }
   }
 
+  int waysToSumToNBottomUp(int sum, int[] array) {
+    int[] dp = new int[sum + 1];
+    dp[0] = 1;
+    for (int i = 1; i <= sum; i++)
+      for (int j : array) if (i >= j) dp[i] += dp[i - j];
+    return dp[sum];
+  }
+
 
   /**
    * 206.
