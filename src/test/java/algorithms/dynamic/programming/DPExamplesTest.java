@@ -9,6 +9,13 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void waysToConstructBuilding() throws Exception {
+    assertEquals(4, new DPExamples().waysToConstructBuilding(1));
+    assertEquals(25, new DPExamples().waysToConstructBuilding(3));
+    assertEquals(64, new DPExamples().waysToConstructBuilding(4));
+  }
+
+  @Test
   public void minCostToDest() throws Exception {
     int[][] cost = { {0, 15, 80, 90},
             {Integer.MAX_VALUE, 0, 40, 50},
