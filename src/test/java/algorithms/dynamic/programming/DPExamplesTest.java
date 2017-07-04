@@ -9,6 +9,13 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void countIncreasingNum() throws Exception {
+    assertEquals(10, new DPExamples().countIncreasingNum(1, 0));
+    assertEquals(55, new DPExamples().countIncreasingNum(2, 0));
+    assertEquals(220, new DPExamples().countIncreasingNum(3, 0));
+  }
+
+  @Test
   public void countMinSquares() throws Exception {
     assertEquals(3, new DPExamples().countMinSquares(6));
     assertEquals(1, new DPExamples().countMinSquaresBottomUp(100));

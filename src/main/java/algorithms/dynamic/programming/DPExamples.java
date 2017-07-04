@@ -987,6 +987,14 @@ public class DPExamples {
    * Output: count  = 220
    * Solution:
    */
+  int countIncreasingNum(int n, int index) {
+    if (n == 0) return 1;
+    else {
+      int count = 0;
+      for (int i = index; i < 10; i++) count += countIncreasingNum(n - 1, i);
+      return count;
+    }
+  }
 
   /**
    * 71.
