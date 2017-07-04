@@ -10,7 +10,8 @@ import static org.junit.Assert.*;
 public class DPExamplesTest {
   @Test
   public void countMinSquares() throws Exception {
-
+    assertEquals(3, new DPExamples().countMinSquares(6));
+    assertEquals(3, new DPExamples().countMinSquaresBottomUp(6));
   }
 
   @Test

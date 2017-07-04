@@ -931,15 +931,33 @@ public class DPExamples {
    * Solution:
    */
   int countMinSquares(int n) {
-    if (n == 0) return 0;
+    if (n <= 3) return n;
     else {
       int min = Integer.MAX_VALUE;
-      for (int i = 1; i <= n; i++) if (n >= square(i)) min = Math.min(min, 1 + countMinSquares(n - square(i)));
+      for (int i = 1; i <= n; i++) {
+        if (n >= square(i)) {
+          int subMin = countMinSquares(n - square(i));
+          if (subMin != Integer.MAX_VALUE) min = Math.min(min, 1 + subMin);
+        }
+      }
       return min;
     }
   }
   private int square(int n) {
-    return (int) Math.pow(n, 2);
+    return n * n;
+  }
+
+  int countMinSquaresBottomUp(int n) {
+    int[] dp = new int[n + 1];
+    dp[0] = 0;
+    dp[1] = 1;
+    dp[2] = 2;
+    dp[3] = 3;
+    Arrays.fill(dp, 4, dp.length, Integer.MAX_VALUE);
+    for (int i = 1; i <= n; i++)
+      for (int j = 4; j < dp.length; j++)
+        if (j >= square(i) && dp[j - square(i)] != Integer.MAX_VALUE) dp[j] = Math.min(dp[j], 1 + dp[j - square(i)]);
+    return dp[n];
   }
 
   /**
