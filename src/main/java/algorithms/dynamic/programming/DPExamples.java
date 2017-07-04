@@ -858,7 +858,13 @@ public class DPExamples {
    * Solution:
    */
   int superSeq(String str1, String str2) {
-    int len =
+    return str1.length() + str2.length() - LCSBottomUp(str1, str2);
+  }
+  int superSeqRec(String str1, String str2, int m, int n) {
+    if (m == 0) return n;
+    else if (n == 0) return m;
+    else if (str1.charAt(m - 1) == str2.charAt(n - 1)) return 1 + superSeqRec(str1, str2, m - 1, n - 1);
+    else return 1 + Math.min(superSeqRec(str1, str2, m - 1, n), superSeqRec(str1, str2, m, n - 1));
   }
 
   /**
