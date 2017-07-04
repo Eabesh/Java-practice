@@ -2,7 +2,7 @@ package language.threads;
 
 public class PrintOddEven {
 
-  static Object lock = new Object();
+  private static final Object lock = new Object();
 
   public static void main(String[] args) {
 
@@ -29,8 +29,7 @@ public class PrintOddEven {
             System.out.print(" " + itr);
             try {
               lock.notify();
-              if(itr==50)
-                break;
+              if(itr == 50) break;
               lock.wait();
             } catch (InterruptedException e) {
               e.printStackTrace();
