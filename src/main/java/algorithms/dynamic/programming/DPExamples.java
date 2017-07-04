@@ -896,7 +896,7 @@ public class DPExamples {
    * Solution:
    */
   int findMinCoins(int[] coins, int sum, int m) {
-    if (sum == 0) return 0;
+    if (sum == 0 || m < 0) return 0;
     else if (sum < coins[m - 1]) return findMinCoins(coins, sum, m - 1);
     else return Math.min(1 + findMinCoins(coins, sum - coins[m - 1], m), findMinCoins(coins, sum, m - 1));
   }
