@@ -922,8 +922,25 @@ public class DPExamples {
    * Problem: Minimum number of squares whose sum equals to given number n
    * A number can always be represented as a sum of squares of other numbers. Note that 1 is a square and we can always
    * break a number as (1*1 + 1*1 + 1*1 + …). Given a number n, find the minimum number of squares that sum to X.
+   * Input:  n = 100
+   * Output: 1
+   * 100 can be written as 102. Note that 100 can also be written as 52 + 52 + 52 + 52, but this representation
+   * requires 4 squares.
+   * Input:  n = 6
+   * Output: 3
    * Solution:
    */
+  int countMinSquares(int n) {
+    if (n == 0) return 0;
+    else {
+      int min = Integer.MAX_VALUE;
+      for (int i = 1; i <= n; i++) if (n >= square(i)) min = Math.min(min, 1 + countMinSquares(n - square(i)));
+      return min;
+    }
+  }
+  private int square(int n) {
+    return (int) Math.pow(n, 2);
+  }
 
   /**
    * 68.

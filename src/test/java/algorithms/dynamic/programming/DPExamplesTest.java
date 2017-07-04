@@ -9,6 +9,11 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void countMinSquares() throws Exception {
+
+  }
+
+  @Test
   public void findMinCoins() throws Exception {
     int[] coins = {9, 5, 6, 1};
     assertEquals(2, new DPExamples().findMinCoins(coins, 11));
