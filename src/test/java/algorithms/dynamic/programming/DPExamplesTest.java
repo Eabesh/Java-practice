@@ -9,6 +9,12 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void findMinCoins() throws Exception {
+    int[] coins = {25, 10, 5};
+    assertEquals(2, new DPExamples().findMinCoins(coins, 30, coins.length));
+  }
+
+  @Test
   public void superSeq() throws Exception {
     String str1 = "abc", str2 = "b";
     assertEquals(3, new DPExamples().superSeq(str1, str2));
