@@ -843,13 +843,18 @@ public class DPExamples {
    * Output: Sum of digits in numbers from 1 to 12 = 51
    * Input: n = 328
    * Output: Sum of digits in numbers from 1 to 328 = 3241
-
    * Solution:
    */
+
 
   /**
    * 64.
    * Problem: Shortest Common Supersequence
+   * Given two strings str1 and str2, find the shortest string that has both str1 and str2 as subsequences.
+   * Input:   str1 = "geek",  str2 = "eke"
+   * Output: "geeke"
+   * Input:   str1 = "AGGTAB",  str2 = "GXTXAYB"
+   * Output:  "AGXGTXAYB"
    * Solution:
    */
 
