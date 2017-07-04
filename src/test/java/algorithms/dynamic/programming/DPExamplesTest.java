@@ -11,7 +11,7 @@ public class DPExamplesTest {
   @Test
   public void findMinCoins() throws Exception {
     int[] coins = {25, 10, 5};
-    assertEquals(2, new DPExamples().findMinCoins(coins, 30, coins.length));
+    assertEquals(2, new DPExamples().findMinCoins(coins, 30));
   }
 
   @Test

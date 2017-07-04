@@ -895,10 +895,14 @@ public class DPExamples {
    * We can use one coin of 6 cents and 1 coin of 5 cents
    * Solution:
    */
-  int findMinCoins(int[] coins, int sum, int m) {
-    if (sum == 0 || m < 0) return 0;
-    else if (sum < coins[m - 1]) return findMinCoins(coins, sum, m - 1);
-    else return Math.min(1 + findMinCoins(coins, sum - coins[m - 1], m), findMinCoins(coins, sum, m - 1));
+  int findMinCoins(int[] coins, int sum) {
+    if (sum == 0 ) return 0;
+    else {
+      int min = Integer.MAX_VALUE;
+      for (int coin : coins)
+        if (sum >= coin) min = Math.min(min, 1 + findMinCoins(coins, sum - coin));
+      return min;
+    }
   }
 
 
