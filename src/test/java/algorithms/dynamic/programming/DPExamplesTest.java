@@ -9,6 +9,12 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void superSeq() throws Exception {
+    String str1 = "abc", str2 = "b";
+    assertEquals(3, new DPExamples().superSeq(str1, str2));
+  }
+
+  @Test
   public void waysToSumToN() throws Exception {
     int[] array = {1, 5, 6};
     assertEquals(6, new DPExamples().waysToSumToN(7, array));
