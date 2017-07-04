@@ -1273,7 +1273,7 @@ public class DPExamples {
    * Solution:
    */
   int minCostForIdentical(String str1, String str2, int costX, int costY) {
-    int lenLCS = LISBottomUp(str1, str2);
+    int lenLCS = LCSBottomUp(str1, str2);
     return (str1.length() - lenLCS) * costX + (str2.length() - lenLCS) * costY;
   }
 
@@ -2129,7 +2129,7 @@ public class DPExamples {
    */
   int[] minInsertionDeletionBottomUp(String str1, String str2, int m , int n) {
     int[] result = new int[2];
-    int len = new DPExamples().LISBottomUp(str1, str2);
+    int len = new DPExamples().LCSBottomUp(str1, str2);
     result[0] = m - len;
     result[1] = n - len;
     return result;
