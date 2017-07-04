@@ -1027,6 +1027,14 @@ public class DPExamples {
    * Output: 21
    * Solution:
    */
+  int countDigitSum(int n, int sum){
+    if (n == 0 && sum == 0) return 1;
+    else {
+      int count = 0;
+      for (int i = 0; i <= 9; i++) if (sum >= i) count += countDigitSum(n - 1, sum - i);
+      return count;
+    }
+  }
 
   /**
    * 73.
