@@ -896,17 +896,27 @@ public class DPExamples {
    * Solution:
    */
   int findMinCoins(int[] coins, int sum) {
-    if (sum == 0 ) return 0;
+    if (sum == 0) return 0;
     else {
       int min = Integer.MAX_VALUE;
       for (int coin : coins)
-        if (sum >= coin) min = Math.min(min, 1 + findMinCoins(coins, sum - coin));
+        if (sum >= coin) {
+            int subResult = findMinCoins(coins, sum - coin);
+            if (subResult != Integer.MAX_VALUE) min = Math.min(min, 1 + subResult);
+        }
       return min;
     }
   }
+  int findMinCoinsBottomUp(int[] coins, int sum) {
+    int[] dp = new int[sum + 1];
+    Arrays.fill(dp, 1, dp.length, Integer.MAX_VALUE);
+    dp[0] = 0;
+    for (int coin : coins)
+      for (int i = 1; i <= sum; i++)
+        if (i >= coin && dp[i - coin] != Integer.MAX_VALUE) dp[i] = Math.min(dp[i], 1 + dp[i - coin]);
 
-
-
+    return dp[sum];
+  }
   /**
    * 67.
    * Problem: Minimum number of squares whose sum equals to given number n

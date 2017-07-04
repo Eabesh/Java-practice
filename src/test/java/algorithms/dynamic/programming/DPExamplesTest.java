@@ -10,8 +10,9 @@ import static org.junit.Assert.*;
 public class DPExamplesTest {
   @Test
   public void findMinCoins() throws Exception {
-    int[] coins = {25, 10, 5};
-    assertEquals(2, new DPExamples().findMinCoins(coins, 30));
+    int[] coins = {9, 6, 5, 1};
+    assertEquals(2, new DPExamples().findMinCoins(coins, 11));
+    assertEquals(2, new DPExamples().findMinCoinsBottomUp(coins, 11));
   }
 
   @Test
