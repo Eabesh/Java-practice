@@ -792,6 +792,7 @@ public class DPExamples {
    Ctrl C, Ctrl V, Ctrl V
    * Solution:
    */
+  
 
   /**
    * 61.
@@ -835,6 +836,14 @@ public class DPExamples {
   /**
    * 63.
    * Problem: Compute sum of digits in all numbers from 1 to n
+   * Given a number x, find sum of digits in all numbers from 1 to n.
+   * Input: n = 5
+   * Output: Sum of digits in numbers from 1 to 5 = 15
+   * Input: n = 12
+   * Output: Sum of digits in numbers from 1 to 12 = 51
+   * Input: n = 328
+   * Output: Sum of digits in numbers from 1 to 328 = 3241
+
    * Solution:
    */
 
