@@ -1027,14 +1027,17 @@ public class DPExamples {
    * Output: 21
    * Solution:
    */
-  int countDigitSum(int n, int sum){
-    if (n == 0 && sum == 0) return 1;
-    else {
-      int count = 0;
-      for (int i = 0; i <= 9; i++) if (sum >= i) count += countDigitSum(n - 1, sum - i);
-      return count;
-    }
-  }
+//  int countDigitSum(int n, int sum){
+//    if (n == 0 && sum == 0) return 1;
+//    else if (n == 0 && sum > 0) return 0;
+//    else {
+//      int count = 0;
+//      for (int i = 0; i <= 9; i++) if (sum >= i) count += countDigitSum(n - 1, sum - i);
+//      return count;
+//    }
+//  }
+
+
 
   /**
    * 73.
@@ -1057,8 +1060,25 @@ public class DPExamples {
   /**
    * 76.
    * Problem: Longest Repeating Subsequence
+   * Given a string, find length of the longest repeating subseequence such that the two subsequence don’t have same
+   * string character at same position, i.e., any i’th character in the two subsequences shouldn’t have the same index
+   * in the original string.
+   * Examples:
+   * Input: str = "abc"
+   * Output: 0
+   * There is no repeating subsequence
+   * Input: str = "aab"
+   * Output: 1
+   * The two subssequence are 'a'(first) and 'a'(second).
+   * Note that 'b' cannot be considered as part of subsequence
+   * as it would be at same index in both.
+   * Input: str = "aabb"
+   * Output: 2
+   * Input: str = "axxxy"
+   * Output: 2
    * Solution:
    */
+
 
 
   /**
