@@ -219,13 +219,13 @@ public class DPExamplesTest {
   @Test
   public void LIS() throws Exception {
     String str = "abc", str2 = "babc";
-    assertEquals(3, new DPExamples().LIS(str, str2, str.length(), str2.length()));
+    assertEquals(3, new DPExamples().LCS(str, str2, str.length(), str2.length()));
   }
 
   @Test
   public void LISBottomUp() throws Exception {
     String str = "abc", str2 = "babc";
-    assertEquals(3, new DPExamples().LISBottomUp(str, str2));
+    assertEquals(3, new DPExamples().LCSBottomUp(str, str2));
   }
 
   @Test

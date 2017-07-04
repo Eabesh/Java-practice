@@ -157,7 +157,7 @@ public class DPExamples {
    * 7.
    * Problem: Dynamic Programming | Set 3 (Longest Increasing Subsequence)
    * Input  : arr[] = {3, 10, 2, 1, 20}
-   * Output : Length of LIS = 3
+   * Output : Length of LCS = 3
    * The longest increasing subsequence is 3, 10, 20
    * Solution:Then, L(i) can be recursively written as:
    * L(i) = 1 + max( L(j) ) where 0 < j < i and arr[j] < arr[i]; or
@@ -185,15 +185,15 @@ public class DPExamples {
    * LCS for input Sequences “ABCDGH” and “AEDFHR” is “ADH” of length 3.
    * Solution: Recursive Complexity = O(2^n).
    */
-  int LIS(String str1, String str2, int m, int n) {
+  int LCS(String str1, String str2, int m, int n) {
     if (m == 0 || n == 0) return 0;
     else if (str1.charAt(m - 1) == str2.charAt(n - 1))
-      return 1 + LIS(str1, str2, m - 1 , n - 1);
+      return 1 + LCS(str1, str2, m - 1 , n - 1);
     else
-      return Math.max(LIS(str1, str2, m - 1, n), LIS(str1, str2, m, n - 1));
+      return Math.max(LCS(str1, str2, m - 1, n), LCS(str1, str2, m, n - 1));
   }
 
-  int LISBottomUp(String str1, String str2) {
+  int LCSBottomUp(String str1, String str2) {
     int[][] dp = new int[str1.length() + 1][str2.length() + 1];
     for (int i = 1; i <= str1.length(); i++) {
       for (int j= 1; j <= str2.length(); j++) {
@@ -403,7 +403,7 @@ public class DPExamples {
 
   /**
    * 27.
-   * Problem: Dynamic Programming | Set 21 (Variations of LIS)
+   * Problem: Dynamic Programming | Set 21 (Variations of LCS)
    * Solution:
    */
 
@@ -857,6 +857,9 @@ public class DPExamples {
    * Output:  "AGXGTXAYB"
    * Solution:
    */
+  int superSeq(String str1, String str2) {
+    int len =
+  }
 
   /**
    * 65.
@@ -1156,7 +1159,7 @@ public class DPExamples {
 
   /**
    * 102.
-   * Problem: Longest Common Increasing Subsequence (LCS + LIS)
+   * Problem: Longest Common Increasing Subsequence (LCS + LCS)
    * Solution:
    */
 
@@ -1230,7 +1233,7 @@ public class DPExamples {
 
   /**
    * 114.
-   * Problem: Weighted Job Scheduling | Set 2 (Using LIS)
+   * Problem: Weighted Job Scheduling | Set 2 (Using LCS)
    * Solution:
    */
 
@@ -1769,7 +1772,7 @@ public class DPExamples {
 
   /**
    * 169.
-   * Problem: Size of array after repeated deletion of LIS.
+   * Problem: Size of array after repeated deletion of LCS.
    * Solution:
    */
 
