@@ -9,6 +9,14 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void minCost() throws Exception {
+    int[][] cost =  { {1, 2, 3},
+            {4, 8, 2},
+            {1, 5, 3} };
+    assertEquals(8, new DPExamples().minCost(cost, cost.length - 1, cost[0].length - 1));
+  }
+
+  @Test
   public void knapsack() throws Exception {
     int[] values = {60, 100, 120};
     int[] weights = {10, 20, 30};

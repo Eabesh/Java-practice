@@ -195,11 +195,10 @@ public class DPExamples {
    * Problem: Dynamic Programming | Set 6 (Min Cost Path)
    * Given a cost matrix cost[][] and a position (m, n) in cost[][], write a function that returns cost of minimum cost
    * path to reach (m, n) from (0, 0).
-   * Solution:
    */
   int minCost(int[][] mat, int i, int j) {
-    if (i < 0 || j > 0) return Integer.MAX_VALUE;
-    if (i == 0 && j == 0) return mat[i][j];
+    if (i < 0 || j < 0) return Integer.MAX_VALUE;
+    else if (i == 0 && j == 0) return mat[i][j];
     else return mat[i][j] + Math.min(minCost(mat, i - 1, j), Math.min(minCost(mat, i, j - 1),
             minCost(mat, i - 1, j - 1)));
   }
