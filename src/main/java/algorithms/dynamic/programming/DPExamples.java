@@ -326,6 +326,7 @@ public class DPExamples {
     }
   }
 
+
   /**
    * 20.
    * Problem: Dynamic Programming | Set 14 (Maximum Sum Increasing Subsequence)
@@ -342,6 +343,8 @@ public class DPExamples {
     for (int element : maxSis) max = Math.max(max, element);
     return max;
   }
+
+
   /**
    * 21.
    * Problem: Dynamic Programming | Set 15 (Longest Bitonic Subsequence)
