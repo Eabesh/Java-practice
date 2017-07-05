@@ -276,7 +276,7 @@ public class DPExamples {
    * Solution:
    */
   int knapsack(int[] weights, int[] values, int capacity, int m) {
-    if (m == 0) return 0;
+    if (m == 0 || capacity == 0) return 0;
     else if (capacity < weights[m - 1]) return knapsack(weights, values, capacity, m - 1);
     else return Math.max(values[m - 1] + knapsack(weights, values, capacity - weights[m - 1], m - 1),
               knapsack(weights, values, capacity, m - 1));
