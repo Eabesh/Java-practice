@@ -11,14 +11,6 @@ public class DPExamples {
    * Problem: Largest Sum Contiguous Subarray.
    * Write an efficient C program to find the sum of contiguous sub array within a one-dimensional array of numbers
    * which has the largest sum.
-   * Solution: Kadane’s Algorithm:
-   * Initialize:
-   * maxSoFar o 0, currMax = 0;
-   * for each element
-   * currMax = currMax + arr[i]
-   * if (currMax < 0) currMax = 0;
-   * if (maxSoFar < currMax) maxSoFar = currMax
-   * return maxSoFar
    */
   public int maxContinousSubArray(int[] array) {
     int maxSoFar = array[0], currMax = array[0];
