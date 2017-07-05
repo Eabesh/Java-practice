@@ -1054,20 +1054,6 @@ public class DPExamples {
    * Given a string, find length of the longest repeating subseequence such that the two subsequence don’t have same
    * string character at same position, i.e., any i’th character in the two subsequences shouldn’t have the same index
    * in the original string.
-   * Examples:
-   * Input: str = "abc"
-   * Output: 0
-   * There is no repeating subsequence
-   * Input: str = "aab"
-   * Output: 1
-   * The two subssequence are 'a'(first) and 'a'(second).
-   * Note that 'b' cannot be considered as part of subsequence
-   * as it would be at same index in both.
-   * Input: str = "aabb"
-   * Output: 2
-   * Input: str = "axxxy"
-   * Output: 2
-   * Solution:
    */
   int LRS(String str, int m, int n) {
     if (m == 0 || n == 0) return 0;
@@ -1088,14 +1074,6 @@ public class DPExamples {
    * 78.
    * Problem: Count number of ways to cover a distance
    * Given a distance ‘dist, count total number of ways to cover the distance with 1, 2 and 3 steps.
-   * Input:  n = 3
-   * Output: 4
-   * Below are the four ways
-   * 1 step + 1 step + 1 step
-   * 1 step + 2 step
-   * 2 step + 1 step
-   * 3 step
-   * Solution:
    */
   int distanceCountWays(int distance) {
     if (distance == 0) return 1;
