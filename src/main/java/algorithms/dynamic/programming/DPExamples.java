@@ -116,8 +116,6 @@ public class DPExamples {
   /**
    * 6.
    * Problem: Dynamic Programming | Set 2 (Optimal Substructure Property)
-   * Solution:
-   *
    * 2) Optimal Substructure: A given problems has Optimal Substructure Property if
    * optimal solution of the given problem can be obtained by using optimal solutions
    * of its subproblems.
