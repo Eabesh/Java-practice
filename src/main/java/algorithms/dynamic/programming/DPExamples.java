@@ -271,8 +271,16 @@ public class DPExamples {
   /**
    * 16.
    * Problem: Dynamic Programming | Set 10 ( 0-1 Knapsack Problem)
+   * Given weights and values of n items, put these items in a knapsack of capacity W to get the maximum total value
+   * in the knapsack.
    * Solution:
    */
+  int knapsack(int[] weights, int[] values, int capacity, int m) {
+    if (m == 0) return 0;
+    else if (capacity < weights[m - 1]) return knapsack(weights, values, capacity, m - 1);
+    else return Math.max(values[m - 1] + knapsack(weights, values, capacity - weights[m - 1], m - 1),
+              knapsack(weights, values, capacity, m - 1));
+  }
 
   /**
    * 17.
