@@ -1870,14 +1870,6 @@ public class DPExamples {
    * Problem: Maximum path sum in a triangle.
    * We have given numbers in form of triangle, by starting at the top of the triangle and moving to adjacent numbers
    * on the row below, find the maximum total from top to bottom.
-   * Input :
-   *      3
-   *    7   4
-   *  2    4   6
-   *  8  5  9  3
-   Output : 23
-   Explanation : 3 + 7 + 4 + 9 = 23
-   * Solution:
    */
   int maxPathInTriangleBottomUp(int[][] mat, int m, int n) {
    for(int i = m - 1; i >= 0; i--)
@@ -1940,13 +1932,6 @@ public class DPExamples {
    * (i+1, j-1)
    * (i+1, j+1)
    * Starting from any column in row 0, return the largest sum of any of the paths up to row N-1.
-   *Input : mat[4][4] = { {4, 2, 3, 4},
-   * {2, 9, 1, 10},
-   * {15, 1, 3, 0},
-   * {16, 92, 41, 44} };
-   * Output :120
-   * path : 4 + 9 + 15 + 92 = 120
-   * Solution:
    */
   int maxSumPath(int[][] mat) {
     int maxSumPath = 0;
@@ -2020,14 +2005,6 @@ public class DPExamples {
    * Problem: Count of strings that can be formed using a, b and c under given constraints.
    * Given a length n, count the number of strings of length n that can be made using ‘a’, ‘b’ and ‘c’ with at-most one ‘
    * b’ and two ‘c’s allowed.
-   * Input : n = 3
-   * Output : 19
-   * Below strings follow given constraints:
-   * aaa aab aac aba abc aca acb acc baa
-   * bac bca bcc caa cab cac cba cbc cca ccb
-   * Input  : n = 4
-   * Output : 39
-   * Solution:
    */
   int countStringFormed(int n, String soFar, String[] choices, int[] remaining) {
     if (n == 0) return 1;
@@ -2134,16 +2111,6 @@ public class DPExamples {
    * Problem: Subset with sum divisible by m
    * Given a set of non-negative distinct integers, and a value m, determine if there is a subset of the given set with
    * sum divisible by m.
-   * Input Constraints
-   * Size of set i.e., n <= 1000000, m <= 1000
-   * Examples:
-   * Input : arr[] = {3, 1, 7, 5};
-   * m = 6;
-   * Output : YES
-   * Input : arr[] = {1, 6};
-   * m = 5;
-   * Output : NO
-   * Solution:
    */
 
 
@@ -2184,12 +2151,6 @@ public class DPExamples {
    * Given a string of size ‘n’. The task is to remove or delete minimum number of characters from the string so that the
    * resultant string is palindrome.
    * Note: The order of characters should be maintained.
-   * Examples:
-   * Input : aebcbda
-   * Output : 2
-   * Remove characters 'e' and 'd'
-   * Resultant string will be 'abcba'which is a palindromic string
-   * Solution:
    */
   int minDeletion(String str, int left, int right) {
     if (left > right) return Integer.MAX_VALUE;
@@ -2221,7 +2182,6 @@ public class DPExamples {
   /**
    * 196.
    * Problem: Minimum steps to delete a string after repeated deletion of palindrome substrings.
-   * Solution:
    */
 
 
@@ -2231,12 +2191,6 @@ public class DPExamples {
    * Problem: Minimum number of deletions to make a sorted sequence
    * Given an array of n integers. The task is to remove or delete minimum number of elements from the array so that
    * when the remaining elements are placed in the same sequence order form a sorted sequence.
-   * Input : {5, 6, 1, 7, 4}
-   * Output : 2
-   * Removing 1 and 4 leaves the remaining sequence order as 5 6 7 which is a sorted sequence.
-   * Solution:A simple solution is to remove all subsequences one by one and check if remaining set of elements are in
-   * sorted order or not. Time complexity of this solution is exponential.
-   * An efficient approach uses the concept of finding the length of the longest increasing subsequence of a given sequence.
    */
     int minDeletionToMakeSorted(int[] array) {
       return array.length - findLISBottomUp(array);
@@ -2246,9 +2200,10 @@ public class DPExamples {
   /**
    * 198.
    * Problem: Count number of ways to jump to reach end
-   * Given an array of numbers where each element represents the max number of jumps that can be made forward from that element.
-   * For each array element, count number of ways jumps can be made from that element to reach the end of the array.
-   * If an element is 0, then move cannot be made through that element. The element that cannot reach to the end should have a count “-1”.
+   * Given an array of numbers where each element represents the max number of jumps that can be made forward from that
+   * element.For each array element, count number of ways jumps can be made from that element to reach the end of the array.
+   * If an element is 0, then move cannot be made through that element. The element that cannot reach to the end should
+   * have a count “-1”.
    * Solution:
    */
 
@@ -2259,23 +2214,6 @@ public class DPExamples {
    * Given two strings ‘str1’ and ‘str2’ of size m and n respectively. The task is to remove/delete and insert minimum
    * number of characters from/in str1 so as to transform it into str2. It could be possible that the same character
    * needs to be removed/deleted from one point of str1 and inserted to some another point.
-   * Input : str1 = "heap", str2 = "pea"
-   * Output : Minimum Deletion = 2 and
-   * Minimum Insertion = 1
-   * p and h deleted from heap
-   * Then, p is inserted at the beginning One thing to note, though p was required yet, it was removed/deleted first
-   * from its position and then it is inserted to some other position. Thus, p contributes one to the deletion_count
-   * and one to the insertion_count.
-   * Solution:
-   * An efficient approach uses the concept of finding the length of the longest common subsequence of the given two sequences.
-   * ->str1 and str2 be the given strings.
-   * -->m and n be their lengths respectively.
-   * -->len be the length of the longest
-   * common subsequence of str1 and str2
-   * -->// minimum number of deletions
-   * minDel = m - len
-   * -->// minimum number of Insertions
-   * minInsert = n - len
    */
   int[] minInsertionDeletionBottomUp(String str1, String str2, int m , int n) {
     int[] result = new int[2];
@@ -2295,13 +2233,6 @@ public class DPExamples {
    * Problem: Minimum insertions to sort an array.
    * Given an array of integer numbers, we need to sort this array in a minimum number of steps where in one step we can
    * insert any array element from its position to any other position.
-   * Input  : arr[] = [2, 3, 5, 1, 4, 7, 6]
-   * Output : 3
-   * We can sort above array in 3 insertionsteps as shown below, 1 before array value 24 before array value 56 before
-   * array value 7
-   * Input : arr[] = {4, 6, 5, 1}
-   * Output : 2
-   * Solution:
    */
   int minInsertionsToSort(int[] array) {
     return array.length - findLISBottomUp(array);
@@ -2330,18 +2261,6 @@ public class DPExamples {
    * Problem: Ways to sum to N using array elements with repetition allowed.
    * Given a set of m distinct positive integers and a value ‘N’. The problem is to count the total number of ways we
    * can form ‘N’ by doing sum of the array elements. Repetitions and different arrangements are allowed.
-   * Input : arr = {1, 5, 6}, N = 7
-   * Output : 6
-   * The different ways are:
-   * 1+1+1+1+1+1+1
-   * 1+1+5
-   * 1+5+1
-   * 5+1+1
-   * 1+6
-   * 6+1
-   * Input : arr = {12, 3, 1, 9}, N = 14
-   * Output : 150
-   * Solution:
    */
   int waysToSumToN(int sum, int[] array) {
     if (sum == 0) return 1;
@@ -2383,13 +2302,9 @@ public class DPExamples {
   /**
    * 209.
    * Problem: Counts paths from a point to reach Origin
-   *You are standing on a point (n, m) and you want to go to origin (0, 0) by taking steps either left or down i.e.
-   * from each point you are allowed to move either in (n-1, m) or (n, m-1). Find the number of paths from point to origin.
-   * Input : 3 6
-   * Output : Number of Paths 84
-   *
-   * Input : 3 0
-   * Output : Number of Paths 1
+   * You are standing on a point (n, m) and you want to go to origin (0, 0) by taking steps either left or down i.e.
+   * from each point you are allowed to move either in (n-1, m) or (n, m-1). Find the number of paths from point to
+   * origin.
    * Solution:
    */
   int countPathsToOri(int x, int y) {
@@ -2459,9 +2374,6 @@ public class DPExamples {
    * There are n houses build in a line, each of which contains some value in it. A thief is going to steal the maximal
    * value of these houses, but he can’t steal in two adjacent houses because owner of the stolen houses will tell his
    * two neighbour left and right side. What is the maximum stolen value.
-   * Input  : hval[] = {6, 7, 1, 3, 8, 2, 4}
-   * Output : 19
-   * Thief will steal 6, 1, 8 and 4 from house.
    * Solution:
    */
   int maxStealing(int[] array, int m) {
