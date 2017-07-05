@@ -12,6 +12,7 @@ public class DPExamplesTest {
   public void LPSeq() throws Exception {
     String str = "aa";
     assertEquals(2, new DPExamples().LPSeq(str, 0, str.length() - 1));
+    assertEquals(2, new DPExamples().LPSeqBottomUp(str));
   }
 
   @Test

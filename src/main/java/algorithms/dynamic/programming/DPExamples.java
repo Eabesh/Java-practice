@@ -315,6 +315,19 @@ public class DPExamples {
     else return Math.max(LPSeq(str, start + 1, end), LPSeq(str, start, end - 1));
   }
 
+  int LPSeqBottomUp(String str) {
+    int[][] dp = new int[str.length()][str.length()];
+    for (int i = 0; i < dp.length; i++) dp[i][i] = 1;
+    for (int col = 2; col <= dp[0].length; col++)
+      for (int i = 0; i < dp[0].length - col + 1; i++){
+        int j = i + col - 1;
+        if (str.charAt(i) == str.charAt(j) && col == 2) dp[i][j] = 2;
+        else if (str.charAt(i) == str.charAt(j)) dp[i][j] = 2 + dp[i + 1][j - 1];
+        else dp[i][j] = Math.max(dp[i + 1][j], dp[i][j - 1]);
+      }
+    return dp[0][dp[0].length - 1];
+  }
+
   /**
    * 19.
    * Problem: Dynamic Programming | Set 13 (Cutting a Rod)
