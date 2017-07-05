@@ -9,6 +9,24 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void maxLengthSnake() throws Exception {
+    int[][] grid = {
+            {9, 6, 5, 2},
+            {8, 7, 6, 5},
+            {7, 3, 1, 6},
+            {1, 1, 1, 7},
+    };
+    assertEquals(6, new DPExamples().maxLengthSnake(grid));
+    int[][] grid2 = {
+            {10, 6, 5, 2},
+            {8, 7, 6, 5},
+            {7, 3, 1, 6},
+            {1, 1, 1, 7},
+    };
+    assertEquals(5, new DPExamples().maxLengthSnake(grid2));
+  }
+
+  @Test
   public void minCost() throws Exception {
     int[][] cost =  { {1, 2, 3},
             {4, 8, 2},
