@@ -763,25 +763,6 @@ public class DPExamples {
    * If you can only press the keyboard for N times (with the above four keys), write a program to produce maximum
    * numbers of A's. That is to say, the input parameter is N (No. of keys that you can press), the
    * output is M (No. of As that you can produce).
-   * Input:  N = 3
-   Output: 3
-   We can at most get 3 A's on screen by pressing
-   following key sequence.
-   A, A, A
-
-   Input:  N = 7
-   Output: 9
-   We can at most get 9 A's on screen by pressing
-   following key sequence.
-   A, A, A, Ctrl A, Ctrl C, Ctrl V, Ctrl V
-
-   Input:  N = 11
-   Output: 27
-   We can at most get 27 A's on screen by pressing
-   following key sequence.
-   A, A, A, Ctrl A, Ctrl C, Ctrl V, Ctrl V, Ctrl A,
-   Ctrl C, Ctrl V, Ctrl V
-   * Solution:
    */
   
 
@@ -797,20 +778,6 @@ public class DPExamples {
    * Problem: Count possible ways to construct buildings
    * Given an input number of sections and each section has 2 plots on either sides of the road. Find all possible ways
    * to construct buildings in the plots such that there is a space between any 2 buildings.
-   * N = 1
-   * Output = 4
-   * Place a building on one side.
-   * Place a building on other side
-   * Do not place any building.
-   * Place a building on both sides.
-   * N = 3
-   * Output = 25
-   * 3 sections, which means possible ways for one side are BSS, BSB, SSS, SBS, SSB where B represents a building and S
-   * represents an empty space Total possible ways are 25, because a way to place on one side can correspond to any of 5
-   * ways on other side.
-   * N = 4
-   * Output = 64
-   * Solution:
    */
    int waysToConstructBuilding(int n) {
      return (int) Math.pow(placeBuilding(n) + placeSpace(n), 2);
@@ -828,13 +795,6 @@ public class DPExamples {
    * 63.
    * Problem: Compute sum of digits in all numbers from 1 to n
    * Given a number x, find sum of digits in all numbers from 1 to n.
-   * Input: n = 5
-   * Output: Sum of digits in numbers from 1 to 5 = 15
-   * Input: n = 12
-   * Output: Sum of digits in numbers from 1 to 12 = 51
-   * Input: n = 328
-   * Output: Sum of digits in numbers from 1 to 328 = 3241
-   * Solution:
    */
 
 
@@ -842,11 +802,6 @@ public class DPExamples {
    * 64.
    * Problem: Shortest Common Supersequence
    * Given two strings str1 and str2, find the shortest string that has both str1 and str2 as subsequences.
-   * Input:   str1 = "geek",  str2 = "eke"
-   * Output: "geeke"
-   * Input:   str1 = "AGGTAB",  str2 = "GXTXAYB"
-   * Output:  "AGXGTXAYB"
-   * Solution:
    */
   int superSeq(String str1, String str2) {
     return str1.length() + str2.length() - LCSBottomUp(str1, str2);
@@ -878,13 +833,6 @@ public class DPExamples {
    * Problem: Find minimum number of coins that make a given value
    * Given a value V, if we want to make change for V cents, and we have infinite supply of each of C = { C1, C2, .. , Cm}
    * valued coins, what is the minimum number of coins to make the change?
-   * Input: coins[] = {25, 10, 5}, V = 30
-   * Output: Minimum 2 coins required
-   * We can use one coin of 25 cents and one of 5 cents
-   * Input: coins[] = {9, 6, 5, 1}, V = 11
-   * Output: Minimum 2 coins required
-   * We can use one coin of 6 cents and 1 coin of 5 cents
-   * Solution:
    */
   int findMinCoins(int[] coins, int sum) {
     if (sum == 0) return 0;
