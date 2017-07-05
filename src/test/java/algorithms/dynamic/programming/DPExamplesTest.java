@@ -14,6 +14,7 @@ public class DPExamplesTest {
             {4, 8, 2},
             {1, 5, 3} };
     assertEquals(8, new DPExamples().minCost(cost, cost.length - 1, cost[0].length - 1));
+    assertEquals(8, new DPExamples().minCostBotUP(cost));
   }
 
   @Test
