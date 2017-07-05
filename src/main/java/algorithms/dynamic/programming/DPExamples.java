@@ -1859,14 +1859,6 @@ public class DPExamples {
    * Problem: Modify array to maximize sum of adjacent differences.
    * Given an array, we need to modify values of this array in such a way that sum of absolute differences between two
    * consecutive elements is maximized. If the value of an array element is X, then we can change it to either 1 or X.
-   * Input  : arr[] = [3, 2, 1, 4, 5]
-   * Output : 8
-   * We can modify above array as, Modified arr[] = [3, 1, 1, 4, 1]
-   * Sum of differences = |1-3| + |1-1| + |4-1| + |1-4| = 8
-   * Which is the maximum obtainable value among all choices of modification.
-   * Input  : arr[] = [1, 8, 9]
-   * Output : 14
-   * Solution:
    */
   int maxSumAdjDiff(int[] arr, int m) {
   return 0;
