@@ -1168,6 +1168,8 @@ public class DPExamples {
   private boolean isValidRightMove(int[][] grid, int x, int y) {
     return x < grid.length  && y < grid[0].length  && Math.abs(grid[x][y - 1] - grid[x][y]) == 1;
   }
+
+
   /**
    * 100.
    * Problem: Find if string is K-Palindrome or not | Set 1
@@ -1369,8 +1371,14 @@ public class DPExamples {
   /**
    * 131.
    * Problem: Maximum weight path ending at any element of last row in a matrix
-   * Solution:
+   * Given a matrix of integers where every element represents weight of the cell. Find the path having the maximum
+   * weight in matrix [N X N]. Path Traversal Rules are:
+   * It should begin from top left element. The path can end at any element of last row.We can move to following two
+   * cells from a cell (i, j).
+   * Down Move : (i+1, j)
+   * Diagonal Move : (i+1, j+1)
    */
+
 
 
   /**
