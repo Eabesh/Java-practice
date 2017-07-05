@@ -91,9 +91,9 @@ public class DPExamples {
     return dp[n];
   }
 
-  int fibonnaciSpaceOpt(int n, int first, int second, int sumOfLastTerms) {
-    if (n == 0) return sumOfLastTerms;
-    else return fibonnaciSpaceOpt(n - 1, second, sumOfLastTerms, sumOfLastTerms + second);
+  int fibonnaciSpaceOpt(int n, int first, int second) {
+    if (n == 0) return first;
+    else return fibonnaciSpaceOpt(n - 1, second, first + second);
   }
 
   /**

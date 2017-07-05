@@ -241,7 +241,7 @@ public class DPExamplesTest {
     assertEquals(55 , new DPExamples().fibonnaciDP(10));
     assertEquals(55 , new DPExamples().fibonacci(10));
     assertEquals(34, new DPExamples().fibonnaciDP(9));
-    assertEquals(55 , new DPExamples().fibonnaciSpaceOpt(10, 0, 1, 0));
+    assertEquals(55 , new DPExamples().fibonnaciSpaceOpt(10, 0, 1));
 
   }
 
