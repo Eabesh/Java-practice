@@ -1806,8 +1806,8 @@ public class DPExamples {
   /**
    * 175.
    * Problem: Count of strings that can be formed using a, b and c under given constraints.
-   * Given a length n, count the number of strings of length n that can be made using ‘a’, ‘b’ and ‘c’ with at-most one ‘
-   * b’ and two ‘c’s allowed.
+   * Given a length n, count the number of strings of length n that can be made using ‘a’, ‘b’ and ‘c’ with at-most one
+   * ‘b’ and two ‘c’s allowed.
    */
   int countStringFormed(int n, String soFar, String[] choices, int[] remaining) {
     if (n == 0) return 1;
