@@ -1556,8 +1556,8 @@ public class DPExamples {
    * 148.
    * Problem: Count number of ways to reach destination in a Maze
    * Given a maze with obstacles, count number of paths to reach rightmost-bottommost cell from topmost-leftmost cell.
-   * A cell in given maze has value -1 if it is a blockage or dead end, else 0.
-   * From a given cell, we are allowed to move to cells (i+1, j) and (i, j+1) only.
+   * A cell in given maze has value -1 if it is a blockage or dead end, else 0. From a given cell, we are allowed to
+   * move to cells (i+1, j) and (i, j+1) only.
    */
   int countWaysToReachDest(int[][] mat, int i, int j) {
     if (i == 0 && j == 0 && mat[0][0] == 0) return 1;
