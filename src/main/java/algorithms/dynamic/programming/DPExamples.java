@@ -1412,15 +1412,6 @@ public class DPExamples {
    * Given two strings X and Y, and two values costX and costY. We need to find minimum cost required to make the given
    * two strings identical. We can delete characters from both the strings. The cost of deleting a character from string
    * X is costX and from Y is costY. Cost of removing all characters from a string is same.
-   * Input :  X = "abcd", Y = "acdb", costX = 10, costY = 20.
-   * Output:  30
-   * For Making both strings identical we have to delete character 'b' from both the string, hence cost will be =
-   * 10 + 20 = 30.
-   * Input :  X = "ef", Y = "gh", costX = 10, costY = 20.
-   * Output:  60
-   * For making both strings identical, we have to delete 2-2 characters from both the strings, hence cost will be =
-   * 10 + 10 + 20 + 20 = 60.
-   * Solution:
    */
   int minCostForIdentical(String str1, String str2, int costX, int costY) {
     int lenLCS = LCSBottomUp(str1, str2);
@@ -1531,7 +1522,6 @@ public class DPExamples {
    * Problem: Recursively break a number in 3 parts to get maximum sum
    * Given a number n, we can divide it in only three parts n/2, n/3 and n/4 (we will consider only integer part).
    * The task is to find the maximum sum we can make by dividing number in three parts recursively and summing up them together.
-   * Solution:
    */
   int maxBreakingSum(int n) {
     if (n == 0 || n == 1) return n;
@@ -1554,12 +1544,6 @@ public class DPExamples {
    * specific sequence of cells which starts from top left cell move only right or down and ends on bottom right cell.
    * We want to find a path with maximum average over all existing paths. Average is computed as total cost divided by
    * number of cells visited in path.
-   * Input : Matrix =
-   * [1, 2, 3
-   * 4, 5, 6
-   * 7, 8, 9]
-   * Output : 5.8
-   * Solution:
    */
   double maxAvgPath(int[][] mat, int i, int j, int pathLen, int pathSum) {
     if (i == 0 && j == 0) return (double)(pathSum + mat[0][0]) / (double)(pathLen + 1);
@@ -1597,10 +1581,6 @@ public class DPExamples {
    * Problem: Count All Palindrome Sub-Strings in a String
    * Given a string, the task is to count all palindrome substring in a given string. Length of palindrome substring is
    * greater then or equal to 2.
-   * Input : str = "abaab"
-   * Output: 3
-   * Explanation :All palindrome substring are :"aba" , "aa" , "baab"
-   * Solution:
    */
   int countPSubstrings(String str, int left, int right) {
     if (left + 1 == right && str.charAt(left) == str.charAt(right)) return 1;
