@@ -79,6 +79,8 @@ public class ArrayExamplesTest {
   public void minValue() throws Exception {
     int arr[] = {1, 7, 1, 1, 3, 1};
     assertEquals(4, new ArrayExamples().minValue(arr, 0, arr.length - 1, 0));
+    int arr2[] = {1, 2, 1, 2, 1, 3};
+    assertEquals(2, new ArrayExamples().minValue(arr2, 0, arr.length - 1, 0));
   }
 
   @Test
