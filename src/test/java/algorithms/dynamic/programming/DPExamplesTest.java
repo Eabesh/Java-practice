@@ -9,6 +9,12 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void rodCutting() throws Exception {
+    int arr[] = {1, 5, 8, 9, 10, 17, 17, 20};
+    assertEquals(22, new DPExamples().rodCutting(arr, arr.length));
+  }
+
+  @Test
   public void threeStringsLCS() throws Exception {
     String str1 = "ab", str2 = "ab", str3 = "abc";
     assertEquals(2, new DPExamples().threeStringsLCS(str1, str2, str3, str1.length(), str2.length(),

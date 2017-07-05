@@ -301,6 +301,15 @@ public class DPExamples {
    * Determine the maximum value obtainable by cutting up the rod and selling the pieces.
    * Solution:
    */
+  int rodCutting(int[] price, int rodLength) {
+    if (rodLength <= 0) return 0;
+    else {
+      int maxProfit = Integer.MIN_VALUE;
+      for (int i = 0; i < price.length; i++) if (rodLength >= i + 1) maxProfit = Math.max(maxProfit,
+              price[i] + rodCutting(price, rodLength - (i + 1)));
+      return maxProfit;
+    }
+  }
 
   /**
    * 20.
