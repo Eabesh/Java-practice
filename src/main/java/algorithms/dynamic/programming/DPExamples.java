@@ -1397,10 +1397,6 @@ public class DPExamples {
               maxAvgPath(mat, i, j - 1, pathLen + 1, pathSum + mat[i][j]));
   }
 
-  int maxAvgPath(int[][] mat) {
-    double[][] dp = new double[mat.length][mat[0].length];
-    return 0;
-  }
 
   /**
    * 136.
@@ -1505,10 +1501,6 @@ public class DPExamples {
    * Given a matrix containing lower alphabetical characters only, we need to count number of palindromic paths in given
    * matrix. A path is defined as a sequence of cells starting from top-left cell and ending at bottom-right cell.
    * We are allowed to move to right and down only from current cell.
-   * Input : mat[][] = {"aaab”,
-   * "baaa”
-   * “abba”}
-   * Output : 3
    * Solution:
    */
 
