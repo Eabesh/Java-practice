@@ -339,7 +339,7 @@ public class DPExamples {
     for (int i = 1; i < array.length; i++)
       for (int j = 0; j < i; j++)
         if (array[j] < array[i] && maxSis[i] < array[i] + maxSis[j]) maxSis[i] = array[i] + maxSis[j];
-    for (int element : maxSis) Math.max(max, element);
+    for (int element : maxSis) max = Math.max(max, element);
     return max;
   }
   /**

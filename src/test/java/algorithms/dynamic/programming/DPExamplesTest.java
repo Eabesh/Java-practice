@@ -10,6 +10,9 @@ import static org.junit.Assert.*;
 public class DPExamplesTest {
   @Test
   public void maxSISum() throws Exception {
+    int arr[] = {1, 101, 2, 3, 100, 4, 5};
+    assertEquals(106, new DPExamples().maxSISum(arr));
+
   }
 
   @Test
