@@ -13,7 +13,7 @@ public class DPExamples {
    * which has the largest sum.
    * Solution: Kadane’s Algorithm:
    * Initialize:
-   * maxSoFar = 0, currMax = 0;
+   * maxSoFar o 0, currMax = 0;
    * for each element
    * currMax = currMax + arr[i]
    * if (currMax < 0) currMax = 0;
@@ -1078,6 +1078,13 @@ public class DPExamples {
    * Output: 2
    * Solution:
    */
+  int LRS(String str, int m, int n) {
+    if (m == 0) return n;
+    else if (n == 0) return m;
+    else if (str.charAt(m - 1) == str.charAt(n - 1) && m != n) return 1;
+    else return Math.max(LRS(str, m - 1, n), LRS(str, m, n - 1));
+  }
+
 
 
 
