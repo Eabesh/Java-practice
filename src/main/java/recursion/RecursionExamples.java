@@ -6,7 +6,11 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
- public class RecursionExamples {
+public class RecursionExamples {
+
+  /**
+   * Julie Zelenski's lecture @ Stanford.
+   */
 
   /**
    * 1.
