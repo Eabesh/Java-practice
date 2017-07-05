@@ -1109,8 +1109,11 @@ public class DPExamples {
   /**
    * 95.
    * Problem: Ways to arrange Balls such that adjacent balls are of different types
+   * There are ‘p’ balls of type P, ‘q’ balls of type Q and ‘r’ balls of type R. Using the balls we want to create a
+   * straight line such that no two balls of same type are adjacent.
    * Solution:
    */
+
 
   /**
    * 96.
@@ -1134,6 +1137,11 @@ public class DPExamples {
   /**
    * 99.
    * Problem: Find maximum length Snake sequence
+   * Given a grid of numbers, find maximum length Snake sequence and print it. If multiple snake sequences exists with
+   * the maximum length, print any one of them.
+   * A snake sequence is made up of adjacent numbers in the grid such that for each number, the number on the right or
+   * the number below it is +1 or -1 its value. For example, if you are at location (x, y) in the grid, you can either
+   * move right i.e. (x, y+1) if that number is ± 1 or move down i.e. (x+1, y) if that number is ± 1
    * Solution:
    */
 
