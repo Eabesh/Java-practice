@@ -1717,12 +1717,6 @@ public class DPExamples {
    * Given a maze with obstacles, count number of paths to reach rightmost-bottommost cell from topmost-leftmost cell.
    * A cell in given maze has value -1 if it is a blockage or dead end, else 0.
    * From a given cell, we are allowed to move to cells (i+1, j) and (i, j+1) only.
-   * Input: maze[R][C] =  {{0,  0, 0, 0},
-   * {0, -1, 0, 0},
-   * {-1, 0, 0, 0},
-   * {0,  0, 0, 0}};
-   * Output: 4
-   * Solution:
    */
   int countWaysToReachDest(int[][] mat, int i, int j) {
     if (i == 0 && j == 0 && mat[0][0] == 0) return 1;
@@ -1766,15 +1760,6 @@ public class DPExamples {
    * Problem: Find all distinct subset (or subsequence) sums of an array
    * Given a set of integers, find distinct sum that can be generated from the subsets of the given sets and print them
    * in an increasing order. It is given that sum of array elements is small.
-   * Input  : arr[] = {1, 2, 3}
-   * Output : 0 1 2 3 4 5 6
-   * Distinct subsets of given set are {}, {1}, {2}, {3}, {1,2}, {2,3}, {1,3} and {1,2,3}.  Sums of these subsets are
-   * 0, 1, 2, 3, 3, 5, 4, 6 After removing duplicates, we get 0, 1, 2, 3, 4, 5, 6
-   * Input : arr[] = {2, 3, 4, 5, 6}
-   * Output : 0 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 20
-   * Input : arr[] = {20, 30, 50}
-   * Output : 0 20 30 50 70 80 100
-   * Solution:
    */
 
 
@@ -1799,13 +1784,8 @@ public class DPExamples {
   /**
    * 156.
    * Problem: LCS (Longest Common Subsequence) of three strings
-   * Given 3 strings of all having length < 100,the task is to find the longest common sub-sequence in all three given sequences.
-   * Examples:
-   * Input : str1 = "geeks"
-   * str2 = "geeksfor"
-   * str3 = "geeksforgeeks"
-   * Output : 5
-   * Longest common subsequence is "geeks" i.e., length = 5
+   * Given 3 strings of all having length < 100,the task is to find the longest common sub-sequence in all three given
+   * sequences.
    */
   int threeStringsLCS(String str1, String str2, String str3, int m, int n, int o) {
     if (m == 0 || n == 0 || o == 0) return 0;
