@@ -625,6 +625,7 @@ public class DPExamples {
     if (n == 1) return 1;
     else return countWith0AtEnd(n - 1);
   }
+
   private int countWith0AtEnd(int n) {
     if (n == 1) return 1;
     else return countWith1AtEnd(n - 1) + countWith0AtEnd(n - 1);
@@ -1118,18 +1119,18 @@ public class DPExamples {
    * The longest path is 6-7-8-9.
    * Solution:
    */
-  int longestPathInMat(int[][] mat, int x, int y) {
-     int maxSum = 0;
-      for (int i = 0; i < mat.length; i++)
-        for (int j = 0; j < mat[0].length; j++) maxSum = Math.max(maxSum, dfs(mat, i, j));
-        return maxSum;
-  }
-  int dfs(int[][] mat, int i, int j) {
-    if (!validMove(mat, i, j)) return 0;
-    else {
-      for ()
-    }
-  }
+//  int longestPathInMat(int[][] mat, int x, int y) {
+//     int maxSum = 0;
+//      for (int i = 0; i < mat.length; i++)
+//        for (int j = 0; j < mat[0].length; j++) maxSum = Math.max(maxSum, dfs(mat, i, j));
+//        return maxSum;
+//  }
+//  int dfs(int[][] mat, int i, int j) {
+//    if (!validMove(mat, i, j)) return 0;
+//    else {
+//      for ()
+//    }
+//  }
 
   /**
    * 80.
