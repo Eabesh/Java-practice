@@ -239,8 +239,8 @@ public class DPExamples {
    * For “BBBB” the longest substring is “B”, with length 1.
    * Solution:
    * Method 1 (Simple)
-   * We can consider all substrings one by one and check for each substring whether it contains all unique characters or not.
-   * There will be n*(n+1)/2 substrings. Whether a substirng contains all unique characters or not can be checked in
+   * We can consider all substrings one by one and check for each substring whether it contains all unique characters or
+   * not.There will be n*(n+1)/2 substrings. Whether a substirng contains all unique characters or not can be checked in
    * linear time by scanning it from left to right and keeping a map of visited characters. Time complexity of this
    * solution would be O(n^3).
    *
