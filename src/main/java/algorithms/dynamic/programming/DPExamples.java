@@ -969,14 +969,6 @@ public class DPExamples {
    * A number is non-decreasing if every digit (except the first one) is greater than or equal to previous digit. For
    * example, 223, 4455567, 899, are non-decreasing numbers.
    * So, given the number of digits n, you are required to find the count of total non-decreasing numbers with n digits.
-   * Examples:
-   * Input:  n = 1
-   * Output: count  = 10
-   * Input:  n = 2
-   * Output: count  = 55
-   * Input:  n = 3
-   * Output: count  = 220
-   * Solution:
    */
   int countIncreasingNum(int n, int index) {
     if (n == 0) return 1;
@@ -997,7 +989,6 @@ public class DPExamples {
    * From a cell (i, j) we can move to (i+1, j) or (i, j+1).
    * We cannot move from (i, j) if your overall points at (i, j) is <= 0.
    * We have to reach at (n-1, m-1) with minimum positive points i.e., > 0.
-
    * Solution:
    */
 
@@ -1007,16 +998,6 @@ public class DPExamples {
    * Problem: Count of n digit numbers whose sum of digits equals to given sum
    * Given two integers ‘n’ and ‘sum’, find count of all n digit numbers with sum of digits as ‘sum’. Leading 0’s are
    * not counted as digits. 1 <= n <= 100 and 1 <= sum <= 50000
-   * Example:
-   * Input:  n = 2, sum = 2
-   * Output: 2
-   * Explanation: Numbers are 11 and 20
-   * Input:  n = 2, sum = 5
-   * Output: 5
-   * Explanation: Numbers are 14, 23, 32, 41 and 50
-   * Input:  n = 3, sum = 6
-   * Output: 21
-   * Solution:
    */
 //  int countDigitSum(int n, int sum){
 //    if (n == 0 && sum == 0) return 1;
