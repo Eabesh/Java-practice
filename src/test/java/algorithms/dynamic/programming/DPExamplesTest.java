@@ -9,6 +9,12 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void LPSeq() throws Exception {
+    String str = "abcab";
+    assertEquals(3, new DPExamples().LPSeq(str, 0, str.length() - 1));
+  }
+
+  @Test
   public void maxSISum() throws Exception {
     int arr[] = {1, 101, 2, 3, 100, 4, 5};
     assertEquals(106, new DPExamples().maxSISum(arr));

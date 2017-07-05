@@ -308,6 +308,12 @@ public class DPExamples {
    * Problem: Dynamic Programming | Set 12 (Longest Palindromic Subsequence)
    * Given a sequence, find the length of the longest palindromic subsequence in it.
    */
+  int LPSeq(String str, int start, int end) {
+    if (start == end) return 1;
+    else if(start + 1 == end && str.charAt(start) == str.charAt(end)) return 2;
+    else if (str.charAt(start) == str.charAt(end)) return 2 + LPSeq(str, start + 1, end - 1);
+    else return Math.max(LPSeq(str, start + 1, end), LPSeq(str, start, end - 1));
+  }
 
   /**
    * 19.
