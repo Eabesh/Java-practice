@@ -13,7 +13,7 @@ public class DPExamples {
    * which has the largest sum.
    * Solution: Kadane’s Algorithm:
    * Initialize:
-   * maxSoFar = 0, currMax = 0;
+   * maxSoFar o 0, currMax = 0;
    * for each element
    * currMax = currMax + arr[i]
    * if (currMax < 0) currMax = 0;
@@ -62,14 +62,6 @@ public class DPExamples {
    * Ugly numbers are numbers whose only prime factors are 2, 3 or 5. The sequence 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, …
    * shows the first 11 ugly numbers. By convention, 1 is included.
    * Given a number n, the task is to find n’th Ugly number.
-   * Input  : n = 7
-   * Output : 8
-   * Input  : n = 10
-   * Output : 12
-   * Input  : n = 15
-   * Output : 24
-   * Input  : n = 150
-   * Output : 5832
    * Solution:
    */
 
@@ -187,10 +179,8 @@ public class DPExamples {
    */
   int LCS(String str1, String str2, int m, int n) {
     if (m == 0 || n == 0) return 0;
-    else if (str1.charAt(m - 1) == str2.charAt(n - 1))
-      return 1 + LCS(str1, str2, m - 1 , n - 1);
-    else
-      return Math.max(LCS(str1, str2, m - 1, n), LCS(str1, str2, m, n - 1));
+    else if (str1.charAt(m - 1) == str2.charAt(n - 1)) return 1 + LCS(str1, str2, m - 1 , n - 1);
+    else return Math.max(LCS(str1, str2, m - 1, n), LCS(str1, str2, m, n - 1));
   }
 
   int LCSBottomUp(String str1, String str2) {
@@ -207,8 +197,8 @@ public class DPExamples {
   /**
    * 9.
    * Problem: Dynamic Programming | Set 5 (Edit Distance)
-   * Given two strings str1 and str2 and below operations that can performed on str1. Find minimum number of edits (operations) required to
-   * convert ‘str1’ into ‘str2’.
+   * Given two strings str1 and str2 and below operations that can performed on str1. Find minimum number of edits
+   * (operations) required to convert ‘str1’ into ‘str2’.
    * Insert
    * Remove
    * Replace
@@ -430,12 +420,12 @@ public class DPExamples {
    * Problem: Dynamic Programming | Set 24 (Optimal Binary Search Tree)
    * Solution:
    */
+
   /**
    * 32.
    * Problem: Dynamic Programming | Set 25 (Subset Sum Problem)
-   * Given a set of non-negative integers, and a value sum, determine if there is a subset of the given set with sum equal to given sum.
-   * Examples: set[] = {3, 34, 4, 12, 5, 2}, sum = 9
-   * Output:  True  //There is a subset (4, 5) with sum 9.
+   * Given a set of non-negative integers, and a value sum, determine if there is a subset of the given set with sum
+   * equal to given sum.
    * Solution:
    */
   boolean isSubsetSum(int[] set, int setLen, int sum) {
@@ -1078,6 +1068,12 @@ public class DPExamples {
    * Output: 2
    * Solution:
    */
+  int LRS(String str, int m, int n) {
+    if (m == 0 || n == 0) return 0;
+    else if (str.charAt(m - 1) == str.charAt(n - 1) && m != n) return 1;
+    else return Math.max(LRS(str,m - 1, n), LRS(str, m,n - 1));
+  }
+
 
 
 
@@ -1110,8 +1106,30 @@ public class DPExamples {
   /**
    * 79.
    * Problem: Find the longest path in a matrix with given constraints
+   * Given a n*n matrix where all numbers are distinct, find the maximum length path (starting from any cell) such that
+   * all cells along the path are in increasing order with a difference of 1.
+   * We can move in 4 directions from a given cell (i, j), i.e., we can move to (i+1, j) or (i, j+1) or (i-1, j) or
+   * (i, j-1) with the condition that the adjacent cells have a difference of 1.
+   * Example:
+   * Input:  mat[][] = {{1, 2, 9}
+   * {5, 3, 8}
+   * {4, 6, 7}}
+   * Output: 4
+   * The longest path is 6-7-8-9.
    * Solution:
    */
+  int longestPathInMat(int[][] mat, int x, int y) {
+     int maxSum = 0;
+      for (int i = 0; i < mat.length; i++)
+        for (int j = 0; j < mat[0].length; j++) maxSum = Math.max(maxSum, dfs(mat, i, j));
+        return maxSum;
+  }
+  int dfs(int[][] mat, int i, int j) {
+    if (!validMove(mat, i, j)) return 0;
+    else {
+      for ()
+    }
+  }
 
   /**
    * 80.

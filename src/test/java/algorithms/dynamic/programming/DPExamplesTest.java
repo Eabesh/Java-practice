@@ -9,6 +9,12 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void LRS() throws Exception {
+    String str = "aab";
+    assertEquals(1, new DPExamples().LRS(str, str.length(), str.length()));
+  }
+
+  @Test
   public void countDigitSum() throws Exception {
 //    assertEquals(2, new DPExamples().countDigitSum(2, 2));
   }
