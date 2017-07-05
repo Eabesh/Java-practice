@@ -11,7 +11,7 @@ public class DPExamplesTest {
   @Test
   public void LRS() throws Exception {
     String str = "aab";
-    assertEquals(2, new DPExamples().LRS(str, str.length(), str.length()));
+    assertEquals(1, new DPExamples().LRS(str, str.length(), str.length()));
   }
 
   @Test
