@@ -30,9 +30,9 @@ public class DPExamples {
   }
 
   /**
-  * To print the subarray with the maximum sum, we maintain indices
-  * whenever we get the maximum sum.
-  */
+   * To print the subarray with the maximum sum, we maintain indices
+   * whenever we get the maximum sum.
+   */
   int printContinousSubArray(int[] array) {
     int maxSoFar = array[0], currMax = array[0], start = 0, end = 0, currStart = 0;
     for (int i = 1; i < array.length; i++) {
@@ -69,48 +69,40 @@ public class DPExamples {
    * Problem: Maximum size square sub-matrix with all 1s
    * Given a binary matrix, find out the maximum size square sub-matrix with all 1s.
    */
-   public int[][] maxSizeSquareMat(int[][] mat, int[][] dp) {
-     for (int i = 0; i < mat.length; i++){
-       for (int j = 0; j < mat[0].length; j++) {
-         if (i == 0 || j == 0) dp[i][j] = mat[i][j];
-         else if (mat[i][j] == 0) dp[i][j] = 0;
-         else dp[i][j] = 1 + Math.min(dp[i - 1][j], Math.min(dp[i][j - 1], dp[i - 1][j - 1]));
-       }
-     }
-     return dp;
-   }
+  public int[][] maxSizeSquareMat(int[][] mat, int[][] dp) {
+    for (int i = 0; i < mat.length; i++) {
+      for (int j = 0; j < mat[0].length; j++) {
+        if (i == 0 || j == 0) dp[i][j] = mat[i][j];
+        else if (mat[i][j] == 0) dp[i][j] = 0;
+        else dp[i][j] = 1 + Math.min(dp[i - 1][j], Math.min(dp[i][j - 1], dp[i - 1][j - 1]));
+      }
+    }
+    return dp;
+  }
 
   /**
    * 4.
    * Problem: Program for Fibonacci numbers
-   * The Fibonacci numbers are the numbers in the following integer sequence.
-   * 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144,
-   * Solution:
+   * The Fibonacci numbers are the numbers in the following integer sequence. 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89...
    */
-   int fibonacci(int n) {
-     if (n == 0 || n == 1) return n;
-     else return fibonacci(n - 1) + fibonacci(n - 2);
-   }
+  int fibonacci(int n) {
+    if (n == 0 || n == 1) return n;
+    else return fibonacci(n - 1) + fibonacci(n - 2);
+  }
 
-   int fibonnaciDP(int n) {
-     int[] dp = new int[n + 1];
-     for (int i = 0; i < dp.length; i++) {
-       if (i == 0 || i == 1) dp[i] = i;
-       else dp[i] = dp[i - 1] + dp[i - 2];
+  int fibonnaciDP(int n) {
+    int[] dp = new int[n + 1];
+    for (int i = 0; i < dp.length; i++) {
+      if (i == 0 || i == 1) dp[i] = i;
+      else dp[i] = dp[i - 1] + dp[i - 2];
     }
     return dp[n];
-   }
+  }
 
-  /**
-   *  Space Optimized Method
-   *  We can optimize the space used in above method by storing the previous two numbers
-   *  only because that is all we need to get the next Fibonacci number in series.
-   */
-   int fibonnaciSpaceOpt(int n, int first, int second, int sumOfLastTerms) {
-     if (n == 0) return first;
-     else if (n == 1) return second;
-     else return fibonnaciSpaceOpt(n - 1, second, sumOfLastTerms,  first + second);
-   }
+  int fibonnaciSpaceOpt(int n, int first, int second, int sumOfLastTerms) {
+    if (n == 0) return sumOfLastTerms;
+    else return fibonnaciSpaceOpt(n - 1, second, sumOfLastTerms, sumOfLastTerms + second);
+  }
 
   /**
    * 5.
@@ -177,14 +169,14 @@ public class DPExamples {
    */
   int LCS(String str1, String str2, int m, int n) {
     if (m == 0 || n == 0) return 0;
-    else if (str1.charAt(m - 1) == str2.charAt(n - 1)) return 1 + LCS(str1, str2, m - 1 , n - 1);
+    else if (str1.charAt(m - 1) == str2.charAt(n - 1)) return 1 + LCS(str1, str2, m - 1, n - 1);
     else return Math.max(LCS(str1, str2, m - 1, n), LCS(str1, str2, m, n - 1));
   }
 
   int LCSBottomUp(String str1, String str2) {
     int[][] dp = new int[str1.length() + 1][str2.length() + 1];
     for (int i = 1; i <= str1.length(); i++) {
-      for (int j= 1; j <= str2.length(); j++) {
+      for (int j = 1; j <= str2.length(); j++) {
         if (str1.charAt(i - 1) == str2.charAt(j - 1)) dp[i][j] = 1 + dp[i - 1][j - 1];
         else dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]);
       }
@@ -210,7 +202,6 @@ public class DPExamples {
     else return 1 + Math.min(editDistance(str1, str2, m, n - 1), Math.min(editDistance(str1, str2,
               m - 1, n), editDistance(str1, str2, m - 1, n - 1)));
   }
-
 
 
   /**
@@ -353,8 +344,8 @@ public class DPExamples {
    * The problem can be solved using dynamic programming when the sum of the elements is not too big. We can
    * create a 2D array part[][] of size (sum/2)*(n+1). And we can construct the solution in bottom up manner such
    * that every filled entry has following property:
-   *         part[i][j] = true if a subset of {arr[0], arr[1], ..arr[j-1]} has sum
-   *         equal to i, otherwise false
+   * part[i][j] = true if a subset of {arr[0], arr[1], ..arr[j-1]} has sum
+   * equal to i, otherwise false
    */
   boolean findPartition(int[] array) {
     int sum = Arrays.stream(array).sum();
@@ -365,16 +356,18 @@ public class DPExamples {
       for (int i = 1; i <= sum / 2; i++) partition[i][0] = false;
       for (int i = 1; i <= sum / 2; i++) {
         for (int j = 1; j <= array.length; j++) {
-          partition[i][j] = partition[i][j-1];
-          if (i >= array[j-1])
-            partition[i][j] = partition[i][j] || partition[i-array[j-1]][j-1];
+          partition[i][j] = partition[i][j - 1];
+          if (i >= array[j - 1])
+            partition[i][j] = partition[i][j] || partition[i - array[j - 1]][j - 1];
         }
       }
-      return partition[sum/2][array.length];
+      return partition[sum / 2][array.length];
     }
   }
 
-  private boolean isOdd(int n) { return n % 2 != 0;}
+  private boolean isOdd(int n) {
+    return n % 2 != 0;
+  }
 
   /**
    * 25.
@@ -429,7 +422,7 @@ public class DPExamples {
     if (sum == 0) return true;
     else if (setLen == 0 && sum > 0) return false;
     else if (sum < set[setLen - 1]) return isSubsetSum(set, setLen - 1, sum);
-    else return isSubsetSum(set,setLen - 1, sum - set[setLen - 1]) ||
+    else return isSubsetSum(set, setLen - 1, sum - set[setLen - 1]) ||
               isSubsetSum(set, setLen - 1, sum);
   }
 
@@ -488,7 +481,6 @@ public class DPExamples {
    * Given two strings ‘X’ and ‘Y’, find the length of the longest common substring.
    * Solution:
    */
-
 
 
   /**
@@ -573,13 +565,11 @@ public class DPExamples {
   }
 
 
-
   /**
    * 46.
    * Problem: Remove minimum elements from either side such that 2*min becomes more than max
    * Solution:
    */
-
 
 
   /**
@@ -603,6 +593,7 @@ public class DPExamples {
   int countStrings(int n) {
     return countWith1AtEnd(n) + countWith0AtEnd(n);
   }
+
   private int countWith1AtEnd(int n) {
     if (n == 1) return 1;
     else return countWith0AtEnd(n - 1);
@@ -681,10 +672,10 @@ public class DPExamples {
   int countWaysToScore(int n, int[] points, int index) {
     if (n == 0) return 1;
     if (index <= 0) return 0;
-    else if (n < points[index - 1]) return countWaysToScore(n, points, index - 1) ;
+    else if (n < points[index - 1]) return countWaysToScore(n, points, index - 1);
     else
-        return countWaysToScore(n - points[index - 1], points, index)
-                + countWaysToScore(n, points, index - 1);
+      return countWaysToScore(n - points[index - 1], points, index)
+              + countWaysToScore(n, points, index - 1);
   }
 
   int countWaysToScoreBottomUp(int n, int[] points, int index) {
@@ -709,13 +700,13 @@ public class DPExamples {
    * stations (i, j) is given where j is greater than i. Find the minimum cost to reach the destination.
    */
   int minCostToDest(int[][] graph, int source, int dest) {
-      if (source == dest) return graph[source][dest];
-      else {
-        int min = Integer.MAX_VALUE;
-        for (int i = 0; i < graph[0].length; i++)
-          if (source < i) min = Math.min(min, graph[source][i] + minCostToDest(graph, i, dest));
-        return min;
-      }
+    if (source == dest) return graph[source][dest];
+    else {
+      int min = Integer.MAX_VALUE;
+      for (int i = 0; i < graph[0].length; i++)
+        if (source < i) min = Math.min(min, graph[source][i] + minCostToDest(graph, i, dest));
+      return min;
+    }
   }
 
   /**
@@ -731,7 +722,7 @@ public class DPExamples {
    * numbers of A's. That is to say, the input parameter is N (No. of keys that you can press), the
    * output is M (No. of As that you can produce).
    */
-  
+
 
   /**
    * 61.
@@ -746,18 +737,19 @@ public class DPExamples {
    * Given an input number of sections and each section has 2 plots on either sides of the road. Find all possible ways
    * to construct buildings in the plots such that there is a space between any 2 buildings.
    */
-   int waysToConstructBuilding(int n) {
-     return (int) Math.pow(placeBuilding(n) + placeSpace(n), 2);
-   }
-   private int placeBuilding(int n) {
-     if (n == 0 || n == 1) return n;
-     else return placeSpace(n - 1);
-   }
+  int waysToConstructBuilding(int n) {
+    return (int) Math.pow(placeBuilding(n) + placeSpace(n), 2);
+  }
 
-   private int placeSpace(int n) {
+  private int placeBuilding(int n) {
+    if (n == 0 || n == 1) return n;
+    else return placeSpace(n - 1);
+  }
+
+  private int placeSpace(int n) {
     if (n == 0 || n == 1) return n;
     else return placeSpace(n - 1) + placeBuilding(n - 1);
-   }
+  }
 
   /**
    * 63.
@@ -810,8 +802,8 @@ public class DPExamples {
       int min = Integer.MAX_VALUE;
       for (int coin : coins)
         if (sum >= coin) {
-            int subResult = findMinCoins(coins, sum - coin);
-            if (subResult != Integer.MAX_VALUE) min = Math.min(min, 1 + subResult);
+          int subResult = findMinCoins(coins, sum - coin);
+          if (subResult != Integer.MAX_VALUE) min = Math.min(min, 1 + subResult);
         }
       return min;
     }
@@ -827,6 +819,7 @@ public class DPExamples {
 
     return dp[sum];
   }
+
   /**
    * 67.
    * Problem: Minimum number of squares whose sum equals to given number n
@@ -923,7 +916,6 @@ public class DPExamples {
 //  }
 
 
-
   /**
    * 73.
    * Problem: Count total number of N digit numbers such that the difference between sum of even and odd digits is 1
@@ -952,10 +944,8 @@ public class DPExamples {
   int LRS(String str, int m, int n) {
     if (m == 0 || n == 0) return 0;
     else if (str.charAt(m - 1) == str.charAt(n - 1) && m != n) return 1;
-    else return Math.max(LRS(str,m - 1, n), LRS(str, m,n - 1));
+    else return Math.max(LRS(str, m - 1, n), LRS(str, m, n - 1));
   }
-
-
 
 
   /**
@@ -1026,9 +1016,8 @@ public class DPExamples {
     if (x == 0 && y == 0 && k == mat[0][0]) return 1;
     else if (x < 0 || y < 0) return 0;
     else return countPathsKCoin(mat, x - 1, y, k - mat[x][y])
-              + countPathsKCoin(mat, x, y -1, k - mat[x][y]);
+              + countPathsKCoin(mat, x, y - 1, k - mat[x][y]);
   }
-
 
 
   /**
@@ -1069,6 +1058,7 @@ public class DPExamples {
     return countPathsAtKTurnsUtil(m - 1, n, k, true) +
             countPathsAtKTurnsUtil(m, n - 1, k, false);
   }
+
   private int countPathsAtKTurnsUtil(int m, int n, int k, boolean direction) {
     if (m == 0 && n == 0) return 1;
     else if (m < 0 || n < 0) return 0;
@@ -1076,8 +1066,7 @@ public class DPExamples {
       if (m == 0 && false) return 1;
       else if (n == 0 && true) return 1;
       else return 0;
-    }
-    else if (direction) return countPathsAtKTurnsUtil(m - 1, n, k, direction) +
+    } else if (direction) return countPathsAtKTurnsUtil(m - 1, n, k, direction) +
             countPathsAtKTurnsUtil(m, n - 1, k - 1, !direction);
     else return countPathsAtKTurnsUtil(m - 1, n, k - 1, !direction) +
               countPathsAtKTurnsUtil(m, n - 1, k, direction);
@@ -1396,8 +1385,8 @@ public class DPExamples {
   int maxBreakingSumBottomUp(int n) {
     int[] dp = new int[n + 1];
     for (int i = 0; i < dp.length; i++) {
-     if (i == 0 || i == 1) dp[i] = i;
-     else dp[i] = Math.max(dp[i / 2] + dp[i / 3]  + dp[ i / 4], i);
+      if (i == 0 || i == 1) dp[i] = i;
+      else dp[i] = Math.max(dp[i / 2] + dp[i / 3] + dp[i / 4], i);
     }
     return dp[n];
   }
@@ -1411,10 +1400,10 @@ public class DPExamples {
    * number of cells visited in path.
    */
   double maxAvgPath(int[][] mat, int i, int j, int pathLen, int pathSum) {
-    if (i == 0 && j == 0) return (double)(pathSum + mat[0][0]) / (double)(pathLen + 1);
-    else if(i < 0 || j < 0) return 0;
+    if (i == 0 && j == 0) return (double) (pathSum + mat[0][0]) / (double) (pathLen + 1);
+    else if (i < 0 || j < 0) return 0;
     else return Math.max(maxAvgPath(mat, i - 1, j, pathLen + 1, pathSum + mat[i][j]),
-    maxAvgPath(mat, i, j - 1, pathLen + 1, pathSum + mat[i][j]));
+              maxAvgPath(mat, i, j - 1, pathLen + 1, pathSum + mat[i][j]));
   }
 
   int maxAvgPath(int[][] mat) {
@@ -1453,7 +1442,7 @@ public class DPExamples {
     else if (new RecursionExamples().isPalindrome(str.substring(left, right + 1))) return 1 +
             countPSubstrings(str, left + 1, right) + countPSubstrings(str, left, right - 1) -
             countPSubstrings(str, left + 1, right - 1);
-    return  countPSubstrings(str, left + 1, right) +
+    return countPSubstrings(str, left + 1, right) +
             countPSubstrings(str, left, right - 1) - countPSubstrings(str, left + 1, right - 1);
   }
 
@@ -1466,8 +1455,8 @@ public class DPExamples {
   double subsetAvgSum(int[] array, int m, int elementCount, int avgSum) {
     if (m == 0 && elementCount == 0) return 0;
     else if (m == 0) return (double) avgSum / elementCount;
-    else return subsetAvgSum(array, m - 1 , elementCount + 1, avgSum + array[m - 1]) +
-            subsetAvgSum(array, m - 1, elementCount, avgSum);
+    else return subsetAvgSum(array, m - 1, elementCount + 1, avgSum + array[m - 1]) +
+              subsetAvgSum(array, m - 1, elementCount, avgSum);
   }
 
   /**
@@ -1495,6 +1484,7 @@ public class DPExamples {
     for (int i = 1; i < array.length - 1; i++) maxSum = Math.max(maxSum, forWardSum[i - 1] + backWardSum[i + 1]);
     return maxSum;
   }
+
   private int maxSubArraySumForward(int[] array, int[] forwardSumArray) {
     int maxSoFar = array[0], currMax = array[0];
     forwardSumArray[0] = array[0];
@@ -1530,7 +1520,6 @@ public class DPExamples {
    * Output : 3
    * Solution:
    */
-
 
 
   /**
@@ -1655,14 +1644,14 @@ public class DPExamples {
   int maxDotProduct(int[] a, int[] b, int m, int n) {
     if (m == 0 || n == 0) return 0;
     else
-      return Math.max( a[m - 1] * b [n - 1] + maxDotProduct(a, b, m - 1, n - 1),
+      return Math.max(a[m - 1] * b[n - 1] + maxDotProduct(a, b, m - 1, n - 1),
               maxDotProduct(a, b, m - 1, n));
 
   }
 
   int maxDotProductBottomUp(int[] a, int[] b) {
     int[][] dp = new int[a.length + 1][b.length + 1];
-    for (int i = 1;  i <= a.length; i++)
+    for (int i = 1; i <= a.length; i++)
       for (int j = 1; j <= b.length; j++) dp[i][j] = Math.max(a[i - 1] * b[j - 1] + dp[i - 1][j - 1], dp[i - 1][j]);
     return dp[a.length][b.length];
   }
@@ -1693,9 +1682,9 @@ public class DPExamples {
    * on the row below, find the maximum total from top to bottom.
    */
   int maxPathInTriangleBottomUp(int[][] mat, int m, int n) {
-   for(int i = m - 1; i >= 0; i--)
-     for (int j = 0; j <= i; j++)  mat[i][j] += Math.max(mat[i + 1][j], mat[i + 1][j + 1]);
-   return mat[0][0];
+    for (int i = m - 1; i >= 0; i--)
+      for (int j = 0; j <= i; j++) mat[i][j] += Math.max(mat[i + 1][j], mat[i + 1][j + 1]);
+    return mat[0][0];
   }
 
   /**
@@ -1759,7 +1748,8 @@ public class DPExamples {
     for (int j = 0; j < mat[0].length; j++) maxSumPath = Math.max(maxSumPath, maxSumPathUtil(mat, mat.length - 1, j));
     return maxSumPath;
   }
-  private int maxSumPathUtil(int[][] mat, int i, int j){
+
+  private int maxSumPathUtil(int[][] mat, int i, int j) {
     if (i < 0 || j > mat[0].length - 1 || j < 0) return Integer.MIN_VALUE;
     else if (i == 0) return mat[0][j];
     else return mat[i][j] + Math.max(maxSumPathUtil(mat, i - 1, j), Math.max(maxSumPathUtil(mat, i - 1, j - 1),
@@ -1770,8 +1760,9 @@ public class DPExamples {
     int[][] dp = new int[mat.length][mat[0].length + 2];
     for (int j = 0; j < mat[0].length; j++) dp[0][j + 1] = mat[0][j];
     for (int i = 1; i < dp.length; i++)
-      for (int j = 1; j < dp[0].length - 1; j++) dp[i][j] = mat[i][j - 1] + Math.max(dp[i - 1][j],
-              Math.max(dp[i - 1][j - 1], dp[i - 1][j + 1]));
+      for (int j = 1; j < dp[0].length - 1; j++)
+        dp[i][j] = mat[i][j - 1] + Math.max(dp[i - 1][j],
+                Math.max(dp[i - 1][j - 1], dp[i - 1][j + 1]));
     int maxSumPath = 0;
     for (int j = 1; j < dp[0].length - 1; j++) maxSumPath = Math.max(maxSumPath, dp[dp.length - 1][j]);
     return maxSumPath;
@@ -1805,7 +1796,7 @@ public class DPExamples {
     return result;
   }
 
-  boolean sameNeighbours(int x, int y, int z){
+  boolean sameNeighbours(int x, int y, int z) {
     return x == y && y == z;
   }
 
@@ -1834,7 +1825,7 @@ public class DPExamples {
       for (int i = 0; i < choices.length; i++) {
         if (remaining[i] > 0) {
           remaining[i]--;
-          count +=countStringFormed(n - 1, soFar + choices[i].charAt(0), choices, remaining);
+          count += countStringFormed(n - 1, soFar + choices[i].charAt(0), choices, remaining);
           remaining[i]++;
         }
       }
@@ -1854,6 +1845,7 @@ public class DPExamples {
       }
     }
   }
+
   /**
    * 176.
    * Problem: Modify array to maximize sum of adjacent differences.
@@ -1861,7 +1853,7 @@ public class DPExamples {
    * consecutive elements is maximized. If the value of an array element is X, then we can change it to either 1 or X.
    */
   int maxSumAdjDiff(int[] arr, int m) {
-  return 0;
+    return 0;
   }
 
   /**
@@ -1927,7 +1919,6 @@ public class DPExamples {
    */
 
 
-
   /**
    * 187.
    * Problem: Digit DP | Introduction.
@@ -1969,7 +1960,7 @@ public class DPExamples {
     else if (left == right) return 0;
     else if (left + 1 == right) return (str.charAt(left) == str.charAt(right)) ? 0 : 1;
     else if (str.charAt(left) == str.charAt(right)) return minDeletion(str, left + 1, right - 1);
-    else return  Math.min(2 + minDeletion(str, left + 1, right - 1), 1 +
+    else return Math.min(2 + minDeletion(str, left + 1, right - 1), 1 +
               Math.min(minDeletion(str, left + 1, right), minDeletion(str, left, right - 1)));
   }
 
@@ -1998,16 +1989,15 @@ public class DPExamples {
    */
 
 
-
   /**
    * 197.
    * Problem: Minimum number of deletions to make a sorted sequence
    * Given an array of n integers. The task is to remove or delete minimum number of elements from the array so that
    * when the remaining elements are placed in the same sequence order form a sorted sequence.
    */
-    int minDeletionToMakeSorted(int[] array) {
-      return array.length - findLISBottomUp(array);
-    }
+  int minDeletionToMakeSorted(int[] array) {
+    return array.length - findLISBottomUp(array);
+  }
 
 
   /**
@@ -2028,7 +2018,7 @@ public class DPExamples {
    * number of characters from/in str1 so as to transform it into str2. It could be possible that the same character
    * needs to be removed/deleted from one point of str1 and inserted to some another point.
    */
-  int[] minInsertionDeletionBottomUp(String str1, String str2, int m , int n) {
+  int[] minInsertionDeletionBottomUp(String str1, String str2, int m, int n) {
     int[] result = new int[2];
     int len = new DPExamples().LCSBottomUp(str1, str2);
     result[0] = m - len;
@@ -2036,10 +2026,10 @@ public class DPExamples {
     return result;
   }
   /**
-    * 200.
-    * Problem: Shortest Uncommon Subsequence.
-    * Solution:
-    */
+   * 200.
+   * Problem: Shortest Uncommon Subsequence.
+   * Solution:
+   */
 
   /**
    * 201.
@@ -2172,11 +2162,10 @@ public class DPExamples {
     if (n == 0) return 1;
     else {
       int count = 0;
-      for(int i = start; i <= 9; i++) count += nonDecreasingInCount(n - 1, i);
+      for (int i = start; i <= 9; i++) count += nonDecreasingInCount(n - 1, i);
       return count;
     }
   }
-
 
 
   /**
@@ -2196,9 +2185,9 @@ public class DPExamples {
   int maxStealingBottomUp(int[] houseValues) {
     int[] dp = new int[houseValues.length];
     for (int i = 0; i < dp.length; i++) {
-     if (i == 0)  dp[i] = houseValues[0];
-     else if (i == 1) dp[i] = Math.max(houseValues[0], houseValues[1]);
-     else dp[i] = Math.max(houseValues[i] + dp[i - 2], dp[i - 1]);
+      if (i == 0) dp[i] = houseValues[0];
+      else if (i == 1) dp[i] = Math.max(houseValues[0], houseValues[1]);
+      else dp[i] = Math.max(houseValues[i] + dp[i - 2], dp[i - 1]);
     }
     return dp[houseValues.length - 1];
   }
