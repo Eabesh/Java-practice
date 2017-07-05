@@ -10,8 +10,8 @@ import static org.junit.Assert.*;
 public class DPExamplesTest {
   @Test
   public void LPSeq() throws Exception {
-    String str = "abcab";
-    assertEquals(3, new DPExamples().LPSeq(str, 0, str.length() - 1));
+    String str = "aa";
+    assertEquals(2, new DPExamples().LPSeq(str, 0, str.length() - 1));
   }
 
   @Test
