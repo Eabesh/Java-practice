@@ -424,7 +424,6 @@ public class DPExamples {
    * Problem: Dynamic Programming | Set 25 (Subset Sum Problem)
    * Given a set of non-negative integers, and a value sum, determine if there is a subset of the given set with sum
    * equal to given sum.
-   * Solution:
    */
   boolean isSubsetSum(int[] set, int setLen, int sum) {
     if (sum == 0) return true;
@@ -487,12 +486,6 @@ public class DPExamples {
    * 36.
    * Problem: Dynamic Programming | Set 29 (Longest Common Substring)
    * Given two strings ‘X’ and ‘Y’, find the length of the longest common substring.
-   * Input : X = "GeeksforGeeks", y = "GeeksQuiz"
-   * Output : 5
-   * The longest common substring is "Geeks" and is of length 5.
-   * Input : X = "abcdxyz", y = "xyzabcd"
-   * Output : 4
-   * The longest common substring is "abcd" and is of length 4.
    * Solution:
    */
 
@@ -760,6 +753,7 @@ public class DPExamples {
      if (n == 0 || n == 1) return n;
      else return placeSpace(n - 1);
    }
+
    private int placeSpace(int n) {
     if (n == 0 || n == 1) return n;
     else return placeSpace(n - 1) + placeBuilding(n - 1);
@@ -780,6 +774,7 @@ public class DPExamples {
   int superSeq(String str1, String str2) {
     return str1.length() + str2.length() - LCSBottomUp(str1, str2);
   }
+
   int superSeqRec(String str1, String str2, int m, int n) {
     if (m == 0) return n;
     else if (n == 0) return m;
@@ -790,7 +785,8 @@ public class DPExamples {
   /**
    * 65.
    * Problem: Collect maximum points in a grid using two traversals
-   * Given a matrix where every cell represents points. How to collect maximum points using two traversals under following conditions?
+   * Given a matrix where every cell represents points. How to collect maximum points using two traversals under
+   * following conditions?
    * Let the dimensions of given grid be R x C.
    * 1) The first traversal starts from top left corner, i.e., (0, 0) and should reach left bottom corner, i.e.,
    * (R-1, 0). The second traversal starts from top right corner, i.e., (0, C-1) and should reach bottom right corner,
@@ -820,6 +816,7 @@ public class DPExamples {
       return min;
     }
   }
+
   int findMinCoinsBottomUp(int[] coins, int sum) {
     int[] dp = new int[sum + 1];
     Arrays.fill(dp, 1, dp.length, Integer.MAX_VALUE);
@@ -849,6 +846,7 @@ public class DPExamples {
       return min;
     }
   }
+
   private int square(int n) {
     return n * n;
   }
