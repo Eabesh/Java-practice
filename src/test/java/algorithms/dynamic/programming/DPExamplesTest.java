@@ -9,6 +9,13 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void knapsack() throws Exception {
+    int[] values = {60, 100, 120};
+    int[] weights = {10, 20, 30};
+    assertEquals(220, new DPExamples().knapsack(weights, values, 50, weights.length));
+  }
+
+  @Test
   public void LRS() throws Exception {
     String str = "aab";
     assertEquals(1, new DPExamples().LRS(str, str.length(), str.length()));
