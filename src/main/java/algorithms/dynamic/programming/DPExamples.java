@@ -1978,7 +1978,8 @@ public class DPExamples {
     else if (left == right) return 0;
     else if (left + 1 == right) return (str.charAt(left) == str.charAt(right)) ? 0 : 1;
     else if (str.charAt(left) == str.charAt(right)) return minDeletion(str, left + 1, right - 1);
-    else return  Math.min(2 + minDeletion(str, left + 1, right - 1), 1 + Math.min(minDeletion(str, left + 1, right), minDeletion(str, left, right - 1)));
+    else return  Math.min(2 + minDeletion(str, left + 1, right - 1), 1 +
+              Math.min(minDeletion(str, left + 1, right), minDeletion(str, left, right - 1)));
   }
 
 
