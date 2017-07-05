@@ -187,10 +187,8 @@ public class DPExamples {
    */
   int LCS(String str1, String str2, int m, int n) {
     if (m == 0 || n == 0) return 0;
-    else if (str1.charAt(m - 1) == str2.charAt(n - 1))
-      return 1 + LCS(str1, str2, m - 1 , n - 1);
-    else
-      return Math.max(LCS(str1, str2, m - 1, n), LCS(str1, str2, m, n - 1));
+    else if (str1.charAt(m - 1) == str2.charAt(n - 1)) return 1 + LCS(str1, str2, m - 1 , n - 1);
+    else return Math.max(LCS(str1, str2, m - 1, n), LCS(str1, str2, m, n - 1));
   }
 
   int LCSBottomUp(String str1, String str2) {
@@ -1082,7 +1080,7 @@ public class DPExamples {
     if (m == 0) return n;
     else if (n == 0) return m;
     else if (str.charAt(m - 1) == str.charAt(n - 1) && m != n) return 1;
-    else return Math.max(LRS(str, m - 1, n), LRS(str, m, n - 1));
+    else return Math.max(LRS(str,m - 1, n), LRS(str, m,n - 1));
   }
 
 
