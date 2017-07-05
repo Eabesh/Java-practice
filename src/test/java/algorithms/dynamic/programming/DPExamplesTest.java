@@ -9,6 +9,20 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void maxGoldAmount() throws Exception {
+    int mat[][] = {{1, 3, 3},
+            {2, 1, 4},
+            {0, 6, 4}};
+    assertEquals(12, new DPExamples().maxGoldAmount(mat));
+  }
+
+  @Test
+  public void minInsertionsToSort() throws Exception {
+    int[] array = {1, 4, 2, 3};
+    assertEquals(1, new DPExamples().minInsertionsToSort(array));
+  }
+
+  @Test
   public void maxLengthSnake() throws Exception {
     int[][] grid = {
             {9, 6, 5, 2},

@@ -1819,8 +1819,20 @@ public class DPExamples {
   /**
    * 173.
    * Problem: Gold Mine Problem.
-   * Solution:
+   * Given a gold mine of n*m dimensions. Each field in this mine contains a positive integer which is the amount of
+   * gold in tons. Initially the miner is at first column but can be at any row. He can move only (right->,right up /
+   * ,right down\).Find out maximum amount of gold he can collect.
    */
+  int maxGoldAmount(int[][] mat) {
+    int maxGold = Integer.MIN_VALUE;
+    for (int i = 0; i < mat.length; i++) maxGold = Math.max(maxGold, maxGoldAmountUtil(mat, i, 0));
+    return maxGold;
+  }
+  private int maxGoldAmountUtil(int[][] mat, int i, int j) {
+    if (i < 0 || i > mat.length - 1 || j > mat[0].length - 1) return 0;
+    else return mat[i][j] + Math.max(maxGoldAmountUtil(mat, i, j + 1),
+            Math.max(maxGoldAmountUtil(mat, i + 1, j + 1), maxGoldAmountUtil(mat, i - 1, j + 1)));
+  }
 
   /**
    * 174.
@@ -1868,9 +1880,7 @@ public class DPExamples {
    * Given an array, we need to modify values of this array in such a way that sum of absolute differences between two
    * consecutive elements is maximized. If the value of an array element is X, then we can change it to either 1 or X.
    */
-  int maxSumAdjDiff(int[] arr, int m) {
-    return 0;
-  }
+
 
   /**
    * 177.
