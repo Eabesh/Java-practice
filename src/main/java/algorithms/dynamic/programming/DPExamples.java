@@ -559,7 +559,6 @@ public class DPExamples {
   /**
    * 44.
    * Problem: Travelling Salesman Problem | Set 1 (Naive and Dynamic Programming)
-   * Solution:
    */
 
   /**
@@ -567,7 +566,6 @@ public class DPExamples {
    * Problem: Count all possible paths from top left to bottom right of a mXn matrix
    * The problem is to count all the possible paths from top left to bottom right of a mXn matrix with the constraints
    * that from each cell you can either move only to right or down
-   * Solution:
    */
   int countPaths(int m, int n) {
     if (m == 0 || n == 0) return 1;
@@ -610,13 +608,6 @@ public class DPExamples {
    * Problem: Count number of binary strings without consecutive 1’s
    * Given a positive integer N, count all possible distinct binary strings of length N such that there are no
    * consecutive 1’s.
-   * Input:  N = 2
-   * Output: 3
-   * // The 3 strings are 00, 01, 10
-   * Input: N = 3
-   * Output: 5
-   * // The 5 strings are 000, 001, 010, 100, 101
-   * Solution:
    */
   int countStrings(int n) {
     return countWith1AtEnd(n) + countWith0AtEnd(n);
@@ -645,7 +636,6 @@ public class DPExamples {
    * k edges on the walk.
    * The graph is given as adjacency matrix representation where value of graph[i][j] as 1 indicates that there is an
    * edge from vertex i to vertex j and a value 0 indicates no edge from i to j.
-   * Solution:
    */
   int countWalks(int[][] graph, int source, int dest, int k) {
     if (k == 0 && source == dest) return 1;
@@ -696,19 +686,6 @@ public class DPExamples {
    * Problem: Count number of ways to reach a given score in a game
    * Consider a game where a player can score 3 or 5 or 10 points in a move. Given a total score n, find number of ways
    * to reach the given score.
-   * Input: n = 20
-   * Output: 4
-   * There are following 4 ways to reach 20
-   * (10, 10)
-   * (5, 5, 10)
-   * (5, 5, 5, 5)
-   * (3, 3, 3, 3, 3, 5)
-   * Input: n = 13
-   * Output: 2
-   * There are following 2 ways to reach 13
-   * (3, 5, 5)
-   * (3, 10)
-   * Solution:
    */
   int countWaysToScore(int n, int[] points, int index) {
     if (n == 0) return 1;
