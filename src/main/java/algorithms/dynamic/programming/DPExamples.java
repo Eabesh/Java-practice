@@ -205,8 +205,8 @@ public class DPExamples {
   /**
    * 9.
    * Problem: Dynamic Programming | Set 5 (Edit Distance)
-   * Given two strings str1 and str2 and below operations that can performed on str1. Find minimum number of edits (operations) required to
-   * convert ‘str1’ into ‘str2’.
+   * Given two strings str1 and str2 and below operations that can performed on str1. Find minimum number of edits
+   * (operations) required to convert ‘str1’ into ‘str2’.
    * Insert
    * Remove
    * Replace
@@ -1126,6 +1126,18 @@ public class DPExamples {
    * The longest path is 6-7-8-9.
    * Solution:
    */
+  int longestPathInMat(int[][] mat, int x, int y) {
+     int maxSum = 0;
+      for (int i = 0; i < mat.length; i++)
+        for (int j = 0; j < mat[0].length; j++) maxSum = Math.max(maxSum, dfs(mat, i, j));
+        return maxSum;
+  }
+  int dfs(int[][] mat, int i, int j) {
+    if (!validMove(mat, i, j)) return 0;
+    else {
+      for ()
+    }
+  }
 
   /**
    * 80.
