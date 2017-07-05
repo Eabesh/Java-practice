@@ -2435,14 +2435,6 @@ public class ArrayExamples {
    * Problem: Find the minimum value to be added so that array becomes balanced.
    * Given an array of even size, task is to find minimum value that can be added to an element so that array become
    * balanced. An array is balanced if the sum of the left half of the array elements is equal to the sum of right half.
-   * Suppose, we have an array 1 3 1 2 4 3. The Sum of first three elements is 1 + 3 + 1 = 5 and sum of last three
-   * elements is 2 + 4 + 3 = 9
-   * Input : 1 2 1 2 1 3
-   * Output : 2
-   * Sum of first 3 elements is 1 + 2 + 1 = 4,
-   * sum of last three elements is 2 + 1 + 3 = 6
-   * To make the array balanced you can add 2.
-   * Solution:
    */
   int minValue(int[] array, int left, int right, int diff) {
     if (left > right) return Math.abs(diff);
