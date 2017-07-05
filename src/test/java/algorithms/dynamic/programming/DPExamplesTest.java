@@ -9,6 +9,10 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void maxSISum() throws Exception {
+  }
+
+  @Test
   public void minJumps() throws Exception {
     int[] arr = {1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9};
     assertEquals(3, new DPExamples().minJumps(arr, 0, arr.length - 1));

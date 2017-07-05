@@ -329,9 +329,19 @@ public class DPExamples {
   /**
    * 20.
    * Problem: Dynamic Programming | Set 14 (Maximum Sum Increasing Subsequence)
-   * Solution:
+   * Given an array of n positive integers. Write a program to find the sum of maximum sum subsequence of the given
+   * array such that the intgers in the subsequence are sorted in increasing order.
    */
-
+  int maxSISum(int[] array) {
+    int max = 0;
+    int[] maxSis = new int[array.length];
+    for (int i = 0; i < array.length; i++) maxSis[i] = array[i];
+    for (int i = 1; i < array.length; i++)
+      for (int j = 0; j < i; j++)
+        if (array[j] < array[i] && maxSis[i] < array[i] + maxSis[j]) maxSis[i] = array[i] + maxSis[j];
+    for (int element : maxSis) Math.max(max, element);
+    return max;
+  }
   /**
    * 21.
    * Problem: Dynamic Programming | Set 15 (Longest Bitonic Subsequence)
