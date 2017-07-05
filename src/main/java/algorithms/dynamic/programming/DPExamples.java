@@ -1077,8 +1077,7 @@ public class DPExamples {
    * Solution:
    */
   int LRS(String str, int m, int n) {
-    if (m == 0) return n;
-    else if (n == 0) return m;
+    if (m == 0 || n == 0) return 0;
     else if (str.charAt(m - 1) == str.charAt(n - 1) && m != n) return 1;
     else return Math.max(LRS(str,m - 1, n), LRS(str, m,n - 1));
   }
