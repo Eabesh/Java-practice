@@ -101,17 +101,13 @@ public class DPExamples {
    * Problem: Dynamic Programming | Set 1 (Overlapping Subproblems Property)
    * Solution:
    * 1) Overlapping Subproblems:
-   * Like Divide and Conquer, Dynamic Programming combines solutions to sub-problems.
-   * Dynamic Programming is mainly used when solutions of same subproblems are needed
-   * again and again.In dynamic programming, computed solutions to subproblems are
-   * stored in a table so that these don’t have to recomputed. So Dynamic Programming
-   * is not useful when there are no common (overlapping) subproblems because there is
-   * no point storing the solutions if they are not needed again. For example, Binary
-   * Search doesn’t have common subproblems. If we take example of following recursive
-   * program for Fibonacci Numbers, there are many subproblems which are solved again
-   * and again.
-   *  There are following two different ways to store the values so that these values
-   *  can be reused:
+   * Like Divide and Conquer, Dynamic Programming combines solutions to sub-problems. Dynamic Programming is mainly used
+   * when solutions of same subproblems are needed again and again.In dynamic programming, computed solutions to
+   * subproblems are stored in a table so that these don’t have to recomputed. So Dynamic Programming is not useful when
+   * there are no common (overlapping) subproblems because there is no point storing the solutions if they are not needed
+   * again. For example, Binary Search doesn’t have common subproblems. If we take example of following recursive
+   * program for Fibonacci Numbers, there are many subproblems which are solved again and again.
+   *  There are following two different ways to store the values so that these values can be reused:
    *  a) Memoization (Top Down)
    *  b) Tabulation (Bottom Up)
 
