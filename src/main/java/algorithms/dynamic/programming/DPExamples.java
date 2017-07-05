@@ -239,8 +239,20 @@ public class DPExamples {
    * Given an array of integers where each element represents the max number of steps that can be made forward from that
    * element.Write a function to return the minimum number of jumps to reach the end of the array (starting from the
    * first element). If an element is 0, then cannot move through that element.
-   * Solution:
    */
+  int minJumps(int[] array, int start, int end) {
+     if (start == end) return 0;
+    else if (array[start] == 0) return Integer.MAX_VALUE;
+    else {
+      int min = Integer.MAX_VALUE;
+      for (int jump = 1; jump <= array[start]; jump++)
+        if (start + jump < array.length){
+        int subResult = minJumps(array, start + jump, end);
+        if (subResult != Integer.MAX_VALUE) min = Math.min(min, 1 + subResult);
+      }
+      return min;
+    }
+  }
 
   /**
    * 13.

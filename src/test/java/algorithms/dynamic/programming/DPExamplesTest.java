@@ -9,6 +9,14 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void minJumps() throws Exception {
+    int[] arr = {1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9};
+    assertEquals(3, new DPExamples().minJumps(arr, 0, arr.length - 1));
+    int[] arr2 = {1, 3, 6, 1, 0, 9};
+    assertEquals(3, new DPExamples().minJumps(arr2, 0, arr2.length - 1));
+  }
+
+  @Test
   public void rodCutting() throws Exception {
     int arr[] = {1, 5, 8, 9, 10, 17, 17, 20};
     assertEquals(22, new DPExamples().rodCutting(arr, arr.length));
