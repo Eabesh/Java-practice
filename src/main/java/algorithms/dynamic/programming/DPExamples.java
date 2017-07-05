@@ -1385,7 +1385,8 @@ public class DPExamples {
    * 134.
    * Problem: Recursively break a number in 3 parts to get maximum sum
    * Given a number n, we can divide it in only three parts n/2, n/3 and n/4 (we will consider only integer part).
-   * The task is to find the maximum sum we can make by dividing number in three parts recursively and summing up them together.
+   * The task is to find the maximum sum we can make by dividing number in three parts recursively and summing up them
+   * together.
    */
   int maxBreakingSum(int n) {
     if (n == 0 || n == 1) return n;
