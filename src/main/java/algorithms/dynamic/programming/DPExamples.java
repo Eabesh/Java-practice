@@ -339,11 +339,10 @@ public class DPExamples {
    * Solution:
    * Method 1: Recursive solution with Time Complexity as O(2^n).
    * Method 2: Dynamic Programming Solution.
-   * The problem can be solved using dynamic programming when the sum of the elements is not too big. We can
-   * create a 2D array part[][] of size (sum/2)*(n+1). And we can construct the solution in bottom up manner such
-   * that every filled entry has following property:
-   * part[i][j] = true if a subset of {arr[0], arr[1], ..arr[j-1]} has sum
-   * equal to i, otherwise false
+   * The problem can be solved using dynamic programming when the sum of the elements is not too big. We can create a 2D
+   * array part[][] of size (sum/2)*(n+1). And we can construct the solution in bottom up manner such that every filled
+   * entry has following property: part[i][j] = true if a subset of {arr[0], arr[1], ..arr[j-1]} has
+   * sum equal to i, otherwise false
    */
   boolean findPartition(int[] array) {
     int sum = Arrays.stream(array).sum();
@@ -450,12 +449,6 @@ public class DPExamples {
    * 35.
    * Problem: Dynamic Programming | Set 28 (Minimum insertions to form a palindrome)
    * Given a string, find the minimum number of characters to be inserted to convert it to palindrome.
-   * Before we go further, let us understand with few examples:
-   * ab: Number of insertions required is 1. bab
-   * aa: Number of insertions required is 0. aa
-   * abcd: Number of insertions required is 3. dcbabcd
-   * abcda: Number of insertions required is 2. adcbcda which is same as number of insertions in the substring bcd(Why?).
-   * abcde: Number of insertions required is 4. edcbabcde
    * Solution:
    * Let the input string be str[l……h]. The problem can be broken down into three parts:
    * 1. Find the minimum number of insertions in the substring str[l+1,…….h].
