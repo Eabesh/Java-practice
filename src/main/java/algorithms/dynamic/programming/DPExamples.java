@@ -2022,9 +2022,9 @@ public class DPExamples {
    * 198.
    * Problem: Count number of ways to jump to reach end
    * Given an array of numbers where each element represents the max number of jumps that can be made forward from that
-   * element.For each array element, count number of ways jumps can be made from that element to reach the end of the array.
-   * If an element is 0, then move cannot be made through that element. The element that cannot reach to the end should
-   * have a count “-1”.
+   * element.For each array element, count number of ways jumps can be made from that element to reach the end of the
+   * array. If an element is 0, then move cannot be made through that element. The element that cannot reach to the end
+   * should have a count “-1”.
    * Solution:
    */
 
@@ -2126,7 +2126,6 @@ public class DPExamples {
    * You are standing on a point (n, m) and you want to go to origin (0, 0) by taking steps either left or down i.e.
    * from each point you are allowed to move either in (n-1, m) or (n, m-1). Find the number of paths from point to
    * origin.
-   * Solution:
    */
   int countPathsToOri(int x, int y) {
     if (x == 0 || y == 0) return 1;
@@ -2176,7 +2175,6 @@ public class DPExamples {
    * integers which are non-decreasing in nature.A non-decreasing integer is a one in which all the digits from left to
    * right are in non-decreasing form. ex: 1234, 1135, ..etc. Note :Leading zeros also count in non-decreasing integers
    * such as 0000, 0001, 0023, etc are also non-decreasing integers of 4-digits.
-   * Solution:
    */
   int nonDecreasingInCount(int n, int start) {
     if (n == 0) return 1;
@@ -2195,7 +2193,6 @@ public class DPExamples {
    * There are n houses build in a line, each of which contains some value in it. A thief is going to steal the maximal
    * value of these houses, but he can’t steal in two adjacent houses because owner of the stolen houses will tell his
    * two neighbour left and right side. What is the maximum stolen value.
-   * Solution:
    */
   int maxStealing(int[] array, int m) {
     if (m == 0) return 0;
