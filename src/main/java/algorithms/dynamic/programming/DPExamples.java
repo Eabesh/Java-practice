@@ -1144,7 +1144,28 @@ public class DPExamples {
    * move right i.e. (x, y+1) if that number is ± 1 or move down i.e. (x+1, y) if that number is ± 1
    * Solution:
    */
+  int maxLengthSnake(int[][] grid) {
+    int maxLen = Integer.MIN_VALUE;
+    for (int i = 0; i < grid.length; i++)
+      for (int j = 0; j < grid[0].length; j++)
+          maxLen = Math.max(maxLen, dfsSnake(grid, i, j));
+    return maxLen;
+  }
 
+  private int dfsSnake(int[][] grid, int i, int j) {
+    if (i < grid.length - 1 || j < grid[0].length - 1) return 0;
+    else if (isValidDownMove(grid, i + 1, j)) return 1 + dfsSnake(grid, i + 1, j);
+    else if (isValidRightMove(grid, i, j + 1)) return 1 + dfsSnake(grid, i, j + 1);
+    else return 0;
+  }
+
+  private boolean isValidDownMove(int[][] grid, int x, int y) {
+    return x < grid.length - 1 && y < grid[0].length - 1 && Math.abs(grid[x - 1][y] - grid[x][y]) == 1;
+  }
+
+  private boolean isValidRightMove(int[][] grid, int x, int y) {
+    return x < grid.length - 1 && y < grid[0].length - 1 && Math.abs(grid[x][y - 1] - grid[x][y]) == 1;
+  }
   /**
    * 100.
    * Problem: Find if string is K-Palindrome or not | Set 1
