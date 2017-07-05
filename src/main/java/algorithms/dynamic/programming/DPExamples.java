@@ -297,6 +297,8 @@ public class DPExamples {
   /**
    * 19.
    * Problem: Dynamic Programming | Set 13 (Cutting a Rod)
+   * Given a rod of length n inches and an array of prices that contains prices of all pieces of size smaller than n.
+   * Determine the maximum value obtainable by cutting up the rod and selling the pieces.
    * Solution:
    */
 
@@ -1378,6 +1380,7 @@ public class DPExamples {
    * Down Move : (i+1, j)
    * Diagonal Move : (i+1, j+1)
    */
+
 
 
 
