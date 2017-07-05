@@ -1789,7 +1789,6 @@ public class DPExamples {
    * Problem: Finding the maximum square sub-matrix with all equal elements.
    * Given a N x N matrix, determine the maximum K such that K x K is a submatrix with all equal elements i.e., all
    * the elements in this submatrix must be same.
-   * Solution:
    */
   int largestKSqSubMat(int[][] mat) {
     int[][] dp = new int[mat.length][mat[0].length];
@@ -1805,6 +1804,7 @@ public class DPExamples {
     }
     return result;
   }
+
   boolean sameNeighbours(int x, int y, int z){
     return x == y && y == z;
   }
