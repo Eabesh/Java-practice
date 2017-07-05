@@ -62,14 +62,12 @@ public class DPExamples {
    * Ugly numbers are numbers whose only prime factors are 2, 3 or 5. The sequence 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, …
    * shows the first 11 ugly numbers. By convention, 1 is included.
    * Given a number n, the task is to find n’th Ugly number.
-   * Solution:
    */
 
   /**
    * 3.
    * Problem: Maximum size square sub-matrix with all 1s
    * Given a binary matrix, find out the maximum size square sub-matrix with all 1s.
-   * Solution:
    */
    public int[][] maxSizeSquareMat(int[][] mat, int[][] dp) {
      for (int i = 0; i < mat.length; i++){
@@ -218,8 +216,8 @@ public class DPExamples {
   /**
    * 10.
    * Problem: Dynamic Programming | Set 6 (Min Cost Path)
-   * Given a cost matrix cost[][] and a position (m, n) in cost[][], write a function that returns cost of minimum cost path to reach (m, n)
-   * from (0, 0).
+   * Given a cost matrix cost[][] and a position (m, n) in cost[][], write a function that returns cost of minimum cost
+   * path to reach (m, n) from (0, 0).
    * Solution:
    */
   int minCost(int[][] mat, int i, int j) {
