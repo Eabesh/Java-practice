@@ -306,7 +306,7 @@ public class DPExamples {
   /**
    * 18.
    * Problem: Dynamic Programming | Set 12 (Longest Palindromic Subsequence)
-   * Solution:
+   * Given a sequence, find the length of the longest palindromic subsequence in it.
    */
 
   /**
