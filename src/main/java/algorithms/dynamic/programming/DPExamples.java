@@ -1969,9 +1969,8 @@ public class DPExamples {
   /**
    * 192.
    * Problem: Minimum number of deletions to make a string palindrome
-   * Given a string of size ‘n’. The task is to remove or delete minimum number of characters from the string so that the
-   * resultant string is palindrome.
-   * Note: The order of characters should be maintained.
+   * Given a string of size ‘n’. The task is to remove or delete minimum number of characters from the string so that
+   * the resultant string is palindrome. Note: The order of characters should be maintained.
    */
   int minDeletion(String str, int left, int right) {
     if (left > right) return Integer.MAX_VALUE;
