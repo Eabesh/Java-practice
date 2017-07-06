@@ -1703,7 +1703,8 @@ public class DPExamples {
     else {
       int max = Integer.MIN_VALUE;
       for (int i = 0; i < weights.length; i++)
-        if (capacity >= weights[i]) max = Math.max(max, values[i] + knapsackUnbounded(weights, values, capacity));
+        if (capacity >= weights[i])
+          max = Math.max(max, values[i] + knapsackUnbounded(weights, values, capacity - weights[i]));
       return max;
     }
   }

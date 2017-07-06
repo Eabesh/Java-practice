@@ -12,6 +12,12 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void knapsackUnbounded() throws Exception {
+    int val[]  = {1, 30}, wt[] = {1, 50};
+    assertEquals(100, new DPExamples().knapsackUnbounded(wt, val, 100));
+  }
+
+  @Test
   public void hasWords() throws Exception {
     Set<String> dictionary = new HashSet<>();
     dictionary.add("i");
