@@ -560,8 +560,10 @@ public class DPExamples {
    */
   boolean hasWords(String str, Set<String> dictionary) {
     if (str.isEmpty()) return true;
-    else for (int i = 0; i < str.length(); i++)
-      if (dictionary.contains(str.substring(0, i)) && hasWords(str.substring(i + 1), dictionary)) return true;
+    else {
+      for (int i = 0; i < str.length(); i++)
+        if (dictionary.contains(str.substring(0, i)) && hasWords(str.substring(i + 1), dictionary)) return true;
+    }
     return false;
   }
 
