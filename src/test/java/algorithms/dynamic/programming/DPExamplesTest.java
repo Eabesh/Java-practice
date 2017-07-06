@@ -15,6 +15,9 @@ public class DPExamplesTest {
   public void knapsackUnbounded() throws Exception {
     int val[]  = {1, 30}, wt[] = {1, 50};
     assertEquals(100, new DPExamples().knapsackUnbounded(wt, val, 100));
+    int val1[] = {10, 30, 20};
+    int wt1[] = {5, 10, 15};
+    assertEquals(300, new DPExamples().knapsackUnbounded(wt1, val1, 100));
   }
 
   @Test
