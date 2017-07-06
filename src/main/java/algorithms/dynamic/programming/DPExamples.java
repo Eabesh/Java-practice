@@ -3,6 +3,7 @@ package algorithms.dynamic.programming;
 import recursion.RecursionExamples;
 
 import java.util.Arrays;
+import java.util.Set;
 
 public class DPExamples {
 
@@ -556,8 +557,13 @@ public class DPExamples {
    * Problem: Dynamic Programming | Set 32 (Word Break Problem)
    * Given an input string and a dictionary of words, find out if the input string can be segmented into a space-
    * separated sequence of dictionary words
-   * Solution:
    */
+  boolean hasWords(String str, Set<String> dictionary) {
+    if (str.isEmpty()) return true;
+    else for (int i = 0; i < str.length(); i++)
+      if (dictionary.contains(str.substring(0, i)) && hasWords(str.substring(i + 1), dictionary)) return true;
+    return false;
+  }
 
   /**
    * 40.
