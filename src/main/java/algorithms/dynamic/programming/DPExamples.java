@@ -432,7 +432,7 @@ public class DPExamples {
 
   /**
    * 27.
-   * Problem: Dynamic Programming | Set 21 (Variations of LCS)
+   * Problem: Dynamic Programming | Set 21 (Variations of LIS)
    * Solution:
    */
 
@@ -525,6 +525,8 @@ public class DPExamples {
    */
 
 
+
+
   /**
    * 37.
    * Problem: Dynamic Programming | Set 30 (Dice Throw)
@@ -552,6 +554,8 @@ public class DPExamples {
   /**
    * 39.
    * Problem: Dynamic Programming | Set 32 (Word Break Problem)
+   * Given an input string and a dictionary of words, find out if the input string can be segmented into a space-
+   * separated sequence of dictionary words
    * Solution:
    */
 
