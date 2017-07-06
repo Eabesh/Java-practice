@@ -1694,8 +1694,19 @@ public class DPExamples {
   /**
    * 155.
    * Problem: Minimum number of elements which are not part of Increasing or decreasing subsequence in array
-   * Solution:
+   * Given a knapsack weight W and a set of n items with certain value vali and weight wti, we need to calculate minimum
+   * amount that could make up this quantity exactly. This is different from classical Knapsack problem, here we are
+   * allowed to use unlimited number of instances of an item.
    */
+  int knapsackUnbounded(int[] weights, int[] values, int capacity) {
+    if (weights.length == 0 || capacity == 0) return 0;
+    else {
+      int max = Integer.MIN_VALUE;
+      for (int i = 0; i < weights.length; i++)
+        if (capacity >= weights[i]) max = Math.max(max, values[i] + knapsackUnbounded(weights, values, capacity));
+      return max;
+    }
+  }
 
   /**
    * 156.
