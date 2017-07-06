@@ -2,12 +2,24 @@ package algorithms.dynamic.programming;
 
 import org.junit.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.junit.Assert.*;
 
 /**
  * Created by abhay on 20/06/17.
  */
 public class DPExamplesTest {
+  @Test
+  public void hasWords() throws Exception {
+    Set<String> dictionary = new HashSet<>();
+    dictionary.add("i");
+    dictionary.add("like");
+    assertEquals(true, new DPExamples().wordBreak("ilike", dictionary));
+    assertEquals(true, new DPExamples().wordBreak("i", dictionary));
+  }
+
   @Test
   public void LPSeq() throws Exception {
     String str = "aa";

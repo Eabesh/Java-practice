@@ -558,11 +558,11 @@ public class DPExamples {
    * Given an input string and a dictionary of words, find out if the input string can be segmented into a space-
    * separated sequence of dictionary words
    */
-  boolean hasWords(String str, Set<String> dictionary) {
+  boolean wordBreak(String str, Set<String> dictionary) {
     if (str.isEmpty()) return true;
     else {
       for (int i = 0; i < str.length(); i++)
-        if (dictionary.contains(str.substring(0, i)) && hasWords(str.substring(i + 1), dictionary)) return true;
+        if (dictionary.contains(str.substring(0, i + 1)) && wordBreak(str.substring(i + 1), dictionary)) return true;
     }
     return false;
   }
