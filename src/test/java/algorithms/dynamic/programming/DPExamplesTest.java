@@ -12,6 +12,11 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void binomialCofficient() throws Exception {
+    assertEquals(6, new DPExamples().binomialCofficient(6, 2));
+  }
+
+  @Test
   public void largestKSqSubMat() throws Exception {
     int a[][] = {{2, 3, 3},
       {2, 3, 3},
