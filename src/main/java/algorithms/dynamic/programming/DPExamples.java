@@ -125,12 +125,6 @@ public class DPExamples {
   /**
    * 7.
    * Problem: Dynamic Programming | Set 3 (Longest Increasing Subsequence)
-   * Input  : arr[] = {3, 10, 2, 1, 20}
-   * Output : Length of LCS = 3
-   * The longest increasing subsequence is 3, 10, 20
-   * Solution:Then, L(i) can be recursively written as:
-   * L(i) = 1 + max( L(j) ) where 0 < j < i and arr[j] < arr[i]; or
-   * L(i) = 1, if no such j exists.
    */
   int findLISBottomUp(int[] array) {
     int[] dp = new int[array.length];
