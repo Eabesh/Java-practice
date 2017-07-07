@@ -243,7 +243,7 @@ public class DPExamples {
   /**
    * 15.
    * Problem: Dynamic Programming | Set 9 (Binomial Coefficient)
-   * Solution:
+   * Write a function that takes two parameters n and k and returns the value of Binomial Coefficient C(n, k).
    */
 
 
