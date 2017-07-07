@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class DPExamplesTest {
   @Test
   public void binomialCofficient() throws Exception {
-    assertEquals(6, new DPExamples().binomialCofficient(6, 2));
+    assertEquals(6, new DPExamples().binomialCofficient(4, 2));
   }
 
   @Test
