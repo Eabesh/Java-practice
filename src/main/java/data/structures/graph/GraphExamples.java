@@ -43,6 +43,8 @@ class GraphExamples {
     }
   }
 
+
+
   /**
    * 1.
    * Problem: Applications of Minimum Spanning Tree Problem.

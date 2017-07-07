@@ -12,6 +12,14 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void largestKSqSubMat() throws Exception {
+    int a[][] = {{2, 3, 3},
+      {2, 3, 3},
+      {2, 2, 2}};
+    assertEquals(2, new DPExamples().largestKSqSubMat(a));
+  }
+
+  @Test
   public void knapsackUnbounded() throws Exception {
     int val[]  = {1, 30}, wt[] = {1, 50};
     assertEquals(100, new DPExamples().knapsackUnbounded(wt, val, 100));

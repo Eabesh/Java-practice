@@ -85,20 +85,8 @@ public class HashingExamples {
   /**
    * 14.
    * Problem: Check if a given array contains duplicate elements within k distance from each other.
-   * Given an unsorted array that may contain duplicates. Also given a number k which is smaller than size of array.
+   * Solution:
    */
-  void checkDuplicatesKDistance(int[] arr, int k) {
-    HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-    for (int i = 0; i < k; i++) {
-      if (map.containsValue(arr[i])) System.out.print(arr[i] + " ");
-      map.put(i, arr[i]);
-    }
-    for (int windowR = k; windowR < arr.length; windowR++) {
-      map.remove(arr[windowR - k]);
-      if(map.containsValue(arr[windowR])) System.out.print(arr[windowR] + " ");
-      map.put(windowR, arr[windowR]);
-    }
-  }
 
   /**
    * 15.
@@ -537,5 +525,62 @@ public class HashingExamples {
    * Problem: Find all pairs (a, b) in an array such that a % b = k.
    * Solution:
    */
+
+  /**
+   * 88.
+   * Problem: Find k numbers with most occurrences in the given array.
+   * Solution:
+   */
+
+  /**
+   * 89.
+   * Problem: Second most repeated word in a sequence.
+   * Solution:
+   */
+
+  /**
+   * 90.
+   * Problem: Count number of triplets with product equal to given number.
+   * Solution:
+   */
+
+  /**
+   * 91.
+   * Problem: Nuts &#038; Bolts Problem (Lock &#038; Key problem) | Set 2 (Hashmap).
+   * Solution:
+   */
+
+  /**
+   * 92.
+   * Problem: Count pairs from two linked lists whose sum is equal to a given value.
+   * Solution:
+   */
+
+  /**
+   * 93.
+   * Problem: Count quadruples from four sorted arrays whose sum is equal to a given value x.
+   * Solution:
+   */
+
+  /**
+   * 94.
+   * Problem: Find four elements that sum to a given value | Set 3 (Hashmap).
+   * Solution:
+   */
+
+  /**
+   * 95.
+   * Problem: Minimum insertions to form a palindrome with permutations allowed.
+   * Solution:
+   */
+
+  /**
+   * 96.
+   * Problem: All unique triplets that sum up to a given value.
+   * Solution:
+   */
+
+
+
 
 }
