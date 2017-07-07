@@ -12,6 +12,13 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void twoSubsetDivide() throws Exception {
+    int[] array = {3, 1, 4, 2, 2, 1};
+    int arraySum = 13;
+    assertEquals(1, new DPExamples().twoSubsetDivide(array, arraySum, array.length, 0));
+  }
+
+  @Test
   public void binomialCofficient() throws Exception {
     assertEquals(6, new DPExamples().binomialCoefficient(4, 2));
     assertEquals(6, new DPExamples().binomialCoefficientBottomUp(4, 2));

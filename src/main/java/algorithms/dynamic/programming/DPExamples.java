@@ -360,6 +360,8 @@ public class DPExamples {
   /**
    * 23.
    * Problem: Dynamic Programming | Set 17 (Palindrome Partitioning)
+   * Given a string, a partitioning of the string is a palindrome partitioning if every substring of the partition is a
+   * palindrome.
    * Solution:
    */
 
@@ -1116,8 +1118,14 @@ public class DPExamples {
   /**
    * 88.
    * Problem: Partition a set into two subsets such that the difference of subset sums is minimum
-   * Solution:
+   * Given a set of integers, the task is to divide it into two sets S1 and S2 such that the absolute difference between
+   * their sums is minimum.
    */
+  int twoSubsetDivide(int[] array, int arraySum, int m, int soFarSum) {
+    if (m == 0) return Math.abs(soFarSum - (arraySum - soFarSum));
+    else return Math.min(twoSubsetDivide(array, arraySum, m - 1, soFarSum + array[m - 1]),
+            twoSubsetDivide(array, arraySum, m - 1, soFarSum));
+  }
 
   /**
    * 89.
