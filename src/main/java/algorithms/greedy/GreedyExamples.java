@@ -14,7 +14,7 @@ public class GreedyExamples {
 
   /**
    * 2.
-   * Problem: Boruvka&#8217;s algorithm for Minimum Spanning Tree.
+   * Problem: Boruvka&s algorithm for Minimum Spanning Tree.
    * Solution:
    */
 
