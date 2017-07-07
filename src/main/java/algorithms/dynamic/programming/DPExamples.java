@@ -22,11 +22,6 @@ public class DPExamples {
     return maxSoFar;
   }
 
-  private void printArray(int[] array, int start, int end) {
-    for (int j = start; j <= end; j++) {
-      System.out.println(array[j]);
-    }
-  }
 
   /**
    * 2.
