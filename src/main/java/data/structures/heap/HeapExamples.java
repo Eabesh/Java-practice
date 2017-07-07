@@ -2,6 +2,7 @@ package data.structures.heap;
 
 public class HeapExamples {
 
+
   /**
    * 1.
    * Problem: k largest(or smallest) elements in an array | added Min Heap method.
@@ -199,5 +200,24 @@ public class HeapExamples {
    * Problem: Convert BST to Min Heap.
    * Solution:
    */
+
+  /**
+   * 34.
+   * Problem: Find k numbers with most occurrences in the given array.
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Largest triplet product in a stream.
+   * Solution:
+   */
+
+  /**
+   * 36.
+   * Problem: Merge k sorted linked lists | Set 2 (Using Min Heap).
+   * Solution:
+   */
+
 
 }
