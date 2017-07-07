@@ -245,10 +245,11 @@ public class DPExamples {
    * Problem: Dynamic Programming | Set 9 (Binomial Coefficient)
    * Write a function that takes two parameters n and k and returns the value of Binomial Coefficient C(n, k).
    */
-  int binomialCofficient(int n, int k) {
+  int binomialCoefficient(int n, int k) {
     if (n == k || k == 0) return 1;
-    else return binomialCofficient(n - 1, k - 1) + binomialCofficient(n - 1, k);
+    else return binomialCoefficient(n - 1, k - 1) + binomialCoefficient(n - 1, k);
   }
+
 
 
   /**
