@@ -14,6 +14,7 @@ public class DPExamplesTest {
   @Test
   public void binomialCofficient() throws Exception {
     assertEquals(6, new DPExamples().binomialCoefficient(4, 2));
+    assertEquals(6, new DPExamples().binomialCoefficientBottomUp(4, 2));
   }
 
   @Test

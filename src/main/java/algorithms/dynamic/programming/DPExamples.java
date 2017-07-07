@@ -250,12 +250,13 @@ public class DPExamples {
     else return binomialCoefficient(n - 1, k - 1) + binomialCoefficient(n - 1, k);
   }
 
-  int binomialCofficientBottomUp(int n, int k) {
+  int binomialCoefficientBottomUp(int n, int k) {
     int[][] dp = new int[n + 1][k + 1];
     for (int i = 0; i < dp.length; i++)
-      for (int j = 0; j < dp[0].length; j++)
+      for (int j = 0; j <= Math.min(i, k); j++) {
         if (i == j || j == 0) dp[i][j] = 1;
-        else dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][k];
+        else dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j];
+      }
     return dp[n][k];
   }
 
