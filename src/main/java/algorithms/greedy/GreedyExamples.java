@@ -339,24 +339,40 @@ public class GreedyExamples {
   /**
    * 56.
    * Problem: Fitting Shelves Problem.
-   * Solution:
+   * Solution: TODO: FIX
    */
-  int[] fittingShelves(int wall, int largeShelf, int smallShelf, int[] currMin, int[] minValues) {
-
-    while (wall >= largeShelf) {
-      currMin[1]++;
-      currMin[0] = wall / smallShelf;
-      currMin[2] = wall % smallShelf;
-      if (minValues[2] >= currMin[2]) {
-        minValues[0] = currMin[0];
-        minValues[1] = currMin[1];
-        minValues[2] = currMin[2];
-      }
-    }
+  int[] fittingShelves(int wall, int largeShelf, int smallShelf, int[] minValues) {
+//    shelfUtil(wall, smallShelf, largeShelf, minValues);
+//    shelfUtil(wall, largeShelf, smallShelf, minValues);
+//    shelfUtility(wall, smallShelf, largeShelf, 0, minValues);
+//    shelfUtility(wall, largeShelf, smallShelf, 0, minValues);
     return minValues;
   }
-  
-
-
+  private void shelfUtility(int wall, int firstShelf, int secondShelf, int minFirst, int minSecond, int[] minValues) {
+    if (wall >= firstShelf) {
+      minSecond = wall / secondShelf;
+      int rem = wall % secondShelf;
+      if (rem <= minValues[2]) {
+        minValues[0] = ++minFirst;
+        minValues[1] = minSecond;
+        minValues[2] = rem;
+      }
+      shelfUtility(wall - firstShelf, firstShelf, secondShelf, minFirst, minSecond, minValues);
+    }
+  }
+  private void shelfUtil(int wall, int firstShelf, int secondShelf,int[] minValues) {
+    int minFirst = 0;
+    while (wall >= firstShelf) {
+      minFirst++;
+      wall -= firstShelf;
+      int minSecond = wall / secondShelf;
+      int rem = wall % secondShelf;
+      if (rem <= minValues[2]) {
+        minValues[0] = minFirst;
+        minValues[1] = minSecond;
+        minValues[2] = rem;
+      }
+    }
+  }
 
 }
