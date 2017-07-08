@@ -341,6 +341,21 @@ public class GreedyExamples {
    * Problem: Fitting Shelves Problem.
    * Solution:
    */
+  int[] fittingShelves(int wall, int largeShelf, int smallShelf, int[] currMin, int[] minValues) {
+
+    while (wall >= largeShelf) {
+      currMin[1]++;
+      currMin[0] = wall / smallShelf;
+      currMin[2] = wall % smallShelf;
+      if (minValues[2] >= currMin[2]) {
+        minValues[0] = currMin[0];
+        minValues[1] = currMin[1];
+        minValues[2] = currMin[2];
+      }
+    }
+    return minValues;
+  }
+  
 
 
 
