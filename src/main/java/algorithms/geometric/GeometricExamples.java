@@ -9,8 +9,19 @@ public class GeometricExamples {
   /**
    * 1.
    * Problem: Check whether a given point lies inside a triangle or not.
-   * Solution:
+   * Solution: 1) Calculate area of the given triangle,  Area A = [ x1(y2 – y3) + x2(y3 – y1) + x3(y1-y2)]/2
+   * 2) Calculate area of the triangle PAB. We can use the same formula for this. Let this area be A1.
+   * 3) Calculate area of the triangle PBC. Let this area be A2.
+   * 4) Calculate area of the triangle PAC. Let this area be A3.
+   * 5) If P lies inside the triangle, then A1 + A2 + A3 must be equal to A.
    */
+  boolean isPointInsideTriangle(int[] x, int[] y, int[] z, int[] p) {
+    return areaOfTriangle(x, y, z) == areaOfTriangle(p, x, y) + areaOfTriangle(p, y, z) + areaOfTriangle(p, x, z);
+  }
+  private float areaOfTriangle(int[] a, int[] b, int[] c) {
+    return Math.abs(a[0] * (b[1] - c[1]) + b[0] * (c[1] - a[1]) + c[0] * (a[1] - b[1])) / 2;
+  }
+
 
   /**
    * 2.
