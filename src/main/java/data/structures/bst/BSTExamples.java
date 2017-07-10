@@ -186,19 +186,9 @@ public class BSTExamples {
 
   /**
    * 31.
-   * Problem: Kth Largest Element in BST when modification to BST is not allowed.
+   * Problem: K&#8217;th Largest Element in BST when modification to BST is not allowed.
    * Solution:
    */
-  int kthLargestNode(TreeNode root, int k, int count) {
-    if (root == null || count >= k) return -1;
-    else {
-      int left = kthLargestNode(root.right, k, count + 1);
-      count++;
-      if (k == count) return root.data;
-      int right = kthLargestNode(root.left, k, count);
-      return left != -1 ? left : right;
-    }
-  }
 
   /**
    * 32.
@@ -263,10 +253,7 @@ public class BSTExamples {
   /**
    * 42.
    * Problem: Count inversions in an array | Set 2 (Using Self-Balancing BST).
-   * Inversion Count for an array indicates – how far (or close) the array is from being sorted. If array is already
-   * sorted then inversion count is 0. If array is sorted in reverse order that inversion count is the maximum.
-   * Formally speaking, two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j.
-   * Solution: Use BST. Count of left children gives number of inversions of that element.
+   * Solution:
    */
 
   /**
@@ -358,6 +345,38 @@ public class BSTExamples {
    * Problem: Convert BST to Min Heap.
    * Solution:
    */
+
+  /**
+   * 58.
+   * Problem: Check if an array represents Inorder of Binary Search tree or not.
+   * Solution:
+   */
+
+  /**
+   * 59.
+   * Problem: Largest number in BST which is less than or equal to N.
+   * Solution:
+   */
+
+
+
+
+  /**
+   * 31.
+   * Problem: Kth Largest Element in BST when modification to BST is not allowed.
+   * Solution:
+   */
+  int kthLargestNode(TreeNode root, int k, int count) {
+    if (root == null || count >= k) return -1;
+    else {
+      int left = kthLargestNode(root.right, k, count + 1);
+      count++;
+      if (k == count) return root.data;
+      int right = kthLargestNode(root.left, k, count);
+      return left != -1 ? left : right;
+    }
+  }
+
 
 
   /**

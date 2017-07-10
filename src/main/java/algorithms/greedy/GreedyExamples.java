@@ -348,18 +348,6 @@ public class GreedyExamples {
 //    shelfUtility(wall, largeShelf, smallShelf, 0, minValues);
     return minValues;
   }
-  private void shelfUtility(int wall, int firstShelf, int secondShelf, int minFirst, int minSecond, int[] minValues) {
-    if (wall >= firstShelf) {
-      minSecond = wall / secondShelf;
-      int rem = wall % secondShelf;
-      if (rem <= minValues[2]) {
-        minValues[0] = ++minFirst;
-        minValues[1] = minSecond;
-        minValues[2] = rem;
-      }
-      shelfUtility(wall - firstShelf, firstShelf, secondShelf, minFirst, minSecond, minValues);
-    }
-  }
   private void shelfUtil(int wall, int firstShelf, int secondShelf,int[] minValues) {
     int minFirst = 0;
     while (wall >= firstShelf) {
