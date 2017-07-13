@@ -2,16 +2,14 @@ package algorithms.maths;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by abhay on 13/07/17.
  */
 public class MathematicalExamplesTest {
   @Test
-  public void printAllCombinatons() throws Exception {
+  public void printAllCombinations() throws Exception {
     int[] points = { 1, 2, 3};
-    new MathematicalExamples().printAllCombinatons(4, points, "");
+    new MathematicalExamples().printAllCombinations(4, points, "");
   }
 
 

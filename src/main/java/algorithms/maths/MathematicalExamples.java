@@ -72,11 +72,11 @@ public class MathematicalExamples {
    * You can win three kinds of basketball points, 1 point, 2 points, and 3 points. Given a total score n, print out all
    * the combination to compose n.
    */
-  void printAllCombinatons(int score, int[] points, String soFar) {
+  void printAllCombinations(int score, int[] points, String soFar) {
     if (score == 0) System.out.println(soFar);
     else
       for (int point : points)
-        if (score >= point) printAllCombinatons(score - point, points, soFar + point + " ");
+        if (score >= point) printAllCombinations(score - point, points, soFar + point + " ");
   }
 
   /**
