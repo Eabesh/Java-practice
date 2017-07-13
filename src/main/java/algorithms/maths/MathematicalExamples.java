@@ -23,7 +23,7 @@ public class MathematicalExamples {
   /**
    * 4.
    * Problem: Power Set.
-   * Solution:
+   * Power Set Power set P(S) of a set S is the set of all subsets of S.
    */
 
   /**
