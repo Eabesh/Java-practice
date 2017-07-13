@@ -81,8 +81,16 @@ public class MathematicalExamples {
   /**
    * 12.
    * Problem: Print all combinations of balanced parentheses.
-   * Solution:
+   * Write a function to generate all possible n pairs of balanced parentheses.
    */
+  void printBalParentheses(int n, int openBracket, int closeBracket, String soFar) {
+    if (n == closeBracket) System.out.println(soFar);
+    else {
+      if (closeBracket < openBracket)
+        printBalParentheses(n , openBracket, closeBracket + 1, soFar + "}");
+      if (n > openBracket) printBalParentheses(n , openBracket + 1, closeBracket, soFar + "{");
+    }
+  }
 
   /**
    * 13.
@@ -116,7 +124,6 @@ public class MathematicalExamples {
   /**
    * 17.
    * Problem: Dynamic Programming | Set 9 (Binomial Coefficient).
-   * Solution:
    */
 
   /**
