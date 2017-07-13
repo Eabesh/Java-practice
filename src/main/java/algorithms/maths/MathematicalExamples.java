@@ -69,8 +69,10 @@ public class MathematicalExamples {
   /**
    * 10.
    * Problem: Print all combinations of points that can compose a given number.
-   * Solution:
+   * You can win three kinds of basketball points, 1 point, 2 points, and 3 points. Given a total score n, print out all
+   * the combination to compose n.
    */
+
 
   /**
    * 11.
