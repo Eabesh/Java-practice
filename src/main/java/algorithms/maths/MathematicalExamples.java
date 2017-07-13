@@ -104,7 +104,7 @@ public class MathematicalExamples {
    */
   void printSeq(int n, int k, String soFar) {
     if (k == 0) System.out.println(soFar);
-    else for (int i = 0; i < n; i++) printSeq(n, k - 1, soFar + i + " ");
+    else for (int i = 1; i <= n; i++) printSeq(n, k - 1, soFar + i + " ");
   }
 
   /**
