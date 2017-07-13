@@ -102,6 +102,10 @@ public class MathematicalExamples {
    * Given two integers k and n, write a function that prints all the sequences of length k composed of numbers 1,2..n.
    * You need to print these sequences in sorted order.
    */
+  void printSeq(int n, int k, String soFar) {
+    if (k == 0) System.out.println(soFar);
+    else for (int i = 0; i < n; i++) printSeq(n, k - 1, soFar + i + " ");
+  }
 
   /**
    * 16.
