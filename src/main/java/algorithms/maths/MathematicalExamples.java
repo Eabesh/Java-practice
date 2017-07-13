@@ -20,11 +20,21 @@ public class MathematicalExamples {
    * Solution:
    */
 
+
   /**
    * 4.
    * Problem: Power Set.
    * Power Set Power set P(S) of a set S is the set of all subsets of S.
    */
+  void printPowerSet(String set, String soFar) {
+    if (set.isEmpty()) System.out.println(soFar);
+    else {
+      printPowerSet(set.substring(1), soFar + set.charAt(0));
+      printPowerSet(set.substring(1), soFar);
+    }
+  }
+
+
 
   /**
    * 5.
