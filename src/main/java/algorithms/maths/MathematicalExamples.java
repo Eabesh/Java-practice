@@ -99,7 +99,8 @@ public class MathematicalExamples {
   /**
    * 15.
    * Problem: Print all sequences of given length.
-   * Solution:
+   * Given two integers k and n, write a function that prints all the sequences of length k composed of numbers 1,2..n.
+   * You need to print these sequences in sorted order.
    */
 
   /**
