@@ -11,8 +11,11 @@ public class MathematicalExamples {
   /**
    * 2.
    * Problem: Write a C program to reverse digits of a number.
-   * Solution:
    */
+  int reverseNumber(int num, int reverseNum) {
+    if (num == 0) return reverseNum;
+    else return reverseNumber(num / 10, reverseNum * 10 + num % 10);
+  }
 
   /**
    * 3.
@@ -44,7 +47,7 @@ public class MathematicalExamples {
   void printPermutations(String soFar, String rest) {
     if (rest.isEmpty()) System.out.println(soFar);
     else for (int i = 0; i < rest.length(); i++)
-            printPermutations(soFar + rest.charAt(0), rest.substring(0, i) + rest.substring(i + 1));
+            printPermutations(soFar + rest.charAt(i), rest.substring(0, i) + rest.substring(i + 1));
   }
 
   /**
