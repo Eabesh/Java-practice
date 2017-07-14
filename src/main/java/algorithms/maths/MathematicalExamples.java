@@ -41,6 +41,11 @@ public class MathematicalExamples {
    * Problem: Write a  program to print all permutations of a given string.
    * Solution:
    */
+  void printPermutations(String soFar, String rest) {
+    if (rest.isEmpty()) System.out.println(soFar);
+    else for (int i = 0; i < rest.length(); i++)
+            printPermutations(soFar + rest.charAt(0), rest.substring(0, i) + rest.substring(i + 1));
+  }
 
   /**
    * 6.

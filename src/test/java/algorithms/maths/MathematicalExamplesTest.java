@@ -7,6 +7,10 @@ import org.junit.Test;
  */
 public class MathematicalExamplesTest {
   @Test
+  public void printPermutations() throws Exception {
+  }
+
+  @Test
   public void printAllCombinations() throws Exception {
     int[] points = { 1, 2, 3};
     new MathematicalExamples().printAllCombinations(4, points, "");
