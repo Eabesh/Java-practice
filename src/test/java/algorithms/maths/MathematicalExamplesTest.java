@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class MathematicalExamplesTest {
   @Test
-  public void isMutipleOf5() throws Exception {
+  public void isMultipleOf5() throws Exception {
     assertTrue(new MathematicalExamples().isMultipleOf5(15));
   }
 
