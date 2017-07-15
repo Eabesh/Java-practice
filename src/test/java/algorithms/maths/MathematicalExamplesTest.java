@@ -3,14 +3,20 @@ package algorithms.maths;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by abhay on 13/07/17.
  */
 public class MathematicalExamplesTest {
   @Test
+  public void isMutipleOf5() throws Exception {
+    assertTrue(new MathematicalExamples().isMutipleOf5(15));
+  }
+
+  @Test
   public void reverseNumber() throws Exception {
-    assertEquals(123, new MathematicalExamples().reverseNumber(321, 0));
+    assertEquals(3, new MathematicalExamples().reverseNumber(3, 0));
     assertEquals(678, new MathematicalExamples().reverseNumber(876, 0));
     assertEquals(54321, new MathematicalExamples().reverseNumber(12345, 0));
   }

@@ -116,8 +116,12 @@ public class MathematicalExamples {
   /**
    * 14.
    * Problem: Check if a number is multiple of 5 without using / and % operators.
-   * Solution:
    */
+  boolean isMutipleOf5(int n) {
+    if (n == 5) return true;
+    else if (n < 5) return false;
+    else return isMutipleOf5(n - 5);
+  }
 
   /**
    * 15.
