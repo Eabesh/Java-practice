@@ -117,10 +117,10 @@ public class MathematicalExamples {
    * 14.
    * Problem: Check if a number is multiple of 5 without using / and % operators.
    */
-  boolean isMutipleOf5(int n) {
+  boolean isMultipleOf5(int n) {
     if (n == 0) return true;
     else if (n < 0) return false;
-    else return isMutipleOf5(n - 5);
+    else return isMultipleOf5(n - 5);
   }
 
   /**
