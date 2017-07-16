@@ -193,12 +193,30 @@ public class BackTrackingExamples {
   /**
    * 24.
    * Problem: Printing all solutions in N-Queen Problem.
-   * Solution:
    */
+  void printNQueens(int[][] board, int column) {
+    if (column >= board[0].length) printBoard(board);
+    else {
+      for (int row = 0; row < board.length; row++) {
+        if (new RecursionExamples().isSafe(board, row, column)) {
+          board[row][column] = 1;
+          printNQueens(board, column + 1);
+          board[row][column] = 0;
+        }
+      }
+    }
+  }
+
+  private void printBoard(int[][] board) {
+    for (int i = 0; i < board.length; i++) {
+      for (int j = 0; j < board[0].length; j++) System.out.print(board[i][j]);
+      System.out.println();
+    }
+  }
 
   /**
    * 25.
-   * Problem: Warnsdorff&#8217;s algorithm for Knight’s tour problem.
+   * Problem: Warnsdorff's algorithm for Knight’s tour problem.
    * Solution:
    */
 

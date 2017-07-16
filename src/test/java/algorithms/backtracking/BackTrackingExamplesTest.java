@@ -9,6 +9,12 @@ import static org.junit.Assert.*;
  */
 public class BackTrackingExamplesTest {
   @Test
+  public void printNQueens() throws Exception {
+    int[][] board = new int[4][4];
+    new BackTrackingExamples().printNQueens(board, 0);
+  }
+
+  @Test
   public void printSubsetSum() throws Exception {
     int[] array = {1, 2, 3};
     new BackTrackingExamples().printSubsetSum(array, 5, "", array.length);
