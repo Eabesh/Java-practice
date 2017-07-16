@@ -148,7 +148,7 @@ public class MathematicalExamples {
    * Write a function that takes two parameters n and k and returns the value of Binomial Coefficient C(n, k).
    */
   int binomialCoff(int n, int k) {
-    new DPExamples().
+    return new DPExamples().binomialCoefficient(n, k);
   }
 
   /**
@@ -160,12 +160,12 @@ public class MathematicalExamples {
   /**
    * 19.
    * Problem: Check whether a given point lies inside a triangle or not.
-   * Solution:
    */
+  boolean isPInTriangle(int )
 
   /**
    * 20.
-   * Problem: Count numbers that don&#8217;t contain 3.
+   * Problem: Count numbers that don't contain 3.
    * Solution:
    */
 
