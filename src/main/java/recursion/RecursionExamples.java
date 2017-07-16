@@ -145,15 +145,9 @@ public class RecursionExamples {
   }
 
   private boolean isSafe(int[][] board, int row, int column) {
-    for (int c = column; c >= 0 ; c--)
-      if (board[row][c] == 1) return false;
-
-    for (int r = row, c = column; r >= 0 && c >=0; r--, c--)
-      if (board[r][c] == 1) return false;
-
-    for (int r = row, c = column; r >= 0 && c > board[0].length; r--, c++)
-      if(board[r][c] == 1) return false;
-
+    for (int c = column; c >= 0 ; c--) if (board[row][c] == 1) return false;
+    for (int r = row, c = column; r >= 0 && c >=0; r--, c--) if (board[r][c] == 1) return false;
+    for (int r = row, c = column; r >= 0 && c > board[0].length; r--, c++) if(board[r][c] == 1) return false;
     return true;
   }
 
