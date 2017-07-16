@@ -10,6 +10,11 @@ import static org.junit.Assert.assertTrue;
  */
 public class MathematicalExamplesTest {
   @Test
+  public void countWaysToSpell() throws Exception {
+    assertEquals(1, new MathematicalExamples().countWaysToSpell("12"));
+  }
+
+  @Test
   public void replace0s() throws Exception {
     assertEquals(115, new MathematicalExamples().replace0s(110));
     assertEquals(15125, new MathematicalExamples().replace0s(10120));

@@ -1400,8 +1400,18 @@ public class MathematicalExamples {
   /**
    * 224.
    * Problem: Count ways to spell a number with repeated digits.
-   * Solution:
+   * Given a string that contains digits of a number. The number may contain many same continuous digits in it. The task
+   * is to count number of ways to spell the number.
    */
+  int countWaysToSpell(String num) {
+    int result = 1;
+    for (int i = 0; i < num.length(); i++) {
+      int count = 1;
+      while (i < num.length() - 1 - 1 && num.charAt(i + 1) == num.charAt(i)) count++;
+      return result * (int) Math.pow(2, count - 1);
+    }
+    return result;
+  }
 
   /**
    * 225.
