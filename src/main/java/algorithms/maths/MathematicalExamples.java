@@ -161,7 +161,6 @@ public class MathematicalExamples {
    * 19.
    * Problem: Check whether a given point lies inside a triangle or not.
    */
-  boolean isPInTriangle(int )
 
   /**
    * 20.
@@ -526,9 +525,19 @@ public class MathematicalExamples {
   /**
    * 80.
    * Problem: Replace all ‘0’ with ‘5’ in an input Integer.
-   * Solution:
+   * Given a integer as a input and replace all the ‘0’ with ‘5’ in the integer. Use of array to store all digits is not
+   * allowed.
    */
-
+  int replace0s(int num) {
+    if (num == 0) return 5;
+    else return replace0s(num, 0, 0);
+  }
+  int replace0s(int num, int multiplier, int res) {
+    if (num == 0) return res;
+    else if (num % 10 == 0) return replace0s(num / 10, multiplier + 1,
+            5 * (int) Math.pow(10, multiplier) + res);
+    else return replace0s(num / 10,multiplier + 1,num % 10 * (int) Math.pow(10, multiplier) + res);
+  }
   /**
    * 81.
    * Problem: Birthday Paradox.
