@@ -81,7 +81,7 @@ public class RecursionExamples {
    * 6.
    * Problem: Permutations of a string
    */
-  void printPermutations(String soFar, String remaining) {
+ public void printPermutations(String soFar, String remaining) {
     if (remaining.isEmpty()) System.out.println(soFar);
     else {
       for (int i = 0; i < remaining.length(); i++)

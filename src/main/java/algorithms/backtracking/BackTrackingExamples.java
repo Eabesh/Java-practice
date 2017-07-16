@@ -12,12 +12,13 @@ public class BackTrackingExamples {
     new RecursionExamples().solveNQueen(board, column);
   }
 
-
   /**
    * 2.
    * Problem: Write a  program to print all permutations of a given string.
-   * Solution:
    */
+  void printPermutation(String str, String rem) {
+    new RecursionExamples().
+  }
 
   /**
    * 3.
