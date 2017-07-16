@@ -32,6 +32,29 @@ public class BackTrackingExamples {
    * destination block is lower rightmost block i.e., maze[N-1][N-1]. A rat starts from source and has to reach
    * destination. The rat can move only in two directions: forward and down.
    */
+    void solveMaze(int[][] board) {
+     int[][] solution = new int[board.length][board[0].length];
+      solveMazeUtil(solution, board, board.length - 1, board[0].length - 1);
+   }
+
+   boolean solveMazeUtil(int[][] solution, int[][] board, int i, int j) {
+      if (i == 0 && j == 0)  {
+        solution[0][0] = 1;
+        return true;
+      }
+      else {
+        if (isValid(board, i, j)) {
+          solution[i][j] = 1;
+          if (solveMazeUtil(solution, board, i - 1, j) || solveMazeUtil(solution, board, i, j - 1)) return true;
+          solution[i][j] = 0;
+        }
+      }
+      return false;
+   }
+
+   boolean isValid(int[][] board, int i, int j) {
+      return i >= 0 && j >= 0 && board[i][j] == 1;
+   }
 
 
   /**
