@@ -73,7 +73,7 @@ public class BackTrackingExamples {
    * Problem: Backtracking | Set 4 (Subset Sum).
    */
   void printSubsetSum(int[] array, int sum, String soFar, int m) {
-    if (sum == 0) System.out.println(soFar);
+    if (sum == 0) System.out.println(soFar + " ");
     else {
       if (sum >= 0 && m > 0) {
             printSubsetSum(array, sum - array[m - 1], soFar + array[m - 1], m - 1);
