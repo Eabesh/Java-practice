@@ -5,8 +5,9 @@ public class BackTrackingExamples {
   /**
    * 1.
    * Problem: 8 queen problem.
-   * Solution:
    */
+  int
+
 
   /**
    * 2.
@@ -16,8 +17,7 @@ public class BackTrackingExamples {
 
   /**
    * 3.
-   * Problem: Backtracking | Set 1 (The Knight&#8217;s tour problem).
-   * Solution:
+   * Problem: Backtracking | Set 1 (The Knight's tour problem).
    */
 
   /**
