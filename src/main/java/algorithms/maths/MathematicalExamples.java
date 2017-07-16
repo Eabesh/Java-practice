@@ -1,5 +1,7 @@
 package algorithms.maths;
 
+import algorithms.dynamic.programming.DPExamples;
+
 public class MathematicalExamples {
 
   /**
@@ -143,7 +145,11 @@ public class MathematicalExamples {
   /**
    * 17.
    * Problem: Dynamic Programming | Set 9 (Binomial Coefficient).
+   * Write a function that takes two parameters n and k and returns the value of Binomial Coefficient C(n, k).
    */
+  int binomialCoff(int n, int k) {
+    new DPExamples().
+  }
 
   /**
    * 18.
