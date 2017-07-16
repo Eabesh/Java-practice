@@ -212,6 +212,7 @@ public class BackTrackingExamples {
       for (int j = 0; j < board[0].length; j++) System.out.print(board[i][j]);
       System.out.println();
     }
+    System.out.println();
   }
 
   /**
