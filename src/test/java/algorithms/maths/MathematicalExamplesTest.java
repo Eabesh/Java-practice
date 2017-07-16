@@ -12,6 +12,7 @@ public class MathematicalExamplesTest {
   @Test
   public void countWaysToSpell() throws Exception {
     assertEquals(1, new MathematicalExamples().countWaysToSpell("12"));
+    assertEquals(16, new MathematicalExamples().countWaysToSpell("11111"));
   }
 
   @Test

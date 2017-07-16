@@ -1407,7 +1407,7 @@ public class MathematicalExamples {
     int result = 1;
     for (int i = 0; i < num.length(); i++) {
       int count = 1;
-      while (i < num.length() - 1 - 1 && num.charAt(i + 1) == num.charAt(i)) count++;
+      while (i < num.length() - 1  && num.charAt(i + 1) == num.charAt(i++)) count++;
       return result * (int) Math.pow(2, count - 1);
     }
     return result;
