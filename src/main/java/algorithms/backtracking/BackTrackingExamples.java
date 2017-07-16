@@ -1,12 +1,16 @@
 package algorithms.backtracking;
 
+import recursion.RecursionExamples;
+
 public class BackTrackingExamples {
 
   /**
    * 1.
    * Problem: 8 queen problem.
    */
-  int
+  boolean queenProblem(int n) {
+    return new RecursionExamples().s
+  }
 
 
   /**

@@ -151,7 +151,7 @@ public class RecursionExamples {
     return true;
   }
 
-  boolean solveNQueen(int[][] board, int column) {
+  public boolean solveNQueen(int[][] board, int column) {
     if (column >= board[0].length) return true;
     else {
       for (int row = 0; row < board.length; row++) {
