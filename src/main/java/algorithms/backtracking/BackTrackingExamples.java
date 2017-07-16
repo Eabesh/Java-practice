@@ -67,7 +67,9 @@ public class BackTrackingExamples {
    * Problem: Backtracking | Set 3 (N Queen Problem).
    * Solution:
    */
-
+  void nQueenProblem(int[][] board, int column) {
+    new RecursionExamples().solveNQueen(board, column);
+  }
   /**
    * 6.
    * Problem: Backtracking | Set 4 (Subset Sum).
