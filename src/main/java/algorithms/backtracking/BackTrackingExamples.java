@@ -8,8 +8,9 @@ public class BackTrackingExamples {
    * 1.
    * Problem: 8 queen problem.
    */
-  boolean queenProblem(int n) {
-    return new RecursionExamples().s
+  boolean queenProblem(int column) {
+    int[][] board = new int[column][column];
+    return new RecursionExamples().solveNQueen(board, column);
   }
 
 
