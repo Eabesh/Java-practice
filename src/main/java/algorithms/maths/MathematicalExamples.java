@@ -619,7 +619,8 @@ public class MathematicalExamples {
   /**
    * 94.
    * Problem: Print all distinct permutations of a given string with duplicates.
-   * Solution:
+   * Given a string that may contain duplicates, write a function to print all permutations of given string such that no
+   * permutation is repeated in output.
    */
 
   /**
