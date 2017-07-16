@@ -35,6 +35,9 @@ public class BackTrackingExamples {
     void solveMaze(int[][] board) {
      int[][] solution = new int[board.length][board[0].length];
       solveMazeUtil(solution, board, board.length - 1, board[0].length - 1);
+      for (int i = 0; i < solution.length; i++)
+        for (int j = 0; j < solution[0].length; j++) System.out.println(solution[i][j]);
+
    }
 
    boolean solveMazeUtil(int[][] solution, int[][] board, int i, int j) {
