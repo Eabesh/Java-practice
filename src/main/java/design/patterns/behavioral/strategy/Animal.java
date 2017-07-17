@@ -1,14 +1,14 @@
 package design.patterns.behavioral.strategy;
 
-public class Animal {
+class Animal {
 
-  public Flys flyingType;
+  Flys flyingType;
 
-  public String tryToFly() {
+  String tryToFly() {
     return flyingType.fly();
   }
 
-  public void setFlyingType(Flys flyingType) {
+  void setFlyingType(Flys flyingType) {
     this.flyingType = flyingType;
   }
 

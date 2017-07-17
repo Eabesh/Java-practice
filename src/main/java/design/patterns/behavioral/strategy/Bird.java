@@ -1,8 +1,8 @@
 package design.patterns.behavioral.strategy;
 
-public class Bird extends Animal {
+class Bird extends Animal {
 
-  public Bird() {
+  Bird() {
     flyingType = new ItFlys();
   }
 
