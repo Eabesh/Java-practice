@@ -11,14 +11,14 @@ public class BackTrackingExamples {
    * 1.
    * Problem: 8 queen problem.
    */
-  void queenProblem(int[][] board, int column) {new RecursionExamples().solveNQueen(board, column);}
+  void queenProblem(int[][] board, int column) { new RecursionExamples().solveNQueen(board, column);}
 
 
   /**
    * 2.
    * Problem: Write a  program to print all permutations of a given string.
    */
-  void printPermutation(String str, String rem) {
+  void printPermutations(String str, String rem) {
     new RecursionExamples().printPermutations(str, rem);
   }
 
