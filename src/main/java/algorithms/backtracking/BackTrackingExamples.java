@@ -177,7 +177,8 @@ public class BackTrackingExamples {
   /**
    * 21.
    * Problem: Partition of a set into K subsets with equal sum.
-   * Solution:
+   * Given an integer array of N elements, the task is to divide this array into K non-empty subsets such that the sum
+   * of elements in every subset is same. All elements of this array should be part of exactly one partition.
    */
 
   /**
