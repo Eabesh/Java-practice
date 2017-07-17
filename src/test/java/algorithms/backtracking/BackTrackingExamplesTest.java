@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class BackTrackingExamplesTest {
   @Test
   public void printPermutation() throws Exception {
-    new BackTrackingExamples().printPermutations("", "abc");
+    new BackTrackingExamples().printPermutation("", "abc");
   }
 
   @Test

@@ -18,7 +18,7 @@ public class BackTrackingExamples {
    * 2.
    * Problem: Write a  program to print all permutations of a given string.
    */
-  void printPermutations(String str, String rem) {
+  void printPermutation(String str, String rem) {
     new RecursionExamples().printPermutations(str, rem);
   }
 
