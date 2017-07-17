@@ -12,6 +12,17 @@ import static org.junit.Assert.*;
  */
 public class BackTrackingExamplesTest {
   @Test
+  public void printPermutation() throws Exception {
+    new BackTrackingExamples().printPermutation("", "abc");
+  }
+
+  @Test
+  public void queenProblem() throws Exception {
+    int[][] board = new int[8][8];
+    new BackTrackingExamples().queenProblem(board, 8);
+  }
+
+  @Test
   public void printAllPaths() throws Exception {
     int[][] mat = { {1, 2, 3}, {4, 5, 6} };
     new BackTrackingExamples().printAllPath(mat, "", 0, 0);

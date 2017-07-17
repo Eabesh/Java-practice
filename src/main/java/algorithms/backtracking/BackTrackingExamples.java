@@ -11,9 +11,8 @@ public class BackTrackingExamples {
    * 1.
    * Problem: 8 queen problem.
    */
-  void queenProblem(int[][] board, int column) {
-    new RecursionExamples().solveNQueen(board, column);
-  }
+  void queenProblem(int[][] board, int column) {new RecursionExamples().solveNQueen(board, column);}
+
 
   /**
    * 2.
@@ -22,6 +21,7 @@ public class BackTrackingExamples {
   void printPermutation(String str, String rem) {
     new RecursionExamples().printPermutations(str, rem);
   }
+
 
   /**
    * 3.
@@ -70,9 +70,11 @@ public class BackTrackingExamples {
    * Problem: Backtracking | Set 3 (N Queen Problem).
    * Solution:
    */
-  void nQueenProblem(int[][] board, int column) {
+  void solveNQueenProblem(int[][] board, int column) {
     new RecursionExamples().solveNQueen(board, column);
   }
+
+
   /**
    * 6.
    * Problem: Backtracking | Set 4 (Subset Sum).
