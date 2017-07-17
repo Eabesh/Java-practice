@@ -12,6 +12,12 @@ import static org.junit.Assert.*;
  */
 public class BackTrackingExamplesTest {
   @Test
+  public void printAllPaths() throws Exception {
+    int[][] mat = { {1, 2, 3}, {4, 5, 6} };
+    new BackTrackingExamples().printAllPaths(mat, "", 0, 0);
+  }
+
+  @Test
   public void printWordBreak() throws Exception {
     Set<String> dictionary = new HashSet<>();
     dictionary.add("i");

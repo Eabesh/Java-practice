@@ -1,5 +1,6 @@
 package algorithms.backtracking;
 
+import data.structures.matrix.MatrixExamples;
 import recursion.RecursionExamples;
 
 import java.util.Set;
@@ -119,6 +120,9 @@ public class BackTrackingExamples {
    * 11.
    * Problem: Print all possible paths from top left to bottom right of a mXn matrix.
    */
+  void printAllPaths(int[][] mat, String path, int i, int j) {
+    new MatrixExamples().printAllPaths(mat, path, i, j);
+  }
 
   /**
    * 12.
