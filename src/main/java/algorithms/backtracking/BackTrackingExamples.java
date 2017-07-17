@@ -165,7 +165,11 @@ public class BackTrackingExamples {
   /**
    * 19.
    * Problem: Find shortest safe route in a path with landmines.
-   * Solution:
+   * Given a path in the form of a rectangular matrix having few landmines arbitrarily placed (marked as 0), calculate
+   * length of the shortest safe route possible from any cell in the first column to any cell in the last column of the
+   * matrix. We have to avoid landmines and their four adjacent cells (left, right, above and below) as they are also
+   * unsafe. We are allowed to move to only adjacent cells which are not landmines. i.e. the route cannot contains any
+   * diagonal moves.
    */
 
   /**
