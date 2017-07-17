@@ -2,6 +2,8 @@ package algorithms.backtracking;
 
 import recursion.RecursionExamples;
 
+import java.util.Set;
+
 public class BackTrackingExamples {
 
   /**
@@ -181,8 +183,16 @@ public class BackTrackingExamples {
   /**
    * 22.
    * Problem: Word Break Problem using Backtracking.
-   * Solution:
+   * Given a valid sentence without any spaces between the words and a dictionary of valid English words, find all
+   * possible ways to break the sentence in individual dictionary words.
    */
+  void printWordBreadk(String soFar, String rest, Set<String> dictionary) {
+    if (rest.isEmpty()) System.out.println(soFar);
+    else for (int i = 0; i < rest.length(); i++) {
+      String word = rest.substring(0, i + 1);
+      if (dictionary.contains(word)) printWordBreadk(soFar + word + " ", rest.substring(i + 1), dictionary);
+    }
+  }
 
   /**
    * 23.

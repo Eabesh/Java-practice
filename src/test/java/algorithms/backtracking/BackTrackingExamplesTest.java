@@ -2,12 +2,26 @@ package algorithms.backtracking;
 
 import org.junit.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.junit.Assert.*;
 
 /**
  * Created by abhay on 16/07/17.
  */
 public class BackTrackingExamplesTest {
+  @Test
+  public void printWordBreadk() throws Exception {
+    Set<String> dictionary = new HashSet<>();
+    dictionary.add("i");
+    dictionary.add("like");
+    dictionary.add("sam");
+    dictionary.add("samsung");
+    dictionary.add("sung");
+    new BackTrackingExamples().printWordBreadk("", "ilikesamsung", dictionary);
+  }
+
   @Test
   public void printNQueens() throws Exception {
     int[][] board = new int[4][4];
