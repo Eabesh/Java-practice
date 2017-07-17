@@ -186,11 +186,11 @@ public class BackTrackingExamples {
    * Given a valid sentence without any spaces between the words and a dictionary of valid English words, find all
    * possible ways to break the sentence in individual dictionary words.
    */
-  void printWordBreadk(String soFar, String rest, Set<String> dictionary) {
+  void printWordBreak(String soFar, String rest, Set<String> dictionary) {
     if (rest.isEmpty()) System.out.println(soFar);
     else for (int i = 0; i < rest.length(); i++) {
       String word = rest.substring(0, i + 1);
-      if (dictionary.contains(word)) printWordBreadk(soFar + word + " ", rest.substring(i + 1), dictionary);
+      if (dictionary.contains(word)) printWordBreak(soFar + word + " ", rest.substring(i + 1), dictionary);
     }
   }
 

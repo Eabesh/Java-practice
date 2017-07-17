@@ -12,14 +12,14 @@ import static org.junit.Assert.*;
  */
 public class BackTrackingExamplesTest {
   @Test
-  public void printWordBreadk() throws Exception {
+  public void printWordBreak() throws Exception {
     Set<String> dictionary = new HashSet<>();
     dictionary.add("i");
     dictionary.add("like");
     dictionary.add("sam");
     dictionary.add("samsung");
     dictionary.add("sung");
-    new BackTrackingExamples().printWordBreadk("", "ilikesamsung", dictionary);
+    new BackTrackingExamples().printWordBreak("", "ilikesamsung", dictionary);
   }
 
   @Test
