@@ -181,6 +181,7 @@ public class BackTrackingExamples {
    * of elements in every subset is same. All elements of this array should be part of exactly one partition.
    */
 
+
   /**
    * 22.
    * Problem: Word Break Problem using Backtracking.
@@ -189,10 +190,9 @@ public class BackTrackingExamples {
    */
   void printWordBreak(String soFar, String rest, Set<String> dictionary) {
     if (rest.isEmpty()) System.out.println(soFar);
-    else for (int i = 0; i < rest.length(); i++) {
-      String word = rest.substring(0, i + 1);
-      if (dictionary.contains(word)) printWordBreak(soFar + word + " ", rest.substring(i + 1), dictionary);
-    }
+    else
+      for (int i = 0; i < rest.length(); i++) if (dictionary.contains(rest.substring(0, i + 1)))
+        printWordBreak(soFar + rest.substring(0, i + 1) + " ", rest.substring(i + 1), dictionary);
   }
 
   /**
