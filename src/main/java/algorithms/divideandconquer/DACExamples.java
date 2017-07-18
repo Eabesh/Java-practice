@@ -8,8 +8,13 @@ public class DACExamples {
   /**
    * 1.
    * Problem: Write a program to calculate pow(x,n).
-   * Solution:
    */
+  int power(int base, int exp) {
+    if (exp == 0) return 1;
+    int half = power(base, exp / 2);
+    if (exp % 2 == 0) return half * half;
+    else return base * half * half;
+  }
 
   /**
    * 2.
