@@ -8,6 +8,31 @@ import static org.junit.Assert.assertTrue;
 
 public class TreeExamplesTest {
   @Test
+  public void findLCA() throws Exception {
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(3);
+    root.left.left = new TreeNode(4);
+    root.left.right = new TreeNode(5);
+    root.left.left.left = new TreeNode(7);
+    TreeNode lca = new TreeExamples().findLCA(root, 7, 11);
+    if (lca == null) System.out.println("No LCA Found");
+    else System.out.println(lca.data);
+  }
+
+  @Test
+  public void printCommonAncestors() throws Exception {
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(3);
+    root.left.left = new TreeNode(4);
+    root.left.right = new TreeNode(5);
+    root.left.left.left = new TreeNode(7);
+    new TreeExamples().printCommonAncestors(root, root.left.left.left, root.left.right);
+
+  }
+
+  @Test
   public void treeSize() throws Exception {
     assertEquals(3, new TreeExamples().treeSize(createTree()));
   }
@@ -190,6 +215,10 @@ public class TreeExamplesTest {
     root.left.left = new TreeNode(4);
     root.left.right = new TreeNode(5);
     root.left.left.left = new TreeNode(7);
+    new TreeExamples().printAncestors(root, root.right, "");
+    System.out.println();
+    new TreeExamples().printAncestors(root, root.left.right, "");
+    System.out.println();
     new TreeExamples().printAncestors(root, root.left.left.left, "");
 
   }
