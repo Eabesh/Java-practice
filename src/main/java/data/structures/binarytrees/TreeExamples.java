@@ -16,8 +16,11 @@ class TreeExamples {
   /**
    * 2.
    * Problem: Write a program to Calculate Size of a tree.
-   * Solution:
    */
+  int treeSize(TreeNode root) {
+    if (root == null) return 0;
+    else return 1 + treeSize(root.left) + treeSize(root.right);
+  }
 
   /**
    * 3.
@@ -1362,6 +1365,22 @@ class TreeExamples {
    * Problem: Query for ancestor-descendant relationship in a tree.
    * Solution:
    */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   /**

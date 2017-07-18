@@ -7,6 +7,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class TreeExamplesTest {
+  @Test
+  public void treeSize() throws Exception {
+    assertEquals(3, new TreeExamples().treeSize(createTree()));
+  }
 
   private TreeNode createTree() {
     TreeNode root = new TreeNode(2);
@@ -35,10 +39,6 @@ public class TreeExamplesTest {
     traversals.postOrder(createTree());
   }
 
-  @Test
-  public void size() throws Exception {
-    assertEquals(3, new TreeExamples().size(createTree()));
-  }
 
   @Test
   public void isIdentical() throws Exception {
