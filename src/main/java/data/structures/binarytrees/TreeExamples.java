@@ -181,8 +181,16 @@ class TreeExamples {
   /**
    * 29.
    * Problem: Print Ancestors of a given node in Binary Tree.
-   * Solution:
+   * Given a Binary Tree and a key, write a function that prints all the ancestors of the key in the given binary tree.
    */
+  public void printAncestors(TreeNode root, TreeNode key, String soFar) {
+    if (root == null) return;
+    else if (root == key) System.out.print(soFar);
+    else {
+      printAncestors(root.left, key, soFar + root.data + " ");
+      printAncestors(root.right, key, soFar + root.data + " ");
+    }
+  }
 
   /**
    * 30.
@@ -1345,8 +1353,10 @@ class TreeExamples {
   /**
    * 223.
    * Problem: Print common nodes on path from root (or common ancestors).
-   * Solution:
+   * Given a binary tree and two nodes, the task is to Print all the nodes that are common for 2 given nodes in a binary
+   * tree.
    */
+
 
   /**
    * 224.
@@ -1867,21 +1877,7 @@ class TreeExamples {
   }
 
 
-  /**
-   * Page 12.
-   * 29.
-   * Problem: Print Ancestors of a given node in Binary Tree
-   * Given a Binary Tree and a key, write a function that prints all the ancestors of the key in the given binary tree.
-   * Solution:
-   */
-  public void printAncestors(TreeNode root, TreeNode key, String soFar) {
-    if (root == null) return;
-    else if (root == key) System.out.print(soFar);
-    else {
-      printAncestors(root.left, key, soFar + root.data + " ");
-      printAncestors(root.right, key, soFar + root.data + " ");
-    }
-  }
+
   /**
    * 30.
    * Problem: Check if a given Binary Tree is SumTree
