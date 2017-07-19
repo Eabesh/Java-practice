@@ -25,8 +25,11 @@ class TreeExamples {
   /**
    * 3.
    * Problem: Write Code to Determine if Two Trees are Identical.
-   * Solution:
    */
+  boolean areIdentical(TreeNode root1, TreeNode root2) {
+    return root1 == null && root2 == null || root1 != null && root2 != null && root1.data == root2.data &&
+            areIdentical(root1.left, root2.left) && areIdentical(root1.right, root2.right);
+  }
 
   /**
    * 4.
@@ -1486,16 +1489,7 @@ class TreeExamples {
     else return 1 + size(node.left) + size(node.right);
   }
 
-  /**
-   * 3.
-   * Problem: Determine if Two Trees are Identical
-   */
-  boolean isIdentical(TreeNode root1, TreeNode root2) {
-    return root1 == null && root2 == null ||
-            root1 != null && root2 != null && root1.data == root2.data &&
-                    isIdentical(root1.left, root2.left) &&
-                    isIdentical(root1.right, root2.right);
-  }
+
 
   /**
    * 4.
