@@ -933,9 +933,13 @@ class TreeExamples {
 
   /**
    * 148.
-   * Problem: Check if two trees are Mirror.
-   * Solution:
+   * Problem: Check if two trees are Mirror
+   * Given two Binary Trees, write a function that returns true if two trees are mirror of each other, else false.
    */
+  public boolean areMirror(TreeNode root1, TreeNode root2) {
+    return root1 == null && root2 == null || root1 != null && root2 != null && root1.data == root2.data
+            && areMirror(root1.left, root2.right) && areMirror(root1.right, root2.left);
+  }
 
   /**
    * 149.
@@ -3068,17 +3072,7 @@ class TreeExamples {
    * Solution:
    */
 
-  /**
-   * 138.
-   * Problem: Check if two trees are Mirror
-   * Given two Binary Trees, write a function that returns true if two trees are mirror of each other, else false.
-   * For example, the function should return true for following input trees.
-   * Solution:
-   */
-  public boolean areMirror(TreeNode root1, TreeNode root2) {
-    return root1 == null && root2 == null || root1 != null && root2 != null && root1.data == root2.data
-            && areMirror(root1.left, root2.right) && areMirror(root1.right, root2.left);
-  }
+
 
   /**
    * 139.
