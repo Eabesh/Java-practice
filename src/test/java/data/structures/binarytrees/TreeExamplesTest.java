@@ -67,7 +67,7 @@ public class TreeExamplesTest {
 
   @Test
   public void isIdentical() throws Exception {
-    assertTrue(new TreeExamples().isIdentical(createTree(), createTree()));
+    assertTrue(new TreeExamples().areIdentical(createTree(), createTree()));
   }
 
   @Test
@@ -216,7 +216,7 @@ public class TreeExamplesTest {
     root.left.right = new TreeNode(5);
     root.left.left.left = new TreeNode(7);
 
-    System.out.println(    new TreeExamples().printAncestors(root, root.right, ""));
+//    System.out.println(    new TreeExamples().printAncestors(root, root.right, ""));
 
 //    System.out.println(    new TreeExamples().printAncestors(root, root.left.right, ""));
 //    new TreeExamples().printAncestors(root, root.left.left.left, "");
@@ -640,7 +640,7 @@ public class TreeExamplesTest {
         root.left = node1;
         root.right = node2;
 
-        assertEquals(true,new TreeExamples().isIdentical(root,root));
+        assertEquals(true,new TreeExamples().areIdentical(root,root));
     }
 
     @Test

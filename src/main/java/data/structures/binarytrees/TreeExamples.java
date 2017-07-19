@@ -1924,7 +1924,7 @@ class TreeExamples {
   public boolean isSubTree(TreeNode root1, TreeNode root2) {
     if (root1 == null) return false;
     else if (root2 == null) return true;
-    else if (isIdentical(root1, root2)) return true;
+    else if (areIdentical(root1, root2)) return true;
     else return isSubTree(root1.left, root2) || isSubTree(root1.right, root2);
   }
 
