@@ -976,7 +976,8 @@ class TreeExamples {
   /**
    * 155.
    * Problem: Find a number in minimum steps.
-   * Solution:
+   * Given an infinite number line from -INFINITY to +INFINITY and we are on zero. We can move n steps either side at
+   * each n’th time.
    */
 
   /**
