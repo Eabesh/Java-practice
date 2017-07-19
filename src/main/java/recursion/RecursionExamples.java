@@ -288,13 +288,6 @@ public class RecursionExamples {
    * 8.
    * Problem: Generate all possible sorted arrays from alternate elements of two given sorted arrays
    */
-//  void printSortedArrays(int[] arrayA, int[] arrayB, String soFar, int indexA, int indexB, int prevValue) {
-//    if (indexA <arrayA.length || indexB < arrayB.length){
-//      for (int i = indexA; i < arrayA.length; i++)
-//        printSortedArrays(arrayA, arrayB, soFar + arrayA[i], i + 1, indexB);
-//    }
-//  }
-//
 
   /**
    * 9.
