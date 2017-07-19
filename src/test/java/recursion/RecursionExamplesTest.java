@@ -10,6 +10,11 @@ import java.util.HashSet;
 import static org.junit.Assert.*;
 
 public class RecursionExamplesTest {
+  @Test
+  public void findMinSteps() throws Exception {
+    assertEquals(4, new RecursionExamples().findMinSteps(0, 10, 0, 1));
+    assertEquals(5, new RecursionExamples().findMinSteps(0, 13, 0, 1));
+  }
 
   @Test
   public void getExponent() throws Exception {
@@ -167,35 +172,7 @@ public class RecursionExamplesTest {
     System.out.println(recursionExamples.steppingNumbersSet);
   }
 
-  @Test
-  public void bunnyEars2() throws Exception {
-    assertEquals(5, new RecursionExamples().bunnyEars2(2));
-  }
 
-  @Test
-  public void triangle() throws Exception {
-    assertEquals(3, new RecursionExamples().triangle(2));
-  }
 
-  @Test
-  public void sumDigits() throws Exception {
-    assertEquals(3, new RecursionExamples().sumDigits(12));
-  }
-
-  @Test
-  public void count7() throws Exception {
-    assertEquals(2, new RecursionExamples().count7(717));
-  }
-
-  @Test
-  public void countHi() throws Exception {
-    assertEquals(2, new RecursionExamples().countHi("xhixhix"));
-  }
-
-  @Test
-  public void changeXY() throws Exception {
-    assertEquals("yy", new RecursionExamples().changeXY("xy"));
-    assertEquals("codey", new RecursionExamples().changeXY("codex"));
-  }
 
 }

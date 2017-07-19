@@ -299,8 +299,15 @@ public class RecursionExamples {
   /**
    * 9.
    * Problem: Minimum steps to reach a destination
+   * Given a number line from -infinity to +infinity. You start at 0 and can go either to the left or to the right. The
+   * condition is that in i’th move, you take i steps.
    */
-
+  int findMinSteps(int source, int dest, int minSteps, int n){
+    if (Math.abs(source) > dest) return Integer.MAX_VALUE;
+    else if (source == dest) return minSteps;
+    else return Math.min(findMinSteps(source + n, dest, minSteps + 1, n + 1),
+              findMinSteps(source - n, dest,minSteps + 1, n + 1));
+  }
 
   /**
    * 10.

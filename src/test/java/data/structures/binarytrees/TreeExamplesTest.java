@@ -7,11 +7,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class TreeExamplesTest {
-  @Test
-  public void findMinSteps() throws Exception {
-    assertEquals(4, new TreeExamples().findMinSteps(0, 10, 0, 1));
-    assertEquals(5, new TreeExamples().findMinSteps(0, 13, 0, 1));
-  }
+
 
   @Test
   public void findLCA() throws Exception {

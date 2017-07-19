@@ -984,12 +984,7 @@ class TreeExamples {
    */
 
 
-  int findMinSteps(int source, int dest, int minSteps, int n){
-    if (Math.abs(source) > dest) return Integer.MAX_VALUE;
-    else if (source == dest) return minSteps;
-    else return Math.min(findMinSteps(source + n, dest, minSteps + 1, n + 1),
-              findMinSteps(source - n, dest,minSteps + 1, n + 1));
-  }
+
 
 
   /**
