@@ -978,7 +978,12 @@ class TreeExamples {
    * Problem: Find a number in minimum steps.
    * Given an infinite number line from -INFINITY to +INFINITY and we are on zero. We can move n steps either side at
    * each n’th time.
+   * Solution : The problem is now to find the closes node to root with value n. The idea is to do Level Order Traversal
+   * of tree to find the closest node. Note that using DFS for closest node is never a good idea (we may end up going
+   * down many unnecessary levels)
    */
+
+
   int findMinSteps(int source, int dest, int minSteps, int n){
     if (Math.abs(source) > dest) return Integer.MAX_VALUE;
     else if (source == dest) return minSteps;
