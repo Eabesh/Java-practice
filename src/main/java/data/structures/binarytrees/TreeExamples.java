@@ -34,8 +34,11 @@ class TreeExamples {
   /**
    * 4.
    * Problem: Write a Program to Find the Maximum Depth or Height of a Tree.
-   * Solution:
    */
+  int height(TreeNode node) {
+    if (node == null) return 0;
+    else return 1 + Math.max(height(node.left), height(node.right));
+  }
 
   /**
    * 5.
@@ -1492,25 +1495,9 @@ class TreeExamples {
     }
   }
 
-  /**
-   * 2.
-   * Problem: Size of a tree
-   */
-  int size(TreeNode node) {
-    if (node == null) return 0;
-    else return 1 + size(node.left) + size(node.right);
-  }
 
 
 
-  /**
-   * 4.
-   * Problem: Maximum Depth or Height of a Tree
-   */
-  int height(TreeNode node) {
-    if (node == null) return 0;
-    else return 1 + Math.max(height(node.left), height(node.right));
-  }
 
   /**
    * 5.
