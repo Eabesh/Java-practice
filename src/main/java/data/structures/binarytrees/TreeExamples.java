@@ -61,14 +61,12 @@ class TreeExamples {
   /**
    * 9. Lowest Common Ancestor in a Binary Tree (When both keys are present).
    */
-  TreeNode LCA(TreeNode root, int k1, int k2) {
-    if (root == null || root.data == k1 || root.data == k2) return root;
-    else {
-      TreeNode left = LCA(root.left, k1, k2);
-      TreeNode right = LCA(root.right, k1, k2);
-      if (left != null && right != null) return root;
-      else return left != null ? left : right;
-    }
+
+  TreeNode findLCA(TreeNode root, int k1, int k2) {
+    boolean[] v1 = new boolean[1], v2 = new boolean[1];
+    TreeNode lca = LCAUtil(root, k1, k2, v1, v2);
+    if (v1[0] && v2[0] || v1[0] && treeContains(root, k2) || v2[0] && treeContains(root, k1)) return lca;
+    else return null;
   }
 
   TreeNode LCAUtil(TreeNode root, int k1, int k2, boolean[] v1, boolean[] v2) {
@@ -87,17 +85,13 @@ class TreeExamples {
     else return leftLCA != null ? leftLCA : rightLCA;
 
   }
-  TreeNode findLCA(TreeNode root, int k1, int k2) {
-    boolean[] v1 = new boolean[1], v2 = new boolean[1];
-    TreeNode lca = LCAUtil(root, k1, k2, v1, v2);
-    if (v1[0] && v2[0] || v1[0] && treeContains(root, k2) || v2[0] && treeContains(root, k1)) return lca;
-    else return null;
-  }
 
   private boolean treeContains(TreeNode root, int key) {
     if (root == null) return false;
     else return root.data == key || treeContains(root.left, key) || treeContains(root.right, key);
   }
+
+
   /**
    * 10.
    * Problem: The Great Tree-List Recursion Problem..
@@ -1392,7 +1386,7 @@ class TreeExamples {
    * tree.
    */
   void printCommonAncestors(TreeNode root, TreeNode node1, TreeNode node2) {
-    TreeNode lca = LCA(root, node1.data, node2.data);
+    TreeNode lca = findLCA(root, node1.data, node2.data);
     printAncestors(root, lca, "");
     System.out.print(lca.data);
   }
@@ -2360,7 +2354,7 @@ class TreeExamples {
    */
 
   int findDistance(TreeNode root, TreeNode node1, TreeNode node2) {
-    TreeNode lca = LCA(root, node1.data, node2.data);
+    TreeNode lca = findLCA(root, node1.data, node2.data);
     if (lca != null) return getLevel(lca, node1, 1) + getLevel(lca, node2, 1);
     else return -1;
   }

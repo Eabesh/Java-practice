@@ -215,12 +215,12 @@ public class TreeExamplesTest {
     root.left.left = new TreeNode(4);
     root.left.right = new TreeNode(5);
     root.left.left.left = new TreeNode(7);
-    new TreeExamples().printAncestors(root, root.right, "");
-    System.out.println();
-    new TreeExamples().printAncestors(root, root.left.right, "");
-    System.out.println();
-    new TreeExamples().printAncestors(root, root.left.left.left, "");
 
+    System.out.println(    new TreeExamples().printAncestors(root, root.right, ""));
+
+//    System.out.println(    new TreeExamples().printAncestors(root, root.left.right, ""));
+//    new TreeExamples().printAncestors(root, root.left.left.left, "");
+//
   }
 
   @Test
@@ -770,7 +770,7 @@ public class TreeExamplesTest {
         root.right = node2;
         node1.left = node4;
         node1.right = node5;
-        assertEquals(1,new TreeExamples().LCA(root,4,5).data);
+        assertEquals(1,new TreeExamples().findLCA(root,4,5).data);
     }
 
 }
