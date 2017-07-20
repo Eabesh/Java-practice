@@ -4,10 +4,16 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by abhay on 24/06/17.
- */
 public class MatrixExamplesTest {
+
+  @Test
+  public void rotOranges() throws Exception {
+    int[][] oranges1 = { {2, 1, 0, 2, 1}, {1, 0, 1, 2, 1}, {1, 0, 0, 2, 1}};
+    assertEquals(2, new MatrixExamples().rotOranges(oranges1));
+    int[][] oranges2 = { {2, 1, 0, 2, 1}, {0, 0, 1, 2, 1}, {1, 0, 0, 2, 1}};
+    assertEquals(-1, new MatrixExamples().rotOranges(oranges2));
+  }
+
   @Test
   public void spiralPrint() throws Exception {
   }
