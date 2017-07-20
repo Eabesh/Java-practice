@@ -1418,6 +1418,13 @@ class TreeExamples {
    * Given a Binary tree, the problem is to find mirror of a given node. The mirror of a node is a node which exist at
    * the mirror position of node in opposite subtree at the root.
    */
+  int findMirrorNode(TreeNode root, int targetNode, TreeNode mirrorNode) {
+    if (root == null || mirrorNode == null) return Integer.MIN_VALUE;
+    else if (targetNode == root.data) return mirrorNode.data;
+    return Math.max(findMirrorNode(root.left, targetNode, mirrorNode.right),
+            findMirrorNode(root.right, targetNode, mirrorNode.left));
+
+  }
 
   /**
    * 221.
