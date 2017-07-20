@@ -1294,8 +1294,25 @@ class TreeExamples {
   /**
    * 204.
    * Problem: Find distance from root to given node in a binary tree.
-   * Solution:
    */
+  int findDistanceFromRoot(TreeNode root, TreeNode node, int distance) {
+    if (root == null) return  -1;
+    else if (root == node) return distance;
+    else return Math.max(findDistanceFromRoot(root.left, node, distance + 1),
+              findDistanceFromRoot(root.right, node, distance + 1));
+  }
+
+  int findDistanceFromRoot1(TreeNode root, TreeNode node, int distance) {
+    if (root == null) return  -1;
+    else if (root == node) return distance;
+    else {
+      int left = findDistanceFromRoot(root.left, node, distance + 1);
+      if (left > -1) return left;
+      int right = findDistanceFromRoot(root.right, node, distance + 1);
+      if (right > -1) return right;
+      return Math.max(left, right);
+    }
+  }
 
   /**
    * 205.
@@ -1384,8 +1401,16 @@ class TreeExamples {
   /**
    * 219.
    * Problem: Print path from root to a given node in a binary tree.
-   * Solution:
+   * Given a binary tree with distinct nodes(no two nodes have the same have data values). The problem is to print the
+   * path from root to a given node x. If node x is not present then print “No Path”.
    */
+  String pathFromRoot(TreeNode root, int x, String soFar) {
+    if (root == null) return "";
+    else if (root.data == x) return soFar + x;
+    else return pathFromRoot(root.left, x, soFar + root.data + " ") +
+              pathFromRoot(root.right, x, soFar + root.data + " ");
+  }
+
 
   /**
    * 220.
