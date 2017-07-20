@@ -134,7 +134,7 @@ public class MatrixExamples {
    * that from each cell you can either move only to right or down.
    * Solution:
    */
-  void printAllPaths(int[][] mat, String path, int x, int y) {
+  public void printAllPaths(int[][] mat, String path, int x, int y) {
     if (x == mat.length - 1 && y == mat[0].length - 1) System.out.println(path + mat[mat.length - 1][mat[0].length - 1]);
     else {
       if (x < mat.length  && y < mat[0].length) {
