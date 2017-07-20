@@ -8,6 +8,22 @@ import static org.junit.Assert.assertTrue;
 
 public class TreeExamplesTest {
   @Test
+  public void subTreesOfOddCount() throws Exception {
+    TreeNode root = new TreeNode(2);
+    root.left = new TreeNode(1);
+    root.right = new TreeNode(3);
+//    root.left.left = new TreeNode(4);
+//    root.left.right = new TreeNode(10);
+//    root.left.right.left = new TreeNode(6);
+//    root.right.left = new TreeNode(8);
+//    root.right.right = new TreeNode(5);
+    int[] count = {0};
+    new TreeExamples().subTreesOfOddCount(root, count);
+//    assertEquals(6, count[0]);
+    assertEquals(1, count[0]);
+  }
+
+  @Test
   public void areMirror() throws Exception {
   TreeNode root = new TreeNode(2);
   root.left = new TreeNode(3);

@@ -42,7 +42,7 @@ class TreeExamples {
 
   /**
    * 5.
-   * Problem: Write a  program to Delete a Tree..
+   * Problem: Write a  program to Delete a Tree.
    * Solution:
    */
 
@@ -1261,8 +1261,17 @@ class TreeExamples {
   /**
    * 200.
    * Problem: Number of subtrees having odd count of even numbers.
-   * Solution:
+   * Given a binary tree, find the number of subtrees having odd count of even numbers.
    */
+  int subTreesOfOddCount(TreeNode root, int[] count) {
+    if (root == null) return 0;
+    int leftCount =  subTreesOfOddCount(root.left, count);
+    int rightCount = subTreesOfOddCount(root.right, count);
+    if (root.data % 2 == 0 && (leftCount + rightCount) % 2 == 0) count[0]++;
+    if (root.data % 2 != 0 && (leftCount + rightCount) % 2 != 0) count[0]++;
+    if (root.data % 2 == 0) return 1 + leftCount + rightCount;
+    else return leftCount + rightCount;
+  }
 
   /**
    * 201.
@@ -1417,7 +1426,7 @@ class TreeExamples {
 
   /**
    * 225.
-   * Problem: Shortest path between two nodes of a binary tree.
+   * Problem: Shortest path between two nodes in array like representation of binary tree.
    */
 
   /**
