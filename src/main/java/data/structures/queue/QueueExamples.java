@@ -1,9 +1,11 @@
 package data.structures.queue;
 
+import data.structures.matrix.MatrixExamples;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
-class QueueExamples {
+public class QueueExamples {
 
   /**
    * 1.
@@ -167,8 +169,10 @@ class QueueExamples {
   /**
    * 20.
    * Problem: Minimum time required to rot all oranges.
-   * Solution:
    */
+  public int rotOranges(int[][] oranges) {
+    return new MatrixExamples().rotOranges(oranges);
+  }
 
   /**
    * 21.

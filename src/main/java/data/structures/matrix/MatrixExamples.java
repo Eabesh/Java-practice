@@ -134,12 +134,12 @@ public class MatrixExamples {
    * that from each cell you can either move only to right or down.
    * Solution:
    */
- public void printAllPaths(int[][] mat, String path, int x, int y) {
+  public void printAllPaths(int[][] mat, String path, int x, int y) {
     if (x == mat.length - 1 && y == mat[0].length - 1) System.out.println(path + mat[mat.length - 1][mat[0].length - 1]);
     else {
       if (x < mat.length  && y < mat[0].length) {
-         printAllPaths(mat, path + mat[x][y], x + 1, y );
-         printAllPaths(mat, path + mat[x][y], x, y + 1);
+      printAllPaths(mat, path + mat[x][y], x + 1, y );
+      printAllPaths(mat, path + mat[x][y], x, y + 1);
        }
     }
   }
@@ -260,8 +260,59 @@ public class MatrixExamples {
   /**
    * 35.
    * Problem: Minimum time required to rot all oranges.
-   * Solution:
+   * Determine what is the minimum time required so that all the oranges become rotten. A rotten orange at index [i,j]
+   * can rot other fresh orange at indexes [i-1,j], [i+1,j], [i,j-1], [i,j+1] (up, down, left and right). If it is
+   * impossible to rot every orange then simply return -1.
+   * Solution: Use BFS.
    */
+  public int rotOranges(int[][] oranges) {
+    int[][] visited = new int[oranges.length][oranges[0].length];
+    int days = rot(oranges, visited, 0);
+    if (notAllRotten(oranges)) return -1;
+    else return days;
+  }
+
+  private int rot(int[][] oranges, int[][] visited, int days) {
+    if (!isMovePossible(oranges)) return days;
+    else {
+      for (int row = 0; row < oranges.length; row++)
+        for (int column = 0; column < oranges[0].length; column++)
+          if (oranges[row][column] == 2) rotNeighbours(oranges, visited, row, column);
+      markRotten(oranges, visited);
+      return rot(oranges, visited, days + 1);
+    }
+  }
+
+  private void rotNeighbours(int[][] oranges, int[][] visited, int row, int column) {
+    if (row + 1 < oranges.length && oranges[row + 1][column] == 1) visited[row + 1][column] = 1;
+    if (row - 1 >= 0 && oranges[row - 1][column] == 1) visited[row - 1][column] = 1;
+    if (column + 1 < oranges[0].length && oranges[row][column + 1] == 1) visited[row][column + 1] = 1;
+    if (column - 1 >= 0 && oranges[row][column - 1] == 1) visited[row][column - 1] = 1;
+  }
+
+  private void markRotten(int[][] oranges, int[][] visited) {
+    for (int row = 0; row < oranges.length; row++)
+      for (int column = 0; column < oranges[0].length; column++)
+        if (visited[row][column] == 1) oranges[row][column] = 2;
+  }
+
+  private boolean notAllRotten(int[][] oranges) {
+    for (int row = 0; row < oranges.length; row++)
+      for (int column = 0; column < oranges[0].length; column++)
+        if (oranges[row][column] == 1) return true;
+    return false;
+  }
+
+  private boolean isMovePossible(int[][] oranges) {
+    for (int row = 0; row < oranges.length; row++)
+      for (int column = 0; column < oranges[0].length; column++)
+        if (oranges[row][column] == 2 &&
+                ((row + 1 < oranges.length && oranges[row + 1][column] == 1) ||
+                        (column + 1 < oranges[0].length && oranges[row][column + 1] == 1) ||
+                        (row - 1 >= 0 && oranges[row - 1][column] == 1) ||
+                        (column - 1 >= 0 && oranges[row][column - 1] == 1))) return true;
+    return false;
+  }
 
 
   /**

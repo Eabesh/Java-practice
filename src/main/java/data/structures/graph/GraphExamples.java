@@ -1,6 +1,8 @@
 package data.structures.graph;
 
-class GraphExamples {
+import data.structures.matrix.MatrixExamples;
+
+public class GraphExamples {
 
   /**
    * Given a matrix of 0's and 1's find the count of biggest area covered by adjacent 1's.
@@ -465,8 +467,11 @@ class GraphExamples {
   /**
    * 68.
    * Problem: Minimum time required to rot all oranges.
-   * Solution:
    */
+  public int rotOranges(int[][] oranges) {
+    return new MatrixExamples().rotOranges(oranges);
+  }
+
 
   /**
    * 69.
