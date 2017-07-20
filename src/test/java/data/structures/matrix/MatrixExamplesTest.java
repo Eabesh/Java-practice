@@ -1,5 +1,7 @@
 package data.structures.matrix;
 
+import data.structures.graph.GraphExamples;
+import data.structures.queue.QueueExamples;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -12,6 +14,10 @@ public class MatrixExamplesTest {
     assertEquals(2, new MatrixExamples().rotOranges(oranges1));
     int[][] oranges2 = { {2, 1, 0, 2, 1}, {0, 0, 1, 2, 1}, {1, 0, 0, 2, 1}};
     assertEquals(-1, new MatrixExamples().rotOranges(oranges2));
+    int[][] oranges3 = { {2, 1, 0, 2, 1}, {1, 0, 1, 2, 1}, {1, 0, 0, 2, 1}};
+    assertEquals(2, new QueueExamples().rotOranges(oranges3));
+    int[][] oranges4 = { {2, 1, 0, 2, 1}, {1, 0, 1, 2, 1}, {1, 0, 0, 2, 1}};
+    assertEquals(2, new GraphExamples().rotOranges(oranges4));
   }
 
   @Test

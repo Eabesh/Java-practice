@@ -265,7 +265,7 @@ public class MatrixExamples {
    * impossible to rot every orange then simply return -1.
    * Solution: Use BFS.
    */
-  int rotOranges(int[][] oranges) {
+  public int rotOranges(int[][] oranges) {
     int[][] visited = new int[oranges.length][oranges[0].length];
     int days = rot(oranges, visited, 0);
     if (notAllRotten(oranges)) return -1;
