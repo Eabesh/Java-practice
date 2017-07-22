@@ -2,6 +2,7 @@ package data.structures.binarytrees;
 
 import utilities.TreeNode;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 class TreeExamples {
@@ -625,8 +626,35 @@ class TreeExamples {
   /**
    * 96.
    * Problem: Find the closest leaf in a Binary Tree.
-   * Solution:
+   * Given a Binary Tree and a key ‘k’, find distance of the closest leaf from ‘k’.
    */
+
+  int closetLeafFromKey(TreeNode root, TreeNode key) {
+    ArrayList<TreeNode> ancestors = ancestors(root, key, new ArrayList<>());
+    int minDistance = Integer.MAX_VALUE;
+    for (TreeNode ancestor : ancestors) minDistance = Math.min(minDistance, findClosestLeafRoot(ancestor, 0) +
+            findDistanceFromRoot(ancestor, key, 0));
+    return Math.min(findClosestLeafRoot(key, 0), minDistance);
+  }
+
+  int findClosestLeafRoot(TreeNode root, int distance) {
+    if (root == null) return Integer.MAX_VALUE;
+    else if (isLeaf(root)) return distance;
+    else return Math.min(findClosestLeafRoot(root.left, distance + 1),
+            findClosestLeafRoot(root.right, distance + 1));
+  }
+
+  ArrayList ancestors(TreeNode root, TreeNode key, ArrayList<TreeNode> soFar) {
+    if (root == null) return new ArrayList<>();
+    else if (root == key) return new ArrayList(soFar);
+    else {
+      soFar.add(root);
+      ArrayList left = ancestors(root.left, key, soFar);
+      ArrayList right =  ancestors(root.right, key, soFar);
+      soFar.remove(soFar.size() - 1);
+      return left.isEmpty() ? right : left;
+    }
+  }
 
   /**
    * 97.
@@ -991,9 +1019,6 @@ class TreeExamples {
    */
 
 
-
-
-
   /**
    * 156.
    * Problem: Find height of a special binary tree whose leaf nodes are connected.
@@ -1189,14 +1214,17 @@ class TreeExamples {
   /**
    * 188.
    * Problem: Check if a Binary Tree contains duplicate subtrees of size 2 or more.
-   * Solution:
+   * Given a Binary Tree, check whether the Binary tree contains a duplicate sub-tree of size 2 or more.
+   * Note : Two same leaf nodes are not considered as subtree size of a leaf node is one.
    */
+
 
   /**
    * 189.
    * Problem: Print all root to leaf paths with there relative positions.
-   * Solution:
+   * Given a binary tree, print the root to the leaf path, but add “_” to indicate the relative position.
    */
+
 
   /**
    * 190.
@@ -1265,7 +1293,7 @@ class TreeExamples {
    */
   int subTreesOfOddCount(TreeNode root, int[] count) {
     if (root == null) return 0;
-    int leftCount =  subTreesOfOddCount(root.left, count);
+    int leftCount = subTreesOfOddCount(root.left, count);
     int rightCount = subTreesOfOddCount(root.right, count);
     if (root.data % 2 == 0 && (leftCount + rightCount) % 2 == 0) count[0]++;
     if (root.data % 2 != 0 && (leftCount + rightCount) % 2 != 0) count[0]++;
@@ -1296,14 +1324,14 @@ class TreeExamples {
    * Problem: Find distance from root to given node in a binary tree.
    */
   int findDistanceFromRoot(TreeNode root, TreeNode node, int distance) {
-    if (root == null) return  -1;
+    if (root == null) return -1;
     else if (root == node) return distance;
     else return Math.max(findDistanceFromRoot(root.left, node, distance + 1),
               findDistanceFromRoot(root.right, node, distance + 1));
   }
 
   int findDistanceFromRoot1(TreeNode root, TreeNode node, int distance) {
-    if (root == null) return  -1;
+    if (root == null) return -1;
     else if (root == node) return distance;
     else {
       int left = findDistanceFromRoot(root.left, node, distance + 1);
@@ -1468,22 +1496,6 @@ class TreeExamples {
    */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   /**
    * 1.
    * Problem: Tree traversals.
@@ -1538,9 +1550,6 @@ class TreeExamples {
   }
 
 
-
-
-
   /**
    * 5.
    * Problem: Delete a tree.
@@ -1592,12 +1601,12 @@ class TreeExamples {
   }
 
 
-
   /**
    * 10.
    * Problem: The Great Tree-List Recursion Problem.
    */
   TreeNode head2 = null, prev1 = null;
+
   void treeToList(TreeNode root) {
     if (root != null) {
       treeToList(root.left);
@@ -1617,7 +1626,7 @@ class TreeExamples {
    */
   void levelOrder(TreeNode root) {
     int height = height(root);
-    for(int i = 1; i <= height; i++) {
+    for (int i = 1; i <= height; i++) {
       level(root, i);
       System.out.println("");
     }
@@ -1643,7 +1652,9 @@ class TreeExamples {
     else return countLeaves(root.right) + countLeaves(root.left);
   }
 
-  private boolean isLeaf(TreeNode node) { return node.left == null && node.right == null; }
+  private boolean isLeaf(TreeNode node) {
+    return node.left == null && node.right == null;
+  }
 
   /**
    * 13.
@@ -1651,7 +1662,7 @@ class TreeExamples {
    */
   void levelOrderSpiral(TreeNode root) {
     int height = height(root);
-    for(int i = 1; i <= height; i++) {
+    for (int i = 1; i <= height; i++) {
       levelSpiral(root, i, i % 2 == 0);
       System.out.println("");
     }
@@ -1660,11 +1671,10 @@ class TreeExamples {
   private void levelSpiral(TreeNode root, int level, boolean odd) {
     if (root != null) {
       if (level < 2) System.out.print(root.data + " ");
-      else if (odd){
+      else if (odd) {
         level(root.right, level - 1);
         level(root.left, level - 1);
-      }
-      else {
+      } else {
         level(root.left, level - 1);
         level(root.right, level - 1);
       }
@@ -1726,7 +1736,7 @@ class TreeExamples {
     else {
       int leftHeight = height(root.left);
       int rightHeight = height(root.right);
-      return Math.abs(leftHeight - rightHeight) <=1 && isBalanced(root.left) && isBalanced(root.right);
+      return Math.abs(leftHeight - rightHeight) <= 1 && isBalanced(root.left) && isBalanced(root.right);
     }
   }
 
@@ -1741,7 +1751,7 @@ class TreeExamples {
       else {
         int leftHeight = height(root.left);
         int rightHeight = height(root.right);
-        return Math.abs(leftHeight - rightHeight) <=1;
+        return Math.abs(leftHeight - rightHeight) <= 1;
       }
     }
   }
@@ -1750,6 +1760,7 @@ class TreeExamples {
    * Optimized solution
    */
   boolean isBal = true;
+
   int isBalancedOpt(TreeNode root) {
     if (root == null) return 0;
     else {
@@ -1757,7 +1768,7 @@ class TreeExamples {
       int rightHeight = isBalancedOpt(root.right);
       int difference = Math.abs(leftHeight - rightHeight);
       if (difference > 1) isBal = false;
-      return 1 + Math.max(leftHeight,rightHeight);
+      return 1 + Math.max(leftHeight, rightHeight);
     }
   }
 
@@ -1782,11 +1793,11 @@ class TreeExamples {
    * 1. Initialize current as root
    * 2. While current is not NULL
    * If current does not have left child
-   *      a) Print current’s data
-   *      b) Go to the right, i.e., current = current->right
+   * a) Print current’s data
+   * b) Go to the right, i.e., current = current->right
    * Else
-   *      a) Make current as right child of the rightmost node in current's left subtree
-   *      b) Go to this left child, i.e., current = current->left
+   * a) Make current as right child of the rightmost node in current's left subtree
+   * b) Go to this left child, i.e., current = current->left
    */
   public void morrisTraversal(TreeNode root) {
 
@@ -1809,6 +1820,7 @@ class TreeExamples {
    * Solution:
    */
   int preIndex = 0;
+
   public TreeNode constructTree(int[] preOder, int[] inOrder, int inStart, int end) {
     if (inStart > end) return null;
     else {
@@ -1840,12 +1852,12 @@ class TreeExamples {
    * Write a program that converts a given tree to its Double tree.
    * To create Double tree of the given tree, create a new duplicate for each node,
    * and insert the duplicate as the left child of the original node.
-
+   * <p>
    * Solution:
    */
 
-  public TreeNode doubleTree(TreeNode root){
-    if (root == null) return  null;
+  public TreeNode doubleTree(TreeNode root) {
+    if (root == null) return null;
     else {
       root.left = doubleTree(root.left);
       root.right = doubleTree(root.right);
@@ -1855,6 +1867,7 @@ class TreeExamples {
       return root;
     }
   }
+
   /**
    * 24.
    * Problem: Maximum width of a binary tree
@@ -1889,6 +1902,7 @@ class TreeExamples {
   public boolean isFoldable(TreeNode root) {
     return root == null || isFoldable(root.left, root.right);
   }
+
   public boolean isFoldable(TreeNode node1, TreeNode node2) {
     return node1 == null && node2 == null || node1 != null && node2 != null && isFoldable(node1.left, node2.right)
             && isFoldable(node1.right, node2.left);
@@ -1932,7 +1946,6 @@ class TreeExamples {
   }
 
 
-
   /**
    * 30.
    * Problem: Check if a given Binary Tree is SumTree
@@ -1944,6 +1957,7 @@ class TreeExamples {
     if (root == null || isLeaf(root)) return true;
     else return isSumTree(root.left) && isSumTree(root.right) && hasSumProperty(root);
   }
+
   public boolean hasSumProperty(TreeNode root) {
     if (root == null) return true;
     else if (root.right == null && isLeaf(root.left)) return root.data == root.left.data;
@@ -1977,7 +1991,6 @@ class TreeExamples {
    */
 
 
-
   /**
    * 33.
    * Problem: Connect nodes at same level using constant extra space
@@ -1990,7 +2003,6 @@ class TreeExamples {
 
    * Solution:
    */
-
 
 
   /**
@@ -2016,12 +2028,11 @@ class TreeExamples {
    * The sums of these three paths are 16, 4 and 17 respectively. The maximum of them is 17 and the path for maximum is 7->10.
    * Solution:
    */
-  public  int maxRootToLeaOfPath(TreeNode root) {
+  public int maxRootToLeaOfPath(TreeNode root) {
     if (root == null) return 0;
     else return root.data + Math.max(maxRootToLeaOfPath(root.left), maxRootToLeaOfPath(root.right));
 
   }
-
 
 
   /**
@@ -2053,10 +2064,10 @@ class TreeExamples {
    * Page 10.
    * 41.
    * Problem: Boundary Traversal of binary tree
-
+   * <p>
    * Solution:
    */
-  public  void printLeaves(TreeNode root) {
+  public void printLeaves(TreeNode root) {
     if (root == null) return;
     else if (isLeaf(root)) System.out.print(root.data + " ");
     else {
@@ -2065,26 +2076,25 @@ class TreeExamples {
     }
   }
 
-  public  void printLeftBoundry(TreeNode root) {
+  public void printLeftBoundry(TreeNode root) {
     if (root != null) {
       if (!isLeaf(root)) {
         System.out.print(root.data + " ");
         printLeftBoundry(root.left);
-      }
-      else printLeftBoundry(root.right);
+      } else printLeftBoundry(root.right);
     }
   }
 
-  public  void printRightBounday(TreeNode root) {
+  public void printRightBounday(TreeNode root) {
     if (root != null) {
       if (!isLeaf(root)) {
         printRightBounday(root.right);
         System.out.print(root.data + " ");
-      }
-      else printRightBounday(root.left);
+      } else printRightBounday(root.left);
     }
   }
-  public  void printBoundary(TreeNode root) {
+
+  public void printBoundary(TreeNode root) {
     if (root == null) return;
     else {
       System.out.print(root.data + " ");
@@ -2113,7 +2123,7 @@ class TreeExamples {
   /**
    * 44.
    * Problem: Morris traversal for Preorder
-
+   * <p>
    * Solution:
    */
 
@@ -2141,13 +2151,14 @@ class TreeExamples {
   /**
    * 47.
    * Problem: Reverse Level Order Traversal
-
+   * <p>
    * Solution:
    */
-  public  void printReverseLevel(TreeNode root) {
-    for (int i = height(root); i >=0; i--) printReverseLevel(root, i);
+  public void printReverseLevel(TreeNode root) {
+    for (int i = height(root); i >= 0; i--) printReverseLevel(root, i);
   }
-  public  void printReverseLevel(TreeNode root, int level) {
+
+  public void printReverseLevel(TreeNode root, int level) {
     if (level == 0) System.out.print(root.data);
     else {
       printReverseLevel(root.left, level - 1);
@@ -2167,15 +2178,16 @@ class TreeExamples {
   /**
    * 49.
    * Problem: Convert a given Binary Tree to Doubly Linked List | Set 1
-
+   * <p>
    * Solution:
    */
   TreeNode headDLL = null;
+
   public void convertToDLL(TreeNode root) {
     if (root != null) {
       convertToCDLL(root.right);
       root.right = headDLL;
-      if (headDLL != null)  headDLL.left = root;
+      if (headDLL != null) headDLL.left = root;
       headDLL = root;
       convertToCDLL(root.left);
     }
@@ -2248,7 +2260,7 @@ class TreeExamples {
   /**
    * 58.
    * Problem: Print Left View of a Binary Tree
-
+   * <p>
    * Solution:
    */
 
@@ -2257,8 +2269,7 @@ class TreeExamples {
     else if (level > maxLevel[0]) {
       System.out.print(root.data + " ");
       maxLevel[0] = level;
-    }
-    else {
+    } else {
       printLeftView(root.left, level + 1, maxLevel);
       printLeftView(root.right, level + 1, maxLevel);
     }
@@ -2290,18 +2301,17 @@ class TreeExamples {
    */
 
   TreeNode deepestLeftNode = null;
-  public  void printDeepestLeftNode(TreeNode root, int level, TreeNode parent, int[] maxLevel){
+
+  public void printDeepestLeftNode(TreeNode root, int level, TreeNode parent, int[] maxLevel) {
     if (root == null) return;
     else if (isLeaf(root) && isLeft(parent, root) && level > maxLevel[0]) {
       maxLevel[0] = level;
       deepestLeftNode = root;
-    }
-    else {
+    } else {
       printDeepestLeftNode(root.left, level + 1, root, maxLevel);
       printDeepestLeftNode(root.left, level + 1, root, maxLevel);
     }
   }
-
 
 
   /**
@@ -2330,10 +2340,11 @@ class TreeExamples {
   /**
    * 64.
    * Problem: Convert a given Binary Tree to Doubly Linked List | Set 3
-   *
+   * <p>
    * Solution:
    */
   TreeNode head3 = null;
+
   void convertTreeToDLL(TreeNode root) {
     if (root == null) return;
     else {
@@ -2348,7 +2359,6 @@ class TreeExamples {
   }
 
 
-
   /**
    * 65.
    * Problem: Print all nodes that don’t have sibling
@@ -2360,6 +2370,7 @@ class TreeExamples {
     if (parent == null) return false;
     else return parent.left == null && parent.right != null || parent.left != null && parent.right == null;
   }
+
   void printWithNoSibling(TreeNode root, TreeNode parent) {
     if (root == null) return;
     else {
@@ -2376,8 +2387,6 @@ class TreeExamples {
 
    * Solution:
    */
-
-
 
 
   /**
@@ -2469,6 +2478,7 @@ class TreeExamples {
     maxPathBetweenTwoLeaves(root, res);
     return res[0];
   }
+
   int maxPathBetweenTwoLeaves(TreeNode root, int[] res) {
     if (root == null) return 0;
     else if (isLeaf(root)) return root.data;
@@ -2478,8 +2488,7 @@ class TreeExamples {
       if (root.left != null && root.right != null) {
         res[0] = Math.max(res[0], leftSum + rightSum + root.data);
         return Math.max(leftSum, rightSum) + root.data;
-      }
-      else return (root.left == null) ? rightSum + root.data : leftSum + root.data;
+      } else return (root.left == null) ? rightSum + root.data : leftSum + root.data;
     }
   }
 
@@ -2500,9 +2509,10 @@ class TreeExamples {
    */
   boolean areSibling(TreeNode root, TreeNode node1, TreeNode node2) {
     if (root == null) return false;
-    else return root.left == node1 && root.right == node2 || root.right == node1 && root.left  == node2 ||
+    else return root.left == node1 && root.right == node2 || root.right == node1 && root.left == node2 ||
             areSibling(root.left, node1, node2) || areSibling(root.right, node1, node2);
   }
+
   boolean areCousins(TreeNode root, TreeNode node1, TreeNode node2) {
     if (root == null) return false;
     else return getLevel(root, node1, 1) == getLevel(root, node2, 1) && !areSibling(root, node1, node2);
@@ -2563,11 +2573,11 @@ class TreeExamples {
    * Top view of a binary tree is the set of nodes visible when the tree is viewed from the top.
    * Given a binary tree, print the top view of it. The output nodes can be printed in any order.
    * Expected time complexity is O(n)
-
+   * <p>
    * Solution: Use HasSet, BFS, and mark the position.
    */
 
-  public  void printTopView(TreeNode root) {
+  public void printTopView(TreeNode root) {
     if (root == null) return;
     Queue<TreeNode> queue = new LinkedList<TreeNode>();
     queue.add(root);
@@ -2602,10 +2612,10 @@ class TreeExamples {
    * Page 6.
    * 87.
    * Problem: Bottom View of a Binary Tree
-
+   * <p>
    * Solution: Use BFS and  TreeMap to store pos - > Node and replace every pos with new Node
    */
-  public  void bottomView(TreeNode root) {
+  public void bottomView(TreeNode root) {
     if (root == null) return;
     TreeMap<Integer, TreeNode> resultMap = new TreeMap<Integer, TreeNode>();
     Map<TreeNode, Integer> map = new HashMap<TreeNode, Integer>();
@@ -2638,7 +2648,6 @@ class TreeExamples {
    */
 
 
-
   /**
    * Page 6.
    * 89.
@@ -2659,11 +2668,12 @@ class TreeExamples {
    * Page 6.
    * 91.
    * Problem: Convert a given Binary Tree to Doubly Linked List | Set 3
-
+   * <p>
    * Solution:
    */
   TreeNode head1 = null;
-  public  void convertDLL(TreeNode root) {
+
+  public void convertDLL(TreeNode root) {
     if (root == null) return;
     else {
       convertDLL(root.right);
@@ -2683,24 +2693,23 @@ class TreeExamples {
    * Problem: Find sum of all left leaves in a given Binary Tree
    * Solution: The idea is to traverse the tree return sum of all left leaves.
    */
-  public  int sumOfLeftLeaves(TreeNode root, boolean isLeftLeaf) {
+  public int sumOfLeftLeaves(TreeNode root, boolean isLeftLeaf) {
     if (root == null) return 0;
     else if (isLeaf(root) && isLeftLeaf) return root.data;
     else return sumOfLeftLeaves(root.left, true) + sumOfLeftLeaves(root.right, false);
   }
 
-  public  boolean isLeft(TreeNode parent, TreeNode node) {
+  public boolean isLeft(TreeNode parent, TreeNode node) {
     if (parent == null) return false;
     else return parent.left == node;
   }
 
-  public  int sumOfLeftLeaves2(TreeNode root, TreeNode parent) {
+  public int sumOfLeftLeaves2(TreeNode root, TreeNode parent) {
     if (root == null) return 0;
     else if (isLeaf(root) && parent.left == root) return root.data;
     else return sumOfLeftLeaves2(root.left, root) + sumOfLeftLeaves2(root.right, root);
 
   }
-
 
 
   /**
@@ -2732,7 +2741,6 @@ class TreeExamples {
    * 96. Problem: Handshaking Lemma and Interesting Tree Properties
    * Solution:
    */
-
 
 
   /**
@@ -2768,11 +2776,10 @@ class TreeExamples {
     else return root1 != null && root2 != null && root1.data == root2.data && isMirror(root1.left, root2.right) &&
             isMirror(root1.right, root2.left);
   }
+
   public boolean isSymmetricTree(TreeNode root) {
     return isMirror(root, root);
   }
-
-
 
 
   /**
@@ -2833,7 +2840,6 @@ class TreeExamples {
    */
 
 
-
   /**
    * 109.
    * Problem: Locking and Unlocking of Resources arranged in the form of n-ary Tree
@@ -2861,10 +2867,6 @@ class TreeExamples {
 
    * Solution:
    */
-
-
-
-
 
 
   /**
@@ -2972,8 +2974,6 @@ class TreeExamples {
    * Given a Binary Tree, Print the corner nodes at each level.The node at the leftmost and the node at the rightmost.
    * Solution:
    */
-
-
 
 
   /**
@@ -3102,7 +3102,6 @@ class TreeExamples {
    */
 
 
-
   /**
    * 139.
    * Problem: Construct a Binary Tree from Postorder and Inorder
@@ -3128,7 +3127,7 @@ class TreeExamples {
   /**
    * Page 2.
    * 142. Problem: Print cousins of a given node in Binary Tree
-   *
+   * <p>
    * Solution: Get the level and stop at penultimate level and check if the either child node is not equal to
    * given node.
    */
@@ -3171,13 +3170,11 @@ class TreeExamples {
     else if (level == 0) {
       System.out.print(root.data + " ");
       return true;
-    }
-    else if (flag) {
+    } else if (flag) {
       if (printLevelSpiral(root.left, level - 1, flag)) return true;
       else if (printLevelSpiral(root.right, level - 1, flag)) return true;
       else return false;
-    }
-    else {
+    } else {
       if (printLevelSpiral(root.right, level - 1, flag)) return true;
       else if (printLevelSpiral(root.left, level - 1, flag)) return true;
       else return false;
@@ -3209,7 +3206,7 @@ class TreeExamples {
    * 146. Problem: Find height of a special binary tree whose leaf nodes are connected
    * Given a special binary tree whose leaf nodes are connected to form a circular doubly linked list,
    * find its height.
-   *
+   * <p>
    * Solution: Node is leaf if (node.left.right = node && node.right.left == node)
    */
   int maxDepth(TreeNode node) {
@@ -3229,6 +3226,7 @@ class TreeExamples {
    */
   TreeNode head = null;
   TreeNode prev = null;
+
   void convertToCDLL(TreeNode root) {
     if (root == null) return;
     else {
@@ -3270,8 +3268,6 @@ class TreeExamples {
 
    * Solution:
    */
-
-
 
 
   /**
@@ -3324,6 +3320,7 @@ class TreeExamples {
    * Right view of a Binary Tree is set of nodes visible when tree is visited from Right side.
    */
   int maxLevel = -1;
+
   public void printRightView(TreeNode root, int level) {
     if (root != null) {
       if (level > maxLevel) {
@@ -3342,22 +3339,6 @@ class TreeExamples {
    */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   /**
    * 114. Change a Binary Tree so that every node stores sum of all nodes in left subtree.
    */
@@ -3365,7 +3346,7 @@ class TreeExamples {
     if (root == null) return 0;
     else if (isLeaf(root)) return root.data;
     else {
-      int leftSum  = updateTree(root.left);
+      int leftSum = updateTree(root.left);
       int rightSum = updateTree(root.right);
       root.data += leftSum;
       return root.data + rightSum;
@@ -3383,7 +3364,7 @@ class TreeExamples {
    */
   int findMax(TreeNode root) {
     if (root == null) return Integer.MIN_VALUE;
-    else return Math.max(Math.max(root.data,findMax(root.left)),findMax(root.right));
+    else return Math.max(Math.max(root.data, findMax(root.left)), findMax(root.right));
   }
 
   /**

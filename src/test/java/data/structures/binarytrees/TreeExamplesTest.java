@@ -1,12 +1,48 @@
 package data.structures.binarytrees;
 import org.junit.Test;
 import utilities.TreeNode;
+
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class TreeExamplesTest {
+  @Test
+  public void closetLeafFromKey() throws Exception {
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(3);
+    root.right.left= new TreeNode(4);
+    root.right.left.left = new TreeNode(5);
+    root.right.left.left.left = new TreeNode(6);
+    root.right.left.left.right = new TreeNode(7);
+    root.right.right = new TreeNode(8);
+    root.right.right.right = new TreeNode(9);
+    root.right.right.right.left = new TreeNode(10);
+    assertEquals(0, new TreeExamples().closetLeafFromKey(root, root.left));
+    assertEquals(1, new TreeExamples().closetLeafFromKey(root, root.right.right.right));
+    assertEquals(2, new TreeExamples().closetLeafFromKey(root, root.right));
+    assertEquals(2, new TreeExamples().closetLeafFromKey(root, root.right.left));
+
+  }
+
+  @Test
+  public void ancestors() throws Exception {
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(3);
+    root.left.left = new TreeNode(4);
+    root.left.left.right = new TreeNode(7);
+    root.right.left = new TreeNode(5);
+    root.right.right = new TreeNode(6);
+    root.right.left.left = new TreeNode(8);
+    root.right.left.right = new TreeNode(9);
+    ArrayList<TreeNode> arrayList = new TreeExamples().ancestors(root, root.left.left.right, new ArrayList<>());
+    for (TreeNode treeNode : arrayList) System.out.println(treeNode.data);
+  }
+
   @Test
   public void findMirrorNode() throws Exception {
     TreeNode root = new TreeNode(1);
