@@ -10,6 +10,18 @@ import static org.junit.Assert.assertTrue;
 
 public class TreeExamplesTest {
   @Test
+  public void sumOfLeftLeaves() throws Exception {
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.left.left = new TreeNode(5);
+    root.right = new TreeNode(3);
+    root.right.left = new TreeNode(23);
+    root.right.right = new TreeNode(52);
+    root.right.right.left = new TreeNode(50);
+    assertEquals(78, new TreeExamples().sumOfLeftLeaves(root, null));
+  }
+
+  @Test
   public void closetLeafFromKey() throws Exception {
     TreeNode root = new TreeNode(1);
     root.left = new TreeNode(2);

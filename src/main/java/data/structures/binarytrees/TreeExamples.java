@@ -628,12 +628,12 @@ class TreeExamples {
    * Problem: Find the closest leaf in a Binary Tree.
    * Given a Binary Tree and a key ‘k’, find distance of the closest leaf from ‘k’.
    */
-
   int closetLeafFromKey(TreeNode root, TreeNode key) {
     ArrayList<TreeNode> ancestors = ancestors(root, key, new ArrayList<>());
     int minDistance = Integer.MAX_VALUE;
+    int distanceFromKey = ancestors.size();
     for (TreeNode ancestor : ancestors) minDistance = Math.min(minDistance, findClosestLeafRoot(ancestor, 0) +
-            findDistanceFromRoot(ancestor, key, 0));
+            distanceFromKey--);
     return Math.min(findClosestLeafRoot(key, 0), minDistance);
   }
 
@@ -665,8 +665,12 @@ class TreeExamples {
   /**
    * 98.
    * Problem: Find sum of all left leaves in a given Binary Tree.
-   * Solution:
    */
+  int sumOfLeftLeaves(TreeNode root, TreeNode parent) {
+    if (root == null) return 0;
+    else if (isLeaf(root) && parent.left == root) return root.data;
+    else return sumOfLeftLeaves(root.left, root) + sumOfLeftLeaves(root.right, root);
+  }
 
   /**
    * 99.
