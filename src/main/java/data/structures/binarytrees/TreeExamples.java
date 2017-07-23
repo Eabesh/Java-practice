@@ -137,9 +137,12 @@ class TreeExamples {
 
   /**
    * 16.
-   * Problem: Diameter of a Binary Tree.
-   * Solution:
+   * Problem: Diameter of a Binary Tree
    */
+  int diameter(TreeNode root) {
+    if (root == null) return 0;
+    else return Math.max(height(root.left) + 1 + height(root.right), Math.max(diameter(root.left), diameter(root.right)));
+  }
 
   /**
    * 17.
@@ -1719,17 +1722,7 @@ class TreeExamples {
     }
   }
 
-  /**
-   * 16.
-   * Problem: Diameter of a Binary Tree
-   */
-  int diameter(TreeNode root) {
-    if (root == null) return 0;
-    else {
-      return Math.max(height(root.left) + 1 + height(root.right),
-              Math.max(diameter(root.left), diameter(root.right)));
-    }
-  }
+
 
   /**
    * 17.
