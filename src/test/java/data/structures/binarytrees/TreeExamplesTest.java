@@ -80,7 +80,7 @@ public class TreeExamplesTest {
     root.left.right = new TreeNode(5);
     root.right.left = new TreeNode(6);
     root.right.right = new TreeNode(7);
-    System.out.println(    new TreeExamples().pathFromRoot(root, 5, ""));
+    assertEquals("1 2 5", new TreeExamples().pathFromRoot(root, 5, ""));
   }
 
   @Test
