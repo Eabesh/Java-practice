@@ -2115,6 +2115,9 @@ public class DPExamples {
    * should have a count “-1”.
    * Solution:
    */
+  int minJumps2(int[] array) {
+    return minJumps(array, 0, array.length - 1);
+  }
 
 
   /**
