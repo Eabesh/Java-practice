@@ -144,6 +144,20 @@ class TreeExamples {
     else return Math.max(height(root.left) + 1 + height(root.right), Math.max(diameter(root.left), diameter(root.right)));
   }
 
+  int diameterOpt(TreeNode root, int[] height) {
+    if (root == null) {
+      height[0] = 0;
+      return 0;
+    }
+    else {
+      int[] lHeight = new int[1], rHeight = new int[1];
+      int lDiameter = diameterOpt(root.left, lHeight);
+      int rDiameter = diameterOpt(root.right, rHeight);
+      height[0] = 1 + Math.max(lHeight[0], rHeight[0]);
+      return Math.max( 1 + lHeight[0] + rHeight[0], Math.max(lDiameter, rDiameter));
+    }
+  }
+
   /**
    * 17.
    * Problem: How to determine if a binary tree is height-balanced?.
@@ -165,8 +179,15 @@ class TreeExamples {
   /**
    * 20.
    * Problem: Root to leaf path sum equal to a given number.
-   * Solution:
+   * Given a binary tree and a number, return true if the tree has a root-to-leaf path such that adding up all the values
+   * along the path equals the given number. Return false if no such path can be found.
    */
+  boolean hasRootToLeafSumPath(TreeNode root, int sum) {
+    if (root == null) return false;
+    else if (isLeaf(root)) return sum == root.data;
+    else return hasRootToLeafSumPath(root.left, sum - root.data) ||
+              hasRootToLeafSumPath(root.right, sum - root.data);
+  }
 
   /**
    * 21.
@@ -840,9 +861,22 @@ class TreeExamples {
   /**
    * 126.
    * Problem: Maximum difference between node and its ancestor in Binary Tree.
-   * Solution:
    */
+  int maxDifferenceAncestor(TreeNode root) {
+    int[] maxDiff = {Integer.MIN_VALUE};
+    maxDiffAncestors(root, maxDiff);
+    return maxDiff[0];
+  }
 
+  int maxDiffAncestors(TreeNode root, int[] maxDiff) {
+    if (root == null) return Integer.MAX_VALUE;
+    else if (isLeaf(root)) return root.data;
+    else {
+      int minValue = Math.min(maxDiffAncestors(root.left, maxDiff), maxDiffAncestors(root.right, maxDiff));
+      maxDiff[0] = Math.max(maxDiff[0], root.data - minValue);
+      return Math.min(root.data, minValue);
+    }
+  }
   /**
    * 127.
    * Problem: BFS vs DFS for Binary Tree.
@@ -1660,7 +1694,7 @@ class TreeExamples {
   }
 
   private boolean isLeaf(TreeNode node) {
-    return node.left == null && node.right == null;
+    return node != null && node.left == null && node.right == null;
   }
 
   /**

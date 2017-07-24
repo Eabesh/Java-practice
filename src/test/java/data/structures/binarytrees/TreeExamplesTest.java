@@ -10,6 +10,24 @@ import static org.junit.Assert.assertTrue;
 
 public class TreeExamplesTest {
   @Test
+  public void maxDiffAncestors() throws Exception {
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.left.left = new TreeNode(5);
+    root.right = new TreeNode(3);
+    assertEquals(-1, new TreeExamples().maxDifferenceAncestor(root));
+  }
+
+  @Test
+  public void hasRootToLeafSumPath() throws Exception {
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.left.left = new TreeNode(5);
+    root.right = new TreeNode(3);
+    assertTrue(new TreeExamples().hasRootToLeafSumPath(root, 8));
+  }
+
+  @Test
   public void sumOfLeftLeaves() throws Exception {
     TreeNode root = new TreeNode(1);
     root.left = new TreeNode(2);
@@ -243,6 +261,13 @@ public class TreeExamplesTest {
 
   @Test
   public void diameter() throws Exception {
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.left.left = new TreeNode(5);
+    root.right = new TreeNode(3);
+    root.left.right = new TreeNode(23);
+//    assertEquals(4, new TreeExamples().diameter(root));
+    assertEquals(4, new TreeExamples().diameterOpt(root, new int[1]));
 
   }
 
