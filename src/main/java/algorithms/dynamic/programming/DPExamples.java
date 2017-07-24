@@ -2021,8 +2021,8 @@ public class DPExamples {
     else {
       int zigZagSum = Integer.MIN_VALUE;
       for (int j = 0; j < mat[0].length; j++)
-        if (col != j) zigZagSum = Math.max(zigZagSum, largestZigZag(mat, row + 1, j));
-      return mat[row][col] + zigZagSum;
+        if (col != j) zigZagSum = Math.max(zigZagSum, mat[row][col] + largestZigZag(mat, row + 1, j));
+      return zigZagSum;
     }
   }
 

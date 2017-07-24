@@ -12,6 +12,18 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void largestZigZagSum() throws Exception {
+    int[][] mat  = { {4, 2, 1},
+            {3, 9, 6},
+            {11, 3, 15}};
+    int[][] mat2  = { {3, 1, 2},
+            {4, 8, 5},
+            {6, 9, 7}};
+    assertEquals(28, new DPExamples().largestZigZagSum(mat));
+    assertEquals(18, new DPExamples().largestZigZagSum(mat2));
+  }
+
+  @Test
   public void perfectSumProblem() throws Exception {
     int[] array = {2, 3, 5, 6, 8, 10};
     new DPExamples().perfectSumProblem(array, 10, array.length, "");
