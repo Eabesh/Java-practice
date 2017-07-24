@@ -1992,8 +1992,17 @@ public class DPExamples {
   /**
    * 183.
    * Problem: Perfect Sum Problem (Print all subsets with given sum).
-   * Solution:
+   * Given an array of integers and a sum, the task is to print all subsets of given array with sum equal to given sum.
    */
+  void perfectSumProblem(int[] array, int sum, int m, String soFar) {
+    if (sum == 0) System.out.println(soFar);
+    else {
+      if (m > 0 && sum > 0) {
+        perfectSumProblem(array, sum - array[m - 1], m - 1, soFar + array[m - 1] + " ");
+        perfectSumProblem(array, sum, m - 1, soFar);
+      }
+    }
+  }
 
   /**
    * 184.

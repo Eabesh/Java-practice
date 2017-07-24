@@ -2296,7 +2296,7 @@ public class ArrayExamples {
    * 298.
    * Problem: Count number of ways to jump  to reach end.
    */
-  int countWaysToRecahEnd(int[] array) {
+  int countWaysToReachEnd(int[] array) {
     return new DPExamples().minJumps(array, 0, array.length - 1);
   }
 

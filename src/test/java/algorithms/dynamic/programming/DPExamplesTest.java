@@ -12,6 +12,12 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void perfectSumProblem() throws Exception {
+    int[] array = {2, 3, 5, 6, 8, 10};
+    new DPExamples().perfectSumProblem(array, 10, array.length, "");
+  }
+
+  @Test
   public void twoSubsetDivide() throws Exception {
     int[] array = {3, 1, 4, 2, 2, 1};
     int arraySum = 13;
