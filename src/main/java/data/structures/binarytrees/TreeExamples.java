@@ -878,7 +878,6 @@ class TreeExamples {
     }
   }
 
-
   /**
    * 127.
    * Problem: BFS vs DFS for Binary Tree.
@@ -1436,8 +1435,19 @@ class TreeExamples {
   /**
    * 213.
    * Problem: Check whether a given binary tree is perfect or not.
-   * Solution:
+   * Given a Binary Tree, write a function to check whether the given Binary Tree is a prefect Binary Tree or not.
    */
+  private int leftLeafDepth(TreeNode root, int depth) {
+    if (isLeaf(root)) return depth;
+    else return root.left != null ? leftLeafDepth(root.left, depth + 1) : leftLeafDepth(root.right, depth + 1);
+  }
+
+  boolean isPerfect(TreeNode root, int leafDepth, int level) {
+    if (root == null) return true;
+    else if (isLeaf(root)) return leafDepth == level + 1;
+    else if (root.left == null || root.right == null) return false;
+    else return isPerfect(root.left, leafDepth, level + 1) && isPerfect(root.right, leafDepth, level + 1);
+  }
 
   /**
    * 214.
@@ -2921,6 +2931,241 @@ class TreeExamples {
   }
 
 
+  /**
+   * 114.
+   * Problem: BFS vs DFS for Binary Tree
+
+   * Solution: A Tree is typically traversed in two ways:
+   * Breadth First Traversal (Or Level Order Traversal)
+   * Depth First Traversals
+   * Inorder Traversal (Left-Root-Right)
+   * Preorder Traversal (Root-Left-Right)
+   * Postorder Traversal (Left-Right-Root)
+   *
+   *
+   * Is there any difference in terms of Time Complexity?
+   * All four traversals require O(n) time as they visit every node exactly once.
+   * Is there any difference in terms of Extra Space.
+   * There is difference in terms of extra space required.
+   * Extra Space required for Level Order Traversal is O(w) where w is maximum width of Binary Tree. In level order traversal, queue one by one stores nodes of different level.
+   * Extra Space required for Depth First Traversals is O(h) where h is maximum height of Binary Tree. In Depth First Traversals, stack (or function call stack) stores all ancestors of a node.
+   * Maximum Width of a Binary Tree at depth (or height) h can be 2h where h starts from 0. So the maximum number of nodes can be at the last level. And worst case occurs when Binary Tree is a perfect Binary Tree with numbers of nodes like 1, 3, 7, 15, …etc. In worst case, value of 2h is Ceil(n/2).
+   *
+   * Height for a Balanced Binary Tree is O(Log n). Worst case occurs for skewed tree and worst case height becomes O(n).
+   *
+   * So in worst case extra space required is O(n) for both. But worst cases occur for different types of trees.
+   * How to Pick One?
+   * Extra Space can be one factor (Explained above.
+   *
+   * Depth First Traversals are typically recursive and recursive code requires function call overheads
+   *
+   * The most important points is, BFS starts visiting nodes from root while DFS starts visiting nodes from leaves.
+   * So if our problem is to search something that is more likely to closer to root, we would prefer BFS.
+   * And if the target node is close to a leaf, we would prefer DFS.
+   */
+
+  /**
+   * 115.
+   * Problem: Construct a Binary Search Tree from given postOrder
+
+   * Solution:
+   */
+
+  /**
+   * 116.
+   * Problem: Lowest Common Ancestor in a Binary Tree | Set 2 (Using Parent Pointer)
+
+   * Solution:
+   */
+
+
+  /**
+   * 117.
+   * Problem: Check sum of Covered and Uncovered nodes of Binary Tree
+
+   * Solution:
+   */
+
+
+  /**
+   * 118.
+   * Problem: Check if removing an edge can divide a Binary Tree in two halves
+
+   * Solution:
+   */
+
+
+  /**
+   * 119.
+   * Problem: Print leftmost and rightmost nodes of a Binary Tree
+
+   * Solution:
+   */
+
+
+  /**
+   * 120.
+   * Problem: Check if removing an edge can divide a Binary Tree in two halves
+   *
+   * Solution:
+   */
+
+
+  /**
+   * 121.
+   * Problem: Print leftmost and rightmost nodes of a Binary Tree
+   * Given a Binary Tree, Print the corner nodes at each level.The node at the leftmost and the node at the rightmost.
+   * Solution:
+   */
+
+
+  /**
+   * 122.
+   * Problem: Vertical Sum in Binary Tree | Set 2 (Space Optimized)
+
+   * Solution:
+   */
+
+
+  /**
+   * 123.
+   * Problem: Check if a binary tree is subtree of another binary tree | Set 1
+
+   * Solution:
+   */
+
+
+  /**
+   * 124.
+   * Problem: Construct tree from ancestor matrix
+
+   * Solution:
+   */
+
+
+  /**
+   * 125.
+   * Problem: Perfect Binary Tree Specific Level Order Traversal | Set 2
+
+   * Solution:
+   */
+
+
+  /**
+   * 126.
+   * Problem: Convert a normal BST to Balanced BST
+
+   * Solution:
+   */
+
+
+  /**
+   * 127.
+   * Problem: Convert a given Binary Tree to Doubly Linked List | Set 4
+
+   * Solution:
+   */
+
+
+  /**
+   * 128.
+   * Problem: Diagonal Traversal of Binary Tree
+
+   * Solution:
+   */
+
+
+  /**
+   * 129.
+   * Problem: Print root to leaf paths without using recursion
+
+   * Solution:
+   */
+
+
+  /**
+   * 130.
+   * Problem: Non-recursive program to delete an entire binary tree
+
+   * Solution:
+   */
+
+
+  /**
+   * 131.
+   * Problem: Density of Binary Tree in One Traversal
+
+   * Solution:
+   */
+
+
+  /**
+   * 132.
+   * Problem: Density of Binary Tree in One Traversal
+
+   * Solution:
+   */
+
+
+  /**
+   * 133.
+   * Problem: Number of ways to traverse an N-ary tree
+
+   * Solution:
+   */
+
+
+  /**
+   * 134.
+   * Problem: Sink Odd nodes in Binary Tree
+
+   * Solution:
+   */
+
+
+  /**
+   * 135.
+   * Problem: Print Binary Tree in 2-Dimensions
+
+   * Solution:
+   */
+
+  /**
+   * 136..
+   * Problem: Create a Doubly Linked List from a Ternary Tree
+
+   * Solution:
+   */
+
+  /**
+   * 137.
+   * Problem: How to determine if a binary tree is height-balanced?
+
+   * Solution:
+   */
+
+
+  /**
+   * 139.
+   * Problem: Construct a Binary Tree from Postorder and Inorder
+
+   * Solution:
+   */
+
+  /**
+   * 140.
+   * Problem: Find largest subtree having identical left and right subtrees
+
+   * Solution:
+   */
+
+
+  /**
+   * 141.
+   * Problem: Iterative function to check if two trees are identical
+
+   * Solution:
+   */
 
   /**
    * Page 2.

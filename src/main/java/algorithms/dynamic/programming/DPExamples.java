@@ -205,7 +205,7 @@ public class DPExamples {
    * element.Write a function to return the minimum number of jumps to reach the end of the array (starting from the
    * first element). If an element is 0, then cannot move through that element.
    */
-  int minJumps(int[] array, int start, int end) {
+  public int minJumps(int[] array, int start, int end) {
      if (start == end) return 0;
     else if (array[start] == 0) return Integer.MAX_VALUE;
     else {
