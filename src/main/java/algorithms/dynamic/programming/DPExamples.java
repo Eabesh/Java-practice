@@ -13,7 +13,7 @@ public class DPExamples {
    * Write an efficient C program to find the sum of contiguous sub array within a one-dimensional array of numbers
    * which has the largest sum.
    */
-  public int maxContinousSubArray(int[] array) {
+  public int maxContiguousSubArray(int[] array) {
     int maxSoFar = array[0], currMax = array[0];
     for (int i = 1; i < array.length; i++) {
       currMax = Math.max(array[i], currMax + array[i]);
@@ -1831,7 +1831,7 @@ public class DPExamples {
    * Starting from any column in row 0, return the largest sum of any of the paths up to row N-1.
    */
   int maxSumPath(int[][] mat) {
-    int maxSumPath = 0;
+    int maxSumPath = Integer.MIN_VALUE;
     for (int j = 0; j < mat[0].length; j++) maxSumPath = Math.max(maxSumPath, maxSumPathUtil(mat, mat.length - 1, j));
     return maxSumPath;
   }
