@@ -2007,8 +2007,25 @@ public class DPExamples {
   /**
    * 184.
    * Problem: Largest sum Zigzag sequence in a matrix.
-   * Solution:
+   * Given a matrix of size n x n, find sum of the Zigzag sequence with the largest sum. A zigzag sequence starts from
+   * the top and ends at the bottom. Two consecutive elements of sequence cannot belong to same column.
    */
+  int largestZigZagSum(int[][] mat) {
+    int maxSum = Integer.MIN_VALUE;
+    for (int j = 0; j < mat[0].length; j++) maxSum = Math.max(maxSum, largestZigZag(mat, 0, j));
+    return maxSum;
+  }
+
+  private int largestZigZag(int[][] mat, int row, int col) {
+    if (row == mat.length - 1) return mat[row][col];
+    else {
+      int zigZagSum = Integer.MIN_VALUE;
+      for (int j = 0; j < mat[0].length; j++)
+        if (col != j) zigZagSum = Math.max(zigZagSum, largestZigZag(mat, row + 1, j));
+      return mat[row][col] + zigZagSum;
+    }
+  }
+
 
   /**
    * 185.
