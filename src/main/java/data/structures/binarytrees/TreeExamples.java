@@ -1,6 +1,7 @@
 package data.structures.binarytrees;
 
 import utilities.TreeNode;
+import utilities.Utils;
 
 import java.util.*;
 
@@ -127,9 +128,9 @@ class TreeExamples {
   }
 
   /**
-   * 9. Lowest Common Ancestor in a Binary Tree (When both keys are present).
+   * 9.
+   * Problem: Lowest Common Ancestor in a Binary Search Tree.
    */
-
   TreeNode findLCA(TreeNode root, int k1, int k2) {
     boolean[] v1 = new boolean[1], v2 = new boolean[1];
     TreeNode lca = LCAUtil(root, k1, k2, v1, v2);
@@ -201,8 +202,7 @@ class TreeExamples {
    */
   int diameter(TreeNode root) {
     if (root == null) return 0;
-    else
-      return Math.max(height(root.left) + 1 + height(root.right), Math.max(diameter(root.left), diameter(root.right)));
+    else return Utils.max(height(root.left) + 1 + height(root.right), diameter(root.left), diameter(root.right));
   }
 
   int diameterOpt(TreeNode root, int[] height) {
