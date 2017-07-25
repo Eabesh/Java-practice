@@ -115,8 +115,16 @@ class TreeExamples {
   /**
    * 8.
    * Problem: Given a binary tree, print out all of its root-to-leaf paths one per line..
-   * Solution:
    */
+  void rootToLeafPath(TreeNode root, String path) {
+    if (root != null) {
+      if (isLeaf(root)) System.out.println(path + root.data);
+      else {
+        rootToLeafPath(root.left, path + root.data + "->");
+        rootToLeafPath(root.right, path + root.data + "->");
+      }
+    }
+  }
 
   /**
    * 9. Lowest Common Ancestor in a Binary Tree (When both keys are present).
@@ -1624,19 +1632,6 @@ class TreeExamples {
    * the tree can be constructed, otherwise not.
    */
 
-  /**
-   * 8.
-   * Problem: Print out all of its root-to-leaf paths one per line.
-   */
-  void rootToLeafPath(TreeNode root, String path) {
-    if (root != null) {
-      if (isLeaf(root)) System.out.println(path + root.data);
-      else {
-        rootToLeafPath(root.left, path + root.data + "->");
-        rootToLeafPath(root.right, path + root.data + "->");
-      }
-    }
-  }
 
 
   /**
