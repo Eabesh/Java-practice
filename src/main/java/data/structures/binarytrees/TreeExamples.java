@@ -91,8 +91,17 @@ class TreeExamples {
   /**
    * 6.
    * Problem: Write an Efficient  Function to Convert a Binary Tree into its Mirror Tree.
-   * Solution:
    */
+  void mirror(TreeNode root) {
+    if (root != null) {
+      TreeNode temp = root.left;
+      root.left = root.right;
+      root.right = temp;
+      mirror(root.left);
+      mirror(root.right);
+    }
+  }
+
 
   /**
    * 7.
@@ -1606,21 +1615,7 @@ class TreeExamples {
     }
   }
 
-  /**
-   * 6.
-   * Problem: Convert a Binary Tree into its Mirror Tree
-   */
-  void mirror(TreeNode root) {
-    if (root != null) {
-      TreeNode temp = root.left;
-      root.left = root.right;
-      root.right = temp;
-      mirror(root.left);
-      mirror(root.right);
-    }
-  }
-
-  /**
+ /**
    * 7.
    * Problem: If you are given two traversal sequences, can you construct the binary tree?
    * Solution: It depends on what traversals are given. If one of the traversal methods is Inorder then
