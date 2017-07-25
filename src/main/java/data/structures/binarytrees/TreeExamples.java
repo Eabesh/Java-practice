@@ -94,14 +94,17 @@ class TreeExamples {
    */
   void mirror(TreeNode root) {
     if (root != null) {
-      TreeNode temp = root.left;
-      root.left = root.right;
-      root.right = temp;
       mirror(root.left);
       mirror(root.right);
+      swapChildren(root);
     }
   }
 
+  private void swapChildren(TreeNode node) {
+    TreeNode temp = node.left;
+    node.left = node.right;
+    node.right = temp;
+  }
 
   /**
    * 7.
