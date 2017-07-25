@@ -117,7 +117,7 @@ class TreeExamples {
     else return null;
   }
 
-  TreeNode LCAUtil(TreeNode root, int k1, int k2, boolean[] v1, boolean[] v2) {
+  private TreeNode LCAUtil(TreeNode root, int k1, int k2, boolean[] v1, boolean[] v2) {
     if (root == null) return root;
     if (root.data == k1) {
       v1[0] = true;
@@ -131,7 +131,6 @@ class TreeExamples {
     TreeNode rightLCA = LCAUtil(root.right, k1, k2, v1, v2);
     if (leftLCA != null && rightLCA != null) return root;
     else return leftLCA != null ? leftLCA : rightLCA;
-
   }
 
   private boolean treeContains(TreeNode root, int key) {
