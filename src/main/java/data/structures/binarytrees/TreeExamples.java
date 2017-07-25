@@ -396,8 +396,44 @@ class TreeExamples {
   /**
    * 42.
    * Problem: Boundary Traversal of binary tree.
-   * Solution:
    */
+   void printBoundary(TreeNode root) {
+    if (root == null) return;
+    else {
+      System.out.print(root.data + " ");
+      printLeftBoundary(root.left);
+      printLeaves(root);
+      printRightBoundary(root.right);
+    }
+  }
+
+  private void printLeaves(TreeNode root) {
+    if (root == null) return;
+    else if (isLeaf(root)) System.out.print(root.data + " ");
+    else {
+      printLeaves(root.left);
+      printLeaves(root.right);
+    }
+  }
+
+  private void printLeftBoundary(TreeNode root) {
+    if (root != null) {
+      if (!isLeaf(root)) {
+        System.out.print(root.data + " ");
+        printLeftBoundary(root.left);
+      } else printLeftBoundary(root.right);
+    }
+  }
+
+  private void printRightBoundary(TreeNode root) {
+    if (root != null) {
+      if (!isLeaf(root)) {
+        printRightBoundary(root.right);
+        System.out.print(root.data + " ");
+      } else printRightBoundary(root.left);
+    }
+  }
+
 
   /**
    * 43.
@@ -2092,49 +2128,6 @@ class TreeExamples {
    */
 
 
-  /**
-   * Page 10.
-   * 41.
-   * Problem: Boundary Traversal of binary tree
-   * <p>
-   * Solution:
-   */
-  public void printLeaves(TreeNode root) {
-    if (root == null) return;
-    else if (isLeaf(root)) System.out.print(root.data + " ");
-    else {
-      printLeaves(root.left);
-      printLeaves(root.right);
-    }
-  }
-
-  public void printLeftBoundry(TreeNode root) {
-    if (root != null) {
-      if (!isLeaf(root)) {
-        System.out.print(root.data + " ");
-        printLeftBoundry(root.left);
-      } else printLeftBoundry(root.right);
-    }
-  }
-
-  public void printRightBounday(TreeNode root) {
-    if (root != null) {
-      if (!isLeaf(root)) {
-        printRightBounday(root.right);
-        System.out.print(root.data + " ");
-      } else printRightBounday(root.left);
-    }
-  }
-
-  public void printBoundary(TreeNode root) {
-    if (root == null) return;
-    else {
-      System.out.print(root.data + " ");
-      printLeftBoundry(root.left);
-      printLeaves(root);
-      printRightBounday(root.right);
-    }
-  }
 
   /**
    * 42.
