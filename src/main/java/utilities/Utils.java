@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class Utils {
 
-  public static int max(int... args) {
-    return Arrays.stream(args).max().orElse(args[0]);
+  public static int max(int arg, int... args) {
+    return Arrays.stream(args).max().orElse(arg);
   }
 
 }
