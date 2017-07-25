@@ -2,17 +2,58 @@ package data.structures.binarytrees;
 
 import utilities.TreeNode;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 class TreeExamples {
 
-
   /**
    * 1.
-   * Problem: Tree Traversals (Inorder, Preorder and Postorder).
-   * Solution:
+   * Problem: Tree Traversals (Inorder, Pr-eorder and Post-order).
+   * Unlike linear data structures (Array, Linked List, Queues, Stacks, etc) which have only one logical way to
+   * traverse them, trees can be traversed in different ways.
+   * Depth First Traversals: In-order, Pre-order and Post-order
+   * Breadth First or Level Order Traversal
    */
+
+  /**
+   * Uses of in-order
+   * In case of BST, in-order traversal gives nodes in non-decreasing order.To get nodes of BST in non-increasing order,
+   * a variation of in-order traversal where in-order is traversal's
+   * reversed, can be used.
+   */
+  void inOrder(TreeNode root) {
+    if (root != null) {
+      inOrder(root.left);
+      System.out.print(root.data + " ");
+      inOrder(root.right);
+    }
+  }
+
+  /**
+   * Uses of Pre-order
+   * To create a copy of the tree.
+   * To get prefix expression on of an expression tree.
+   */
+  void preOrder(TreeNode root) {
+    if (root != null) {
+      System.out.print(root.data + " ");
+      preOrder(root.left);
+      preOrder(root.right);
+    }
+  }
+
+  /**
+   * Uses of Post-order
+   * To delete the tree.
+   * To get the postfix expression of an expression tree.
+   */
+  void postOrder(TreeNode root) {
+    if (root != null) {
+      postOrder(root.left);
+      postOrder(root.right);
+      System.out.print(root.data + " ");
+    }
+  }
 
   /**
    * 2.
@@ -1549,58 +1590,6 @@ class TreeExamples {
    */
 
 
-  /**
-   * 1.
-   * Problem: Tree traversals.
-   * Unlike linear data structures (Array, Linked List, Queues, Stacks, etc) which have only one logical way to
-   * traverse them, trees can be traversed in different ways.
-   * Following are the generally used ways for traversing trees.
-   * Depth First Traversals:
-   * (a) In-order (Left, Root, Right) : 4 2 5 1 3
-   * (b) Preorder (Root, Left, Right) : 1 2 4 5 3
-   * (c) Postorder (Left, Right, Root) : 4 5 2 3 1
-   * Breadth First or Level Order Traversal : 1 2 3 4 5
-   */
-
-  /**
-   * Uses of in-order
-   * In case of binary search trees (BST), in-order traversal gives nodes in non-decreasing order.
-   * To get nodes of BST in non-increasing order, a variation of in-order traversal where in-order is traversal's
-   * reversed, can be used.
-   */
-  void inOrder(TreeNode root) {
-    if (root != null) {
-      inOrder(root.left);
-      System.out.print(root.data + " ");
-      inOrder(root.right);
-    }
-  }
-
-  /**
-   * Uses of Preorder
-   * Preorder traversal is used to create a copy of the tree.
-   * Preorder traversal is also used to get prefix expression on of an expression tree.
-   */
-  void preOrder(TreeNode root) {
-    if (root != null) {
-      System.out.print(root.data + " ");
-      preOrder(root.left);
-      preOrder(root.right);
-    }
-  }
-
-  /**
-   * Uses of Postorder
-   * Postorder traversal is used to delete the tree. Please see the question for deletion of tree for details.
-   * Postorder traversal is also useful to get the postfix expression of an expression tree
-   */
-  void postOrder(TreeNode root) {
-    if (root != null) {
-      postOrder(root.left);
-      postOrder(root.right);
-      System.out.print(root.data + " ");
-    }
-  }
 
 
   /**
