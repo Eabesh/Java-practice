@@ -193,20 +193,20 @@ class TreeExamples {
    */
   int diameter(TreeNode root) {
     if (root == null) return 0;
-    else return Math.max(height(root.left) + 1 + height(root.right), Math.max(diameter(root.left), diameter(root.right)));
+    else
+      return Math.max(height(root.left) + 1 + height(root.right), Math.max(diameter(root.left), diameter(root.right)));
   }
 
   int diameterOpt(TreeNode root, int[] height) {
     if (root == null) {
       height[0] = 0;
       return 0;
-    }
-    else {
+    } else {
       int[] lHeight = new int[1], rHeight = new int[1];
       int lDiameter = diameterOpt(root.left, lHeight);
       int rDiameter = diameterOpt(root.right, rHeight);
       height[0] = 1 + Math.max(lHeight[0], rHeight[0]);
-      return Math.max( 1 + lHeight[0] + rHeight[0], Math.max(lDiameter, rDiameter));
+      return Math.max(1 + lHeight[0] + rHeight[0], Math.max(lDiameter, rDiameter));
     }
   }
 
@@ -708,8 +708,9 @@ class TreeExamples {
     ArrayList<TreeNode> ancestors = ancestors(root, key, new ArrayList<>());
     int minDistance = Integer.MAX_VALUE;
     int distanceFromKey = ancestors.size();
-    for (TreeNode ancestor : ancestors) minDistance = Math.min(minDistance, findClosestLeafRoot(ancestor, 0) +
-            distanceFromKey--);
+    for (TreeNode ancestor : ancestors)
+      minDistance = Math.min(minDistance, findClosestLeafRoot(ancestor, 0) +
+              distanceFromKey--);
     return Math.min(findClosestLeafRoot(key, 0), minDistance);
   }
 
@@ -717,7 +718,7 @@ class TreeExamples {
     if (root == null) return Integer.MAX_VALUE;
     else if (isLeaf(root)) return distance;
     else return Math.min(findClosestLeafRoot(root.left, distance + 1),
-            findClosestLeafRoot(root.right, distance + 1));
+              findClosestLeafRoot(root.right, distance + 1));
   }
 
   ArrayList ancestors(TreeNode root, TreeNode key, ArrayList<TreeNode> soFar) {
@@ -726,7 +727,7 @@ class TreeExamples {
     else {
       soFar.add(root);
       ArrayList left = ancestors(root.left, key, soFar);
-      ArrayList right =  ancestors(root.right, key, soFar);
+      ArrayList right = ancestors(root.right, key, soFar);
       soFar.remove(soFar.size() - 1);
       return left.isEmpty() ? right : left;
     }
@@ -1601,8 +1602,6 @@ class TreeExamples {
    */
 
 
-
-
   /**
    * 5.
    * Problem: Delete a tree.
@@ -1618,7 +1617,7 @@ class TreeExamples {
     }
   }
 
- /**
+  /**
    * 7.
    * Problem: If you are given two traversal sequences, can you construct the binary tree?
    * Solution: It depends on what traversals are given. If one of the traversal methods is Inorder then
@@ -1753,7 +1752,6 @@ class TreeExamples {
       return root;
     }
   }
-
 
 
   /**
