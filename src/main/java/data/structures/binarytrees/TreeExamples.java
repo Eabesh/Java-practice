@@ -130,7 +130,17 @@ class TreeExamples {
   /**
    * 9.
    * Problem: Lowest Common Ancestor in a Binary Search Tree.
+   * Given values of two values n1 and n2 in a Binary Search Tree, find the Lowest Common Ancestor (LCA). You may assume
+   * that both the values exist in the tree.
    */
+  TreeNode bstLCA(TreeNode root, int k1, int k2) {
+    if (root == null) return null;
+    else if (root.data > k1 && root.data > k2) return bstLCA(root.left, k1, k2);
+    else if (root.data < k1 && root.data < k2) return bstLCA(root.right, k1, k2);
+    else return root;
+  }
+
+
   TreeNode findLCA(TreeNode root, int k1, int k2) {
     boolean[] v1 = new boolean[1], v2 = new boolean[1];
     TreeNode lca = LCAUtil(root, k1, k2, v1, v2);
