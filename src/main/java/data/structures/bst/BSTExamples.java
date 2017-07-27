@@ -9,6 +9,10 @@ public class BSTExamples {
    * Problem: Find the node with minimum value in a Binary Search Tree.
    * Solution:
    */
+  TreeNode minValueNode(TreeNode root) {
+    if (root == null || root.left == null) return root;
+    else return minValueNode(root.left);
+  }
 
   /**
    * 2.

@@ -418,19 +418,25 @@ class TreeExamples {
 
   private void printLeftBoundary(TreeNode root) {
     if (root != null) {
-      if (!isLeaf(root)) {
+      if (root.left != null) {
         System.out.print(root.data + " ");
         printLeftBoundary(root.left);
-      } else printLeftBoundary(root.right);
+      } else if (root.right != null) {
+        printLeftBoundary(root.right);
+        System.out.print(root.data + " ");
+      }
     }
   }
 
   private void printRightBoundary(TreeNode root) {
     if (root != null) {
-      if (!isLeaf(root)) {
+      if (root.right != null) {
         printRightBoundary(root.right);
         System.out.print(root.data + " ");
-      } else printRightBoundary(root.left);
+      } else if (root.left != null) {
+        printRightBoundary(root.left);
+        System.out.print(root.data + " ");
+      }
     }
   }
 

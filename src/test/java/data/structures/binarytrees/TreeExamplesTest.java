@@ -12,6 +12,10 @@ import static org.junit.Assert.assertTrue;
 
 public class TreeExamplesTest {
   @Test
+  public void printBoundary() throws Exception {
+  }
+
+  @Test
   public void maxDiffAncestors() throws Exception {
     TreeNode root = new TreeNode(1);
     root.left = new TreeNode(2);
