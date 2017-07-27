@@ -292,14 +292,15 @@ public class BSTExamples {
    * given target value K.
    */
    int closetElement(TreeNode root, int key, int minDiff, int result) {
-    if (root == null ) return result;
-    else if (root.data == key) return key;
-    else if (root.data < key && isValid(minDiff, root.data - key))
-      return closetElement(root.left, key, Math.abs(root.data - key), root.data);
-    else if (root.data < key) return closetElement(root.left, key, minDiff, result);
-    else if (root.data > key && isValid(minDiff, root.data - key))
-      return closetElement(root.right, key, Math.abs(root.data - key), root.data);
-    else return closetElement(root.right, key, minDiff, result);
+     if (root == null) return result;
+     else if (root.data == key) return key;
+     else if (root.data < key) {
+       if (isValid(minDiff, root.data - key)) return closetElement(root.left, key, Math.abs(root.data - key), root.data);
+       else return closetElement(root.left, key, minDiff, result);
+     } else {
+       if (isValid(minDiff, root.data - key)) return closetElement(root.right, key, Math.abs(root.data - key), root.data);
+       else return closetElement(root.right, key, minDiff, result);
+     }
   }
 
   private boolean isValid(int x, int y) {
