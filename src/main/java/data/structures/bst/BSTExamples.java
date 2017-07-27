@@ -1,6 +1,7 @@
 package data.structures.bst;
 
 import utilities.TreeNode;
+import utilities.Utils;
 
 public class BSTExamples {
 
@@ -287,8 +288,23 @@ public class BSTExamples {
   /**
    * 47.
    * Problem: Find the closest element in Binary Search Tree.
-   * Solution:
+   * Given a binary search tree and a target node K. The task is to find the node with minimum absolute difference with
+   * given target value K.
    */
+   int closetElement(TreeNode root, int key, int minDiff, int result) {
+    if (root == null ) return result;
+    else if (root.data == key) return key;
+    else if (root.data < key && isValid(minDiff, root.data - key))
+      return closetElement(root.left, key, Math.abs(root.data - key), root.data);
+    else if (root.data < key) return closetElement(root.left, key, minDiff, result);
+    else if (root.data > key && isValid(minDiff, root.data - key))
+      return closetElement(root.right, key, Math.abs(root.data - key), root.data);
+    else return closetElement(root.right, key, minDiff, result);
+  }
+
+  private boolean isValid(int x, int y) {
+     return (x < Math.abs(y)) ? true : false;
+  }
 
   /**
    * 48.
@@ -528,14 +544,5 @@ public class BSTExamples {
    We can use self-balancing binary search trees like AVL, Red-Black, .. to do both operations in O(Log n) time.
    */
 
-  /**
-   * 7. Lowest Common Ancestor.
-   */
-  public TreeNode LCA(TreeNode root, int k1, int k2) {
-    if (root == null) return root;
-    else if (root.data > k1 && root.data > k2) return LCA(root.left,k1,k2);
-    else if (root.data < k1 && root.data < k2) return LCA(root.right,k1,k2);
-    else return root;
-  }
 
 }
