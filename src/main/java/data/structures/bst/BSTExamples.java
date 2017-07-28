@@ -244,7 +244,7 @@ public class BSTExamples {
 
   /**
    * 38.
-   * Problem: K&#8217;th smallest element in BST using O(1) Extra Space.
+   * Problem: K'th smallest element in BST using O(1) Extra Space.
    * Solution:
    */
 
@@ -263,8 +263,10 @@ public class BSTExamples {
   /**
    * 41.
    * Problem: Print Common Nodes in Two Binary Search Trees.
+   * Given two Binary Search Trees, find common nodes in them. In other words, find intersection of two BSTs.
    * Solution:
    */
+
 
   /**
    * 42.
