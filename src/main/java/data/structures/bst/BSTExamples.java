@@ -1,5 +1,6 @@
 package data.structures.bst;
 
+import data.structures.binarytrees.TreeExamples;
 import utilities.TreeNode;
 import utilities.Utils;
 
@@ -207,9 +208,11 @@ public class BSTExamples {
    */
   int kthLargestElement(TreeNode root, int[] k) {
     if (root == null) return Integer.MIN_VALUE;
-    int right = kthLargestElement(root.right, k);
-    if (k[0]-- == 1) return root.data;
-    return (right != Integer.MIN_VALUE) ? right : kthLargestElement(root.left, k);
+    else {
+      int right = kthLargestElement(root.right, k);
+      if (k[0]-- == 1) return root.data;
+      return (right != Integer.MIN_VALUE) ? right : kthLargestElement(root.left, k);
+    }
   }
 
   /**
@@ -336,14 +339,36 @@ public class BSTExamples {
   /**
    * 49.
    * Problem: Sum of k smallest elements in BST.
-   * Solution:
+   * Given Binary Search Tree. The task is to find sum of all elements smaller than and equal to Kth smallest element.
    */
+  int kSmallestSum(TreeNode root, int[] sum, int[] k) {
+    if (root == null) return 0;
+    else {
+      int right = kSmallestSum(root.right, sum, k);
+      if (k[0]-- == 1) return sum[0] + root.data;
+      sum[0] += root.data;
+      return (right != 0) ? right : kSmallestSum(root.left, sum, k);
+    }
+
+  }
 
   /**
    * 50.
    * Problem: Maximum element between two nodes of BST.
-   * Solution:
+   * Given an array of N elements and two integers A, B which belongs to the given array. Create a Binary Search Tree by
+   * inserting element from arr[0] to arr[n-1]. The task is to find the maximum element in the path from A to B.
    */
+  int maxValueNode(TreeNode root, int key1, int key2) {
+    TreeNode lca = new TreeExamples().bstLCA(root, key1, key2);
+    return Math.max(maxInPath(lca, key1, Integer.MIN_VALUE), maxInPath(lca, key2, Integer.MIN_VALUE));
+  }
+
+  private int maxInPath(TreeNode root, int key, int max) {
+    if (root.data == key) return Math.max(max, key);
+    else if (root.data > key) return maxInPath(root.left, key, Math.max(root.data, max));
+    else return maxInPath(root.right, key, Math.max(root.data, max));
+  }
+
 
   /**
    * 51.

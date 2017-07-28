@@ -10,6 +10,18 @@ import static org.junit.Assert.*;
  */
 public class BSTExamplesTest {
   @Test
+  public void maxValueNode() throws Exception {
+    assertEquals(3, new BSTExamples().maxValueNode(createBST(), 1, 3));
+  }
+
+  @Test
+  public void kSmallestSum() throws Exception {
+    int[] k = {2};
+    int[] sum = {0};
+    assertEquals(9, new BSTExamples().kSmallestSum(createBST(), sum, k));
+  }
+
+  @Test
   public void kthLargestElement() throws Exception {
     int[] k = {2};
     assertEquals(4, new BSTExamples().kthLargestElement(createBST(), k));
