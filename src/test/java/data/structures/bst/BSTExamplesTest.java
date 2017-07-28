@@ -10,6 +10,14 @@ import static org.junit.Assert.*;
  */
 public class BSTExamplesTest {
   @Test
+  public void kthLargestElement() throws Exception {
+    int[] k = {2};
+    assertEquals(4, new BSTExamples().kthLargestElement(createBST(), k));
+    int[] k2 = {3};
+    assertEquals(3, new BSTExamples().kthLargestElement(createBST(), k2));
+  }
+
+  @Test
   public void isBST() throws Exception {
     TreeNode[] childNode = {null};
     assertTrue(new BSTExamples().isBST(createBST(), childNode));
