@@ -18,8 +18,16 @@ public class BSTExamples {
   /**
    * 2.
    * Problem: A program to check if a binary tree is BST or not.
-   * Solution:
    */
+  boolean isBST(TreeNode root, TreeNode[] childNode) {
+    if (root == null) return true;
+    else if (!isBST(root.left, childNode)) return false;
+    else if (childNode[0] != null && childNode[0].data > root.data) return false;
+    else {
+      childNode[0] = root;
+      return isBST(root.right, childNode);
+    }
+  }
 
   /**
    * 3.
@@ -408,25 +416,6 @@ public class BSTExamples {
 
 
 
-  /**
-   * 55.
-   * Problem: A program to check if a binary tree is BST or not
-   * Solution:
-   */
-  TreeNode prev;
-  boolean isBST(TreeNode root) {
-    prev = null;
-    return isBST(root);
-  }
-  boolean isBSTUtil(TreeNode root) {
-    if (root == null) return true;
-    else {
-      if (!isBSTUtil(root.left)) return false;
-      if (prev != null && root.data <= prev.data) return false;
-      prev = root;
-      return isBSTUtil(root.right);
-    }
-  }
 
   /**
    * 56.
@@ -467,59 +456,8 @@ public class BSTExamples {
     return root;
   }
 
-  /**
-   * 5. Minimum value node in a Binary Search Tree
-   */
-  TreeNode min(TreeNode root) {
-    if (root == null) return null;
-    else {
-      while (root.left != null) root = root.left;
-      return root;
-    }
-  }
-
-  /**
-   * Max node.
-   */
-  TreeNode max(TreeNode root) {
-    if (root == null) return null;
-    else {
-      while (root.right != null) root = root.right;
-      return root;
-    }
-  }
-
-  /**
-   * 6. Inorder predecessor and successor for a given key in BST
-   */
-  TreeNode inOrderSuccessor(TreeNode node) {
-    if (node == null) return null;
-    else if (node.right != null) return min(node.right);
-    else {
-      TreeNode y = node.parent;
-      TreeNode x = node;
-      while (y != null && x == y.right) {
-        x = y;
-        y = y.parent;
-      }
-      return y;
-    }
-  }
 
 
-  TreeNode inOrderPredecessor(TreeNode node) {
-    if (node == null) return null;
-    else if (node.left != null) return max(node.left);
-    else {
-      TreeNode y = node.parent;
-      TreeNode x = node;
-      while (y != null && x == y.left) {
-        x = y;
-        y = y.parent;
-      }
-      return y;
-    }
-  }
 
   /**
    * 3. Data Structure for a single resource reservations.

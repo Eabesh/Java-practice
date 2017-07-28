@@ -10,6 +10,12 @@ import static org.junit.Assert.*;
  */
 public class BSTExamplesTest {
   @Test
+  public void isBST() throws Exception {
+    TreeNode[] childNode = {null};
+    assertTrue(new BSTExamples().isBST(createBST(), childNode));
+  }
+
+  @Test
   public void closetElement() throws Exception {
     assertEquals(8, new BSTExamples().closetElement(createBST(), 8, Integer.MAX_VALUE, Integer.MAX_VALUE));
     assertEquals(17, new BSTExamples().closetElement(createBST(), 18, Integer.MAX_VALUE, Integer.MAX_VALUE));
@@ -23,15 +29,15 @@ public class BSTExamplesTest {
   }
 
   private TreeNode createBST() {
-    TreeNode root = new TreeNode(9);
-    root.left = new TreeNode(8);
-    root.right = new TreeNode(17);
-    root.left.left = new TreeNode(4);
-    root.left.right = new TreeNode(12);
-    root.left.right.left = new TreeNode(10);
-    root.left.right.right = new TreeNode(14);
-    root.right.right = new TreeNode(22);
-    root.right.right.left = new TreeNode(20);
+    TreeNode root = new TreeNode(4);
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(5);
+    root.left.left = new TreeNode(1);
+    root.left.right = new TreeNode(3);
+//    root.left.right.left = new TreeNode(10);
+//    root.left.right.right = new TreeNode(14);
+//    root.right.right = new TreeNode(22);
+//    root.right.right.left = new TreeNode(20);
 
     return root;
   }
