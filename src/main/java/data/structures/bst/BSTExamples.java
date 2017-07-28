@@ -32,14 +32,17 @@ public class BSTExamples {
   /**
    * 3.
    * Problem: Total number of possible Binary Search Trees with n keys.
-   * Solution:
+   * Solution:Total number of possible Binary Search Trees with n different keys = Catalan number Cn = (2n)!/(n+1)!*n!
    */
+
 
   /**
    * 4.
    * Problem: Sorted order printing of a given array that represents a BST.
-   * Solution:
+   * Given an array that stores a complete Binary Search Tree, write a function that efficiently prints the given array
+   * in ascending order.
    */
+
 
   /**
    * 5.
