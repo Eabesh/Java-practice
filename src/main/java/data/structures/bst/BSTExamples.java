@@ -202,9 +202,15 @@ public class BSTExamples {
 
   /**
    * 31.
-   * Problem: K&#8217;th Largest Element in BST when modification to BST is not allowed.
+   * Problem: K'th Largest Element in BST when modification to BST is not allowed.
    * Solution:
    */
+  int kthLargestElement(TreeNode root, int k) {
+    if (root == null) return Integer.MIN_VALUE;
+    if (k == 0) return root.data;
+    int right = kthLargestElement(root.right, k - 1);
+    return (right != Integer.MIN_VALUE) ? right : kthLargestElement(root.left, k - 1);
+  }
 
   /**
    * 32.
@@ -227,8 +233,9 @@ public class BSTExamples {
   /**
    * 35.
    * Problem: Second largest element in BST.
-   * Solution:
+   * Given a Binary Search Tree(BST), find the second largest element.
    */
+
 
   /**
    * 36.
