@@ -299,8 +299,18 @@ public class BSTExamples {
   /**
    * 45.
    * Problem: Check if given sorted sub-sequence exists in binary search tree.
-   * Solution:
+   * Given a binary search tree and a sorted sub-sequence. the task is to check if the given sorted sub-sequence exist
+   * in binary search tree or not.
    */
+  boolean isContainedSeq(TreeNode root, int[] seq, int[] index) {
+    if (index[0] == seq.length) return true;
+    else if (root == null) return false;
+    else {
+      if (isContainedSeq(root.left, seq, index)) return true;
+      if (seq[index[0]] == root.data)  index[0]++;
+      return isContainedSeq(root.right, seq, index);
+    }
+  }
 
   /**
    * 46.
@@ -435,30 +445,7 @@ public class BSTExamples {
 
 
 
-  /**
-   * 31.
-   * Problem: Kth Largest Element in BST when modification to BST is not allowed.
-   * Solution:
-   */
-  int kthLargestNode(TreeNode root, int k, int count) {
-    if (root == null || count >= k) return -1;
-    else {
-      int left = kthLargestNode(root.right, k, count + 1);
-      count++;
-      if (k == count) return root.data;
-      int right = kthLargestNode(root.left, k, count);
-      return left != -1 ? left : right;
-    }
-  }
 
-
-
-
-  /**
-   * 56.
-   * Problem: Find the node with minimum value in a Binary Search Tree
-   * Solution:
-   */
 
   /**
    * 1. Search

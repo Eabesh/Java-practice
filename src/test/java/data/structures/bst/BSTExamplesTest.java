@@ -10,6 +10,13 @@ import static org.junit.Assert.*;
  */
 public class BSTExamplesTest {
   @Test
+  public void isContainedSeq() throws Exception {
+    int[] seq = {1, 2, 3}, index = {0};
+
+    assertTrue(new BSTExamples().isContainedSeq(createBST(), seq, index));
+  }
+
+  @Test
   public void maxValueNode() throws Exception {
     assertEquals(3, new BSTExamples().maxValueNode(createBST(), 1, 3));
   }
