@@ -4,6 +4,9 @@ import data.structures.binarytrees.TreeExamples;
 import utilities.TreeNode;
 import utilities.Utils;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class BSTExamples {
 
   /**
@@ -419,8 +422,36 @@ public class BSTExamples {
   /**
    * 57.
    * Problem: Convert BST to Min Heap.
-   * Solution:
+   * Given a binary search tree which is also a complete binary tree. The problem is to convert the given BST into a Min
+   * Heap with the condition that all the values in the left subtree of a node should be less than all the values in the
+   * right subtree of the node. This condition is applied on all the nodes in the so converted Min Heap.
    */
+  TreeNode bstToMinHeap(TreeNode root) {
+    ArrayList arrayList = bstToArray(root);
+    convertBstToMinHeap(root, arrayList);
+    return root;
+  }
+
+  private void convertBstToMinHeap(TreeNode root, ArrayList<Integer> arrayList) {
+    if (root == null) {
+      root.data = arrayList.remove(0);
+      convertBstToMinHeap(root.left, arrayList);
+      convertBstToMinHeap(root.right, arrayList);
+    }
+  }
+
+  private ArrayList bstToArray(TreeNode root) {
+    ArrayList<Integer> arrayList = new ArrayList<>();
+    convertBstToArray(root, arrayList);
+    return arrayList;
+  }
+  private void convertBstToArray(TreeNode root, ArrayList<Integer> arrayList) {
+    if (root != null) {
+      convertBstToArray(root.left, arrayList);
+      arrayList.add(root.data);
+      convertBstToArray(root.right, arrayList);
+    }
+  }
 
   /**
    * 58.

@@ -10,6 +10,13 @@ import static org.junit.Assert.*;
  */
 public class BSTExamplesTest {
   @Test
+  public void bstToMinHeap() throws Exception {
+//    assertEquals(2, new BSTExamples().bstToMinHeap(createBST()).data);
+    assertEquals(4, new BSTExamples().bstToMinHeap(createBST()).left.data);
+
+  }
+
+  @Test
   public void isContainedSeq() throws Exception {
     int[] seq = {1, 2, 3}, index = {0};
 
@@ -59,8 +66,8 @@ public class BSTExamplesTest {
     TreeNode root = new TreeNode(4);
     root.left = new TreeNode(2);
     root.right = new TreeNode(5);
-    root.left.left = new TreeNode(1);
-    root.left.right = new TreeNode(3);
+//    root.left.left = new TreeNode(1);
+//    root.left.right = new TreeNode(3);
 //    root.left.right.left = new TreeNode(10);
 //    root.left.right.right = new TreeNode(14);
 //    root.right.right = new TreeNode(22);
