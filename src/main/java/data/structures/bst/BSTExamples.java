@@ -57,14 +57,30 @@ public class BSTExamples {
   /**
    * 6.
    * Problem: Find k-th smallest element in BST (Order Statistics in BST).
-   * Solution:
    */
+  int kthSmallest(TreeNode root, int[] k) {
+    if (root == null) return Integer.MAX_VALUE;
+    else {
+      int left = kthSmallest(root.left, k);
+      if (k[0]-- == 1) return root.data;
+      return (left != Integer.MAX_VALUE) ? left : kthSmallest(root.right, k);
+    }
+  }
 
   /**
    * 7.
    * Problem: Print BST keys in the given range.
-   * Solution:
+   * Given two values k1 and k2 (where k1 < k2) and a root pointer to a Binary Search Tree. Print all the keys of tree
+   * in range k1 to k2. i.e. print all x such that k1<=x<=k2 and x is a key of given BST. Print all the keys in
+   * increasing order.
    */
+  void printKeysWithinRange(TreeNode root, int k1, int k2) {
+    if (root != null) {
+      if (root.data > k1) printKeysWithinRange(root.left, k1, k2);
+      if (k1 <= root.data && root.data <= k2) System.out.print(root.data + " ");
+      if (root.data < k2) printKeysWithinRange(root.right, k1, k2);
+    }
+  }
 
   /**
    * 8.
@@ -433,11 +449,12 @@ public class BSTExamples {
   }
 
   private void convertBstToMinHeap(TreeNode root, ArrayList<Integer> arrayList) {
-    if (root == null) {
+    if (root != null) {
       root.data = arrayList.remove(0);
       convertBstToMinHeap(root.left, arrayList);
       convertBstToMinHeap(root.right, arrayList);
     }
+
   }
 
   private ArrayList bstToArray(TreeNode root) {
@@ -445,6 +462,7 @@ public class BSTExamples {
     convertBstToArray(root, arrayList);
     return arrayList;
   }
+
   private void convertBstToArray(TreeNode root, ArrayList<Integer> arrayList) {
     if (root != null) {
       convertBstToArray(root.left, arrayList);

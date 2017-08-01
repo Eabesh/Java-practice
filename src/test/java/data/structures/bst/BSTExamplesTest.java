@@ -1,8 +1,6 @@
 package data.structures.bst;
-
 import org.junit.Test;
 import utilities.TreeNode;
-
 import static org.junit.Assert.*;
 
 /**
@@ -10,8 +8,14 @@ import static org.junit.Assert.*;
  */
 public class BSTExamplesTest {
   @Test
+  public void kthSmallest() throws Exception {
+    int[] k = {2};
+    assertEquals(4, new BSTExamples().kthSmallest(createBST(), k));
+  }
+
+  @Test
   public void bstToMinHeap() throws Exception {
-//    assertEquals(2, new BSTExamples().bstToMinHeap(createBST()).data);
+    assertEquals(2, new BSTExamples().bstToMinHeap(createBST()).data);
     assertEquals(4, new BSTExamples().bstToMinHeap(createBST()).left.data);
 
   }
