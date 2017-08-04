@@ -186,8 +186,8 @@ public class RecursionExamples {
 
   /**
    * 2.
-   * Problem: Reverse a stack using recursion. Or reverse a stack without using any other data structure or
-   * auxiliary space.
+   * Problem: Reverse a stack using recursion. Or reverse a stack without using any other data structure or auxiliary
+   * space.
    */
   void reverseStack(Stack stack) {
     if(!stack.isEmpty()) {
