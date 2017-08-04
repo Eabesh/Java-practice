@@ -3,6 +3,8 @@ package data.structures.bst;
 import data.structures.binarytrees.TreeExamples;
 import utilities.TreeNode;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class BSTExamples {
 
@@ -112,8 +114,23 @@ public class BSTExamples {
   /**
    * 13.
    * Problem: Binary Tree to Binary Search Tree Conversion.
-   * Solution:
+   * Given a Binary Tree, convert it to a Binary Search Tree. The conversion must be done in such a way that keeps the
+   * original structure of Binary Tree.
+   * Solution: Store inorder traversal in array -> Sort -> copy arrayValues to node values.
    */
+  void binaryTreeToBST(TreeNode root) {
+    ArrayList<Integer> arrayList = bstToArray(root);
+    Collections.sort(arrayList);
+    bTreeToBST(root, arrayList);
+  }
+
+  private void bTreeToBST(TreeNode root, ArrayList<Integer> arrayList) {
+    if (root != null) {
+      bTreeToBST(root.left, arrayList);
+      root.data = arrayList.remove(0);
+      bTreeToBST(root.right, arrayList);
+    }
+  }
 
   /**
    * 14.

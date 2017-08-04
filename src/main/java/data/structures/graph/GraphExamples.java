@@ -9,7 +9,6 @@ public class GraphExamples {
    * Hint: We can use DFS here.
    */
   int maxConnectedCell(int[][] grid) {
-
     int m = grid.length;
     int n = grid.length;
     boolean[][] isVisited = new boolean[m][n];
@@ -949,7 +948,7 @@ public class GraphExamples {
 
   /**
    * 148.
-   * Problem: Karp&#8217;s minimum mean (or average) weight cycle algorithm.
+   * Problem: Karp 's minimum mean (or average) weight cycle algorithm.
    * Solution:
    */
 
