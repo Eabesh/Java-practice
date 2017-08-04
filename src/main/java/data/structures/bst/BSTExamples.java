@@ -2,9 +2,6 @@ package data.structures.bst;
 
 import data.structures.binarytrees.TreeExamples;
 import utilities.TreeNode;
-import utilities.Utils;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class BSTExamples {

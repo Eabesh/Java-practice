@@ -8,6 +8,11 @@ import static org.junit.Assert.*;
  */
 public class BSTExamplesTest {
   @Test
+  public void printKeysWithinRange() throws Exception {
+    new BSTExamples().printKeysWithinRange(createBST(), 4, 5);
+  }
+
+  @Test
   public void kthSmallest() throws Exception {
     int[] k = {2};
     assertEquals(4, new BSTExamples().kthSmallest(createBST(), k));
