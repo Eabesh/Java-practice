@@ -500,7 +500,20 @@ public class TreeExamples {
    * Problem: Convert a given Binary Tree to Doubly Linked List | Set 1.
    * Solution:
    */
+  void BtreeToDLL(TreeNode root, TreeNode[] head) {
+    if (root != null) {
+      BtreeToDLL(root.right, head);
+      insertAtFront(root, head);
+      BtreeToDLL(root.left, head);
 
+    }
+  }
+
+  private void insertAtFront(TreeNode node, TreeNode[] head) {
+    node.right = head[0];
+    if (head[0] != null) head[0].left = node;
+    head[0] = node;
+  }
   /**
    * 53.
    * Problem: Tree Isomorphism Problem.

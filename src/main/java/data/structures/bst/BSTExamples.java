@@ -104,6 +104,9 @@ public class BSTExamples {
    * Problem: Merge Two Balanced Binary Search Trees.
    * Solution:
    */
+  void mergeTwoBST(TreeNode root1, TreeNode root2) {
+
+  }
 
   /**
    * 12.
