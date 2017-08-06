@@ -69,6 +69,19 @@ public class GraphExamples {
    * Problem: Depth First Traversal or DFS for a Graph.
    * Solution:
    */
+  void depthFS(int[][] mat) {
+    boolean[] isVisited = new boolean[mat.length];
+    for (int i = 0; i < mat.length; i++)
+        if (!isVisited[i]) depthFirstSearch(mat, i, isVisited);
+  }
+
+  void depthFirstSearch(int[][] mat, int i, boolean[] isVisited) {
+    isVisited[i] = true;
+    System.out.print( i + " ");
+    for (int j = 0; j < mat[0].length; j++) if (!isVisited[j] && mat[i][j] == 1) depthFirstSearch(mat, j, isVisited);
+  }
+
+
 
   /**
    * 5.
@@ -105,7 +118,7 @@ public class GraphExamples {
    * Problem: Find the number of islands | Set 1 (Using DFS).
    * Solution:
    */
-
+  int countIslands(int[][] mat) { return new MatrixExamples().countIslands(mat);}
 
   /**
    * 11.

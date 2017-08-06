@@ -92,7 +92,7 @@ public class MatrixExamples {
    * Output : 5
    * Solution:
    */
-  int countIslands(int[][] mat) {
+  public int countIslands(int[][] mat) {
     int islandsCount = 0;
     boolean[][] isVisited = new boolean[mat.length][mat[0].length];
     for (int i = 0; i < mat.length; i++) {
