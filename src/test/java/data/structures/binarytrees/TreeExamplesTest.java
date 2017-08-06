@@ -12,6 +12,14 @@ import static org.junit.Assert.assertTrue;
 
 public class TreeExamplesTest {
   @Test
+  public void btreeToDLL() throws Exception {
+    TreeNode root = createTree();
+    TreeNode[] head = {null};
+    new TreeExamples().BtreeToDLL(root, head);
+    System.out.println(head[0].right.left.data);
+  }
+
+  @Test
   public void printBoundary() throws Exception {
   }
 

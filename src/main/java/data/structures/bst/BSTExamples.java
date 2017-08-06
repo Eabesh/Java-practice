@@ -3,7 +3,6 @@ package data.structures.bst;
 import data.structures.binarytrees.TreeExamples;
 import utilities.TreeNode;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class BSTExamples {
@@ -105,8 +104,8 @@ public class BSTExamples {
    * Solution:
    */
   void mergeTwoBST(TreeNode root1, TreeNode root2) {
-
   }
+
 
   /**
    * 12.
