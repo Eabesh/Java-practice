@@ -98,21 +98,23 @@ public class MatrixExamples {
     for (int i = 0; i < mat.length; i++) {
       for (int j = 0; j < mat[0].length; j++) {
         if (mat[i][j] == 1 && !isVisited[i][j]) {
-          islandsCount++;
           dfs(mat, i, j, isVisited);
+          islandsCount++;
         }
       }
     }
     return islandsCount;
   }
+
   private void dfs(int[][] mat, int x, int y, boolean[][] isVisited) {
     int[][] moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {1, -1}, {-1, 1}};
     isVisited[x][y] = true;
     for (int[] move : moves)
       if (isSafe(mat, x + move[0], y + move[1], isVisited)) dfs(mat, x + move[0], y + move[1], isVisited);
   }
+
   private boolean isSafe(int[][] mat, int x, int y, boolean[][] isVisited) {
-    return x >=0 && x < mat.length && y >=0 && y < mat[0].length && mat[x][y] == 1 && !isVisited[x][y];
+    return x >= 0 && x < mat.length && y >= 0 && y < mat[0].length && mat[x][y] == 1 && !isVisited[x][y];
   }
 
   /**
