@@ -12,6 +12,24 @@ import static org.junit.Assert.*;
  */
 public class DPExamplesTest {
   @Test
+  public void largestZigZagSum() throws Exception {
+    int[][] mat  = { {4, 2, 1},
+            {3, 9, 6},
+            {11, 3, 15}};
+    int[][] mat2  = { {3, 1, 2},
+            {4, 8, 5},
+            {6, 9, 7}};
+    assertEquals(28, new DPExamples().largestZigZagSum(mat));
+    assertEquals(18, new DPExamples().largestZigZagSum(mat2));
+  }
+
+  @Test
+  public void perfectSumProblem() throws Exception {
+    int[] array = {2, 3, 5, 6, 8, 10};
+    new DPExamples().perfectSumProblem(array, 10, array.length, "");
+  }
+
+  @Test
   public void twoSubsetDivide() throws Exception {
     int[] array = {3, 1, 4, 2, 2, 1};
     int arraySum = 13;
@@ -330,16 +348,13 @@ public class DPExamplesTest {
   }
 
   @Test
-  public void maxSumContigous() throws Exception {
+  public void maxContiguousSubArray() throws Exception {
     int[] a = {3,2,7,10};
     int[] b = {-3,-22,-7,-10};
-    assertEquals(22, new DPExamples().maxContinousSubArray(a));
-    assertEquals(-3, new DPExamples().maxContinousSubArray(b));
+    assertEquals(22, new DPExamples().maxContiguousSubArray(a));
+    assertEquals(-3, new DPExamples().maxContiguousSubArray(b));
   }
 
-  @Test
-  public void maxContinousSubArray1() throws Exception {
-  }
 
   @Test
   public void maxSizeSquareMat() throws Exception {

@@ -1,5 +1,6 @@
 package data.structures.arrays;
 
+import algorithms.dynamic.programming.DPExamplesTest;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -9,6 +10,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class ArrayExamplesTest {
+  @Test
+  public void countWaysToReachEnd() throws Exception {
+    new DPExamplesTest().minJumps();
+  }
 
   @Test
   public void subArrayCountWithEvenSum() throws Exception {

@@ -1,18 +1,60 @@
 package data.structures.binarytrees;
 
 import utilities.TreeNode;
+import utilities.Utils;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
-class TreeExamples {
-
+public class TreeExamples {
 
   /**
    * 1.
-   * Problem: Tree Traversals (Inorder, Preorder and Postorder).
-   * Solution:
+   * Problem: Tree Traversals (Inorder, Pr-eorder and Post-order).
+   * Unlike linear data structures (Array, Linked List, Queues, Stacks, etc) which have only one logical way to
+   * traverse them, trees can be traversed in different ways.
+   * Depth First Traversals: In-order, Pre-order and Post-order
+   * Breadth First or Level Order Traversal
    */
+
+  /**
+   * Uses of in-order
+   * In case of BST, in-order traversal gives nodes in non-decreasing order.To get nodes of BST in non-increasing order,
+   * a variation of in-order traversal where in-order is traversal's
+   * reversed, can be used.
+   */
+  void inOrder(TreeNode root) {
+    if (root != null) {
+      inOrder(root.left);
+      System.out.print(root.data + " ");
+      inOrder(root.right);
+    }
+  }
+
+  /**
+   * Uses of Pre-order
+   * To create a copy of the tree.
+   * To get prefix expression on of an expression tree.
+   */
+  void preOrder(TreeNode root) {
+    if (root != null) {
+      System.out.print(root.data + " ");
+      preOrder(root.left);
+      preOrder(root.right);
+    }
+  }
+
+  /**
+   * Uses of Post-order
+   * To delete the tree.
+   * To get the postfix expression of an expression tree.
+   */
+  void postOrder(TreeNode root) {
+    if (root != null) {
+      postOrder(root.left);
+      postOrder(root.right);
+      System.out.print(root.data + " ");
+    }
+  }
 
   /**
    * 2.
@@ -50,8 +92,20 @@ class TreeExamples {
   /**
    * 6.
    * Problem: Write an Efficient  Function to Convert a Binary Tree into its Mirror Tree.
-   * Solution:
    */
+  void mirror(TreeNode root) {
+    if (root != null) {
+      mirror(root.left);
+      mirror(root.right);
+      swapChildren(root);
+    }
+  }
+
+  private void swapChildren(TreeNode node) {
+    TreeNode temp = node.left;
+    node.left = node.right;
+    node.right = temp;
+  }
 
   /**
    * 7.
@@ -62,12 +116,30 @@ class TreeExamples {
   /**
    * 8.
    * Problem: Given a binary tree, print out all of its root-to-leaf paths one per line..
-   * Solution:
    */
+  void rootToLeafPath(TreeNode root, String path) {
+    if (root != null) {
+      if (isLeaf(root)) System.out.println(path + root.data);
+      else {
+        rootToLeafPath(root.left, path + root.data + "->");
+        rootToLeafPath(root.right, path + root.data + "->");
+      }
+    }
+  }
 
   /**
-   * 9. Lowest Common Ancestor in a Binary Tree (When both keys are present).
+   * 9.
+   * Problem: Lowest Common Ancestor in a Binary Search Tree.
+   * Given values of two values n1 and n2 in a Binary Search Tree, find the Lowest Common Ancestor (LCA). You may assume
+   * that both the values exist in the tree.
    */
+  public TreeNode bstLCA(TreeNode root, int k1, int k2) {
+    if (root == null) return null;
+    else if (root.data > k1 && root.data > k2) return bstLCA(root.left, k1, k2);
+    else if (root.data < k1 && root.data < k2) return bstLCA(root.right, k1, k2);
+    else return root;
+  }
+
 
   TreeNode findLCA(TreeNode root, int k1, int k2) {
     boolean[] v1 = new boolean[1], v2 = new boolean[1];
@@ -76,7 +148,7 @@ class TreeExamples {
     else return null;
   }
 
-  TreeNode LCAUtil(TreeNode root, int k1, int k2, boolean[] v1, boolean[] v2) {
+  private TreeNode LCAUtil(TreeNode root, int k1, int k2, boolean[] v1, boolean[] v2) {
     if (root == null) return root;
     if (root.data == k1) {
       v1[0] = true;
@@ -90,7 +162,6 @@ class TreeExamples {
     TreeNode rightLCA = LCAUtil(root.right, k1, k2, v1, v2);
     if (leftLCA != null && rightLCA != null) return root;
     else return leftLCA != null ? leftLCA : rightLCA;
-
   }
 
   private boolean treeContains(TreeNode root, int key) {
@@ -141,20 +212,19 @@ class TreeExamples {
    */
   int diameter(TreeNode root) {
     if (root == null) return 0;
-    else return Math.max(height(root.left) + 1 + height(root.right), Math.max(diameter(root.left), diameter(root.right)));
+    else return Utils.max(height(root.left) + 1 + height(root.right), diameter(root.left), diameter(root.right));
   }
 
   int diameterOpt(TreeNode root, int[] height) {
     if (root == null) {
       height[0] = 0;
       return 0;
-    }
-    else {
+    } else {
       int[] lHeight = new int[1], rHeight = new int[1];
       int lDiameter = diameterOpt(root.left, lHeight);
       int rDiameter = diameterOpt(root.right, rHeight);
       height[0] = 1 + Math.max(lHeight[0], rHeight[0]);
-      return Math.max( 1 + lHeight[0] + rHeight[0], Math.max(lDiameter, rDiameter));
+      return Math.max(1 + lHeight[0] + rHeight[0], Math.max(lDiameter, rDiameter));
     }
   }
 
@@ -326,8 +396,50 @@ class TreeExamples {
   /**
    * 42.
    * Problem: Boundary Traversal of binary tree.
-   * Solution:
    */
+   void printBoundary(TreeNode root) {
+    if (root == null) return;
+    else {
+      System.out.print(root.data + " ");
+      printLeftBoundary(root.left);
+      printLeaves(root);
+      printRightBoundary(root.right);
+    }
+  }
+
+  private void printLeaves(TreeNode root) {
+    if (root == null) return;
+    else if (isLeaf(root)) System.out.print(root.data + " ");
+    else {
+      printLeaves(root.left);
+      printLeaves(root.right);
+    }
+  }
+
+  private void printLeftBoundary(TreeNode root) {
+    if (root != null) {
+      if (root.left != null) {
+        System.out.print(root.data + " ");
+        printLeftBoundary(root.left);
+      } else if (root.right != null) {
+        printLeftBoundary(root.right);
+        System.out.print(root.data + " ");
+      }
+    }
+  }
+
+  private void printRightBoundary(TreeNode root) {
+    if (root != null) {
+      if (root.right != null) {
+        printRightBoundary(root.right);
+        System.out.print(root.data + " ");
+      } else if (root.left != null) {
+        printRightBoundary(root.left);
+        System.out.print(root.data + " ");
+      }
+    }
+  }
+
 
   /**
    * 43.
@@ -389,6 +501,19 @@ class TreeExamples {
    * Solution:
    */
 
+ public void BtreeToDLL(TreeNode root, TreeNode[] head) {
+    if (root != null) {
+      BtreeToDLL(root.right, head);
+      insertAtFront(root, head);
+      BtreeToDLL(root.left, head);
+    }
+  }
+
+  private void insertAtFront(TreeNode node, TreeNode[] head) {
+    node.right = head[0];
+    if (head[0] != null) head[0].left = node;
+    head[0] = node;
+  }
   /**
    * 53.
    * Problem: Tree Isomorphism Problem.
@@ -656,8 +781,9 @@ class TreeExamples {
     ArrayList<TreeNode> ancestors = ancestors(root, key, new ArrayList<>());
     int minDistance = Integer.MAX_VALUE;
     int distanceFromKey = ancestors.size();
-    for (TreeNode ancestor : ancestors) minDistance = Math.min(minDistance, findClosestLeafRoot(ancestor, 0) +
-            distanceFromKey--);
+    for (TreeNode ancestor : ancestors)
+      minDistance = Math.min(minDistance, findClosestLeafRoot(ancestor, 0) +
+              distanceFromKey--);
     return Math.min(findClosestLeafRoot(key, 0), minDistance);
   }
 
@@ -665,7 +791,7 @@ class TreeExamples {
     if (root == null) return Integer.MAX_VALUE;
     else if (isLeaf(root)) return distance;
     else return Math.min(findClosestLeafRoot(root.left, distance + 1),
-            findClosestLeafRoot(root.right, distance + 1));
+              findClosestLeafRoot(root.right, distance + 1));
   }
 
   ArrayList ancestors(TreeNode root, TreeNode key, ArrayList<TreeNode> soFar) {
@@ -674,7 +800,7 @@ class TreeExamples {
     else {
       soFar.add(root);
       ArrayList left = ancestors(root.left, key, soFar);
-      ArrayList right =  ancestors(root.right, key, soFar);
+      ArrayList right = ancestors(root.right, key, soFar);
       soFar.remove(soFar.size() - 1);
       return left.isEmpty() ? right : left;
     }
@@ -1550,60 +1676,6 @@ class TreeExamples {
 
 
   /**
-   * 1.
-   * Problem: Tree traversals.
-   * Unlike linear data structures (Array, Linked List, Queues, Stacks, etc) which have only one logical way to
-   * traverse them, trees can be traversed in different ways.
-   * Following are the generally used ways for traversing trees.
-   * Depth First Traversals:
-   * (a) In-order (Left, Root, Right) : 4 2 5 1 3
-   * (b) Preorder (Root, Left, Right) : 1 2 4 5 3
-   * (c) Postorder (Left, Right, Root) : 4 5 2 3 1
-   * Breadth First or Level Order Traversal : 1 2 3 4 5
-   */
-
-  /**
-   * Uses of in-order
-   * In case of binary search trees (BST), in-order traversal gives nodes in non-decreasing order.
-   * To get nodes of BST in non-increasing order, a variation of in-order traversal where in-order is traversal's
-   * reversed, can be used.
-   */
-  void inOrder(TreeNode root) {
-    if (root != null) {
-      inOrder(root.left);
-      System.out.print(root.data + " ");
-      inOrder(root.right);
-    }
-  }
-
-  /**
-   * Uses of Preorder
-   * Preorder traversal is used to create a copy of the tree.
-   * Preorder traversal is also used to get prefix expression on of an expression tree.
-   */
-  void preOrder(TreeNode root) {
-    if (root != null) {
-      System.out.print(root.data + " ");
-      preOrder(root.left);
-      preOrder(root.right);
-    }
-  }
-
-  /**
-   * Uses of Postorder
-   * Postorder traversal is used to delete the tree. Please see the question for deletion of tree for details.
-   * Postorder traversal is also useful to get the postfix expression of an expression tree
-   */
-  void postOrder(TreeNode root) {
-    if (root != null) {
-      postOrder(root.left);
-      postOrder(root.right);
-      System.out.print(root.data + " ");
-    }
-  }
-
-
-  /**
    * 5.
    * Problem: Delete a tree.
    * Solution: Do a post order traversal and make the node as null.
@@ -1619,39 +1691,12 @@ class TreeExamples {
   }
 
   /**
-   * 6.
-   * Problem: Convert a Binary Tree into its Mirror Tree
-   */
-  void mirror(TreeNode root) {
-    if (root != null) {
-      TreeNode temp = root.left;
-      root.left = root.right;
-      root.right = temp;
-      mirror(root.left);
-      mirror(root.right);
-    }
-  }
-
-  /**
    * 7.
    * Problem: If you are given two traversal sequences, can you construct the binary tree?
    * Solution: It depends on what traversals are given. If one of the traversal methods is Inorder then
    * the tree can be constructed, otherwise not.
    */
 
-  /**
-   * 8.
-   * Problem: Print out all of its root-to-leaf paths one per line.
-   */
-  void rootToLeafPath(TreeNode root, String path) {
-    if (root != null) {
-      if (isLeaf(root)) System.out.println(path + root.data);
-      else {
-        rootToLeafPath(root.left, path + root.data + "->");
-        rootToLeafPath(root.right, path + root.data + "->");
-      }
-    }
-  }
 
 
   /**
@@ -1767,7 +1812,6 @@ class TreeExamples {
       return root;
     }
   }
-
 
 
   /**
@@ -2103,49 +2147,6 @@ class TreeExamples {
    */
 
 
-  /**
-   * Page 10.
-   * 41.
-   * Problem: Boundary Traversal of binary tree
-   * <p>
-   * Solution:
-   */
-  public void printLeaves(TreeNode root) {
-    if (root == null) return;
-    else if (isLeaf(root)) System.out.print(root.data + " ");
-    else {
-      printLeaves(root.left);
-      printLeaves(root.right);
-    }
-  }
-
-  public void printLeftBoundry(TreeNode root) {
-    if (root != null) {
-      if (!isLeaf(root)) {
-        System.out.print(root.data + " ");
-        printLeftBoundry(root.left);
-      } else printLeftBoundry(root.right);
-    }
-  }
-
-  public void printRightBounday(TreeNode root) {
-    if (root != null) {
-      if (!isLeaf(root)) {
-        printRightBounday(root.right);
-        System.out.print(root.data + " ");
-      } else printRightBounday(root.left);
-    }
-  }
-
-  public void printBoundary(TreeNode root) {
-    if (root == null) return;
-    else {
-      System.out.print(root.data + " ");
-      printLeftBoundry(root.left);
-      printLeaves(root);
-      printRightBounday(root.right);
-    }
-  }
 
   /**
    * 42.

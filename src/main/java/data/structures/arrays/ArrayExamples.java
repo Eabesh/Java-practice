@@ -549,12 +549,12 @@ public class ArrayExamples {
    */
   int maxSumCircularSubarray(int[] arr) {
     int totalSum = 0, withoutCircleSum = 0, circularSum = 0;
-    withoutCircleSum = new DPExamples().maxContinousSubArray(arr);
+    withoutCircleSum = new DPExamples().maxContiguousSubArray(arr);
     for (int i = 0; i < arr.length; i++) {
       totalSum += arr[i];
       arr[i] = - arr[i];
     }
-    circularSum = totalSum + new DPExamples().maxContinousSubArray(arr);
+    circularSum = totalSum + new DPExamples().maxContiguousSubArray(arr);
     return Math.max(withoutCircleSum, circularSum);
   }
 
@@ -2296,7 +2296,7 @@ public class ArrayExamples {
    * 298.
    * Problem: Count number of ways to jump  to reach end.
    */
-  int countWaysToRecahEnd(int[] array) {
+  int countWaysToReachEnd(int[] array) {
     return new DPExamples().minJumps(array, 0, array.length - 1);
   }
 

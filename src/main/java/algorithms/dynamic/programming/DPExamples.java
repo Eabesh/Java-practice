@@ -13,7 +13,7 @@ public class DPExamples {
    * Write an efficient C program to find the sum of contiguous sub array within a one-dimensional array of numbers
    * which has the largest sum.
    */
-  public int maxContinousSubArray(int[] array) {
+  public int maxContiguousSubArray(int[] array) {
     int maxSoFar = array[0], currMax = array[0];
     for (int i = 1; i < array.length; i++) {
       currMax = Math.max(array[i], currMax + array[i]);
@@ -1831,7 +1831,7 @@ public class DPExamples {
    * Starting from any column in row 0, return the largest sum of any of the paths up to row N-1.
    */
   int maxSumPath(int[][] mat) {
-    int maxSumPath = 0;
+    int maxSumPath = Integer.MIN_VALUE;
     for (int j = 0; j < mat[0].length; j++) maxSumPath = Math.max(maxSumPath, maxSumPathUtil(mat, mat.length - 1, j));
     return maxSumPath;
   }
@@ -1992,14 +1992,40 @@ public class DPExamples {
   /**
    * 183.
    * Problem: Perfect Sum Problem (Print all subsets with given sum).
-   * Solution:
+   * Given an array of integers and a sum, the task is to print all subsets of given array with sum equal to given sum.
    */
+  void perfectSumProblem(int[] array, int sum, int m, String soFar) {
+    if (sum == 0) System.out.println(soFar);
+    else {
+      if (m > 0 && sum > 0) {
+        perfectSumProblem(array, sum - array[m - 1], m - 1, soFar + array[m - 1] + " ");
+        perfectSumProblem(array, sum, m - 1, soFar);
+      }
+    }
+  }
 
   /**
    * 184.
    * Problem: Largest sum Zigzag sequence in a matrix.
-   * Solution:
+   * Given a matrix of size n x n, find sum of the Zigzag sequence with the largest sum. A zigzag sequence starts from
+   * the top and ends at the bottom. Two consecutive elements of sequence cannot belong to same column.
    */
+  int largestZigZagSum(int[][] mat) {
+    int maxSum = Integer.MIN_VALUE;
+    for (int j = 0; j < mat[0].length; j++) maxSum = Math.max(maxSum, largestZigZag(mat, 0, j));
+    return maxSum;
+  }
+
+  private int largestZigZag(int[][] mat, int row, int col) {
+    if (row == mat.length - 1) return mat[row][col];
+    else {
+      int zigZagSum = Integer.MIN_VALUE;
+      for (int j = 0; j < mat[0].length; j++)
+        if (col != j) zigZagSum = Math.max(zigZagSum, mat[row][col] + largestZigZag(mat, row + 1, j));
+      return zigZagSum;
+    }
+  }
+
 
   /**
    * 185.
@@ -2106,6 +2132,9 @@ public class DPExamples {
    * should have a count “-1”.
    * Solution:
    */
+  int minJumps2(int[] array) {
+    return minJumps(array, 0, array.length - 1);
+  }
 
 
   /**
@@ -2122,6 +2151,8 @@ public class DPExamples {
     result[1] = n - len;
     return result;
   }
+
+
   /**
    * 200.
    * Problem: Shortest Uncommon Subsequence.

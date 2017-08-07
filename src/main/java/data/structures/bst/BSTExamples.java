@@ -1,6 +1,9 @@
 package data.structures.bst;
 
+import data.structures.binarytrees.TreeExamples;
 import utilities.TreeNode;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class BSTExamples {
 
@@ -9,24 +12,39 @@ public class BSTExamples {
    * Problem: Find the node with minimum value in a Binary Search Tree.
    * Solution:
    */
+  TreeNode minValueNode(TreeNode root) {
+    if (root == null || root.left == null) return root;
+    else return minValueNode(root.left);
+  }
 
   /**
    * 2.
    * Problem: A program to check if a binary tree is BST or not.
-   * Solution:
    */
+  boolean isBST(TreeNode root, TreeNode[] childNode) {
+    if (root == null) return true;
+    else if (!isBST(root.left, childNode)) return false;
+    else if (childNode[0] != null && childNode[0].data > root.data) return false;
+    else {
+      childNode[0] = root;
+      return isBST(root.right, childNode);
+    }
+  }
 
   /**
    * 3.
    * Problem: Total number of possible Binary Search Trees with n keys.
-   * Solution:
+   * Solution:Total number of possible Binary Search Trees with n different keys = Catalan number Cn = (2n)!/(n+1)!*n!
    */
+
 
   /**
    * 4.
    * Problem: Sorted order printing of a given array that represents a BST.
-   * Solution:
+   * Given an array that stores a complete Binary Search Tree, write a function that efficiently prints the given array
+   * in ascending order.
    */
+
 
   /**
    * 5.
@@ -37,14 +55,30 @@ public class BSTExamples {
   /**
    * 6.
    * Problem: Find k-th smallest element in BST (Order Statistics in BST).
-   * Solution:
    */
+  int kthSmallest(TreeNode root, int[] k) {
+    if (root == null) return Integer.MAX_VALUE;
+    else {
+      int left = kthSmallest(root.left, k);
+      if (k[0]-- == 1) return root.data;
+      return (left != Integer.MAX_VALUE) ? left : kthSmallest(root.right, k);
+    }
+  }
 
   /**
    * 7.
    * Problem: Print BST keys in the given range.
-   * Solution:
+   * Given two values k1 and k2 (where k1 < k2) and a root pointer to a Binary Search Tree. Print all the keys of tree
+   * in range k1 to k2. i.e. print all x such that k1<=x<=k2 and x is a key of given BST. Print all the keys in
+   * increasing order.
    */
+  void printKeysWithinRange(TreeNode root, int k1, int k2) {
+    if (root != null) {
+      if (root.data > k1) printKeysWithinRange(root.left, k1, k2);
+      if (k1 <= root.data && root.data <= k2) System.out.print(root.data + " ");
+      if (root.data < k2) printKeysWithinRange(root.right, k1, k2);
+    }
+  }
 
   /**
    * 8.
@@ -69,6 +103,9 @@ public class BSTExamples {
    * Problem: Merge Two Balanced Binary Search Trees.
    * Solution:
    */
+  void mergeTwoBST(TreeNode root1, TreeNode root2) {
+  }
+
 
   /**
    * 12.
@@ -79,8 +116,23 @@ public class BSTExamples {
   /**
    * 13.
    * Problem: Binary Tree to Binary Search Tree Conversion.
-   * Solution:
+   * Given a Binary Tree, convert it to a Binary Search Tree. The conversion must be done in such a way that keeps the
+   * original structure of Binary Tree.
+   * Solution: Store inorder traversal in array -> Sort -> copy arrayValues to node values.
    */
+  void binaryTreeToBST(TreeNode root) {
+    ArrayList<Integer> arrayList = bstToArray(root);
+    Collections.sort(arrayList);
+    bTreeToBST(root, arrayList);
+  }
+
+  private void bTreeToBST(TreeNode root, ArrayList<Integer> arrayList) {
+    if (root != null) {
+      bTreeToBST(root.left, arrayList);
+      root.data = arrayList.remove(0);
+      bTreeToBST(root.right, arrayList);
+    }
+  }
 
   /**
    * 14.
@@ -186,9 +238,17 @@ public class BSTExamples {
 
   /**
    * 31.
-   * Problem: K&#8217;th Largest Element in BST when modification to BST is not allowed.
+   * Problem: K'th Largest Element in BST when modification to BST is not allowed.
    * Solution:
    */
+  int kthLargestElement(TreeNode root, int[] k) {
+    if (root == null) return Integer.MIN_VALUE;
+    else {
+      int right = kthLargestElement(root.right, k);
+      if (k[0]-- == 1) return root.data;
+      return (right != Integer.MIN_VALUE) ? right : kthLargestElement(root.left, k);
+    }
+  }
 
   /**
    * 32.
@@ -211,8 +271,9 @@ public class BSTExamples {
   /**
    * 35.
    * Problem: Second largest element in BST.
-   * Solution:
+   * Given a Binary Search Tree(BST), find the second largest element.
    */
+
 
   /**
    * 36.
@@ -228,7 +289,7 @@ public class BSTExamples {
 
   /**
    * 38.
-   * Problem: K&#8217;th smallest element in BST using O(1) Extra Space.
+   * Problem: K'th smallest element in BST using O(1) Extra Space.
    * Solution:
    */
 
@@ -247,8 +308,10 @@ public class BSTExamples {
   /**
    * 41.
    * Problem: Print Common Nodes in Two Binary Search Trees.
+   * Given two Binary Search Trees, find common nodes in them. In other words, find intersection of two BSTs.
    * Solution:
    */
+
 
   /**
    * 42.
@@ -271,8 +334,18 @@ public class BSTExamples {
   /**
    * 45.
    * Problem: Check if given sorted sub-sequence exists in binary search tree.
-   * Solution:
+   * Given a binary search tree and a sorted sub-sequence. the task is to check if the given sorted sub-sequence exist
+   * in binary search tree or not.
    */
+  boolean isContainedSeq(TreeNode root, int[] seq, int[] index) {
+    if (index[0] == seq.length) return true;
+    else if (root == null) return false;
+    else {
+      if (isContainedSeq(root.left, seq, index)) return true;
+      if (seq[index[0]] == root.data)  index[0]++;
+      return isContainedSeq(root.right, seq, index);
+    }
+  }
 
   /**
    * 46.
@@ -283,8 +356,24 @@ public class BSTExamples {
   /**
    * 47.
    * Problem: Find the closest element in Binary Search Tree.
-   * Solution:
+   * Given a binary search tree and a target node K. The task is to find the node with minimum absolute difference with
+   * given target value K.
    */
+   int closetElement(TreeNode root, int key, int minDiff, int result) {
+     if (root == null) return result;
+     else if (root.data == key) return key;
+     else if (root.data < key) {
+       if (isValid(minDiff, root.data - key)) return closetElement(root.left, key, Math.abs(root.data - key), root.data);
+       else return closetElement(root.left, key, minDiff, result);
+     } else {
+       if (isValid(minDiff, root.data - key)) return closetElement(root.right, key, Math.abs(root.data - key), root.data);
+       else return closetElement(root.right, key, minDiff, result);
+     }
+  }
+
+  private boolean isValid(int x, int y) {
+     return (x < Math.abs(y)) ? true : false;
+  }
 
   /**
    * 48.
@@ -295,14 +384,36 @@ public class BSTExamples {
   /**
    * 49.
    * Problem: Sum of k smallest elements in BST.
-   * Solution:
+   * Given Binary Search Tree. The task is to find sum of all elements smaller than and equal to Kth smallest element.
    */
+  int kSmallestSum(TreeNode root, int[] sum, int[] k) {
+    if (root == null) return 0;
+    else {
+      int right = kSmallestSum(root.right, sum, k);
+      if (k[0]-- == 1) return sum[0] + root.data;
+      sum[0] += root.data;
+      return (right != 0) ? right : kSmallestSum(root.left, sum, k);
+    }
+
+  }
 
   /**
    * 50.
    * Problem: Maximum element between two nodes of BST.
-   * Solution:
+   * Given an array of N elements and two integers A, B which belongs to the given array. Create a Binary Search Tree by
+   * inserting element from arr[0] to arr[n-1]. The task is to find the maximum element in the path from A to B.
    */
+  int maxValueNode(TreeNode root, int key1, int key2) {
+    TreeNode lca = new TreeExamples().bstLCA(root, key1, key2);
+    return Math.max(maxInPath(lca, key1, Integer.MIN_VALUE), maxInPath(lca, key2, Integer.MIN_VALUE));
+  }
+
+  private int maxInPath(TreeNode root, int key, int max) {
+    if (root.data == key) return Math.max(max, key);
+    else if (root.data > key) return maxInPath(root.left, key, Math.max(root.data, max));
+    else return maxInPath(root.right, key, Math.max(root.data, max));
+  }
+
 
   /**
    * 51.
@@ -343,8 +454,38 @@ public class BSTExamples {
   /**
    * 57.
    * Problem: Convert BST to Min Heap.
-   * Solution:
+   * Given a binary search tree which is also a complete binary tree. The problem is to convert the given BST into a Min
+   * Heap with the condition that all the values in the left subtree of a node should be less than all the values in the
+   * right subtree of the node. This condition is applied on all the nodes in the so converted Min Heap.
    */
+  TreeNode bstToMinHeap(TreeNode root) {
+    ArrayList arrayList = bstToArray(root);
+    convertBstToMinHeap(root, arrayList);
+    return root;
+  }
+
+  private void convertBstToMinHeap(TreeNode root, ArrayList<Integer> arrayList) {
+    if (root != null) {
+      root.data = arrayList.remove(0);
+      convertBstToMinHeap(root.left, arrayList);
+      convertBstToMinHeap(root.right, arrayList);
+    }
+
+  }
+
+  private ArrayList bstToArray(TreeNode root) {
+    ArrayList<Integer> arrayList = new ArrayList<>();
+    convertBstToArray(root, arrayList);
+    return arrayList;
+  }
+
+  private void convertBstToArray(TreeNode root, ArrayList<Integer> arrayList) {
+    if (root != null) {
+      convertBstToArray(root.left, arrayList);
+      arrayList.add(root.data);
+      convertBstToArray(root.right, arrayList);
+    }
+  }
 
   /**
    * 58.
@@ -361,49 +502,15 @@ public class BSTExamples {
 
 
 
-  /**
-   * 31.
-   * Problem: Kth Largest Element in BST when modification to BST is not allowed.
-   * Solution:
-   */
-  int kthLargestNode(TreeNode root, int k, int count) {
-    if (root == null || count >= k) return -1;
-    else {
-      int left = kthLargestNode(root.right, k, count + 1);
-      count++;
-      if (k == count) return root.data;
-      int right = kthLargestNode(root.left, k, count);
-      return left != -1 ? left : right;
-    }
-  }
 
 
 
-  /**
-   * 55.
-   * Problem: A program to check if a binary tree is BST or not
-   * Solution:
-   */
-  TreeNode prev;
-  boolean isBST(TreeNode root) {
-    prev = null;
-    return isBST(root);
-  }
-  boolean isBSTUtil(TreeNode root) {
-    if (root == null) return true;
-    else {
-      if (!isBSTUtil(root.left)) return false;
-      if (prev != null && root.data <= prev.data) return false;
-      prev = root;
-      return isBSTUtil(root.right);
-    }
-  }
 
-  /**
-   * 56.
-   * Problem: Find the node with minimum value in a Binary Search Tree
-   * Solution:
-   */
+
+
+
+
+
 
   /**
    * 1. Search
@@ -438,59 +545,8 @@ public class BSTExamples {
     return root;
   }
 
-  /**
-   * 5. Minimum value node in a Binary Search Tree
-   */
-  TreeNode min(TreeNode root) {
-    if (root == null) return null;
-    else {
-      while (root.left != null) root = root.left;
-      return root;
-    }
-  }
-
-  /**
-   * Max node.
-   */
-  TreeNode max(TreeNode root) {
-    if (root == null) return null;
-    else {
-      while (root.right != null) root = root.right;
-      return root;
-    }
-  }
-
-  /**
-   * 6. Inorder predecessor and successor for a given key in BST
-   */
-  TreeNode inOrderSuccessor(TreeNode node) {
-    if (node == null) return null;
-    else if (node.right != null) return min(node.right);
-    else {
-      TreeNode y = node.parent;
-      TreeNode x = node;
-      while (y != null && x == y.right) {
-        x = y;
-        y = y.parent;
-      }
-      return y;
-    }
-  }
 
 
-  TreeNode inOrderPredecessor(TreeNode node) {
-    if (node == null) return null;
-    else if (node.left != null) return max(node.left);
-    else {
-      TreeNode y = node.parent;
-      TreeNode x = node;
-      while (y != null && x == y.left) {
-        x = y;
-        y = y.parent;
-      }
-      return y;
-    }
-  }
 
   /**
    * 3. Data Structure for a single resource reservations.
@@ -516,14 +572,5 @@ public class BSTExamples {
    We can use self-balancing binary search trees like AVL, Red-Black, .. to do both operations in O(Log n) time.
    */
 
-  /**
-   * 7. Lowest Common Ancestor.
-   */
-  public TreeNode LCA(TreeNode root, int k1, int k2) {
-    if (root == null) return root;
-    else if (root.data > k1 && root.data > k2) return LCA(root.left,k1,k2);
-    else if (root.data < k1 && root.data < k2) return LCA(root.right,k1,k2);
-    else return root;
-  }
 
 }

@@ -169,7 +169,6 @@ public class RecursionExamples {
    * Problems from Geeksforgeeks.
    */
 
-
   /**
    * 1.
    * Reverse a linked list using recursion.
@@ -186,8 +185,8 @@ public class RecursionExamples {
 
   /**
    * 2.
-   * Problem: Reverse a stack using recursion. Or reverse a stack without using any other data structure or
-   * auxiliary space.
+   * Problem: Reverse a stack using recursion. Or reverse a stack without using any other data structure or auxiliary
+   * space.
    */
   void reverseStack(Stack stack) {
     if(!stack.isEmpty()) {
@@ -246,14 +245,12 @@ public class RecursionExamples {
   /**
    * 6.
    * Problem: Tail Recursion
-   * Solution: A recursive function is tail recursive when recursive call is the last thing
-   * executed by the function.
+   * Solution: A recursive function is tail recursive when recursive call is the last thing executed by the function.
    * Why do we care?
-   * The tail recursive functions considered better than non tail recursive functions as
-   * tail-recursion can be optimized by compiler. The idea used by compilers to optimize
-   * tail-recursive functions is simple, since the recursive call is the last statement,
-   * there is nothing left to do in the current function, so saving the current function’s
-   * stack frame is of no use.
+   * The tail recursive functions considered better than non tail recursive functions as tail-recursion can be optimized
+   * by compiler. The idea used by compilers to optimize tail-recursive functions is simple, since the recursive call is
+   * the last statement, there is nothing left to do in the current function, so saving the current function’s stack
+   * frame is of no use.
    */
   int factorial(int num) {
     if (num == 0) return 1;
@@ -507,6 +504,7 @@ public class RecursionExamples {
    * 2.
    * Problem: Reverse a stack without using any other data structure or auxiliary space.
    */
+
 
 
 }

@@ -92,27 +92,29 @@ public class MatrixExamples {
    * Output : 5
    * Solution:
    */
-  int countIslands(int[][] mat) {
+  public int countIslands(int[][] mat) {
     int islandsCount = 0;
     boolean[][] isVisited = new boolean[mat.length][mat[0].length];
     for (int i = 0; i < mat.length; i++) {
       for (int j = 0; j < mat[0].length; j++) {
         if (mat[i][j] == 1 && !isVisited[i][j]) {
-          islandsCount++;
           dfs(mat, i, j, isVisited);
+          islandsCount++;
         }
       }
     }
     return islandsCount;
   }
+
   private void dfs(int[][] mat, int x, int y, boolean[][] isVisited) {
     int[][] moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {1, -1}, {-1, 1}};
     isVisited[x][y] = true;
     for (int[] move : moves)
       if (isSafe(mat, x + move[0], y + move[1], isVisited)) dfs(mat, x + move[0], y + move[1], isVisited);
   }
+
   private boolean isSafe(int[][] mat, int x, int y, boolean[][] isVisited) {
-    return x >=0 && x < mat.length && y >=0 && y < mat[0].length && mat[x][y] == 1 && !isVisited[x][y];
+    return x >= 0 && x < mat.length && y >= 0 && y < mat[0].length && mat[x][y] == 1 && !isVisited[x][y];
   }
 
   /**
@@ -1351,24 +1353,7 @@ public class MatrixExamples {
    * Given a MxN matrix where each element can either be 0 or 1. We need to find the shortest path between a given
    * source cell to a destination cell. The path can only be created out of a cell if its value is 1.
    */
-  int shortesPathInMaze(int[][] maze, int[] dest, int x, int y, int count, int[][] moves, boolean[][] visited) {
-    if (x == dest[0] && y == dest[1]) return count;
-    else {
-      int shortestPath = Integer.MAX_VALUE;
-      if (!isValid(maze, x, y, visited)) {
-        visited[x][y] = true;
-        for (int[] move : moves) {
-          shortestPath = Math.min(shortestPath,
-                  shortesPathInMaze(maze, dest, x + move[0], y + move[1], count + 1, moves, visited));
-        }
-        return shortestPath;
-      }
-    }
-    return 0;
-  }
-  private boolean isValid(int[][] mat, int x, int y, boolean[][] visited) {
-    return x >= 0 && x < mat.length && y >=0 && y < mat[0].length && mat[x][y] == 1 && !visited[x][y];
-  }
+
 
   /**
    * 40.

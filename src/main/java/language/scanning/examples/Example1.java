@@ -120,4 +120,23 @@ public class Example1 {
     return -1;
   }
 
+  static int zombieCluster(String[] zombies) {
+    boolean[] visited = new boolean[zombies.length];
+    int clusterCount = 0;
+    Queue<Integer> queue = new LinkedList<>();
+    for (int i = 0; i < zombies.length; i++) {
+      if (!visited[i]) {
+        clusterCount++;
+        queue.add(i);
+        while (!queue.isEmpty()) {
+          int front = queue.remove();
+          visited[front] = true;
+          for (int j = 0; j < zombies[front].length(); j++)
+            if (zombies[front].charAt(j) == '1' && !visited[j]) queue.add(j);
+
+        }
+      }
+    }
+    return clusterCount;
+  }
 }
