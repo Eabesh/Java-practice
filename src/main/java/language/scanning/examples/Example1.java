@@ -6,19 +6,66 @@ import java.util.*;
 public class Example1 {
 
   public static void main(String[] args) {
-    Scanner in = new Scanner(System.in);
-    int noTestCases = in.nextInt();
-    Integer[] array = new Integer[noTestCases];
-//        for (int i = 0; i < noTestCases; i++ ) {
-//            array[i] = in.nextInt();
-//        }
-    Arrays.fill(array,in.nextInt());
-//        for (int i = 0; i < noTestCases; i++ ) {
-//            System.out.println(array[i]);
-//        }
-//        int res = findMinDiff(array);
-    int res = findMaxElement(array);
+//    Scanner in = new Scanner(System.in);
+//    int noTestCases = in.nextInt();
+//    Integer[] array = new Integer[noTestCases];
+//    for (int i = 0; i < noTestCases; i++ ) {
+//      array[i] = in.nextInt();
+//    }
+//    Arrays.fill(array,in.nextInt());
+////        for (int i = 0; i < noTestCases; i++ ) {
+////            System.out.println(array[i]);
+////        }
+////        int res = findMinDiff(array);
+//    int res = findMaxElement(array);
+//    System.out.println(res);
+//    int[] a = {1,3,46,1,3,9};
+//    int ans = numberOfPairs(a, 47);
+//    System.out.println(ans);
+    String[] a = new String[2];
+    a[0] = "{}[]()";
+    a[1] = "{[}]}";
+    String[] res = braces(a);
     System.out.println(res);
+  }
+
+  static int numberOfPairs(int[] a, long k) {
+    Set<Integer> set = new HashSet<>();
+    Set<Integer> visited = new HashSet<>();
+    int count = 0;
+    for (int elem : a) {
+      if (set.contains((int)(k - elem)) && !visited.contains(elem)) {
+        visited.add(elem);
+        visited.add((int)(k - elem));
+        count++;
+      }
+      set.add(elem);
+    }
+    return count;
+  }
+
+  static String[] braces(String[] values) {
+    String[] res = new String[values.length];
+    for (int i = 0; i < values.length; i++) {
+      res[i] = isBalanced(values[i]);
+    }
+    return res;
+  }
+
+  static String isBalanced(String string) {
+    Stack<Character> bracesSoFar = new Stack<>();
+    for (Character ch : string.toCharArray()) {
+      if (ch == '{' || ch == '[' || ch == '(') bracesSoFar.push(ch);
+      else if (!bracesSoFar.isEmpty() && (ch == '}' || ch == ']' || ch == ')')) {
+        Character topBrace = bracesSoFar.pop();
+        if (ch == '}' && topBrace != '{') return "NO";
+        else if (ch == ']' && topBrace != '[') return "NO";
+        else if (ch == ')' && topBrace != '(') return "NO";
+        else return "NO";
+      }
+      else return "NO";
+    }
+    return bracesSoFar.isEmpty() ? "YES" : "NO";
   }
 
   static int findMinDiff(int[] array) {
