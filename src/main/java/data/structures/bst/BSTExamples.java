@@ -316,8 +316,17 @@ public class BSTExamples {
   /**
    * 36.
    * Problem: Count BST nodes that lie in a given range.
-   * Solution:
+   * Given a Binary Search Tree (BST) and a range, count number of nodes that lie in the given range.
    */
+  int nodesGivenRange(TreeNode root, int low, int high) {
+    if (root == null) return 0;
+    else {
+      if (low <= root.data && root.data <= high)
+         return 1 + nodesGivenRange(root.left, low, high) + nodesGivenRange(root.right, low, high);
+      else if (root.data < low) return nodesGivenRange(root.right, low, high);
+      else return nodesGivenRange(root.left, low, high);
+    }
+  }
 
   /**
    * 37.
@@ -400,7 +409,7 @@ public class BSTExamples {
    int closetElement(TreeNode root, int key, int minDiff, int result) {
      if (root == null) return result;
      else if (root.data == key) return key;
-     else if (root.data < key) {
+     else if (root.data > key) {
        if (isValid(minDiff, root.data - key)) return closetElement(root.left, key, Math.abs(root.data - key), root.data);
        else return closetElement(root.left, key, minDiff, result);
      } else {

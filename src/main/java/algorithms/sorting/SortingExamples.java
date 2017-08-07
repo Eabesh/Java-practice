@@ -5,6 +5,9 @@ class SortingExamples {
   /**
    * 1.
    * Problem: Sort elements by frequency | Set 1.
+   * Print the elements of an array in the decreasing frequency if 2 numbers have same frequency then print the one which
+   * came first.
+
    * Solution:
    */
 
