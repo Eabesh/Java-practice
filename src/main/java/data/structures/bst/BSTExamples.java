@@ -85,12 +85,42 @@ public class BSTExamples {
    * Problem: Sorted Linked List to Balanced BST.
    * Solution:
    */
+  TreeNode sortedListToBST(TreeNode[] head) {
+    int nodeCount = nodeCount(head[0], 0);
+    return sortedDLLToBST(head, nodeCount);
+  }
+
+  private TreeNode sortedDLLToBST(TreeNode[] head, int nodeCount) {
+    if (nodeCount <= 0) return null;
+    else {
+      TreeNode leftSubTree = sortedDLLToBST(head, nodeCount / 2);
+      TreeNode root = new TreeNode(head[0].data);
+      head[0] = head[0].right;
+      root.left = leftSubTree;
+      root.right = sortedDLLToBST(head, nodeCount - nodeCount / 2 - 1);
+      return root;
+    }
+  }
+
+  private int nodeCount(TreeNode head, int count) {
+    if (head.right == null) return count;
+    else return nodeCount(head.right, count + 1);
+  }
 
   /**
    * 9.
    * Problem: Sorted Array to Balanced BST.
-   * Solution:
    */
+  TreeNode sortedArrayToBST(int[] array, int start, int end) {
+    if (start > end) return null;
+    else {
+      int mid = (start + end) / 2;
+      TreeNode root = new TreeNode(array[mid]);
+      root.left = sortedArrayToBST(array, start, mid - 1);
+      root.right = sortedArrayToBST(array,mid + 1, end);
+      return root;
+    }
+  }
 
   /**
    * 10.
@@ -215,8 +245,16 @@ public class BSTExamples {
   /**
    * 27.
    * Problem: Transform a BST to greater sum tree.
-   * Solution:
+   * Given a BST, transform it into greater sum tree where each node contains sum of all nodes greater than that node.
    */
+  void greaterSumTree(TreeNode root, int[] sum) {
+    if (root != null) {
+      greaterSumTree(root.right, sum);
+      sum[0] += root.data;
+      root.data = sum[0] - root.data;
+      greaterSumTree(root.left, sum);
+    }
+  }
 
   /**
    * 28.
