@@ -2,6 +2,9 @@ package data.structures.graph;
 
 import data.structures.matrix.MatrixExamples;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class GraphExamples {
 
   /**
@@ -833,6 +836,44 @@ public class GraphExamples {
    * Problem: Minimum steps to reach target by a Knight.
    * Solution:
    */
+
+  class Cell {
+    int x, y, distance;
+    Cell(int x, int y, int dis) {
+      this.x = x;
+      this.y = y;
+      this.distance = dis;
+    }
+  }
+  int findMinSteps(int[] source, int[] dest, int size) {
+    boolean[][] isVisited = new boolean[size][size];
+    isVisited[source[0]][source[1]] = true;
+    int[][] moves = {{-2, -1}, {-1, -2}, {1, -2}, {2, -1}, {-2, 1}, {-1, 2}, {1, 2}, {2, 1}};
+    Queue<Cell> queue = new LinkedList<>();
+    queue.add(new Cell(source[0], source[1], 0));
+    return minSteps(dest, queue, isVisited, size, moves);
+  }
+
+  private int minSteps(int[] dest, Queue<Cell> queue, boolean[][] isVisited, int size, int[][] moves) {
+    if (!queue.isEmpty()) {
+      Cell front = queue.poll();
+      isVisited[front.x][front.y] = true;
+      if (dest[0] == front.x && dest[1] == front.y) return front.distance;
+      else {
+        for (int[] move : moves) {
+          int x = front.x + move[0];
+          int y = front.y + move[1];
+          if (isSafe(x, y, isVisited, size)) queue.add(new Cell(x, y, front.distance + 1));
+        }
+      }
+      return minSteps(dest, queue, isVisited, size, moves);
+    }
+    return Integer.MIN_VALUE;
+  }
+
+  private boolean isSafe(int x, int y, boolean[][] isVisited, int size) {
+    return x >= 0 && x < size && y >= 0 && y < size && !isVisited[x][y];
+  }
 
   /**
    * 127.
