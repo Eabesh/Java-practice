@@ -4,6 +4,7 @@ import data.structures.matrix.MatrixExamples;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class GraphExamples {
 
@@ -223,6 +224,22 @@ public class GraphExamples {
    * Problem: Topological Sorting.
    * Solution:
    */
+   Stack topologicalSort(int[][] graph) {
+     Stack<Integer> stack = new Stack();
+     boolean[] visited = new boolean[graph.length];
+     for (int i = 0; i < graph.length; i++) if (!visited[i]) tSort(graph, i, stack, visited);
+     return stack;
+   }
+
+   private void tSort(int[][] graph, int curr, Stack<Integer> stack, boolean[] visited) {
+     visited[curr] = true;
+     for (int i = 0; i < graph[0].length; i++) if (isValidNeighbour(graph, curr, i, visited)) tSort(graph, i, stack, visited);
+     stack.push(curr);
+   }
+
+   private boolean isValidNeighbour(int[][] graph, int source, int dest, boolean[] visited) {
+     return !visited[dest] && graph[source][dest] == 1;
+   }
 
   /**
    * 23.
