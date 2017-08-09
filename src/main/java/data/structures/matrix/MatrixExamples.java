@@ -3,8 +3,7 @@ import algorithms.dynamic.programming.DPExamples;
 import data.structures.stack.StackExamples;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class MatrixExamples {
 

@@ -47,8 +47,6 @@ public class GraphExamples {
     }
   }
 
-
-
   /**
    * 1.
    * Problem: Applications of Minimum Spanning Tree Problem.
@@ -63,7 +61,7 @@ public class GraphExamples {
 
   /**
    * 3.
-   * Problem: Boruvka&#8217;s algorithm for Minimum Spanning Tree.
+   * Problem: Boruvka's algorithm for Minimum Spanning Tree.
    * Solution:
    */
 
@@ -101,8 +99,39 @@ public class GraphExamples {
   /**
    * 7.
    * Problem: Find if there is a path between two vertices in a directed graph.
-   * Solution:
    */
+  boolean hasPath(int[][] mat, int source, int dest) {
+    boolean[] isVisited = new boolean[mat.length];
+    return dfsHasPath(mat, source, dest, isVisited);
+  }
+
+  private boolean dfsHasPath(int[][] mat, int current, int dest, boolean[] isVisited) {
+    isVisited[current] = true;
+    if (current == dest) return true;
+    else {
+      for (int i = 0; i < mat[0].length; i++)
+        if (!isVisited[i] && mat[current][i] == 1) if (dfsHasPath(mat, i, dest, isVisited)) return true;
+    }
+    return false;
+  }
+
+  boolean bfsHasPath(int[][] mat, int source, int dest) {
+    boolean[] isVisited = new boolean[mat.length];
+    Queue<Integer> queue = new LinkedList<>();
+    queue.add(source);
+    isVisited[source] = true;
+    while (!queue.isEmpty()) {
+      int front = queue.poll();
+      isVisited[front] = true;
+      if (front == dest) return true;
+      else {
+        for (int i = 0; i < mat[0].length; i++)
+          if (!isVisited[i] && mat[front][i] == 1) queue.add(i);
+      }
+
+    }
+    return false;
+  }
 
   /**
    * 8.
@@ -221,7 +250,7 @@ public class GraphExamples {
 
   /**
    * 27.
-   * Problem: Biconnected graph.
+   * Problem: Bi-connected graph.
    * Solution:
    */
 
@@ -834,9 +863,8 @@ public class GraphExamples {
   /**
    * 126.
    * Problem: Minimum steps to reach target by a Knight.
-   * Solution:
+   * Solution: To find shortest distance. We use bfs.
    */
-
   class Cell {
     int x, y, distance;
     Cell(int x, int y, int dis) {
@@ -845,17 +873,14 @@ public class GraphExamples {
       this.distance = dis;
     }
   }
+
   int findMinSteps(int[] source, int[] dest, int size) {
-    boolean[][] isVisited = new boolean[size][size];
+    boolean[][] isVisited = new boolean[size + 1][size + 1];
     isVisited[source[0]][source[1]] = true;
     int[][] moves = {{-2, -1}, {-1, -2}, {1, -2}, {2, -1}, {-2, 1}, {-1, 2}, {1, 2}, {2, 1}};
     Queue<Cell> queue = new LinkedList<>();
     queue.add(new Cell(source[0], source[1], 0));
-    return minSteps(dest, queue, isVisited, size, moves);
-  }
-
-  private int minSteps(int[] dest, Queue<Cell> queue, boolean[][] isVisited, int size, int[][] moves) {
-    if (!queue.isEmpty()) {
+    while (!queue.isEmpty()) {
       Cell front = queue.poll();
       isVisited[front.x][front.y] = true;
       if (dest[0] == front.x && dest[1] == front.y) return front.distance;
@@ -866,13 +891,12 @@ public class GraphExamples {
           if (isSafe(x, y, isVisited, size)) queue.add(new Cell(x, y, front.distance + 1));
         }
       }
-      return minSteps(dest, queue, isVisited, size, moves);
     }
     return Integer.MIN_VALUE;
   }
 
   private boolean isSafe(int x, int y, boolean[][] isVisited, int size) {
-    return x >= 0 && x < size && y >= 0 && y < size && !isVisited[x][y];
+    return x >= 1 && x <= size && y >= 1 && y <= size && !isVisited[x][y];
   }
 
   /**
