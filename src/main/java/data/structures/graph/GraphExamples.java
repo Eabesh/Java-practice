@@ -107,8 +107,21 @@ public class GraphExamples {
   /**
    * 6.
    * Problem: Detect Cycle in a Directed Graph.
-   * Solution:
    */
+  boolean hasCycle(int[][] graph) {
+    boolean[] visited = new boolean[graph.length];
+    visited[0] = true;
+    return containCycle(graph, 0, visited);
+  }
+
+  private boolean containCycle(int[][] graph, int node,  boolean[] visited) {
+    if (visited[node] == true) return true;
+    else {
+      for (int v = 0; v < graph[0].length; v++)
+        if(!visited[v] && graph[node][v] == 1 && containCycle(graph, v, visited)) return true;
+    }
+    return false;
+  }
 
   /**
    * 7.
@@ -124,7 +137,7 @@ public class GraphExamples {
     if (current == dest) return true;
     else {
       for (int i = 0; i < mat[0].length; i++)
-        if (!isVisited[i] && mat[current][i] == 1) if (dfsHasPath(mat, i, dest, isVisited)) return true;
+        if (isValidNeighbour(mat, current, i, isVisited) && dfsHasPath(mat, i, dest, isVisited)) return true;
     }
     return false;
   }
@@ -142,7 +155,6 @@ public class GraphExamples {
         for (int i = 0; i < mat[0].length; i++)
           if (!isVisited[i] && mat[front][i] == 1) queue.add(i);
       }
-
     }
     return false;
   }
