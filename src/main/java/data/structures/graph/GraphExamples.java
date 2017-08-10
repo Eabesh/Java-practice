@@ -2,9 +2,7 @@ package data.structures.graph;
 
 import data.structures.matrix.MatrixExamples;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class GraphExamples {
 
@@ -84,12 +82,27 @@ public class GraphExamples {
   }
 
 
-
   /**
    * 5.
    * Problem: Breadth First Traversal or BFS for a Graph.
    * Solution:
    */
+  void bfs(int[][] graph) {
+    boolean[] visited = new boolean[graph.length];
+    for (int i = 0; i < graph.length; i++) if(!visited[i])  breadthFirstSearch(graph, i);
+  }
+  void breadthFirstSearch(int[][] graph, int source) {
+    boolean[] visited = new boolean[graph.length];
+    Queue<Integer> queue = new LinkedList<>();
+    visited[source] = true;
+    queue.add(source);
+    while (!queue.isEmpty()) {
+      int node = queue.poll();
+      System.out.println(node + " ");
+      visited[source] = true;
+      for (int i = 0; i < graph[0].length; i++) if (isValidNeighbour(graph, node, i, visited)) queue.add(i);
+    }
+  }
 
   /**
    * 6.
@@ -139,6 +152,29 @@ public class GraphExamples {
    * Problem: Backtracking | Set 6 (Hamiltonian Cycle).
    * Solution:
    */
+  ArrayList hamiltonianCycle(int[][] graph) {
+    ArrayList<Integer> path = new ArrayList<>();
+    path.add(0);
+    return (hamCycle(graph, path, 1)) ? path : null;
+  }
+
+  private boolean hamCycle(int[][] graph, ArrayList<Integer> path, int index) {
+    if (index == graph.length) { if (graph[path.get(index - 1)][path.get(0)] == 1) return true;}
+    else {
+      for (int currNode = 1; currNode < graph[0].length; currNode++){
+        if(isValidNode(graph, currNode, path)) {
+          path.add(currNode);
+          if (hamCycle(graph, path, index + 1)) return true;
+          path.remove(path.size() - 1);
+        }
+      }
+    }
+    return false;
+  }
+
+  private boolean isValidNode(int[][] graph, int node, ArrayList<Integer> path) {
+    return graph[path.get(path.size() - 1)][node] == 1 && !path.contains(node);
+  }
 
   /**
    * 9.
