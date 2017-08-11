@@ -6,9 +6,25 @@ import utilities.Stack;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class GraphExamplesTest {
+  @Test
+  public void minEdgeBFS() throws Exception {
+    int[][] graph = {{0, 1, 2, 0, 4, 0, 0}, {1, 0, 1, 0, 0, 0, 0}, {1, 1, 0, 0, 0, 1, 0}, {0, 0, 0, 0, 1, 0, 0}, {1, 0, 0, 1, 0, 1, 1},
+            {0, 0, 1, 0, 1, 0, 0}, {0, 0, 0, 1, 0, 0}};
+    assertEquals(2, new GraphExamples().minEdgeBFS(graph, 1, 5));
+  }
+
+  @Test
+  public void hasCycle() throws Exception {
+    int[][] mat = {{0, 1, 0, 0}, {0, 0, 0, 0}, {1, 0, 0, 1}, {0, 0, 0, 0}};
+    int[][] graph = {{0, 1, 1, 0}, {0, 0, 1, 0}, {1, 0, 0, 1}, {0, 0, 0, 1}};
+    assertTrue(new GraphExamples().hasCycle(graph));
+    assertFalse(new GraphExamples().hasCycle(mat));
+  }
+
   @Test
   public void hamiltonionCycle() throws Exception {
     int graph1[][] = {{0, 1, 0, 1, 0},

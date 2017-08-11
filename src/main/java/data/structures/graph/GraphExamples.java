@@ -18,7 +18,7 @@ public class GraphExamples {
     int max = 0;
     for (int i = 0; i < m; i++) {
       for (int j = 0; j < n; j++) {
-        if(!isVisited[i][j] && grid[i][j] == 1)
+        if (!isVisited[i][j] && grid[i][j] == 1)
           max = Math.max(max, dfs(grid, i, j, isVisited));
       }
     }
@@ -72,12 +72,12 @@ public class GraphExamples {
   void depthFS(int[][] mat) {
     boolean[] isVisited = new boolean[mat.length];
     for (int i = 0; i < mat.length; i++)
-        if (!isVisited[i]) depthFirstSearch(mat, i, isVisited);
+      if (!isVisited[i]) depthFirstSearch(mat, i, isVisited);
   }
 
   void depthFirstSearch(int[][] mat, int i, boolean[] isVisited) {
     isVisited[i] = true;
-    System.out.print( i + " ");
+    System.out.print(i + " ");
     for (int j = 0; j < mat[0].length; j++) if (!isVisited[j] && mat[i][j] == 1) depthFirstSearch(mat, j, isVisited);
   }
 
@@ -89,8 +89,9 @@ public class GraphExamples {
    */
   void bfs(int[][] graph) {
     boolean[] visited = new boolean[graph.length];
-    for (int i = 0; i < graph.length; i++) if(!visited[i])  breadthFirstSearch(graph, i);
+    for (int i = 0; i < graph.length; i++) if (!visited[i]) breadthFirstSearch(graph, i);
   }
+
   void breadthFirstSearch(int[][] graph, int source) {
     boolean[] visited = new boolean[graph.length];
     Queue<Integer> queue = new LinkedList<>();
@@ -110,16 +111,18 @@ public class GraphExamples {
    */
   boolean hasCycle(int[][] graph) {
     boolean[] visited = new boolean[graph.length];
-    visited[0] = true;
-    return containCycle(graph, 0, visited);
+    boolean[] recStack = new boolean[graph.length];
+    for (int node = 0; node < graph.length; node++) return containCycle(graph, node, visited, recStack) ? true : false;
+    return false;
   }
 
-  private boolean containCycle(int[][] graph, int node,  boolean[] visited) {
-    if (visited[node] == true) return true;
-    else {
-      for (int v = 0; v < graph[0].length; v++)
-        if(!visited[v] && graph[node][v] == 1 && containCycle(graph, v, visited)) return true;
-    }
+  private boolean containCycle(int[][] graph, int node, boolean[] visited, boolean[] recStack) {
+    visited[node] = true;
+    recStack[node] = true;
+    for (int v = 0; v < graph[0].length; v++)
+      if ((isValidNeighbour(graph, node, v, visited) && containCycle(graph, v, visited, recStack)) || graph[node][v] == 1 && recStack[v])
+        return true;
+    recStack[node] = false;
     return false;
   }
 
@@ -171,10 +174,11 @@ public class GraphExamples {
   }
 
   private boolean hamCycle(int[][] graph, ArrayList<Integer> path, int index) {
-    if (index == graph.length) { if (graph[path.get(index - 1)][path.get(0)] == 1) return true;}
-    else {
-      for (int currNode = 1; currNode < graph[0].length; currNode++){
-        if(isValidNode(graph, currNode, path)) {
+    if (index == graph.length) {
+      if (graph[path.get(index - 1)][path.get(0)] == 1) return true;
+    } else {
+      for (int currNode = 1; currNode < graph[0].length; currNode++) {
+        if (isValidNode(graph, currNode, path)) {
           path.add(currNode);
           if (hamCycle(graph, path, index + 1)) return true;
           path.remove(path.size() - 1);
@@ -199,7 +203,9 @@ public class GraphExamples {
    * Problem: Find the number of islands | Set 1 (Using DFS).
    * Solution:
    */
-  int countIslands(int[][] mat) { return new MatrixExamples().countIslands(mat);}
+  int countIslands(int[][] mat) {
+    return new MatrixExamples().countIslands(mat);
+  }
 
   /**
    * 11.
@@ -264,41 +270,38 @@ public class GraphExamples {
   /**
    * 21.
    * Problem: Check whether a given graph is Bipartite or not.
-   * Solution:
    */
 
   /**
    * 22.
    * Problem: Topological Sorting.
-   * Solution:
    */
-   Stack topologicalSort(int[][] graph) {
-     Stack<Integer> stack = new Stack();
-     boolean[] visited = new boolean[graph.length];
-     for (int i = 0; i < graph.length; i++) if (!visited[i]) tSort(graph, i, stack, visited);
-     return stack;
-   }
+  Stack topologicalSort(int[][] graph) {
+    Stack<Integer> stack = new Stack();
+    boolean[] visited = new boolean[graph.length];
+    for (int i = 0; i < graph.length; i++) if (!visited[i]) tSort(graph, i, stack, visited);
+    return stack;
+  }
 
-   private void tSort(int[][] graph, int curr, Stack<Integer> stack, boolean[] visited) {
-     visited[curr] = true;
-     for (int i = 0; i < graph[0].length; i++) if (isValidNeighbour(graph, curr, i, visited)) tSort(graph, i, stack, visited);
-     stack.push(curr);
-   }
+  private void tSort(int[][] graph, int curr, Stack<Integer> stack, boolean[] visited) {
+    visited[curr] = true;
+    for (int i = 0; i < graph[0].length; i++)
+      if (isValidNeighbour(graph, curr, i, visited)) tSort(graph, i, stack, visited);
+    stack.push(curr);
+  }
 
-   private boolean isValidNeighbour(int[][] graph, int source, int dest, boolean[] visited) {
-     return !visited[dest] && graph[source][dest] == 1;
-   }
+  private boolean isValidNeighbour(int[][] graph, int source, int dest, boolean[] visited) {
+    return !visited[dest] && graph[source][dest] == 1;
+  }
 
   /**
    * 23.
    * Problem: Shortest Path in Directed Acyclic Graph.
-   * Solution:
    */
 
   /**
    * 24.
    * Problem: Strongly Connected Components.
-   * Solution:
    */
 
   /**
@@ -932,6 +935,7 @@ public class GraphExamples {
    */
   class Cell {
     int x, y, distance;
+
     Cell(int x, int y, int dis) {
       this.x = x;
       this.y = y;
@@ -1129,8 +1133,28 @@ public class GraphExamples {
   /**
    * 154.
    * Problem: Minimum number of edges between two vertices of a Graph.
-   * Solution:
    */
+  int minEdgeBFS(int[][] graph, int source, int dest) {
+    boolean[] visited = new boolean[graph.length];
+    int[] distance = new int[graph.length];
+    Queue<Integer> queue = new LinkedList<>();
+    queue.add(source);
+    visited[source] = true;
+    while (!queue.isEmpty()) {
+      int currentNode = queue.poll();
+      if (currentNode == dest) return distance[dest];
+      else {
+        for (int i = 0; i < graph[0].length; i++) {
+          if (isValidNeighbour(graph, currentNode, i, visited)) {
+            queue.add(i);
+            distance[i] = distance[currentNode] + 1;
+            visited[i] = true;
+          }
+        }
+      }
+    }
+    return Integer.MIN_VALUE;
+  }
 
   /**
    * 155.
