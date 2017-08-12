@@ -1,6 +1,7 @@
 package data.structures.graph;
 
 import org.junit.Test;
+import utilities.Graph;
 import utilities.Stack;
 
 import java.util.ArrayList;
@@ -10,6 +11,19 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class GraphExamplesTest {
+  @Test
+  public void countEdgesUDG() throws Exception {
+    Graph graph = new Graph(5);
+    graph.addEdge(0 , 1);
+    graph.addEdge(0 , 2);
+    graph.addEdge(0 ,  3);
+    graph.addEdge(0 , 4);
+    graph.addEdge(0 , 5);
+    graph.addEdge(1 , 2);
+    assertEquals(6, new GraphExamples().countEdgesUDG(graph));
+  }
+
+
   @Test
   public void minEdgeBFS() throws Exception {
     int[][] graph = {{0, 1, 2, 0, 4, 0, 0}, {1, 0, 1, 0, 0, 0, 0}, {1, 1, 0, 0, 0, 1, 0}, {0, 0, 0, 0, 1, 0, 0}, {1, 0, 0, 1, 0, 1, 1},

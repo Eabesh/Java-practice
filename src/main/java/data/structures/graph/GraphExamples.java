@@ -1,6 +1,7 @@
 package data.structures.graph;
 
 import data.structures.matrix.MatrixExamples;
+import utilities.Graph;
 
 import java.util.*;
 
@@ -994,7 +995,7 @@ public class GraphExamples {
 
   /**
    * 131.
-   * Problem: Find minimum weight cycle in an undirected  graph.
+   * Problem: Find minimum weight cycle in an undirected graph.
    * Solution:
    */
 
@@ -1003,6 +1004,12 @@ public class GraphExamples {
    * Problem: Count number of edges in an undirected graph.
    * Solution:
    */
+  int countEdgesUDG(Graph graph) {
+   int sum = 0;
+   List<List<Integer>> g = graph.getGraph();
+   for (List<Integer> list : g)  sum += list.size();
+   return sum;
+  }
 
   /**
    * 133.
