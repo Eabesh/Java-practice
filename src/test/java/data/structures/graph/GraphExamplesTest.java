@@ -12,6 +12,13 @@ import static org.junit.Assert.assertTrue;
 
 public class GraphExamplesTest {
   @Test
+  public void printPaths() throws Exception {
+    int[][] graph = {{0, 1, 1, 1}, {0, 0, 0, 1}, {1, 1, 0, 0}, {0, 0, 0, 0}};
+    boolean[] visited = new boolean[graph.length];
+    new GraphExamples().printPaths(graph, 2, 3, "", visited);
+  }
+
+  @Test
   public void countEdgesUDG() throws Exception {
     Graph graph = new Graph(5);
     graph.addEdge(0 , 1);

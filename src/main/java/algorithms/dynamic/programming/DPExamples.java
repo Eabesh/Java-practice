@@ -165,7 +165,7 @@ public class DPExamples {
     if (i < 0 || j < 0) return Integer.MAX_VALUE;
     else if (i == 0 && j == 0) return mat[i][j];
     else return mat[i][j] + Math.min(minCost(mat, i - 1, j), Math.min(minCost(mat, i, j - 1),
-            minCost(mat, i - 1, j - 1)));
+              minCost(mat, i - 1, j - 1)));
   }
 
   int minCostBotUP(int[][] mat) {
@@ -206,15 +206,15 @@ public class DPExamples {
    * first element). If an element is 0, then cannot move through that element.
    */
   public int minJumps(int[] array, int start, int end) {
-     if (start == end) return 0;
+    if (start == end) return 0;
     else if (array[start] == 0) return Integer.MAX_VALUE;
     else {
       int min = Integer.MAX_VALUE;
       for (int jump = 1; jump <= array[start]; jump++)
-        if (start + jump < array.length){
-        int subResult = minJumps(array, start + jump, end);
-        if (subResult != Integer.MAX_VALUE) min = Math.min(min, 1 + subResult);
-      }
+        if (start + jump < array.length) {
+          int subResult = minJumps(array, start + jump, end);
+          if (subResult != Integer.MAX_VALUE) min = Math.min(min, 1 + subResult);
+        }
       return min;
     }
   }
@@ -261,8 +261,6 @@ public class DPExamples {
   }
 
 
-
-
   /**
    * 16.
    * Problem: Dynamic Programming | Set 10 ( 0-1 Knapsack Problem)
@@ -291,7 +289,7 @@ public class DPExamples {
    */
   int LPSeq(String str, int start, int end) {
     if (start == end) return 1;
-    else if(start + 1 == end && str.charAt(start) == str.charAt(end)) return 2;
+    else if (start + 1 == end && str.charAt(start) == str.charAt(end)) return 2;
     else if (str.charAt(start) == str.charAt(end)) return 2 + LPSeq(str, start + 1, end - 1);
     else return Math.max(LPSeq(str, start + 1, end), LPSeq(str, start, end - 1));
   }
@@ -300,7 +298,7 @@ public class DPExamples {
     int[][] dp = new int[str.length()][str.length()];
     for (int i = 0; i < dp.length; i++) dp[i][i] = 1;
     for (int col = 2; col <= dp[0].length; col++)
-      for (int i = 0; i < dp[0].length - col + 1; i++){
+      for (int i = 0; i < dp[0].length - col + 1; i++) {
         int j = i + col - 1;
         if (str.charAt(i) == str.charAt(j) && col == 2) dp[i][j] = 2;
         else if (str.charAt(i) == str.charAt(j)) dp[i][j] = 2 + dp[i + 1][j - 1];
@@ -320,8 +318,9 @@ public class DPExamples {
     if (rodLength <= 0) return 0;
     else {
       int maxProfit = Integer.MIN_VALUE;
-      for (int i = 0; i < price.length; i++) if (rodLength >= i + 1) maxProfit = Math.max(maxProfit,
-              price[i] + rodCutting(price, rodLength - (i + 1)));
+      for (int i = 0; i < price.length; i++)
+        if (rodLength >= i + 1) maxProfit = Math.max(maxProfit,
+                price[i] + rodCutting(price, rodLength - (i + 1)));
       return maxProfit;
     }
   }
@@ -508,8 +507,6 @@ public class DPExamples {
    */
 
 
-
-
   /**
    * 37.
    * Problem: Dynamic Programming | Set 30 (Dice Throw)
@@ -652,8 +649,6 @@ public class DPExamples {
    * Problem: Count all possible walks from a source to a destination with exactly k edges
    * Given a directed graph and two vertices ‘u’ and ‘v’ in it, count all possible walks from ‘u’ to ‘v’ with exactly
    * k edges on the walk.
-   * The graph is given as adjacency matrix representation where value of graph[i][j] as 1 indicates that there is an
-   * edge from vertex i to vertex j and a value 0 indicates no edge from i to j.
    */
   int countWalks(int[][] graph, int source, int dest, int k) {
     if (k == 0 && source == dest) return 1;
@@ -665,6 +660,21 @@ public class DPExamples {
         if (graph[source][i] == 1) count += countWalks(graph, i, dest, k - 1);
       return count;
     }
+  }
+
+  int countWalksDP(int[][] graph, int source, int dest, int k) {
+    int[][][] walks = new int[source][dest][k + 1];
+    for (int e = 0; e <= k; e++) {
+      for (int s = 0; s < graph.length; s++) {
+        for (int d = 0; d < graph.length; d++) {
+          walks[s][d][e] = 0;
+          if (e == 0 && s == d) walks[s][d][e] = 1;
+          if (e == 1 && graph[s][d] == 1) walks[s][d][e] = 1;
+          if (e > 1) for (int a = 0; a < graph.length; a++) if (graph[s][a] == 1) walks[s][d][e] += walks[s][d][e - 1];
+        }
+      }
+    }
+    return walks[source][dest][k];
   }
 
 
@@ -1206,13 +1216,13 @@ public class DPExamples {
     int maxLen = Integer.MIN_VALUE;
     for (int i = 0; i < grid.length; i++)
       for (int j = 0; j < grid[0].length; j++)
-          maxLen = Math.max(maxLen, dfsSnake(grid, i, j));
+        maxLen = Math.max(maxLen, dfsSnake(grid, i, j));
     return maxLen;
   }
 
   private int dfsSnake(int[][] grid, int i, int j) {
     if (i > grid.length - 1 || j > grid[0].length - 1) return 0;
-    else if (isValidDownMove(grid, i + 1, j) && isValidRightMove(grid, i, j + 1)) return 1  +
+    else if (isValidDownMove(grid, i + 1, j) && isValidRightMove(grid, i, j + 1)) return 1 +
             Math.max(dfsSnake(grid, i + 1, j), dfsSnake(grid, i, j + 1));
     else if (isValidDownMove(grid, i + 1, j)) return 1 + dfsSnake(grid, i + 1, j);
     else if (isValidRightMove(grid, i, j + 1)) return 1 + dfsSnake(grid, i, j + 1);
@@ -1220,11 +1230,11 @@ public class DPExamples {
   }
 
   private boolean isValidDownMove(int[][] grid, int x, int y) {
-    return x < grid.length  && y < grid[0].length  && Math.abs(grid[x - 1][y] - grid[x][y]) == 1;
+    return x < grid.length && y < grid[0].length && Math.abs(grid[x - 1][y] - grid[x][y]) == 1;
   }
 
   private boolean isValidRightMove(int[][] grid, int x, int y) {
-    return x < grid.length  && y < grid[0].length  && Math.abs(grid[x][y - 1] - grid[x][y]) == 1;
+    return x < grid.length && y < grid[0].length && Math.abs(grid[x][y - 1] - grid[x][y]) == 1;
   }
 
 
@@ -1436,8 +1446,6 @@ public class DPExamples {
    * Down Move : (i+1, j)
    * Diagonal Move : (i+1, j+1)
    */
-
-
 
 
   /**
@@ -1899,6 +1907,7 @@ public class DPExamples {
     for (int i = 0; i < mat.length; i++) maxGold = Math.max(maxGold, maxGoldAmountUtil(mat, i, 0));
     return maxGold;
   }
+
   private int maxGoldAmountUtil(int[][] mat, int i, int j) {
     if (i < 0 || i > mat.length - 1 || j > mat[0].length - 1) return 0;
     else return mat[i][j] + Math.max(maxGoldAmountUtil(mat, i, j + 1),

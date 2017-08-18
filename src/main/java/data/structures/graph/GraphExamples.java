@@ -337,7 +337,7 @@ public class GraphExamples {
 
   /**
    * 34.
-   * Problem: Fleury&#8217;s Algorithm for printing Eulerian Path or Circuit.
+   * Problem: Fleury's Algorithm for printing Eulerian Path or Circuit.
    * Solution:
    */
 
@@ -476,8 +476,20 @@ public class GraphExamples {
   /**
    * 57.
    * Problem: Print all paths from a given source to a destination.
-   * Solution:
+   * Given a directed graph, a source vertex ‘s’ and a destination vertex ‘d’, print all paths from given ‘s’ to ‘d’.
    */
+  void printPaths(int[][] graph, int source, int dest, String path, boolean[] visited) {
+    if (source == dest) System.out.println(path + dest) ;
+    else {
+      for (int d = 0; d < graph.length; d++) {
+        if (graph[source][d] == 1 && !visited[d]) {
+          visited[source] = true;
+          printPaths(graph, d, dest, path + source + " ", visited);
+          visited[source] = false;
+        }
+      }
+    }
+  }
 
   /**
    * 58.
