@@ -275,21 +275,23 @@ public class GraphExamples {
    * Given a Weighted Directed Acyclic Graph and a source vertex in the graph, find the shortest paths from given source
    * to all other vertices.
    */
-  ArrayList<Integer> shortestPathDAG(int[][] graph, int[][] weight, int source) {
-    ArrayList<Integer> distance = new ArrayList<>();
-    Collections.fill(distance, Integer.MAX_VALUE);
+  int[] shortestPathDAG(int[][] graph, int[][] weight, int source) {
+    int[] distance = new int[graph.length];
+    Arrays.fill(distance, Integer.MAX_VALUE);
     Stack<Integer> stack = topologicalSort(graph);
-    distance.set(source, 0);
+    distance[source] = 0;
     distance = sPaths(graph, weight, stack, distance);
     return distance;
   }
 
-  ArrayList<Integer> sPaths(int[][] graph, int[][] weight, Stack<Integer> stack, ArrayList<Integer> distance) {
+  int[] sPaths(int[][] graph, int[][] weight, Stack<Integer> stack, int[] distance) {
     while (!stack.isEmpty()) {
       int top = stack.pop();
+      if (distance[top] != Integer.MAX_VALUE) {
       for (int v = 0; v < graph.length; v++) {
-        if (graph[top][v] == 1)
-          if (distance.get(v) > distance.get(top) + weight[top][v]) distance.set(v, distance.get(top) + weight[top][v]);
+          if (graph[top][v] == 1)
+            if (distance[v] > distance[top] + weight[top][v]) distance[v] = distance[top] + weight[top][v];
+        }
       }
 
     }
