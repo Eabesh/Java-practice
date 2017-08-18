@@ -12,6 +12,23 @@ import static org.junit.Assert.assertTrue;
 
 public class GraphExamplesTest {
   @Test
+  public void allPairShortestPath() throws Exception {
+    int INF = 9999;
+    int[][] graph = { {0,   5,  INF, 10},
+            {INF, 0,   3, INF},
+            {INF, INF, 0,   1},
+            {INF, INF, INF, 0}
+    };
+
+    int[][] result = new GraphExamples().allPairShortestPath(graph);
+    for (int i = 0; i < result.length; i++) {
+      for (int j = 0; j < result.length; j++) System.out.print(result[i][j] + " ");
+      System.out.println();
+    }
+
+  }
+
+  @Test
   public void printPaths() throws Exception {
     int[][] graph = {{0, 1, 1, 1}, {0, 0, 0, 1}, {1, 1, 0, 0}, {0, 0, 0, 0}};
     boolean[] visited = new boolean[graph.length];

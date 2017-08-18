@@ -11,7 +11,7 @@ public class GraphExamples {
   /**
    * 1.
    * Problem: Applications of Minimum Spanning Tree Problem.
-   * Solution:
+   * A min weight set of edges that connects all of the vertices.
    */
 
   /**
@@ -137,7 +137,7 @@ public class GraphExamples {
 
   private boolean hamCycle(int[][] graph, ArrayList<Integer> path, int index) {
     if (index == graph.length) if (graph[path.get(index - 1)][path.get(0)] == 1) return true;
-     else {
+    else {
       for (int currNode = 1; currNode < graph.length; currNode++) {
         if (isValidNode(graph, currNode, path)) {
           path.add(currNode);
@@ -156,8 +156,21 @@ public class GraphExamples {
   /**
    * 9.
    * Problem: Dynamic Programming | Set 16 (Floyd Warshall Algorithm).
-   * Solution:
+   * The Floyd Warshall Algorithm is for solving the All Pairs Shortest Path problem. The problem is to find shortest
+   * distances between every pair of vertices in a given edge weighted directed Graph.
    */
+  int[][] allPairShortestPath(int[][] graph) {
+    int[][] result = new int[graph.length][graph.length];
+    for (int i = 0; i < graph.length; i++)
+      for (int j = 0; j < graph.length; j++) result[i][j] = graph[i][j];
+
+    for (int k = 0; k < graph.length; k++)
+      for (int i = 0; i < graph.length; i++)
+        for (int j = 0; j < graph.length; j++)
+          if (result[i][k] + result[k][j] < result[i][j]) result[i][j] = result[i][k] + result[k][j];
+
+    return result;
+  }
 
   /**
    * 10.
@@ -478,7 +491,7 @@ public class GraphExamples {
    * Given a directed graph, a source vertex ‘s’ and a destination vertex ‘d’, print all paths from given ‘s’ to ‘d’.
    */
   void printPaths(int[][] graph, int source, int dest, String path, boolean[] visited) {
-    if (source == dest) System.out.println(path + dest) ;
+    if (source == dest) System.out.println(path + dest);
     else {
       for (int d = 0; d < graph.length; d++) {
         if (graph[source][d] == 1 && !visited[d]) {
@@ -977,10 +990,10 @@ public class GraphExamples {
    * Solution:
    */
   int countEdgesUDG(Graph graph) {
-   int sum = 0;
-   List<List<Integer>> g = graph.getGraph();
-   for (List<Integer> list : g)  sum += list.size();
-   return sum;
+    int sum = 0;
+    List<List<Integer>> g = graph.getGraph();
+    for (List<Integer> list : g) sum += list.size();
+    return sum;
   }
 
   /**
@@ -1140,11 +1153,6 @@ public class GraphExamples {
    * Problem: Clone a Directed Acyclic Graph.
    * Solution:
    */
-
-
-
-
-
 
 
   /**
