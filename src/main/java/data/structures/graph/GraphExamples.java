@@ -136,10 +136,9 @@ public class GraphExamples {
   }
 
   private boolean hamCycle(int[][] graph, ArrayList<Integer> path, int index) {
-    if (index == graph.length) {
-      if (graph[path.get(index - 1)][path.get(0)] == 1) return true;
-    } else {
-      for (int currNode = 1; currNode < graph[0].length; currNode++) {
+    if (index == graph.length) if (graph[path.get(index - 1)][path.get(0)] == 1) return true;
+     else {
+      for (int currNode = 1; currNode < graph.length; currNode++) {
         if (isValidNode(graph, currNode, path)) {
           path.add(currNode);
           if (hamCycle(graph, path, index + 1)) return true;
