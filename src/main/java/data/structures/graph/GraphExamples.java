@@ -288,7 +288,7 @@ public class GraphExamples {
     while (!stack.isEmpty()) {
       int top = stack.pop();
       if (distance[top] != Integer.MAX_VALUE) {
-      for (int v = 0; v < graph.length; v++) {
+        for (int v = 0; v < graph.length; v++) {
           if (graph[top][v] == 1)
             if (distance[v] > distance[top] + weight[top][v]) distance[v] = distance[top] + weight[top][v];
         }
