@@ -3,6 +3,7 @@ package data.structures.graph;
 import data.structures.matrix.MatrixExamples;
 import utilities.Graph;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class GraphExamples {
@@ -271,7 +272,29 @@ public class GraphExamples {
   /**
    * 23.
    * Problem: Shortest Path in Directed Acyclic Graph.
+   * Given a Weighted Directed Acyclic Graph and a source vertex in the graph, find the shortest paths from given source
+   * to all other vertices.
    */
+  ArrayList<Integer> shortestPathDAG(int[][] graph, int[][] weight, int source) {
+    ArrayList<Integer> distance = new ArrayList<>();
+    Collections.fill(distance, Integer.MAX_VALUE);
+    Stack<Integer> stack = topologicalSort(graph);
+    distance.set(source, 0);
+    distance = sPaths(graph, weight, stack, distance);
+    return distance;
+  }
+
+  ArrayList<Integer> sPaths(int[][] graph, int[][] weight, Stack<Integer> stack, ArrayList<Integer> distance) {
+    while (!stack.isEmpty()) {
+      int top = stack.pop();
+      for (int v = 0; v < graph.length; v++) {
+        if (graph[top][v] == 1)
+          if (distance.get(v) > distance.get(top) + weight[top][v]) distance.set(v, distance.get(top) + weight[top][v]);
+      }
+
+    }
+    return distance;
+  }
 
   /**
    * 24.
