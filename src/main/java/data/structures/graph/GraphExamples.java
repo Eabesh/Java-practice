@@ -410,7 +410,7 @@ public class GraphExamples {
 
   /**
    * 40.
-   * Problem: Johnson&#8217;s algorithm for All-pairs shortest paths.
+   * Problem: Johnson's algorithm for All-pairs shortest paths.
    * Solution:
    */
 
@@ -470,7 +470,7 @@ public class GraphExamples {
 
   /**
    * 50.
-   * Problem: Tarjan&#8217;s Algorithm to find Strongly Connected Components.
+   * Problem: Tarjan's Algorithm to find Strongly Connected Components.
    * Solution:
    */
 
@@ -494,7 +494,7 @@ public class GraphExamples {
 
   /**
    * 54.
-   * Problem: Biconnected Components.
+   * Problem: Bi-connected Components.
    * Solution:
    */
 
@@ -560,13 +560,13 @@ public class GraphExamples {
 
   /**
    * 63.
-   * Problem: Greedy Algorithms | Set 9 (Boruvka&#8217;s algorithm).
+   * Problem: Greedy Algorithms | Set 9 (Boruvka's algorithm).
    * Solution:
    */
 
   /**
    * 64.
-   * Problem: Karger&#8217;s algorithm for Minimum Cut | Set 1 (Introduction and Implementation).
+   * Problem: Karger's algorithm for Minimum Cut | Set 1 (Introduction and Implementation).
    * Solution:
    */
 
@@ -611,7 +611,7 @@ public class GraphExamples {
 
   /**
    * 71.
-   * Problem: Java Program for Dijkstra&#8217;s Algorithm with Path Printing.
+   * Problem: Java Program for Dijkstra's Algorithm with Path Printing.
    * Solution:
    */
 
@@ -671,7 +671,7 @@ public class GraphExamples {
 
   /**
    * 81.
-   * Problem: Printing Paths in Dijkstra&#8217;s Shortest Path Algorithm.
+   * Problem: Printing Paths in Dijkstra's Shortest Path Algorithm.
    * Solution:
    */
 
@@ -683,13 +683,13 @@ public class GraphExamples {
 
   /**
    * 83.
-   * Problem: Dijkstra&#8217;s Shortest Path Algorithm using priority_queue of STL.
+   * Problem: Dijkstra's Shortest Path Algorithm using priority_queue of STL.
    * Solution:
    */
 
   /**
    * 84.
-   * Problem: Prim&#8217;s algorithm using priority_queue in STL.
+   * Problem: Prim's algorithm using priority_queue in STL.
    * Solution:
    */
 
@@ -719,7 +719,7 @@ public class GraphExamples {
 
   /**
    * 89.
-   * Problem: Kahn&#8217;s algorithm for Topological Sorting.
+   * Problem: Kahn's algorithm for Topological Sorting.
    * Solution:
    */
 
@@ -731,7 +731,7 @@ public class GraphExamples {
 
   /**
    * 91.
-   * Problem: Dial&#8217;s Algorithm (Optimized Dijkstra for small range weights).
+   * Problem: Dial's Algorithm (Optimized Dijkstra for small range weights).
    * Solution:
    */
 
@@ -743,7 +743,7 @@ public class GraphExamples {
 
   /**
    * 93.
-   * Problem: Kruskal&#8217;s Minimum Spanning Tree using STL in C++.
+   * Problem: Kruskal's Minimum Spanning Tree using STL in C++.
    * Solution:
    */
 

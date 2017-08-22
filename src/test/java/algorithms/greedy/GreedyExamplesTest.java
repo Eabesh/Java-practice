@@ -10,6 +10,14 @@ import static org.junit.Assert.*;
  */
 public class GreedyExamplesTest {
   @Test
+  public void minCoin() throws Exception {
+    int[] denomination = {1, 2, 5, 10, 20, 50, 100, 500, 2000};
+    assertEquals(2, new GreedyExamples().minCoin(denomination, 70));
+    assertEquals(5, new GreedyExamples().minCoin(denomination, 93));
+    assertEquals(3, new GreedyExamples().minCoin(denomination, 121));
+  }
+
+  @Test
   public void fittingShelves() throws Exception {
    int[] minValues = new int[3];
    int wall = 7;

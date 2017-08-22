@@ -1,5 +1,7 @@
 package algorithms.greedy;
 
+import java.util.Arrays;
+
 /**
  * Created by abhay on 07/07/17.
  */
@@ -135,8 +137,21 @@ public class GreedyExamples {
   /**
    * 22.
    * Problem: Greedy Algorithm to find Minimum number of Coins.
-   * Solution:
+   * Given a value V, if we want to make change for V Rs, and we have infinite supply of each of the denominations  what
+   * is the minimum number of coins and/or notes needed to make the change?
+   * Solution. It doesn't work for {1, 5, 6, 9}, sum = 11
    */
+  int minCoin(int[] denominations, int sum) {
+    Arrays.sort(denominations);
+    return minCoins(denominations, denominations.length, sum, 0);
+  }
+  int minCoins(int[] denomination, int m, int sum, int coins) {
+    if (sum == 0) return coins;
+    else if (m == 0 && sum > 0) return 0;
+    else if (denomination[m - 1] > sum) return minCoins(denomination, m - 1, sum, coins);
+    else return minCoins(denomination, m, sum - denomination[m - 1], coins + 1);
+  }
+
 
   /**
    * 23.
