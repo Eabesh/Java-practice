@@ -10,11 +10,19 @@ import static org.junit.Assert.*;
  */
 public class GreedyExamplesTest {
   @Test
+  public void connectRopes() throws Exception {
+    int[] ropes = {4, 3, 2, 6};
+    assertEquals(29, new GreedyExamples().connectRopes(ropes));
+  }
+
+  @Test
   public void minCoin() throws Exception {
     int[] denomination = {1, 2, 5, 10, 20, 50, 100, 500, 2000};
     assertEquals(2, new GreedyExamples().minCoin(denomination, 70));
     assertEquals(5, new GreedyExamples().minCoin(denomination, 93));
     assertEquals(3, new GreedyExamples().minCoin(denomination, 121));
+    int[] den = {1, 5, 6, 9};
+    assertEquals(3, new GreedyExamples().minCoin(den, 11));
   }
 
   @Test

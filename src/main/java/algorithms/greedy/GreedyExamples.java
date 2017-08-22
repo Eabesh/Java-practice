@@ -1,6 +1,7 @@
 package algorithms.greedy;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 /**
  * Created by abhay on 07/07/17.
@@ -85,6 +86,20 @@ public class GreedyExamples {
    * Problem: Connect n ropes with minimum cost.
    * Solution:
    */
+  int connectRopes(int[] ropes) {
+    PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+    for (int rope : ropes) minHeap.add(rope);
+    return minCostToConnect(minHeap, 0);
+  }
+
+  private int minCostToConnect(PriorityQueue<Integer> minHeap, int cost) {
+    if (minHeap.size() == 1) return cost;
+    else {
+      int sum = minHeap.remove() + minHeap.remove();
+      minHeap.add(sum);
+      return minCostToConnect(minHeap, cost + sum);
+    }
+  }
 
   /**
    * 14.
