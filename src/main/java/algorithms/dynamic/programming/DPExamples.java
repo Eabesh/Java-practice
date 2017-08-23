@@ -1716,8 +1716,7 @@ public class DPExamples {
     else if (str1.charAt(m - 1) == str2.charAt(n - 1) && str1.charAt(m - 1) == str3.charAt(o - 1))
       return 1 + threeStringsLCS(str1, str2, str3, m - 1, n - 1, o - 1);
     else return Math.max(threeStringsLCS(str1, str2, str3, m - 1, n, o),
-              Math.max(threeStringsLCS(str1, str2, str3, m, n - 1, o),
-                      threeStringsLCS(str1, str2, str3, m, n, o - 1)));
+              Math.max(threeStringsLCS(str1, str2, str3, m, n - 1, o), threeStringsLCS(str1, str2, str3, m, n, o - 1)));
   }
 
   /**

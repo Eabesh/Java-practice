@@ -34,8 +34,7 @@ public class GraphExamples {
    */
   void depthFS(int[][] mat) {
     boolean[] isVisited = new boolean[mat.length];
-    for (int i = 0; i < mat.length; i++)
-      if (!isVisited[i]) depthFirstSearch(mat, i, isVisited);
+    for (int i = 0; i < mat.length; i++) if (!isVisited[i]) depthFirstSearch(mat, i, isVisited);
   }
 
   void depthFirstSearch(int[][] mat, int i, boolean[] isVisited) {
