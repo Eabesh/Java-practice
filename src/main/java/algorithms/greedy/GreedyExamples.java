@@ -228,6 +228,7 @@ public class GreedyExamples {
     else if (sum == 0) return digits == 1 ? "0" : null;
     return smallestNum(digits, sum - 1, "");
   }
+
   private String smallestNum(int digits, int sum, String soFar) {
     if (digits == 1) return sum + 1 + soFar;
     else if (sum < 9) return smallestNum(digits - 1, 0, sum + soFar);
@@ -267,8 +268,17 @@ public class GreedyExamples {
   /**
    * 34.
    * Problem: Minimum sum of two numbers formed from digits of an array.
-   * Solution:
    */
+  int minSum(int[] array) {
+    Arrays.sort(array);
+    return minSumOfTwoNum(array, 0, 0, 0);
+  }
+
+  private int minSumOfTwoNum(int[] array, int index, int num1, int num2) {
+    if (index >= array.length) return num1 + num2;
+    else if (index + 1 == array.length) return num1 * 10 +array[index] + num2;
+    else return minSumOfTwoNum(array, index + 2, num1 * 10 + array[index], num2 * 10 + array[index + 1]);
+  }
 
   /**
    * 35.

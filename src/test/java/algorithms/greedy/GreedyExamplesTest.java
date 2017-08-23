@@ -13,6 +13,14 @@ import static org.junit.Assert.*;
  */
 public class GreedyExamplesTest {
   @Test
+  public void minSum() throws Exception {
+    int[] array = {6, 8, 4, 5, 2, 3};
+    int[] array1 = {5, 3, 0, 7, 4};
+    assertEquals(604, new GreedyExamples().minSum(array));
+    assertEquals(82, new GreedyExamples().minSum(array1));
+  }
+
+  @Test
   public void fractKP() throws Exception {
     ArrayList<Item> items = new ArrayList<>();
     items.add(new Item(30, 120));
