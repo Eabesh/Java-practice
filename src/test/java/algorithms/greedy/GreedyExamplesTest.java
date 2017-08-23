@@ -2,6 +2,9 @@ package algorithms.greedy;
 
 import algorithms.dynamic.programming.DPExamples;
 import org.junit.Test;
+import utilities.Item;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -9,6 +12,15 @@ import static org.junit.Assert.*;
  * Created by abhay on 08/07/17.
  */
 public class GreedyExamplesTest {
+  @Test
+  public void fractKP() throws Exception {
+    ArrayList<Item> items = new ArrayList<>();
+    items.add(new Item(30, 120));
+    items.add(new Item(10, 60));
+    items.add(new Item(20, 100));
+    assertEquals(240, new GreedyExamples().fractKP(50, items), 0.001);
+  }
+
   @Test
   public void smallestNumber() throws Exception {
     assertEquals("18", new GreedyExamples().smallestNumber(2, 9));

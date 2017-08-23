@@ -1,7 +1,8 @@
 package algorithms.greedy;
 
-import java.util.Arrays;
-import java.util.PriorityQueue;
+import utilities.Item;
+
+import java.util.*;
 
 /**
  * Created by abhay on 07/07/17.
@@ -183,8 +184,27 @@ public class GreedyExamples {
   /**
    * 25.
    * Problem: Fractional Knapsack Problem.
-   * Solution:
+   * In Fractional Knapsack, we can break items for maximizing the total value of knapsack. This problem in which we
+   * can break item also called fractional knapsack problem.
    */
+  class ItemComparator implements Comparator<Item> {
+
+    @Override
+    public int compare(Item o1, Item o2) {
+      return o2.value / o2.weight - o1.value / o1.weight;
+
+    }
+  }
+  double fractKP(int capacity, ArrayList<Item> items) {
+    Collections.sort(items, new ItemComparator());
+    return fractionalKP(capacity, items, 0, 0);
+  }
+  double fractionalKP(int capacity, ArrayList<Item> items, double valueSoFar, int index) {
+    if (capacity == 0) return valueSoFar;
+    else if (capacity >= items.get(index).weight)
+      return fractionalKP(capacity - items.get(index).weight, items,valueSoFar + items.get(index).value, index + 1);
+    else return fractionalKP(0, items, valueSoFar + capacity * items.get(index).value / items.get(index).weight, index + 1);
+  }
 
   /**
    * 26.
