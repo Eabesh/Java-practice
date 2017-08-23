@@ -188,11 +188,9 @@ public class GreedyExamples {
    * can break item also called fractional knapsack problem.
    */
   class ItemComparator implements Comparator<Item> {
-
     @Override
     public int compare(Item o1, Item o2) {
       return o2.value / o2.weight - o1.value / o1.weight;
-
     }
   }
   double fractKP(int capacity, ArrayList<Item> items) {
