@@ -10,6 +10,12 @@ import static org.junit.Assert.*;
  */
 public class GreedyExamplesTest {
   @Test
+  public void smallestNumber() throws Exception {
+    assertEquals("18", new GreedyExamples().smallestNumber(2, 9));
+    assertEquals("299", new GreedyExamples().smallestNumber(3, 20));
+  }
+
+  @Test
   public void connectRopes() throws Exception {
     int[] ropes = {4, 3, 2, 6};
     assertEquals(29, new GreedyExamples().connectRopes(ropes));

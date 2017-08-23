@@ -203,6 +203,16 @@ public class GreedyExamples {
    * Problem: Find smallest number with given number of digits and sum of digits.
    * Solution:
    */
+  String smallestNumber(int digits, int sum) {
+    if (sum > 9 * digits) return null;
+    else if (sum == 0) return digits == 1 ? "0" : null;
+    return smallestNum(digits, sum - 1, "");
+  }
+  private String smallestNum(int digits, int sum, String soFar) {
+    if (digits == 1) return sum + 1 + soFar;
+    else if (sum < 9) return smallestNum(digits - 1, 0, sum + soFar);
+    else return smallestNum(digits - 1, sum - 9, 9 + soFar);
+  }
 
   /**
    * 29.
