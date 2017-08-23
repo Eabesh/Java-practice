@@ -10,6 +10,12 @@ import static org.junit.Assert.assertTrue;
  */
 public class MathematicalExamplesTest {
   @Test
+  public void findLargest() throws Exception {
+    assertEquals("90", new MathematicalExamples().findLargest(2, 9));
+    assertEquals("992", new MathematicalExamples().findLargest(3, 20));
+  }
+
+  @Test
   public void countWaysToSpell() throws Exception {
     assertEquals(1, new MathematicalExamples().countWaysToSpell("12"));
     assertEquals(16, new MathematicalExamples().countWaysToSpell("11111"));

@@ -1124,8 +1124,18 @@ public class MathematicalExamples {
   /**
    * 178.
    * Problem: Find the Largest number with given number of digits and sum of digits.
-   * Solution:
    */
+  String findLargest(int digits, int sum) {
+    if (sum == 0) return digits == 1 ? "0" : null;
+    else if (sum > 9 * digits) return null;
+    else return findLargestNum(digits, sum, "");
+  }
+
+  private String findLargestNum(int digits, int sum , String soFar) {
+    if (digits == 1) return soFar + sum;
+    else if (sum < 9) return findLargestNum(digits - 1, 0, soFar + sum);
+    else return findLargestNum(digits - 1, sum - 9,  soFar + 9);
+  }
 
   /**
    * 179.
