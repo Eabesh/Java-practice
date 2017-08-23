@@ -193,6 +193,7 @@ public class GreedyExamples {
       return o2.value / o2.weight - o1.value / o1.weight;
     }
   }
+
   double fractKP(int capacity, ArrayList<Item> items) {
     Collections.sort(items, new ItemComparator());
     return fractionalKP(capacity, items, 0, 0);
