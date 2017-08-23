@@ -197,7 +197,8 @@ public class GreedyExamples {
     Collections.sort(items, new ItemComparator());
     return fractionalKP(capacity, items, 0, 0);
   }
-  double fractionalKP(int capacity, ArrayList<Item> items, double valueSoFar, int index) {
+
+  private double fractionalKP(int capacity, ArrayList<Item> items, double valueSoFar, int index) {
     if (capacity == 0) return valueSoFar;
     else if (capacity >= items.get(index).weight)
       return fractionalKP(capacity - items.get(index).weight, items,valueSoFar + items.get(index).value, index + 1);
