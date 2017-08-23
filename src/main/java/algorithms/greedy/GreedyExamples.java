@@ -208,7 +208,7 @@ public class GreedyExamples {
 
   /**
    * 26.
-   * Problem: Dial&#8217;s Algorithm (Optimized Dijkstra for small range weights).
+   * Problem: Dial's Algorithm (Optimized Dijkstra for small range weights).
    * Solution:
    */
 
