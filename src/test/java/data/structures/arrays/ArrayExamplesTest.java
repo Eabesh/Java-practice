@@ -11,6 +11,12 @@ import static org.junit.Assert.assertTrue;
 
 public class ArrayExamplesTest {
   @Test
+  public void findTPoint() throws Exception {
+    int[] array = {0, 0, 0, 0, 1, 1};
+    assertEquals(4, new ArrayExamples().findTPoint(array, 0, array.length - 1));
+  }
+
+  @Test
   public void findIndex() throws Exception {
     int[] array = {1, 2, 3, 4, 5 };
     int start = new ArrayExamples().findIndex(array, 5, 0, 1,  -1);

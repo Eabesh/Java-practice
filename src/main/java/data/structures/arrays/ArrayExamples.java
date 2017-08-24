@@ -2556,6 +2556,15 @@ public class ArrayExamples {
    * Given a sorted array containing only numbers 0 and 1, the task is to find the transition point efficiently.
    * Transition point is a point where “0” ends and “1” begins.
    */
+  int findTPoint(int[] array, int start, int end) {
+    if (start > end) return -1;
+    else {
+      int mid = (start + end) / 2;
+      if (array[mid] == 1 && mid - 1 > 0 && array[mid - 1] == 0) return mid;
+      else if (array[mid] == 0) return findTPoint(array, mid + 1, end);
+      else return findTPoint(array, start, end -1);
+    }
+  }
 
   /**
    * 337.
