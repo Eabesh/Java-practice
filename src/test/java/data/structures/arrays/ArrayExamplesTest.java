@@ -11,6 +11,14 @@ import static org.junit.Assert.assertTrue;
 
 public class ArrayExamplesTest {
   @Test
+  public void findIndex() throws Exception {
+    int[] array = {1, 2, 3, 4, 5 };
+    int start = new ArrayExamples().findIndex(array, 5, 0, 1,  -1);
+    int last = new ArrayExamples().findIndex(array, 5, array.length - 1, -1, -1);
+    System.out.println(start + " " + last);
+  }
+
+  @Test
   public void countWaysToReachEnd() throws Exception {
     new DPExamplesTest().minJumps();
   }

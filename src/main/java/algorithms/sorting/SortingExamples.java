@@ -709,7 +709,7 @@ class SortingExamples {
 
   /**
    * 118.
-   * Problem: Find all  triplets with zero sum.
+   * Problem: Find all triplets with zero sum.
    * Solution:
    */
 

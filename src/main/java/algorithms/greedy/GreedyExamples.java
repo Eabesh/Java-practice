@@ -18,7 +18,7 @@ public class GreedyExamples {
 
   /**
    * 2.
-   * Problem: Boruvka&s algorithm for Minimum Spanning Tree.
+   * Problem: Boruvka's algorithm for Minimum Spanning Tree.
    * Solution:
    */
 
@@ -60,7 +60,7 @@ public class GreedyExamples {
 
   /**
    * 9.
-   * Problem: Greedy Algorithms | Set 7 (Dijkstra&#8217;s shortest path algorithm).
+   * Problem: Greedy Algorithms | Set 7 (Dijkstra's shortest path algorithm).
    * Solution:
    */
 
@@ -140,7 +140,7 @@ public class GreedyExamples {
 
   /**
    * 20.
-   * Problem: Greedy Algorithms | Set 9 (Boruvka&#8217;s algorithm).
+   * Problem: Greedy Algorithms | Set 9 (Boruvka's algorithm).
    * Solution:
    */
 

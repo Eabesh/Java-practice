@@ -2542,13 +2542,19 @@ public class ArrayExamples {
   /**
    * 335.
    * Problem: Find start and ending index of an element in an unsorted array.
-   * Solution:
+   * Given an array of integers, task is to find the starting and ending position of a given key.
    */
+  int findIndex(int[] array, int key, int index, int iterator, int res) {
+    if (array.length == index || index < 0) return res;
+    else if (array[index] == key) return index;
+    else return findIndex(array, key, index + iterator, iterator, res);
+  }
 
   /**
    * 336.
    * Problem: Find the transition point in a binary array.
-   * Solution:
+   * Given a sorted array containing only numbers 0 and 1, the task is to find the transition point efficiently.
+   * Transition point is a point where “0” ends and “1” begins.
    */
 
   /**
