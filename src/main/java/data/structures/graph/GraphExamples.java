@@ -1036,8 +1036,14 @@ public class GraphExamples {
   /**
    * 130.
    * Problem: Find the minimum number of moves needed to move from one cell of matrix to another.
-   * Solution:
+   * Given a N X N matrix (M) filled with 1 , 0 , 2 , 3 . Find the minimum numbers of moves needed to move from source to
+   * destination (sink) . while traversing through blank cells only. You can traverse up, down, right and left.
+   * A value of cell 1 means Source. A value of cell 2 means Destination. A value of cell 3 means Blank cell.
+   * A value of cell 0 means Blank Wall.
    */
+  int minMoves(int[][] mat) {
+
+  }
 
   /**
    * 131.
