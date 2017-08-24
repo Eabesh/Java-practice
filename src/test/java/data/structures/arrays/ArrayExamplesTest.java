@@ -11,6 +11,13 @@ import static org.junit.Assert.assertTrue;
 
 public class ArrayExamplesTest {
   @Test
+  public void findUniquePairs() throws Exception {
+    int[] a = {10, 15, 20};
+    int[] b = {17, 12, 24};
+    assertEquals(2, new ArrayExamples().findUP(a, b, 3));
+  }
+
+  @Test
   public void findTPoint() throws Exception {
     int[] array = {0, 0, 0, 0, 1, 1};
     assertEquals(4, new ArrayExamples().findTPoint(array, 0, array.length - 1));

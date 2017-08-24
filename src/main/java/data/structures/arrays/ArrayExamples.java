@@ -2530,8 +2530,22 @@ public class ArrayExamples {
   /**
    * 333.
    * Problem: Maximizing Unique Pairs from two arrays.
-   * Solution:
+   * Given two arrays of equal size N, form maximum number of pairs by using their elements, one from the first array and
+   * second from the second array, such that an element from each array is used at-most once and the absolute difference
+   * between the selected elements used for forming a pair is less than or equal to a given element K.
    */
+  int findUP(int[] array1, int[] array2, int k) {
+    Arrays.sort(array1);
+    Arrays.sort(array2);
+    return findUniquePairs(array1, array2, 0, 0, k, 0);
+  }
+
+  private int findUniquePairs(int[] array1, int[] array2, int i, int j, int k, int res) {
+    if (i > array1.length - 1 || j > array1.length - 1) return res;
+    else if (Math.abs(array1[i] - array2[j]) <= k) return findUniquePairs(array1, array2, i + 1, j + 1, k,res + 1);
+    else if (array1[i] > array2[j]) return findUniquePairs(array1, array2, i, j + 1, k, res);
+    else return findUniquePairs(array1, array2, i + 1, j, k, res);
+  }
 
   /**
    * 334.
