@@ -441,6 +441,15 @@ public class GraphExamples {
    * 41.
    * Problem: Graph Coloring | Set 1 (Introduction and Applications).
    * Solution:
+   * 1) Vertex coloring is the most common graph coloring problem. The problem is, given m colors, find a way of coloring the
+   * vertices of a graph such that no two adjacent vertices are colored using same color.
+   * 2) Chromatic Number: The smallest number of colors needed to color a graph G is called its chromatic number.
+   * Applications of Graph Coloring:
+   * 1) Making Schedule or Time Table:
+   * 2) Mobile Radio Frequency Assignment:
+   * 3) Sudoku:
+   * 4) Register Allocation:
+   * 5) Bipartite Graphs:
    */
 
   /**
