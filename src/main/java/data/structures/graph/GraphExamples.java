@@ -1068,8 +1068,34 @@ public class GraphExamples {
   /**
    * 134.
    * Problem: Find length of the largest region in Boolean Matrix.
+   * Consider a matrix with rows and columns, where each cell contains either a ‘0’ or a ‘1’ and any cell containing a 1
+   * is called a filled cell. Two cells are said to be connected if they are adjacent to each other horizontally, vertically,
+   * or diagonally .If one or more filled cells are also connected, they form a region. find the length of the largest region.
    * Solution:
    */
+  int findLargestRegion(int[][] mat) {
+    boolean[][] visited = new boolean[mat.length][mat[0].length];
+    int maxLength = Integer.MIN_VALUE;
+    int[][] moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {1, -1}, {-1, 1}};
+    for (int i = 0; i < mat.length; i++)
+      for (int j = 0; j < mat[0].length; j++)
+        if (mat[i][j] == 1 && !visited[i][j]) maxLength = Math.max(maxLength, dfsLR(mat, i, j, visited, moves));
+    return maxLength;
+  }
+
+  private int dfsLR(int[][] mat, int x, int y, boolean[][] visited, int[][] moves) {
+    if (!isValidMove(mat, x, y, visited)) return 0;
+    else {
+      visited[x][y] = true;
+      int res = 1;
+      for (int[] move : moves) res += dfsLR(mat, x + move[0], y + move[1], visited, moves);
+      return res;
+    }
+  }
+
+  boolean isValidMove(int[][] grid, int x, int y, boolean[][] isVisited) {
+    return (x >= 0 && x < grid.length && y >= 0 && y < grid[0].length && grid[x][y] == 1 && !isVisited[x][y]);
+  }
 
   /**
    * 135.
@@ -1238,9 +1264,7 @@ public class GraphExamples {
     return max;
   }
 
-  boolean isValidMove(int[][] grid, int x, int y, boolean[][] isVisited) {
-    return (x >= 0 && x < grid.length && y >= 0 && y < grid[0].length && grid[x][y] == 1 && !isVisited[x][y]);
-  }
+
 
   int dfs(int[][] grid, int x, int y, boolean[][] isVisited) {
     if (!isValidMove(grid, x, y, isVisited)) return 0;

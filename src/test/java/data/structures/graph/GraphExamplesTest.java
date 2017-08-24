@@ -14,6 +14,15 @@ import static org.junit.Assert.assertTrue;
 
 public class GraphExamplesTest {
   @Test
+  public void findLargestRegion() throws Exception {
+   int[][] graph = { {0, 0, 1, 1, 0},
+      {1, 0, 1, 1, 0},
+      {0, 1, 0, 0, 0},
+      {0, 0, 0, 0, 1}};
+   assertEquals(6, new GraphExamples().findLargestRegion(graph));
+  }
+
+  @Test
   public void sumOfDependencies() throws Exception {
     Graph graph = new Graph(5);
     graph.addEdge(0 , 2);
