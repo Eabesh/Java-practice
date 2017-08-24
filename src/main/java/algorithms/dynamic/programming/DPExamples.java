@@ -650,7 +650,7 @@ public class DPExamples {
    * Given a directed graph and two vertices ‘u’ and ‘v’ in it, count all possible walks from ‘u’ to ‘v’ with exactly
    * k edges on the walk.
    */
-  int countWalks(int[][] graph, int source, int dest, int k) {
+  public int countWalks(int[][] graph, int source, int dest, int k) {
     if (k == 0 && source == dest) return 1;
     else if (k == 1 && graph[source][dest] == 1) return 1;
     else if (k <= 0) return 0;

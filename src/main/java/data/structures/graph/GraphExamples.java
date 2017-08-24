@@ -1,5 +1,6 @@
 package data.structures.graph;
 
+import algorithms.dynamic.programming.DPExamples;
 import data.structures.matrix.MatrixExamples;
 import utilities.Graph;
 
@@ -493,6 +494,9 @@ public class GraphExamples {
    * Problem: Count all possible walks from a source to a destination with exactly k edges.
    * Solution:
    */
+  int countPaths(int[][] graph, int source, int dest, int k) {
+    return new DPExamples().countWalks(graph, source, dest, k);
+  }
 
   /**
    * 49.
@@ -1047,17 +1051,19 @@ public class GraphExamples {
    * Solution:
    */
   int countEdgesUDG(Graph graph) {
-    int sum = 0;
-    List<List<Integer>> g = graph.getGraph();
-    for (List<Integer> list : g) sum += list.size();
-    return sum;
+   return sumOfDependencies(graph) / 2;
   }
 
   /**
    * 133.
    * Problem: Sum of dependencies in a graph.
-   * Solution:
    */
+  int sumOfDependencies(Graph graph) {
+    int sum = 0;
+    List<List<Integer>> g = graph.getGraph();
+    for (List<Integer> list : g) sum += list.size();
+    return sum;
+  }
 
   /**
    * 134.

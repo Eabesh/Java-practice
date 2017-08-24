@@ -1,5 +1,7 @@
 package data.structures.graph;
 
+import algorithms.dynamic.programming.DPExamples;
+import algorithms.dynamic.programming.DPExamplesTest;
 import org.junit.Test;
 import utilities.Graph;
 import utilities.Stack;
@@ -11,6 +13,27 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class GraphExamplesTest {
+  @Test
+  public void sumOfDependencies() throws Exception {
+    Graph graph = new Graph(5);
+    graph.addEdge(0 , 2);
+    graph.addEdge(0 ,  3);
+    graph.addEdge(1 , 3);
+    graph.addEdge(2 , 3);
+    assertEquals(4, new GraphExamples().sumOfDependencies(graph));
+  }
+
+  @Test
+  public void countPaths() throws Exception {
+    int[][] graph = { {0, 1, 1, 1},
+            {0, 0, 0, 1},
+            {0, 0, 0, 1},
+            {0, 0, 0, 0}
+    };
+
+    assertEquals(2, new GraphExamples().countPaths(graph, 0, 3, 2));
+  }
+
   @Test
   public void isBipartite() throws Exception {
     int[][] graph = {{0, 1, 0, 1},
