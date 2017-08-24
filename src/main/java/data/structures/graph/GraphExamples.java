@@ -245,6 +245,30 @@ public class GraphExamples {
    * 21.
    * Problem: Check whether a given graph is Bipartite or not.
    */
+  boolean isBipartite(int[][] graph) {
+    int[] color = new int[graph.length];
+    Arrays.fill(color, -1);
+    for (int i = 0; i < graph.length; i++) if (color[i] == -1) if (!bfsBipartite(graph, i, color)) return false;
+    return true;
+  }
+
+  private boolean bfsBipartite(int[][] graph, int source, int[] color) {
+    Queue<Integer> queue = new LinkedList<>();
+    queue.add(source);
+    color[source] = 1;
+    while (!queue.isEmpty()) {
+      int u = queue.poll();
+      if (graph[u][u] == 1) return false;
+      for (int v = 0; v < graph.length; v++) {
+        if (graph[u][v] == 1 && color[v] == -1) {
+          color[v] = 1 - color[u];
+          queue.add(v);
+        }
+        else if (graph[u][v] == 1 && color[v] == color[u]) return false;
+      }
+    }
+    return true;
+  }
 
   /**
    * 22.
