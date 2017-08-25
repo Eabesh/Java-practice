@@ -2,6 +2,7 @@ package data.structures.graph;
 
 import algorithms.dynamic.programming.DPExamples;
 import data.structures.matrix.MatrixExamples;
+import utilities.BFSNode;
 import utilities.Graph;
 
 import java.lang.reflect.Array;
@@ -822,8 +823,39 @@ public class GraphExamples {
   /**
    * 100.
    * Problem: Find Shortest distance from a guard in a Bank.
-   * Solution:
+   * Given a matrix that is filled with ‘O’, ‘G’, and ‘W’ where ‘O’ represents open space, ‘G’ represents guards and ‘W’
+   * represents walls in a Bank. Replace all of the O’s in the matrix with their shortest distance from a guard, without
+   * being able to go through any walls. Also, replace the guards with 0 and walls with -1 in output matrix.
    */
+
+  int[][] findDistance(char[][] mat) {
+    int[][] output = new int[mat.length][mat[0].length];
+    Queue<BFSNode> queue = new LinkedList<>();
+    Arrays.fill(output, -1);
+    for (int i = 0; i < mat.length; i++)
+      for (int j = 0; j < mat[0].length; j++) if (mat[i][j] == 'G') queue.add(new BFSNode(i, j, 0));
+    return bfsGuard(mat, output, queue);
+
+  }
+
+  private int[][] bfsGuard(char[][] mat, int[][] output, Queue<BFSNode> queue) {
+    int[][] moves = {{}, {}, {}, {}};
+    while (!queue.isEmpty()) {
+      BFSNode front = queue.poll();
+      for (int[] move : moves) {
+        int x = front.x + move[0], y = front.y + move[1];
+        if (isSafeMove(mat, output, x, y)) {
+          output[x][y] = front.distance + 1;
+          queue.add(new BFSNode(x, y, front.distance + 1));
+        }
+      }
+    }
+  return output;
+  }
+
+  private boolean isSafeMove(char[][] mat, int[][] output, int x, int y) {
+    return x >= 0 && x < mat.length && y >= 0 && y < mat[0].length && output[x][y] == -1 && mat[x][y] == 'O';
+  }
 
   /**
    * 101.
@@ -1041,9 +1073,7 @@ public class GraphExamples {
    * A value of cell 1 means Source. A value of cell 2 means Destination. A value of cell 3 means Blank cell.
    * A value of cell 0 means Blank Wall.
    */
-  int minMoves(int[][] mat) {
 
-  }
 
   /**
    * 131.

@@ -14,6 +14,10 @@ import static org.junit.Assert.assertTrue;
 
 public class GraphExamplesTest {
   @Test
+  public void findDistance() throws Exception {
+  }
+
+  @Test
   public void findLargestRegion() throws Exception {
    int[][] graph = { {0, 0, 1, 1, 0},
       {1, 0, 1, 1, 0},
