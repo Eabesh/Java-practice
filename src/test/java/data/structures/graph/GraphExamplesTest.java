@@ -14,6 +14,11 @@ import static org.junit.Assert.assertTrue;
 
 public class GraphExamplesTest {
   @Test
+  public void printSteppingNum() throws Exception {
+    new GraphExamples().printSteppingNum(0, 20);
+  }
+
+  @Test
   public void findDistance() throws Exception {
     char matrix[][] =
     {

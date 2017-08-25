@@ -2,6 +2,7 @@ package data.structures.graph;
 
 import algorithms.dynamic.programming.DPExamples;
 import data.structures.matrix.MatrixExamples;
+import recursion.RecursionExamples;
 import utilities.BFSNode;
 import utilities.Graph;
 
@@ -826,7 +827,6 @@ public class GraphExamples {
    * represents walls in a Bank. Replace all of the O’s in the matrix with their shortest distance from a guard, without
    * being able to go through any walls. Also, replace the guards with 0 and walls with -1 in output matrix.
    */
-
   int[][] findDistance(char[][] mat) {
     int[][] output = new int[mat.length][mat[0].length];
     Queue<BFSNode> queue = new LinkedList<>();
@@ -877,8 +877,13 @@ public class GraphExamples {
   /**
    * 103.
    * Problem: Stepping Numbers.
-   * Solution:
+   * Given two integers ‘n’ and ‘m’, find all the stepping numbers in range [n, m]. A number is called stepping number if
+   * all adjacent digits have an absolute difference of 1. 321 is a Stepping Number while 421 is not.
    */
+  void printSteppingNum(int n, int m) {
+    ArrayList<Integer> choices = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9));
+//    new RecursionExamples().printSteppingNumber(0,  n, m, choices );
+  }
 
   /**
    * 104.
