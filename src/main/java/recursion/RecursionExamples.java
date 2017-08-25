@@ -487,8 +487,6 @@ public class RecursionExamples {
    * For eg. 8, 343, 545 are stepping numbers. While 890, 098 are not.
    * The difference between a ‘9’ and ‘0’ should not be considered as 1.
    */
-
-
   public void printSteppingNumbers(int n, int m) {
     HashSet<Integer> steppingNumbersSet = new HashSet<>();
     ArrayList<Integer> choices = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9));
