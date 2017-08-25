@@ -265,8 +265,7 @@ public class GraphExamples {
         if (graph[u][v] == 1 && color[v] == -1) {
           color[v] = 1 - color[u];
           queue.add(v);
-        }
-        else if (graph[u][v] == 1 && color[v] == color[u]) return false;
+        } else if (graph[u][v] == 1 && color[v] == color[u]) return false;
       }
     }
     return true;
@@ -831,15 +830,21 @@ public class GraphExamples {
   int[][] findDistance(char[][] mat) {
     int[][] output = new int[mat.length][mat[0].length];
     Queue<BFSNode> queue = new LinkedList<>();
-    Arrays.fill(output, -1);
+    for (int[] row : output) Arrays.fill(row, -1);
+
     for (int i = 0; i < mat.length; i++)
-      for (int j = 0; j < mat[0].length; j++) if (mat[i][j] == 'G') queue.add(new BFSNode(i, j, 0));
+      for (int j = 0; j < mat[0].length; j++)
+        if (mat[i][j] == 'G') {
+          queue.add(new BFSNode(i, j, 0));
+          output[i][j] = 0;
+        }
     return bfsGuard(mat, output, queue);
 
   }
 
   private int[][] bfsGuard(char[][] mat, int[][] output, Queue<BFSNode> queue) {
-    int[][] moves = {{}, {}, {}, {}};
+    int[][] moves = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+
     while (!queue.isEmpty()) {
       BFSNode front = queue.poll();
       for (int[] move : moves) {
@@ -850,7 +855,7 @@ public class GraphExamples {
         }
       }
     }
-  return output;
+    return output;
   }
 
   private boolean isSafeMove(char[][] mat, int[][] output, int x, int y) {
@@ -1087,7 +1092,7 @@ public class GraphExamples {
    * Solution:
    */
   int countEdgesUDG(Graph graph) {
-   return sumOfDependencies(graph) / 2;
+    return sumOfDependencies(graph) / 2;
   }
 
   /**
@@ -1298,7 +1303,6 @@ public class GraphExamples {
 
     return max;
   }
-
 
 
   int dfs(int[][] grid, int x, int y, boolean[][] isVisited) {

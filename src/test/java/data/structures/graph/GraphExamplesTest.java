@@ -15,6 +15,20 @@ import static org.junit.Assert.assertTrue;
 public class GraphExamplesTest {
   @Test
   public void findDistance() throws Exception {
+    char matrix[][] =
+    {
+      {'O', 'O', 'O', 'O', 'G'},
+      {'O', 'W', 'W', 'O', 'O'},
+      {'O', 'O', 'O', 'W', 'O'},
+      {'G', 'W', 'W', 'W', 'O'},
+      {'O', 'O', 'O', 'O', 'G'}
+    };
+
+    int[][] output = new GraphExamples().findDistance(matrix);
+    for (int i = 0; i < output.length; i++) {
+      for (int j = 0; j < output[0].length; j++) System.out.print(output[i][j] + " ");
+      System.out.println();
+    }
   }
 
   @Test
