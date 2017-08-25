@@ -881,8 +881,7 @@ public class GraphExamples {
    * all adjacent digits have an absolute difference of 1. 321 is a Stepping Number while 421 is not.
    */
   void printSteppingNum(int n, int m) {
-    ArrayList<Integer> choices = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9));
-//    new RecursionExamples().printSteppingNumber(0,  n, m, choices );
+    new RecursionExamples().printSteppingNumbers(n, m);
   }
 
   /**
