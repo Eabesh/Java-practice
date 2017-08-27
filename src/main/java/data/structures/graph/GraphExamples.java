@@ -77,7 +77,7 @@ public class GraphExamples {
   boolean hasCycle(int[][] graph) {
     boolean[] visited = new boolean[graph.length];
     boolean[] recStack = new boolean[graph.length];
-    for (int node = 0; node < graph.length; node++) return containCycle(graph, node, visited, recStack) ? true : false;
+    for (int node = 0; node < graph.length; node++) if (containCycle(graph, node, visited, recStack)) return true;
     return false;
   }
 
@@ -947,8 +947,8 @@ public class GraphExamples {
   /**
    * 114.
    * Problem: Minimum Cost Path with Left, Right, Bottom and Up moves allowed.
-   * Solution:
    */
+
 
   /**
    * 115.
