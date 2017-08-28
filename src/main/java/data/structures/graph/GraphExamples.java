@@ -119,10 +119,8 @@ public class GraphExamples {
       int front = queue.poll();
       isVisited[front] = true;
       if (front == dest) return true;
-      else {
-        for (int i = 0; i < mat[0].length; i++)
-          if (!isVisited[i] && mat[front][i] == 1) queue.add(i);
-      }
+      else
+        for (int i = 0; i < mat[0].length; i++) if (!isVisited[i] && mat[front][i] == 1) queue.add(i);
     }
     return false;
   }
