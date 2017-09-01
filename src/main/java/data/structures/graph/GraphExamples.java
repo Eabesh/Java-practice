@@ -536,9 +536,30 @@ public class GraphExamples {
   /**
    * 55.
    * Problem: Boggle (Find all possible words in a board of characters) | Set 1.
-   * Solution:
    */
+  void findWords(char[][] mat, Set<String> dictionary) {
+    boolean[][] visited = new boolean[mat.length][mat[0].length];
+    int[][] moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {1, -1}, {-1, 1}};
+    for (int i = 0; i < mat.length; i++)
+      for (int j = 0; j < mat[0].length; j++)
+        findWord(mat, dictionary, i, j, visited, "", moves);
+  }
 
+  private void findWord(char[][] mat, Set<String> dictionary, int x, int y, boolean[][] visited, String soFar, int[][] moves) {
+    visited[x][y] = true;
+    soFar += mat[x][y];
+    if (dictionary.contains(soFar)) System.out.println(soFar);
+    for (int[] move : moves)
+      if (safeNextMove(mat, x + move[0], y + move[1], visited)) findWord(mat, dictionary,
+              x + move[0], y + move[1], visited, soFar, moves);
+
+    visited[x][y] = false;
+
+  }
+
+  private boolean safeNextMove(char[][] mat, int x, int y, boolean[][] visited) {
+    return x >=0 && x < mat.length && y >=0 && y < mat[0].length && !visited[x][y];
+  }
   /**
    * 56.
    * Problem: Minimize Cash Flow among a given set of friends who have borrowed money from each other.

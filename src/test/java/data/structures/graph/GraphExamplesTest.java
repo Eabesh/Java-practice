@@ -7,12 +7,26 @@ import utilities.Graph;
 import utilities.Stack;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class GraphExamplesTest {
+  @Test
+  public void findWords() throws Exception {
+    char boggle[][] = {{'G','I','Z'},
+      {'U','E','K'},
+      {'Q','S','E'}};
+    Set<String> dictionary = new HashSet<>();
+    dictionary.add("GEEK");
+    dictionary.add("QUIZ");
+    dictionary.add("SEEK");
+    new GraphExamples().findWords(boggle, dictionary);
+  }
+
   @Test
   public void printSteppingNum() throws Exception {
     new GraphExamples().printSteppingNum(0, 20);

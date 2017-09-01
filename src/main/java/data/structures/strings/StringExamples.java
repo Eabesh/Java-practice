@@ -313,6 +313,13 @@ public class StringExamples {
    * Problem: Print all possible strings that can be made by placing spaces.
    * Solution:
    */
+  void printSpaces(String soFar, String str) {
+    if (str.isEmpty()) System.out.println(soFar);
+    else {
+      printSpaces(soFar + str.charAt(0), str.substring(1));
+      printSpaces(soFar + " " + str.charAt(0), str.substring(1));
+    }
+  }
 
   /**
    * 53.
