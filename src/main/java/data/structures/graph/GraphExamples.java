@@ -1345,4 +1345,38 @@ public class GraphExamples {
   }
 
 
+  int countWynk(char[][] mat, String pat) {
+    boolean[][] visited = new boolean[mat.length][mat[0].length];
+    int res = 0;
+    int[][] moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {1, -1}, {-1, 1}};
+    for (int i = 0; i < mat.length; i++) {
+      for (int j = 0; j < mat[0].length; j++) {
+        if (mat[i][j] == 'W') res += dfsWynk(mat, i, j, pat, visited, moves);
+      }
+    }
+    return res;
+  }
+
+  private int dfsWynk(char[][] mat, int x, int y, String pat, boolean[][] visited, int[][] moves) {
+    if (pat.length() == 1 && pat.charAt(0) == mat[x][y]) return 1;
+    else {
+      int count = 0;
+      for (int[] move : moves) {
+        int nextX = x + move[0];
+        int nextY = y + move[1];
+        if (isSafeWynk(mat, nextX, nextY, pat.substring(1), visited)) {
+          visited[nextX][nextY] = true;
+          int[][] newMoves = {{move[0], move[1]}};
+          count += dfsWynk(mat, nextX, nextY, pat.substring(1), visited, newMoves);
+          visited[nextX][nextY] = false;
+        }
+      }
+      return count;
+    }
+  }
+
+  private boolean isSafeWynk(char[][] mat, int x, int y, String pat, boolean[][] visited) {
+    return x >= 0 && x < mat.length && y >= 0 && y < mat[0].length && !visited[x][y] && pat.charAt(0) == mat[x][y];
+  }
+
 }

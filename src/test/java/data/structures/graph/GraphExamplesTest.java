@@ -16,6 +16,16 @@ import static org.junit.Assert.assertTrue;
 
 public class GraphExamplesTest {
   @Test
+  public void countWynk() throws Exception {
+    char mat[][] = {{'W','Y','N', 'K'},
+                    {'Y','I','K', 'S'},
+                    {'N','S','N', 'S'},
+                    {'K','S','E', 'K'}};
+
+    assertEquals(2, new GraphExamples().countWynk(mat, "WYNK"));
+  }
+
+  @Test
   public void findWords() throws Exception {
     char boggle[][] = {{'G','I','Z'},
       {'U','E','K'},

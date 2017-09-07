@@ -29,8 +29,10 @@ public class StringExamples {
   /**
    * 5.
    * Problem: A Program to check if strings are rotations of each other or not.
-   * Solution:
    */
+  boolean areRotations(String str1, String str2) {
+    return (str1.length() == str2.length()) && ((str1 + str1).indexOf(str2) != -1);
+  }
 
   /**
    * 6.
@@ -83,8 +85,12 @@ public class StringExamples {
   /**
    * 14.
    * Problem: Print all permutations with repetition of characters.
-   * Solution:
    */
+  void printAllPermutations(String soFar, String rem, int n) {
+    if (n == 0) System.out.println(soFar);
+    else
+      for (int i = 0; i < rem.length(); i++) printAllPermutations(soFar + rem.charAt(i), rem, n - 1);
+  }
 
   /**
    * 15.
