@@ -6,6 +6,7 @@ import recursion.RecursionExamples;
 import utilities.BFSNode;
 import utilities.DijkstraGraph;
 import utilities.Graph;
+import utilities.ListNode;
 
 import java.lang.reflect.Array;
 import java.util.*;
@@ -421,6 +422,20 @@ public class GraphExamples {
    * Problem: Detect cycle in an undirected graph.
    * Solution:
    */
+  boolean isCycleUD(Graph graph) {
+    List<List<Integer>> graphList = graph.getGraph();
+    boolean[] visited = new boolean[graphList.size()];
+    return isCycleUD(graphList, 0, visited, - 1);
+  }
+
+  private boolean isCycleUD(List<List<Integer>> graphList, int u, boolean[] visited, int parent) {
+    visited[u] = true;
+    for (Integer v : graphList.get(u)) {
+      if (!visited[v]) if (isCycleUD(graphList, v, visited, parent)) return true;
+      else if (v != parent) return false;
+    }
+    return false;
+  }
 
   /**
    * 38.
