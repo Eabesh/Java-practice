@@ -425,14 +425,15 @@ public class GraphExamples {
   boolean isCycleUD(Graph graph) {
     List<List<Integer>> graphList = graph.getGraph();
     boolean[] visited = new boolean[graphList.size()];
-    return isCycleUD(graphList, 0, visited, - 1);
+    for (int u = 0; u < graphList.size(); u++) if (!visited[u]) if (isCycleUD(graphList, 0, visited, - 1)) return true;
+    return false;
   }
 
   private boolean isCycleUD(List<List<Integer>> graphList, int u, boolean[] visited, int parent) {
     visited[u] = true;
     for (Integer v : graphList.get(u)) {
-      if (!visited[v]) if (isCycleUD(graphList, v, visited, parent)) return true;
-      else if (v != parent) return false;
+      if (!visited[v]) if (isCycleUD(graphList, v, visited, u)) return true;
+      else if (v != parent) return true;
     }
     return false;
   }

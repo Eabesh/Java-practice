@@ -17,6 +17,18 @@ import static org.junit.Assert.assertTrue;
 
 public class GraphExamplesTest {
   @Test
+  public void isCycleUD() throws Exception {
+    Graph graph = new Graph(5);
+    graph.addEdge(0, 1);
+//    graph.addEdge(1, 2);
+//    graph.addEdge(0, 2);
+//    graph.addEdge(2, 0);
+//    graph.addEdge(0, 3);
+//    graph.addEdge(3, 4);
+    assertFalse(new GraphExamples().isCycleUD(graph));
+  }
+
+  @Test
   public void solveSnakeLadder() throws Exception {
     int[] moves = new int[30];
     Arrays.fill(moves, -1);
