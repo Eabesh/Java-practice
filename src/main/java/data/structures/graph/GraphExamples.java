@@ -4,6 +4,7 @@ import algorithms.dynamic.programming.DPExamples;
 import data.structures.matrix.MatrixExamples;
 import recursion.RecursionExamples;
 import utilities.BFSNode;
+import utilities.DijkstraGraph;
 import utilities.Graph;
 
 import java.lang.reflect.Array;
@@ -40,7 +41,7 @@ public class GraphExamples {
     for (int i = 0; i < mat.length; i++) if (!isVisited[i]) depthFirstSearch(mat, i, isVisited);
   }
 
-  void depthFirstSearch(int[][] mat, int i, boolean[] isVisited) {
+  private void depthFirstSearch(int[][] mat, int i, boolean[] isVisited) {
     isVisited[i] = true;
     System.out.print(i + " ");
     for (int j = 0; j < mat[0].length; j++) if (!isVisited[j] && mat[i][j] == 1) depthFirstSearch(mat, j, isVisited);
@@ -57,7 +58,7 @@ public class GraphExamples {
     for (int i = 0; i < graph.length; i++) if (!visited[i]) breadthFirstSearch(graph, i);
   }
 
-  void breadthFirstSearch(int[][] graph, int source) {
+  private void breadthFirstSearch(int[][] graph, int source) {
     boolean[] visited = new boolean[graph.length];
     Queue<Integer> queue = new LinkedList<>();
     visited[source] = true;
@@ -229,6 +230,9 @@ public class GraphExamples {
    * Problem: Greedy Algorithms | Set 8 (Dijkstra’s Algorithm for Adjacency List Representation).
    * Solution:
    */
+  void dijkstraAlgo(DijkstraGraph graph) {
+
+  }
 
   /**
    * 19.
@@ -307,7 +311,7 @@ public class GraphExamples {
     return distance;
   }
 
-  int[] sPaths(int[][] graph, int[][] weight, Stack<Integer> stack, int[] distance) {
+  private int[] sPaths(int[][] graph, int[][] weight, Stack<Integer> stack, int[] distance) {
     while (!stack.isEmpty()) {
       int top = stack.pop();
       if (distance[top] != Integer.MAX_VALUE) {
@@ -316,7 +320,6 @@ public class GraphExamples {
             if (distance[v] > distance[top] + weight[top][v]) distance[v] = distance[top] + weight[top][v];
         }
       }
-
     }
     return distance;
   }
@@ -514,6 +517,43 @@ public class GraphExamples {
    * Problem: Snake and Ladder Problem.
    * Solution:
    */
+  class BoardNode {
+    int vertex, distance;
+    public BoardNode(int v, int d) {
+      this.vertex = v;
+      this.distance = d;
+    }
+  }
+
+  int solveSnakeLadder(int[] board) {
+    int[] moves = {1, 2, 3, 4, 5, 6};
+    boolean[] visited = new boolean[board.length];
+    BoardNode source = new BoardNode(0, 0);
+    Queue<BoardNode> queue = new LinkedList<>();
+    visited[source.vertex] = true;
+    queue.add(source);
+    while (!queue.isEmpty()) {
+      BoardNode u = queue.poll();
+      if (u.vertex == board.length - 1) return u.distance;
+      else {
+        for (int move : moves) {
+          int nextMove = u.vertex + move;
+          if (isValidBoardMove(board, nextMove, visited)) {
+            visited[nextMove] = true;
+            if (isSnakeOrLadder(board[nextMove])) queue.add(new BoardNode(board[nextMove], u.distance + 1));
+            else queue.add(new BoardNode(nextMove, u.distance + 1));
+          }
+        }
+      }
+    }
+    return Integer.MIN_VALUE;
+  }
+
+  private boolean isValidBoardMove(int[] board, int nextMove, boolean[] visited) {
+    return nextMove < board.length && !visited[nextMove];
+  }
+
+  private boolean isSnakeOrLadder(int x) { return x == -1 ? false : true; }
 
   /**
    * 52.
@@ -560,6 +600,7 @@ public class GraphExamples {
   private boolean safeNextMove(char[][] mat, int x, int y, boolean[][] visited) {
     return x >=0 && x < mat.length && y >=0 && y < mat[0].length && !visited[x][y];
   }
+
   /**
    * 56.
    * Problem: Minimize Cash Flow among a given set of friends who have borrowed money from each other.
@@ -740,8 +781,9 @@ public class GraphExamples {
   /**
    * 83.
    * Problem: Dijkstra's Shortest Path Algorithm using priority_queue of STL.
-   * Solution:
+   * Given a graph and a source vertex in graph, find shortest paths from source to all vertices in the given graph.
    */
+
 
   /**
    * 84.

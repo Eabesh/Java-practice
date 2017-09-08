@@ -7,6 +7,7 @@ import utilities.Graph;
 import utilities.Stack;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,6 +16,26 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class GraphExamplesTest {
+  @Test
+  public void solveSnakeLadder() throws Exception {
+    int[] moves = new int[30];
+    Arrays.fill(moves, -1);
+
+    // Ladders
+    moves[2] = 21;
+    moves[4] = 7;
+    moves[10] = 25;
+    moves[19] = 28;
+
+    // Snakes
+    moves[26] = 0;
+    moves[20] = 8;
+    moves[16] = 3;
+    moves[18] = 6;
+
+    assertEquals(3, new GraphExamples().solveSnakeLadder(moves));
+  }
+
   @Test
   public void countWynk() throws Exception {
     char mat[][] = {{'W','Y','N', 'K'},
