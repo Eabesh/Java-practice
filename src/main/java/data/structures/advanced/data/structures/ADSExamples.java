@@ -1,5 +1,10 @@
 package data.structures.advanced.data.structures;
 
+import utilities.LRUNode;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class ADSExamples {
 
   /**
@@ -71,8 +76,57 @@ public class ADSExamples {
   /**
    * 12.
    * Problem: Implement LRU Cache.
-   * Solution:
    */
+  class LRUCache {
+    int capacity;
+    Map<Integer, LRUNode> map = new HashMap<>();
+    LRUNode front = null, end = null;
+
+    public LRUCache(int cap) {
+      this.capacity = cap;
+    }
+
+    public int get(int key) {
+      if (map.containsKey(key)) {
+        LRUNode node = map.get(key);
+        remove(node);
+        setHead(node);
+        return node.value;
+      } else return -1;
+    }
+
+    public void remove(LRUNode node) {
+      if (node.prev != null) node.prev.next = node.next;
+      else front = node.next;
+      if (node.next != null) node.next.prev = node.prev;
+      else end = node.prev;
+    }
+
+    public void setHead(LRUNode node) {
+      node.next = front;
+      node.prev = null;
+      if (front != null) front.prev = node;
+      front = node;
+      if (end == null)  end = front;
+    }
+
+    public void set(int key, int value) {
+      if (map.containsKey(key)) {
+        LRUNode old = map.get(key);
+        old.value = value;
+        remove(old);
+        setHead(old);
+      }else {
+        LRUNode newNode = new LRUNode(key, value);
+        if (map.size() >= capacity) {
+          map.remove(end.key);
+          remove(end);
+          setHead(newNode);
+        }else setHead(newNode);
+        map.put(key, newNode);
+      }
+    }
+  }
 
   /**
    * 13.

@@ -3,13 +3,11 @@ package data.structures.graph;
 import algorithms.dynamic.programming.DPExamples;
 import data.structures.matrix.MatrixExamples;
 import recursion.RecursionExamples;
-import utilities.BFSNode;
-import utilities.DijkstraGraph;
-import utilities.Graph;
-import utilities.ListNode;
+import utilities.*;
 
 import java.lang.reflect.Array;
 import java.util.*;
+import java.util.Stack;
 
 public class GraphExamples {
 
@@ -420,7 +418,6 @@ public class GraphExamples {
   /**
    * 37.
    * Problem: Detect cycle in an undirected graph.
-   * Solution:
    */
   boolean isCycleUD(Graph graph) {
     List<List<Integer>> graphList = graph.getGraph();
@@ -574,8 +571,14 @@ public class GraphExamples {
   /**
    * 52.
    * Problem: Check if a given graph is tree or not.
-   * Solution:
    */
+  boolean isTree(Graph graph) {
+    List<List<Integer>> graphList = graph.getGraph();
+    boolean[] visited = new boolean[graphList.size()];
+    if (isCycleUD(graphList, 0, visited, -1)) return false;
+    for (int i = 0; i < graphList.size(); i++) if (!visited[i]) return false;
+    return true;
+  }
 
   /**
    * 53.
@@ -745,6 +748,10 @@ public class GraphExamples {
    * Problem: Print all Jumping Numbers smaller than or equal to a given value.
    * Solution:
    */
+  void printJumpingNumbers(int num) {
+    printSteppingNum(0, num);
+  }
+
 
   /**
    * 75.
@@ -1012,8 +1019,31 @@ public class GraphExamples {
   /**
    * 112.
    * Problem: Minimum number of operation required to convert number x into y.
-   * Solution:
+   * Given a initial number x and two operations which are given below:
+   * Multiply number by 2. Subtract 1 from the number.
+   * The task is to find out minimum number of operation required to convert number x into y using only above two operations.
+   * We can apply these operations any number of times
    */
+  int minOperationToXY(int x, int y) {
+    Queue<BFSElement> queue = new LinkedList<>();
+    Set<Integer> visited = new HashSet<>();
+    visited.add(x);
+    queue.add(new BFSElement(x, 0));
+
+    while (!queue.isEmpty()) {
+      BFSElement front = queue.poll();
+      if (front.getVal() == y) return front.getDistance();
+      else if (x > 1000) return - 1;
+      else {
+        int first = front.getVal() * 2;
+        int second = front.getVal() - 1;
+        if (visited.add(first)) queue.add(new BFSElement(first, front.getDistance() + 1));
+        if (second > 0 && visited.add(second)) queue.add(new BFSElement(second, front.getDistance() + 1));
+
+      }
+    }
+    return -1;
+  }
 
   /**
    * 113.

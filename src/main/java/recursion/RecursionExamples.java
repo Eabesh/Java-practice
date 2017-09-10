@@ -500,11 +500,11 @@ public class RecursionExamples {
   public void printSteppingNumber(int soFar, int n, int m, ArrayList<Integer> choices, HashSet<Integer> steppingNumbersSet) {
     if (soFar < m) {
       for (int choice : choices) {
+        int steppingNumber = soFar * 10 + choice;
+        if (steppingNumber >= n && steppingNumber <= m) steppingNumbersSet.add(steppingNumber);
         ArrayList<Integer> newChoices = new ArrayList<>();
         if (choice + 1 <= 9) newChoices.add(choice + 1);
         if (choice - 1 >= 0) newChoices.add(choice - 1);
-        int steppingNumber = soFar * 10 + choice;
-        if (steppingNumber >= n && steppingNumber <= m) steppingNumbersSet.add(steppingNumber);
         printSteppingNumber(steppingNumber, n, m, newChoices, steppingNumbersSet);
       }
     }

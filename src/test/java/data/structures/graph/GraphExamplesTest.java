@@ -17,6 +17,16 @@ import static org.junit.Assert.assertTrue;
 
 public class GraphExamplesTest {
   @Test
+  public void minOperationToXY() throws Exception {
+    assertEquals(2, new GraphExamples().minOperationToXY(4, 7));
+  }
+
+  @Test
+  public void printJumpingNumbers() throws Exception {
+    new GraphExamples().printJumpingNumbers(40);
+  }
+
+  @Test
   public void isCycleUD() throws Exception {
     Graph graph = new Graph(5);
     graph.addEdge(0, 1);
