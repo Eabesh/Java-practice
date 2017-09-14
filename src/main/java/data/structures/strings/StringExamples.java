@@ -1,29 +1,27 @@
 package data.structures.strings;
 
+import java.util.ArrayList;
+
 public class StringExamples {
 
   /**
    * 1.
    * Problem: Return maximum occurring character in an input string.
-   * Solution:
    */
 
   /**
    * 2.
    * Problem: Remove all duplicates from a given string.
-   * Solution:
    */
 
   /**
    * 3.
    * Problem: Print all the duplicates in the input string.
-   * Solution:
    */
 
   /**
    * 4.
    * Problem: Remove characters from the first string which are present in the second string.
-   * Solution:
    */
 
   /**
@@ -37,49 +35,41 @@ public class StringExamples {
   /**
    * 6.
    * Problem: Print reverse of a string using recursion.
-   * Solution:
    */
 
   /**
    * 7.
    * Problem: Write a  program to print all permutations of a given string.
-   * Solution:
    */
 
   /**
    * 8.
    * Problem: Divide a string in N equal parts.
-   * Solution:
    */
 
   /**
    * 9.
    * Problem: Given a string, find its first non-repeating character.
-   * Solution:
    */
 
   /**
    * 10.
    * Problem: Print list items containing all characters of a given word.
-   * Solution:
    */
 
   /**
    * 11.
    * Problem: Reverse words in a given string.
-   * Solution:
    */
 
   /**
    * 12.
    * Problem: Run Length Encoding.
-   * Solution:
    */
 
   /**
    * 13.
    * Problem: Find the smallest window in a string containing all characters of another string.
-   * Solution:
    */
 
   /**
@@ -95,31 +85,26 @@ public class StringExamples {
   /**
    * 15.
    * Problem: Print all interleavings of given two strings.
-   * Solution:
    */
 
   /**
    * 16.
    * Problem: Check whether a given string is an interleaving of two other given strings.
-   * Solution:
    */
 
   /**
    * 17.
    * Problem: Check whether two strings are anagram of each other.
-   * Solution:
    */
 
   /**
    * 18.
    * Problem: Lexicographic rank of a string.
-   * Solution:
    */
 
   /**
    * 19.
    * Problem: Longest Palindromic Substring | Set 1.
-   * Solution:
    */
 
   /**
@@ -1586,5 +1571,23 @@ public class StringExamples {
    * Problem: Check if a given string is a valid number (Integer or Floating Point) in Java | SET 2 (Regular Expression approach).
    * Solution:
    */
+
+  void findNumber(int maxNum, int k) {
+    ArrayList<Integer> set = new ArrayList<>();
+    for (int i = 0; i < maxNum; i++) findNumber(maxNum, k, i, set);
+  }
+  
+  void findNumber(int maxNum, int k, int soFar, ArrayList<Integer> set) {
+    if (k == 0) System.out.println(soFar);
+    else {
+      for (int i = 0; i < 9; i++) {
+        int currNum = soFar * 10 + i;
+        if (currNum <= maxNum) findNumber(maxNum, k - 1, soFar, set);
+        else {
+          findNumber(maxNum, k - 1, soFar, set);
+        }
+      }
+    }
+  }
 
 }
