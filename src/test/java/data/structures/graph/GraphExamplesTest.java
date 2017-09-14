@@ -17,6 +17,12 @@ import static org.junit.Assert.assertTrue;
 
 public class GraphExamplesTest {
   @Test
+  public void bfsDG() throws Exception {
+      int[][] graph = {{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}};
+      new GraphExamples().bfsDG(graph);
+  }
+
+  @Test
   public void minOperationToXY() throws Exception {
     assertEquals(2, new GraphExamples().minOperationToXY(4, 7));
   }
