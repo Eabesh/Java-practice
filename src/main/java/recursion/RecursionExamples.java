@@ -224,24 +224,13 @@ public class RecursionExamples {
    * For example, if input array is {1, 2, 3, 4} and r is 2, then output should be {1, 2}, {1, 3}, {1, 4}, {2, 3}, {2, 4} and
    * {3,4}.
    */
-  void printCombinationOfArray(int[] array, String soFar, int r, int beginIndex) {
-    if (r == 0) System.out.println("{" + soFar.substring(0, soFar.length() - 2) + "}");
-    else
-      for (int i = beginIndex; i < array.length; i++)
-        printCombinationOfArray(array, soFar + array[i] + ", ", r - 1, i + 1);
-  }
+
 
   /**
    * 5.
    * Problem: Print all possible strings of length k that can be formed from a set of n characters
    */
-  void printKLengthString(char[] array, int length, String soFar) {
-    if (length == 0) System.out.println(soFar);
-    else {
-        for (char ch : array)
-        printKLengthString(array, length - 1, soFar + ch);
-    }
-  }
+
 
   /**
    * 6.
@@ -253,34 +242,12 @@ public class RecursionExamples {
    * the last statement, there is nothing left to do in the current function, so saving the current function’s stack
    * frame is of no use.
    */
-  int factorial(int num) {
-    if (num == 0) return 1;
-    else return num * factorial(num - 1);
-  }
 
-  /**
-   * Tail recursive
-   */
-  int factTailRecursive(int num, int accumulator) {
-    if (num == 0) return accumulator;
-    else return factTailRecursive(num - 1, accumulator * num);
-  }
 
   /**
    * 7.
    * Problem: Print all increasing sequences of length k from first n natural numbers
-   * Input: k = 2, n = 3
-   * Output:
-   * 1 2
-   * 1 3
-   * 2 3
    */
-  void printIncreasingSequence(String soFar, int n, int k, int begin) {
-    if (k == 0) System.out.println(soFar);
-    else
-      for (int i = begin; i <= n; i++)
-        printIncreasingSequence(soFar + i + " ", n, k - 1, i + 1);
-  }
 
   /**
    * 8.
@@ -293,12 +260,6 @@ public class RecursionExamples {
    * Given a number line from -infinity to +infinity. You start at 0 and can go either to the left or to the right. The
    * condition is that in i’th move, you take i steps.
    */
-  int findMinSteps(int source, int dest, int minSteps, int n){
-    if (Math.abs(source) > dest) return Integer.MAX_VALUE;
-    else if (source == dest) return minSteps;
-    else return Math.min(findMinSteps(source + n, dest, minSteps + 1, n + 1),
-              findMinSteps(source - n, dest,minSteps + 1, n + 1));
-  }
 
   /**
    * 10.
@@ -350,13 +311,7 @@ public class RecursionExamples {
    * 17.
    * Problem: Print sums of all subsets of a given set
    */
-  void printSubsetSum(int sum, int[] set, int beginIndex) {
-    if (beginIndex >= set.length) System.out.println(sum);
-    else {
-      printSubsetSum(sum + set[beginIndex], set, beginIndex + 1);
-      printSubsetSum(sum, set, beginIndex + 1);
-    }
-  }
+
 
 
 
