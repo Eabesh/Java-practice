@@ -190,7 +190,6 @@ public class RecursionExamples {
    * space.
    */
 
-
   /**
    * 3.
    * Problem: Check if a number is Palindrome
@@ -242,12 +241,7 @@ public class RecursionExamples {
    * 1 3
    * 2 3
    */
-  void printIncreasingSequence(String soFar, int n, int k, int begin) {
-    if (k == 0) System.out.println(soFar);
-    else
-      for (int i = begin; i <= n; i++)
-        printIncreasingSequence(soFar + i + " ", n, k - 1, i + 1);
-  }
+
 
   /**
    * 8.
@@ -312,13 +306,7 @@ public class RecursionExamples {
    * 17.
    * Problem: Print sums of all subsets of a given set
    */
-  void printSubsetSum(int sum, int[] set, int beginIndex) {
-    if (beginIndex >= set.length) System.out.println(sum);
-    else {
-      printSubsetSum(sum + set[beginIndex], set, beginIndex + 1);
-      printSubsetSum(sum, set, beginIndex + 1);
-    }
-  }
+
 
 
 
@@ -452,25 +440,7 @@ public class RecursionExamples {
    * For eg. 8, 343, 545 are stepping numbers. While 890, 098 are not.
    * The difference between a ‘9’ and ‘0’ should not be considered as 1.
    */
-  public void printSteppingNumbers(int n, int m) {
-    HashSet<Integer> steppingNumbersSet = new HashSet<>();
-    ArrayList<Integer> choices = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9));
-    printSteppingNumber(0, n, m, choices, steppingNumbersSet);
-    System.out.println(steppingNumbersSet);
-  }
 
-  public void printSteppingNumber(int soFar, int n, int m, ArrayList<Integer> choices, HashSet<Integer> steppingNumbersSet) {
-    if (soFar < m) {
-      for (int choice : choices) {
-        int steppingNumber = soFar * 10 + choice;
-        if (steppingNumber >= n && steppingNumber <= m) steppingNumbersSet.add(steppingNumber);
-        ArrayList<Integer> newChoices = new ArrayList<>();
-        if (choice + 1 <= 9) newChoices.add(choice + 1);
-        if (choice - 1 >= 0) newChoices.add(choice - 1);
-        printSteppingNumber(steppingNumber, n, m, newChoices, steppingNumbersSet);
-      }
-    }
-  }
 
   /**
    * 2.
