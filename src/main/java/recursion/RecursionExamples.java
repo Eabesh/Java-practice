@@ -479,41 +479,7 @@ public class RecursionExamples {
 
 
 
-  /**
-   *  Problems from CareerCup.
-   */
 
-  /**
-   * 1.
-   * Problem: Given two integers ‘n’ and ‘m’, find all the stepping numbers in range [n, m].
-   * A number is called as a stepping number if the adjacent digits are having a difference of 1.
-   * For eg. 8, 343, 545 are stepping numbers. While 890, 098 are not.
-   * The difference between a ‘9’ and ‘0’ should not be considered as 1.
-   */
-  public void printSteppingNumbers(int n, int m) {
-    HashSet<Integer> steppingNumbersSet = new HashSet<>();
-    ArrayList<Integer> choices = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9));
-    printSteppingNumber(0, n, m, choices, steppingNumbersSet);
-    System.out.println(steppingNumbersSet);
-  }
-
-  public void printSteppingNumber(int soFar, int n, int m, ArrayList<Integer> choices, HashSet<Integer> steppingNumbersSet) {
-    if (soFar < m) {
-      for (int choice : choices) {
-        int steppingNumber = soFar * 10 + choice;
-        if (steppingNumber >= n && steppingNumber <= m) steppingNumbersSet.add(steppingNumber);
-        ArrayList<Integer> newChoices = new ArrayList<>();
-        if (choice + 1 <= 9) newChoices.add(choice + 1);
-        if (choice - 1 >= 0) newChoices.add(choice - 1);
-        printSteppingNumber(steppingNumber, n, m, newChoices, steppingNumbersSet);
-      }
-    }
-  }
-
-  /**
-   * 2.
-   * Problem: Reverse a stack without using any other data structure or auxiliary space.
-   */
 
 
 

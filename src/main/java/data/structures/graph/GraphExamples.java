@@ -4,8 +4,6 @@ import algorithms.dynamic.programming.DPExamples;
 import data.structures.matrix.MatrixExamples;
 import recursion.RecursionExamples;
 import utilities.*;
-
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.Stack;
 
@@ -15,7 +13,7 @@ public class GraphExamples {
   /**
    * 1.
    * Problem: Applications of Minimum Spanning Tree Problem.
-   * A min weight set of edges that connects all of the vertices.
+   * Solution:
    */
 
   /**
@@ -26,7 +24,7 @@ public class GraphExamples {
 
   /**
    * 3.
-   * Problem: Boruvka's algorithm for Minimum Spanning Tree.
+   * Problem: Boruvka&#8217;s algorithm for Minimum Spanning Tree.
    * Solution:
    */
 
@@ -35,152 +33,42 @@ public class GraphExamples {
    * Problem: Depth First Traversal or DFS for a Graph.
    * Solution:
    */
-  void depthFS(int[][] mat) {
-    boolean[] isVisited = new boolean[mat.length];
-    for (int i = 0; i < mat.length; i++) if (!isVisited[i]) depthFirstSearch(mat, i, isVisited);
-  }
-
-  private void depthFirstSearch(int[][] mat, int i, boolean[] isVisited) {
-    isVisited[i] = true;
-    System.out.print(i + " ");
-    for (int j = 0; j < mat[0].length; j++) if (!isVisited[j] && mat[i][j] == 1) depthFirstSearch(mat, j, isVisited);
-  }
-
 
   /**
    * 5.
    * Problem: Breadth First Traversal or BFS for a Graph.
    * Solution:
    */
-  void bfs(int[][] graph) {
-    boolean[] visited = new boolean[graph.length];
-    for (int i = 0; i < graph.length; i++) if (!visited[i]) breadthFirstSearch(graph, i);
-  }
-
-  private void breadthFirstSearch(int[][] graph, int source) {
-    boolean[] visited = new boolean[graph.length];
-    Queue<Integer> queue = new LinkedList<>();
-    visited[source] = true;
-    queue.add(source);
-    while (!queue.isEmpty()) {
-      int node = queue.poll();
-      System.out.println(node + " ");
-      visited[source] = true;
-      for (int i = 0; i < graph[0].length; i++) if (isValidNeighbour(graph, node, i, visited)) queue.add(i);
-    }
-  }
 
   /**
    * 6.
    * Problem: Detect Cycle in a Directed Graph.
+   * Solution:
    */
-  boolean hasCycle(int[][] graph) {
-    boolean[] visited = new boolean[graph.length];
-    boolean[] recStack = new boolean[graph.length];
-    for (int node = 0; node < graph.length; node++) if (containCycle(graph, node, visited, recStack)) return true;
-    return false;
-  }
-
-  private boolean containCycle(int[][] graph, int node, boolean[] visited, boolean[] recStack) {
-    visited[node] = true;
-    recStack[node] = true;
-    for (int v = 0; v < graph[0].length; v++)
-      if ((isValidNeighbour(graph, node, v, visited) && containCycle(graph, v, visited, recStack)) || graph[node][v] == 1 && recStack[v])
-        return true;
-    recStack[node] = false;
-    return false;
-  }
 
   /**
    * 7.
    * Problem: Find if there is a path between two vertices in a directed graph.
+   * Solution:
    */
-  boolean hasPath(int[][] mat, int source, int dest) {
-    boolean[] isVisited = new boolean[mat.length];
-    return dfsHasPath(mat, source, dest, isVisited);
-  }
-
-  private boolean dfsHasPath(int[][] mat, int current, int dest, boolean[] isVisited) {
-    isVisited[current] = true;
-    if (current == dest) return true;
-    else {
-      for (int i = 0; i < mat[0].length; i++)
-        if (isValidNeighbour(mat, current, i, isVisited) && dfsHasPath(mat, i, dest, isVisited)) return true;
-    }
-    return false;
-  }
-
-  boolean bfsHasPath(int[][] mat, int source, int dest) {
-    boolean[] isVisited = new boolean[mat.length];
-    Queue<Integer> queue = new LinkedList<>();
-    queue.add(source);
-    isVisited[source] = true;
-    while (!queue.isEmpty()) {
-      int front = queue.poll();
-      isVisited[front] = true;
-      if (front == dest) return true;
-      else
-        for (int i = 0; i < mat[0].length; i++) if (!isVisited[i] && mat[front][i] == 1) queue.add(i);
-    }
-    return false;
-  }
 
   /**
    * 8.
    * Problem: Backtracking | Set 6 (Hamiltonian Cycle).
    * Solution:
    */
-  ArrayList hamiltonianCycle(int[][] graph) {
-    ArrayList<Integer> path = new ArrayList<>();
-    path.add(0);
-    return (hamCycle(graph, path, 1)) ? path : null;
-  }
-
-  private boolean hamCycle(int[][] graph, ArrayList<Integer> path, int index) {
-    if (index == graph.length) if (graph[path.get(index - 1)][path.get(0)] == 1) return true;
-    else {
-      for (int currNode = 1; currNode < graph.length; currNode++) {
-        if (isValidNode(graph, currNode, path)) {
-          path.add(currNode);
-          if (hamCycle(graph, path, index + 1)) return true;
-          path.remove(path.size() - 1);
-        }
-      }
-    }
-    return false;
-  }
-
-  private boolean isValidNode(int[][] graph, int node, ArrayList<Integer> path) {
-    return graph[path.get(path.size() - 1)][node] == 1 && !path.contains(node);
-  }
 
   /**
    * 9.
    * Problem: Dynamic Programming | Set 16 (Floyd Warshall Algorithm).
-   * The Floyd Warshall Algorithm is for solving the All Pairs Shortest Path problem. The problem is to find shortest
-   * distances between every pair of vertices in a given edge weighted directed Graph.
+   * Solution:
    */
-  int[][] allPairShortestPath(int[][] graph) {
-    int[][] result = new int[graph.length][graph.length];
-    for (int i = 0; i < graph.length; i++)
-      for (int j = 0; j < graph.length; j++) result[i][j] = graph[i][j];
-
-    for (int k = 0; k < graph.length; k++)
-      for (int i = 0; i < graph.length; i++)
-        for (int j = 0; j < graph.length; j++)
-          if (result[i][k] + result[k][j] < result[i][j]) result[i][j] = result[i][k] + result[k][j];
-
-    return result;
-  }
 
   /**
    * 10.
    * Problem: Find the number of islands | Set 1 (Using DFS).
    * Solution:
    */
-  int countIslands(int[][] mat) {
-    return new MatrixExamples().countIslands(mat);
-  }
 
   /**
    * 11.
@@ -220,7 +108,7 @@ public class GraphExamples {
 
   /**
    * 17.
-   * Problem: Greedy Algorithms | Set 7 (Dijkstra's shortest path algorithm).
+   * Problem: Greedy Algorithms | Set 7 (Dijkstra&#8217;s shortest path algorithm).
    * Solution:
    */
 
@@ -229,9 +117,6 @@ public class GraphExamples {
    * Problem: Greedy Algorithms | Set 8 (Dijkstra’s Algorithm for Adjacency List Representation).
    * Solution:
    */
-  void dijkstraAlgo(DijkstraGraph graph) {
-
-  }
 
   /**
    * 19.
@@ -248,82 +133,25 @@ public class GraphExamples {
   /**
    * 21.
    * Problem: Check whether a given graph is Bipartite or not.
+   * Solution:
    */
-  boolean isBipartite(int[][] graph) {
-    int[] color = new int[graph.length];
-    Arrays.fill(color, -1);
-    for (int i = 0; i < graph.length; i++) if (color[i] == -1) if (!bfsBipartite(graph, i, color)) return false;
-    return true;
-  }
-
-  private boolean bfsBipartite(int[][] graph, int source, int[] color) {
-    Queue<Integer> queue = new LinkedList<>();
-    queue.add(source);
-    color[source] = 1;
-    while (!queue.isEmpty()) {
-      int u = queue.poll();
-      if (graph[u][u] == 1) return false;
-      for (int v = 0; v < graph.length; v++) {
-        if (graph[u][v] == 1 && color[v] == -1) {
-          color[v] = 1 - color[u];
-          queue.add(v);
-        } else if (graph[u][v] == 1 && color[v] == color[u]) return false;
-      }
-    }
-    return true;
-  }
 
   /**
    * 22.
    * Problem: Topological Sorting.
+   * Solution:
    */
-  Stack topologicalSort(int[][] graph) {
-    Stack<Integer> stack = new Stack();
-    boolean[] visited = new boolean[graph.length];
-    for (int i = 0; i < graph.length; i++) if (!visited[i]) tSort(graph, i, stack, visited);
-    return stack;
-  }
-
-  private void tSort(int[][] graph, int curr, Stack<Integer> stack, boolean[] visited) {
-    visited[curr] = true;
-    for (int i = 0; i < graph[0].length; i++)
-      if (isValidNeighbour(graph, curr, i, visited)) tSort(graph, i, stack, visited);
-    stack.push(curr);
-  }
-
-  private boolean isValidNeighbour(int[][] graph, int source, int dest, boolean[] visited) {
-    return !visited[dest] && graph[source][dest] == 1;
-  }
 
   /**
    * 23.
    * Problem: Shortest Path in Directed Acyclic Graph.
-   * Given a Weighted Directed Acyclic Graph and a source vertex in the graph, find the shortest paths from given source
-   * to all other vertices.
+   * Solution:
    */
-  int[] shortestPathDAG(int[][] graph, int[][] weight, int source) {
-    int[] distance = new int[graph.length];
-    Arrays.fill(distance, Integer.MAX_VALUE);
-    Stack<Integer> stack = topologicalSort(graph);
-    distance[source] = 0;
-    distance = sPaths(graph, weight, stack, distance);
-    return distance;
-  }
-
-  private int[] sPaths(int[][] graph, int[][] weight, Stack<Integer> stack, int[] distance) {
-    while (!stack.isEmpty()) {
-      int top = stack.pop();
-      if (distance[top] != Integer.MAX_VALUE) {
-        for (int v = 0; v < graph.length; v++)
-          if (graph[top][v] == 1 && distance[v] > distance[top] + weight[top][v]) distance[v] = distance[top] + weight[top][v];
-      }
-    }
-    return distance;
-  }
 
   /**
    * 24.
    * Problem: Strongly Connected Components.
+   * Solution:
    */
 
   /**
@@ -340,7 +168,7 @@ public class GraphExamples {
 
   /**
    * 27.
-   * Problem: Bi-connected graph.
+   * Problem: Biconnected graph.
    * Solution:
    */
 
@@ -377,27 +205,12 @@ public class GraphExamples {
   /**
    * 33.
    * Problem: Stable Marriage Problem.
-   * Given N men and N women, where each person has ranked all members of the opposite sex in order of preference,
-   * marry the men and women together such that there are no two people of opposite sex who would both rather have
-   * each other than their current partners. If there are no such people, all the marriages are “stable”.
-   * Solution: Gale–Shapley algorithm.
-   * Initialize all men and women to free
-   * while there exist a free man m who still has a woman w to propose to {
-   *      w = m's highest ranked such woman to whom he has not yet proposed
-   *      if w is free
-   *          (m, w) become engaged
-   *      else some pair (m', w) already exists
-   *          if w prefers m to m'
-   *              (m, w) become engaged
-   *              and m' becomes free
-   *          else
-   *              (m', w) remain engaged
-   * }
+   * Solution:
    */
 
   /**
    * 34.
-   * Problem: Fleury's Algorithm for printing Eulerian Path or Circuit.
+   * Problem: Fleury&#8217;s Algorithm for printing Eulerian Path or Circuit.
    * Solution:
    */
 
@@ -416,22 +229,8 @@ public class GraphExamples {
   /**
    * 37.
    * Problem: Detect cycle in an undirected graph.
+   * Solution:
    */
-  boolean isCycleUD(Graph graph) {
-    List<List<Integer>> graphList = graph.getGraph();
-    boolean[] visited = new boolean[graphList.size()];
-    for (int u = 0; u < graphList.size(); u++) if (!visited[u]) if (isCycleUD(graphList, 0, visited, - 1)) return true;
-    return false;
-  }
-
-  private boolean isCycleUD(List<List<Integer>> graphList, int u, boolean[] visited, int parent) {
-    visited[u] = true;
-    for (Integer v : graphList.get(u)) {
-      if (!visited[v]) if (isCycleUD(graphList, v, visited, u)) return true;
-      else if (v != parent) return true;
-    }
-    return false;
-  }
 
   /**
    * 38.
@@ -447,7 +246,7 @@ public class GraphExamples {
 
   /**
    * 40.
-   * Problem: Johnson's algorithm for All-pairs shortest paths.
+   * Problem: Johnson&#8217;s algorithm for All-pairs shortest paths.
    * Solution:
    */
 
@@ -455,15 +254,6 @@ public class GraphExamples {
    * 41.
    * Problem: Graph Coloring | Set 1 (Introduction and Applications).
    * Solution:
-   * 1) Vertex coloring is the most common graph coloring problem. The problem is, given m colors, find a way of coloring the
-   * vertices of a graph such that no two adjacent vertices are colored using same color.
-   * 2) Chromatic Number: The smallest number of colors needed to color a graph G is called its chromatic number.
-   * Applications of Graph Coloring:
-   * 1) Making Schedule or Time Table:
-   * 2) Mobile Radio Frequency Assignment:
-   * 3) Sudoku:
-   * 4) Register Allocation:
-   * 5) Bipartite Graphs:
    */
 
   /**
@@ -507,9 +297,6 @@ public class GraphExamples {
    * Problem: Count all possible walks from a source to a destination with exactly k edges.
    * Solution:
    */
-  int countPaths(int[][] graph, int source, int dest, int k) {
-    return new DPExamples().countWalks(graph, source, dest, k);
-  }
 
   /**
    * 49.
@@ -519,7 +306,7 @@ public class GraphExamples {
 
   /**
    * 50.
-   * Problem: Tarjan's Algorithm to find Strongly Connected Components.
+   * Problem: Tarjan&#8217;s Algorithm to find Strongly Connected Components.
    * Solution:
    */
 
@@ -528,55 +315,12 @@ public class GraphExamples {
    * Problem: Snake and Ladder Problem.
    * Solution:
    */
-  class BoardNode {
-    int vertex, distance;
-    public BoardNode(int v, int d) {
-      this.vertex = v;
-      this.distance = d;
-    }
-  }
-
-  int solveSnakeLadder(int[] board) {
-    int[] moves = {1, 2, 3, 4, 5, 6};
-    boolean[] visited = new boolean[board.length];
-    BoardNode source = new BoardNode(0, 0);
-    Queue<BoardNode> queue = new LinkedList<>();
-    visited[source.vertex] = true;
-    queue.add(source);
-    while (!queue.isEmpty()) {
-      BoardNode u = queue.poll();
-      if (u.vertex == board.length - 1) return u.distance;
-      else {
-        for (int move : moves) {
-          int nextMove = u.vertex + move;
-          if (isValidBoardMove(board, nextMove, visited)) {
-            visited[nextMove] = true;
-            if (isSnakeOrLadder(board[nextMove])) queue.add(new BoardNode(board[nextMove], u.distance + 1));
-            else queue.add(new BoardNode(nextMove, u.distance + 1));
-          }
-        }
-      }
-    }
-    return Integer.MIN_VALUE;
-  }
-
-  private boolean isValidBoardMove(int[] board, int nextMove, boolean[] visited) {
-    return nextMove < board.length && !visited[nextMove];
-  }
-
-  private boolean isSnakeOrLadder(int x) { return x == -1 ? false : true; }
 
   /**
    * 52.
    * Problem: Check if a given graph is tree or not.
+   * Solution:
    */
-  boolean isTree(Graph graph) {
-    List<List<Integer>> graphList = graph.getGraph();
-    boolean[] visited = new boolean[graphList.size()];
-    if (isCycleUD(graphList, 0, visited, -1)) return false;
-    for (int i = 0; i < graphList.size(); i++) if (!visited[i]) return false;
-    return true;
-  }
 
   /**
    * 53.
@@ -586,37 +330,15 @@ public class GraphExamples {
 
   /**
    * 54.
-   * Problem: Bi-connected Components.
+   * Problem: Biconnected Components.
    * Solution:
    */
 
   /**
    * 55.
    * Problem: Boggle (Find all possible words in a board of characters) | Set 1.
+   * Solution:
    */
-  void findWords(char[][] mat, Set<String> dictionary) {
-    boolean[][] visited = new boolean[mat.length][mat[0].length];
-    int[][] moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {1, -1}, {-1, 1}};
-    for (int i = 0; i < mat.length; i++)
-      for (int j = 0; j < mat[0].length; j++)
-        findWord(mat, dictionary, i, j, visited, "", moves);
-  }
-
-  private void findWord(char[][] mat, Set<String> dictionary, int x, int y, boolean[][] visited, String soFar, int[][] moves) {
-    visited[x][y] = true;
-    soFar += mat[x][y];
-    if (dictionary.contains(soFar)) System.out.println(soFar);
-    for (int[] move : moves)
-      if (safeNextMove(mat, x + move[0], y + move[1], visited)) findWord(mat, dictionary,
-              x + move[0], y + move[1], visited, soFar, moves);
-
-    visited[x][y] = false;
-
-  }
-
-  private boolean safeNextMove(char[][] mat, int x, int y, boolean[][] visited) {
-    return x >=0 && x < mat.length && y >=0 && y < mat[0].length && !visited[x][y];
-  }
 
   /**
    * 56.
@@ -627,20 +349,8 @@ public class GraphExamples {
   /**
    * 57.
    * Problem: Print all paths from a given source to a destination.
-   * Given a directed graph, a source vertex ‘s’ and a destination vertex ‘d’, print all paths from given ‘s’ to ‘d’.
+   * Solution:
    */
-  void printPaths(int[][] graph, int source, int dest, String path, boolean[] visited) {
-    if (source == dest) System.out.println(path + dest);
-    else {
-      for (int d = 0; d < graph.length; d++) {
-        if (graph[source][d] == 1 && !visited[d]) {
-          visited[source] = true;
-          printPaths(graph, d, dest, path + source + " ", visited);
-          visited[source] = false;
-        }
-      }
-    }
-  }
 
   /**
    * 58.
@@ -674,13 +384,13 @@ public class GraphExamples {
 
   /**
    * 63.
-   * Problem: Greedy Algorithms | Set 9 (Boruvka's algorithm).
+   * Problem: Greedy Algorithms | Set 9 (Boruvka&#8217;s algorithm).
    * Solution:
    */
 
   /**
    * 64.
-   * Problem: Karger's algorithm for Minimum Cut | Set 1 (Introduction and Implementation).
+   * Problem: Karger&#8217;s algorithm for Minimum Cut | Set 1 (Introduction and Implementation).
    * Solution:
    */
 
@@ -705,11 +415,8 @@ public class GraphExamples {
   /**
    * 68.
    * Problem: Minimum time required to rot all oranges.
+   * Solution:
    */
-  public int rotOranges(int[][] oranges) {
-    return new MatrixExamples().rotOranges(oranges);
-  }
-
 
   /**
    * 69.
@@ -725,7 +432,7 @@ public class GraphExamples {
 
   /**
    * 71.
-   * Problem: Java Program for Dijkstra's Algorithm with Path Printing.
+   * Problem: Java Program for Dijkstra&#8217;s Algorithm with Path Printing.
    * Solution:
    */
 
@@ -746,10 +453,6 @@ public class GraphExamples {
    * Problem: Print all Jumping Numbers smaller than or equal to a given value.
    * Solution:
    */
-  void printJumpingNumbers(int num) {
-    printSteppingNum(0, num);
-  }
-
 
   /**
    * 75.
@@ -789,7 +492,7 @@ public class GraphExamples {
 
   /**
    * 81.
-   * Problem: Printing Paths in Dijkstra's Shortest Path Algorithm.
+   * Problem: Printing Paths in Dijkstra&#8217;s Shortest Path Algorithm.
    * Solution:
    */
 
@@ -801,14 +504,13 @@ public class GraphExamples {
 
   /**
    * 83.
-   * Problem: Dijkstra's Shortest Path Algorithm using priority_queue of STL.
-   * Given a graph and a source vertex in graph, find shortest paths from source to all vertices in the given graph.
+   * Problem: Dijkstra&#8217;s Shortest Path Algorithm using priority_queue of STL.
+   * Solution:
    */
-
 
   /**
    * 84.
-   * Problem: Prim's algorithm using priority_queue in STL.
+   * Problem: Prim&#8217;s algorithm using priority_queue in STL.
    * Solution:
    */
 
@@ -827,8 +529,8 @@ public class GraphExamples {
   /**
    * 87.
    * Problem: Find a Mother Vertex in a Graph.
+   * Solution:
    */
-
 
   /**
    * 88.
@@ -838,7 +540,7 @@ public class GraphExamples {
 
   /**
    * 89.
-   * Problem: Kahn's algorithm for Topological Sorting.
+   * Problem: Kahn&#8217;s algorithm for Topological Sorting.
    * Solution:
    */
 
@@ -850,7 +552,7 @@ public class GraphExamples {
 
   /**
    * 91.
-   * Problem: Dial's Algorithm (Optimized Dijkstra for small range weights).
+   * Problem: Dial&#8217;s Algorithm (Optimized Dijkstra for small range weights).
    * Solution:
    */
 
@@ -862,7 +564,7 @@ public class GraphExamples {
 
   /**
    * 93.
-   * Problem: Kruskal's Minimum Spanning Tree using STL in C++.
+   * Problem: Kruskal&#8217;s Minimum Spanning Tree using STL in C++.
    * Solution:
    */
 
@@ -905,44 +607,8 @@ public class GraphExamples {
   /**
    * 100.
    * Problem: Find Shortest distance from a guard in a Bank.
-   * Given a matrix that is filled with ‘O’, ‘G’, and ‘W’ where ‘O’ represents open space, ‘G’ represents guards and ‘W’
-   * represents walls in a Bank. Replace all of the O’s in the matrix with their shortest distance from a guard, without
-   * being able to go through any walls. Also, replace the guards with 0 and walls with -1 in output matrix.
+   * Solution:
    */
-  int[][] findDistance(char[][] mat) {
-    int[][] output = new int[mat.length][mat[0].length];
-    Queue<BFSNode> queue = new LinkedList<>();
-    for (int[] row : output) Arrays.fill(row, -1);
-
-    for (int i = 0; i < mat.length; i++)
-      for (int j = 0; j < mat[0].length; j++)
-        if (mat[i][j] == 'G') {
-          queue.add(new BFSNode(i, j, 0));
-          output[i][j] = 0;
-        }
-    return bfsGuard(mat, output, queue);
-
-  }
-
-  private int[][] bfsGuard(char[][] mat, int[][] output, Queue<BFSNode> queue) {
-    int[][] moves = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
-
-    while (!queue.isEmpty()) {
-      BFSNode front = queue.poll();
-      for (int[] move : moves) {
-        int x = front.x + move[0], y = front.y + move[1];
-        if (isSafeMove(mat, output, x, y)) {
-          output[x][y] = front.distance + 1;
-          queue.add(new BFSNode(x, y, front.distance + 1));
-        }
-      }
-    }
-    return output;
-  }
-
-  private boolean isSafeMove(char[][] mat, int[][] output, int x, int y) {
-    return x >= 0 && x < mat.length && y >= 0 && y < mat[0].length && output[x][y] == -1 && mat[x][y] == 'O';
-  }
 
   /**
    * 101.
@@ -959,12 +625,8 @@ public class GraphExamples {
   /**
    * 103.
    * Problem: Stepping Numbers.
-   * Given two integers ‘n’ and ‘m’, find all the stepping numbers in range [n, m]. A number is called stepping number if
-   * all adjacent digits have an absolute difference of 1. 321 is a Stepping Number while 421 is not.
+   * Solution:
    */
-  void printSteppingNum(int n, int m) {
-    new RecursionExamples().printSteppingNumbers(n, m);
-  }
 
   /**
    * 104.
@@ -1017,31 +679,8 @@ public class GraphExamples {
   /**
    * 112.
    * Problem: Minimum number of operation required to convert number x into y.
-   * Given a initial number x and two operations which are given below:
-   * Multiply number by 2. Subtract 1 from the number.
-   * The task is to find out minimum number of operation required to convert number x into y using only above two operations.
-   * We can apply these operations any number of times
+   * Solution:
    */
-  int minOperationToXY(int x, int y) {
-    Queue<BFSElement> queue = new LinkedList<>();
-    Set<Integer> visited = new HashSet<>();
-    visited.add(x);
-    queue.add(new BFSElement(x, 0));
-
-    while (!queue.isEmpty()) {
-      BFSElement front = queue.poll();
-      if (front.getVal() == y) return front.getDistance();
-      else if (x > 1000) return - 1;
-      else {
-        int first = front.getVal() * 2;
-        int second = front.getVal() - 1;
-        if (visited.add(first)) queue.add(new BFSElement(first, front.getDistance() + 1));
-        if (second > 0 && visited.add(second)) queue.add(new BFSElement(second, front.getDistance() + 1));
-
-      }
-    }
-    return -1;
-  }
 
   /**
    * 113.
@@ -1052,8 +691,8 @@ public class GraphExamples {
   /**
    * 114.
    * Problem: Minimum Cost Path with Left, Right, Bottom and Up moves allowed.
+   * Solution:
    */
-
 
   /**
    * 115.
@@ -1124,42 +763,8 @@ public class GraphExamples {
   /**
    * 126.
    * Problem: Minimum steps to reach target by a Knight.
-   * Solution: To find shortest distance. We use bfs.
+   * Solution:
    */
-  class Cell {
-    int x, y, distance;
-
-    Cell(int x, int y, int dis) {
-      this.x = x;
-      this.y = y;
-      this.distance = dis;
-    }
-  }
-
-  int findMinSteps(int[] source, int[] dest, int size) {
-    boolean[][] isVisited = new boolean[size + 1][size + 1];
-    isVisited[source[0]][source[1]] = true;
-    int[][] moves = {{-2, -1}, {-1, -2}, {1, -2}, {2, -1}, {-2, 1}, {-1, 2}, {1, 2}, {2, 1}};
-    Queue<Cell> queue = new LinkedList<>();
-    queue.add(new Cell(source[0], source[1], 0));
-    while (!queue.isEmpty()) {
-      Cell front = queue.poll();
-      isVisited[front.x][front.y] = true;
-      if (dest[0] == front.x && dest[1] == front.y) return front.distance;
-      else {
-        for (int[] move : moves) {
-          int x = front.x + move[0];
-          int y = front.y + move[1];
-          if (isSafe(x, y, isVisited, size)) queue.add(new Cell(x, y, front.distance + 1));
-        }
-      }
-    }
-    return Integer.MIN_VALUE;
-  }
-
-  private boolean isSafe(int x, int y, boolean[][] isVisited, int size) {
-    return x >= 1 && x <= size && y >= 1 && y <= size && !isVisited[x][y];
-  }
 
   /**
    * 127.
@@ -1182,16 +787,12 @@ public class GraphExamples {
   /**
    * 130.
    * Problem: Find the minimum number of moves needed to move from one cell of matrix to another.
-   * Given a N X N matrix (M) filled with 1 , 0 , 2 , 3 . Find the minimum numbers of moves needed to move from source to
-   * destination (sink) . while traversing through blank cells only. You can traverse up, down, right and left.
-   * A value of cell 1 means Source. A value of cell 2 means Destination. A value of cell 3 means Blank cell.
-   * A value of cell 0 means Blank Wall.
+   * Solution:
    */
-
 
   /**
    * 131.
-   * Problem: Find minimum weight cycle in an undirected graph.
+   * Problem: Find minimum weight cycle in an undirected  graph.
    * Solution:
    */
 
@@ -1200,51 +801,18 @@ public class GraphExamples {
    * Problem: Count number of edges in an undirected graph.
    * Solution:
    */
-  int countEdgesUDG(Graph graph) {
-    return sumOfDependencies(graph) / 2;
-  }
 
   /**
    * 133.
    * Problem: Sum of dependencies in a graph.
+   * Solution:
    */
-  int sumOfDependencies(Graph graph) {
-    int sum = 0;
-    List<List<Integer>> g = graph.getGraph();
-    for (List<Integer> list : g) sum += list.size();
-    return sum;
-  }
 
   /**
    * 134.
    * Problem: Find length of the largest region in Boolean Matrix.
-   * Consider a matrix with rows and columns, where each cell contains either a ‘0’ or a ‘1’ and any cell containing a 1
-   * is called a filled cell. Two cells are said to be connected if they are adjacent to each other horizontally, vertically,
-   * or diagonally .If one or more filled cells are also connected, they form a region. find the length of the largest region.
+   * Solution:
    */
-  int findLargestRegion(int[][] mat) {
-    boolean[][] visited = new boolean[mat.length][mat[0].length];
-    int maxLength = Integer.MIN_VALUE;
-    int[][] moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {1, -1}, {-1, 1}};
-    for (int i = 0; i < mat.length; i++)
-      for (int j = 0; j < mat[0].length; j++)
-        if (mat[i][j] == 1 && !visited[i][j]) maxLength = Math.max(maxLength, dfsLR(mat, i, j, visited, moves));
-    return maxLength;
-  }
-
-  private int dfsLR(int[][] mat, int x, int y, boolean[][] visited, int[][] moves) {
-    if (!isValidMove(mat, x, y, visited)) return 0;
-    else {
-      visited[x][y] = true;
-      int res = 1;
-      for (int[] move : moves) res += dfsLR(mat, x + move[0], y + move[1], visited, moves);
-      return res;
-    }
-  }
-
-  boolean isValidMove(int[][] grid, int x, int y, boolean[][] isVisited) {
-    return (x >= 0 && x < grid.length && y >= 0 && y < grid[0].length && grid[x][y] == 1 && !isVisited[x][y]);
-  }
 
   /**
    * 135.
@@ -1321,14 +889,12 @@ public class GraphExamples {
   /**
    * 147.
    * Problem: BFS for Disconnected Graph.
+   * Solution:
    */
-  void bfsDG(int[][] graph) {
-    bfs(graph);
-  }
 
   /**
    * 148.
-   * Problem: Karp 's minimum mean (or average) weight cycle algorithm.
+   * Problem: Karp&#8217;s minimum mean (or average) weight cycle algorithm.
    * Solution:
    */
 
@@ -1365,28 +931,8 @@ public class GraphExamples {
   /**
    * 154.
    * Problem: Minimum number of edges between two vertices of a Graph.
+   * Solution:
    */
-  int minEdgeBFS(int[][] graph, int source, int dest) {
-    boolean[] visited = new boolean[graph.length];
-    int[] distance = new int[graph.length];
-    Queue<Integer> queue = new LinkedList<>();
-    queue.add(source);
-    visited[source] = true;
-    while (!queue.isEmpty()) {
-      int currentNode = queue.poll();
-      if (currentNode == dest) return distance[dest];
-      else {
-        for (int i = 0; i < graph[0].length; i++) {
-          if (isValidNeighbour(graph, currentNode, i, visited)) {
-            queue.add(i);
-            distance[i] = distance[currentNode] + 1;
-            visited[i] = true;
-          }
-        }
-      }
-    }
-    return Integer.MIN_VALUE;
-  }
 
   /**
    * 155.
@@ -1394,77 +940,43 @@ public class GraphExamples {
    * Solution:
    */
 
+  /**
+   * 156.
+   * Problem: 2-Satisfiability (2-SAT) Problem.
+   * Solution:
+   */
 
   /**
-   * Given a matrix of 0's and 1's find the count of biggest area covered by adjacent 1's.
-   * Hint: We can use DFS here.
+   * 157.
+   * Problem: Calculate number of nodes between two vertices in an acyclic Graph by Disjoint Union method.
+   * Solution:
    */
-  int maxConnectedCell(int[][] grid) {
-    int m = grid.length;
-    int n = grid.length;
-    boolean[][] isVisited = new boolean[m][n];
 
-    int max = 0;
-    for (int i = 0; i < m; i++) {
-      for (int j = 0; j < n; j++) {
-        if (!isVisited[i][j] && grid[i][j] == 1)
-          max = Math.max(max, dfs(grid, i, j, isVisited));
-      }
-    }
+  /**
+   * 158.
+   * Problem: Print all paths from a given source to a destination using BFS.
+   * Solution:
+   */
 
-    return max;
-  }
+  /**
+   * 159.
+   * Problem: Clustering Coefficient in Graph Theory.
+   * Solution:
+   */
 
+  /**
+   * 160.
+   * Problem: Erdos Renyl Model (for generating Random Graphs).
+   * Solution:
+   */
 
-  int dfs(int[][] grid, int x, int y, boolean[][] isVisited) {
-    if (!isValidMove(grid, x, y, isVisited)) return 0;
-    else {
-      isVisited[x][y] = true;
-      return 1 +
-              dfs(grid, x, y + 1, isVisited) +
-              dfs(grid, x, y - 1, isVisited) +
-              dfs(grid, x + 1, y, isVisited) +
-              dfs(grid, x - 1, y, isVisited) +
-              dfs(grid, x + 1, y + 1, isVisited) +
-              dfs(grid, x + 1, y - 1, isVisited) +
-              dfs(grid, x - 1, y + 1, isVisited) +
-              dfs(grid, x - 1, y - 1, isVisited);
-    }
-  }
+  /**
+   * 161.
+   * Problem: Implementation of Graph in JavaScript.
+   * Solution:
+   */
 
 
-  int countWynk(char[][] mat, String pat) {
-    boolean[][] visited = new boolean[mat.length][mat[0].length];
-    int res = 0;
-    int[][] moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {1, -1}, {-1, 1}};
-    for (int i = 0; i < mat.length; i++) {
-      for (int j = 0; j < mat[0].length; j++) {
-        if (mat[i][j] == 'W') res += dfsWynk(mat, i, j, pat, visited, moves);
-      }
-    }
-    return res;
-  }
 
-  private int dfsWynk(char[][] mat, int x, int y, String pat, boolean[][] visited, int[][] moves) {
-    if (pat.length() == 1 && pat.charAt(0) == mat[x][y]) return 1;
-    else {
-      int count = 0;
-      for (int[] move : moves) {
-        int nextX = x + move[0];
-        int nextY = y + move[1];
-        if (isSafeWynk(mat, nextX, nextY, pat.substring(1), visited)) {
-          visited[nextX][nextY] = true;
-          int[][] newMoves = {{move[0], move[1]}};
-          count += dfsWynk(mat, nextX, nextY, pat.substring(1), visited, newMoves);
-          visited[nextX][nextY] = false;
-        }
-      }
-      return count;
-    }
-  }
-
-  private boolean isSafeWynk(char[][] mat, int x, int y, String pat, boolean[][] visited) {
-    return x >= 0 && x < mat.length && y >= 0 && y < mat[0].length && !visited[x][y] && pat.charAt(0) == mat[x][y];
-  }
 
 }
