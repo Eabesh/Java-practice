@@ -9,9 +9,7 @@ import java.util.Set;
 
 public class RecursionExamples {
 
-  /**
-   * Julie Zelenski's lecture @ Stanford.
-   */
+
 
   /**
    * 1.
@@ -189,23 +187,6 @@ public class RecursionExamples {
    * Problem: Reverse a stack using recursion. Or reverse a stack without using any other data structure or auxiliary
    * space.
    */
-  void reverseStack(Stack stack) {
-    if(!stack.isEmpty()) {
-      int top = stack.pop();
-      reverseStack(stack);
-      insertAtBottom(stack,top);
-    }
-  }
-
-  private void insertAtBottom(Stack stack, int elem) {
-    if (stack.isEmpty())
-      stack.push(elem);
-    else {
-      int top = stack.pop();
-      insertAtBottom(stack,elem);
-      stack.push(top);
-    }
-  }
 
   /**
    * 3.
@@ -224,24 +205,13 @@ public class RecursionExamples {
    * For example, if input array is {1, 2, 3, 4} and r is 2, then output should be {1, 2}, {1, 3}, {1, 4}, {2, 3}, {2, 4} and
    * {3,4}.
    */
-  void printCombinationOfArray(int[] array, String soFar, int r, int beginIndex) {
-    if (r == 0) System.out.println("{" + soFar.substring(0, soFar.length() - 2) + "}");
-    else
-      for (int i = beginIndex; i < array.length; i++)
-        printCombinationOfArray(array, soFar + array[i] + ", ", r - 1, i + 1);
-  }
+
 
   /**
    * 5.
    * Problem: Print all possible strings of length k that can be formed from a set of n characters
    */
-  void printKLengthString(char[] array, int length, String soFar) {
-    if (length == 0) System.out.println(soFar);
-    else {
-        for (char ch : array)
-        printKLengthString(array, length - 1, soFar + ch);
-    }
-  }
+
 
   /**
    * 6.
@@ -258,13 +228,7 @@ public class RecursionExamples {
     else return num * factorial(num - 1);
   }
 
-  /**
-   * Tail recursive
-   */
-  int factTailRecursive(int num, int accumulator) {
-    if (num == 0) return accumulator;
-    else return factTailRecursive(num - 1, accumulator * num);
-  }
+
 
   /**
    * 7.
@@ -479,7 +443,41 @@ public class RecursionExamples {
 
 
 
+  /**
+   *  Problems from CareerCup.
+   */
 
+  /**
+   * 1.
+   * Problem: Given two integers ‘n’ and ‘m’, find all the stepping numbers in range [n, m].
+   * A number is called as a stepping number if the adjacent digits are having a difference of 1.
+   * For eg. 8, 343, 545 are stepping numbers. While 890, 098 are not.
+   * The difference between a ‘9’ and ‘0’ should not be considered as 1.
+   */
+  public void printSteppingNumbers(int n, int m) {
+    HashSet<Integer> steppingNumbersSet = new HashSet<>();
+    ArrayList<Integer> choices = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9));
+    printSteppingNumber(0, n, m, choices, steppingNumbersSet);
+    System.out.println(steppingNumbersSet);
+  }
+
+  public void printSteppingNumber(int soFar, int n, int m, ArrayList<Integer> choices, HashSet<Integer> steppingNumbersSet) {
+    if (soFar < m) {
+      for (int choice : choices) {
+        int steppingNumber = soFar * 10 + choice;
+        if (steppingNumber >= n && steppingNumber <= m) steppingNumbersSet.add(steppingNumber);
+        ArrayList<Integer> newChoices = new ArrayList<>();
+        if (choice + 1 <= 9) newChoices.add(choice + 1);
+        if (choice - 1 >= 0) newChoices.add(choice - 1);
+        printSteppingNumber(steppingNumber, n, m, newChoices, steppingNumbersSet);
+      }
+    }
+  }
+
+  /**
+   * 2.
+   * Problem: Reverse a stack without using any other data structure or auxiliary space.
+   */
 
 
 

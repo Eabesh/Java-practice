@@ -145,14 +145,7 @@ public class DPExamples {
    * Replace
    * Solution:
    */
-  int editDistance(String str1, String str2, int m, int n) {
-    if (m == 0) return n;
-    else if (n == 0) return m;
-    else if (str1.charAt(m - 1) == str2.charAt(n - 1)) return editDistance(str1, str2, m - 1,
-            n - 1);
-    else return 1 + Math.min(editDistance(str1, str2, m, n - 1), Math.min(editDistance(str1, str2,
-              m - 1, n), editDistance(str1, str2, m - 1, n - 1)));
-  }
+
 
 
   /**
@@ -161,25 +154,7 @@ public class DPExamples {
    * Given a cost matrix cost[][] and a position (m, n) in cost[][], write a function that returns cost of minimum cost
    * path to reach (m, n) from (0, 0).
    */
-  int minCost(int[][] mat, int i, int j) {
-    if (i < 0 || j < 0) return Integer.MAX_VALUE;
-    else if (i == 0 && j == 0) return mat[i][j];
-    else return mat[i][j] + Math.min(minCost(mat, i - 1, j), Math.min(minCost(mat, i, j - 1),
-              minCost(mat, i - 1, j - 1)));
-  }
 
-  int minCostBotUP(int[][] mat) {
-    int[][] dp = new int[mat.length][mat[0].length];
-    for (int i = 0; i < mat.length; i++) {
-      for (int j = 0; j < mat[0].length; j++) {
-        if (i == 0 && j == 0) dp[i][j] = mat[0][0];
-        else if (i == 0) dp[i][j] = dp[i][j - 1] + mat[i][j];
-        else if (j == 0) dp[i][j] = dp[i - 1][j] + mat[i][j];
-        else dp[i][j] = mat[i][j] + Math.min(dp[i - 1][j], Math.min(dp[i][j - 1], dp[i - 1][j - 1]));
-      }
-    }
-    return dp[mat.length - 1][mat[0].length - 1];
-  }
 
   /**
    * 11.
@@ -225,13 +200,7 @@ public class DPExamples {
    * Given a value N, if we want to make change for N cents, and we have infinite supply of each of S = { S1, S2, .. ,
    * Sm}valued coins, how many ways can we make the change? The order of coins doesn’t matter.
    */
-  int coinChange(int coins[], int numOfCoins, int sum) {
-    if (sum == 0) return 1;
-    else if (sum < 0) return 0;
-    else if (numOfCoins <= 0 && sum > 0) return 0;
-    else return coinChange(coins, numOfCoins, sum - coins[numOfCoins - 1]) +
-              coinChange(coins, numOfCoins - 1, sum);
-  }
+
 
 
   /**
@@ -268,12 +237,7 @@ public class DPExamples {
    * in the knapsack.
    * Solution:
    */
-  int knapsack(int[] weights, int[] values, int capacity, int m) {
-    if (m == 0 || capacity == 0) return 0;
-    else if (capacity < weights[m - 1]) return knapsack(weights, values, capacity, m - 1);
-    else return Math.max(values[m - 1] + knapsack(weights, values, capacity - weights[m - 1], m - 1),
-              knapsack(weights, values, capacity, m - 1));
-  }
+
 
   /**
    * 17.
@@ -287,25 +251,6 @@ public class DPExamples {
    * Problem: Dynamic Programming | Set 12 (Longest Palindromic Subsequence)
    * Given a sequence, find the length of the longest palindromic subsequence in it.
    */
-  int LPSeq(String str, int start, int end) {
-    if (start == end) return 1;
-    else if (start + 1 == end && str.charAt(start) == str.charAt(end)) return 2;
-    else if (str.charAt(start) == str.charAt(end)) return 2 + LPSeq(str, start + 1, end - 1);
-    else return Math.max(LPSeq(str, start + 1, end), LPSeq(str, start, end - 1));
-  }
-
-  int LPSeqBottomUp(String str) {
-    int[][] dp = new int[str.length()][str.length()];
-    for (int i = 0; i < dp.length; i++) dp[i][i] = 1;
-    for (int col = 2; col <= dp[0].length; col++)
-      for (int i = 0; i < dp[0].length - col + 1; i++) {
-        int j = i + col - 1;
-        if (str.charAt(i) == str.charAt(j) && col == 2) dp[i][j] = 2;
-        else if (str.charAt(i) == str.charAt(j)) dp[i][j] = 2 + dp[i + 1][j - 1];
-        else dp[i][j] = Math.max(dp[i + 1][j], dp[i][j - 1]);
-      }
-    return dp[0][dp[0].length - 1];
-  }
 
   /**
    * 19.
@@ -314,16 +259,6 @@ public class DPExamples {
    * Determine the maximum value obtainable by cutting up the rod and selling the pieces.
    * Solution:
    */
-  int rodCutting(int[] price, int rodLength) {
-    if (rodLength <= 0) return 0;
-    else {
-      int maxProfit = Integer.MIN_VALUE;
-      for (int i = 0; i < price.length; i++)
-        if (rodLength >= i + 1) maxProfit = Math.max(maxProfit,
-                price[i] + rodCutting(price, rodLength - (i + 1)));
-      return maxProfit;
-    }
-  }
 
 
   /**
@@ -448,13 +383,7 @@ public class DPExamples {
    * Given a set of non-negative integers, and a value sum, determine if there is a subset of the given set with sum
    * equal to given sum.
    */
-  boolean isSubsetSum(int[] set, int setLen, int sum) {
-    if (sum == 0) return true;
-    else if (setLen == 0 && sum > 0) return false;
-    else if (sum < set[setLen - 1]) return isSubsetSum(set, setLen - 1, sum);
-    else return isSubsetSum(set, setLen - 1, sum - set[setLen - 1]) ||
-              isSubsetSum(set, setLen - 1, sum);
-  }
+
 
   /**
    * 33.
@@ -492,13 +421,7 @@ public class DPExamples {
    * minInsertions(str[l+1…..h-1]) if str[l] is equal to str[h]
    * min(minInsertions(str[l…..h-1]), minInsertions(str[l+1…..h])) + 1 otherwise
    */
-  int minInsertion(String str, int left, int right) {
-    if (left > right) return Integer.MAX_VALUE;
-    else if (left == right) return 0;
-    else if (left + 1 == right) return (str.charAt(left) == str.charAt(right)) ? 0 : 1;
-    else if (str.charAt(left) == str.charAt(right)) return minInsertion(str, left + 1, right - 1);
-    else return 1 + Math.min(minInsertion(str, left + 1, right), minInsertion(str, left, right - 1));
-  }
+
   /**
    * 36.
    * Problem: Dynamic Programming | Set 29 (Longest Common Substring)
@@ -514,14 +437,7 @@ public class DPExamples {
    * values on each face when all the dice are thrown.
    * Solution:
    */
-  int findWays(int dices, int faces, int sum, int totalWays) {
-    if (sum < 1) return 0;
-    else if (dices == 1) return sum <= faces ? 1 : 0;
-    else {
-      for (int i = 1; i <= faces; i++) totalWays += findWays(dices - 1, faces, sum - i, 0);
-      return totalWays;
-    }
-  }
+
 
 
   /**
@@ -537,14 +453,7 @@ public class DPExamples {
    * Given an input string and a dictionary of words, find out if the input string can be segmented into a space-
    * separated sequence of dictionary words
    */
-  boolean wordBreak(String str, Set<String> dictionary) {
-    if (str.isEmpty()) return true;
-    else {
-      for (int i = 0; i < str.length(); i++)
-        if (dictionary.contains(str.substring(0, i + 1)) && wordBreak(str.substring(i + 1), dictionary)) return true;
-    }
-    return false;
-  }
+
 
   /**
    * 40.
@@ -715,22 +624,7 @@ public class DPExamples {
    * Consider a game where a player can score 3 or 5 or 10 points in a move. Given a total score n, find number of ways
    * to reach the given score.
    */
-  int countWaysToScore(int n, int[] points, int index) {
-    if (n == 0) return 1;
-    if (index <= 0) return 0;
-    else if (n < points[index - 1]) return countWaysToScore(n, points, index - 1);
-    else
-      return countWaysToScore(n - points[index - 1], points, index)
-              + countWaysToScore(n, points, index - 1);
-  }
 
-  int countWaysToScoreBottomUp(int n, int[] points, int index) {
-    int[] dp = new int[n + 1];
-    dp[0] = 1;
-    for (int i = 0; i < points.length; i++)
-      for (int j = points[i]; j <= n; j++) dp[j] += dp[j - points[i]];
-    return dp[n];
-  }
 
 
   /**
@@ -783,19 +677,7 @@ public class DPExamples {
    * Given an input number of sections and each section has 2 plots on either sides of the road. Find all possible ways
    * to construct buildings in the plots such that there is a space between any 2 buildings.
    */
-  int waysToConstructBuilding(int n) {
-    return (int) Math.pow(placeBuilding(n) + placeSpace(n), 2);
-  }
 
-  private int placeBuilding(int n) {
-    if (n == 0 || n == 1) return n;
-    else return placeSpace(n - 1);
-  }
-
-  private int placeSpace(int n) {
-    if (n == 0 || n == 1) return n;
-    else return placeSpace(n - 1) + placeBuilding(n - 1);
-  }
 
   /**
    * 63.
@@ -842,29 +724,6 @@ public class DPExamples {
    * Given a value V, if we want to make change for V cents, and we have infinite supply of each of C = { C1, C2, .. , Cm}
    * valued coins, what is the minimum number of coins to make the change?
    */
-  int findMinCoins(int[] coins, int sum) {
-    if (sum == 0) return 0;
-    else {
-      int min = Integer.MAX_VALUE;
-      for (int coin : coins)
-        if (sum >= coin) {
-          int subResult = findMinCoins(coins, sum - coin);
-          if (subResult != Integer.MAX_VALUE) min = Math.min(min, 1 + subResult);
-        }
-      return min;
-    }
-  }
-
-  int findMinCoinsBottomUp(int[] coins, int sum) {
-    int[] dp = new int[sum + 1];
-    Arrays.fill(dp, 1, dp.length, Integer.MAX_VALUE);
-    dp[0] = 0;
-    for (int coin : coins)
-      for (int i = 1; i <= sum; i++)
-        if (i >= coin && dp[i - coin] != Integer.MAX_VALUE) dp[i] = Math.min(dp[i], 1 + dp[i - coin]);
-
-    return dp[sum];
-  }
 
   /**
    * 67.
@@ -922,14 +781,7 @@ public class DPExamples {
    * example, 223, 4455567, 899, are non-decreasing numbers.
    * So, given the number of digits n, you are required to find the count of total non-decreasing numbers with n digits.
    */
-  int countIncreasingNum(int n, int index) {
-    if (n == 0) return 1;
-    else {
-      int count = 0;
-      for (int i = index; i < 10; i++) count += countIncreasingNum(n - 1, i);
-      return count;
-    }
-  }
+
 
   /**
    * 71.
@@ -1058,12 +910,7 @@ public class DPExamples {
    * Problem: Number of paths with exactly k coins
    * Solution:
    */
-  int countPathsKCoin(int[][] mat, int x, int y, int k) {
-    if (x == 0 && y == 0 && k == mat[0][0]) return 1;
-    else if (x < 0 || y < 0) return 0;
-    else return countPathsKCoin(mat, x - 1, y, k - mat[x][y])
-              + countPathsKCoin(mat, x, y - 1, k - mat[x][y]);
-  }
+
 
 
   /**
@@ -1131,11 +978,7 @@ public class DPExamples {
    * Given a set of integers, the task is to divide it into two sets S1 and S2 such that the absolute difference between
    * their sums is minimum.
    */
-  int twoSubsetDivide(int[] array, int arraySum, int m, int soFarSum) {
-    if (m == 0) return Math.abs(soFarSum - (arraySum - soFarSum));
-    else return Math.min(twoSubsetDivide(array, arraySum, m - 1, soFarSum + array[m - 1]),
-            twoSubsetDivide(array, arraySum, m - 1, soFarSum));
-  }
+
 
   /**
    * 89.
@@ -1489,12 +1332,6 @@ public class DPExamples {
    * We want to find a path with maximum average over all existing paths. Average is computed as total cost divided by
    * number of cells visited in path.
    */
-  double maxAvgPath(int[][] mat, int i, int j, int pathLen, int pathSum) {
-    if (i == 0 && j == 0) return (double) (pathSum + mat[0][0]) / (double) (pathLen + 1);
-    else if (i < 0 || j < 0) return 0;
-    else return Math.max(maxAvgPath(mat, i - 1, j, pathLen + 1, pathSum + mat[i][j]),
-              maxAvgPath(mat, i, j - 1, pathLen + 1, pathSum + mat[i][j]));
-  }
 
 
   /**
@@ -1522,15 +1359,7 @@ public class DPExamples {
    * Given a string, the task is to count all palindrome substring in a given string. Length of palindrome substring is
    * greater then or equal to 2.
    */
-  int countPSubstrings(String str, int left, int right) {
-    if (left + 1 == right && str.charAt(left) == str.charAt(right)) return 1;
-    else if (left + 1 == right && str.charAt(left) != str.charAt(right) || left >= right) return 0;
-    else if (new RecursionExamples().isPalindrome(str.substring(left, right + 1))) return 1 +
-            countPSubstrings(str, left + 1, right) + countPSubstrings(str, left, right - 1) -
-            countPSubstrings(str, left + 1, right - 1);
-    return countPSubstrings(str, left + 1, right) +
-            countPSubstrings(str, left, right - 1) - countPSubstrings(str, left + 1, right - 1);
-  }
+
 
   /**
    * 140.
@@ -1538,12 +1367,6 @@ public class DPExamples {
    * Given an array arr of N integer elements, the task is to find sum of average of all subsets of this array.
    * Solution:
    */
-  double subsetAvgSum(int[] array, int m, int elementCount, int avgSum) {
-    if (m == 0 && elementCount == 0) return 0;
-    else if (m == 0) return (double) avgSum / elementCount;
-    else return subsetAvgSum(array, m - 1, elementCount + 1, avgSum + array[m - 1]) +
-              subsetAvgSum(array, m - 1, elementCount, avgSum);
-  }
 
   /**
    * 141.
@@ -1630,23 +1453,7 @@ public class DPExamples {
    * A cell in given maze has value -1 if it is a blockage or dead end, else 0. From a given cell, we are allowed to
    * move to cells (i+1, j) and (i, j+1) only.
    */
-  int countWaysToReachDest(int[][] mat, int i, int j) {
-    if (i == 0 && j == 0 && mat[0][0] == 0) return 1;
-    else if (i < 0 || j < 0 || mat[i][j] == -1) return 0;
-    else return countWaysToReachDest(mat, i - 1, j) + countWaysToReachDest(mat, i, j - 1);
-  }
 
-  int countWaysToReachDestBottomUp(int[][] mat) {
-    int[][] dp = new int[mat.length + 1][mat[0].length + 1];
-    for (int i = 1; i < dp.length; i++) {
-      for (int j = 1; j < dp[0].length; j++) {
-        if (i == 1 && j == 1 && mat[0][0] == 0) dp[i][j] = 1;
-        else if (mat[i - 1][j - 1] == -1) dp[i][j] = 0;
-        else dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
-      }
-    }
-    return dp[dp.length - 1][dp[0].length - 1];
-  }
 
   /**
    * 149.
@@ -1694,16 +1501,7 @@ public class DPExamples {
    * amount that could make up this quantity exactly. This is different from classical Knapsack problem, here we are
    * allowed to use unlimited number of instances of an item.
    */
-  int knapsackUnbounded(int[] weights, int[] values, int capacity) {
-    if (weights.length == 0 || capacity == 0) return 0;
-    else {
-      int max = Integer.MIN_VALUE;
-      for (int i = 0; i < weights.length; i++)
-        if (capacity >= weights[i])
-          max = Math.max(max, values[i] + knapsackUnbounded(weights, values, capacity - weights[i]));
-      return max;
-    }
-  }
+
 
   /**
    * 156.
@@ -1711,13 +1509,7 @@ public class DPExamples {
    * Given 3 strings of all having length < 100,the task is to find the longest common sub-sequence in all three given
    * sequences.
    */
-  int threeStringsLCS(String str1, String str2, String str3, int m, int n, int o) {
-    if (m == 0 || n == 0 || o == 0) return 0;
-    else if (str1.charAt(m - 1) == str2.charAt(n - 1) && str1.charAt(m - 1) == str3.charAt(o - 1))
-      return 1 + threeStringsLCS(str1, str2, str3, m - 1, n - 1, o - 1);
-    else return Math.max(threeStringsLCS(str1, str2, str3, m - 1, n, o),
-              Math.max(threeStringsLCS(str1, str2, str3, m, n - 1, o), threeStringsLCS(str1, str2, str3, m, n, o - 1)));
-  }
+
 
   /**
    * 157.
@@ -1735,20 +1527,6 @@ public class DPExamples {
    * We multiply A[i] and B[j] and add to product (We include A[i]).
    * We exclude A[i] from product (In other words, we insert 0 at current position in B[])
    */
-  int maxDotProduct(int[] a, int[] b, int m, int n) {
-    if (m == 0 || n == 0) return 0;
-    else
-      return Math.max(a[m - 1] * b[n - 1] + maxDotProduct(a, b, m - 1, n - 1),
-              maxDotProduct(a, b, m - 1, n));
-
-  }
-
-  int maxDotProductBottomUp(int[] a, int[] b) {
-    int[][] dp = new int[a.length + 1][b.length + 1];
-    for (int i = 1; i <= a.length; i++)
-      for (int j = 1; j <= b.length; j++) dp[i][j] = Math.max(a[i - 1] * b[j - 1] + dp[i - 1][j - 1], dp[i - 1][j]);
-    return dp[a.length][b.length];
-  }
 
   /**
    * 159.
@@ -1837,30 +1615,7 @@ public class DPExamples {
    * (i+1, j+1)
    * Starting from any column in row 0, return the largest sum of any of the paths up to row N-1.
    */
-  int maxSumPath(int[][] mat) {
-    int maxSumPath = Integer.MIN_VALUE;
-    for (int j = 0; j < mat[0].length; j++) maxSumPath = Math.max(maxSumPath, maxSumPathUtil(mat, mat.length - 1, j));
-    return maxSumPath;
-  }
 
-  private int maxSumPathUtil(int[][] mat, int i, int j) {
-    if (i < 0 || j > mat[0].length - 1 || j < 0) return Integer.MIN_VALUE;
-    else if (i == 0) return mat[0][j];
-    else return mat[i][j] + Math.max(maxSumPathUtil(mat, i - 1, j), Math.max(maxSumPathUtil(mat, i - 1, j - 1),
-              maxSumPathUtil(mat, i - 1, j + 1)));
-  }
-
-  int maxSumPathBottomUp(int[][] mat) {
-    int[][] dp = new int[mat.length][mat[0].length + 2];
-    for (int j = 0; j < mat[0].length; j++) dp[0][j + 1] = mat[0][j];
-    for (int i = 1; i < dp.length; i++)
-      for (int j = 1; j < dp[0].length - 1; j++)
-        dp[i][j] = mat[i][j - 1] + Math.max(dp[i - 1][j],
-                Math.max(dp[i - 1][j - 1], dp[i - 1][j + 1]));
-    int maxSumPath = 0;
-    for (int j = 1; j < dp[0].length - 1; j++) maxSumPath = Math.max(maxSumPath, dp[dp.length - 1][j]);
-    return maxSumPath;
-  }
 
   /**
    * 171.
@@ -1901,17 +1656,7 @@ public class DPExamples {
    * gold in tons. Initially the miner is at first column but can be at any row. He can move only (right->,right up /
    * ,right down\).Find out maximum amount of gold he can collect.
    */
-  int maxGoldAmount(int[][] mat) {
-    int maxGold = Integer.MIN_VALUE;
-    for (int i = 0; i < mat.length; i++) maxGold = Math.max(maxGold, maxGoldAmountUtil(mat, i, 0));
-    return maxGold;
-  }
 
-  private int maxGoldAmountUtil(int[][] mat, int i, int j) {
-    if (i < 0 || i > mat.length - 1 || j > mat[0].length - 1) return 0;
-    else return mat[i][j] + Math.max(maxGoldAmountUtil(mat, i, j + 1),
-            Math.max(maxGoldAmountUtil(mat, i + 1, j + 1), maxGoldAmountUtil(mat, i - 1, j + 1)));
-  }
 
   /**
    * 174.
@@ -1925,33 +1670,9 @@ public class DPExamples {
    * Given a length n, count the number of strings of length n that can be made using ‘a’, ‘b’ and ‘c’ with at-most one
    * ‘b’ and two ‘c’s allowed.
    */
-  int countStringFormed(int n, String soFar, String[] choices, int[] remaining) {
-    if (n == 0) return 1;
-    else {
-      int count = 0;
-      for (int i = 0; i < choices.length; i++) {
-        if (remaining[i] > 0) {
-          remaining[i]--;
-          count += countStringFormed(n - 1, soFar + choices[i].charAt(0), choices, remaining);
-          remaining[i]++;
-        }
-      }
-      return count;
-    }
-  }
 
-  void printStringFormed(int n, String soFar, String[] choices, int[] remaining) {
-    if (n == 0) System.out.print(soFar + " ");
-    else {
-      for (int i = 0; i < choices.length; i++) {
-        if (remaining[i] > 0) {
-          remaining[i]--;
-          printStringFormed(n - 1, soFar + choices[i].charAt(0), choices, remaining);
-          remaining[i]++;
-        }
-      }
-    }
-  }
+
+
 
   /**
    * 176.
@@ -2002,15 +1723,7 @@ public class DPExamples {
    * Problem: Perfect Sum Problem (Print all subsets with given sum).
    * Given an array of integers and a sum, the task is to print all subsets of given array with sum equal to given sum.
    */
-  void perfectSumProblem(int[] array, int sum, int m, String soFar) {
-    if (sum == 0) System.out.println(soFar);
-    else {
-      if (m > 0 && sum > 0) {
-        perfectSumProblem(array, sum - array[m - 1], m - 1, soFar + array[m - 1] + " ");
-        perfectSumProblem(array, sum, m - 1, soFar);
-      }
-    }
-  }
+
 
   /**
    * 184.
@@ -2018,21 +1731,6 @@ public class DPExamples {
    * Given a matrix of size n x n, find sum of the Zigzag sequence with the largest sum. A zigzag sequence starts from
    * the top and ends at the bottom. Two consecutive elements of sequence cannot belong to same column.
    */
-  int largestZigZagSum(int[][] mat) {
-    int maxSum = Integer.MIN_VALUE;
-    for (int j = 0; j < mat[0].length; j++) maxSum = Math.max(maxSum, largestZigZag(mat, 0, j));
-    return maxSum;
-  }
-
-  private int largestZigZag(int[][] mat, int row, int col) {
-    if (row == mat.length - 1) return mat[row][col];
-    else {
-      int zigZagSum = Integer.MIN_VALUE;
-      for (int j = 0; j < mat[0].length; j++)
-        if (col != j) zigZagSum = Math.max(zigZagSum, mat[row][col] + largestZigZag(mat, row + 1, j));
-      return zigZagSum;
-    }
-  }
 
 
   /**
@@ -2086,14 +1784,7 @@ public class DPExamples {
    * Given a string of size ‘n’. The task is to remove or delete minimum number of characters from the string so that
    * the resultant string is palindrome. Note: The order of characters should be maintained.
    */
-  int minDeletion(String str, int left, int right) {
-    if (left > right) return Integer.MAX_VALUE;
-    else if (left == right) return 0;
-    else if (left + 1 == right) return (str.charAt(left) == str.charAt(right)) ? 0 : 1;
-    else if (str.charAt(left) == str.charAt(right)) return minDeletion(str, left + 1, right - 1);
-    else return Math.min(2 + minDeletion(str, left + 1, right - 1), 1 +
-              Math.min(minDeletion(str, left + 1, right), minDeletion(str, left, right - 1)));
-  }
+
 
 
   /**
@@ -2152,13 +1843,7 @@ public class DPExamples {
    * number of characters from/in str1 so as to transform it into str2. It could be possible that the same character
    * needs to be removed/deleted from one point of str1 and inserted to some another point.
    */
-  int[] minInsertionDeletionBottomUp(String str1, String str2, int m, int n) {
-    int[] result = new int[2];
-    int len = new DPExamples().LCSBottomUp(str1, str2);
-    result[0] = m - len;
-    result[1] = n - len;
-    return result;
-  }
+
 
 
   /**
@@ -2201,23 +1886,7 @@ public class DPExamples {
    * Given a set of m distinct positive integers and a value ‘N’. The problem is to count the total number of ways we
    * can form ‘N’ by doing sum of the array elements. Repetitions and different arrangements are allowed.
    */
-  int waysToSumToN(int sum, int[] array) {
-    if (sum == 0) return 1;
-    else {
-      int count = 0;
-      for (int i : array)
-        if (sum >= i) count += waysToSumToN(sum - i, array);
-      return count;
-    }
-  }
 
-  int waysToSumToNBottomUp(int sum, int[] array) {
-    int[] dp = new int[sum + 1];
-    dp[0] = 1;
-    for (int i = 1; i <= sum; i++)
-      for (int j : array) if (i >= j) dp[i] += dp[i - j];
-    return dp[sum];
-  }
 
 
   /**
@@ -2245,10 +1914,7 @@ public class DPExamples {
    * from each point you are allowed to move either in (n-1, m) or (n, m-1). Find the number of paths from point to
    * origin.
    */
-  int countPathsToOri(int x, int y) {
-    if (x == 0 || y == 0) return 1;
-    else return countPathsToOri(x - 1, y) + countPathsToOri(x, y - 1);
-  }
+
 
   /**
    * 210.
@@ -2294,14 +1960,7 @@ public class DPExamples {
    * right are in non-decreasing form. ex: 1234, 1135, ..etc. Note :Leading zeros also count in non-decreasing integers
    * such as 0000, 0001, 0023, etc are also non-decreasing integers of 4-digits.
    */
-  int nonDecreasingInCount(int n, int start) {
-    if (n == 0) return 1;
-    else {
-      int count = 0;
-      for (int i = start; i <= 9; i++) count += nonDecreasingInCount(n - 1, i);
-      return count;
-    }
-  }
+
 
 
   /**
