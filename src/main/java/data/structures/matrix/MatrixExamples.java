@@ -82,7 +82,39 @@ public class MatrixExamples {
    * Problem: Find the number of islands | Set 1 (Using DFS).
    * Given a boolean 2D matrix, find the number of islands. A group of connected 1s forms an island. For example, the
    * below matrix contains 5 islands.
+   * Input : mat[][] =
+   * {{1, 1, 0, 0, 0},
+   * {0, 1, 0, 0, 1},
+   * {1, 0, 0, 1, 1},
+   * {0, 0, 0, 0, 0},
+   * {1, 0, 1, 0, 1}
+   * Output : 5
+   * Solution:
    */
+  public int countIslands(int[][] mat) {
+    int islandsCount = 0;
+    boolean[][] isVisited = new boolean[mat.length][mat[0].length];
+    for (int i = 0; i < mat.length; i++) {
+      for (int j = 0; j < mat[0].length; j++) {
+        if (mat[i][j] == 1 && !isVisited[i][j]) {
+          dfs(mat, i, j, isVisited);
+          islandsCount++;
+        }
+      }
+    }
+    return islandsCount;
+  }
+
+  private void dfs(int[][] mat, int x, int y, boolean[][] isVisited) {
+    int[][] moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {1, -1}, {-1, 1}};
+    isVisited[x][y] = true;
+    for (int[] move : moves)
+      if (isSafe(mat, x + move[0], y + move[1], isVisited)) dfs(mat, x + move[0], y + move[1], isVisited);
+  }
+
+  private boolean isSafe(int[][] mat, int x, int y, boolean[][] isVisited) {
+    return x >= 0 && x < mat.length && y >= 0 && y < mat[0].length && mat[x][y] == 1 && !isVisited[x][y];
+  }
 
   /**
    * 13.
@@ -101,8 +133,17 @@ public class MatrixExamples {
    * Problem: Print all possible paths from top left to bottom right of a mXn matrix.
    * The problem is to print all the possible paths from top left to bottom right of a mXn matrix with the constraints
    * that from each cell you can either move only to right or down.
+   * Solution:
    */
-
+  public void printAllPaths(int[][] mat, String path, int x, int y) {
+    if (x == mat.length - 1 && y == mat[0].length - 1) System.out.println(path + mat[mat.length - 1][mat[0].length - 1]);
+    else {
+      if (x < mat.length  && y < mat[0].length) {
+      printAllPaths(mat, path + mat[x][y], x + 1, y );
+      printAllPaths(mat, path + mat[x][y], x, y + 1);
+       }
+    }
+  }
   /**
    * 16.
    * Problem: Count all possible paths from top left to bottom right of a mXn matrix.
@@ -327,7 +368,12 @@ public class MatrixExamples {
    * 1 -> 2 -> 6 -> 2 -> 1
    * 1 -> 2 -> 3 -> 5 -> 1
    */
-
+  int countPathsKCoins(int[][] mat, int x, int y, int k) {
+    if (x == 0 && y == 0 && k == mat[0][0]) return 1;
+    else if (x < 0 || y < 0) return 0;
+    else return countPathsKCoins(mat, x - 1, y, k - mat[x][y])
+              + countPathsKCoins(mat, x, y -1, k - mat[x][y]);
+  }
 
 
   /**
@@ -876,7 +922,17 @@ public class MatrixExamples {
    * Given a matrix of n X n. The task is to calculate the absolute difference between the sums of its diagonal.
    * Solution:
    */
-
+  int diagnalsDiff(int[][] mat) {
+    return Math.abs(diagnalSum(mat, 0, 0) - antiDiagnalSum(mat, 0, mat[0].length - 1, 0));
+  }
+  private int diagnalSum(int[][] mat, int x, int sum) {
+    if (x == mat.length - 1) return sum + mat[x][x];
+    else return diagnalSum(mat, x + 1, sum + mat[x][x]);
+  }
+  private int antiDiagnalSum(int[][] mat, int x, int y, int sum) {
+    if (x == mat.length - 1 && y == 0) return sum + mat[mat.length - 1][0];
+    else return antiDiagnalSum(mat, x + 1, y - 1, sum + mat[x][y]);
+  }
 
   /**
    * 134.
@@ -979,7 +1035,16 @@ public class MatrixExamples {
    * Problem: Print Matrix Diagonally.
    * Given a 2D matrix, print all elements of the given matrix in diagonal order.
    */
-
+  void printDiagonal(int[][] matrix) {
+    int rows = matrix.length;
+    int columns = matrix[0].length;
+    for (int line = 1; line <= rows + columns + 1; line++) {
+      int startColumn = Math.max(0,line - rows);
+      int count = Math.min(line,Math.min(columns-startColumn,rows));
+      for (int i = 0; i < count; i++) System.out.print(matrix[Math.min(rows,line)-i-1][startColumn+i]);
+      System.out.println("");
+    }
+  }
 
   /**
    * Problem: Rotate Matrix Elements.
@@ -1206,7 +1271,14 @@ public class MatrixExamples {
    * find area for that row
    * and update maximum area so far
    */
-
+  int largestRect(int[][] mat) {
+   int maxArea = new StackExamples().maxRectangleArea(Arrays.copyOf(mat[0], mat[0].length));
+    for (int i = 1; i < mat.length; i++) {
+      for (int j = 0; j < mat[0].length; j++) if (mat[i][j] == 1) mat[i][j] += mat[i - 1][j];
+      maxArea = Math.max(maxArea, new StackExamples().maxRectangleArea(Arrays.copyOf(mat[i], mat[i].length)));
+    }
+    return maxArea;
+  }
 
 
 
@@ -1295,18 +1367,4 @@ public class MatrixExamples {
 
    */
 
-  void gvGenerator(String gv) {
-    ArrayList<String> choices = new ArrayList<>();
-    for (int i = 65; i < 91; i++) choices.add(Character.toString((char) i));
-//    for (int i = 0; i < 10; i++) choices.add(Integer.toString(i));
-    permute(gv, "", 4, choices);
-  }
-  private void permute(String gv, String sofar, int k, ArrayList<String> choices) {
-    if (k == 0) System.out.println(gv + sofar);
-    else {
-      for (int i = 0; i < choices.size(); i++) {
-        permute(gv, sofar + choices.get(i), k - 1, choices);
-      }
-    }
-  }
 }

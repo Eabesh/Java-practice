@@ -2,10 +2,8 @@ package recursion;
 
 import utilities.ListNode;
 import utilities.Stack;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+
+import java.util.*;
 
 public class RecursionExamples {
 
@@ -19,6 +17,11 @@ public class RecursionExamples {
   int getExponent(int base, int exp) {
     if (exp == 0) return 1;
     else return base * getExponent(base, exp - 1);
+  }
+
+  int getExponentTR(int base, int exp, int acc) {
+    if (exp == 0) return acc;
+    else return getExponentTR(base, exp - 1, acc * base);
   }
 
   /**
@@ -38,7 +41,7 @@ public class RecursionExamples {
    * Problem: Given a string, check whether palindrome or not.
    */
   public boolean isPalindrome(String str) {
-    return (str.length() <=1) || str.charAt(0) == str.charAt(str.length() - 1)
+    return (str.length() <= 1) || str.charAt(0) == str.charAt(str.length() - 1)
             && isPalindrome(str.substring(1, str.length() - 1));
   }
 
@@ -187,6 +190,23 @@ public class RecursionExamples {
    * Problem: Reverse a stack using recursion. Or reverse a stack without using any other data structure or auxiliary
    * space.
    */
+  void reverseStack(Stack stack) {
+    if(!stack.isEmpty()) {
+      int top = stack.pop();
+      reverseStack(stack);
+      insertAtBottom(stack,top);
+    }
+  }
+
+  private void insertAtBottom(Stack stack, int elem) {
+    if (stack.isEmpty())
+      stack.push(elem);
+    else {
+      int top = stack.pop();
+      insertAtBottom(stack,elem);
+      stack.push(top);
+    }
+  }
 
   /**
    * 3.
@@ -205,14 +225,44 @@ public class RecursionExamples {
    * For example, if input array is {1, 2, 3, 4} and r is 2, then output should be {1, 2}, {1, 3}, {1, 4}, {2, 3}, {2, 4} and
    * {3,4}.
    */
-
+  void printCombinationOfArray(int[] array, String soFar, int r, int beginIndex) {
+    if (r == 0) System.out.println("{" + soFar.substring(0, soFar.length() - 2) + "}");
+    else
+      for (int i = beginIndex; i < array.length; i++)
+        printCombinationOfArray(array, soFar + array[i] + ", ", r - 1, i + 1);
+  }
 
   /**
    * 5.
    * Problem: Print all possible strings of length k that can be formed from a set of n characters
    */
+  void printKLengthString(char[] array, int length, String soFar) {
+    if (length == 0) System.out.println(soFar);
+    else {
+        for (char ch : array)
+        printKLengthString(array, length - 1, soFar + ch);
+    }
+  }
 
+  class arrayComparator implements Comparator<Integer> {
 
+    @Override
+    public int compare(Integer X, Integer Y) {
+      String XY =  String.valueOf(X) + String.valueOf(Y);
+      String YX =  String.valueOf(Y) + String.valueOf(X);
+      return Integer.valueOf(XY) - Integer.valueOf(YX);
+    }
+  }
+  ArrayList<Integer> sortedArray(ArrayList<Integer> array) {
+    Collections.sort(array, new arrayComparator());
+    return array;
+  }
+  String largetNumber(ArrayList<Integer> array) {
+    String result = "";
+    ArrayList<Integer> sArray = sortedArray(array);
+    for (int i =  sArray.size() - 1; i >= 0; i--) result += sArray.get(i);
+    return result;
+  }
   /**
    * 6.
    * Problem: Tail Recursion
@@ -228,7 +278,13 @@ public class RecursionExamples {
     else return num * factorial(num - 1);
   }
 
-
+  /**
+   * Tail recursive
+   */
+  int factTailRecursive(int num, int accumulator) {
+    if (num == 0) return accumulator;
+    else return factTailRecursive(num - 1, accumulator * num);
+  }
 
   /**
    * 7.

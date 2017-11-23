@@ -9,6 +9,26 @@ import static org.junit.Assert.*;
  */
 public class StringExamplesTest {
   @Test
+  public void minAppends() throws Exception {
+    String str = "aabb";
+    int res = new StringExamples().minAppends(str, 0, str.length() - 1);
+    System.out.println(res);
+  }
+
+  @Test
+  public void reverseVowels() throws Exception {
+    StringBuilder str = new StringBuilder("Hello");
+    new StringExamples().reverseVowels(str, 0, str.length() - 1);
+    System.out.println(str);
+  }
+
+  @Test
+  public void rearrangeStringSum() throws Exception {
+    String str1 = new StringExamples().sortedStrSum("AC2BEW3");
+    System.out.println(str1);
+  }
+
+  @Test
   public void printAllPermutations() throws Exception {
     new StringExamples().printAllPermutations("", "AB", 2);
   }

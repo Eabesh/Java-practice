@@ -1203,20 +1203,30 @@ public class StringExamples {
   /**
    * 201.
    * Problem: Minimum number of Appends needed to make a string palindrome.
-   * Solution:
+   * Minimum number of Appends needed to make a string palindrome.
    */
+  int minAppends(String str, int left, int right) {
+    if (left > right) return Integer.MAX_VALUE;
+    else if (left == right) return 0;
+    else if (left + 1 == right) return (str.charAt(left) == str.charAt(right)) ? 0 : 1;
+    else if (str.charAt(left) == str.charAt(right)) return minAppends(str, left + 1, right - 1);
+    else return 1 + minAppends(str, left + 1, right);
+  }
+
 
   /**
    * 202.
    * Problem: Move spaces to front of string in single traversal.
-   * Solution:
+   * Given a string that has set of words and spaces, write a program to move all spaces to front of string, by traversing
+   * the string only once.
    */
+
 
   /**
    * 203.
    * Problem: Minimum number of deletions to make a string palindrome.
-   * Solution:
    */
+
 
   /**
    * 204.
@@ -1539,8 +1549,32 @@ public class StringExamples {
   /**
    * 257.
    * Problem: Reverse vowels in a given string.
-   * Solution:
+   * Given a string, your task is to reverse only the vowels of string.
    */
+  void reverseVowels(StringBuilder str, int left, int right) {
+    if (left < right) {
+      if (isVowel(str.charAt(left)) && isVowel(str.charAt(right))) {
+        swapCharacter(str, left, right);
+        reverseVowels(str, left + 1, right - 1);
+      }
+      else if (isVowel(str.charAt(left))) reverseVowels(str, left, right - 1);
+      else if (isVowel(str.charAt(right))) reverseVowels(str, left + 1, right);
+      else reverseVowels(str, left + 1, right - 1);
+    }
+  }
+
+  private void swapCharacter(StringBuilder str, int left, int right) {
+    char temp = str.charAt(left);
+    str.setCharAt(left, str.charAt(right));
+    str.setCharAt(right, temp);
+  }
+
+  private boolean isVowel(char c) {
+    return (c=='a' || c=='A' || c=='e' ||
+            c=='E' || c=='i' || c=='I' ||
+            c=='o' || c=='O' || c=='u' ||
+            c=='U');
+  }
 
   /**
    * 258.
@@ -1565,6 +1599,39 @@ public class StringExamples {
    * Problem: Rearrange a string in sorted order followed by the integer sum.
    * Solution:
    */
+  class CountSumInfo {
+    int[] charCount;
+    int sum ;
+
+    public CountSumInfo(int size, int sum) {
+      this.charCount = new int[size];
+      this.sum = sum;
+    }
+  }
+
+  String sortedStrSum(String str) {
+    CountSumInfo countSumInfo = new CountSumInfo(26, 0);
+    rearrangeStringSum(str, countSumInfo);
+    String res = "";
+    for (int i = 0; i < countSumInfo.charCount.length; i++)
+      while (countSumInfo.charCount[i]-- != 0) res += (char) (i + 'A');
+    res += countSumInfo.sum;
+    return res;
+  }
+
+  void rearrangeStringSum(String str, CountSumInfo countSumInfo) {
+    if (!str.isEmpty()){
+      if (Character.isUpperCase(str.charAt(0))) {
+        countSumInfo.charCount[str.charAt(0) - 'A']++;
+        rearrangeStringSum(str.substring(1), countSumInfo);
+      }
+      else {
+        countSumInfo.sum += Character.getNumericValue(str.charAt(0));
+        rearrangeStringSum(str.substring(1), countSumInfo);
+      }
+    }
+  }
+
 
   /**
    * 262.

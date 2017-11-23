@@ -11,6 +11,15 @@ import static org.junit.Assert.*;
 
 public class RecursionExamplesTest {
   @Test
+  public void largetNumber() throws Exception {
+    ArrayList<Integer> arrayList = new ArrayList<>();
+    arrayList.add(100);
+    arrayList.add(9);
+    arrayList.add(2);
+    System.out.println(new RecursionExamples().largetNumber(arrayList));
+  }
+
+  @Test
   public void findMinSteps() throws Exception {
     assertEquals(4, new RecursionExamples().findMinSteps(0, 10, 0, 1));
     assertEquals(5, new RecursionExamples().findMinSteps(0, 13, 0, 1));
@@ -19,6 +28,7 @@ public class RecursionExamplesTest {
   @Test
   public void getExponent() throws Exception {
     assertEquals(9, new RecursionExamples().getExponent(3, 2));
+    assertEquals(9, new RecursionExamples().getExponentTR(3, 2, 1));
   }
 
   @Test

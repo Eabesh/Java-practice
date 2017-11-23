@@ -1,111 +1,51 @@
 package data.structures.binarytrees;
 
+import data.structures.bst.BSTExamples;
+import utilities.NaryTreeNode;
 import utilities.TreeNode;
 import utilities.Utils;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class TreeExamples {
+  private BSTExamples bstExamples = new BSTExamples();
 
-  /**
+ /**
    * 1.
-   * Problem: Tree Traversals (Inorder, Pr-eorder and Post-order).
-   * Unlike linear data structures (Array, Linked List, Queues, Stacks, etc) which have only one logical way to
-   * traverse them, trees can be traversed in different ways.
-   * Depth First Traversals: In-order, Pre-order and Post-order
-   * Breadth First or Level Order Traversal
+   * Problem: Tree Traversals (Inorder, Preorder and Postorder).
+   * Solution:
    */
-
-  /**
-   * Uses of in-order
-   * In case of BST, in-order traversal gives nodes in non-decreasing order.To get nodes of BST in non-increasing order,
-   * a variation of in-order traversal where in-order is traversal's
-   * reversed, can be used.
-   */
-  void inOrder(TreeNode root) {
-    if (root != null) {
-      inOrder(root.left);
-      System.out.print(root.data + " ");
-      inOrder(root.right);
-    }
-  }
-
-  /**
-   * Uses of Pre-order
-   * To create a copy of the tree.
-   * To get prefix expression on of an expression tree.
-   */
-  void preOrder(TreeNode root) {
-    if (root != null) {
-      System.out.print(root.data + " ");
-      preOrder(root.left);
-      preOrder(root.right);
-    }
-  }
-
-  /**
-   * Uses of Post-order
-   * To delete the tree.
-   * To get the postfix expression of an expression tree.
-   */
-  void postOrder(TreeNode root) {
-    if (root != null) {
-      postOrder(root.left);
-      postOrder(root.right);
-      System.out.print(root.data + " ");
-    }
-  }
 
   /**
    * 2.
    * Problem: Write a program to Calculate Size of a tree.
+   * Solution:
    */
-  int treeSize(TreeNode root) {
-    if (root == null) return 0;
-    else return 1 + treeSize(root.left) + treeSize(root.right);
-  }
 
   /**
    * 3.
    * Problem: Write Code to Determine if Two Trees are Identical.
+   * Solution:
    */
-  boolean areIdentical(TreeNode root1, TreeNode root2) {
-    return root1 == null && root2 == null || root1 != null && root2 != null && root1.data == root2.data &&
-            areIdentical(root1.left, root2.left) && areIdentical(root1.right, root2.right);
-  }
 
   /**
    * 4.
    * Problem: Write a Program to Find the Maximum Depth or Height of a Tree.
+   * Solution:
    */
-  int height(TreeNode node) {
-    if (node == null) return 0;
-    else return 1 + Math.max(height(node.left), height(node.right));
-  }
 
   /**
    * 5.
-   * Problem: Write a  program to Delete a Tree.
+   * Problem: Write a  program to Delete a Tree..
    * Solution:
    */
 
   /**
    * 6.
    * Problem: Write an Efficient  Function to Convert a Binary Tree into its Mirror Tree.
+   * Solution:
    */
-  void mirror(TreeNode root) {
-    if (root != null) {
-      mirror(root.left);
-      mirror(root.right);
-      swapChildren(root);
-    }
-  }
-
-  private void swapChildren(TreeNode node) {
-    TreeNode temp = node.left;
-    node.left = node.right;
-    node.right = temp;
-  }
 
   /**
    * 7.
@@ -116,59 +56,14 @@ public class TreeExamples {
   /**
    * 8.
    * Problem: Given a binary tree, print out all of its root-to-leaf paths one per line..
+   * Solution:
    */
-  void rootToLeafPath(TreeNode root, String path) {
-    if (root != null) {
-      if (isLeaf(root)) System.out.println(path + root.data);
-      else {
-        rootToLeafPath(root.left, path + root.data + "->");
-        rootToLeafPath(root.right, path + root.data + "->");
-      }
-    }
-  }
 
   /**
    * 9.
-   * Problem: Lowest Common Ancestor in a Binary Search Tree.
-   * Given values of two values n1 and n2 in a Binary Search Tree, find the Lowest Common Ancestor (LCA). You may assume
-   * that both the values exist in the tree.
+   * Problem: Lowest Common Ancestor in a Binary Search Tree..
+   * Solution:
    */
-  public TreeNode bstLCA(TreeNode root, int k1, int k2) {
-    if (root == null) return null;
-    else if (root.data > k1 && root.data > k2) return bstLCA(root.left, k1, k2);
-    else if (root.data < k1 && root.data < k2) return bstLCA(root.right, k1, k2);
-    else return root;
-  }
-
-
-  TreeNode findLCA(TreeNode root, int k1, int k2) {
-    boolean[] v1 = new boolean[1], v2 = new boolean[1];
-    TreeNode lca = LCAUtil(root, k1, k2, v1, v2);
-    if (v1[0] && v2[0] || v1[0] && treeContains(root, k2) || v2[0] && treeContains(root, k1)) return lca;
-    else return null;
-  }
-
-  private TreeNode LCAUtil(TreeNode root, int k1, int k2, boolean[] v1, boolean[] v2) {
-    if (root == null) return root;
-    if (root.data == k1) {
-      v1[0] = true;
-      return root;
-    }
-    if (root.data == k2) {
-      v2[0] = true;
-      return root;
-    }
-    TreeNode leftLCA = LCAUtil(root.left, k1, k2, v1, v2);
-    TreeNode rightLCA = LCAUtil(root.right, k1, k2, v1, v2);
-    if (leftLCA != null && rightLCA != null) return root;
-    else return leftLCA != null ? leftLCA : rightLCA;
-  }
-
-  private boolean treeContains(TreeNode root, int key) {
-    if (root == null) return false;
-    else return root.data == key || treeContains(root.left, key) || treeContains(root.right, key);
-  }
-
 
   /**
    * 10.
@@ -208,25 +103,9 @@ public class TreeExamples {
 
   /**
    * 16.
-   * Problem: Diameter of a Binary Tree
+   * Problem: Diameter of a Binary Tree.
+   * Solution:
    */
-  int diameter(TreeNode root) {
-    if (root == null) return 0;
-    else return Utils.max(height(root.left) + 1 + height(root.right), diameter(root.left), diameter(root.right));
-  }
-
-  int diameterOpt(TreeNode root, int[] height) {
-    if (root == null) {
-      height[0] = 0;
-      return 0;
-    } else {
-      int[] lHeight = new int[1], rHeight = new int[1];
-      int lDiameter = diameterOpt(root.left, lHeight);
-      int rDiameter = diameterOpt(root.right, rHeight);
-      height[0] = 1 + Math.max(lHeight[0], rHeight[0]);
-      return Math.max(1 + lHeight[0] + rHeight[0], Math.max(lDiameter, rDiameter));
-    }
-  }
 
   /**
    * 17.
@@ -249,21 +128,31 @@ public class TreeExamples {
   /**
    * 20.
    * Problem: Root to leaf path sum equal to a given number.
-   * Given a binary tree and a number, return true if the tree has a root-to-leaf path such that adding up all the values
-   * along the path equals the given number. Return false if no such path can be found.
+   * Solution:
    */
-  boolean hasRootToLeafSumPath(TreeNode root, int sum) {
-    if (root == null) return false;
-    else if (isLeaf(root)) return sum == root.data;
-    else return hasRootToLeafSumPath(root.left, sum - root.data) ||
-              hasRootToLeafSumPath(root.right, sum - root.data);
-  }
+
 
   /**
    * 21.
-   * Problem: Construct Tree from given Inorder and Preorder traversals.
-   * Solution:
+   * Problem: Construct Tree from given Inorder and Preorder traversals
    */
+  int preIndex = 0;
+  public TreeNode constructTree(int[] preOder, int[] inOrder, int inStart, int end) {
+    if (inStart > end) return null;
+    else {
+      TreeNode root = new TreeNode(preOder[preIndex]);
+      int inIndex = getInorderIndex(inOrder, preOder[preIndex++]);
+      root.left = constructTree(preOder, inOrder, inStart, inIndex - 1);
+      root.right = constructTree(preOder, inOrder, inIndex + 1, end);
+      return root;
+    }
+  }
+
+  public int getInorderIndex(int[] inorder, int key) {
+    for (int i = 0; i < inorder.length; i++)
+      if (inorder[i] == key) return i;
+    return -1;
+  }
 
   /**
    * 22.
@@ -310,16 +199,8 @@ public class TreeExamples {
   /**
    * 29.
    * Problem: Print Ancestors of a given node in Binary Tree.
-   * Given a Binary Tree and a key, write a function that prints all the ancestors of the key in the given binary tree.
+   * Solution:
    */
-  public void printAncestors(TreeNode root, TreeNode key, String soFar) {
-    if (root == null) return;
-    else if (root == key) System.out.print(soFar);
-    else {
-      printAncestors(root.left, key, soFar + root.data + " ");
-      printAncestors(root.right, key, soFar + root.data + " ");
-    }
-  }
 
   /**
    * 30.
@@ -396,50 +277,8 @@ public class TreeExamples {
   /**
    * 42.
    * Problem: Boundary Traversal of binary tree.
+   * Solution:
    */
-   void printBoundary(TreeNode root) {
-    if (root == null) return;
-    else {
-      System.out.print(root.data + " ");
-      printLeftBoundary(root.left);
-      printLeaves(root);
-      printRightBoundary(root.right);
-    }
-  }
-
-  private void printLeaves(TreeNode root) {
-    if (root == null) return;
-    else if (isLeaf(root)) System.out.print(root.data + " ");
-    else {
-      printLeaves(root.left);
-      printLeaves(root.right);
-    }
-  }
-
-  private void printLeftBoundary(TreeNode root) {
-    if (root != null) {
-      if (root.left != null) {
-        System.out.print(root.data + " ");
-        printLeftBoundary(root.left);
-      } else if (root.right != null) {
-        printLeftBoundary(root.right);
-        System.out.print(root.data + " ");
-      }
-    }
-  }
-
-  private void printRightBoundary(TreeNode root) {
-    if (root != null) {
-      if (root.right != null) {
-        printRightBoundary(root.right);
-        System.out.print(root.data + " ");
-      } else if (root.left != null) {
-        printRightBoundary(root.left);
-        System.out.print(root.data + " ");
-      }
-    }
-  }
-
 
   /**
    * 43.
@@ -501,19 +340,6 @@ public class TreeExamples {
    * Solution:
    */
 
- public void BtreeToDLL(TreeNode root, TreeNode[] head) {
-    if (root != null) {
-      BtreeToDLL(root.right, head);
-      insertAtFront(root, head);
-      BtreeToDLL(root.left, head);
-    }
-  }
-
-  private void insertAtFront(TreeNode node, TreeNode[] head) {
-    node.right = head[0];
-    if (head[0] != null) head[0].left = node;
-    head[0] = node;
-  }
   /**
    * 53.
    * Problem: Tree Isomorphism Problem.
@@ -618,7 +444,7 @@ public class TreeExamples {
 
   /**
    * 70.
-   * Problem: Find distance between two given keys of a Binary Tree.
+   * Problem: Find distance between two nodes of a Binary Tree.
    * Solution:
    */
 
@@ -660,7 +486,7 @@ public class TreeExamples {
 
   /**
    * 77.
-   * Problem: Print a Binary Tree in Vertical Order | Set 2 (Hashmap based Method).
+   * Problem: Print a Binary Tree in Vertical Order | Set 2 (Map based Method).
    * Solution:
    */
 
@@ -775,42 +601,15 @@ public class TreeExamples {
   /**
    * 96.
    * Problem: Find the closest leaf in a Binary Tree.
-   * Given a Binary Tree and a key ‘k’, find distance of the closest leaf from ‘k’.
+   * Solution:
    */
-  int closetLeafFromKey(TreeNode root, TreeNode key) {
-    ArrayList<TreeNode> ancestors = ancestors(root, key, new ArrayList<>());
-    int minDistance = Integer.MAX_VALUE;
-    int distanceFromKey = ancestors.size();
-    for (TreeNode ancestor : ancestors)
-      minDistance = Math.min(minDistance, findClosestLeafRoot(ancestor, 0) +
-              distanceFromKey--);
-    return Math.min(findClosestLeafRoot(key, 0), minDistance);
-  }
-
-  int findClosestLeafRoot(TreeNode root, int distance) {
-    if (root == null) return Integer.MAX_VALUE;
-    else if (isLeaf(root)) return distance;
-    else return Math.min(findClosestLeafRoot(root.left, distance + 1),
-              findClosestLeafRoot(root.right, distance + 1));
-  }
-
-  ArrayList ancestors(TreeNode root, TreeNode key, ArrayList<TreeNode> soFar) {
-    if (root == null) return new ArrayList<>();
-    else if (root == key) return new ArrayList(soFar);
-    else {
-      soFar.add(root);
-      ArrayList left = ancestors(root.left, key, soFar);
-      ArrayList right = ancestors(root.right, key, soFar);
-      soFar.remove(soFar.size() - 1);
-      return left.isEmpty() ? right : left;
-    }
-  }
 
   /**
    * 97.
    * Problem: Remove nodes on root to leaf paths of length < K.
    * Solution:
    */
+
 
   /**
    * 98.
@@ -987,22 +786,8 @@ public class TreeExamples {
   /**
    * 126.
    * Problem: Maximum difference between node and its ancestor in Binary Tree.
+   * Solution:
    */
-  int maxDifferenceAncestor(TreeNode root) {
-    int[] maxDiff = {Integer.MIN_VALUE};
-    maxDiffAncestors(root, maxDiff);
-    return maxDiff[0];
-  }
-
-  int maxDiffAncestors(TreeNode root, int[] maxDiff) {
-    if (root == null) return Integer.MAX_VALUE;
-    else if (isLeaf(root)) return root.data;
-    else {
-      int minValue = Math.min(maxDiffAncestors(root.left, maxDiff), maxDiffAncestors(root.right, maxDiff));
-      maxDiff[0] = Math.max(maxDiff[0], root.data - minValue);
-      return Math.min(root.data, minValue);
-    }
-  }
 
   /**
    * 127.
@@ -1132,13 +917,9 @@ public class TreeExamples {
 
   /**
    * 148.
-   * Problem: Check if two trees are Mirror
-   * Given two Binary Trees, write a function that returns true if two trees are mirror of each other, else false.
+   * Problem: Check if two trees are Mirror.
+   * Solution:
    */
-  public boolean areMirror(TreeNode root1, TreeNode root2) {
-    return root1 == null && root2 == null || root1 != null && root2 != null && root1.data == root2.data
-            && areMirror(root1.left, root2.right) && areMirror(root1.right, root2.left);
-  }
 
   /**
    * 149.
@@ -1149,8 +930,38 @@ public class TreeExamples {
   /**
    * 150.
    * Problem: Find largest subtree having identical left and right subtrees.
-   * Solution:
+   * Given a binary tree, find the largest subtree having identical left and right subtree. Expected complexity is O(n).
    */
+  private class IdenticalInfo {
+    String soFar;
+    int maxSize, size;
+    TreeNode maxNode;
+
+    public IdenticalInfo(String soFar, int maxSize, int size, TreeNode maxNode) {
+      this.soFar = soFar;
+      this.maxSize = maxSize;
+      this.maxNode = maxNode;
+      this.size = size;
+    }
+  }
+
+  void findMaxIdenticalSubTree(TreeNode root) {
+     IdenticalInfo identicalInfo = findLargestIdenticalSubTree(root);
+    System.out.println(identicalInfo.maxNode.data + " " + identicalInfo.maxSize);
+  }
+  private IdenticalInfo findLargestIdenticalSubTree(TreeNode root) {
+    if (root == null) return new IdenticalInfo("", 0, 0,null);
+    else if (isLeaf(root)) return new IdenticalInfo("" + root.data, 0, 1, null);
+    else {
+      IdenticalInfo left = findLargestIdenticalSubTree(root.left);
+      IdenticalInfo right = findLargestIdenticalSubTree(root.right);
+      if (left.soFar.equals(right.soFar))
+          return new IdenticalInfo(left.soFar + right.soFar + root.data, 1 + left.size + right.size, 1 + left.size + right.size, root);
+      else if (left.maxSize > right.maxSize) return new IdenticalInfo(left.soFar + right.soFar + root.data, left.maxSize, 1 + left.size + right.size, left.maxNode);
+      else  return new IdenticalInfo(left.soFar + right.soFar + root.data,right.maxSize, 1 + left.size + right.size, right.maxNode);
+
+    }
+  }
 
   /**
    * 151.
@@ -1179,13 +990,8 @@ public class TreeExamples {
   /**
    * 155.
    * Problem: Find a number in minimum steps.
-   * Given an infinite number line from -INFINITY to +INFINITY and we are on zero. We can move n steps either side at
-   * each n’th time.
-   * Solution : The problem is now to find the closes node to root with value n. The idea is to do Level Order Traversal
-   * of tree to find the closest node. Note that using DFS for closest node is never a good idea (we may end up going
-   * down many unnecessary levels)
+   * Solution:
    */
-
 
   /**
    * 156.
@@ -1382,17 +1188,14 @@ public class TreeExamples {
   /**
    * 188.
    * Problem: Check if a Binary Tree contains duplicate subtrees of size 2 or more.
-   * Given a Binary Tree, check whether the Binary tree contains a duplicate sub-tree of size 2 or more.
-   * Note : Two same leaf nodes are not considered as subtree size of a leaf node is one.
+   * Solution:
    */
-
 
   /**
    * 189.
    * Problem: Print all root to leaf paths with there relative positions.
-   * Given a binary tree, print the root to the leaf path, but add “_” to indicate the relative position.
+   * Solution:
    */
-
 
   /**
    * 190.
@@ -1421,8 +1224,14 @@ public class TreeExamples {
   /**
    * 194.
    * Problem: Print all full nodes in a Binary Tree.
-   * Solution:
    */
+  void printFullNodes(TreeNode root) {
+    if (root != null) {
+      printFullNodes(root.left);
+      printFullNodes(root.right);
+      if (root.left != null && root.right != null) System.out.print(root.data + " ");
+    }
+  }
 
   /**
    * 195.
@@ -1453,6 +1262,1112 @@ public class TreeExamples {
    * Problem: Sum of nodes at k-th level in a tree represented as string.
    * Solution:
    */
+
+  /**
+   * 200.
+   * Problem: Number of subtrees having odd count of even numbers.
+   * Solution:
+   */
+
+  /**
+   * 201.
+   * Problem: Given level order traversal of a Binary Tree, check if the Tree is a Min-Heap.
+   * Solution:
+   */
+
+  /**
+   * 202.
+   * Problem: Level with maximum number of nodes.
+   * Solution:
+   */
+
+  /**
+   * 203.
+   * Problem: Threaded Binary Tree | Insertion.
+   * Solution:
+   */
+
+  /**
+   * 204.
+   * Problem: Find distance from root to given node in a binary tree.
+   * Solution:
+   */
+
+  /**
+   * 205.
+   * Problem: Count full nodes in a Binary tree (Iterative and Recursive).
+   * Solution:
+   */
+
+  /**
+   * 206.
+   * Problem: Largest BST in a Binary Tree | Set 2.
+   */
+  int LargestBSTinBinaryTree(TreeNode root) {
+    return bstExamples.largestBSTinBT(root).bstSoFar;
+  }
+
+  /**
+   * 207.
+   * Problem: Left-Child Right-Sibling Representation of Tree.
+   * Solution:
+   */
+
+  /**
+   * 208.
+   * Problem: Create loops of even and odd values in a binary tree.
+   * Solution:
+   */
+
+  /**
+   * 209.
+   * Problem: Convert Ternary Expression to a Binary Tree.
+   * Solution:
+   */
+
+  /**
+   * 210.
+   * Problem: Convert a given Binary tree to a tree that holds Logical AND property.
+   * Solution:
+   */
+
+  /**
+   * 211.
+   * Problem: Check for Symmetric Binary Tree (Iterative Approach).
+   * Solution:
+   */
+
+  /**
+   * 212.
+   * Problem: Level order traversal line by line | Set 2 (Using Two Queues).
+   * Solution:
+   */
+
+  /**
+   * 213.
+   * Problem: Check whether a given binary tree is perfect or not.
+   * Solution:
+   */
+
+  /**
+   * 214.
+   * Problem: Creating a tree with Left-Child Right-Sibling Representation.
+   * Solution:
+   */
+
+  /**
+   * 215.
+   * Problem: Quad Tree.
+   * Solution:
+   */
+
+  /**
+   * 216.
+   * Problem: Iterative method to check if two trees are mirror of each other.
+   * Solution:
+   */
+
+  /**
+   * 217.
+   * Problem: Splay Tree | Set 3 (Delete).
+   * Solution:
+   */
+
+  /**
+   * 218.
+   * Problem: Count Balanced Binary Trees of Height h.
+   * Solution:
+   */
+
+
+  /**
+   * 219.
+   * Problem: Print path from root to a given node in a binary tree.
+   * Given a binary tree with distinct nodes(no two nodes have the same have data values). The problem is to print the
+   * path from root to a given node x. If node x is not present then print “No Path”.
+   */
+  String pathFromRoot(TreeNode root, int x, String soFar) {
+    if (root == null) return "";
+    else if (root.data == x) return soFar + x;
+    else return pathFromRoot(root.left, x, soFar + root.data + " ") +
+              pathFromRoot(root.right, x, soFar + root.data + " ");
+  }
+
+
+  /**
+   * 220.
+   * Problem: Find mirror of a given node in Binary tree.
+   * Given a Binary tree, the problem is to find mirror of a given node. The mirror of a node is a node which exist at
+   * the mirror position of node in opposite subtree at the root.
+   */
+  int findMirrorNode(TreeNode root, int targetNode, TreeNode mirrorNode) {
+    if (root == null || mirrorNode == null) return Integer.MIN_VALUE;
+    else if (targetNode == root.data) return mirrorNode.data;
+    return Math.max(findMirrorNode(root.left, targetNode, mirrorNode.right),
+            findMirrorNode(root.right, targetNode, mirrorNode.left));
+
+  }
+
+  /**
+   * 221.
+   * Problem: Print the path common to the two paths from the root to the two given nodes.
+   */
+  void printCommonPathsFromTwoNodes(TreeNode root, TreeNode node1, TreeNode node2) {
+    printCommonAncestors(root, node1, node2);
+  }
+
+
+  /**
+   * 222.
+   * Problem: Merge Two Binary Trees by doing Node Sum (Recursive and Iterative).
+   * Given two binary trees. We need to merge them into a new binary tree. The merge rule is that if two nodes overlap,
+   * then sum node values up as the new value of the merged node. Otherwise, the non-null node will be used as the node
+   * of new tree.
+   */
+  TreeNode mergeTwoTrees(TreeNode root1, TreeNode root2) {
+    if (root1 == null ) return root2;
+    else if (root2 == null) return root1;
+    else {
+      TreeNode root;
+      root = new TreeNode(root1.data + root2.data);
+      root.left = mergeTwoTrees(root1.left, root2.left);
+      root.right = mergeTwoTrees(root1.right, root2.right);
+      return root;
+    }
+  }
+
+
+  /**
+   * 223.
+   * Problem: Print common nodes on path from root (or common ancestors).
+   * Given a binary tree and two nodes, the task is to Print all the nodes that are common for 2 given nodes in a binary
+   * tree.
+   */
+  void printCommonAncestors(TreeNode root, TreeNode node1, TreeNode node2) {
+    TreeNode lca = findLCA(root, node1.data, node2.data);
+    printAncestors(root, lca, "");
+    System.out.print(lca.data);
+  }
+
+  /**
+   * 224.
+   * Problem: Replace each node in binary tree with the sum of its inorder predecessor and successor.
+   */
+  void replaceNodeWithPreSuccessor(TreeNode root) {
+    ArrayList<Integer> arrayList = new BSTExamples().bstToArray(root);
+    int[] index = {0};
+    replace(root, arrayList, index);
+  }
+
+  private void replace(TreeNode root, ArrayList<Integer> arrayList, int[] index) {
+    if (root != null) {
+      replace(root.left, arrayList, index);
+      root.data = getSumOfPreSuccessor(arrayList, index);
+      index[0]++;
+      replace(root.right, arrayList, index);
+    }
+  }
+
+  private int getSumOfPreSuccessor(ArrayList<Integer> arrayList, int[] index) {
+    if (arrayList.size() < 2) return 0;
+    else if (index[0] == 0) return arrayList.get(index[0] + 1);
+    else if (index[0] == arrayList.size() - 1) return arrayList.get(index[0] - 1);
+    else return arrayList.get(index[0] - 1) + arrayList.get(index[0] + 1);
+
+  }
+
+  /**
+   * 225.
+   * Problem: Shortest path between two nodes in array like representation of  binary tree.
+   * Solution:
+   */
+
+  /**
+   * 226.
+   * Problem: Query for ancestor-descendant relationship in a tree.
+   * Solution:
+   */
+
+  /**
+   * 227.
+   * Problem: Maximum sum from a tree with adjacent levels not allowed.
+   * Given a binary tree with positive integer values. Find the maximum sum of nodes such that we cannot pick two levels
+   * for computing sum
+   */
+  class LevelSum {
+    int evenLevelSum, oddLevelSum;
+
+    public LevelSum(int evenLevelSum, int oddLevelSum) {
+      this.evenLevelSum = evenLevelSum;
+      this.oddLevelSum = oddLevelSum;
+    }
+  }
+
+  int maxSumOfAlternateLevel(TreeNode root) {
+    LevelSum levelSum = new LevelSum(0, 0);
+    getLevelSum(root, levelSum, 0);
+    return Math.max(levelSum.evenLevelSum, levelSum.oddLevelSum);
+  }
+
+  private void getLevelSum(TreeNode root, LevelSum levelSum, int level) {
+    if (root != null) {
+      if (level % 2 == 0) levelSum.evenLevelSum += root.data;
+      else levelSum.oddLevelSum += root.data;
+      getLevelSum(root.left, levelSum, level + 1);
+      getLevelSum(root.right, levelSum, level + 1);
+    }
+  }
+
+
+  /**
+   * 228.
+   * Problem: Averages of Levels in Binary Tree.
+   * Given a non-empty binary tree, print the average value of the nodes on each level.
+   */
+  void printAvgLevels(TreeNode root) {
+    Queue<TreeNode> first = new LinkedList<>(), second = new LinkedList<>();
+    int prevSum = 0, prevCount = 0;
+    first.add(root);
+    while (!first.isEmpty()) {
+      TreeNode temp = first.poll();
+      prevSum += temp.data;
+      prevCount++;
+      if (temp.left != null) second.add(temp.left);
+      if (temp.right != null) second.add(temp.right);
+
+      if (first.isEmpty()) {
+        System.out.print((float) prevSum / prevCount + " ");
+        prevCount = 0;
+        prevSum = 0;
+        first = second;
+        second = new LinkedList<>();
+      }
+    }
+
+  }
+
+
+  /**
+   * 229.
+   * Problem: Iterative method to find ancestors of a given binary tree.
+   * Solution:
+   */
+
+  /**
+   * 230.
+   * Problem: Factor Tree of a given Number.
+   * Solution:
+   */
+
+  /**
+   * 231.
+   * Problem: Print middle level of perfect binary tree without finding height.
+   */
+  void printMiddleLevel(TreeNode root) {
+    printMiddleLevel(root, root);
+  }
+  
+  private void printMiddleLevel(TreeNode slow, TreeNode fast) {
+    if (slow != null && fast != null) {
+      if (isLeaf(fast)) System.out.print(slow.data + " ");
+      else {
+        printMiddleLevel(slow.left, fast.left.left);
+        printMiddleLevel(slow.right, fast.left.left);
+      }
+    }
+  }
+
+  /**
+   * 232.
+   * Problem: Ternary Search Tree (Deletion).
+   * Solution:
+   */
+
+  /**
+   * 233.
+   * Problem: Check if all levels of two trees are anagrams or not.
+   * Solution:
+   */
+
+  /**
+   * 234.
+   * Problem: Get level of a node in binary tree | iterative approach.
+   * Solution:
+   */
+
+  /**
+   * 235.
+   * Problem: Print nodes at k distance from root | Iterative.
+   * Solution:
+   */
+
+  /**
+   * 236.
+   * Problem: Construct a complete binary tree from given array in level order fashion.
+   * Solution:
+   */
+
+  /**
+   * 237.
+   * Problem: Check mirror in n-ary tree.
+   * Solution:
+   */
+
+  /**
+   * 238.
+   * Problem: Leftist Tree / Leftist Heap.
+   * Solution:
+   */
+
+  /**
+   * 239.
+   * Problem: Calculate number of nodes in all subtrees | Using DFS.
+   * Solution:
+   */
+
+  /**
+   * 240.
+   * Problem: Number of turns to reach from one node to other in binary tree.
+   * Solution:
+   */
+
+  /**
+   * 241.
+   * Problem: Find All Duplicate Subtrees.
+   * Solution:
+   */
+
+  /**
+   * 242.
+   * Problem: Print Levels of all nodes in a Binary Tree.
+   */
+  void printLevelOfAllNode(TreeNode root, int level) {
+    if (root != null) {
+      System.out.print("Level of " + root.data + "is " + level);
+      printLevelOfAllNode(root.left, level + 1);
+      printLevelOfAllNode(root.right, level + 1);
+    }
+  }
+
+  /**
+   * 243.
+   * Problem: Connect Nodes at same Level (Level Order Traversal).
+   * Solution:
+   */
+
+  /**
+   * 244.
+   * Problem: Counting the number of words in a Trie.
+   * Solution:
+   */
+
+  /**
+   * 245.
+   * Problem: Find right sibling of a binary tree with parent pointers.
+   * Solution:
+   */
+
+  /**
+   * 246.
+   * Problem: Diameter of a tree using DFS.
+   * Solution:
+   */
+
+  /**
+   * 247.
+   * Problem: Sum of all nodes in a binary tree.
+   */
+  int sumOfAllNodes(TreeNode root) {
+    if (root == null) return 0;
+    else return root.data + sumOfAllNodes(root.left) + sumOfAllNodes(root.right);
+  }
+
+  /**
+   * 248.
+   * Problem: Find sum of all right leaves in a given Binary Tree.
+   */
+  int sumOfRightLeaves(TreeNode root, TreeNode parent) {
+    if (root == null) return 0;
+    else if (isLeaf(root) && parent.right == root) return root.data;
+    else return sumOfRightLeaves(root.left, root) + sumOfRightLeaves(root.right, root);
+  }
+
+  /**
+   * 249.
+   * Problem: Sum of all leaf nodes of binary tree.
+   */
+  int sumOfLeafNodes(TreeNode root) {
+    if (root == null) return 0;
+    else if (isLeaf(root)) return root.data;
+    else return sumOfLeafNodes(root.left) + sumOfLeafNodes(root.right);
+  }
+
+  /**
+   * 250.
+   * Problem: Construct the full k-ary tree from its preorder traversal.
+   * Solution:
+   */
+
+  /**
+   * 251.
+   * Problem: Insertion in a Binary Tree.
+   * Solution:
+   */
+
+  /**
+   * 252.
+   * Problem: Height of n-ary tree if parent array is given.
+   * Solution:
+   */
+
+  /**
+   * 253.
+   * Problem: Find root of the tree where children id sum for every node is given.
+   * Solution:
+   */
+
+  /**
+   * 254.
+   * Problem: Deletion in a  Binary Tree.
+   * Solution:
+   */
+
+  /**
+   * 255.
+   * Problem: Implementation of Binary Search Tree in Javascript.
+   * Solution:
+   */
+
+  /**
+   * 256.
+   * Problem: Diameter of a Binary Tree in O(n) [A new method].
+   */
+
+
+  /**
+   * 257.
+   * Problem: Print the nodes at odd levels of a tree.
+   * Solution:
+   */
+
+  /**
+   * 258.
+   * Problem: Longest word in ternary search tree.
+   * Solution:
+   */
+
+  /**
+   * 259.
+   * Problem: DFS for a n-ary tree (acyclic graph) represented as adjacency list.
+   * Solution:
+   */
+
+  /**
+   * 260.
+   * Problem: Sum of all the parent nodes having child node x.
+   */
+  int sumOfParentsNodes(TreeNode root, int x) {
+    int[] sum = {0};
+    sumOfParents(root, x, sum);
+    return sum[0];
+  }
+
+  private boolean sumOfParents(TreeNode root, int key, int[] sum) {
+    if (root == null) return false;
+    else if (isLeaf(root) && root.data == key) return true;
+    else {
+      boolean left = sumOfParents(root.left, key, sum);
+      boolean right = sumOfParents(root.right, key, sum);
+      if (left || right) {
+        sum[0] += root.data;
+        return true;
+      }
+      else return false;
+    }
+  }
+
+  /**
+   * 261.
+   * Problem: General Tree (Each node can have arbitrary number of children) Level Order Traversal.
+   * Solution:
+   */
+
+  /**
+   * 262.
+   * Problem: K-th ancestor of a node in Binary Tree.
+   * Solution:
+   */
+
+  /**
+   * 263.
+   * Problem: Sum of nodes on the longest path from root to leaf node.
+   */
+  private class LongestPathInfo {
+    int length, sum;
+
+    public LongestPathInfo(int length, int sum) {
+      this.length = length;
+      this.sum = sum;
+    }
+  }
+
+  private LongestPathInfo longestPathSum(TreeNode root) {
+    if (root == null) return new LongestPathInfo(0, Integer.MIN_VALUE);
+    else if (isLeaf(root)) return new LongestPathInfo(1, root.data);
+    else {
+      LongestPathInfo left = longestPathSum(root.left);
+      LongestPathInfo right = longestPathSum(root.right);
+      if (left.length > right.length) return new LongestPathInfo(left.length + 1, left.sum + root.data);
+      else if (right.length > left.length) return new LongestPathInfo(right.length + 1, right.sum + root.data);
+      else return new LongestPathInfo(left.length + 1, Math.max(left.sum, right.sum) + root.data);
+    }
+  }
+
+  int longestRootToLeafPathSum(TreeNode root) {
+    return longestPathSum(root).sum;
+  }
+
+  /**
+   * 264.
+   * Problem: Print all leaf nodes  of a Binary Tree from left to right.
+   */
+  void printLeavesFromLToR(TreeNode root) {
+    if (root != null) {
+      if (isLeaf(root)) System.out.print(root.data + " ");
+      else {
+        printLeavesFromLToR(root.left);
+        printLeavesFromLToR(root.right);
+      }
+    }
+  }
+
+  /**
+   * 265.
+   * Problem: Pairwise Swap  leaf nodes in a binary tree.
+   */
+  private class LeafInfo{
+    int leafCount;
+    TreeNode prevLeaf;
+
+    public LeafInfo(int leafCount, TreeNode prevLeaf) {
+      this.leafCount = leafCount;
+      this.prevLeaf = prevLeaf;
+    }
+  }
+  void pairWiseSwap(TreeNode root) {
+    pairwiseLeafSwap(root, new LeafInfo(0, null));
+  }
+
+  private void pairwiseLeafSwap(TreeNode root, LeafInfo leafInfo) {
+    if (root != null) {
+      if (isLeaf(root)) {
+        leafInfo.leafCount++;
+        if (leafInfo.prevLeaf != null && leafInfo.leafCount % 2 == 0) swapNodes(root, leafInfo.prevLeaf);
+        leafInfo.prevLeaf = root;
+      }
+      else {
+        pairwiseLeafSwap(root.left, leafInfo);
+        pairwiseLeafSwap(root.right, leafInfo);
+      }
+    }
+  }
+
+  private void swapNodes(TreeNode node1, TreeNode node2) {
+    int temp = node1.data;
+    node1.data = node2.data;
+    node2.data = temp;
+  }
+
+  /**
+   * 266.
+   * Problem: Right view of Binary Tree using Queue.
+   */
+  void printRightViewQueue(TreeNode root) {
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.add(root);
+    while (!queue.isEmpty()) {
+      int last = queue.size();
+      for (int i = 1; i <= last; i++) {
+        TreeNode temp = queue.poll();
+        if (i == last) System.out.print(temp.data + " ");
+        if (temp.left != null) queue.add(temp.left);
+        if (temp.right != null) queue.add(temp.right);
+      }
+    }
+  }
+
+  /**
+   * 267.
+   * Problem: Check if given Preorder, Inorder and Postorder traversals are of same tree.
+   * Solution:
+   */
+
+  /**
+   * 268.
+   * Problem: Given a n-ary tree, count number of nodes which have more number of children than parents.
+   */
+  int countNaryTreeNodes(NaryTreeNode root, NaryTreeNode parent) {
+    if (root == null) return 0;
+    else {
+      int count = 0;
+      for (NaryTreeNode child : root.children) {
+        if (parent != null && parent.children.size() < child.children.size()) count += 1 + countNaryTreeNodes(child, root);
+        else count += countNaryTreeNodes(child, root);
+      }
+      return count;
+    }
+  }
+
+  /**
+   * 269.
+   * Problem: Construct Full Binary Tree using its Preorder traversal and Preorder traversal of its mirror tree.
+   * Solution:
+   */
+
+  /**
+   * 270.
+   * Problem: Inorder Successor of a node in Binary Tree.
+   * Solution:
+   */
+
+  /**
+   * 271.
+   * Problem: Kth ancestor of a node in binary tree | Set 2.
+   * Solution:
+   */
+
+  /**
+   * 272.
+   * Problem: Sub-tree with minimum color difference in a 2-coloured tree.
+   * Solution:
+   */
+
+  /**
+   * 273.
+   * Problem: Node having maximum sum of immediate children and itself in n-ary tree.
+   * Solution:
+   */
+
+  /**
+   * 274.
+   * Problem: Second Largest element in n-ary tree.
+   * Solution:
+   */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /**
+   * 1.
+   * Problem: Tree Traversals (Inorder, Pr-eorder and Post-order).
+   * Unlike linear data structures (Array, Linked List, Queues, Stacks, etc) which have only one logical way to
+   * traverse them, trees can be traversed in different ways.
+   * Depth First Traversals: In-order, Pre-order and Post-order
+   * Breadth First or Level Order Traversal
+   */
+
+  /**
+   * Uses of in-order
+   * In case of BST, in-order traversal gives nodes in non-decreasing order.To get nodes of BST in non-increasing order,
+   * a variation of in-order traversal where in-order is traversal's
+   * reversed, can be used.
+   */
+  public void inOrder(TreeNode root) {
+    if (root != null) {
+      inOrder(root.left);
+      System.out.print(root.data + " ");
+      inOrder(root.right);
+    }
+  }
+
+  /**
+   * Uses of Pre-order
+   * To create a copy of the tree.
+   * To get prefix expression on of an expression tree.
+   */
+  void preOrder(TreeNode root) {
+    if (root != null) {
+      System.out.print(root.data + " ");
+      preOrder(root.left);
+      preOrder(root.right);
+    }
+  }
+
+  /**
+   * Uses of Post-order
+   * To delete the tree.
+   * To get the postfix expression of an expression tree.
+   */
+  void postOrder(TreeNode root) {
+    if (root != null) {
+      postOrder(root.left);
+      postOrder(root.right);
+      System.out.print(root.data + " ");
+    }
+  }
+
+  /**
+   * 2.
+   * Problem: Write a program to Calculate Size of a tree.
+   */
+  int treeSize(TreeNode root) {
+    if (root == null) return 0;
+    else return 1 + treeSize(root.left) + treeSize(root.right);
+  }
+
+  /**
+   * 3.
+   * Problem: Write Code to Determine if Two Trees are Identical.
+   */
+  boolean areIdentical(TreeNode root1, TreeNode root2) {
+    return root1 == null && root2 == null || root1 != null && root2 != null && root1.data == root2.data &&
+            areIdentical(root1.left, root2.left) && areIdentical(root1.right, root2.right);
+  }
+
+  /**
+   * 4.
+   * Problem: Write a Program to Find the Maximum Depth or Height of a Tree.
+   */
+  int height(TreeNode node) {
+    if (node == null) return 0;
+    else return 1 + Math.max(height(node.left), height(node.right));
+  }
+
+  /**
+   * 5.
+   * Problem: Write a  program to Delete a Tree.
+   * Solution:
+   */
+
+  /**
+   * 6.
+   * Problem: Write an Efficient  Function to Convert a Binary Tree into its Mirror Tree.
+   */
+  void mirror(TreeNode root) {
+    if (root != null) {
+      mirror(root.left);
+      mirror(root.right);
+      swapChildren(root);
+    }
+  }
+
+  private void swapChildren(TreeNode node) {
+    TreeNode temp = node.left;
+    node.left = node.right;
+    node.right = temp;
+  }
+
+  /**
+   * 7.
+   * Problem: If you are given two traversal sequences, can you construct the binary tree?.
+   * Solution:
+   */
+
+  /**
+   * 8.
+   * Problem: Given a binary tree, print out all of its root-to-leaf paths one per line..
+   */
+  void rootToLeafPath(TreeNode root, String path) {
+    if (root != null) {
+      if (isLeaf(root)) System.out.println(path + root.data);
+      else {
+        rootToLeafPath(root.left, path + root.data + "->");
+        rootToLeafPath(root.right, path + root.data + "->");
+      }
+    }
+  }
+
+  /**
+   * 9.
+   * Problem: Lowest Common Ancestor in a Binary Search Tree.
+   * Given values of two values n1 and n2 in a Binary Search Tree, find the Lowest Common Ancestor (LCA). You may assume
+   * that both the values exist in the tree.
+   */
+  public TreeNode bstLCA(TreeNode root, int k1, int k2) {
+    if (root == null) return null;
+    else if (root.data > k1 && root.data > k2) return bstLCA(root.left, k1, k2);
+    else if (root.data < k1 && root.data < k2) return bstLCA(root.right, k1, k2);
+    else return root;
+  }
+
+  TreeNode findLCA(TreeNode root, int k1, int k2) {
+    boolean[] v1 = new boolean[1], v2 = new boolean[1];
+    TreeNode lca = LCAUtil(root, k1, k2, v1, v2);
+    if (v1[0] && v2[0] || v1[0] && treeContains(root, k2) || v2[0] && treeContains(root, k1)) return lca;
+    else return null;
+  }
+
+  private TreeNode LCAUtil(TreeNode root, int k1, int k2, boolean[] v1, boolean[] v2) {
+    if (root == null) return root;
+    if (root.data == k1) {
+      v1[0] = true;
+      return root;
+    }
+    if (root.data == k2) {
+      v2[0] = true;
+      return root;
+    }
+    TreeNode leftLCA = LCAUtil(root.left, k1, k2, v1, v2);
+    TreeNode rightLCA = LCAUtil(root.right, k1, k2, v1, v2);
+    if (leftLCA != null && rightLCA != null) return root;
+    else return leftLCA != null ? leftLCA : rightLCA;
+  }
+
+  private boolean treeContains(TreeNode root, int key) {
+    if (root == null) return false;
+    else return root.data == key || treeContains(root.left, key) || treeContains(root.right, key);
+  }
+
+
+
+  /**
+   * 16.
+   * Problem: Diameter of a Binary Tree
+   */
+  int diameter(TreeNode root) {
+    if (root == null) return 0;
+    else return Utils.max(height(root.left) + 1 + height(root.right), diameter(root.left), diameter(root.right));
+  }
+
+  int diameterOpt(TreeNode root, int[] height) {
+    if (root == null) {
+      height[0] = 0;
+      return 0;
+    } else {
+      int[] lHeight = new int[1], rHeight = new int[1];
+      int lDiameter = diameterOpt(root.left, lHeight);
+      int rDiameter = diameterOpt(root.right, rHeight);
+      height[0] = 1 + Math.max(lHeight[0], rHeight[0]);
+      return Math.max(1 + lHeight[0] + rHeight[0], Math.max(lDiameter, rDiameter));
+    }
+  }
+
+  class DiameterInfo{
+    int height, diameter;
+    DiameterInfo(int h, int d) {
+      this.height = h;
+      this.diameter = d;
+    }
+  }
+
+  DiameterInfo diameterOpt1(TreeNode root) {
+    if (root == null) return new DiameterInfo(0, 0);
+    else {
+      DiameterInfo left = diameterOpt1(root.left);
+      DiameterInfo right = diameterOpt1(root.right);
+      return new DiameterInfo(1 + Math.max(left.height, right.height),
+              Math.max(1 + left.height + right.height, Math.max(left.diameter, right.diameter)));
+
+    }
+  }
+
+
+
+
+  /**
+   * 20.
+   * Problem: Root to leaf path sum equal to a given number.
+   * Given a binary tree and a number, return true if the tree has a root-to-leaf path such that adding up all the values
+   * along the path equals the given number. Return false if no such path can be found.
+   */
+  boolean hasRootToLeafSumPath(TreeNode root, int sum) {
+    if (root == null) return false;
+    else if (isLeaf(root)) return sum == root.data;
+    else return hasRootToLeafSumPath(root.left, sum - root.data) ||
+              hasRootToLeafSumPath(root.right, sum - root.data);
+  }
+
+
+
+  /**
+   * 29.
+   * Problem: Print Ancestors of a given node in Binary Tree.
+   * Given a Binary Tree and a key, write a function that prints all the ancestors of the key in the given binary tree.
+   */
+  public void printAncestors(TreeNode root, TreeNode key, String soFar) {
+    if (root != null) {
+      if (root == key) System.out.print(soFar);
+      else {
+        printAncestors(root.left, key, soFar + root.data + " ");
+        printAncestors(root.right, key, soFar + root.data + " ");
+      }
+    }
+  }
+
+
+
+  /**
+   * 42.
+   * Problem: Boundary Traversal of binary tree.
+   */
+  void printBoundary(TreeNode root) {
+    if (root == null) return;
+    else {
+      System.out.print(root.data + " ");
+      printLeftBoundary(root.left);
+      printLeaves(root);
+      printRightBoundary(root.right);
+    }
+  }
+
+  private void printLeaves(TreeNode root) {
+    if (root == null) return;
+    else if (isLeaf(root)) System.out.print(root.data + " ");
+    else {
+      printLeaves(root.left);
+      printLeaves(root.right);
+    }
+  }
+
+  private void printLeftBoundary(TreeNode root) {
+    if (root != null) {
+      if (root.left != null) {
+        System.out.print(root.data + " ");
+        printLeftBoundary(root.left);
+      } else if (root.right != null) {
+        printLeftBoundary(root.right);
+        System.out.print(root.data + " ");
+      }
+    }
+  }
+
+  private void printRightBoundary(TreeNode root) {
+    if (root != null) {
+      if (root.right != null) {
+        printRightBoundary(root.right);
+        System.out.print(root.data + " ");
+      } else if (root.left != null) {
+        printRightBoundary(root.left);
+        System.out.print(root.data + " ");
+      }
+    }
+  }
+
+
+
+
+  /**
+   * 52.
+   * Problem: Convert a given Binary Tree to Doubly Linked List | Set 1.
+   */
+ private class TreeNodeHead {
+
+  }
+
+  public TreeNode treeToDLL(TreeNode root) {
+    TreeNode[] head = {null};
+    treeToDLL(root, head);
+    return head[0];
+  }
+
+  void treeToDLL(TreeNode root, TreeNode[] head) {
+    if (root != null) {
+      treeToDLL(root.right, head);
+      insertAtFront(root, head);
+      treeToDLL(root.left, head);
+    }
+  }
+
+  private void insertAtFront(TreeNode node, TreeNode[] head) {
+    node.right = head[0];
+    if (head[0] != null) head[0].left = node;
+    head[0] = node;
+  }
+
+  /**
+   * 96.
+   * Problem: Find the closest leaf in a Binary Tree.
+   * Given a Binary Tree and a key ‘k’, find distance of the closest leaf from ‘k’.
+   */
+  int closetLeafFromKey(TreeNode root, TreeNode key) {
+    ArrayList<TreeNode> ancestors = ancestors(root, key, new ArrayList<>());
+    int minDistance = Integer.MAX_VALUE;
+    int distanceFromKey = ancestors.size();
+    for (TreeNode ancestor : ancestors)
+      minDistance = Math.min(minDistance, findClosestLeafRoot(ancestor, 0) +
+              distanceFromKey--);
+    return Math.min(findClosestLeafRoot(key, 0), minDistance);
+  }
+
+  int findClosestLeafRoot(TreeNode root, int distance) {
+    if (root == null) return Integer.MAX_VALUE;
+    else if (isLeaf(root)) return distance;
+    else return Math.min(findClosestLeafRoot(root.left, distance + 1),
+              findClosestLeafRoot(root.right, distance + 1));
+  }
+
+  ArrayList ancestors(TreeNode root, TreeNode key, ArrayList<TreeNode> soFar) {
+    if (root == null) return new ArrayList<>();
+    else if (root == key) return new ArrayList(soFar);
+    else {
+      soFar.add(root);
+      ArrayList left = ancestors(root.left, key, soFar);
+      ArrayList right = ancestors(root.right, key, soFar);
+      soFar.remove(soFar.size() - 1);
+      return left.isEmpty() ? right : left;
+    }
+  }
+
+  /**
+   * 97.
+   * Problem: Remove nodes on root to leaf paths of length < K.
+   * Solution:
+   */
+
+
+
+  /**
+   * 126.
+   * Problem: Maximum difference between node and its ancestor in Binary Tree.
+   */
+  int maxDifferenceAncestor(TreeNode root) {
+    int[] maxDiff = {Integer.MIN_VALUE};
+    maxDiffAncestors(root, maxDiff);
+    return maxDiff[0];
+  }
+
+  int maxDiffAncestors(TreeNode root, int[] maxDiff) {
+    if (root == null) return Integer.MAX_VALUE;
+    else if (isLeaf(root)) return root.data;
+    else {
+      int minValue = Math.min(maxDiffAncestors(root.left, maxDiff), maxDiffAncestors(root.right, maxDiff));
+      maxDiff[0] = Math.max(maxDiff[0], root.data - minValue);
+      return Math.min(root.data, minValue);
+    }
+  }
+
+
+
+  /**
+   * 148.
+   * Problem: Check if two trees are Mirror
+   * Given two Binary Trees, write a function that returns true if two trees are mirror of each other, else false.
+   */
+  public boolean areMirror(TreeNode root1, TreeNode root2) {
+    return root1 == null && root2 == null || root1 != null && root2 != null && root1.data == root2.data
+            && areMirror(root1.left, root2.right) && areMirror(root1.right, root2.left);
+  }
+
 
   /**
    * 200.
@@ -1510,53 +2425,6 @@ public class TreeExamples {
     }
   }
 
-  /**
-   * 205.
-   * Problem: Count full nodes in a Binary tree (Iterative and Recursive).
-   * Solution:
-   */
-
-  /**
-   * 206.
-   * Problem: Largest BST in a Binary Tree | Set 2.
-   * Solution:
-   */
-
-  /**
-   * 207.
-   * Problem: Left-Child Right-Sibling Representation of Tree.
-   * Solution:
-   */
-
-  /**
-   * 208.
-   * Problem: Create loops of even and odd values in a binary tree.
-   * Solution:
-   */
-
-  /**
-   * 209.
-   * Problem: Convert Ternary Expression to a Binary Tree.
-   * Solution:
-   */
-
-  /**
-   * 210.
-   * Problem: Convert a given Binary tree to a tree that holds Logical AND property.
-   * Solution:
-   */
-
-  /**
-   * 211.
-   * Problem: Check for Symmetric Binary Tree (Iterative Approach).
-   * Solution:
-   */
-
-  /**
-   * 212.
-   * Problem: Level order traversal line by line | Set 2 (Using Two Queues).
-   * Solution:
-   */
 
   /**
    * 213.
@@ -1575,104 +2443,6 @@ public class TreeExamples {
     else return isPerfect(root.left, leafDepth, level + 1) && isPerfect(root.right, leafDepth, level + 1);
   }
 
-  /**
-   * 214.
-   * Problem: Creating a tree with Left-Child Right-Sibling Representation.
-   * Solution:
-   */
-
-  /**
-   * 215.
-   * Problem: Quad Tree.
-   * Solution:
-   */
-
-  /**
-   * 216.
-   * Problem: Iterative method to check if two trees are mirror of each other.
-   * Solution:
-   */
-
-  /**
-   * 217.
-   * Problem: Splay Tree | Set 3 (Delete).
-   * Solution:
-   */
-
-  /**
-   * 218.
-   * Problem: Count Balanced Binary Trees of Height h.
-   * Solution:
-   */
-
-  /**
-   * 219.
-   * Problem: Print path from root to a given node in a binary tree.
-   * Given a binary tree with distinct nodes(no two nodes have the same have data values). The problem is to print the
-   * path from root to a given node x. If node x is not present then print “No Path”.
-   */
-  String pathFromRoot(TreeNode root, int x, String soFar) {
-    if (root == null) return "";
-    else if (root.data == x) return soFar + x;
-    else return pathFromRoot(root.left, x, soFar + root.data + " ") +
-              pathFromRoot(root.right, x, soFar + root.data + " ");
-  }
-
-
-  /**
-   * 220.
-   * Problem: Find mirror of a given node in Binary tree.
-   * Given a Binary tree, the problem is to find mirror of a given node. The mirror of a node is a node which exist at
-   * the mirror position of node in opposite subtree at the root.
-   */
-  int findMirrorNode(TreeNode root, int targetNode, TreeNode mirrorNode) {
-    if (root == null || mirrorNode == null) return Integer.MIN_VALUE;
-    else if (targetNode == root.data) return mirrorNode.data;
-    return Math.max(findMirrorNode(root.left, targetNode, mirrorNode.right),
-            findMirrorNode(root.right, targetNode, mirrorNode.left));
-
-  }
-
-  /**
-   * 221.
-   * Problem: Print the path common to the two paths from the root to the two given nodes.
-   * Given a binary tree with distinct nodes(no two nodes have the same have data values). The problem is to print the
-   * path common to the two paths from the root to the two given nodes n1 and n2. If either of the nodes are not present
-   * then print “No Common Path”.
-   */
-
-  /**
-   * 222.
-   * Problem: Merge Two Binary Trees by doing Node Sum (Recursive and Iterative).
-   */
-
-  /**
-   * 223.
-   * Problem: Print common nodes on path from root (or common ancestors).
-   * Given a binary tree and two nodes, the task is to Print all the nodes that are common for 2 given nodes in a binary
-   * tree.
-   */
-  void printCommonAncestors(TreeNode root, TreeNode node1, TreeNode node2) {
-    TreeNode lca = findLCA(root, node1.data, node2.data);
-    printAncestors(root, lca, "");
-    System.out.print(lca.data);
-  }
-
-
-  /**
-   * 224.
-   * Problem: Replace each node in binary tree with the sum of its inorder predecessor and successor.
-   */
-
-  /**
-   * 225.
-   * Problem: Shortest path between two nodes in array like representation of binary tree.
-   */
-
-  /**
-   * 226.
-   * Problem: Query for ancestor-descendant relationship in a tree.
-   */
 
 
   /**
@@ -1696,7 +2466,6 @@ public class TreeExamples {
    * Solution: It depends on what traversals are given. If one of the traversal methods is Inorder then
    * the tree can be constructed, otherwise not.
    */
-
 
 
   /**
@@ -1750,7 +2519,7 @@ public class TreeExamples {
     else return countLeaves(root.right) + countLeaves(root.left);
   }
 
-  private boolean isLeaf(TreeNode node) {
+  public boolean isLeaf(TreeNode node) {
     return node != null && node.left == null && node.right == null;
   }
 
@@ -1886,8 +2655,38 @@ public class TreeExamples {
    * a) Make current as right child of the rightmost node in current's left subtree
    * b) Go to this left child, i.e., current = current->left
    */
-  public void morrisTraversal(TreeNode root) {
+  void morrisTraversal(TreeNode root) {
+    TreeNode prev, current = root;
 
+    while (current != null) {
+      if (current.left == null) {
+        System.out.print(current.data + " ");
+        current = current.right;
+      } else {
+        prev = getInorderPredecessor(current.left, current);
+        if (prev.right == null) {
+          link(prev, current);
+          current = current.left;
+        } else {
+          unLink(prev);
+          System.out.print(current.data + " ");
+          current = current.right;
+        }
+      }
+    }
+  }
+
+  public void link(TreeNode prev, TreeNode current) {
+    prev.right = current;
+  }
+
+  public void unLink(TreeNode prev) {
+    prev.right = null;
+  }
+
+  public TreeNode getInorderPredecessor(TreeNode node, TreeNode current) {
+    while (node.right != null && node.right != current) node = node.right;
+    return node;
   }
 
   /**
@@ -1901,29 +2700,6 @@ public class TreeExamples {
   }
 
 
-  /**
-   * 21.
-   * Problem: Construct Tree from given Inorder and Preorder traversals
-   * Solution:
-   */
-  int preIndex = 0;
-
-  public TreeNode constructTree(int[] preOder, int[] inOrder, int inStart, int end) {
-    if (inStart > end) return null;
-    else {
-      TreeNode root = new TreeNode(preOder[preIndex]);
-      int inIndex = getInorderIndex(inOrder, preOder[preIndex++]);
-      root.left = constructTree(preOder, inOrder, inStart, inIndex - 1);
-      root.right = constructTree(preOder, inOrder, inIndex + 1, end);
-      return root;
-    }
-  }
-
-  public int getInorderIndex(int[] inorder, int key) {
-    for (int i = 0; i < inorder.length; i++)
-      if (inorder[i] == key) return i;
-    return -1;
-  }
 
 
   /**
@@ -2145,7 +2921,6 @@ public class TreeExamples {
 
    * Solution:
    */
-
 
 
   /**
@@ -2562,53 +3337,6 @@ public class TreeExamples {
     else return getLevel(root, node1, 1) == getLevel(root, node2, 1) && !areSibling(root, node1, node2);
   }
 
-  /**
-   * Page 7.
-   *  79.
-   * Problem: Minimum no. of iterations to pass information to all nodes in the tree
-
-   * Solution:
-   */
-
-  /**
-   * Page 7.
-   * 80.
-   * Problem: Find Height of Binary Tree represented by Parent array
-
-   * Solution:
-   */
-
-  /**
-   * Page 7.
-   * 81.
-   * Problem: Print nodes between two given level numbers of a binary tree
-   * Given a binary tree and two level numbers ‘low’ and ‘high’, print nodes from level low to level high.
-   * Solution:
-   */
-
-  /**
-   * Page 7.
-   * 82.
-   * Problem: Serialize and Deserialize a Binary Tree
-
-   * Solution:
-   */
-
-  /**
-   * Page 7.
-   * 83.
-   * Problem: Serialize and Deserialize an N-ary Tree
-
-   * Solution:
-   */
-
-  /**
-   * Page 6.
-   * 84.
-   * Problem: Convert a Binary Tree to Threaded binary tree
-
-   * Solution:
-   */
 
   /**
    * Page 6.
@@ -2683,30 +3411,6 @@ public class TreeExamples {
 
   }
 
-  /**
-   * Page 6.
-   * 88.
-   * Problem: Diagonal Sum of a Binary Tree
-
-   * Solution:
-   */
-
-
-  /**
-   * Page 6.
-   * 89.
-   * Problem: Find the closest leaf in a Binary Tree
-
-   * Solution:
-   */
-
-  /**
-   * Page 6.
-   * 90.
-   * Problem: Remove nodes on root to leaf paths of length < K
-
-   * Solution:
-   */
 
   /**
    * Page 6.
@@ -2748,65 +3452,8 @@ public class TreeExamples {
     else return parent.left == node;
   }
 
-  public int sumOfLeftLeaves2(TreeNode root, TreeNode parent) {
-    if (root == null) return 0;
-    else if (isLeaf(root) && parent.left == root) return root.data;
-    else return sumOfLeftLeaves2(root.left, root) + sumOfLeftLeaves2(root.right, root);
-
-  }
 
 
-  /**
-   * Page 6.
-   * 93.
-   * Problem: Check whether a binary tree is a full binary tree or not
-
-   * Solution:
-   */
-
-
-  /**
-   * Page 6.
-   * 94.
-   * Problem: Check whether a binary tree is a complete tree or not | Set 2 (Recursive Solution)
-
-   * Solution:
-   */
-
-  /**
-   * Page 6.
-   * 95. Problem: Given a binary tree, how do you remove all the half nodes?
-
-   * Solution:
-   */
-
-  /**
-   * Page 5.
-   * 96. Problem: Handshaking Lemma and Interesting Tree Properties
-   * Solution:
-   */
-
-
-  /**
-   * 97
-   * Problem: Expression Tree
-
-   * Solution:
-   */
-
-  /**
-   * 98
-   * Problem: Maximum Path Sum in a Binary Tree
-
-   * Solution:
-   */
-
-  /**
-   * 99
-   * Problem: Find Minimum Depth of a Binary Tree
-
-   * Solution:
-   */
 
   /**
    * 100
@@ -2826,91 +3473,6 @@ public class TreeExamples {
   }
 
 
-  /**
-   * 101.
-   * Problem: Construct Binary Tree from given Parent Array representation
-
-   * Solution:
-   */
-
-  /**
-   * 102.
-   * Problem: Succinct Encoding of Binary Tree
-
-   * Solution:
-   */
-
-  /**
-   * 103
-   * Problem: Mirror of n-ary Tree
-
-   * Solution:
-   */
-
-  /**
-   * 104.
-   * Problem: Check if a given array can represent Preorder Traversal of Binary Search Tree
-
-   * Solution:
-   */
-
-
-  /**
-   * 105
-   * Problem: Find Count of Single Valued Subtrees
-
-   * Solution:
-   */
-
-  /**
-   * 106
-   * Problem: Find multiplication of sums of data of leaves at same levels
-
-   * Solution:
-   */
-
-  /**
-   * 107
-   * Problem: Find LCA in Binary Tree using RMQ
-
-   * Solution:
-   */
-
-  /**
-   * 108
-   * Problem: Find all possible binary trees with given Inorder Traversal
-
-   * Solution:
-   */
-
-
-  /**
-   * 109.
-   * Problem: Locking and Unlocking of Resources arranged in the form of n-ary Tree
-
-   * Solution:
-   */
-
-  /**
-   * 110.
-   * Problem: Closest leaf to a given node in Binary Tree
-
-   * Solution:
-   */
-
-  /**
-   * 111.
-   * Problem: Check if leaf traversal of two Binary Trees is same?
-
-   * Solution:
-   */
-
-  /**
-   * 112.
-   * Problem: Inorder Non-threaded Binary Tree Traversal without Recursion or Stack
-
-   * Solution:
-   */
 
 
   /**
@@ -2965,208 +3527,6 @@ public class TreeExamples {
    * And if the target node is close to a leaf, we would prefer DFS.
    */
 
-  /**
-   * 115.
-   * Problem: Construct a Binary Search Tree from given postOrder
-
-   * Solution:
-   */
-
-  /**
-   * 116.
-   * Problem: Lowest Common Ancestor in a Binary Tree | Set 2 (Using Parent Pointer)
-
-   * Solution:
-   */
-
-
-  /**
-   * 117.
-   * Problem: Check sum of Covered and Uncovered nodes of Binary Tree
-
-   * Solution:
-   */
-
-
-  /**
-   * 118.
-   * Problem: Check if removing an edge can divide a Binary Tree in two halves
-
-   * Solution:
-   */
-
-
-  /**
-   * 119.
-   * Problem: Print leftmost and rightmost nodes of a Binary Tree
-
-   * Solution:
-   */
-
-
-  /**
-   * 120.
-   * Problem: Check if removing an edge can divide a Binary Tree in two halves
-   *
-   * Solution:
-   */
-
-
-  /**
-   * 121.
-   * Problem: Print leftmost and rightmost nodes of a Binary Tree
-   * Given a Binary Tree, Print the corner nodes at each level.The node at the leftmost and the node at the rightmost.
-   * Solution:
-   */
-
-
-  /**
-   * 122.
-   * Problem: Vertical Sum in Binary Tree | Set 2 (Space Optimized)
-
-   * Solution:
-   */
-
-
-  /**
-   * 123.
-   * Problem: Check if a binary tree is subtree of another binary tree | Set 1
-
-   * Solution:
-   */
-
-
-  /**
-   * 124.
-   * Problem: Construct tree from ancestor matrix
-
-   * Solution:
-   */
-
-
-  /**
-   * 125.
-   * Problem: Perfect Binary Tree Specific Level Order Traversal | Set 2
-
-   * Solution:
-   */
-
-
-  /**
-   * 126.
-   * Problem: Convert a normal BST to Balanced BST
-
-   * Solution:
-   */
-
-
-  /**
-   * 127.
-   * Problem: Convert a given Binary Tree to Doubly Linked List | Set 4
-
-   * Solution:
-   */
-
-
-  /**
-   * 128.
-   * Problem: Diagonal Traversal of Binary Tree
-
-   * Solution:
-   */
-
-
-  /**
-   * 129.
-   * Problem: Print root to leaf paths without using recursion
-
-   * Solution:
-   */
-
-
-  /**
-   * 130.
-   * Problem: Non-recursive program to delete an entire binary tree
-
-   * Solution:
-   */
-
-
-  /**
-   * 131.
-   * Problem: Density of Binary Tree in One Traversal
-
-   * Solution:
-   */
-
-
-  /**
-   * 132.
-   * Problem: Density of Binary Tree in One Traversal
-
-   * Solution:
-   */
-
-
-  /**
-   * 133.
-   * Problem: Number of ways to traverse an N-ary tree
-
-   * Solution:
-   */
-
-
-  /**
-   * 134.
-   * Problem: Sink Odd nodes in Binary Tree
-
-   * Solution:
-   */
-
-
-  /**
-   * 135.
-   * Problem: Print Binary Tree in 2-Dimensions
-
-   * Solution:
-   */
-
-  /**
-   * 136..
-   * Problem: Create a Doubly Linked List from a Ternary Tree
-
-   * Solution:
-   */
-
-  /**
-   * 137.
-   * Problem: How to determine if a binary tree is height-balanced?
-
-   * Solution:
-   */
-
-
-  /**
-   * 139.
-   * Problem: Construct a Binary Tree from Postorder and Inorder
-
-   * Solution:
-   */
-
-  /**
-   * 140.
-   * Problem: Find largest subtree having identical left and right subtrees
-
-   * Solution:
-   */
-
-
-  /**
-   * 141.
-   * Problem: Iterative function to check if two trees are identical
-
-   * Solution:
-   */
 
   /**
    * Page 2.
@@ -3225,12 +3585,6 @@ public class TreeExamples {
     }
   }
 
-  /**
-   * 144.
-   * Problem: Evaluation of Expression Tree
-
-   * Solution:
-   */
 
   /**
    * Page 1.

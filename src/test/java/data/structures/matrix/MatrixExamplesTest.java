@@ -89,10 +89,6 @@ public class MatrixExamplesTest {
     assertEquals(15, new MatrixExamples().diagnalsDiff(mat));
   }
 
-  @Test
-  public void gvTest() {
-    new MatrixExamples().gvGenerator("LILEC997D");
-  }
 
 
 }

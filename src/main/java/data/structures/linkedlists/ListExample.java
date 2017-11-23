@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 
 
-class ListExample {
+public class ListExample {
 
   /**
    * 1.
@@ -322,7 +322,7 @@ class ListExample {
    * Problem: Merge two sorted linked lists.
    * Solution:
    */
-  ListNode sortedMerge(ListNode head1, ListNode head2) {
+  public ListNode sortedMerge(ListNode head1, ListNode head2) {
     ListNode head = null, tail = null;
     while (head1 != null && head2 != null) {
       if (head1.data < head2.data) {
@@ -525,7 +525,6 @@ class ListExample {
     if (fast.next == null || fast.next.next == null) return null;
     if (fast == slow) return slow;
     return findCommonPoint(fast.next.next, slow.next);
-
   }
 
   int countLoopNodes(ListNode current, ListNode commonPoint, int count) {
@@ -889,7 +888,6 @@ class ListExample {
   }
 
 
-
   /**
    * 84.
    * Problem: Merge two sorted linked lists such that merged list is in reverse order.
@@ -899,7 +897,7 @@ class ListExample {
    * 1) Reverse first list ‘a’.
    * 2) Reverse second list ‘b’.
    * 3) Merge two reversed lists.
-   *
+   * <p>
    * How to solve without reverse, O(1) auxiliary space (in-place) and
    * only one traversal of both lists?
    * The idea is to follow merge style process. Initialize result list
@@ -912,15 +910,13 @@ class ListExample {
     else if (head1 == null && head2 != null) {
       mergedList = insertAtBeg(mergedList, head2.data);
       return mergeReverseOrder(head1, head2.next, mergedList);
-    }else if (head2 == null && head1 != null) {
+    } else if (head2 == null && head1 != null) {
       mergedList = insertAtBeg(mergedList, head1.data);
       return mergeReverseOrder(head1.next, head2, mergedList);
-    }
-    else if (head1.data < head2.data) {
+    } else if (head1.data < head2.data) {
       mergedList = insertAtBeg(mergedList, head1.data);
       return mergeReverseOrder(head1.next, head2, mergedList);
-    }
-    else {
+    } else {
       mergedList = insertAtBeg(mergedList, head2.data);
       mergeReverseOrder(head1, head2.next, mergedList);
     }
@@ -931,7 +927,7 @@ class ListExample {
     ListNode newNode = new ListNode(data);
     if (head == null) {
       head = newNode;
-    }else {
+    } else {
       newNode.next = head;
       head = newNode;
     }

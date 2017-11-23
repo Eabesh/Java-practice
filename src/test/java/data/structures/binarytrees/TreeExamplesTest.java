@@ -1,6 +1,7 @@
 package data.structures.binarytrees;
 
 import org.junit.Test;
+import utilities.NaryTreeNode;
 import utilities.TreeNode;
 
 import java.util.ArrayList;
@@ -12,10 +13,164 @@ import static org.junit.Assert.assertTrue;
 
 public class TreeExamplesTest {
   @Test
-  public void btreeToDLL() throws Exception {
+  public void countNaryTreeNodes() throws Exception {
+    NaryTreeNode root = new NaryTreeNode(1);
+    root.children.add(new NaryTreeNode(2));
+    root.children.add(new NaryTreeNode(3));
+    root.children.get(0).children.add(new NaryTreeNode(4));
+    root.children.get(0).children.add(new NaryTreeNode(5));
+    root.children.get(0).children.add(new NaryTreeNode(6));
+    root.children.get(1).children.add(new NaryTreeNode(9));
+    root.children.get(0).children.get(1).children.add(new NaryTreeNode(7));
+  }
+
+  private TreeExamples treeExamples = new TreeExamples();
+  @Test
+  public void findMaxIdenticalSubTree() throws Exception {
+    TreeNode root = new TreeNode(50);
+    root.left = new TreeNode(10);
+    root.right = new TreeNode(60);
+    root.left.left = new TreeNode(5);
+    root.left.right = new TreeNode(20);
+    root.right.left = new TreeNode(70);
+    root.right.right = new TreeNode(70);
+    root.right.left.left = new TreeNode(65);
+    root.right.left.right = new TreeNode(80);
+    root.right.right.left = new TreeNode(65);
+    root.right.right.right = new TreeNode(80);
+    treeExamples.findMaxIdenticalSubTree(root);
+
+
+  }
+
+  @Test
+  public void printMiddleLevel() throws Exception {
+    int[] pre = {1, 2, 4, 5, 3, 6, 7};
+    int[] inorder = {4, 2, 5, 1, 6, 3, 7};
+    TreeNode root = new TreeExamples().constructTree(pre, inorder, 0, inorder.length - 1);
+    new TreeExamples().printMiddleLevel(root);
+  }
+
+  @Test
+  public void printAvgLevels() throws Exception {
+    int[] pre = {4, 2, 3, 5, 9, 7};
+    int[] inorder = {3, 2, 5,  4,  9, 7};
+    TreeNode root = new TreeExamples().constructTree(pre, inorder, 0, inorder.length - 1);
+    new TreeExamples().printAvgLevels(root);
+  }
+
+  @Test
+  public void maxSumOfAlternateLevel() throws Exception {
+    TreeNode root2 = new TreeNode(1);
+    root2.left = new TreeNode(2);
+    root2.right = new TreeNode(3);
+    root2.right.left = new TreeNode(4);
+    root2.right.left.right = new TreeNode(5);
+    root2.right.left.right.left = new TreeNode(6);
+    assertEquals(11, new TreeExamples().maxSumOfAlternateLevel(root2));
+    int[] pre = {1, 2, 4, 17, 11, 18, 12, 13, 3, 5, 19, 6, 30};
+    int[] inorder = {11, 17, 4, 12, 18, 13, 2, 1, 19, 5, 3, 30, 6};
+    TreeNode root = new TreeExamples().constructTree(pre, inorder, 0, inorder.length - 1);
+    assertEquals(89, new TreeExamples().maxSumOfAlternateLevel(root));
+
+  }
+
+
+
+  @Test
+  public void replaceNodeWithPreSuccessor() throws Exception {
+    TreeNode root2 = new TreeNode(1);
+    root2.left = new TreeNode(2);
+    root2.right = new TreeNode(3);
+    root2.right.left = new TreeNode(4);
+    root2.right.left.right = new TreeNode(5);
+    root2.right.left.right.left = new TreeNode(6);
+    new TreeExamples().replaceNodeWithPreSuccessor(root2);
+    new TreeExamples().inOrder(root2);
+  }
+
+  @Test
+  public void mergeTwoTrees() throws Exception {
+    TreeNode root1 = new TreeNode(2);
+    root1.left = new TreeNode(1);
+    root1.right = new TreeNode(4);
+    root1.left.left = new TreeNode(5);
+    TreeNode root2 = new TreeNode(3);
+    root2.left = new TreeNode(6);
+    root2.right = new TreeNode(1);
+    root2.left.right = new TreeNode(2);
+    root2.right.right = new TreeNode(7);
+    TreeNode root = new TreeExamples().mergeTwoTrees(root1, root2);
+    new TreeExamples().inOrder(root);
+  }
+
+  @Test
+  public void sumOfParentsNodes() throws Exception {
+    TreeNode root = new TreeNode(4);
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(5);
+    root.left.right = new TreeNode(2);
+    root.left.left = new TreeNode(7);
+    root.right.left = new TreeNode(2);
+    root.right.right = new TreeNode(3);
+    assertEquals(11, new TreeExamples().sumOfParentsNodes(root, 2));
+  }
+
+  @Test
+  public void pairWiseSwap() throws Exception {
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.left.left = new TreeNode(4);
+    root.right = new TreeNode(3);
+    root.right.left = new TreeNode(5);
+    root.right.right = new TreeNode(8);
+    root.right.left.left = new TreeNode(6);
+    root.right.left.right = new TreeNode(7);
+    root.right.right.left = new TreeNode(9);
+    root.right.right.right = new TreeNode(10);
+    new TreeExamples().pairWiseSwap(root);
+    new TreeExamples().printLeavesFromLToR(root);
+  }
+
+  @Test
+  public void longestRootToLeafPathSum() throws Exception {
+    TreeNode root = new TreeNode(4);
+    root.left = new TreeNode(2);
+    root.left.left = new TreeNode(7);
+    root.left.right = new TreeNode(1);
+//    root.left.right.left = new TreeNode(6);
+    root.right = new TreeNode(5);
+    root.right.left = new TreeNode(2);
+    root.right.right = new TreeNode(3);
+    assertEquals(13, new TreeExamples().longestRootToLeafPathSum(root));
+  }
+
+  @Test
+  public void printLeavesFromLToR() throws Exception {
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.left.left = new TreeNode(4);
+    root.right = new TreeNode(3);
+    root.right.left = new TreeNode(5);
+    root.right.right = new TreeNode(8);
+    new TreeExamples().printLeavesFromLToR(root);
+  }
+
+  @Test
+  public void morrisTraversal1() throws Exception {
+    TreeNode root = new TreeNode(10);
+    root.left = new TreeNode(2);
+    root.left.left = new TreeNode(1);
+    root.right = new TreeNode(11);
+
+    new TreeExamples().morrisTraversal(root);
+  }
+
+  @Test
+  public void treeToDLL() throws Exception {
     TreeNode root = createTree();
     TreeNode[] head = {null};
-    new TreeExamples().BtreeToDLL(root, head);
+    new TreeExamples().treeToDLL(root, head);
     System.out.println(head[0].right.left.data);
   }
 
@@ -280,8 +435,9 @@ public class TreeExamplesTest {
     root.left.left = new TreeNode(5);
     root.right = new TreeNode(3);
     root.left.right = new TreeNode(23);
-//    assertEquals(4, new TreeExamples().diameter(root));
+    assertEquals(4, new TreeExamples().diameter(root));
     assertEquals(4, new TreeExamples().diameterOpt(root, new int[1]));
+    assertEquals(4, new TreeExamples().diameterOpt1(root).diameter);
 
   }
 
