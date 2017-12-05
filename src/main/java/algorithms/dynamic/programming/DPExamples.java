@@ -1869,7 +1869,7 @@ public class DPExamples {
     for (int i = 0; i < dp.length; i++) {
       for (int j = 0; j < dp.length; j++) {
         if (i == 0 || j == 0) dp[i][j] = 1;
-        else if (sameNeighbours(mat[i - 1][j], mat[i][j - 1], mat[i - 1][j - 1])) dp[i][j] = 1 + Math.min(dp[i - 1][j],
+        else if (sameNeighbours(mat[i][j], mat[i - 1][j], mat[i][j - 1], mat[i - 1][j - 1])) dp[i][j] = 1 + Math.min(dp[i - 1][j],
                 Math.min(dp[i][j - 1], dp[i - 1][j - 1]));
         else dp[i][j] = 1;
         result = Math.max(result, dp[i][j]);
@@ -1878,8 +1878,8 @@ public class DPExamples {
     return result;
   }
 
-  boolean sameNeighbours(int x, int y, int z) {
-    return x == y && y == z;
+  boolean sameNeighbours(int w, int x, int y, int z) {
+    return w == x && x == y && y == z;
   }
 
   /**
@@ -2079,8 +2079,7 @@ public class DPExamples {
     else if (left == right) return 0;
     else if (left + 1 == right) return (str.charAt(left) == str.charAt(right)) ? 0 : 1;
     else if (str.charAt(left) == str.charAt(right)) return minDeletion(str, left + 1, right - 1);
-    else return Math.min(2 + minDeletion(str, left + 1, right - 1), 1 +
-              Math.min(minDeletion(str, left + 1, right), minDeletion(str, left, right - 1)));
+    else return 1 + Math.min(minDeletion(str, left + 1, right), minDeletion(str, left, right - 1));
   }
 
 
@@ -2193,8 +2192,8 @@ public class DPExamples {
     if (sum == 0) return 1;
     else {
       int count = 0;
-      for (int i : array)
-        if (sum >= i) count += waysToSumToN(sum - i, array);
+      for (int num : array)
+        if (sum >= num) count += waysToSumToN(sum - num, array);
       return count;
     }
   }
@@ -2202,8 +2201,8 @@ public class DPExamples {
   int waysToSumToNBottomUp(int sum, int[] array) {
     int[] dp = new int[sum + 1];
     dp[0] = 1;
-    for (int i = 1; i <= sum; i++)
-      for (int j : array) if (i >= j) dp[i] += dp[i - j];
+    for (int s = 1; s <= sum; s++)
+      for (int num : array) if (s >= num) dp[s] += dp[s - num];
     return dp[sum];
   }
 
