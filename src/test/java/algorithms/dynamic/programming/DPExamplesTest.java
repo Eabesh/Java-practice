@@ -149,6 +149,8 @@ public class DPExamplesTest {
     int[] values = {60, 100, 120};
     int[] weights = {10, 20, 30};
     assertEquals(220, new DPExamples().knapsack(weights, values, 50, weights.length));
+    assertEquals(220, new DPExamples().knapsackDP(
+            weights, values, 50, weights.length));
   }
 
   @Test
@@ -377,11 +379,15 @@ public class DPExamplesTest {
 
   @Test
   public void fibonnaciDP() throws Exception {
+    double t1 = System.currentTimeMillis();
+
+    double t2 = System.currentTimeMillis();
+    System.out.println("time taken in secs : " + (t2 - t1)/1000);
     assertEquals(34, new DPExamples().fibonnaciDP(9));
     assertEquals(55 , new DPExamples().fibonnaciDP(10));
-    assertEquals(55 , new DPExamples().fibonacci(10));
     assertEquals(34, new DPExamples().fibonnaciDP(9));
     assertEquals(55 , new DPExamples().fibonnaciSpaceOpt(10, 0, 1));
+
 
   }
 
