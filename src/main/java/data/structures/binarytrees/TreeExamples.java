@@ -272,9 +272,15 @@ public class TreeExamples {
   /**
    * 20.
    * Problem: Root to leaf path sum equal to a given number.
-   * Solution:
+   * Given a binary tree and a number, return true if the tree has a root-to-leaf path such that adding up all the values
+   * along the path equals the given number. Return false if no such path can be found.
    */
-
+  boolean hasRootToLeafSumPath(TreeNode root, int sum) {
+    if (root == null) return false;
+    else if (isLeaf(root)) return sum == root.data;
+    else return hasRootToLeafSumPath(root.left, sum - root.data) ||
+              hasRootToLeafSumPath(root.right, sum - root.data);
+  }
 
   /**
    * 21.
@@ -660,9 +666,22 @@ public class TreeExamples {
 
   /**
    * 82.
-   * Problem: Check if two nodes are cousins in a Binary Tree.
-   * Solution:
+   * Problem: Check if two nodes are cousins in a Binary Tree
+   * Given the binary Tree and the two nodes say ‘a’ and ‘b’,
+   * determine whether the two nodes are cousins of each other or not.
+   * Two nodes are cousins of each other if they are at same level and have different parents.
    */
+  boolean areSibling(TreeNode root, TreeNode node1, TreeNode node2) {
+    if (root == null) return false;
+    else return root.left == node1 && root.right == node2 || root.right == node1 && root.left == node2 ||
+            areSibling(root.left, node1, node2) || areSibling(root.right, node1, node2);
+  }
+
+  boolean areCousins(TreeNode root, TreeNode node1, TreeNode node2) {
+    if (root == null) return false;
+    else return getLevel(root, node1, 1) == getLevel(root, node2, 1) && !areSibling(root, node1, node2);
+  }
+
 
   /**
    * 83.
@@ -2127,18 +2146,7 @@ public class TreeExamples {
 
 
 
-  /**
-   * 20.
-   * Problem: Root to leaf path sum equal to a given number.
-   * Given a binary tree and a number, return true if the tree has a root-to-leaf path such that adding up all the values
-   * along the path equals the given number. Return false if no such path can be found.
-   */
-  boolean hasRootToLeafSumPath(TreeNode root, int sum) {
-    if (root == null) return false;
-    else if (isLeaf(root)) return sum == root.data;
-    else return hasRootToLeafSumPath(root.left, sum - root.data) ||
-              hasRootToLeafSumPath(root.right, sum - root.data);
-  }
+
 
 
 
@@ -2648,7 +2656,6 @@ public class TreeExamples {
   /**
    * 22.
    * Problem: Given a binary tree, print all root-to-leaf paths
-
    * Solution: same as Problem 8
    */
 
@@ -3263,22 +3270,7 @@ public class TreeExamples {
 
   /**
    * 78.
-   * Problem: Check if two nodes are cousins in a Binary Tree
-   * Given the binary Tree and the two nodes say ‘a’ and ‘b’,
-   * determine whether the two nodes are cousins of each other or not.
-   * Two nodes are cousins of each other if they are at same level and have different parents.
-   * Solution:
-   */
-  boolean areSibling(TreeNode root, TreeNode node1, TreeNode node2) {
-    if (root == null) return false;
-    else return root.left == node1 && root.right == node2 || root.right == node1 && root.left == node2 ||
-            areSibling(root.left, node1, node2) || areSibling(root.right, node1, node2);
-  }
 
-  boolean areCousins(TreeNode root, TreeNode node1, TreeNode node2) {
-    if (root == null) return false;
-    else return getLevel(root, node1, 1) == getLevel(root, node2, 1) && !areSibling(root, node1, node2);
-  }
 
 
   /**
