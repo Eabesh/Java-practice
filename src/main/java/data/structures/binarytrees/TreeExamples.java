@@ -174,41 +174,122 @@ public class TreeExamples {
     else return root.data == key || treeContains(root.left, key) || treeContains(root.right, key);
   }
 
+
   /**
    * 10.
-   * Problem: The Great Tree-List Recursion Problem..
-   * Solution:
+   * Problem: The Great Tree-List Recursion Problem.
    */
+  TreeNode head2 = null, prev1 = null;
+
+  void treeToList(TreeNode root) {
+    if (root != null) {
+      treeToList(root.left);
+      if (head2 == null) head2 = root;
+      else {
+        prev1.right = root;
+        root.left = prev1;
+      }
+      prev1 = root;
+      treeToList(root.right);
+    }
+  }
 
   /**
    * 11.
-   * Problem: Level Order Tree Traversal.
-   * Solution:
+   * Problem: Level Order Tree Traversal
    */
+  void levelOrder(TreeNode root) {
+    int height = height(root);
+    for (int i = 1; i <= height; i++) {
+      level(root, i);
+      System.out.println("");
+    }
+  }
+
+  private void level(TreeNode root, int level) {
+    if (root != null) {
+      if (level == 1) System.out.print(root.data + " ");
+      else {
+        level(root.left, level - 1);
+        level(root.right, level - 1);
+      }
+    }
+  }
 
   /**
    * 12.
-   * Problem: Program to count leaf nodes in a binary tree.
-   * Solution:
+   * Problem: Count leaf nodes in a binary tree
    */
+  int countLeaves(TreeNode root) {
+    if (root == null) return 0;
+    else if (isLeaf(root)) return 1;
+    else return countLeaves(root.right) + countLeaves(root.left);
+  }
+
+  public boolean isLeaf(TreeNode node) {
+    return node != null && node.left == null && node.right == null;
+  }
 
   /**
    * 13.
-   * Problem: Level order traversal in spiral form.
-   * Solution:
+   * Problem: Level order traversal in spiral form
    */
+  void levelOrderSpiral(TreeNode root) {
+    int height = height(root);
+    for (int i = 1; i <= height; i++) {
+      levelSpiral(root, i, i % 2 == 0);
+      System.out.println("");
+    }
+  }
+
+  private void levelSpiral(TreeNode root, int level, boolean odd) {
+    if (root != null) {
+      if (level < 2) System.out.print(root.data + " ");
+      else if (odd) {
+        level(root.right, level - 1);
+        level(root.left, level - 1);
+      } else {
+        level(root.left, level - 1);
+        level(root.right, level - 1);
+      }
+    }
+  }
 
   /**
    * 14.
    * Problem: Check for Children Sum Property in a Binary Tree.
-   * Solution:
+   * Given a binary tree, write a function that returns true if the tree satisfies below property.
+   * For every node, data value must be equal to sum of data values in left and right children.
    */
+  boolean hasChildSum(TreeNode root) {
+    return root == null || isLeaf(root) ||
+            root.data == getChildSum(root) &&
+                    hasChildSum(root.left) &&
+                    hasChildSum(root.right);
+  }
+
+  private int getChildSum(TreeNode node) {
+    int sum = 0;
+    if (node.left != null) sum += node.left.data;
+    if (node.right != null) sum += node.right.data;
+    return sum;
+  }
 
   /**
    * 15.
-   * Problem: Convert an arbitrary Binary Tree to a tree that holds Children Sum Property.
-   * Solution:
+   * Problem: Convert an arbitrary Binary Tree to a tree that holds Children Sum Property
    */
+  TreeNode convertToChildSum(TreeNode root) {
+    if (root == null || isLeaf(root)) return root;
+    else {
+      convertToChildSum(root.left);
+      convertToChildSum(root.right);
+      root.data = getChildSum(root);
+      return root;
+    }
+  }
+
+
 
   /**
    * 16.
@@ -846,8 +927,37 @@ public class TreeExamples {
   /**
    * 96.
    * Problem: Find the closest leaf in a Binary Tree.
-   * Solution:
+   * Given a Binary Tree and a key ‘k’, find distance of the closest leaf from ‘k’.
    */
+  int closetLeafFromKey(TreeNode root, TreeNode key) {
+    ArrayList<TreeNode> ancestors = ancestors(root, key, new ArrayList<>());
+    int minDistance = Integer.MAX_VALUE;
+    int distanceFromKey = ancestors.size();
+    for (TreeNode ancestor : ancestors)
+      minDistance = Math.min(minDistance, findClosestLeafRoot(ancestor, 0) +
+              distanceFromKey--);
+    return Math.min(findClosestLeafRoot(key, 0), minDistance);
+  }
+
+  int findClosestLeafRoot(TreeNode root, int distance) {
+    if (root == null) return Integer.MAX_VALUE;
+    else if (isLeaf(root)) return distance;
+    else return Math.min(findClosestLeafRoot(root.left, distance + 1),
+              findClosestLeafRoot(root.right, distance + 1));
+  }
+
+  ArrayList ancestors(TreeNode root, TreeNode key, ArrayList<TreeNode> soFar) {
+    if (root == null) return new ArrayList<>();
+    else if (root == key) return new ArrayList(soFar);
+    else {
+      soFar.add(root);
+      ArrayList left = ancestors(root.left, key, soFar);
+      ArrayList right = ancestors(root.right, key, soFar);
+      soFar.remove(soFar.size() - 1);
+      return left.isEmpty() ? right : left;
+    }
+  }
+
 
   /**
    * 97.
@@ -1041,11 +1151,28 @@ public class TreeExamples {
    * Solution:
    */
 
+
+
   /**
    * 126.
    * Problem: Maximum difference between node and its ancestor in Binary Tree.
-   * Solution:
    */
+  int maxDifferenceAncestor(TreeNode root) {
+    int[] maxDiff = {Integer.MIN_VALUE};
+    maxDiffAncestors(root, maxDiff);
+    return maxDiff[0];
+  }
+
+  int maxDiffAncestors(TreeNode root, int[] maxDiff) {
+    if (root == null) return Integer.MAX_VALUE;
+    else if (isLeaf(root)) return root.data;
+    else {
+      int minValue = Math.min(maxDiffAncestors(root.left, maxDiff), maxDiffAncestors(root.right, maxDiff));
+      maxDiff[0] = Math.max(maxDiff[0], root.data - minValue);
+      return Math.min(root.data, minValue);
+    }
+  }
+
 
   /**
    * 127.
@@ -1198,11 +1325,16 @@ public class TreeExamples {
    * Solution:
    */
 
+
   /**
    * 148.
-   * Problem: Check if two trees are Mirror.
-   * Solution:
+   * Problem: Check if two trees are Mirror
+   * Given two Binary Trees, write a function that returns true if two trees are mirror of each other, else false.
    */
+  public boolean areMirror(TreeNode root1, TreeNode root2) {
+    return root1 == null && root2 == null || root1 != null && root2 != null && root1.data == root2.data
+            && areMirror(root1.left, root2.right) && areMirror(root1.right, root2.left);
+  }
 
   /**
    * 149.
@@ -2286,79 +2418,13 @@ public class TreeExamples {
 
 
 
-  /**
-   * 96.
-   * Problem: Find the closest leaf in a Binary Tree.
-   * Given a Binary Tree and a key ‘k’, find distance of the closest leaf from ‘k’.
-   */
-  int closetLeafFromKey(TreeNode root, TreeNode key) {
-    ArrayList<TreeNode> ancestors = ancestors(root, key, new ArrayList<>());
-    int minDistance = Integer.MAX_VALUE;
-    int distanceFromKey = ancestors.size();
-    for (TreeNode ancestor : ancestors)
-      minDistance = Math.min(minDistance, findClosestLeafRoot(ancestor, 0) +
-              distanceFromKey--);
-    return Math.min(findClosestLeafRoot(key, 0), minDistance);
-  }
-
-  int findClosestLeafRoot(TreeNode root, int distance) {
-    if (root == null) return Integer.MAX_VALUE;
-    else if (isLeaf(root)) return distance;
-    else return Math.min(findClosestLeafRoot(root.left, distance + 1),
-              findClosestLeafRoot(root.right, distance + 1));
-  }
-
-  ArrayList ancestors(TreeNode root, TreeNode key, ArrayList<TreeNode> soFar) {
-    if (root == null) return new ArrayList<>();
-    else if (root == key) return new ArrayList(soFar);
-    else {
-      soFar.add(root);
-      ArrayList left = ancestors(root.left, key, soFar);
-      ArrayList right = ancestors(root.right, key, soFar);
-      soFar.remove(soFar.size() - 1);
-      return left.isEmpty() ? right : left;
-    }
-  }
-
-  /**
-   * 97.
-   * Problem: Remove nodes on root to leaf paths of length < K.
-   * Solution:
-   */
 
 
 
-  /**
-   * 126.
-   * Problem: Maximum difference between node and its ancestor in Binary Tree.
-   */
-  int maxDifferenceAncestor(TreeNode root) {
-    int[] maxDiff = {Integer.MIN_VALUE};
-    maxDiffAncestors(root, maxDiff);
-    return maxDiff[0];
-  }
-
-  int maxDiffAncestors(TreeNode root, int[] maxDiff) {
-    if (root == null) return Integer.MAX_VALUE;
-    else if (isLeaf(root)) return root.data;
-    else {
-      int minValue = Math.min(maxDiffAncestors(root.left, maxDiff), maxDiffAncestors(root.right, maxDiff));
-      maxDiff[0] = Math.max(maxDiff[0], root.data - minValue);
-      return Math.min(root.data, minValue);
-    }
-  }
 
 
 
-  /**
-   * 148.
-   * Problem: Check if two trees are Mirror
-   * Given two Binary Trees, write a function that returns true if two trees are mirror of each other, else false.
-   */
-  public boolean areMirror(TreeNode root1, TreeNode root2) {
-    return root1 == null && root2 == null || root1 != null && root2 != null && root1.data == root2.data
-            && areMirror(root1.left, root2.right) && areMirror(root1.right, root2.left);
-  }
+
 
 
   /**
@@ -2459,120 +2525,6 @@ public class TreeExamples {
    * the tree can be constructed, otherwise not.
    */
 
-
-  /**
-   * 10.
-   * Problem: The Great Tree-List Recursion Problem.
-   */
-  TreeNode head2 = null, prev1 = null;
-
-  void treeToList(TreeNode root) {
-    if (root != null) {
-      treeToList(root.left);
-      if (head2 == null) head2 = root;
-      else {
-        prev1.right = root;
-        root.left = prev1;
-      }
-      prev1 = root;
-      treeToList(root.right);
-    }
-  }
-
-  /**
-   * 11.
-   * Problem: Level Order Tree Traversal
-   */
-  void levelOrder(TreeNode root) {
-    int height = height(root);
-    for (int i = 1; i <= height; i++) {
-      level(root, i);
-      System.out.println("");
-    }
-  }
-
-  private void level(TreeNode root, int level) {
-    if (root != null) {
-      if (level == 1) System.out.print(root.data + " ");
-      else {
-        level(root.left, level - 1);
-        level(root.right, level - 1);
-      }
-    }
-  }
-
-  /**
-   * 12.
-   * Problem: Count leaf nodes in a binary tree
-   */
-  int countLeaves(TreeNode root) {
-    if (root == null) return 0;
-    else if (isLeaf(root)) return 1;
-    else return countLeaves(root.right) + countLeaves(root.left);
-  }
-
-  public boolean isLeaf(TreeNode node) {
-    return node != null && node.left == null && node.right == null;
-  }
-
-  /**
-   * 13.
-   * Problem: Level order traversal in spiral form
-   */
-  void levelOrderSpiral(TreeNode root) {
-    int height = height(root);
-    for (int i = 1; i <= height; i++) {
-      levelSpiral(root, i, i % 2 == 0);
-      System.out.println("");
-    }
-  }
-
-  private void levelSpiral(TreeNode root, int level, boolean odd) {
-    if (root != null) {
-      if (level < 2) System.out.print(root.data + " ");
-      else if (odd) {
-        level(root.right, level - 1);
-        level(root.left, level - 1);
-      } else {
-        level(root.left, level - 1);
-        level(root.right, level - 1);
-      }
-    }
-  }
-
-  /**
-   * 14.
-   * Problem: Check for Children Sum Property in a Binary Tree.
-   * Given a binary tree, write a function that returns true if the tree satisfies below property.
-   * For every node, data value must be equal to sum of data values in left and right children.
-   */
-  boolean hasChildSum(TreeNode root) {
-    return root == null || isLeaf(root) ||
-            root.data == getChildSum(root) &&
-                    hasChildSum(root.left) &&
-                    hasChildSum(root.right);
-  }
-
-  private int getChildSum(TreeNode node) {
-    int sum = 0;
-    if (node.left != null) sum += node.left.data;
-    if (node.right != null) sum += node.right.data;
-    return sum;
-  }
-
-  /**
-   * 15.
-   * Problem: Convert an arbitrary Binary Tree to a tree that holds Children Sum Property
-   */
-  TreeNode convertToChildSum(TreeNode root) {
-    if (root == null || isLeaf(root)) return root;
-    else {
-      convertToChildSum(root.left);
-      convertToChildSum(root.right);
-      root.data = getChildSum(root);
-      return root;
-    }
-  }
 
 
   /**
