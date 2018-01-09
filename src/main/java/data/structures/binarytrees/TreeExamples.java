@@ -11,41 +11,107 @@ import java.util.*;
 public class TreeExamples {
   private BSTExamples bstExamples = new BSTExamples();
 
- /**
+
+
+  /**
    * 1.
-   * Problem: Tree Traversals (Inorder, Preorder and Postorder).
-   * Solution:
+   * Problem: Tree Traversals (Inorder, Pr-eorder and Post-order).
+   * Unlike linear data structures (Array, Linked List, Queues, Stacks, etc) which have only one logical way to
+   * traverse them, trees can be traversed in different ways.
+   * Depth First Traversals: In-order, Pre-order and Post-order
+   * Breadth First or Level Order Traversal
    */
+
+  /**
+   * Uses of in-order
+   * In case of BST, in-order traversal gives nodes in non-decreasing order.To get nodes of BST in non-increasing order,
+   * a variation of in-order traversal where in-order is traversal's
+   * reversed, can be used.
+   */
+  public void inOrder(TreeNode root) {
+    if (root != null) {
+      inOrder(root.left);
+      System.out.print(root.data + " ");
+      inOrder(root.right);
+    }
+  }
+
+  /**
+   * Uses of Pre-order
+   * To create a copy of the tree.
+   * To get prefix expression on of an expression tree.
+   */
+  void preOrder(TreeNode root) {
+    if (root != null) {
+      System.out.print(root.data + " ");
+      preOrder(root.left);
+      preOrder(root.right);
+    }
+  }
+
+  /**
+   * Uses of Post-order
+   * To delete the tree.
+   * To get the postfix expression of an expression tree.
+   */
+  void postOrder(TreeNode root) {
+    if (root != null) {
+      postOrder(root.left);
+      postOrder(root.right);
+      System.out.print(root.data + " ");
+    }
+  }
 
   /**
    * 2.
    * Problem: Write a program to Calculate Size of a tree.
-   * Solution:
    */
+  int treeSize(TreeNode root) {
+    if (root == null) return 0;
+    else return 1 + treeSize(root.left) + treeSize(root.right);
+  }
 
   /**
    * 3.
    * Problem: Write Code to Determine if Two Trees are Identical.
-   * Solution:
    */
+  boolean areIdentical(TreeNode root1, TreeNode root2) {
+    return root1 == null && root2 == null || root1 != null && root2 != null && root1.data == root2.data &&
+            areIdentical(root1.left, root2.left) && areIdentical(root1.right, root2.right);
+  }
 
   /**
    * 4.
    * Problem: Write a Program to Find the Maximum Depth or Height of a Tree.
-   * Solution:
    */
+  int height(TreeNode node) {
+    if (node == null) return 0;
+    else return 1 + Math.max(height(node.left), height(node.right));
+  }
 
   /**
    * 5.
-   * Problem: Write a  program to Delete a Tree..
+   * Problem: Write a  program to Delete a Tree.
    * Solution:
    */
 
   /**
    * 6.
    * Problem: Write an Efficient  Function to Convert a Binary Tree into its Mirror Tree.
-   * Solution:
    */
+  void mirror(TreeNode root) {
+    if (root != null) {
+      mirror(root.left);
+      mirror(root.right);
+      swapChildren(root);
+    }
+  }
+
+  private void swapChildren(TreeNode node) {
+    TreeNode temp = node.left;
+    node.left = node.right;
+    node.right = temp;
+  }
 
   /**
    * 7.
@@ -56,14 +122,57 @@ public class TreeExamples {
   /**
    * 8.
    * Problem: Given a binary tree, print out all of its root-to-leaf paths one per line..
-   * Solution:
    */
+  void rootToLeafPath(TreeNode root, String path) {
+    if (root != null) {
+      if (isLeaf(root)) System.out.println(path + root.data);
+      else {
+        rootToLeafPath(root.left, path + root.data + "->");
+        rootToLeafPath(root.right, path + root.data + "->");
+      }
+    }
+  }
 
   /**
    * 9.
-   * Problem: Lowest Common Ancestor in a Binary Search Tree..
-   * Solution:
+   * Problem: Lowest Common Ancestor in a Binary Search Tree.
+   * Given values of two values n1 and n2 in a Binary Search Tree, find the Lowest Common Ancestor (LCA). You may assume
+   * that both the values exist in the tree.
    */
+  public TreeNode bstLCA(TreeNode root, int k1, int k2) {
+    if (root == null) return null;
+    else if (root.data > k1 && root.data > k2) return bstLCA(root.left, k1, k2);
+    else if (root.data < k1 && root.data < k2) return bstLCA(root.right, k1, k2);
+    else return root;
+  }
+
+  TreeNode findLCA(TreeNode root, int k1, int k2) {
+    boolean[] v1 = new boolean[1], v2 = new boolean[1];
+    TreeNode lca = LCAUtil(root, k1, k2, v1, v2);
+    if (v1[0] && v2[0] || v1[0] && treeContains(root, k2) || v2[0] && treeContains(root, k1)) return lca;
+    else return null;
+  }
+
+  private TreeNode LCAUtil(TreeNode root, int k1, int k2, boolean[] v1, boolean[] v2) {
+    if (root == null) return root;
+    if (root.data == k1) {
+      v1[0] = true;
+      return root;
+    }
+    if (root.data == k2) {
+      v2[0] = true;
+      return root;
+    }
+    TreeNode leftLCA = LCAUtil(root.left, k1, k2, v1, v2);
+    TreeNode rightLCA = LCAUtil(root.right, k1, k2, v1, v2);
+    if (leftLCA != null && rightLCA != null) return root;
+    else return leftLCA != null ? leftLCA : rightLCA;
+  }
+
+  private boolean treeContains(TreeNode root, int key) {
+    if (root == null) return false;
+    else return root.data == key || treeContains(root.left, key) || treeContains(root.right, key);
+  }
 
   /**
    * 10.
@@ -103,9 +212,44 @@ public class TreeExamples {
 
   /**
    * 16.
-   * Problem: Diameter of a Binary Tree.
-   * Solution:
+   * Problem: Diameter of a Binary Tree
    */
+  int diameter(TreeNode root) {
+    if (root == null) return 0;
+    else return Utils.max(height(root.left) + 1 + height(root.right), diameter(root.left), diameter(root.right));
+  }
+
+  int diameterOpt(TreeNode root, int[] height) {
+    if (root == null) {
+      height[0] = 0;
+      return 0;
+    } else {
+      int[] lHeight = new int[1], rHeight = new int[1];
+      int lDiameter = diameterOpt(root.left, lHeight);
+      int rDiameter = diameterOpt(root.right, rHeight);
+      height[0] = 1 + Math.max(lHeight[0], rHeight[0]);
+      return Math.max(1 + lHeight[0] + rHeight[0], Math.max(lDiameter, rDiameter));
+    }
+  }
+
+  class DiameterInfo{
+    int height, diameter;
+    DiameterInfo(int h, int d) {
+      this.height = h;
+      this.diameter = d;
+    }
+  }
+
+  DiameterInfo diameterOpt1(TreeNode root) {
+    if (root == null) return new DiameterInfo(0, 0);
+    else {
+      DiameterInfo left = diameterOpt1(root.left);
+      DiameterInfo right = diameterOpt1(root.right);
+      return new DiameterInfo(1 + Math.max(left.height, right.height),
+              Math.max(1 + left.height + right.height, Math.max(left.diameter, right.diameter)));
+
+    }
+  }
 
   /**
    * 17.
@@ -1977,209 +2121,8 @@ public class TreeExamples {
 
 
 
-  /**
-   * 1.
-   * Problem: Tree Traversals (Inorder, Pr-eorder and Post-order).
-   * Unlike linear data structures (Array, Linked List, Queues, Stacks, etc) which have only one logical way to
-   * traverse them, trees can be traversed in different ways.
-   * Depth First Traversals: In-order, Pre-order and Post-order
-   * Breadth First or Level Order Traversal
-   */
-
-  /**
-   * Uses of in-order
-   * In case of BST, in-order traversal gives nodes in non-decreasing order.To get nodes of BST in non-increasing order,
-   * a variation of in-order traversal where in-order is traversal's
-   * reversed, can be used.
-   */
-  public void inOrder(TreeNode root) {
-    if (root != null) {
-      inOrder(root.left);
-      System.out.print(root.data + " ");
-      inOrder(root.right);
-    }
-  }
-
-  /**
-   * Uses of Pre-order
-   * To create a copy of the tree.
-   * To get prefix expression on of an expression tree.
-   */
-  void preOrder(TreeNode root) {
-    if (root != null) {
-      System.out.print(root.data + " ");
-      preOrder(root.left);
-      preOrder(root.right);
-    }
-  }
-
-  /**
-   * Uses of Post-order
-   * To delete the tree.
-   * To get the postfix expression of an expression tree.
-   */
-  void postOrder(TreeNode root) {
-    if (root != null) {
-      postOrder(root.left);
-      postOrder(root.right);
-      System.out.print(root.data + " ");
-    }
-  }
-
-  /**
-   * 2.
-   * Problem: Write a program to Calculate Size of a tree.
-   */
-  int treeSize(TreeNode root) {
-    if (root == null) return 0;
-    else return 1 + treeSize(root.left) + treeSize(root.right);
-  }
-
-  /**
-   * 3.
-   * Problem: Write Code to Determine if Two Trees are Identical.
-   */
-  boolean areIdentical(TreeNode root1, TreeNode root2) {
-    return root1 == null && root2 == null || root1 != null && root2 != null && root1.data == root2.data &&
-            areIdentical(root1.left, root2.left) && areIdentical(root1.right, root2.right);
-  }
-
-  /**
-   * 4.
-   * Problem: Write a Program to Find the Maximum Depth or Height of a Tree.
-   */
-  int height(TreeNode node) {
-    if (node == null) return 0;
-    else return 1 + Math.max(height(node.left), height(node.right));
-  }
-
-  /**
-   * 5.
-   * Problem: Write a  program to Delete a Tree.
-   * Solution:
-   */
-
-  /**
-   * 6.
-   * Problem: Write an Efficient  Function to Convert a Binary Tree into its Mirror Tree.
-   */
-  void mirror(TreeNode root) {
-    if (root != null) {
-      mirror(root.left);
-      mirror(root.right);
-      swapChildren(root);
-    }
-  }
-
-  private void swapChildren(TreeNode node) {
-    TreeNode temp = node.left;
-    node.left = node.right;
-    node.right = temp;
-  }
-
-  /**
-   * 7.
-   * Problem: If you are given two traversal sequences, can you construct the binary tree?.
-   * Solution:
-   */
-
-  /**
-   * 8.
-   * Problem: Given a binary tree, print out all of its root-to-leaf paths one per line..
-   */
-  void rootToLeafPath(TreeNode root, String path) {
-    if (root != null) {
-      if (isLeaf(root)) System.out.println(path + root.data);
-      else {
-        rootToLeafPath(root.left, path + root.data + "->");
-        rootToLeafPath(root.right, path + root.data + "->");
-      }
-    }
-  }
-
-  /**
-   * 9.
-   * Problem: Lowest Common Ancestor in a Binary Search Tree.
-   * Given values of two values n1 and n2 in a Binary Search Tree, find the Lowest Common Ancestor (LCA). You may assume
-   * that both the values exist in the tree.
-   */
-  public TreeNode bstLCA(TreeNode root, int k1, int k2) {
-    if (root == null) return null;
-    else if (root.data > k1 && root.data > k2) return bstLCA(root.left, k1, k2);
-    else if (root.data < k1 && root.data < k2) return bstLCA(root.right, k1, k2);
-    else return root;
-  }
-
-  TreeNode findLCA(TreeNode root, int k1, int k2) {
-    boolean[] v1 = new boolean[1], v2 = new boolean[1];
-    TreeNode lca = LCAUtil(root, k1, k2, v1, v2);
-    if (v1[0] && v2[0] || v1[0] && treeContains(root, k2) || v2[0] && treeContains(root, k1)) return lca;
-    else return null;
-  }
-
-  private TreeNode LCAUtil(TreeNode root, int k1, int k2, boolean[] v1, boolean[] v2) {
-    if (root == null) return root;
-    if (root.data == k1) {
-      v1[0] = true;
-      return root;
-    }
-    if (root.data == k2) {
-      v2[0] = true;
-      return root;
-    }
-    TreeNode leftLCA = LCAUtil(root.left, k1, k2, v1, v2);
-    TreeNode rightLCA = LCAUtil(root.right, k1, k2, v1, v2);
-    if (leftLCA != null && rightLCA != null) return root;
-    else return leftLCA != null ? leftLCA : rightLCA;
-  }
-
-  private boolean treeContains(TreeNode root, int key) {
-    if (root == null) return false;
-    else return root.data == key || treeContains(root.left, key) || treeContains(root.right, key);
-  }
 
 
-
-  /**
-   * 16.
-   * Problem: Diameter of a Binary Tree
-   */
-  int diameter(TreeNode root) {
-    if (root == null) return 0;
-    else return Utils.max(height(root.left) + 1 + height(root.right), diameter(root.left), diameter(root.right));
-  }
-
-  int diameterOpt(TreeNode root, int[] height) {
-    if (root == null) {
-      height[0] = 0;
-      return 0;
-    } else {
-      int[] lHeight = new int[1], rHeight = new int[1];
-      int lDiameter = diameterOpt(root.left, lHeight);
-      int rDiameter = diameterOpt(root.right, rHeight);
-      height[0] = 1 + Math.max(lHeight[0], rHeight[0]);
-      return Math.max(1 + lHeight[0] + rHeight[0], Math.max(lDiameter, rDiameter));
-    }
-  }
-
-  class DiameterInfo{
-    int height, diameter;
-    DiameterInfo(int h, int d) {
-      this.height = h;
-      this.diameter = d;
-    }
-  }
-
-  DiameterInfo diameterOpt1(TreeNode root) {
-    if (root == null) return new DiameterInfo(0, 0);
-    else {
-      DiameterInfo left = diameterOpt1(root.left);
-      DiameterInfo right = diameterOpt1(root.right);
-      return new DiameterInfo(1 + Math.max(left.height, right.height),
-              Math.max(1 + left.height + right.height, Math.max(left.diameter, right.diameter)));
-
-    }
-  }
 
 
 
