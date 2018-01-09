@@ -274,7 +274,7 @@ public class BSTExamples {
     SwapInfo swapInfo = new SwapInfo();
     correctBST(root, swapInfo);
     if (swapInfo.first != null && swapInfo.last != null) swapNodes(swapInfo.first, swapInfo.last);
-    else if (swapInfo.first != null && swapInfo.mid != null) swapNodes(swapInfo.first, swapInfo.last);
+    else if (swapInfo.first != null && swapInfo.mid != null) swapNodes(swapInfo.first, swapInfo.mid);
   }
 
   private void correctBST(TreeNode root, SwapInfo swapInfo) {
@@ -1124,6 +1124,69 @@ public class BSTExamples {
     }
     return count;
   }
+
+
+  /**
+   * 62.
+   * Problem: Construct BST from its given level order traversal.
+   * Solution:
+   */
+
+  /**
+   * 63.
+   * Problem: Shortest distance between two nodes in BST.
+   * Given a Binary Search Tree and two keys in it. Find the distance between two nodes with given two keys. It may be
+   * assumed that both keys exist in BST
+   */
+  int shortestDistance(TreeNode root, int k1, int k2) {
+    TreeNode lca = new TreeExamples().bstLCA(root, k1, k2);
+    return distanceFromRoot(lca, k1, 0) + distanceFromRoot(lca, k2, 0);
+  }
+
+  private int distanceFromRoot(TreeNode root, int key, int acc) {
+    if (root == null) return 0;
+    else if (root.data == key) return acc;
+    else if (root.data < key) return distanceFromRoot(root.right, key, acc + 1);
+    else return distanceFromRoot(root.left, key, acc + 1);
+  }
+
+
+  /**
+   * 64.
+   * Problem: Minimum Possible value of |ai + aj &#8211; k| for given array and k..
+   * Solution:
+   */
+
+  /**
+   * 65.
+   * Problem: Check if two BSTs contain same set of elements.
+   * Solution:
+   */
+
+  /**
+   * 66.
+   * Problem: Left Leaning Red Black Tree (Insertion).
+   * Solution:
+   */
+
+  /**
+   * 67.
+   * Problem: Count greater nodes in AVL tree.
+   * Solution:
+   */
+
+  /**
+   * 68.
+   * Problem: Maximum Unique Element in every subarray of size K.
+   * Solution:
+   */
+
+  /**
+   * 69.
+   * Problem: Largest number less than or equal to N in BST (Iterative Approach).
+   * Solution:
+   */
+
 
 
   /**

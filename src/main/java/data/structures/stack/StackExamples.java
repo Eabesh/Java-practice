@@ -1,13 +1,74 @@
 package data.structures.stack;
 
 import java.util.Stack;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class StackExamples {
+  public static void main(String[] args) {
+    ExecutorService executorService = Executors.newFixedThreadPool(10);
+    for (int i = 0; i < 50; i++) {
+
+      executorService.execute(new Runnable() {
+        @Override
+        public void run() {
+          System.out.println("Thread id is " + Thread.currentThread().getId() );
+          try {
+            Thread.sleep(1000);
+          } catch (InterruptedException e) {
+            e.printStackTrace();
+          }
+        }
+      });
+
+    }
+    executorService.shutdown();
+  }
 
   /**
    * 1.
    * Problem: Implement Queue using Stacks
    */
+  class MyQueue{
+
+    Stack<Integer> stack1, stack2;
+
+    public MyQueue() {
+      stack1 = new Stack<>();
+      stack2 = new Stack<>();
+    }
+
+    void push(int x) {
+      stack1.push(x);
+    }
+
+
+
+    int pop() {
+      reverseStack(stack1, stack2);
+      int front =  stack2.pop();
+      reverseStack(stack2, stack1);
+      return front;
+    }
+
+    int peek() {
+      reverseStack(stack1, stack2);
+      int front =  stack2.peek();
+      reverseStack(stack2, stack1);
+      return front;
+    }
+
+
+    boolean empty() {
+      return stack1.isEmpty();
+    }
+
+
+    private void reverseStack(Stack<Integer> stack1, Stack<Integer> stack2) {
+      while (!stack1.isEmpty()) stack2.push(stack1.pop());
+    }
+  }
 
   /**
    * 2.

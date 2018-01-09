@@ -2,6 +2,10 @@ package data.structures.bst;
 import data.structures.binarytrees.TreeExamples;
 import org.junit.Test;
 import utilities.TreeNode;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import static org.junit.Assert.*;
 
 /**
@@ -10,10 +14,29 @@ import static org.junit.Assert.*;
 
 public class BSTExamplesTest {
   @Test
+  public void shortestDistance() throws Exception {
+    TreeNode root = new TreeNode(5);
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(12);
+    root.left.left = new TreeNode(1);
+    root.left.right = new TreeNode(3);
+    root.right.left = new TreeNode(9);
+    root.right.right = new TreeNode(21);
+    root.right.right.left = new TreeNode(19);
+    root.right.right.right = new TreeNode(25);
+    assertEquals(4, new BSTExamples().shortestDistance(root, 3, 9));
+    assertEquals(3, new BSTExamples().shortestDistance(root, 9, 25));
+  }
+
+  @Test
   public void sortedArrayToBST() throws Exception {
+
+
     int[] array = {1, 5, 6};
     TreeNode root = new BSTExamples().sortedArrayToBST(array, 0, array.length - 1);
     new TreeExamples().inOrder(root);
+
+
   }
 
   @Test

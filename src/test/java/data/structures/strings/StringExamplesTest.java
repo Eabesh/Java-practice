@@ -2,6 +2,8 @@ package data.structures.strings;
 
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -31,6 +33,7 @@ public class StringExamplesTest {
   @Test
   public void printAllPermutations() throws Exception {
     new StringExamples().printAllPermutations("", "AB", 2);
+
   }
 
   @Test
@@ -40,7 +43,7 @@ public class StringExamplesTest {
 
   @Test
   public void printSpaces() throws Exception {
-    new StringExamples().printSpaces("A", "BCD");
+    new StringExamples().printSpaces("A", "B");
   }
 
 }
