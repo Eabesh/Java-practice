@@ -346,11 +346,21 @@ public class TreeExamples {
    * Solution:
    */
 
+
   /**
    * 29.
    * Problem: Print Ancestors of a given node in Binary Tree.
-   * Solution:
+   * Given a Binary Tree and a key, write a function that prints all the ancestors of the key in the given binary tree.
    */
+  public void printAncestors(TreeNode root, TreeNode key, String soFar) {
+    if (root != null) {
+      if (root == key) System.out.print(soFar);
+      else {
+        printAncestors(root.left, key, soFar + root.data + " ");
+        printAncestors(root.right, key, soFar + root.data + " ");
+      }
+    }
+  }
 
   /**
    * 30.
@@ -487,8 +497,27 @@ public class TreeExamples {
   /**
    * 52.
    * Problem: Convert a given Binary Tree to Doubly Linked List | Set 1.
-   * Solution:
    */
+  public TreeNode treeToDLL(TreeNode root) {
+    TreeNode[] head = {null};
+    treeToDLL(root, head);
+    return head[0];
+  }
+
+  void treeToDLL(TreeNode root, TreeNode[] head) {
+    if (root != null) {
+      treeToDLL(root.right, head);
+      insertAtFront(root, head);
+      treeToDLL(root.left, head);
+    }
+  }
+
+  private void insertAtFront(TreeNode node, TreeNode[] head) {
+    node.right = head[0];
+    if (head[0] != null) head[0].left = node;
+    head[0] = node;
+  }
+
 
   /**
    * 53.
@@ -541,8 +570,18 @@ public class TreeExamples {
   /**
    * 61.
    * Problem: Print Left View of a Binary Tree.
-   * Solution:
    */
+  public void printLeftView(TreeNode root, int level, int[] maxLevel) {
+    if (root == null) return;
+    else if (level > maxLevel[0]) {
+      System.out.print(root.data + " ");
+      maxLevel[0] = level;
+    } else {
+      printLeftView(root.left, level + 1, maxLevel);
+      printLeftView(root.right, level + 1, maxLevel);
+    }
+  }
+
 
   /**
    * 62.
@@ -1153,8 +1192,16 @@ public class TreeExamples {
   /**
    * 155.
    * Problem: Find a number in minimum steps.
-   * Solution:
+   * Given an infinite number line from -INFINITY to +INFINITY and we are on zero. We can move n steps either
+   * side at each n’th time.
    */
+  int minSteps(int source, int dest, int steps) {
+    if (Math.abs(source) > dest) return Integer.MAX_VALUE;
+    else if (source == dest) return steps;
+    else return Math.min(minSteps(source - steps - 1, dest, steps + 1),
+              minSteps(source + steps + 1, dest, steps + 1));
+  }
+
 
   /**
    * 156.
@@ -2150,20 +2197,7 @@ public class TreeExamples {
 
 
 
-  /**
-   * 29.
-   * Problem: Print Ancestors of a given node in Binary Tree.
-   * Given a Binary Tree and a key, write a function that prints all the ancestors of the key in the given binary tree.
-   */
-  public void printAncestors(TreeNode root, TreeNode key, String soFar) {
-    if (root != null) {
-      if (root == key) System.out.print(soFar);
-      else {
-        printAncestors(root.left, key, soFar + root.data + " ");
-        printAncestors(root.right, key, soFar + root.data + " ");
-      }
-    }
-  }
+
 
 
 
@@ -2217,33 +2251,6 @@ public class TreeExamples {
 
 
 
-  /**
-   * 52.
-   * Problem: Convert a given Binary Tree to Doubly Linked List | Set 1.
-   */
- private class TreeNodeHead {
-
-  }
-
-  public TreeNode treeToDLL(TreeNode root) {
-    TreeNode[] head = {null};
-    treeToDLL(root, head);
-    return head[0];
-  }
-
-  void treeToDLL(TreeNode root, TreeNode[] head) {
-    if (root != null) {
-      treeToDLL(root.right, head);
-      insertAtFront(root, head);
-      treeToDLL(root.left, head);
-    }
-  }
-
-  private void insertAtFront(TreeNode node, TreeNode[] head) {
-    node.right = head[0];
-    if (head[0] != null) head[0].left = node;
-    head[0] = node;
-  }
 
   /**
    * 96.
@@ -3026,23 +3033,7 @@ public class TreeExamples {
    */
 
 
-  /**
-   * 58.
-   * Problem: Print Left View of a Binary Tree
-   * <p>
-   * Solution:
-   */
 
-  public void printLeftView(TreeNode root, int level, int[] maxLevel) {
-    if (root == null) return;
-    else if (level > maxLevel[0]) {
-      System.out.print(root.data + " ");
-      maxLevel[0] = level;
-    } else {
-      printLeftView(root.left, level + 1, maxLevel);
-      printLeftView(root.right, level + 1, maxLevel);
-    }
-  }
 
 
   /**
@@ -3521,18 +3512,7 @@ public class TreeExamples {
   }
 
 
-  /**
-   * Page 1.
-   * 145. Problem: Find a number in minimum steps.
-   * Given an infinite number line from -INFINITY to +INFINITY and we are on zero. We can move n steps either
-   * side at each n’th time.
-   */
-  int minSteps(int source, int dest, int steps) {
-    if (Math.abs(source) > dest) return Integer.MAX_VALUE;
-    else if (source == dest) return steps;
-    else return Math.min(minSteps(source - steps - 1, dest, steps + 1),
-              minSteps(source + steps + 1, dest, steps + 1));
-  }
+
 
   /**
    * Page 1.
