@@ -15,7 +15,7 @@ public class TreeExamples {
 
   /**
    * 1.
-   * Problem: Tree Traversals (Inorder, Pr-eorder and Post-order).
+   * Problem: Tree Traversals (Inorder, Pre-order and Post-order).
    * Unlike linear data structures (Array, Linked List, Queues, Stacks, etc) which have only one logical way to
    * traverse them, trees can be traversed in different ways.
    * Depth First Traversals: In-order, Pre-order and Post-order
@@ -25,8 +25,7 @@ public class TreeExamples {
   /**
    * Uses of in-order
    * In case of BST, in-order traversal gives nodes in non-decreasing order.To get nodes of BST in non-increasing order,
-   * a variation of in-order traversal where in-order is traversal's
-   * reversed, can be used.
+   * a variation of in-order traversal where in-order is traversal's reversed, can be used.
    */
   public void inOrder(TreeNode root) {
     if (root != null) {
@@ -106,7 +105,7 @@ public class TreeExamples {
 
   /**
    * 6.
-   * Problem: Write an Efficient  Function to Convert a Binary Tree into its Mirror Tree.
+   * Problem: Write an Efficient Function to Convert a Binary Tree into its Mirror Tree.
    */
   void mirror(TreeNode root) {
     if (root != null) {
@@ -125,7 +124,8 @@ public class TreeExamples {
   /**
    * 7.
    * Problem: If you are given two traversal sequences, can you construct the binary tree?.
-   * Solution:
+   * Solution: It depends on what traversals are given. If one of the traversal methods is Inorder then the tree can be
+   * constructed, otherwise not.
    */
 
   /**
@@ -355,6 +355,8 @@ public class TreeExamples {
    * Problem: Inorder Tree Traversal without Recursion.
    * Solution:
    */
+
+
   /**
    * 19.
    * Problem: Inorder Tree Traversal without recursion and without stack! (Morris Traversal)
