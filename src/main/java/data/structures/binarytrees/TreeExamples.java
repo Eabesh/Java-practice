@@ -437,8 +437,51 @@ public class TreeExamples {
   /**
    * 42.
    * Problem: Boundary Traversal of binary tree.
-   * Solution:
    */
+  void printBoundary(TreeNode root) {
+    if (root == null) return;
+    else {
+      System.out.print(root.data + " ");
+      printLeftBoundary(root.left);
+      printLeaves(root);
+      printRightBoundary(root.right);
+    }
+  }
+
+  private void printLeaves(TreeNode root) {
+    if (root == null) return;
+    else if (isLeaf(root)) System.out.print(root.data + " ");
+    else {
+      printLeaves(root.left);
+      printLeaves(root.right);
+    }
+  }
+
+  private void printLeftBoundary(TreeNode root) {
+    if (root != null) {
+      if (root.left != null) {
+        System.out.print(root.data + " ");
+        printLeftBoundary(root.left);
+      } else if (root.right != null) {
+        printLeftBoundary(root.right);
+        System.out.print(root.data + " ");
+      }
+    }
+  }
+
+  private void printRightBoundary(TreeNode root) {
+    if (root != null) {
+      if (root.right != null) {
+        printRightBoundary(root.right);
+        System.out.print(root.data + " ");
+      } else if (root.left != null) {
+        printRightBoundary(root.left);
+        System.out.print(root.data + " ");
+      }
+    }
+  }
+
+
 
   /**
    * 43.
@@ -903,9 +946,22 @@ public class TreeExamples {
 
   /**
    * 112.
-   * Problem: Symmetric Tree (Mirror Image of itself).
+   * Problem: Symmetric Tree (Mirror Image of itself)
+   * Given a binary tree, check whether it is a mirror of itself.
    * Solution:
    */
+
+  public boolean isMirror(TreeNode root1, TreeNode root2) {
+    if (root1 == null && root2 == null) return true;
+    else return root1 != null && root2 != null && root1.data == root2.data && isMirror(root1.left, root2.right) &&
+            isMirror(root1.right, root2.left);
+  }
+
+  public boolean isSymmetricTree(TreeNode root) {
+    return isMirror(root, root);
+  }
+
+
 
   /**
    * 113.
@@ -2201,53 +2257,6 @@ public class TreeExamples {
 
 
 
-  /**
-   * 42.
-   * Problem: Boundary Traversal of binary tree.
-   */
-  void printBoundary(TreeNode root) {
-    if (root == null) return;
-    else {
-      System.out.print(root.data + " ");
-      printLeftBoundary(root.left);
-      printLeaves(root);
-      printRightBoundary(root.right);
-    }
-  }
-
-  private void printLeaves(TreeNode root) {
-    if (root == null) return;
-    else if (isLeaf(root)) System.out.print(root.data + " ");
-    else {
-      printLeaves(root.left);
-      printLeaves(root.right);
-    }
-  }
-
-  private void printLeftBoundary(TreeNode root) {
-    if (root != null) {
-      if (root.left != null) {
-        System.out.print(root.data + " ");
-        printLeftBoundary(root.left);
-      } else if (root.right != null) {
-        printLeftBoundary(root.right);
-        System.out.print(root.data + " ");
-      }
-    }
-  }
-
-  private void printRightBoundary(TreeNode root) {
-    if (root != null) {
-      if (root.right != null) {
-        printRightBoundary(root.right);
-        System.out.print(root.data + " ");
-      } else if (root.left != null) {
-        printRightBoundary(root.left);
-        System.out.print(root.data + " ");
-      }
-    }
-  }
-
 
 
 
@@ -3381,22 +3390,6 @@ public class TreeExamples {
 
 
 
-  /**
-   * 100
-   * Problem: Symmetric Tree (Mirror Image of itself)
-   * Given a binary tree, check whether it is a mirror of itself.
-   * Solution:
-   */
-
-  public boolean isMirror(TreeNode root1, TreeNode root2) {
-    if (root1 == null && root2 == null) return true;
-    else return root1 != null && root2 != null && root1.data == root2.data && isMirror(root1.left, root2.right) &&
-            isMirror(root1.right, root2.left);
-  }
-
-  public boolean isSymmetricTree(TreeNode root) {
-    return isMirror(root, root);
-  }
 
 
 
