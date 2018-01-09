@@ -733,9 +733,18 @@ public class TreeExamples {
 
   /**
    * 66.
-   * Problem: Sum of all the numbers that are formed from root to leaf paths.
+   * Problem: Sum of all the numbers that are formed from root to leaf paths
+   * Given a binary tree, where every node value is a Digit from 1-9 .
+   * Find the sum of all the numbers which are formed from root to leaf paths.
    * Solution:
    */
+
+  int sumOfRootToLeafPath(TreeNode root, int num) {
+    if (root == null) return 0;
+    else if (isLeaf(root)) return num * 10 + root.data;
+    else return sumOfRootToLeafPath(root.left, num * 10 + root.data) +
+              sumOfRootToLeafPath(root.right, num * 10 + root.data);
+  }
 
   /**
    * 67.
@@ -3067,20 +3076,7 @@ public class TreeExamples {
    * Solution:
    */
 
-  /**
-   * 63.
-   * Problem: Sum of all the numbers that are formed from root to leaf paths
-   * Given a binary tree, where every node value is a Digit from 1-9 .
-   * Find the sum of all the numbers which are formed from root to leaf paths.
-   * Solution:
-   */
 
-  int sumOfRootToLeafPath(TreeNode root, int num) {
-    if (root == null) return 0;
-    else if (isLeaf(root)) return num * 10 + root.data;
-    else return sumOfRootToLeafPath(root.left, num * 10 + root.data) +
-              sumOfRootToLeafPath(root.right, num * 10 + root.data);
-  }
 
 
   /**
