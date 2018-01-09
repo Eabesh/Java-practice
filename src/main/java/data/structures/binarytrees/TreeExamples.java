@@ -338,17 +338,61 @@ public class TreeExamples {
    * Solution:
    */
 
+
+
+
   /**
    * 18.
    * Problem: Inorder Tree Traversal without Recursion.
    * Solution:
    */
-
   /**
    * 19.
-   * Problem: Inorder Tree Traversal without recursion and without stack!.
-   * Solution:
+   * Problem: Inorder Tree Traversal without recursion and without stack! (Morris Traversal)
+   * Solution: Use Morris Traversal.
+   * 1. Initialize current as root
+   * 2. While current is not NULL
+   * If current does not have left child
+   * a) Print current’s data
+   * b) Go to the right, i.e., current = current->right
+   * Else
+   * a) Make current as right child of the rightmost node in current's left subtree
+   * b) Go to this left child, i.e., current = current->left
    */
+  void morrisTraversal(TreeNode root) {
+    TreeNode prev, current = root;
+
+    while (current != null) {
+      if (current.left == null) {
+        System.out.print(current.data + " ");
+        current = current.right;
+      } else {
+        prev = getInorderPredecessor(current.left, current);
+        if (prev.right == null) {
+          link(prev, current);
+          current = current.left;
+        } else {
+          unLink(prev);
+          System.out.print(current.data + " ");
+          current = current.right;
+        }
+      }
+    }
+  }
+
+  public void link(TreeNode prev, TreeNode current) {
+    prev.right = current;
+  }
+
+  public void unLink(TreeNode prev) {
+    prev.right = null;
+  }
+
+  public TreeNode getInorderPredecessor(TreeNode node, TreeNode current) {
+    while (node.right != null && node.right != current) node = node.right;
+    return node;
+  }
+
 
   /**
    * 20.
@@ -385,35 +429,90 @@ public class TreeExamples {
     return -1;
   }
 
+
+
+
+
   /**
    * 22.
-   * Problem: Given a binary tree, print all root-to-leaf paths.
-   * Solution:
+   * Problem: Given a binary tree, print all root-to-leaf paths
+   * Solution: same as Problem 8
    */
 
   /**
    * 23.
-   * Problem: Double Tree.
-   * Solution:
+   * Problem: Double Tree
+   * Write a program that converts a given tree to its Double tree.
+   * To create Double tree of the given tree, create a new duplicate for each node,
+   * and insert the duplicate as the left child of the original node.
    */
+
+  public TreeNode doubleTree(TreeNode root) {
+    if (root == null) return null;
+    else {
+      root.left = doubleTree(root.left);
+      root.right = doubleTree(root.right);
+      TreeNode leftSubTree = root.left;
+      root.left = new TreeNode(root.data);
+      root.left.left = leftSubTree;
+      return root;
+    }
+  }
 
   /**
    * 24.
-   * Problem: Maximum width of a binary tree.
-   * Solution:
+   * Problem: Maximum width of a binary tree
+   * Given a binary tree, write a function to get the maximum width of the given tree.
+   * Width of a tree is maximum of widths of all levels.
    */
+  public int maxWidth(TreeNode root) {
+    int height = height(root);
+    int[] levelWidth = new int[height];
+    findMaxWidth(root, 0, levelWidth);
+    int max = Integer.MIN_VALUE;
+    for (int n : levelWidth) if (n > max) max = n;
+    return max;
+  }
+
+  public void findMaxWidth(TreeNode root, int level, int[] levelWidth) {
+    if (root != null) {
+      levelWidth[level]++;
+      findMaxWidth(root.left, level + 1, levelWidth);
+      findMaxWidth(root.right, level + 1, levelWidth);
+    }
+  }
+
 
   /**
    * 25.
-   * Problem: Foldable Binary Trees.
+   * Problem: Foldable Binary Trees
+   * Given a binary tree, find out if the tree can be folded or not.
    * Solution:
    */
+  public boolean isFoldable(TreeNode root) {
+    return root == null || isFoldable(root.left, root.right);
+  }
+
+  public boolean isFoldable(TreeNode node1, TreeNode node2) {
+    return node1 == null && node2 == null || node1 != null && node2 != null && isFoldable(node1.left, node2.right)
+            && isFoldable(node1.right, node2.left);
+  }
+
 
   /**
    * 26.
-   * Problem: Print nodes at k distance from root.
+   * Problem: Print nodes at k distance from root
+   * Given a root of a tree, and an integer k. Print all the nodes which are at k distance from root.
    * Solution:
    */
+  public static void printNodesAtKdistance(TreeNode root, int k) {
+    if (root == null) return;
+    else if (k == 0) System.out.print(root.data);
+    else {
+      printNodesAtKdistance(root.left, k - 1);
+      printNodesAtKdistance(root.right, k - 1);
+    }
+  }
 
   /**
    * 27.
@@ -2595,149 +2694,6 @@ public class TreeExamples {
    * 5) If current is NULL and stack is empty then we are done.
    */
 
-  /**
-   * 19.
-   * Problem: Inorder Tree Traversal without recursion and without stack! (Morris Traversal)
-   * Solution: Use Morris Traversal.
-   * 1. Initialize current as root
-   * 2. While current is not NULL
-   * If current does not have left child
-   * a) Print current’s data
-   * b) Go to the right, i.e., current = current->right
-   * Else
-   * a) Make current as right child of the rightmost node in current's left subtree
-   * b) Go to this left child, i.e., current = current->left
-   */
-  void morrisTraversal(TreeNode root) {
-    TreeNode prev, current = root;
-
-    while (current != null) {
-      if (current.left == null) {
-        System.out.print(current.data + " ");
-        current = current.right;
-      } else {
-        prev = getInorderPredecessor(current.left, current);
-        if (prev.right == null) {
-          link(prev, current);
-          current = current.left;
-        } else {
-          unLink(prev);
-          System.out.print(current.data + " ");
-          current = current.right;
-        }
-      }
-    }
-  }
-
-  public void link(TreeNode prev, TreeNode current) {
-    prev.right = current;
-  }
-
-  public void unLink(TreeNode prev) {
-    prev.right = null;
-  }
-
-  public TreeNode getInorderPredecessor(TreeNode node, TreeNode current) {
-    while (node.right != null && node.right != current) node = node.right;
-    return node;
-  }
-
-  /**
-   * 20.
-   * Problem: Root to leaf path sum equal to a given number
-   */
-  boolean existsPathSum(TreeNode root, int sum) {
-    if (root == null) return false;
-    else if (isLeaf(root)) return sum == root.data;
-    else return existsPathSum(root.left, sum - root.data) || existsPathSum(root.right, sum - root.data);
-  }
-
-
-
-
-  /**
-   * 22.
-   * Problem: Given a binary tree, print all root-to-leaf paths
-   * Solution: same as Problem 8
-   */
-
-  /**
-   * 23.
-   * Problem: Double Tree
-   * Write a program that converts a given tree to its Double tree.
-   * To create Double tree of the given tree, create a new duplicate for each node,
-   * and insert the duplicate as the left child of the original node.
-   * <p>
-   * Solution:
-   */
-
-  public TreeNode doubleTree(TreeNode root) {
-    if (root == null) return null;
-    else {
-      root.left = doubleTree(root.left);
-      root.right = doubleTree(root.right);
-      TreeNode leftSubTree = root.left;
-      root.left = new TreeNode(root.data);
-      root.left.left = leftSubTree;
-      return root;
-    }
-  }
-
-  /**
-   * 24.
-   * Problem: Maximum width of a binary tree
-   * Given a binary tree, write a function to get the maximum width of the given tree.
-   * Width of a tree is maximum of widths of all levels.
-   * Solution:
-   */
-  public int maxWidth(TreeNode root) {
-    int height = height(root);
-    int[] levelWidth = new int[height];
-    findMaxWidth(root, 0, levelWidth);
-    int max = Integer.MIN_VALUE;
-    for (int n : levelWidth) if (n > max) max = n;
-    return max;
-  }
-
-  public void findMaxWidth(TreeNode root, int level, int[] levelWidth) {
-    if (root != null) {
-      levelWidth[level]++;
-      findMaxWidth(root.left, level + 1, levelWidth);
-      findMaxWidth(root.right, level + 1, levelWidth);
-    }
-  }
-
-
-  /**
-   * 25.
-   * Problem: Foldable Binary Trees
-   * Given a binary tree, find out if the tree can be folded or not.
-   * Solution:
-   */
-  public boolean isFoldable(TreeNode root) {
-    return root == null || isFoldable(root.left, root.right);
-  }
-
-  public boolean isFoldable(TreeNode node1, TreeNode node2) {
-    return node1 == null && node2 == null || node1 != null && node2 != null && isFoldable(node1.left, node2.right)
-            && isFoldable(node1.right, node2.left);
-  }
-
-
-  /**
-   * 26.
-   * Problem: Print nodes at k distance from root
-   * Given a root of a tree, and an integer k. Print all the nodes which are at k distance from root.
-   * Solution:
-   */
-  public static void printNodesAtKdistance(TreeNode root, int k) {
-    if (root == null) return;
-    else if (k == 0) System.out.print(root.data);
-    else {
-      printNodesAtKdistance(root.left, k - 1);
-      printNodesAtKdistance(root.right, k - 1);
-    }
-  }
 
 
   /**
