@@ -155,25 +155,53 @@ public class TreeExamples {
     else return root;
   }
 
+/**
+ * Problem: Lowest Common Ancestor in a Binary Tree. (When both keys present.)
+ */
+ TreeNode findLCABT(TreeNode root, int k1, int k2) {
+   if (root == null) return null;
+   else if (root.data == k1 || root.data == k2) return root;
+   else {
+     TreeNode leftLCA = findLCABT(root.left, k1, k2);
+     TreeNode rightLCA = findLCABT(root.right, k1, k2);
+     if (leftLCA != null && rightLCA != null) return root;
+     return (leftLCA != null) ? leftLCA : rightLCA;
+   }
+ }
+
+
+
+  /**
+   * Problem: Lowest Common Ancestor in a Binary Tree. (When both keys may not be present.)
+   */
+
+  class KeyInfo {
+    boolean present;
+
+    public KeyInfo(boolean present) {
+      this.present = present;
+    }
+  }
+
   TreeNode findLCA(TreeNode root, int k1, int k2) {
-    boolean[] v1 = new boolean[1], v2 = new boolean[1];
-    TreeNode lca = LCAUtil(root, k1, k2, v1, v2);
-    if (v1[0] && v2[0] || v1[0] && treeContains(root, k2) || v2[0] && treeContains(root, k1)) return lca;
+    KeyInfo keyInfo1 = new KeyInfo(false), keyInfo2 = new KeyInfo(false);
+    TreeNode lca = LCAUtil(root, k1, k2, keyInfo1, keyInfo2);
+    if (keyInfo1.present && keyInfo2.present || keyInfo1.present && treeContains(root, k2) || keyInfo2.present && treeContains(root, k1)) return lca;
     else return null;
   }
 
-  private TreeNode LCAUtil(TreeNode root, int k1, int k2, boolean[] v1, boolean[] v2) {
+  private TreeNode LCAUtil(TreeNode root, int k1, int k2, KeyInfo keyInfo1, KeyInfo keyInfo2) {
     if (root == null) return root;
     if (root.data == k1) {
-      v1[0] = true;
+      keyInfo1.present = true;
       return root;
     }
     if (root.data == k2) {
-      v2[0] = true;
+      keyInfo2.present = true;
       return root;
     }
-    TreeNode leftLCA = LCAUtil(root.left, k1, k2, v1, v2);
-    TreeNode rightLCA = LCAUtil(root.right, k1, k2, v1, v2);
+    TreeNode leftLCA = LCAUtil(root.left, k1, k2, keyInfo1, keyInfo2);
+    TreeNode rightLCA = LCAUtil(root.right, k1, k2, keyInfo1, keyInfo2);
     if (leftLCA != null && rightLCA != null) return root;
     else return leftLCA != null ? leftLCA : rightLCA;
   }
@@ -211,7 +239,7 @@ public class TreeExamples {
     int height = height(root);
     for (int i = 1; i <= height; i++) {
       level(root, i);
-      System.out.println("");
+      System.out.println();
     }
   }
 
@@ -247,7 +275,7 @@ public class TreeExamples {
     int height = height(root);
     for (int i = 1; i <= height; i++) {
       levelSpiral(root, i, i % 2 == 0);
-      System.out.println("");
+      System.out.println();
     }
   }
 
@@ -271,10 +299,7 @@ public class TreeExamples {
    * For every node, data value must be equal to sum of data values in left and right children.
    */
   boolean hasChildSum(TreeNode root) {
-    return root == null || isLeaf(root) ||
-            root.data == getChildSum(root) &&
-                    hasChildSum(root.left) &&
-                    hasChildSum(root.right);
+    return root == null || isLeaf(root) || root.data == getChildSum(root) && hasChildSum(root.left) && hasChildSum(root.right);
   }
 
   private int getChildSum(TreeNode node) {
@@ -307,19 +332,6 @@ public class TreeExamples {
   int diameter(TreeNode root) {
     if (root == null) return 0;
     else return Utils.max(height(root.left) + 1 + height(root.right), diameter(root.left), diameter(root.right));
-  }
-
-  int diameterOpt(TreeNode root, int[] height) {
-    if (root == null) {
-      height[0] = 0;
-      return 0;
-    } else {
-      int[] lHeight = new int[1], rHeight = new int[1];
-      int lDiameter = diameterOpt(root.left, lHeight);
-      int rDiameter = diameterOpt(root.right, rHeight);
-      height[0] = 1 + Math.max(lHeight[0], rHeight[0]);
-      return Math.max(1 + lHeight[0] + rHeight[0], Math.max(lDiameter, rDiameter));
-    }
   }
 
   class DiameterInfo{

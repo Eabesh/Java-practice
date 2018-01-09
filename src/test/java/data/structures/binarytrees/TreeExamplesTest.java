@@ -827,7 +827,7 @@ public class TreeExamplesTest {
     root.right = node2;
     node1.left = node4;
     node1.right = node5;
-    assertEquals(1, new TreeExamples().findLCA(root, 4, 5).data);
+    assertEquals(null, new TreeExamples().findLCA(root, 4, 6));
   }
 
 }
