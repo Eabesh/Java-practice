@@ -17,6 +17,12 @@ import static org.junit.Assert.assertTrue;
 
 public class GraphExamplesTest {
   @Test
+  public void countNonReachable() throws Exception {
+    int[][] graph = {{0, 1, 1, 0, 0, }, {1, 0, 1, 0, 0}, {1, 1, 0, 0, 0}, {0, 0, 0, 0, 1}, {0, 0, 0, 1, 0}};
+    assertEquals(2, new GraphExamples().countNonReachable(graph, 0));
+  }
+
+  @Test
   public void areNodesInSamePath() throws Exception {
     int[][] graph = {{0, 1, 1, 1, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 1, 0, 0}, {0, 0, 0, 0, 0, 0}};
   }

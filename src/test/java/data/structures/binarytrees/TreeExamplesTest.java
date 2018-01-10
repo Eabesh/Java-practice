@@ -3,6 +3,7 @@ package data.structures.binarytrees;
 import org.junit.Test;
 import utilities.NaryTreeNode;
 import utilities.TreeNode;
+import utilities.Utils;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -436,7 +437,7 @@ public class TreeExamplesTest {
     root.right = new TreeNode(3);
     root.left.right = new TreeNode(23);
     assertEquals(4, new TreeExamples().diameter(root));
-    assertEquals(4, new TreeExamples().diameterOpt(root, new int[1]));
+//    assertEquals(4, new TreeExamples().diameterOpt(root, new int[1]));
     assertEquals(4, new TreeExamples().diameterOpt1(root).diameter);
 
   }
@@ -828,6 +829,8 @@ public class TreeExamplesTest {
     node1.left = node4;
     node1.right = node5;
     assertEquals(null, new TreeExamples().findLCA(root, 4, 6));
+    int max = Utils.max(1 + 10, 2, 3, 4, 5);
+    System.out.println(max);
   }
 
 }

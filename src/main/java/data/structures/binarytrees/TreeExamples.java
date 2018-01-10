@@ -331,7 +331,7 @@ public class TreeExamples {
    */
   int diameter(TreeNode root) {
     if (root == null) return 0;
-    else return Utils.max(height(root.left) + 1 + height(root.right), diameter(root.left), diameter(root.right));
+    else return Utils.max(0,height(root.left) + 1 + height(root.right), diameter(root.left), diameter(root.right));
   }
 
   class DiameterInfo{
@@ -348,8 +348,7 @@ public class TreeExamples {
       DiameterInfo left = diameterOpt1(root.left);
       DiameterInfo right = diameterOpt1(root.right);
       return new DiameterInfo(1 + Math.max(left.height, right.height),
-              Math.max(1 + left.height + right.height, Math.max(left.diameter, right.diameter)));
-
+              Utils.max(0,left.height + 1 + right.height, left.diameter, right.diameter));
     }
   }
 
@@ -545,9 +544,17 @@ public class TreeExamples {
 
   /**
    * 28.
-   * Problem: Get Level of a node in a Binary Tree.
-   * Solution:
+   * Problem: Get Level of a node in a Binary Tree
+   * Given a Binary Tree and a key, write a function that returns level of the key.
+   * Solution: The idea is to start from the root and level as 1.
+   * If the key matches with root’s data, return level. Else recursively call for left and right subtrees with level as level + 1.
    */
+  int getLevel(TreeNode root, TreeNode node, int level) {
+    if (root == null) return 0;
+    else if (root == node) return level;
+    else return getLevel(root.left, node, level + 1) + getLevel(root.right, node, level + 1);
+  }
+
 
 
   /**
@@ -2635,12 +2642,7 @@ public class TreeExamples {
 
 
 
-  /**
-   * 7.
-   * Problem: If you are given two traversal sequences, can you construct the binary tree?
-   * Solution: It depends on what traversals are given. If one of the traversal methods is Inorder then
-   * the tree can be constructed, otherwise not.
-   */
+
 
 
 
@@ -2712,18 +2714,7 @@ public class TreeExamples {
    * Solution:
    */
 
-  /**
-   * 28.
-   * Problem: Get Level of a node in a Binary Tree
-   * Given a Binary Tree and a key, write a function that returns level of the key.
-   * Solution: The idea is to start from the root and level as 1.
-   * If the key matches with root’s data, return level. Else recursively call for left and right subtrees with level as level + 1.
-   */
-  int getLevel(TreeNode root, TreeNode node, int level) {
-    if (root == null) return 0;
-    else if (root == node) return level;
-    else return getLevel(root.left, node, level + 1) + getLevel(root.right, node, level + 1);
-  }
+
 
 
   /**
@@ -3576,7 +3567,7 @@ public class TreeExamples {
    */
   int findMax(TreeNode root) {
     if (root == null) return Integer.MIN_VALUE;
-    else return Math.max(Math.max(root.data, findMax(root.left)), findMax(root.right));
+    else return Utils.max(0, root.data, findMax(root.left), findMax(root.right));
   }
 
   /**

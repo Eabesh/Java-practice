@@ -199,11 +199,33 @@ public class GraphExamples {
    * Solution:
    */
 
+
   /**
    * 14.
    * Problem: Graph and its representations.
-   * Solution:
+   * Solution: Graph is a data structure that consists of following two components:
+   * 1. A finite set of vertices also called as nodes.
+   * 2. A finite set of ordered pair of the form (u, v) called as edge.
+   *
+   *
+   * Adjacency Matrix:
+   * Adjacency Matrix is a 2D array of size V x V where V is the number of vertices in a graph. Let the 2D array be
+   * adj[][], a slot adj[i][j] = 1 indicates that there is an edge from vertex i to vertex j.
+   *
+   *Pros: Representation is easier to implement and follow. Removing an edge takes O(1) time. Queries like whether
+   * there is an edge from vertex ‘u’ to vertex ‘v’ are efficient and can be done O(1)
+   * Cons: Consumes more space O(V^2). Even if the graph is sparse(contains less number of edges), it consumes the
+   * same space. Adding a vertex is O(V^2) time.
+   *
+   * Adjacency List:
+   * An array of linked lists is used. Size of the array is equal to number of vertices. Let the array be array[]. An
+   * entry array[i] represents the linked list of vertices adjacent to the ith vertex. This representation can also
+   * be used to represent a weighted graph.
+   *
+   * Pros: Saves space O(|V|+|E|) . In the worst case, there can be C(V, 2) number of edges in a graph thus consuming
+   * O(V^2) space. Adding a vertex is easier.
    */
+
 
   /**
    * 15.
@@ -286,8 +308,8 @@ public class GraphExamples {
 
   private void tSort(int[][] graph, int curr, Stack<Integer> stack, boolean[] visited) {
     visited[curr] = true;
-    for (int i = 0; i < graph[0].length; i++)
-      if (isValidNeighbour(graph, curr, i, visited)) tSort(graph, i, stack, visited);
+    for (int j = 0; j < graph[0].length; j++)
+      if (isValidNeighbour(graph, curr, j, visited)) tSort(graph, j, stack, visited);
     stack.push(curr);
   }
 
@@ -1463,8 +1485,243 @@ public class GraphExamples {
    * Solution:
    */
 
+  /**
+   * 156.
+   * Problem: 2-Satisfiability (2-SAT) Problem.
+   * Solution:
+   */
 
   /**
+   * 157.
+   * Problem: Calculate number of nodes between two vertices in an acyclic Graph by Disjoint Union method.
+   * Solution:
+   */
+
+  /**
+   * 158.
+   * Problem: Print all paths from a given source to a destination using BFS.
+   * Solution:
+   */
+  /**
+   * 159.
+   * Problem: Clustering Coefficient in Graph Theory.
+   * Solution:
+   */
+
+  /**
+   * 160.
+   * Problem: Implementation of Graph in JavaScript.
+   * Solution:
+   */
+
+  /**
+   * 161.
+   * Problem: Check if a graphs has a cycle of odd length.
+   * Solution:
+   */
+  /**
+   * 162.
+   * Problem: Check if there is a cycle with odd weight sum in an undirected graph.
+   * Solution:
+   */
+  /**
+   * 163.
+   * Problem: A Peterson Graph Problem.
+   * Solution:
+   */
+  /**
+   * 164.
+   * Problem: Maximum number of edges to be added to a tree so that it stays a Bipartite graph.
+   * Solution:
+   */
+  /**
+   * 165.
+   * Problem: DFS for a n-ary tree (acyclic graph) represented as adjacency list.
+   * Solution:
+   */
+  /**
+   * 166.
+   * Problem: Count single node isolated sub-graphs in a disconnected graph.
+   * Solution:
+   */
+
+  /**
+   * 167.
+   * Problem: Detect a negative cycle in a Graph | (Bellman Ford).
+   * Solution:
+   */
+  /**
+   * 168.
+   * Problem: Detecting negative cycle using Floyd Warshall.
+   * Solution:
+   */
+  /**
+   * 169.
+   * Problem: Clone a Directed Acyclic Graph.
+   * Solution:
+   */
+
+
+  /**
+   * 170.
+   * Problem: Minimum cost to connect weighted nodes represented as array.
+   * Solution:
+   */
+  /**
+   * 171.
+   * Problem: Cycles of length n in an undirected and connected graph.
+
+   * Solution:
+   */
+  /**
+   * 172.
+   * Problem: Comparison of Dijkstra’s and Floyd–Warshall algorithms.
+   * Solution:
+   */
+
+
+  /**
+   * 173.
+   * Problem: BFS using STL for competitive coding.
+   * Solution:
+   */
+
+  /**
+   * 174.
+   * Problem: Number of groups formed in a graph of friends.
+   * Solution:
+   */
+
+  /**
+   * 175.
+   * Problem: Graph representations using set and hash.
+   * Solution:
+   */
+
+  /**
+   * 176.
+   * Problem: Betweenness Centrality (Centrality Measure)
+   .
+   * Solution:
+   */
+
+  /**
+   * 177.
+   * Problem: Mathematics | Graph theory practice questions
+   .
+   * Solution:
+   */
+
+  /**
+   * 178.
+   * Problem: Number of cyclic elements in an array where we can jump according to value
+   .
+   * Solution:
+   */
+
+  /**
+   * 179.
+   * Problem: Water Jug problem using BFS
+   .
+   * Solution:
+   */
+
+  /**
+   * 180.
+   * Problem: Degree Centrality (Centrality Measure)
+   .
+   * Solution:
+   */
+
+  /**
+   * 181.
+   * Problem: Traveling Salesman Problem (TSP) Implementation.
+   * Solution:
+   */
+
+  /**
+   * 182.
+   * Problem: Shortest path to reach one prime to other by changing single digit at a time.
+   * Solution:
+   */
+
+  /**
+   * 183.
+   * Problem: Minimum initial vertices to traverse whole matrix with given conditions.
+   * Solution:
+   */
+
+  /**
+   * 184.
+   * Problem: Count all possible paths between two vertices.
+   * Solution:
+   */
+
+  /**
+   * 185.
+   * Problem: Construct a graph from given degrees of all vertices.
+   * Solution:
+   */
+
+
+  /**
+   * 186.
+   * Problem: Union-Find Algorithm | (Union By Rank and Find by Optimized Path Compression).
+   * Solution:
+   */
+
+
+
+  /**
+   * 187.
+   * Problem: Katz Centrality (Centrality Measure).
+   * Solution:
+   */
+
+
+
+  /**
+   * 188.
+   * Problem: Barabasi Albert Graph (for Scale Free Models).
+   * Solution:
+   */
+
+
+  /**
+   * 189.
+   * Problem: Level of Each node in a Tree from source node (using BFS).
+   * Solution:
+   */
+
+  /**
+   * 190.
+   * Problem: Count the number of non-reachable nodes.
+   * Solution:
+   */
+  int countNonReachable(int[][] graph, int source) {
+    boolean[] isVisited = new boolean[graph.length];
+    countDFS(graph, source, isVisited);
+    int count = 0;
+    for (boolean visited : isVisited) if (!visited) count++;
+    return count;
+  }
+
+  private void countDFS(int[][] graph, int source, boolean[] isVisited) {
+    isVisited[source] = true;
+    for (int i = 0; i < graph[0].length; i++)  if(isValidNeighbour(graph, source, i, isVisited)) countDFS(graph, i, isVisited);
+  }
+
+
+
+
+
+
+
+
+
+
+
+   /**
    * Given a matrix of 0's and 1's find the count of biggest area covered by adjacent 1's.
    * Hint: We can use DFS here.
    */
