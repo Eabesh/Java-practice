@@ -38,13 +38,42 @@ class SortingExamples {
   /**
    * 6.
    * Problem: When does the worst case of Quicksort occur?.
-   * Solution:
+   * Solution: The answer depends on strategy for choosing pivot. In early versions of Quick Sort where leftmost (or rightmost)
+   * element is chosen as pivot, the worst occurs in following cases.
+   * 1) Array is already sorted in same order.
+   * 2) Array is already sorted in reverse order.
+   * 3) All elements are same (special case of case 1 and 2)
+   *
+   * Since these cases are very common use cases, the problem was easily solved by choosing either a random index for the pivot,
+   * choosing the middle index of the partition
+   *
    */
 
   /**
    * 7.
    * Problem: Stability in sorting algorithms.
-   * Solution:
+   * Solution: A sorting algorithm is said to be stable if two objects with equal keys appear in the same order in sorted
+   * output as they appear in the input array to be sorted.
+   *
+   *
+   * If we sort this data according to name only, then it is highly unlikely that the resulting dataset will be grouped
+   * according to sections as well.
+   * \\ (Alice, B)\\ (Carol, A)\\ (Dave, A)\\ (Eric, B)\\ (Ken, A)
+   * So we might have to sort again to obtain list of students section wise too. But in doing so, if the sorting algorithm
+   * is not stable, we might get a result like this-
+   \\ (Carol, A)\\ (Dave, A)\\ (Ken, A)\\(Eric, B)\\(Alice, B)
+   *
+   * In the name-sorted dataset, the tuple (Alice, B) was before (Eric, B),but since the sorting algorithm is not stable,
+   * the relative order is lost.
+   * Which sorting algorithms are stable?
+   * Some Sorting Algorithms are stable by nature, such as Insertion Sort, Merge Sort, Count Sort etc.
+   *
+   *
+   * Which sorting algorithms are unstable?
+   * Quick Sort, Heap Sort etc., can be made stable by also taking the position of the elements into consideration.
+   *
+   * Can we make any sorting algorithm stable?
+   * Any given sorting algo which is not stable can be modified to be stable.
    */
 
   /**
@@ -386,7 +415,17 @@ class SortingExamples {
   /**
    * 64.
    * Problem: External Sorting.
-   * Solution:
+   * Solution: External sorting is a term for a class of sorting algorithms that can handle massive amounts of data.
+   * External sorting is required when the data being sorted do not fit into the main memory of a computing device (usually RAM)
+   * and instead they must reside in the slower external memory (usually a hard drive). External sorting typically uses
+   * a hybrid sort-merge strategy.
+   * 1. In the sorting phase, chunks of data small enough to fit in main memory are read, sorted, and written out to a temporary file.
+   * 2. In the merge phase, the sorted sub-files are combined into a single larger file.
+   *
+   * One example of external sorting is the external merge sort algorithm, which sorts chunks that each fit in RAM, then
+   * merges the sorted chunks together. We first divide the file into runs such that the size of a run is small enough to
+   * fit into main memory. Then sort each run in main memory using merge sort sorting algorithm. Finally merge the resulting
+   * runs together into successively bigger runs, until the file is sorted.
    */
 
   /**

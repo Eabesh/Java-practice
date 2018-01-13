@@ -17,6 +17,37 @@ import static org.junit.Assert.assertTrue;
 
 public class GraphExamplesTest {
   @Test
+  public void countPathsDG() throws Exception {
+
+    int[][] graph = {{0, 1, 1, 0, 1},
+            {0, 0, 0, 1, 1},
+            {0, 0, 0, 0, 1},
+            {0, 0, 1, 0, 0},
+            {0, 0, 0, 0, 0}};
+    boolean[] visited = new boolean[graph.length];
+    assertEquals(4, new GraphExamples().countPathsDG(graph, 0, 4, visited));
+
+  }
+
+  @Test
+  public void waterJugProblem() throws Exception {
+    new GraphExamples().waterJugProblem(0, 0, 4, 3, 0, 2, "", new HashSet<>());
+  }
+
+  @Test
+  public void printLevelOfEachNode() throws Exception {
+
+    int[][] graph = { {0, 1, 1, 0, 0, 0},
+            {0, 0, 0, 1, 1, 1},
+            {0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0},
+  {0, 0, 0, 0, 0, 0}};
+
+    new GraphExamples().printLevelOfEachNode(graph, 0);
+  }
+
+  @Test
   public void countNonReachable() throws Exception {
     int[][] graph = {{0, 1, 1, 0, 0, }, {1, 0, 1, 0, 0}, {1, 1, 0, 0, 0}, {0, 0, 0, 0, 1}, {0, 0, 0, 1, 0}};
     assertEquals(2, new GraphExamples().countNonReachable(graph, 0));

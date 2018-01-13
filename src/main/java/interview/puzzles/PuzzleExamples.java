@@ -263,7 +263,10 @@ public class PuzzleExamples {
   /**
    * 44.
    * Problem: Puzzle 44 | Girl or Boy.
-   * Solution:
+   * What is the probability that Ankur’s brother has two boys if one boy was born on Tuesday? Assume an equal chance of giving birth to either sex and an equal chance to giving birth on any day.
+   * Solution: If you think the answer should be 1/2, you would be wrong. If you knew which child was a boy (say, the younger one), you would be closer to the truth.But since the boy could be either the younger or the older child, the analysis is more subtle. The answer would be 13/27.
+
+   There can be four cases, i.e. either his brother has two boys, or one boy(elder) and one girl, one girl(elder) and one boy, or both of them are girls. And there are 7 equally likely possibilities for any one of the children of taking birth on Tuesday for all these four cases. Therefore, the total cases are 7×4- 1(as there is repetition of two boys two times). The possibility for having two boys with both of them taking birth on Tuesday will be 7×2- 1. Therefore, the answer would be 13/27.
    */
 
   /**

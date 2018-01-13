@@ -551,10 +551,10 @@ public class GraphExamples {
    * Solution:
    */
   class BoardNode {
-    int vertex, distance;
+    int vertex, diceThrow;
     public BoardNode(int v, int d) {
       this.vertex = v;
-      this.distance = d;
+      this.diceThrow = d;
     }
   }
 
@@ -567,14 +567,14 @@ public class GraphExamples {
     queue.add(source);
     while (!queue.isEmpty()) {
       BoardNode u = queue.poll();
-      if (u.vertex == board.length - 1) return u.distance;
+      if (u.vertex == board.length - 1) return u.diceThrow;
       else {
         for (int move : moves) {
           int nextMove = u.vertex + move;
           if (isValidBoardMove(board, nextMove, visited)) {
             visited[nextMove] = true;
-            if (isSnakeOrLadder(board[nextMove])) queue.add(new BoardNode(board[nextMove], u.distance + 1));
-            else queue.add(new BoardNode(nextMove, u.distance + 1));
+            if (isSnakeOrLadder(board[nextMove])) queue.add(new BoardNode(board[nextMove], u.diceThrow + 1));
+            else queue.add(new BoardNode(nextMove, u.diceThrow + 1));
           }
         }
       }
@@ -995,9 +995,9 @@ public class GraphExamples {
 
   /**
    * 100.
-   * Problem: Find Shortest distance from a guard in a Bank.
+   * Problem: Find Shortest diceThrow from a guard in a Bank.
    * Given a matrix that is filled with ‘O’, ‘G’, and ‘W’ where ‘O’ represents open space, ‘G’ represents guards and ‘W’
-   * represents walls in a Bank. Replace all of the O’s in the matrix with their shortest distance from a guard, without
+   * represents walls in a Bank. Replace all of the O’s in the matrix with their shortest diceThrow from a guard, without
    * being able to go through any walls. Also, replace the guards with 0 and walls with -1 in output matrix.
    */
   int[][] findDistance(char[][] mat) {
@@ -1215,7 +1215,7 @@ public class GraphExamples {
   /**
    * 126.
    * Problem: Minimum steps to reach target by a Knight.
-   * Solution: To find shortest distance. We use bfs.
+   * Solution: To find shortest diceThrow. We use bfs.
    */
   class Cell {
     int x, y, distance;
@@ -1449,7 +1449,7 @@ public class GraphExamples {
 
   /**
    * 153.
-   * Problem: Count nodes within K-distance from all nodes in a set.
+   * Problem: Count nodes within K-diceThrow from all nodes in a set.
    * Solution:
    */
 
@@ -1614,17 +1614,49 @@ public class GraphExamples {
 
   /**
    * 178.
-   * Problem: Number of cyclic elements in an array where we can jump according to value
-   .
+   * Problem: Number of cyclic elements in an array where we can jump according to value.
    * Solution:
    */
 
   /**
    * 179.
-   * Problem: Water Jug problem using BFS
-   .
-   * Solution:
+   * Problem: Water Jug problem using BFS.
+   * Solution:  For the water jug problem, the following production rules are sufficient:
+   * 1. (x, y) -> (a, y) if x < a i.e., Fill the first jug if it is not already full
+   * 2. (x, y) -> (x, b) if y < b i.e., Fill the second jug if it is not already full
+   * 3. (x, y) -> (0, y) if x > 0 i.e., Empty the first jug
+   * 4. (x, y) -> (x, 0) if y > 0 i.e, Empty the second jug
+   * 5. (x, y) -> (min(x + y, a), max(0, x + y – a)) if y > 0 i.e., Pour from second jug into first jug until the
+   * first jug is full or the second jug is empty
+   * 6. (x, y) -> (max(0, x + y – b), min(x + y, b)) if x > 0 i.e., Pour from first jug into second jug until the
+   * second jug is full or the first jug is empty
    */
+
+  void waterJugProblem(int x, int y, int jug1Capacity, int jug2Capacity, int targetX, int targetY, String path, Set<String> set) {
+    if (x == targetX && y == targetY) System.out.println(path);
+    else {
+      if (!set.contains(String.valueOf(x) + String.valueOf(y))) {
+        set.add(String.valueOf(x) + String.valueOf(y));
+        if (x < jug1Capacity)
+          waterJugProblem(jug1Capacity, y, jug1Capacity, jug2Capacity, targetX, targetY, path + jug1Capacity + "," + y + " ", set);
+        if (y < jug1Capacity)
+          waterJugProblem(x, jug2Capacity, jug1Capacity, jug2Capacity, targetX, targetY, path + x + "," + jug2Capacity + " ", set);
+        if (x > 0) waterJugProblem(0, y, jug1Capacity, jug2Capacity, targetX, targetY, path + 0 + "," + y + " ", set);
+        if (y > 0) waterJugProblem(x, 0, jug1Capacity, jug2Capacity, targetX, targetY, path + x + "," + 0 + " ", set);
+        if (x > 0) {
+          int nextX = Math.max(0, x + y - jug2Capacity);
+          int nextY = Math.min(x + y, jug2Capacity);
+          waterJugProblem(nextX, nextY, jug1Capacity, jug2Capacity, targetX, targetY, path + nextX + "," + nextY + " ", set);
+        }
+        if (y > 0) {
+          int nextX = Math.min(x + y, jug1Capacity);
+          int nextY = Math.max(0, x + y - jug1Capacity);
+          waterJugProblem(nextX, nextY, jug1Capacity, jug2Capacity, targetX, targetY, path + nextX + "," + nextY + " ", set);
+        }
+      }
+
+    }
+  }
 
   /**
    * 180.
@@ -1654,8 +1686,23 @@ public class GraphExamples {
   /**
    * 184.
    * Problem: Count all possible paths between two vertices.
-   * Solution:
+   * Count the total number of ways or paths that exist between two vertices in a directed graph.
    */
+
+  int countPathsDG(int[][] graph, int source, int dest, boolean[] visited) {
+    int count = 0;
+    if (source == dest) return 1;
+    else {
+      for (int i = 0; i < graph[0].length; i++) {
+        if (isValidNeighbour(graph, source, i, visited)){
+          visited[source] = true;
+          count += countPathsDG(graph, i, dest, visited);
+          visited[source] = false;
+        }
+      }
+      return count;
+    }
+  }
 
   /**
    * 185.
@@ -1690,8 +1737,26 @@ public class GraphExamples {
   /**
    * 189.
    * Problem: Level of Each node in a Tree from source node (using BFS).
-   * Solution:
    */
+  void printLevelOfEachNode(int[][] graph, int source) {
+    int[]level = new int[graph.length];
+    boolean[] isVisited = new boolean[graph.length];
+    Queue<Integer> queue = new LinkedList<>();
+    isVisited[source] = true;
+    queue.add(source);
+    while (!queue.isEmpty()) {
+      int current = queue.poll();
+      System.out.println(current + " At Level " + level[current]);
+      for (int i = 0; i < graph[0].length; i++) {
+        if (isValidNeighbour(graph, current, i, isVisited)) {
+          isVisited[i] = true;
+          queue.add(i);
+          level[i] = level[current] + 1;
+        }
+      }
+    }
+
+  }
 
   /**
    * 190.
