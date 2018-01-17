@@ -41,8 +41,7 @@ public class RecursionExamples {
    * Problem: Given a string, check whether palindrome or not.
    */
   public boolean isPalindrome(String str) {
-    return (str.length() <= 1) || str.charAt(0) == str.charAt(str.length() - 1)
-            && isPalindrome(str.substring(1, str.length() - 1));
+    return (str.length() <= 1) || str.charAt(0) == str.charAt(str.length() - 1) && isPalindrome(str.substring(1, str.length() - 1));
   }
 
   /**
@@ -87,8 +86,7 @@ public class RecursionExamples {
     if (remaining.isEmpty()) System.out.println(soFar);
     else {
       for (int i = 0; i < remaining.length(); i++)
-        printPermutations(soFar + remaining.charAt(i),
-                remaining.substring(0, i) + remaining.substring(i + 1));
+        printPermutations(soFar + remaining.charAt(i), remaining.substring(0, i) + remaining.substring(i + 1));
     }
   }
 
