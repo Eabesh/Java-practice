@@ -100,7 +100,7 @@ public class ListExampleTest {
     head1.next.next = new ListNode(6);
     head1.next.next.next = new ListNode(8);
     printList(head1);
-    ListNode newHead = new ListExample().intersectionOfLists(head, head1);
+    ListNode newHead = new ListExample().intersectionOfListRec(head, head1);
     printList(newHead);
     assertEquals(2, newHead.data);
   }

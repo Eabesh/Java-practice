@@ -314,8 +314,8 @@ public class GraphExamplesTest {
 
   @Test
     public void maxConnectedCellTest() {
-        int[][] graph = {{1,0},{0,0}};
-        assertEquals(1,new GraphExamples().maxConnectedCell(graph));
+        int[][] graph = {{1,1},{1,0}};
+        assertEquals(3,new GraphExamples().maxConnectedCell(graph));
     }
 
 

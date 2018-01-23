@@ -170,14 +170,13 @@ public class ListExample {
    * If data of next node is same as current node then delete the next node. Before we delete a node, we need to store
    * next pointer of the node.
    */
-  ListNode removeDuplicates(ListNode head) {
-    if (head != null || head.next != null) {
-      ListNode previous = head, current = head.next;
-      while (previous.next != null) {
-        if (previous.data == current.data) previous.next = current.next;
-        previous = previous.next;
-        if (previous.next != null) current = previous.next;
-      }
+   ListNode deleteDuplicates(ListNode head) {
+    if(head == null || head.next == null)
+      return head;
+    ListNode p = head;
+    while( p!= null && p.next != null){
+      if(p.data == p.next.data) p.next = p.next.next;
+      else p = p.next;
     }
     return head;
   }
@@ -294,6 +293,19 @@ public class ListExample {
     tail = tail.next;
     return tail;
   }
+
+
+  ListNode intersectionOfListRec(ListNode node1, ListNode node2) {
+    if (node1 == null || node2 == null) return null;
+    else if (node1.data < node2.data) return intersectionOfListRec(node1.next, node2);
+    else if (node1.data > node2.data) return intersectionOfListRec(node1, node2.next);
+    else {
+      ListNode newNode = new ListNode(node1.data);
+      newNode.next = intersectionOfListRec(node1.next, node2.next);
+      return newNode;
+    }
+  }
+
 
   /**
    * 25.
@@ -709,8 +721,13 @@ public class ListExample {
   /**
    * 52.
    * Problem: Linked List | Set 2 (Inserting a node)
-   * Solution:
+   * Solution: A node can be added in three ways
+   * 1) At the front of the linked list
+   * 2) After a given node.
+   * 3) At the end of the linked list.
    */
+
+
   /**
    * 53.
    * Problem: QuickSort on Doubly Linked List
@@ -741,7 +758,6 @@ public class ListExample {
   /**
    * 58.
    * Problem: Pairwise swap elements of a given linked list by changing links
-   * Solution:
    */
   ListNode pairwiseSwap(ListNode head) {
     if (head == null || head.next == null) return head;

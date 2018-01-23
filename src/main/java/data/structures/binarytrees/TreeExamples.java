@@ -673,8 +673,8 @@ public class TreeExamples {
         System.out.print(root.data + " ");
         printLeftBoundary(root.left);
       } else if (root.right != null) {
-        printLeftBoundary(root.right);
         System.out.print(root.data + " ");
+        printLeftBoundary(root.right);
       }
     }
   }

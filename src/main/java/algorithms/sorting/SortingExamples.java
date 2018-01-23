@@ -1699,6 +1699,27 @@ class SortingExamples {
    * Solution:
    */
 
+  void quickSort1(int[] array, int start, int end) {
+    if (start < end) {
+      int pivot = partition1(array, start, end);
+      quickSort1(array, start, pivot - 1);
+      quickSort(array, pivot + 1, end);
+    }
+  }
+
+  int partition1(int[] array, int start, int end) {
+    int pivot = array[end];
+    int soFar = start - 1;
+    for (int i = start; i < end; i++) {
+      if (array[i] <= pivot) {
+        soFar++;
+        swap(array, soFar, i);
+      }
+    }
+    swap(array, soFar + 1, end);
+    return soFar + 1;
+
+  }
 
 
 

@@ -308,8 +308,7 @@ public class GraphExamples {
 
   private void tSort(int[][] graph, int curr, Stack<Integer> stack, boolean[] visited) {
     visited[curr] = true;
-    for (int j = 0; j < graph[0].length; j++)
-      if (isValidNeighbour(graph, curr, j, visited)) tSort(graph, j, stack, visited);
+    for (int j = 0; j < graph[0].length; j++) if (isValidNeighbour(graph, curr, j, visited)) tSort(graph, j, stack, visited);
     stack.push(curr);
   }
 
@@ -1798,14 +1797,32 @@ public class GraphExamples {
     int max = 0;
     for (int i = 0; i < m; i++) {
       for (int j = 0; j < n; j++) {
-        if (!isVisited[i][j] && grid[i][j] == 1)
-          max = Math.max(max, dfs(grid, i, j, isVisited));
+        if (!isVisited[i][j] && grid[i][j] == 1) {
+          isVisited[i][j] = true;
+          max = Math.max(max, 1 + dfs2(grid, i, j, isVisited));
+        }
       }
     }
 
     return max;
   }
 
+
+
+  int dfs2(int[][] grid, int x, int y, boolean[][] isVisited) {
+    int count = 0;
+    int[][] moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {1, -1}, {-1, 1}};
+
+    for (int[] move : moves) {
+      int nextX = x + move[0];
+      int nextY = y + move[1];
+      if (isValidMove(grid, nextX, nextY, isVisited)) {
+        isVisited[nextX][nextY] = true;
+        count +=1 + dfs2(grid, nextX, nextY, isVisited);
+      }
+    }
+    return count;
+  }
 
   int dfs(int[][] grid, int x, int y, boolean[][] isVisited) {
     if (!isValidMove(grid, x, y, isVisited)) return 0;

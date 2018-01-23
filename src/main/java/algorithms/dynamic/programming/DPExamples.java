@@ -1844,7 +1844,7 @@ public class DPExamples {
 
   private int maxSumPathUtil(int[][] mat, int i, int j) {
     if (i < 0 || j > mat[0].length - 1 || j < 0) return Integer.MIN_VALUE;
-    else if (i == 0) return mat[0][j];
+    else if (i == 0) return mat[i][j];
     else return mat[i][j] + Math.max(maxSumPathUtil(mat, i - 1, j), Math.max(maxSumPathUtil(mat, i - 1, j - 1),
               maxSumPathUtil(mat, i - 1, j + 1)));
   }
