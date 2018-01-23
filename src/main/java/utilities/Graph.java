@@ -11,10 +11,10 @@ public class Graph {
     for (int i = 0; i < vertices; i++) vertex.add(new LinkedList<>());
   }
 
+
   public void addEdge(int u, int v) {
     vertex.get(u).add(v);
   }
-
   public List<List<Integer>> getGraph() {
     return vertex;
   }
