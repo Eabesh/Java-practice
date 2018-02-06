@@ -170,15 +170,16 @@ public class ListExample {
    * If data of next node is same as current node then delete the next node. Before we delete a node, we need to store
    * next pointer of the node.
    */
-   ListNode deleteDuplicates(ListNode head) {
-    if(head == null || head.next == null)
+  ListNode deleteDuplicates(ListNode head) {
+    if (head == null || head.next == null) return head;
+    else {
+      ListNode p = head;
+      while (p != null && p.next != null) {
+        if (p.data == p.next.data) p.next = p.next.next;
+        else p = p.next;
+      }
       return head;
-    ListNode p = head;
-    while( p!= null && p.next != null){
-      if(p.data == p.next.data) p.next = p.next.next;
-      else p = p.next;
     }
-    return head;
   }
 
   /**
@@ -197,7 +198,6 @@ public class ListExample {
         prev = current;
       }
       current = prev.next;
-
     }
     return head;
   }
@@ -222,23 +222,24 @@ public class ListExample {
    * the function should change the list to 5->1->2->3->4.
    * Solution:
    */
-  void moveLastToFront(ListNode head) {
+  ListNode moveLastToFront(ListNode head) {
     ListNode current = head, prevOfLast = null;
     while (current.next != null) {
       prevOfLast = current;
       current = current.next;
     }
+
     prevOfLast.next = null;
     current.next = head;
+    return current;
   }
 
   /**
    * 22.
    * Problem: Pairwise swap elements of a given linked list.
-   * Given a singly linked list, write a function to swap elements pairwise.
-   * For example, if the linked list is 1->2->3->4->5 then the function should
-   * change it to 2->1->4->3->5, and if the linked list is 1->2->3->4->5->6
-   * then the function should change it to 2->1->4->3->6->5.
+   * Given a singly linked list, write a function to swap elements pairwise. For example, if the linked list is
+   * 1->2->3->4->5 then the function should change it to 2->1->4->3->5, and if the linked list is 1->2->3->4->5->6 then
+   * the function should change it to 2->1->4->3->6->5.
    * Solution: Swap data of first two nodes and recur the rest.
    */
   void pairwiseSwapData(ListNode head) {
@@ -332,7 +333,6 @@ public class ListExample {
   /**
    * 27.
    * Problem: Merge two sorted linked lists.
-   * Solution:
    */
   public ListNode sortedMerge(ListNode head1, ListNode head2) {
     ListNode head = null, tail = null;

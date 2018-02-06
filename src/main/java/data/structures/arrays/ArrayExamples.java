@@ -2655,4 +2655,4158 @@ public class ArrayExamples {
     return Arrays.stream(candies).sum();
   }
 
+  /**
+   * 1.
+   * Problem: Given an array A[] and a number x, check for pair in A[] with sum as x.
+   * Solution:
+   */
+
+  /**
+   * 2.
+   * Problem: Majority Element.
+   * Solution:
+   */
+
+  /**
+   * 3.
+   * Problem: Find the Number Occurring Odd Number of Times.
+   * Solution:
+   */
+
+  /**
+   * 4.
+   * Problem: Search an element in a sorted and rotated  array.
+   * Solution:
+   */
+
+  /**
+   * 5.
+   * Problem: Merge an array of size n into another array of size m+n.
+   * Solution:
+   */
+
+  /**
+   * 6.
+   * Problem: Write a program to reverse an array or string.
+   * Solution:
+   */
+
+  /**
+   * 7.
+   * Problem: Program for array rotation.
+   * Solution:
+   */
+
+  /**
+   * 8.
+   * Problem: Reversal algorithm for array rotation.
+   * Solution:
+   */
+
+  /**
+   * 9.
+   * Problem: Block swap algorithm for array rotation.
+   * Solution:
+   */
+
+  /**
+   * 10.
+   * Problem: Maximum sum such that no two elements are adjacent.
+   * Solution:
+   */
+
+  /**
+   * 11.
+   * Problem: Leaders in an array.
+   * Solution:
+   */
+
+  /**
+   * 12.
+   * Problem: Sort elements by frequency | Set 1.
+   * Solution:
+   */
+
+  /**
+   * 13.
+   * Problem: Two elements whose sum is closest to zero.
+   * Solution:
+   */
+
+  /**
+   * 14.
+   * Problem: Find the smallest and second smallest elements in an array.
+   * Solution:
+   */
+
+  /**
+   * 15.
+   * Problem: Check for Majority Element in a sorted array.
+   * Solution:
+   */
+
+  /**
+   * 16.
+   * Problem: Segregate 0s and 1s in an array.
+   * Solution:
+   */
+
+  /**
+   * 17.
+   * Problem: k largest(or smallest) elements in an array | added Min Heap method.
+   * Solution:
+   */
+
+  /**
+   * 18.
+   * Problem: Maximum difference between two elements such that larger element appears after the smaller number.
+   * Solution:
+   */
+
+  /**
+   * 19.
+   * Problem: Union and Intersection of two sorted arrays.
+   * Solution:
+   */
+
+  /**
+   * 20.
+   * Problem: A Product Array Puzzle.
+   * Solution:
+   */
+
+  /**
+   * 21.
+   * Problem: Segregate Even and Odd numbers.
+   * Solution:
+   */
+
+  /**
+   * 22.
+   * Problem: Find the two repeating elements in a given array.
+   * Solution:
+   */
+
+  /**
+   * 23.
+   * Problem: Find duplicates in O(n) time and O(1) extra space | Set 1.
+   * Solution:
+   */
+
+  /**
+   * 24.
+   * Problem: Equilibrium index of an array.
+   * Solution:
+   */
+
+  /**
+   * 25.
+   * Problem: Linked List vs Array.
+   * Solution:
+   */
+
+  /**
+   * 26.
+   * Problem: Check if array elements are consecutive | Added Method 3.
+   * Solution:
+   */
+
+  /**
+   * 27.
+   * Problem: Find the smallest missing number.
+   * Solution:
+   */
+
+  /**
+   * 28.
+   * Problem: Given an array arr[], find the maximum j &#8211; i such that arr[j] > arr[i].
+   * Solution:
+   */
+
+  /**
+   * 29.
+   * Problem: Find the minimum distance between two numbers.
+   * Solution:
+   */
+
+  /**
+   * 30.
+   * Problem: Maximum Length Bitonic Subarray | Set 1 (O(n) tine and O(n) space).
+   * Solution:
+   */
+
+  /**
+   * 31.
+   * Problem: Count smaller elements on right side.
+   * Solution:
+   */
+
+  /**
+   * 32.
+   * Problem: Find subarray with given sum | Set 1 (Nonnegative Numbers).
+   * Solution:
+   */
+
+  /**
+   * 33.
+   * Problem: Longest Increasing Subsequence Size (N log N).
+   * Solution:
+   */
+
+  /**
+   * 34.
+   * Problem: Find a triplet that sum to a given value.
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Find the smallest positive number missing from an unsorted array | Set 1.
+   * Solution:
+   */
+
+  /**
+   * 36.
+   * Problem: Find the two numbers with odd occurrences in an unsorted array.
+   * Solution:
+   */
+
+  /**
+   * 37.
+   * Problem: Find a sorted subsequence of size 3 in linear time.
+   * Solution:
+   */
+
+  /**
+   * 38.
+   * Problem: Largest subarray with equal number of 0s and 1s.
+   * Solution:
+   */
+
+  /**
+   * 39.
+   * Problem: Maximum Product Subarray.
+   * Solution:
+   */
+
+  /**
+   * 40.
+   * Problem: Replace every element with the greatest element on right side.
+   * Solution:
+   */
+
+  /**
+   * 41.
+   * Problem: Find four elements that sum to a given value | Set 1 (n^3 solution).
+   * Solution:
+   */
+
+  /**
+   * 42.
+   * Problem: Find four elements that sum to a given value | Set 2 ( O(n^2Logn) Solution).
+   * Solution:
+   */
+
+  /**
+   * 43.
+   * Problem: Maximum circular subarray sum.
+   * Solution:
+   */
+
+  /**
+   * 44.
+   * Problem: Count the number of possible triangles.
+   * Solution:
+   */
+
+  /**
+   * 45.
+   * Problem: Construction of Longest Increasing Subsequence (N log N).
+   * Solution:
+   */
+
+  /**
+   * 46.
+   * Problem: Arrange given numbers to form the biggest number | Set 1.
+   * Solution:
+   */
+
+  /**
+   * 47.
+   * Problem: Merge Overlapping Intervals.
+   * Solution:
+   */
+
+  /**
+   * 48.
+   * Problem: Find the maximum repeating number in O(n) time and O(1) extra space.
+   * Solution:
+   */
+
+  /**
+   * 49.
+   * Problem: Stock Buy Sell to Maximize Profit.
+   * Solution:
+   */
+
+  /**
+   * 50.
+   * Problem: Rearrange positive and negative numbers in O(n) time and O(1) extra space.
+   * Solution:
+   */
+
+  /**
+   * 51.
+   * Problem: Find the Increasing subsequence of length three with maximum product.
+   * Solution:
+   */
+
+  /**
+   * 52.
+   * Problem: Move all zeroes to end of array.
+   * Solution:
+   */
+
+  /**
+   * 53.
+   * Problem: Program to find sum of elements in a given array.
+   * Solution:
+   */
+
+  /**
+   * 54.
+   * Problem: Rearrange an array so that arr[i] becomes arr[arr[i]] with O(1) extra space.
+   * Solution:
+   */
+
+  /**
+   * 55.
+   * Problem: Count all possible groups of size 2 or 3 that have sum as multiple of 3.
+   * Solution:
+   */
+
+  /**
+   * 56.
+   * Problem: Find the number of zeroes.
+   * Solution:
+   */
+
+  /**
+   * 57.
+   * Problem: Smallest subarray with sum greater than a given value.
+   * Solution:
+   */
+
+  /**
+   * 58.
+   * Problem: Program to find largest element in an array.
+   * Solution:
+   */
+
+  /**
+   * 59.
+   * Problem: Program to cyclically rotate an array by one.
+   * Solution:
+   */
+
+  /**
+   * 60.
+   * Problem: Maximum Sum Path in Two Arrays.
+   * Solution:
+   */
+
+  /**
+   * 61.
+   * Problem: Decode a given pattern in two ways (Flipkart Interview Question).
+   * Solution:
+   */
+
+  /**
+   * 62.
+   * Problem: A data structure for n elements and O(1) operations.
+   * Solution:
+   */
+
+  /**
+   * 63.
+   * Problem: Longest Monotonically Increasing Subsequence Size (N log N): Simple implementation.
+   * Solution:
+   */
+
+  /**
+   * 64.
+   * Problem: Rearrange array in alternating positive &#038; negative items with O(1) extra space | Set 1.
+   * Solution:
+   */
+
+  /**
+   * 65.
+   * Problem: Find the smallest positive integer value that cannot be represented as sum of any subset of a given array.
+   * Solution:
+   */
+
+  /**
+   * 66.
+   * Problem: Print All Distinct Elements of a given integer array.
+   * Solution:
+   */
+
+  /**
+   * 67.
+   * Problem: Find common elements in three sorted arrays.
+   * Solution:
+   */
+
+  /**
+   * 68.
+   * Problem: Length of the largest subarray with contiguous elements | Set 1.
+   * Solution:
+   */
+
+  /**
+   * 69.
+   * Problem: Given a sorted array and a number x, find the pair in array whose sum is closest to x.
+   * Solution:
+   */
+
+  /**
+   * 70.
+   * Problem: Find the closest pair from two sorted arrays.
+   * Solution:
+   */
+
+  /**
+   * 71.
+   * Problem: Find Index of 0 to be replaced with 1 to get longest continuous sequence of 1s in a binary array.
+   * Solution:
+   */
+
+  /**
+   * 72.
+   * Problem: Nuts &#038; Bolts Problem (Lock &#038; Key problem) | Set 1.
+   * Solution:
+   */
+
+  /**
+   * 73.
+   * Problem: Given a binary string, count number of substrings that start and end with 1..
+   * Solution:
+   */
+
+  /**
+   * 74.
+   * Problem: Rearrange an array such that &#8216;arr[j]&#8217; becomes &#8216;i&#8217; if  &#8216;arr[i]&#8217; is &#8216;j&#8217;.
+   * Solution:
+   */
+
+  /**
+   * 75.
+   * Problem: Delete an element from array (Using two traversals and one traversal).
+   * Solution:
+   */
+
+  /**
+   * 76.
+   * Problem: Print missing elements that lie in range 0 &#8211; 99.
+   * Solution:
+   */
+
+  /**
+   * 77.
+   * Problem: Pythagorean Triplet in an array.
+   * Solution:
+   */
+
+  /**
+   * 78.
+   * Problem: Find Union and Intersection of two unsorted arrays.
+   * Solution:
+   */
+
+  /**
+   * 79.
+   * Problem: Replace every array element by multiplication of previous and next.
+   * Solution:
+   */
+
+  /**
+   * 80.
+   * Problem: Count frequencies of all elements in array in O(1) extra space and O(n) time.
+   * Solution:
+   */
+
+  /**
+   * 81.
+   * Problem: Generate all possible sorted arrays from alternate elements of two given sorted arrays.
+   * Solution:
+   */
+
+  /**
+   * 82.
+   * Problem: Find the largest three elements in an array.
+   * Solution:
+   */
+
+  /**
+   * 83.
+   * Problem: Reverse an array upto a given position.
+   * Solution:
+   */
+
+  /**
+   * 84.
+   * Problem: Minimum number of swaps required for arranging pairs adjacent to each other.
+   * Solution:
+   */
+
+  /**
+   * 85.
+   * Problem: Trapping Rain Water.
+   * Solution:
+   */
+
+  /**
+   * 86.
+   * Problem: Converting an array of integers into Zig-Zag fashion!.
+   * Solution:
+   */
+
+  /**
+   * 87.
+   * Problem: Convert array into Zig-Zag fashion.
+   * Solution:
+   */
+
+  /**
+   * 88.
+   * Problem: Find maximum average subarray of k length.
+   * Solution:
+   */
+
+  /**
+   * 89.
+   * Problem: Program to print Sum Triangle for a given array.
+   * Solution:
+   */
+
+  /**
+   * 90.
+   * Problem: Find maximum value of Sum( i*arr[i]) with only rotations on given array allowed.
+   * Solution:
+   */
+
+  /**
+   * 91.
+   * Problem: Reorder an array according to given indexes.
+   * Solution:
+   */
+
+  /**
+   * 92.
+   * Problem: Check if a sorted array can be divided in pairs whose sum is k.
+   * Solution:
+   */
+
+  /**
+   * 93.
+   * Problem: Find zeroes to be flipped so that number of consecutive 1&#8217;s is maximized.
+   * Solution:
+   */
+
+  /**
+   * 94.
+   * Problem: Count triplets with sum smaller than a  given value.
+   * Solution:
+   */
+
+  /**
+   * 95.
+   * Problem: Find the subarray with least average.
+   * Solution:
+   */
+
+  /**
+   * 96.
+   * Problem: Count Inversions of size three in a given array.
+   * Solution:
+   */
+
+  /**
+   * 97.
+   * Problem: Longest Span with same Sum in two Binary arrays.
+   * Solution:
+   */
+
+  /**
+   * 98.
+   * Problem: Merge two sorted arrays with O(1) extra space.
+   * Solution:
+   */
+
+  /**
+   * 99.
+   * Problem: Form minimum number from given sequence.
+   * Solution:
+   */
+
+  /**
+   * 100.
+   * Problem: Subarray/Substring vs Subsequence and Programs to Generate them.
+   * Solution:
+   */
+
+  /**
+   * 101.
+   * Problem: Count Strictly Increasing Subarrays.
+   * Solution:
+   */
+
+  /**
+   * 102.
+   * Problem: Rearrange an array in maximum minimum form | Set 1.
+   * Solution:
+   */
+
+  /**
+   * 103.
+   * Problem: Find minimum difference between any two elements.
+   * Solution:
+   */
+
+  /**
+   * 104.
+   * Problem: Find lost element from a duplicated array.
+   * Solution:
+   */
+
+  /**
+   * 105.
+   * Problem: Count pairs with given sum.
+   * Solution:
+   */
+
+  /**
+   * 106.
+   * Problem: Count minimum steps to get the given desired array.
+   * Solution:
+   */
+
+  /**
+   * 107.
+   * Problem: Find minimum number of merge operations to make an array palindrome.
+   * Solution:
+   */
+
+  /**
+   * 108.
+   * Problem: Minimize the maximum difference between the heights.
+   * Solution:
+   */
+
+  /**
+   * 109.
+   * Problem: Rearrange array in alternating positive &#038; negative items with O(1) extra space | Set 2.
+   * Solution:
+   */
+
+  /**
+   * 110.
+   * Problem: Absolute distinct count in a sorted array.
+   * Solution:
+   */
+
+  /**
+   * 111.
+   * Problem: Count pairs formed by distinct element sub-arrays.
+   * Solution:
+   */
+
+  /**
+   * 112.
+   * Problem: Maximum product of a triplet (subsequnece of size 3) in array.
+   * Solution:
+   */
+
+  /**
+   * 113.
+   * Problem: Pair with given product | Set 1 (Find if any pair exists).
+   * Solution:
+   */
+
+  /**
+   * 114.
+   * Problem: Find smallest range containing elements from k lists.
+   * Solution:
+   */
+
+  /**
+   * 115.
+   * Problem: Maximum absolute difference between sum of two contiguous sub-arrays.
+   * Solution:
+   */
+
+  /**
+   * 116.
+   * Problem: Find number of subarrays with even sum.
+   * Solution:
+   */
+
+  /**
+   * 117.
+   * Problem: Maximum value K such that array has at-least K elements that are >= K.
+   * Solution:
+   */
+
+  /**
+   * 118.
+   * Problem: Minimum sum of two numbers formed from digits of an array.
+   * Solution:
+   */
+
+  /**
+   * 119.
+   * Problem: Find frequency of each element in a limited range array in less than O(n) time.
+   * Solution:
+   */
+
+  /**
+   * 120.
+   * Problem: Print all subarrays with 0 sum.
+   * Solution:
+   */
+
+  /**
+   * 121.
+   * Problem: Find Surpasser Count of each element in array.
+   * Solution:
+   */
+
+  /**
+   * 122.
+   * Problem: Remove duplicates from an array of small primes.
+   * Solution:
+   */
+
+  /**
+   * 123.
+   * Problem: Replace every element with the least greater element on its right.
+   * Solution:
+   */
+
+  /**
+   * 124.
+   * Problem: Maximum sum of i*arr[i] among all rotations of a given array.
+   * Solution:
+   */
+
+  /**
+   * 125.
+   * Problem: Largest product of a subarray of size k.
+   * Solution:
+   */
+
+  /**
+   * 126.
+   * Problem: Add elements of given arrays with given constraints.
+   * Solution:
+   */
+
+  /**
+   * 127.
+   * Problem: Jolly Jumper Sequence.
+   * Solution:
+   */
+
+  /**
+   * 128.
+   * Problem: Find if array can be divided into two subarrays of equal sum.
+   * Solution:
+   */
+
+  /**
+   * 129.
+   * Problem: Find all triplets in a sorted array that forms Geometric Progression.
+   * Solution:
+   */
+
+  /**
+   * 130.
+   * Problem: Maximum Product Subarray | Set 2 (Using Two Traversals).
+   * Solution:
+   */
+
+  /**
+   * 131.
+   * Problem: Reverse an array in groups of given size.
+   * Solution:
+   */
+
+  /**
+   * 132.
+   * Problem: Reverse an array in groups of given size | Set 2 (Variations of Set 1 ).
+   * Solution:
+   */
+
+  /**
+   * 133.
+   * Problem: Third largest element in an array of distinct elements.
+   * Solution:
+   */
+
+  /**
+   * 134.
+   * Problem: Find Two Missing Numbers | Set 1 (An Interesting Linear Time Solution).
+   * Solution:
+   */
+
+  /**
+   * 135.
+   * Problem: Active and Inactive cells after k Days.
+   * Solution:
+   */
+
+  /**
+   * 136.
+   * Problem: Maximize value of (arr[i] &#8211; i) &#8211; (arr[j] &#8211; j) in an array.
+   * Solution:
+   */
+
+  /**
+   * 137.
+   * Problem: Maximize number of 0s by flipping a subarray.
+   * Solution:
+   */
+
+  /**
+   * 138.
+   * Problem: Change if all bits can be made same by single flip.
+   * Solution:
+   */
+
+  /**
+   * 139.
+   * Problem: Find minimum elements after considering all possible transformations.
+   * Solution:
+   */
+
+  /**
+   * 140.
+   * Problem: Minimum Initial Energy Required To Cross Street.
+   * Solution:
+   */
+
+  /**
+   * 141.
+   * Problem: Find Maximum value of abs(i &#8211; j) * min(arr[i], arr[j]) in an array arr[].
+   * Solution:
+   */
+
+  /**
+   * 142.
+   * Problem: Check if an array can be Arranged in Left or Right Positioned Array.
+   * Solution:
+   */
+
+  /**
+   * 143.
+   * Problem: Maximize array sum after K negations | Set 1.
+   * Solution:
+   */
+
+  /**
+   * 144.
+   * Problem: Maximum and Minimum Product Subsets.
+   * Solution:
+   */
+
+  /**
+   * 145.
+   * Problem: Emulating a 2-d array using 1-d array.
+   * Solution:
+   */
+
+  /**
+   * 146.
+   * Problem: Sorted subsequence of size 3 in linear time using constant space.
+   * Solution:
+   */
+
+  /**
+   * 147.
+   * Problem: Sum of subset differences.
+   * Solution:
+   */
+
+  /**
+   * 148.
+   * Problem: Minimum steps to reach end of array under constraints.
+   * Solution:
+   */
+
+  /**
+   * 149.
+   * Problem: Length of Longest sub-string that can be removed.
+   * Solution:
+   */
+
+  /**
+   * 150.
+   * Problem: Sum of absolute differences of all pairs in a given array.
+   * Solution:
+   */
+
+  /**
+   * 151.
+   * Problem: Smallest subarray whose sum is multiple of array size.
+   * Solution:
+   */
+
+  /**
+   * 152.
+   * Problem: Count all pairs with given XOR.
+   * Solution:
+   */
+
+  /**
+   * 153.
+   * Problem: Maximum sum of pairs with specific difference.
+   * Solution:
+   */
+
+  /**
+   * 154.
+   * Problem: Minimum number of swaps required to sort an array.
+   * Solution:
+   */
+
+  /**
+   * 155.
+   * Problem: Number of swaps to sort when only adjacent swapping allowed.
+   * Solution:
+   */
+
+  /**
+   * 156.
+   * Problem: Find maximum difference between nearest left and right smaller elements.
+   * Solution:
+   */
+
+  /**
+   * 157.
+   * Problem: Minimum swaps to make two arrays identical.
+   * Solution:
+   */
+
+  /**
+   * 158.
+   * Problem: Find Equal (or Middle) Point in a sorted array with duplicates.
+   * Solution:
+   */
+
+  /**
+   * 159.
+   * Problem: Sum of maximum elements of all subsets.
+   * Solution:
+   */
+
+  /**
+   * 160.
+   * Problem: Find Maximum Sum Strictly Increasing Subarray.
+   * Solution:
+   */
+
+  /**
+   * 161.
+   * Problem: Minimum delete operations to make all elements of array same.
+   * Solution:
+   */
+
+  /**
+   * 162.
+   * Problem: Find Maximum XOR value of a sub-array of size k.
+   * Solution:
+   */
+
+  /**
+   * 163.
+   * Problem: Find next Smaller of next Greater in an array.
+   * Solution:
+   */
+
+  /**
+   * 164.
+   * Problem: Find elements larger than half of the elements in an array.
+   * Solution:
+   */
+
+  /**
+   * 165.
+   * Problem: Maximize array sum after K negations | Set 2.
+   * Solution:
+   */
+
+  /**
+   * 166.
+   * Problem: Maximum subsequence sum such that no three are consecutive.
+   * Solution:
+   */
+
+  /**
+   * 167.
+   * Problem: Maximum distance between two occurrences of same element in array.
+   * Solution:
+   */
+
+  /**
+   * 168.
+   * Problem: Elements before which no element is bigger in array.
+   * Solution:
+   */
+
+  /**
+   * 169.
+   * Problem: Find the only repeating element in a sorted array of size n.
+   * Solution:
+   */
+
+  /**
+   * 170.
+   * Problem: Minimum XOR Value Pair.
+   * Solution:
+   */
+
+  /**
+   * 171.
+   * Problem: Count pairs in an array that hold i*arr[i] &gt; j*arr[j].
+   * Solution:
+   */
+
+  /**
+   * 172.
+   * Problem: Count minimum number of &#8220;move-to-front&#8221; moves to sort an array.
+   * Solution:
+   */
+
+  /**
+   * 173.
+   * Problem: Maximum product of an increasing subsequence of size 3.
+   * Solution:
+   */
+
+  /**
+   * 174.
+   * Problem: Find bitonic point in given bitonic sequence.
+   * Solution:
+   */
+
+  /**
+   * 175.
+   * Problem: Program to find the number of persons wearing white hat.
+   * Solution:
+   */
+
+  /**
+   * 176.
+   * Problem: Sum of all elements between k1&#8217;th and k2&#8217;th smallest elements.
+   * Solution:
+   */
+
+  /**
+   * 177.
+   * Problem: Arrays in Java.
+   * Solution:
+   */
+
+  /**
+   * 178.
+   * Problem: Sort an array according to absolute difference with given value.
+   * Solution:
+   */
+
+  /**
+   * 179.
+   * Problem: Subarrays with distinct elements.
+   * Solution:
+   */
+
+  /**
+   * 180.
+   * Problem: Minimize the sum of product of two arrays with permutations allowed.
+   * Solution:
+   */
+
+  /**
+   * 181.
+   * Problem: Move all negative elements to end in order with extra space allowed.
+   * Solution:
+   */
+
+  /**
+   * 182.
+   * Problem: Position of an element after stable sort.
+   * Solution:
+   */
+
+  /**
+   * 183.
+   * Problem: Steps to return to {1, 2, ..n} with specified movements.
+   * Solution:
+   */
+
+  /**
+   * 184.
+   * Problem: Maximum sum subarray removing at most one element.
+   * Solution:
+   */
+
+  /**
+   * 185.
+   * Problem: Maximum subarray size, such that all subarrays of that size have sum less than k.
+   * Solution:
+   */
+
+  /**
+   * 186.
+   * Problem: Minimum flips in two binary arrays so that their XOR is equal to another array.
+   * Solution:
+   */
+
+  /**
+   * 187.
+   * Problem: Number of full binary trees such that each node is product of its children.
+   * Solution:
+   */
+
+  /**
+   * 188.
+   * Problem: Minimum sum subsequence such that at least one of every four consecutive elements is picked.
+   * Solution:
+   */
+
+  /**
+   * 189.
+   * Problem: Chocolate Distribution Problem.
+   * Solution:
+   */
+
+  /**
+   * 190.
+   * Problem: Sum of minimum and maximum elements of all subarrays of size k..
+   * Solution:
+   */
+
+  /**
+   * 191.
+   * Problem: Subset sum queries using bitset.
+   * Solution:
+   */
+
+  /**
+   * 192.
+   * Problem: Maximum path sum for each position with jumps under divisibility condition.
+   * Solution:
+   */
+
+  /**
+   * 193.
+   * Problem: Check loop in array according to given constraints.
+   * Solution:
+   */
+
+  /**
+   * 194.
+   * Problem: Sort even-placed elements in increasing and odd-placed in decreasing order.
+   * Solution:
+   */
+
+  /**
+   * 195.
+   * Problem: Maximum occurred integer in n ranges.
+   * Solution:
+   */
+
+  /**
+   * 196.
+   * Problem: Count of subarrays whose maximum element is greater than k.
+   * Solution:
+   */
+
+  /**
+   * 197.
+   * Problem: Permute two arrays such that sum of every pair is greater or equal to K.
+   * Solution:
+   */
+
+  /**
+   * 198.
+   * Problem: Count all sub-arrays having sum divisible by k.
+   * Solution:
+   */
+
+  /**
+   * 199.
+   * Problem: Choose k array elements such that difference of maximum and minimum is minimized.
+   * Solution:
+   */
+
+  /**
+   * 200.
+   * Problem: Sort an array when two halves are sorted.
+   * Solution:
+   */
+
+  /**
+   * 201.
+   * Problem: Find Maximum dot product of two arrays with insertion of 0&#8217;s.
+   * Solution:
+   */
+
+  /**
+   * 202.
+   * Problem: Find element using minimum segments in Seven Segment Display.
+   * Solution:
+   */
+
+  /**
+   * 203.
+   * Problem: Rearrange an array to minimize sum of product of consecutive pair elements.
+   * Solution:
+   */
+
+  /**
+   * 204.
+   * Problem: Find a partition point in array.
+   * Solution:
+   */
+
+  /**
+   * 205.
+   * Problem: Find pairs in array whose sums already exist in array.
+   * Solution:
+   */
+
+  /**
+   * 206.
+   * Problem: Longest prefix that contains same number of X and Y in an array.
+   * Solution:
+   */
+
+  /**
+   * 207.
+   * Problem: Find all elements in array which have at-least two greater elements.
+   * Solution:
+   */
+
+  /**
+   * 208.
+   * Problem: Divide array into two sub-arrays such that their averages are equal.
+   * Solution:
+   */
+
+  /**
+   * 209.
+   * Problem: Break an array into maximum number of sub-arrays such that their averages are same.
+   * Solution:
+   */
+
+  /**
+   * 210.
+   * Problem: Check whether Arithmetic Progression can be formed from the given array.
+   * Solution:
+   */
+
+  /**
+   * 211.
+   * Problem: Find three element from different three arrays such that that a + b + c = sum.
+   * Solution:
+   */
+
+  /**
+   * 212.
+   * Problem: Find maximum array sum after making all elements same with repeated subtraction.
+   * Solution:
+   */
+
+  /**
+   * 213.
+   * Problem: Pairs of Amicable Numbers.
+   * Solution:
+   */
+
+  /**
+   * 214.
+   * Problem: Count of index pairs with equal elements in an array.
+   * Solution:
+   */
+
+  /**
+   * 215.
+   * Problem: Make two sets disjoint by removing minimum elements.
+   * Solution:
+   */
+
+  /**
+   * 216.
+   * Problem: Find a local minima in an array.
+   * Solution:
+   */
+
+  /**
+   * 217.
+   * Problem: Three way partitioning of an array around a given range.
+   * Solution:
+   */
+
+  /**
+   * 218.
+   * Problem: Find a subset with greatest geometric mean.
+   * Solution:
+   */
+
+  /**
+   * 219.
+   * Problem: Sum of the products of all possible Subsets.
+   * Solution:
+   */
+
+  /**
+   * 220.
+   * Problem: Duplicates in an array in O(n) and by using O(1) extra space | Set-2.
+   * Solution:
+   */
+
+  /**
+   * 221.
+   * Problem: Find the missing number in Geometric Progression.
+   * Solution:
+   */
+
+  /**
+   * 222.
+   * Problem: Range Queries for Frequencies of array elements.
+   * Solution:
+   */
+
+  /**
+   * 223.
+   * Problem: Check if there exist two elements in an array whose sum is equal to the sum of rest of the array.
+   * Solution:
+   */
+
+  /**
+   * 224.
+   * Problem: Sum of all Subarrays | Set 1.
+   * Solution:
+   */
+
+  /**
+   * 225.
+   * Problem: Constant time range add operation on an array.
+   * Solution:
+   */
+
+  /**
+   * 226.
+   * Problem: Find all  triplets with zero sum.
+   * Solution:
+   */
+
+  /**
+   * 227.
+   * Problem: Maximum consecutive one’s (or zeros) in a binary array.
+   * Solution:
+   */
+
+  /**
+   * 228.
+   * Problem: Maximum sum of smallest and second smallest in an array.
+   * Solution:
+   */
+
+  /**
+   * 229.
+   * Problem: Minimum operations required to remove an array.
+   * Solution:
+   */
+
+  /**
+   * 230.
+   * Problem: Find duplicates under given constraints.
+   * Solution:
+   */
+
+  /**
+   * 231.
+   * Problem: Find sum of sum of all sub-sequences.
+   * Solution:
+   */
+
+  /**
+   * 232.
+   * Problem: Find first and last positions of an element in a sorted array.
+   * Solution:
+   */
+
+  /**
+   * 233.
+   * Problem: Sum of XOR of all possible subsets.
+   * Solution:
+   */
+
+  /**
+   * 234.
+   * Problem: Lexicographically smallest array after at-most K consecutive swaps.
+   * Solution:
+   */
+
+  /**
+   * 235.
+   * Problem: Count all Quadruples from four arrays such that their XOR equals to &#8216;x&#8217;.
+   * Solution:
+   */
+
+  /**
+   * 236.
+   * Problem: Rearrange an array in maximum minimum form | Set 2 (O(1) extra space).
+   * Solution:
+   */
+
+  /**
+   * 237.
+   * Problem: Type of array and its maximum element.
+   * Solution:
+   */
+
+  /**
+   * 238.
+   * Problem: Find floor and ceil in an unsorted array.
+   * Solution:
+   */
+
+  /**
+   * 239.
+   * Problem: Subset with no pair sum divisible by K.
+   * Solution:
+   */
+
+  /**
+   * 240.
+   * Problem: Sorting possible using size 3 subarray rotation.
+   * Solution:
+   */
+
+  /**
+   * 241.
+   * Problem: Count passing car pairs.
+   * Solution:
+   */
+
+  /**
+   * 242.
+   * Problem: A permutation where each element indicates either number of elements before or after it.
+   * Solution:
+   */
+
+  /**
+   * 243.
+   * Problem: Sort array after converting elements to their squares.
+   * Solution:
+   */
+
+  /**
+   * 244.
+   * Problem: Sort all even numbers in ascending order and then sort all odd numbers in descending order.
+   * Solution:
+   */
+
+  /**
+   * 245.
+   * Problem: Find N&#8217;th item in a set formed by sum of two arrays.
+   * Solution:
+   */
+
+  /**
+   * 246.
+   * Problem: Maximize sum of consecutive differences in a circular array.
+   * Solution:
+   */
+
+  /**
+   * 247.
+   * Problem: Check if two arrays are equal or not.
+   * Solution:
+   */
+
+  /**
+   * 248.
+   * Problem: Largest permutation after at most k swaps.
+   * Solution:
+   */
+
+  /**
+   * 249.
+   * Problem: Find maximum (or minimum) sum of a subarray of size k.
+   * Solution:
+   */
+
+  /**
+   * 250.
+   * Problem: Maximum value in an array after m range increment operations.
+   * Solution:
+   */
+
+  /**
+   * 251.
+   * Problem: Given two unsorted arrays, find all pairs whose sum is x.
+   * Solution:
+   */
+
+  /**
+   * 252.
+   * Problem: Largest divisible subset in array.
+   * Solution:
+   */
+
+  /**
+   * 253.
+   * Problem: Construct an array from XOR of all elements of array except element at same index.
+   * Solution:
+   */
+
+  /**
+   * 254.
+   * Problem: Find the element that appears once in an array where every other element appears twice.
+   * Solution:
+   */
+
+  /**
+   * 255.
+   * Problem: Minimum difference between max and min of all K-size subsets.
+   * Solution:
+   */
+
+  /**
+   * 256.
+   * Problem: Minimum swaps to reach permuted array with at most 2 positions left swaps allowed.
+   * Solution:
+   */
+
+  /**
+   * 257.
+   * Problem: GCD of more than two (or array) numbers.
+   * Solution:
+   */
+
+  /**
+   * 258.
+   * Problem: Fill an array based on frequency where elements are in range from 0 to n-1.
+   * Solution:
+   */
+
+  /**
+   * 259.
+   * Problem: Convert an array to reduced form | Set 2 (Using vector of pairs).
+   * Solution:
+   */
+
+  /**
+   * 260.
+   * Problem: Find all pairs (a,b) and (c,d) in array which satisfy ab = cd.
+   * Solution:
+   */
+
+  /**
+   * 261.
+   * Problem: Search, insert and delete in an unsorted array.
+   * Solution:
+   */
+
+  /**
+   * 262.
+   * Problem: Search, insert and delete in a sorted array.
+   * Solution:
+   */
+
+  /**
+   * 263.
+   * Problem: XOR of all subarray XORs | Set 1.
+   * Solution:
+   */
+
+  /**
+   * 264.
+   * Problem: Count pairs in a sorted array whose sum is less than x.
+   * Solution:
+   */
+
+  /**
+   * 265.
+   * Problem: Split an array into two equal Sum subarrays.
+   * Solution:
+   */
+
+  /**
+   * 266.
+   * Problem: Given pairwise sum of n numbers, find the numbers.
+   * Solution:
+   */
+
+  /**
+   * 267.
+   * Problem: Find sum of non-repeating (distinct) elements in an array.
+   * Solution:
+   */
+
+  /**
+   * 268.
+   * Problem: Minimum sum of absolute difference of pairs of two arrays.
+   * Solution:
+   */
+
+  /**
+   * 269.
+   * Problem: Find original array from encrypted array (An array of sums of other elements).
+   * Solution:
+   */
+
+  /**
+   * 270.
+   * Problem: Noble integers in an array (count of greater elements is equal to value).
+   * Solution:
+   */
+
+  /**
+   * 271.
+   * Problem: Perfect Sum Problem (Print all subsets with given sum).
+   * Solution:
+   */
+
+  /**
+   * 272.
+   * Problem: Window Sliding Technique.
+   * Solution:
+   */
+
+  /**
+   * 273.
+   * Problem: Find Duplicates of array using bit array.
+   * Solution:
+   */
+
+  /**
+   * 274.
+   * Problem: Place k elements such that minimum distance is maximized.
+   * Solution:
+   */
+
+  /**
+   * 275.
+   * Problem: Count the number of subarrays having a given XOR.
+   * Solution:
+   */
+
+  /**
+   * 276.
+   * Problem: Minimum toggles to partition a binary array so that it has first 0s then 1s.
+   * Solution:
+   */
+
+  /**
+   * 277.
+   * Problem: Subsequence with maximum odd sum.
+   * Solution:
+   */
+
+  /**
+   * 278.
+   * Problem: Count of arrays in which all adjacent elements are such that one of them divide the another.
+   * Solution:
+   */
+
+  /**
+   * 279.
+   * Problem: Program to check if an array is sorted or not (Iterative and Recursive).
+   * Solution:
+   */
+
+  /**
+   * 280.
+   * Problem: Program for average of an array (Iterative and Recursive).
+   * Solution:
+   */
+
+  /**
+   * 281.
+   * Problem: Smallest Difference Triplet from Three arrays.
+   * Solution:
+   */
+
+  /**
+   * 282.
+   * Problem: Find missing number in another array which is shuffled copy.
+   * Solution:
+   */
+
+  /**
+   * 283.
+   * Problem: Prefix Sum Array &#8211; Implementation and Applications in Competitive Programming.
+   * Solution:
+   */
+
+  /**
+   * 284.
+   * Problem: Largest sum contiguous increasing subarray.
+   * Solution:
+   */
+
+  /**
+   * 285.
+   * Problem: Program to print an array in Pendulum Arrangement.
+   * Solution:
+   */
+
+  /**
+   * 286.
+   * Problem: Smallest Difference pair of values between two unsorted Arrays.
+   * Solution:
+   */
+
+  /**
+   * 287.
+   * Problem: Remove minimum elements from array such that no three consecutive element are either increasing or decreasing.
+   * Solution:
+   */
+
+  /**
+   * 288.
+   * Problem: Find whether it is possible to make array elements same using one external number.
+   * Solution:
+   */
+
+  /**
+   * 289.
+   * Problem: Clustering/Partitioning an array such that sum of square differences is minimum.
+   * Solution:
+   */
+
+  /**
+   * 290.
+   * Problem: Maximum sum two non-overlapping subarrays of given size.
+   * Solution:
+   */
+
+  /**
+   * 291.
+   * Problem: Find whether a subarray is in form of a mountain or not.
+   * Solution:
+   */
+
+  /**
+   * 292.
+   * Problem: Program for multiplication of array elements.
+   * Solution:
+   */
+
+  /**
+   * 293.
+   * Problem: Number of subarrays for which product and sum are equal.
+   * Solution:
+   */
+
+  /**
+   * 294.
+   * Problem: Find duplicates in a given array when elements are not limited to a range.
+   * Solution:
+   */
+
+  /**
+   * 295.
+   * Problem: Check if it is possible to sort an array with conditional swapping of adjacent allowed.
+   * Solution:
+   */
+
+  /**
+   * 296.
+   * Problem: Count the number of ways to divide an array into three contiguous parts having equal sum.
+   * Solution:
+   */
+
+  /**
+   * 297.
+   * Problem: k-th distinct (or non-repeating) element in an array..
+   * Solution:
+   */
+
+  /**
+   * 298.
+   * Problem: Sort an array after applying the given equation.
+   * Solution:
+   */
+
+  /**
+   * 299.
+   * Problem: Count number of ways to jump  to reach end.
+   * Solution:
+   */
+
+  /**
+   * 300.
+   * Problem: Reverse an array without using subtract sign ‘-‘ anywhere in the code.
+   * Solution:
+   */
+
+  /**
+   * 301.
+   * Problem: Check if product of every pair exists in an array.
+   * Solution:
+   */
+
+  /**
+   * 302.
+   * Problem: Find k pairs with smallest sums in two arrays.
+   * Solution:
+   */
+
+  /**
+   * 303.
+   * Problem: Largest subset whose all elements are Fibonacci numbers.
+   * Solution:
+   */
+
+  /**
+   * 304.
+   * Problem: First element occurring k times in an array.
+   * Solution:
+   */
+
+  /**
+   * 305.
+   * Problem: K-th Element of Two Sorted Arrays.
+   * Solution:
+   */
+
+  /**
+   * 306.
+   * Problem: Count subsets having distinct even numbers.
+   * Solution:
+   */
+
+  /**
+   * 307.
+   * Problem: Maximum difference between first and last indexes of an element in array.
+   * Solution:
+   */
+
+  /**
+   * 308.
+   * Problem: Remove duplicates from sorted array.
+   * Solution:
+   */
+
+  /**
+   * 309.
+   * Problem: Find index of an extra element present in one sorted array.
+   * Solution:
+   */
+
+  /**
+   * 310.
+   * Problem: Merge two sorted arrays.
+   * Solution:
+   */
+
+  /**
+   * 311.
+   * Problem: Sum of array elements using recursion.
+   * Solution:
+   */
+
+  /**
+   * 312.
+   * Problem: Mean of array using recursion.
+   * Solution:
+   */
+
+  /**
+   * 313.
+   * Problem: Number of buildings facing the sun.
+   * Solution:
+   */
+
+  /**
+   * 314.
+   * Problem: k-th smallest absolute difference of two elements in an array.
+   * Solution:
+   */
+
+  /**
+   * 315.
+   * Problem: Ways to sum to N using array elements with repetition allowed.
+   * Solution:
+   */
+
+  /**
+   * 316.
+   * Problem: Find a Fixed Point in an array with duplicates allowed.
+   * Solution:
+   */
+
+  /**
+   * 317.
+   * Problem: Largest sum subarray with at-least k numbers.
+   * Solution:
+   */
+
+  /**
+   * 318.
+   * Problem: Fill array with 1&#8217;s using minimum iterations of filling neighbors.
+   * Solution:
+   */
+
+  /**
+   * 319.
+   * Problem: Find the minimum value to be added so that array becomes balanced.
+   * Solution:
+   */
+
+  /**
+   * 320.
+   * Problem: Rearrange an array such that every odd indexed element is greater than it previous.
+   * Solution:
+   */
+
+  /**
+   * 321.
+   * Problem: XOR of all subarray XORs | Set 2.
+   * Solution:
+   */
+
+  /**
+   * 322.
+   * Problem: First negative integer in every window of size k.
+   * Solution:
+   */
+
+  /**
+   * 323.
+   * Problem: Longest Subarray of non-negative Integers.
+   * Solution:
+   */
+
+  /**
+   * 324.
+   * Problem: Minimum number of jumps to reach end | Set 2 (O(n) solution).
+   * Solution:
+   */
+
+  /**
+   * 325.
+   * Problem: Sum of product of all pairs of array elements.
+   * Solution:
+   */
+
+  /**
+   * 326.
+   * Problem: Maximum Length Bitonic Subarray | Set 2 (O(n) time and O(1) Space).
+   * Solution:
+   */
+
+  /**
+   * 327.
+   * Problem: For each element in 1st array count elements less than or equal to it in 2nd array.
+   * Solution:
+   */
+
+  /**
+   * 328.
+   * Problem: Count of smaller or equal elements in sorted array.
+   * Solution:
+   */
+
+  /**
+   * 329.
+   * Problem: Minimum sum of two elements from two arrays such that indexes are not same.
+   * Solution:
+   */
+
+  /**
+   * 330.
+   * Problem: Count minimum right flips to set all values in an array.
+   * Solution:
+   */
+
+  /**
+   * 331.
+   * Problem: Find Second largest element in an array.
+   * Solution:
+   */
+
+  /**
+   * 332.
+   * Problem: Sum of minimum absolute difference of each array element.
+   * Solution:
+   */
+
+  /**
+   * 333.
+   * Problem: Count elements less than or equal to a given value in a sorted rotated array.
+   * Solution:
+   */
+
+  /**
+   * 334.
+   * Problem: Maximizing Unique Pairs from two arrays.
+   * Solution:
+   */
+
+  /**
+   * 335.
+   * Problem: Maximum modulo of in all the pairs of array where arr[i] &gt;= arr[j].
+   * Solution:
+   */
+
+  /**
+   * 336.
+   * Problem: Find start and ending index of an element in an unsorted array.
+   * Solution:
+   */
+
+  /**
+   * 337.
+   * Problem: Find the transition point in a binary array.
+   * Solution:
+   */
+
+  /**
+   * 338.
+   * Problem: Recursive Programs to find Minimum and Maximum elements of array.
+   * Solution:
+   */
+
+  /**
+   * 339.
+   * Problem: Program to print Sum of even and odd elements in an array.
+   * Solution:
+   */
+
+  /**
+   * 340.
+   * Problem: Find minimum value to assign all array elements so that array product becomes greater.
+   * Solution:
+   */
+
+  /**
+   * 341.
+   * Problem: Count subarrays having total distinct elements same as original array.
+   * Solution:
+   */
+
+  /**
+   * 342.
+   * Problem: Search an element in an unsorted array using minimum number of comparisons.
+   * Solution:
+   */
+
+  /**
+   * 343.
+   * Problem: Number of pairs in an array such that product is greater than sum.
+   * Solution:
+   */
+
+  /**
+   * 344.
+   * Problem: Count pairs from two sorted arrays whose sum is equal to a given value x.
+   * Solution:
+   */
+
+  /**
+   * 345.
+   * Problem: Find all pairs (a, b) in an array such that a % b = k.
+   * Solution:
+   */
+
+  /**
+   * 346.
+   * Problem: Find k numbers with most occurrences in the given array.
+   * Solution:
+   */
+
+  /**
+   * 347.
+   * Problem: Largest triplet product in a stream.
+   * Solution:
+   */
+
+  /**
+   * 348.
+   * Problem: Check in binary array the number represented by a subarray is odd or even.
+   * Solution:
+   */
+
+  /**
+   * 349.
+   * Problem: Elements of an array that are not divisible by any element of another array.
+   * Solution:
+   */
+
+  /**
+   * 350.
+   * Problem: Fibonacci number in an array.
+   * Solution:
+   */
+
+  /**
+   * 351.
+   * Problem: Alternative Sorting.
+   * Solution:
+   */
+
+  /**
+   * 352.
+   * Problem: Find a pair of elements swapping which makes sum of two arrays same.
+   * Solution:
+   */
+
+  /**
+   * 353.
+   * Problem: Count number of triplets with product equal to given number.
+   * Solution:
+   */
+
+  /**
+   * 354.
+   * Problem: Sum of product of all elements of sub-arrays of size k.
+   * Solution:
+   */
+
+  /**
+   * 355.
+   * Problem: Count pairs with Odd XOR.
+   * Solution:
+   */
+
+  /**
+   * 356.
+   * Problem: Queries for decimal values of subarrays of a binary array.
+   * Solution:
+   */
+
+  /**
+   * 357.
+   * Problem: Find the Sub-array with sum closest to 0.
+   * Solution:
+   */
+
+  /**
+   * 358.
+   * Problem: Count of subarrays whose products don&#8217;t have any repeating prime factor.
+   * Solution:
+   */
+
+  /**
+   * 359.
+   * Problem: Quickly find multiple left rotations of an array | Set 1.
+   * Solution:
+   */
+
+  /**
+   * 360.
+   * Problem: Find four elements that sum to a given value | Set 3 (Hashmap).
+   * Solution:
+   */
+
+  /**
+   * 361.
+   * Problem: All unique triplets that sum up to a given value.
+   * Solution:
+   */
+
+  /**
+   * 362.
+   * Problem: Replace each node in binary tree with the sum of its inorder predecessor and successor.
+   * Solution:
+   */
+
+  /**
+   * 363.
+   * Problem: Minimum Number of Platforms Required for a Railway/Bus Station | Set 2 (Map based approach).
+   * Solution:
+   */
+
+  /**
+   * 364.
+   * Problem: Why is it faster to process sorted array than an unsorted array ?.
+   * Solution:
+   */
+
+  /**
+   * 365.
+   * Problem: Queries for counts of array elements with values in given range.
+   * Solution:
+   */
+
+  /**
+   * 366.
+   * Problem: Shuffle 2n integers in format {a1, b1, a2, b2, a3, b3, &#8230;&#8230;, an, bn} without using extra space.
+   * Solution:
+   */
+
+  /**
+   * 367.
+   * Problem: Find the index of first 1 in a sorted array of 0&#8217;s and 1&#8217;s.
+   * Solution:
+   */
+
+  /**
+   * 368.
+   * Problem: Number of jumps for a thief to cross walls.
+   * Solution:
+   */
+
+  /**
+   * 369.
+   * Problem: Serialize and Deserialize array of string.
+   * Solution:
+   */
+
+  /**
+   * 370.
+   * Problem: Find an element in Bitonic array.
+   * Solution:
+   */
+
+  /**
+   * 371.
+   * Problem: Check if array elements are consecutive in O(n) time and O(1) space (Handles Both Positive and negative numbers).
+   * Solution:
+   */
+
+  /**
+   * 372.
+   * Problem: Check if an array contains all elements of a given range.
+   * Solution:
+   */
+
+  /**
+   * 373.
+   * Problem: Distinct adjacent elements in an array.
+   * Solution:
+   */
+
+  /**
+   * 374.
+   * Problem: Sorting Array Elements By Frequency | Set 3 (Using STL).
+   * Solution:
+   */
+
+  /**
+   * 375.
+   * Problem: Arrange given numbers to form the biggest number | Set 2.
+   * Solution:
+   */
+
+  /**
+   * 376.
+   * Problem: Find first k natural numbers missing in given array.
+   * Solution:
+   */
+
+  /**
+   * 377.
+   * Problem: Sum of distinct elements when elements are in range 1 to n.
+   * Solution:
+   */
+
+  /**
+   * 378.
+   * Problem: Find any one of the multiple repeating elements in read only array.
+   * Solution:
+   */
+
+  /**
+   * 379.
+   * Problem: Queries on XOR of greatest odd divisor of the range.
+   * Solution:
+   */
+
+  /**
+   * 380.
+   * Problem: Merging two unsorted arrays in sorted order.
+   * Solution:
+   */
+
+  /**
+   * 381.
+   * Problem: Find top k (or most frequent) numbers in a stream.
+   * Solution:
+   */
+
+  /**
+   * 382.
+   * Problem: Find the missing number in a sorted array of limited range.
+   * Solution:
+   */
+
+  /**
+   * 383.
+   * Problem: K’th Smallest/Largest Element using STL.
+   * Solution:
+   */
+
+  /**
+   * 384.
+   * Problem: Smallest sum contiguous subarray.
+   * Solution:
+   */
+
+  /**
+   * 385.
+   * Problem: Print modified array after multiple array range increment operations.
+   * Solution:
+   */
+
+  /**
+   * 386.
+   * Problem: Print left rotation of array in O(n) time and O(1) space.
+   * Solution:
+   */
+
+  /**
+   * 387.
+   * Problem: RGYB(color) Slots Game to  guess the correct color for the correct slot.
+   * Solution:
+   */
+
+  /**
+   * 388.
+   * Problem: Longest Bitonic Subsequence in O(n log n).
+   * Solution:
+   */
+
+  /**
+   * 389.
+   * Problem: Add minimum number to an array so that the sum becomes even.
+   * Solution:
+   */
+
+  /**
+   * 390.
+   * Problem: Maximum possible sum of a window in an array such that elements of same window in other array are unique.
+   * Solution:
+   */
+
+  /**
+   * 391.
+   * Problem: Maximum sum subarray having sum less than or equal to given sum.
+   * Solution:
+   */
+
+  /**
+   * 392.
+   * Problem: Subarray with XOR less than k.
+   * Solution:
+   */
+
+  /**
+   * 393.
+   * Problem: Subarray Inversions.
+   * Solution:
+   */
+
+  /**
+   * 394.
+   * Problem: Smallest number that never becomes negative when processed against array elements.
+   * Solution:
+   */
+
+  /**
+   * 395.
+   * Problem: Maximum sum of lengths of non-overlapping subarrays with k as the max element..
+   * Solution:
+   */
+
+  /**
+   * 396.
+   * Problem: Minimize cost of operation to equalize tower heights.
+   * Solution:
+   */
+
+  /**
+   * 397.
+   * Problem: A product array puzzle | Set 2 (O(1) Space).
+   * Solution:
+   */
+
+  /**
+   * 398.
+   * Problem: Find max in struct array.
+   * Solution:
+   */
+
+  /**
+   * 399.
+   * Problem: Find the compatibility difference between two arrays.
+   * Solution:
+   */
+
+  /**
+   * 400.
+   * Problem: Find if an array contains a string with one mismatch.
+   * Solution:
+   */
+
+  /**
+   * 401.
+   * Problem: Equalize an array using array elements only.
+   * Solution:
+   */
+
+  /**
+   * 402.
+   * Problem: Smallest element in an array that is repeated exactly &#8216;k&#8217; times..
+   * Solution:
+   */
+
+  /**
+   * 403.
+   * Problem: Adding elements of an array until every element becomes greater than or equal to k.
+   * Solution:
+   */
+
+  /**
+   * 404.
+   * Problem: Find a triplet such that sum of two equals to third element.
+   * Solution:
+   */
+
+  /**
+   * 405.
+   * Problem: Rearrange an array in order &#8211; smallest, largest, 2nd smallest, 2nd largest, ...
+   * Solution:
+   */
+
+  /**
+   * 406.
+   * Problem: Count subarrays with equal number of occurrences of two given elements.
+   * Solution:
+   */
+
+  /**
+   * 407.
+   * Problem: Maximise the size of consecutive element subsets in an array.
+   * Solution:
+   */
+
+  /**
+   * 408.
+   * Problem: Sum of all subarrays of array | Set 2.
+   * Solution:
+   */
+
+  /**
+   * 409.
+   * Problem: Maximum Weight Difference.
+   * Solution:
+   */
+
+  /**
+   * 410.
+   * Problem: Sort first half in ascending and second half in descending order.
+   * Solution:
+   */
+
+  /**
+   * 411.
+   * Problem: Find element in a sorted array whose frequency is  greater than or equal to n/2..
+   * Solution:
+   */
+
+  /**
+   * 412.
+   * Problem: Smallest element repeated exactly ‘k’ times (not limited to small range).
+   * Solution:
+   */
+
+  /**
+   * 413.
+   * Problem: Longest Subarray having sum of elements atmost &#8216;k&#8217;.
+   * Solution:
+   */
+
+  /**
+   * 414.
+   * Problem: Sum of array elements that is first continuously increasing then decreasing.
+   * Solution:
+   */
+
+  /**
+   * 415.
+   * Problem: Binary array after M range toggle operations.
+   * Solution:
+   */
+
+  /**
+   * 416.
+   * Problem: Count number of distinct pairs whose sum exists in the given array.
+   * Solution:
+   */
+
+  /**
+   * 417.
+   * Problem: Collect maximum points in an array with k moves.
+   * Solution:
+   */
+
+  /**
+   * 418.
+   * Problem: Move all negative numbers to beginning and positive to end with constant extra space.
+   * Solution:
+   */
+
+  /**
+   * 419.
+   * Problem: Minimum absolute difference of  XOR values of two subarrays.
+   * Solution:
+   */
+
+  /**
+   * 420.
+   * Problem: Find an element in array such that sum of left array is equal to sum of right array.
+   * Solution:
+   */
+
+  /**
+   * 421.
+   * Problem: Find minimum cost to buy all books.
+   * Solution:
+   */
+
+  /**
+   * 422.
+   * Problem: Longest increasing subarray.
+   * Solution:
+   */
+
+  /**
+   * 423.
+   * Problem: Maximum sum bitonic subarray.
+   * Solution:
+   */
+
+  /**
+   * 424.
+   * Problem: Find the sum of maximum difference possible from all subset of a given array..
+   * Solution:
+   */
+
+  /**
+   * 425.
+   * Problem: Find the index of first 1 in an infinite sorted array of 0s and 1s.
+   * Solution:
+   */
+
+  /**
+   * 426.
+   * Problem: Positive elements at even and negative at odd positions.
+   * Solution:
+   */
+
+  /**
+   * 427.
+   * Problem: Efficiently merging two sorted arrays with O(1) extra space.
+   * Solution:
+   */
+
+  /**
+   * 428.
+   * Problem: Symmetric difference of two sorted array.
+   * Solution:
+   */
+
+  /**
+   * 429.
+   * Problem: Minimum operations to make XOR of array zero.
+   * Solution:
+   */
+
+  /**
+   * 430.
+   * Problem: Minimum operation to make all elements equal in array.
+   * Solution:
+   */
+
+  /**
+   * 431.
+   * Problem: Maximum area rectangle by picking four sides from array.
+   * Solution:
+   */
+
+  /**
+   * 432.
+   * Problem: Array range queries over range queries.
+   * Solution:
+   */
+
+  /**
+   * 433.
+   * Problem: Range sum queries without updates.
+   * Solution:
+   */
+
+  /**
+   * 434.
+   * Problem: Remove minimum number of elements such that no common element exist in both array.
+   * Solution:
+   */
+
+  /**
+   * 435.
+   * Problem: Split the array and add  the first part to the end.
+   * Solution:
+   */
+
+  /**
+   * 436.
+   * Problem: Find element at given index after a number of rotations.
+   * Solution:
+   */
+
+  /**
+   * 437.
+   * Problem: Remove array end element to maximize the sum of product.
+   * Solution:
+   */
+
+  /**
+   * 438.
+   * Problem: Find element at given index after given range reversals.
+   * Solution:
+   */
+
+  /**
+   * 439.
+   * Problem: Count divisors of array multiplication.
+   * Solution:
+   */
+
+  /**
+   * 440.
+   * Problem: Maximum difference between group of k-elements and rest of the array..
+   * Solution:
+   */
+
+  /**
+   * 441.
+   * Problem: Find Unique pair in an array with pairs of numbers.
+   * Solution:
+   */
+
+  /**
+   * 442.
+   * Problem: Print all subsets of given size of a set.
+   * Solution:
+   */
+
+  /**
+   * 443.
+   * Problem: Unique element in an array where all elements occur k times except one.
+   * Solution:
+   */
+
+  /**
+   * 444.
+   * Problem: Maximum possible XOR of every element in an array with another array.
+   * Solution:
+   */
+
+  /**
+   * 445.
+   * Problem: Number of subarrays having product less than K.
+   * Solution:
+   */
+
+  /**
+   * 446.
+   * Problem: Count all subsequences having product less than K.
+   * Solution:
+   */
+
+  /**
+   * 447.
+   * Problem: Maximum value of |arr[i] &#8211; arr[j]| + |i &#8211; j|.
+   * Solution:
+   */
+
+  /**
+   * 448.
+   * Problem: Minimum number of increment-other operations to make all array elements  equal..
+   * Solution:
+   */
+
+  /**
+   * 449.
+   * Problem: Queries for counts of multiples in an array.
+   * Solution:
+   */
+
+  /**
+   * 450.
+   * Problem: Steps to make array empty by removing maximum and its right side.
+   * Solution:
+   */
+
+  /**
+   * 451.
+   * Problem: K-th Largest Sum Contiguous Subarray.
+   * Solution:
+   */
+
+  /**
+   * 452.
+   * Problem: Minimum and Maximum sum of absolute differences of pairs.
+   * Solution:
+   */
+
+  /**
+   * 453.
+   * Problem: Minimum Possible value of |ai + aj &#8211; k| for given array and k..
+   * Solution:
+   */
+
+  /**
+   * 454.
+   * Problem: Average numbers in array.
+   * Solution:
+   */
+
+  /**
+   * 455.
+   * Problem: Find maximum sum of triplets in an array such than i &lt; j &lt; k and a[i] &lt; a[j] &lt; a[k].
+   * Solution:
+   */
+
+  /**
+   * 456.
+   * Problem: Minimum element whose n-th power is greater than product of an array of size n.
+   * Solution:
+   */
+
+  /**
+   * 457.
+   * Problem: Rearrange array such that even index elements are smaller and odd index elements are greater.
+   * Solution:
+   */
+
+  /**
+   * 458.
+   * Problem: Longest alternating sub-array starting from every index in a Binary Array.
+   * Solution:
+   */
+
+  /**
+   * 459.
+   * Problem: Count ways of choosing a pair with maximum difference.
+   * Solution:
+   */
+
+  /**
+   * 460.
+   * Problem: Print modified array after executing the commands of addition and subtraction.
+   * Solution:
+   */
+
+  /**
+   * 461.
+   * Problem: Number of subarrays whose minimum and maximum are same.
+   * Solution:
+   */
+
+  /**
+   * 462.
+   * Problem: Print next greater number of Q queries.
+   * Solution:
+   */
+
+  /**
+   * 463.
+   * Problem: Minimum cost to connect weighted nodes represented as array.
+   * Solution:
+   */
+
+  /**
+   * 464.
+   * Problem: Mean of range in array.
+   * Solution:
+   */
+
+  /**
+   * 465.
+   * Problem: Distance of closest zero to every element.
+   * Solution:
+   */
+
+  /**
+   * 466.
+   * Problem: Pairs with Difference less than K.
+   * Solution:
+   */
+
+  /**
+   * 467.
+   * Problem: Maximize the sum of arr[i]*i.
+   * Solution:
+   */
+
+  /**
+   * 468.
+   * Problem: Minimum product of k integers in  an array of positive Integers.
+   * Solution:
+   */
+
+  /**
+   * 469.
+   * Problem: Maximize value of (a[i]+i)*(a[j]+j) in an array.
+   * Solution:
+   */
+
+  /**
+   * 470.
+   * Problem: k size subsets with maximum difference d between max and min.
+   * Solution:
+   */
+
+  /**
+   * 471.
+   * Problem: Array Queries for multiply, replacements and product.
+   * Solution:
+   */
+
+  /**
+   * 472.
+   * Problem: Count number of elements between two given elements in array.
+   * Solution:
+   */
+
+  /**
+   * 473.
+   * Problem: Shuffle array {a1, a2, .. an, b1, b2, .. bn} as {a1, b1, a2, b2, a3, b3, ……, an, bn} without using extra space.
+   * Solution:
+   */
+
+  /**
+   * 474.
+   * Problem: Combinations from n arrays picking one element from each array.
+   * Solution:
+   */
+
+  /**
+   * 475.
+   * Problem: Program for Mean and median of an unsorted array.
+   * Solution:
+   */
+
+  /**
+   * 476.
+   * Problem: Counting inversions in all subarrays of given size.
+   * Solution:
+   */
+
+  /**
+   * 477.
+   * Problem: Queries on probability of even or odd number in given ranges.
+   * Solution:
+   */
+
+  /**
+   * 478.
+   * Problem: Divide an array into k segments to maximize maximum of segment minimums.
+   * Solution:
+   */
+
+  /**
+   * 479.
+   * Problem: Pairs of Positive Negative values in an array.
+   * Solution:
+   */
+
+  /**
+   * 480.
+   * Problem: Find single in an array of 2n+1 integer elements.
+   * Solution:
+   */
+
+  /**
+   * 481.
+   * Problem: Program for Variance and Standard Deviation of an array.
+   * Solution:
+   */
+
+  /**
+   * 482.
+   * Problem: Check if a given array is pairwise sorted or not.
+   * Solution:
+   */
+
+  /**
+   * 483.
+   * Problem: Maximum even sum subsequence.
+   * Solution:
+   */
+
+  /**
+   * 484.
+   * Problem: Given an array and three numbers, maximize (x * a[i]) + (y * a[j]) + (z * a[k]).
+   * Solution:
+   */
+
+  /**
+   * 485.
+   * Problem: Find the first,  second and third minimum elements in an array.
+   * Solution:
+   */
+
+  /**
+   * 486.
+   * Problem: Count  number of even and odd elements in an array.
+   * Solution:
+   */
+
+  /**
+   * 487.
+   * Problem: Programming puzzle (Assign value without any control statement).
+   * Solution:
+   */
+
+  /**
+   * 488.
+   * Problem: Program for product of array.
+   * Solution:
+   */
+
+  /**
+   * 489.
+   * Problem: Next Greater Frequency Element.
+   * Solution:
+   */
+
+  /**
+   * 490.
+   * Problem: Possibility of moving out of maze.
+   * Solution:
+   */
+
+  /**
+   * 491.
+   * Problem: Rearrange positive and negative numbers using inbuilt sort function.
+   * Solution:
+   */
+
+  /**
+   * 492.
+   * Problem: Minimum sum by choosing minimum of pairs from array.
+   * Solution:
+   */
+
+  /**
+   * 493.
+   * Problem: Frequency of each element in an unsorted array.
+   * Solution:
+   */
+
+  /**
+   * 494.
+   * Problem: Introduction to Arrays.
+   * Solution:
+   */
+
+  /**
+   * 495.
+   * Problem: Index Mapping (or Trivial Hashing) with negatives allowed.
+   * Solution:
+   */
+
+  /**
+   * 496.
+   * Problem: Lambda expression in Python to rearrange positive and negative numbers.
+   * Solution:
+   */
+
+  /**
+   * 497.
+   * Problem: Find the frequency of a number in an array.
+   * Solution:
+   */
+
+  /**
+   * 498.
+   * Problem: Count frequencies of all elements in array in Python using collections module.
+   * Solution:
+   */
+
+  /**
+   * 499.
+   * Problem: Check if an encoding represents a unique binary string.
+   * Solution:
+   */
+
+  /**
+   * 500.
+   * Problem: Array sum in C++ STL.
+   * Solution:
+   */
+
+  /**
+   * 501.
+   * Problem: Even numbers at even index and odd numbers at odd index.
+   * Solution:
+   */
+
+  /**
+   * 502.
+   * Problem: Minimum absolute difference of adjacent elements in a circular array.
+   * Solution:
+   */
+
+  /**
+   * 503.
+   * Problem: Divide every element of one array by other array elements.
+   * Solution:
+   */
+
+  /**
+   * 504.
+   * Problem: Longest subarray having count of 1s one more than count of 0s.
+   * Solution:
+   */
+
+  /**
+   * 505.
+   * Problem: Largest Derangement of a Sequence.
+   * Solution:
+   */
+
+  /**
+   * 506.
+   * Problem: Number of NGEs to the right.
+   * Solution:
+   */
+
+  /**
+   * 507.
+   * Problem: Longest subsequence such that difference between adjacents is one | Set 2.
+   * Solution:
+   */
+
+  /**
+   * 508.
+   * Problem: Lexicographically smallest permutation with distinct elements using minimum replacements.
+   * Solution:
+   */
+
+  /**
+   * 509.
+   * Problem: Maximum sum subsequence with at-least k distant elements.
+   * Solution:
+   */
+
+  /**
+   * 510.
+   * Problem: Program for weighted mean of natural numbers..
+   * Solution:
+   */
+
+  /**
+   * 511.
+   * Problem: Count ways to form minimum product triplets.
+   * Solution:
+   */
+
+  /**
+   * 512.
+   * Problem: Merge two sorted arrays in Python using heapq.
+   * Solution:
+   */
+
+  /**
+   * 513.
+   * Problem: Find four missing numbers in an array containing elements from 1 to N.
+   * Solution:
+   */
+
+  /**
+   * 514.
+   * Problem: Sum of array elements after every element x is XORed itself x times.
+   * Solution:
+   */
+
+  /**
+   * 515.
+   * Problem: Move all zeroes to end of array using List Comprehension in Python.
+   * Solution:
+   */
+
+  /**
+   * 516.
+   * Problem: Subsequences of size three in an array whose sum is divisible by m.
+   * Solution:
+   */
+
+  /**
+   * 517.
+   * Problem: Powers of two and subsequences.
+   * Solution:
+   */
+
+  /**
+   * 518.
+   * Problem: Number of steps to convert to prime factors.
+   * Solution:
+   */
+
+  /**
+   * 519.
+   * Problem: Smallest subarray with k distinct numbers.
+   * Solution:
+   */
+
+  /**
+   * 520.
+   * Problem: Number of cyclic elements in an array where we can jump according to value.
+   * Solution:
+   */
+
+  /**
+   * 521.
+   * Problem: intersection_update() in Python to find common elements in n arrays.
+   * Solution:
+   */
+
+  /**
+   * 522.
+   * Problem: Longest subsequence with no 0 after 1.
+   * Solution:
+   */
+
+  /**
+   * 523.
+   * Problem: Elements to be added so that all elements of a range are present in array.
+   * Solution:
+   */
+
+  /**
+   * 524.
+   * Problem: Longest subarray not having more then K distinct elements.
+   * Solution:
+   */
+
+  /**
+   * 525.
+   * Problem: Set update() in Python to do union of n arrays.
+   * Solution:
+   */
+
+  /**
+   * 526.
+   * Problem: Minimum sum of product of two arrays.
+   * Solution:
+   */
+
+  /**
+   * 527.
+   * Problem: Python program to add two matrices.
+   * Solution:
+   */
+
+  /**
+   * 528.
+   * Problem: Only integer with positive value in positive negative value in array.
+   * Solution:
+   */
+
+  /**
+   * 529.
+   * Problem: Minimum 1s to lend power to make whole array powerful.
+   * Solution:
+   */
+
+  /**
+   * 530.
+   * Problem: Find array with k number of merge sort calls.
+   * Solution:
+   */
+
+  /**
+   * 531.
+   * Problem: Check whether the given array is perfect or not.
+   * Solution:
+   */
+
+  /**
+   * 532.
+   * Problem: Longest Increasing subarray with one change allowed.
+   * Solution:
+   */
+
+  /**
+   * 533.
+   * Problem: Largest increasing subsequence of consecutive integers.
+   * Solution:
+   */
+
+  /**
+   * 534.
+   * Problem: Largest in array without using conditionals / bitwise / ternary operators.
+   * Solution:
+   */
+
+  /**
+   * 535.
+   * Problem: Maximum Unique Element in every subarray of size K.
+   * Solution:
+   */
+
+  /**
+   * 536.
+   * Problem: Minimum replacements to make elements of a ternary array same.
+   * Solution:
+   */
+
+  /**
+   * 537.
+   * Problem: Products of ranges in an array.
+   * Solution:
+   */
+
+  /**
+   * 538.
+   * Problem: Dividing an array into two halves of same sum.
+   * Solution:
+   */
+
+  /**
+   * 539.
+   * Problem: Make three non-empty sets with negative, positive and 0 products.
+   * Solution:
+   */
+
+  /**
+   * 540.
+   * Problem: Minimum operations to make the MEX of the given set equal to x.
+   * Solution:
+   */
+
+  /**
+   * 541.
+   * Problem: Array element moved by k using single moves.
+   * Solution:
+   */
+
+  /**
+   * 542.
+   * Problem: Non-overlapping sum of two sets.
+   * Solution:
+   */
+
+  /**
+   * 543.
+   * Problem: Merging elements of two different arrays alternatively in third array.
+   * Solution:
+   */
+
+  /**
+   * 544.
+   * Problem: Maximum consecutive numbers present in an array.
+   * Solution:
+   */
+
+  /**
+   * 545.
+   * Problem: Longest sequence of positive integers in an array.
+   * Solution:
+   */
+
+  /**
+   * 546.
+   * Problem: Number of visible boxes after putting one inside another.
+   * Solution:
+   */
+
+  /**
+   * 547.
+   * Problem: Longest subsequence having equal numbers of 0 and 1.
+   * Solution:
+   */
+
+  /**
+   * 548.
+   * Problem: Differences between number of increasing subarrays and decreasing subarrays in k sized windows.
+   * Solution:
+   */
+
+  /**
+   * 549.
+   * Problem: Count sub-arrays which have elements less than or equal to X.
+   * Solution:
+   */
+
+  /**
+   * 550.
+   * Problem: GCD of array is greater than one.
+   * Solution:
+   */
+
+  /**
+   * 551.
+   * Problem: Pair with given sum and maximum shortest distance from end.
+   * Solution:
+   */
+
+  /**
+   * 552.
+   * Problem: Last seen array element (last appearance is earliest).
+   * Solution:
+   */
+
+  /**
+   * 553.
+   * Problem: Minimum gcd operations to make all array elements one.
+   * Solution:
+   */
+
+  /**
+   * 554.
+   * Problem: Minimum flips to make all 1s in left and 0s in right | Set 1 (Using Bitmask).
+   * Solution:
+   */
+
+  /**
+   * 555.
+   * Problem: Minimum flips to make all 1s in left and 0s in right | Set 2.
+   * Solution:
+   */
+
+  /**
+   * 556.
+   * Problem: Find minimum in an array without using Relational Operators.
+   * Solution:
+   */
+
+  /**
+   * 557.
+   * Problem: Number of subarrays with maximum values in given range.
+   * Solution:
+   */
+
+  /**
+   * 558.
+   * Problem: Construct a distinct elements array with given size, sum and element upper bound.
+   * Solution:
+   */
+
+  /**
+   * 559.
+   * Problem: Find maximum in an array without using Relational Operators.
+   * Solution:
+   */
+
+  /**
+   * 560.
+   * Problem: Program for Bridge and Torch problem.
+   * Solution:
+   */
+
+  /**
+   * 561.
+   * Problem: Maximum array sum with prefix and suffix multiplications with -1 allowed.
+   * Solution:
+   */
+
+  /**
+   * 562.
+   * Problem: Find element in array that divides all array elements.
+   * Solution:
+   */
+
+  /**
+   * 563.
+   * Problem: Closest greater element for every array element from another array.
+   * Solution:
+   */
+
+  /**
+   * 564.
+   * Problem: Minimizing array sum by subtracting larger elements from smaller ones.
+   * Solution:
+   */
+
+  /**
+   * 565.
+   * Problem: Maximizing array sum with given operation.
+   * Solution:
+   */
+
+  /**
+   * 566.
+   * Problem: Number of pairs with maximum sum.
+   * Solution:
+   */
+
+  /**
+   * 567.
+   * Problem: Find closest number in array.
+   * Solution:
+   */
+
+  /**
+   * 568.
+   * Problem: Generate original array from an array that store the counts of greater elements on right.
+   * Solution:
+   */
+
+  /**
+   * 569.
+   * Problem: Find smallest subarray that contains all elements in same order.
+   * Solution:
+   */
+
+  /**
+   * 570.
+   * Problem: Maximum AND value of a pair in an array.
+   * Solution:
+   */
+
+  /**
+   * 571.
+   * Problem: Two Pointers Technique.
+   * Solution:
+   */
+
+  /**
+   * 572.
+   * Problem: Probability of a random pair being the maximum weighted pair.
+   * Solution:
+   */
+
+  /**
+   * 573.
+   * Problem: Maximum array from two given arrays keeping order same.
+   * Solution:
+   */
+
+  /**
+   * 574.
+   * Problem: Sparse Table.
+   * Solution:
+   */
+
+  /**
+   * 575.
+   * Problem: No of pairs (a[j] >= a[i]) with k numbers in range (a[i], a[j]) that are divisible by x.
+   * Solution:
+   */
+
+  /**
+   * 576.
+   * Problem: Maximum size subset with given sum.
+   * Solution:
+   */
+
+  /**
+   * 577.
+   * Problem: Find mean of subarray means in a given array.
+   * Solution:
+   */
+
+  /**
+   * 578.
+   * Problem: Length of longest strict bitonic subsequence.
+   * Solution:
+   */
+
+  /**
+   * 579.
+   * Problem: Product of maximum in first array and minimum in second.
+   * Solution:
+   */
+
+  /**
+   * 580.
+   * Problem: Binary Tree (Array implementation).
+   * Solution:
+   */
+
+  /**
+   * 581.
+   * Problem: Find largest element from array without using conditional operator.
+   * Solution:
+   */
+
+  /**
+   * 582.
+   * Problem: Count subarrays where second highest lie before highest.
+   * Solution:
+   */
+
+  /**
+   * 583.
+   * Problem: Game of replacing array elements.
+   * Solution:
+   */
+
+  /**
+   * 584.
+   * Problem: Largest divisible pairs subset.
+   * Solution:
+   */
+
+  /**
+   * 585.
+   * Problem: Add 1 to number represented as array | Recursive Approach.
+   * Solution:
+   */
+
+  /**
+   * 586.
+   * Problem: Circular array.
+   * Solution:
+   */
+
+  /**
+   * 587.
+   * Problem: Check if the last element of array is even or odd after performing a operation p times.
+   * Solution:
+   */
+
+  /**
+   * 588.
+   * Problem: Print n smallest elements from given array in their original order.
+   * Solution:
+   */
+
+  /**
+   * 589.
+   * Problem: Count pairs in array whose sum is divisible by 4.
+   * Solution:
+   */
+
+  /**
+   * 590.
+   * Problem: Probability of choosing a random pair with maximum sum in an array.
+   * Solution:
+   */
+
+  /**
+   * 591.
+   * Problem: Longest alternating (positive and negative) subarray starting at every index.
+   * Solution:
+   */
+
+  /**
+   * 592.
+   * Problem: Count of suffix increment/decrement operations to construct a given array.
+   * Solution:
+   */
+
+  /**
+   * 593.
+   * Problem: Longest Increasing Odd Even Subsequence.
+   * Solution:
+   */
+
+  /**
+   * 594.
+   * Problem: Make alphabets using the elements of an array.
+   * Solution:
+   */
+
+  /**
+   * 595.
+   * Problem: Queries on Left and Right Circular shift on array.
+   * Solution:
+   */
+
+  /**
+   * 596.
+   * Problem: De-arrangements for minimum product sum of two arrays.
+   * Solution:
+   */
+
+  /**
+   * 597.
+   * Problem: Length of longest increasing circular subarray.
+   * Solution:
+   */
+
+  /**
+   * 598.
+   * Problem: Count of possible hexagonal walks.
+   * Solution:
+   */
+
+  /**
+   * 599.
+   * Problem: Check whether second string can be formed from characters of first string.
+   * Solution:
+   */
+
+  /**
+   * 600.
+   * Problem: Ways to split array into two groups of same XOR value.
+   * Solution:
+   */
+
+  /**
+   * 601.
+   * Problem: Longest subsegment of  &#8216;1&#8217;s formed by changing at most k &#8216;0&#8217;s.
+   * Solution:
+   */
+
+  /**
+   * 602.
+   * Problem: Maximum distinct elements after removing k elements.
+   * Solution:
+   */
+
+  /**
+   * 603.
+   * Problem: Queries on XOR of XORs of all subarrays.
+   * Solution:
+   */
+
+  /**
+   * 604.
+   * Problem: Maximum sum of pairwise product in an array with negative allowed.
+   * Solution:
+   */
+
+  /**
+   * 605.
+   * Problem: Find a rotation with maximum hamming distance.
+   * Solution:
+   */
+
+  /**
+   * 606.
+   * Problem: Program to generate random alphabets.
+   * Solution:
+   */
+
+  /**
+   * 607.
+   * Problem: Partition into two subarrays of lengths k and (N &#8211; k) such that the difference of sums is maximum.
+   * Solution:
+   */
+
+  /**
+   * 608.
+   * Problem: Rearrange array such that even positioned are greater than odd.
+   * Solution:
+   */
+
+  /**
+   * 609.
+   * Problem: Minimum insertions to make a Co-prime array.
+   * Solution:
+   */
+
+  /**
+   * 610.
+   * Problem: Count number of increasing subsequences of size k.
+   * Solution:
+   */
+
+  /**
+   * 611.
+   * Problem: Maximum triplet sum in array.
+   * Solution:
+   */
+
+  /**
+   * 612.
+   * Problem: Double the first element and move zero to end.
+   * Solution:
+   */
+
+  /**
+   * 613.
+   * Problem: Smallest subarray with all occurrences of a most frequent element.
+   * Solution:
+   */
+
+  /**
+   * 614.
+   * Problem: Longest subarray with sum divisible by k.
+   * Solution:
+   */
+
+  /**
+   * 615.
+   * Problem: Move all zeroes to end of array | Set-2 (Using single traversal).
+   * Solution:
+   */
+
+  /**
+   * 616.
+   * Problem: Change the array into a permutation of numbers from 1 to n.
+   * Solution:
+   */
+
+  /**
+   * 617.
+   * Problem: Backtracking to find all subsets.
+   * Solution:
+   */
+
+  /**
+   * 618.
+   * Problem: Program to reverse an array using pointers.
+   * Solution:
+   */
+
+  /**
+   * 619.
+   * Problem: Count subarrays with equal number of 1&#8217;s and 0&#8217;s.
+   * Solution:
+   */
+
+  /**
+   * 620.
+   * Problem: Maximum product of an increasing subsequence.
+   * Solution:
+   */
+
+  /**
+   * 621.
+   * Problem: Minimum number of subsets with distinct elements.
+   * Solution:
+   */
+
+  /**
+   * 622.
+   * Problem: k smallest elements in same order using O(1) extra space.
+   * Solution:
+   */
+
+  /**
+   * 623.
+   * Problem: Operations on Sparse Matrices.
+   * Solution:
+   */
+
+  /**
+   * 624.
+   * Problem: Parallel Array.
+   * Solution:
+   */
+
+  /**
+   * 625.
+   * Problem: Check if it is possible to make array equal by doubling or tripling.
+   * Solution:
+   */
+
+  /**
+   * 626.
+   * Problem: Find the number of consecutive zero at the end after multiplying n numbers.
+   * Solution:
+   */
+
+  /**
+   * 627.
+   * Problem: Smallest subset with sum greater than all other elements.
+   * Solution:
+   */
+
+  /**
+   * 628.
+   * Problem: Minimum number of subtract operation to make an array decreasing.
+   * Solution:
+   */
+
+  /**
+   * 629.
+   * Problem: Value of  k-th index of a series formed by append and insert MEX in middle.
+   * Solution:
+   */
+
+  /**
+   * 630.
+   * Problem: Largest subset with sum of every pair as prime.
+   * Solution:
+   */
+
+  /**
+   * 631.
+   * Problem: Count of subsequences having maximum distinct elements.
+   * Solution:
+   */
+
+  /**
+   * 632.
+   * Problem: Intersection of two arrays in Python ( Lambda expression and filter function ).
+   * Solution:
+   */
+
+  /**
+   * 633.
+   * Problem: Prefix sum array in Python using accumulate function.
+   * Solution:
+   */
+
+  /**
+   * 634.
+   * Problem: Python List Comprehension to find pair with given sum from two arrays.
+   * Solution:
+   */
+
+  /**
+   * 635.
+   * Problem: Python Set difference to find lost element from a duplicated array.
+   * Solution:
+   */
+
+  /**
+   * 636.
+   * Problem: Python | Check if all the values in a list that are greater than a given value.
+   * Solution:
+   */
+
+  /**
+   * 637.
+   * Problem: Minimum cost to make array size 1 by removing larger of pairs.
+   * Solution:
+   */
+
+  /**
+   * 638.
+   * Problem: Range sum query using Sparse Table.
+   * Solution:
+   */
+
+  /**
+   * 639.
+   * Problem: Range Query on array whose each element is XOR of index value and previous element.
+   * Solution:
+   */
+
+  /**
+   * 640.
+   * Problem: Maximum number of chocolates to be distributed equally among k students.
+   * Solution:
+   */
+
+  /**
+   * 641.
+   * Problem: Check if array contains contiguous integers with duplicates allowed.
+   * Solution:
+   */
+
+  /**
+   * 642.
+   * Problem: Maximum OR sum of sub-arrays of two different arrays.
+   * Solution:
+   */
+
+  /**
+   * 643.
+   * Problem: Rearrange an array such that arr[i] = i.
+   * Solution:
+   */
+
+  /**
+   * 644.
+   * Problem: Sum triangle from array.
+   * Solution:
+   */
+
+  /**
+   * 645.
+   * Problem: Minimize  (max(A[i], B[j], C[k]) &#8211; min(A[i], B[j], C[k])) of three different sorted arrays.
+   * Solution:
+   */
+
+  /**
+   * 646.
+   * Problem: Add two numbers represented by two arrays.
+   * Solution:
+   */
+
+  /**
+   * 647.
+   * Problem: Maximum in array which is at-least twice of other elements.
+   * Solution:
+   */
+
+  /**
+   * 648.
+   * Problem: Find LCM of rational numbers.
+   * Solution:
+   */
+
+  /**
+   * 649.
+   * Problem: Find reminder of array multiplication divided by n.
+   * Solution:
+   */
+
+  /**
+   * 650.
+   * Problem: Longest sub-array having sum k.
+   * Solution:
+   */
+
+  /**
+   * 651.
+   * Problem: Find last element after deleting every second element in array of n integers.
+   * Solution:
+   */
+
+  /**
+   * 652.
+   * Problem: Distance between two closest minimum.
+   * Solution:
+   */
+
+  /**
+   * 653.
+   * Problem: Rearrange array such that arr[i] >= arr[j] if i is even and arr[i]<=arr[j] if i is odd and j < i.
+   * Solution:
+   */
+
+  /**
+   * 654.
+   * Problem: Check if an array is stack sortable.
+   * Solution:
+   */
+
+  /**
+   * 655.
+   * Problem: Growable array based stack.
+   * Solution:
+   */
+
+  /**
+   * 656.
+   * Problem: K maximum sum combinations from two arrays.
+   * Solution:
+   */
+
+  /**
+   * 657.
+   * Problem: Maximum absolute difference of value and index sums.
+   * Solution:
+   */
+
+  /**
+   * 658.
+   * Problem: Possible to make a divisible by 3 number using all digits in an array.
+   * Solution:
+   */
+
+  /**
+   * 659.
+   * Problem: Sum of consecutive two elements in a array.
+   * Solution:
+   */
+
+  /**
+   * 660.
+   * Problem: Sparse Matrix Representations | Set 3 ( CSR ).
+   * Solution:
+   */
+
+  /**
+   * 661.
+   * Problem: Number of local extrema in an array.
+   * Solution:
+   */
+
+  /**
+   * 662.
+   * Problem: Kronecker Product of two matrices.
+   * Solution:
+   */
+
+  /**
+   * 663.
+   * Problem: K maximum sums of non-overlapping contiguous sub-arrays.
+   * Solution:
+   */
+
+  /**
+   * 664.
+   * Problem: Merge 3 Sorted Arrays.
+   * Solution:
+   */
+
+  /**
+   * 665.
+   * Problem: Check if an array has a majority element.
+   * Solution:
+   */
+
+  /**
+   * 666.
+   * Problem: Sum of an array using pthreads.
+   * Solution:
+   */
+
+  /**
+   * 667.
+   * Problem: Find the one missing number in range.
+   * Solution:
+   */
+
+  /**
+   * 668.
+   * Problem: Rank of all elements in an array.
+   * Solution:
+   */
+
+  /**
+   * 669.
+   * Problem: Insertion Sort by Swapping Elements.
+   * Solution:
+   */
+
+  /**
+   * 670.
+   * Problem: Closest numbers from a list of unsorted integers.
+   * Solution:
+   */
+
+  /**
+   * 671.
+   * Problem: Sum of f(a[i], a[j]) over all pairs in an array of n integers.
+   * Solution:
+   */
+
+  /**
+   * 672.
+   * Problem: Find number of pairs in an array such that their XOR is 0.
+   * Solution:
+   */
+
+  /**
+   * 673.
+   * Problem: Count number of trailing zeros in product of array.
+   * Solution:
+   */
+
+  /**
+   * 674.
+   * Problem: Minimum pair sum operations to make array each element divisible by 4.
+   * Solution:
+   */
+
+  /**
+   * 675.
+   * Problem: Optimal partition of an array into four parts.
+   * Solution:
+   */
+
+  /**
+   * 676.
+   * Problem: Find last k digits in product of an array numbers.
+   * Solution:
+   */
+
+  /**
+   * 677.
+   * Problem: Maximum subarray sum in O(n) using prefix sum.
+   * Solution:
+   */
+
+  /**
+   * 678.
+   * Problem: Making elements distinct in a sorted array by minimum increments.
+   * Solution:
+   */
+
+  /**
+   * 679.
+   * Problem: K maximum sums of overlapping contiguous sub-arrays.
+   * Solution:
+   */
+
+  /**
+   * 680.
+   * Problem: Dope Vector.
+   * Solution:
+   */
+
+  /**
+   * 681.
+   * Problem: Program for Coefficient of variation.
+   * Solution:
+   */
+
+  /**
+   * 682.
+   * Problem: Skewness of statistical data.
+   * Solution:
+   */
+
+  /**
+   * 683.
+   * Problem: Find if neat arrangement of cups and shelves can be made.
+   * Solution:
+   */
+
+  /**
+   * 684.
+   * Problem: Maximum subarray sum in an array created after repeated concatenation.
+   * Solution:
+   */
+
+  /**
+   * 685.
+   * Problem: Consecutive steps to roof top.
+   * Solution:
+   */
+
+  /**
+   * 686.
+   * Problem: Difference Array | Range update query in O(1).
+   * Solution:
+   */
+
+  /**
+   * 687.
+   * Problem: Construct sum-array with sum of elements in given range.
+   * Solution:
+   */
+
+  /**
+   * 688.
+   * Problem: Program to implement t-test.
+   * Solution:
+   */
+
+  /**
+   * 689.
+   * Problem: Print intermediate values in an array.
+   * Solution:
+   */
+
+  /**
+   * 690.
+   * Problem: Reversal algorithm for right rotation of an array.
+   * Solution:
+   */
+
+  /**
+   * 691.
+   * Problem: Largest number that is not a perfect square.
+   * Solution:
+   */
+
+  /**
+   * 692.
+   * Problem: Sum of XOR of all pairs in an array.
+   * Solution:
+   */
+
+
+
 }

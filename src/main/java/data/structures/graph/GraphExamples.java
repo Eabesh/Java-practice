@@ -40,9 +40,11 @@ public class GraphExamples {
   }
 
   private void depthFirstSearch(int[][] mat, int i, boolean[] isVisited) {
-    isVisited[i] = true;
-    System.out.print(i + " ");
-    for (int j = 0; j < mat[0].length; j++) if (!isVisited[j] && mat[i][j] == 1) depthFirstSearch(mat, j, isVisited);
+    if (!isVisited[i]) {
+      isVisited[i] = true;
+      System.out.print(i + " ");
+      for (int j = 0; j < mat[0].length; j++) if (!isVisited[j] && mat[i][j] == 1) depthFirstSearch(mat, j, isVisited);
+    }
   }
 
 
@@ -119,7 +121,10 @@ public class GraphExamples {
       isVisited[front] = true;
       if (front == dest) return true;
       else
-        for (int i = 0; i < mat[0].length; i++) if (!isVisited[i] && mat[front][i] == 1) queue.add(i);
+        for (int i = 0; i < mat[0].length; i++) if (!isVisited[i] && mat[front][i] == 1) {
+
+        queue.add(i);
+        }
     }
     return false;
   }
@@ -127,9 +132,8 @@ public class GraphExamples {
   /**
    * 8.
    * Problem: Backtracking | Set 6 (Hamiltonian Cycle).
-   * Solution:
    */
-  ArrayList hamiltonianCycle(int[][] graph) {
+  public ArrayList hamiltonianCycle(int[][] graph) {
     ArrayList<Integer> path = new ArrayList<>();
     path.add(0);
     return (hamCycle(graph, path, 1)) ? path : null;
@@ -308,7 +312,8 @@ public class GraphExamples {
 
   private void tSort(int[][] graph, int curr, Stack<Integer> stack, boolean[] visited) {
     visited[curr] = true;
-    for (int j = 0; j < graph[0].length; j++) if (isValidNeighbour(graph, curr, j, visited)) tSort(graph, j, stack, visited);
+    for (int j = 0; j < graph[0].length; j++)
+      if (isValidNeighbour(graph, curr, j, visited)) tSort(graph, j, stack, visited);
     stack.push(curr);
   }
 
@@ -336,7 +341,8 @@ public class GraphExamples {
       int top = stack.pop();
       if (distance[top] != Integer.MAX_VALUE) {
         for (int v = 0; v < graph.length; v++)
-          if (graph[top][v] == 1 && distance[v] > distance[top] + weight[top][v]) distance[v] = distance[top] + weight[top][v];
+          if (graph[top][v] == 1 && distance[v] > distance[top] + weight[top][v])
+            distance[v] = distance[top] + weight[top][v];
       }
     }
     return distance;
@@ -441,7 +447,7 @@ public class GraphExamples {
   boolean isCycleUD(Graph graph) {
     List<List<Integer>> graphList = graph.getGraph();
     boolean[] visited = new boolean[graphList.size()];
-    for (int u = 0; u < graphList.size(); u++) if (!visited[u]) if (isCycleUD(graphList, 0, visited, - 1)) return true;
+    for (int u = 0; u < graphList.size(); u++) if (!visited[u]) if (isCycleUD(graphList, 0, visited, -1)) return true;
     return false;
   }
 
@@ -551,6 +557,7 @@ public class GraphExamples {
    */
   class BoardNode {
     int vertex, diceThrow;
+
     public BoardNode(int v, int d) {
       this.vertex = v;
       this.diceThrow = d;
@@ -585,7 +592,9 @@ public class GraphExamples {
     return nextMove < board.length && !visited[nextMove];
   }
 
-  private boolean isSnakeOrLadder(int x) { return x == -1 ? false : true; }
+  private boolean isSnakeOrLadder(int x) {
+    return x == -1 ? false : true;
+  }
 
   /**
    * 52.
@@ -624,19 +633,18 @@ public class GraphExamples {
   }
 
   private void findWord(char[][] mat, Set<String> dictionary, int x, int y, boolean[][] visited, String soFar, int[][] moves) {
-    visited[x][y] = true;
-    soFar += mat[x][y];
-    if (dictionary.contains(soFar)) System.out.println(soFar);
-    for (int[] move : moves)
-      if (safeNextMove(mat, x + move[0], y + move[1], visited)) findWord(mat, dictionary,
-              x + move[0], y + move[1], visited, soFar, moves);
-
-    visited[x][y] = false;
+    if (safeNextMove(mat, x,  y, visited)) {
+      visited[x][y] = true;
+      soFar += mat[x][y];
+      if (dictionary.contains(soFar)) System.out.println(soFar);
+      for (int[] move : moves) findWord(mat, dictionary, x + move[0], y + move[1], visited, soFar, moves);
+      visited[x][y] = false;
+    }
 
   }
 
   private boolean safeNextMove(char[][] mat, int x, int y, boolean[][] visited) {
-    return x >=0 && x < mat.length && y >=0 && y < mat[0].length && !visited[x][y];
+    return x >= 0 && x < mat.length && y >= 0 && y < mat[0].length && !visited[x][y];
   }
 
   /**
@@ -790,8 +798,9 @@ public class GraphExamples {
    * Solution:
    */
   int numberOfTriangles(int[][] graph, int k, ArrayList<Integer> nodes) {
-    if (k == 0 && graph[nodes.get(0)][nodes.get(1)] == 1 && graph[nodes.get(1)][nodes.get(2)] == 1 && graph[nodes.get(2)][nodes.get(0)] == 1) return 1;
-    else{
+    if (k == 0 && graph[nodes.get(0)][nodes.get(1)] == 1 && graph[nodes.get(1)][nodes.get(2)] == 1 && graph[nodes.get(2)][nodes.get(0)] == 1)
+      return 1;
+    else {
       int total = 0;
       for (int i = 0; i < graph.length; i++) {
         nodes.add(i);
@@ -881,7 +890,6 @@ public class GraphExamples {
   }
 
 
-
   /**
    * 88.
    * Problem: Push Relabel Algorithm | Set 1 (Introduction and Illustration).
@@ -909,9 +917,8 @@ public class GraphExamples {
   /**
    * 92.
    * Problem: Find if there is a path of more than k length from a source.
-   * Solution:
    */
-  boolean isKLengthPath(int[][] graph, int[][] weight, int source, int k) {
+  public boolean isKLengthPath(int[][] graph, int[][] weight, int source, int k) {
     boolean[] visited = new boolean[graph.length];
     visited[source] = true;
     return isKLengthPath1(graph, weight, k, source, 0, visited);
@@ -958,7 +965,7 @@ public class GraphExamples {
     int[] outTime = new int[graph.length];
     boolean[] visited = new boolean[graph.length];
     int[] currentTime = {};
-    dfsWithTime(graph, 0,inTime, outTime, visited, currentTime);
+    dfsWithTime(graph, 0, inTime, outTime, visited, currentTime);
     return query(u, v, inTime, outTime);
   }
 
@@ -970,7 +977,8 @@ public class GraphExamples {
     inTime[source] = ++currentTime[0];
     visited[source] = true;
     for (int node = 0; node < graph.length; node++)
-      if (isValidNeighbour(graph, source, node, visited)) dfsWithTime(graph, node, inTime, outTime, visited, currentTime);
+      if (isValidNeighbour(graph, source, node, visited))
+        dfsWithTime(graph, node, inTime, outTime, visited, currentTime);
     outTime[source] = ++currentTime[0];
   }
 
@@ -1121,7 +1129,7 @@ public class GraphExamples {
     while (!queue.isEmpty()) {
       BFSElement front = queue.poll();
       if (front.getVal() == y) return front.getDistance();
-      else if (x > 1000) return - 1;
+      else if (x > 1000) return -1;
       else {
         int first = front.getVal() * 2;
         int second = front.getVal() - 1;
@@ -1688,12 +1696,12 @@ public class GraphExamples {
    * Count the total number of ways or paths that exist between two vertices in a directed graph.
    */
 
-  int countPathsDG(int[][] graph, int source, int dest, boolean[] visited) {
+  public int countPathsDG(int[][] graph, int source, int dest, boolean[] visited) {
     int count = 0;
     if (source == dest) return 1;
     else {
       for (int i = 0; i < graph[0].length; i++) {
-        if (isValidNeighbour(graph, source, i, visited)){
+        if (isValidNeighbour(graph, source, i, visited)) {
           visited[source] = true;
           count += countPathsDG(graph, i, dest, visited);
           visited[source] = false;
@@ -1717,13 +1725,11 @@ public class GraphExamples {
    */
 
 
-
   /**
    * 187.
    * Problem: Katz Centrality (Centrality Measure).
    * Solution:
    */
-
 
 
   /**
@@ -1738,7 +1744,7 @@ public class GraphExamples {
    * Problem: Level of Each node in a Tree from source node (using BFS).
    */
   void printLevelOfEachNode(int[][] graph, int source) {
-    int[]level = new int[graph.length];
+    int[] level = new int[graph.length];
     boolean[] isVisited = new boolean[graph.length];
     Queue<Integer> queue = new LinkedList<>();
     isVisited[source] = true;
@@ -1772,20 +1778,12 @@ public class GraphExamples {
 
   private void countDFS(int[][] graph, int source, boolean[] isVisited) {
     isVisited[source] = true;
-    for (int i = 0; i < graph[0].length; i++)  if(isValidNeighbour(graph, source, i, isVisited)) countDFS(graph, i, isVisited);
+    for (int i = 0; i < graph[0].length; i++)
+      if (isValidNeighbour(graph, source, i, isVisited)) countDFS(graph, i, isVisited);
   }
 
 
-
-
-
-
-
-
-
-
-
-   /**
+  /**
    * Given a matrix of 0's and 1's find the count of biggest area covered by adjacent 1's.
    * Hint: We can use DFS here.
    */
@@ -1793,35 +1791,32 @@ public class GraphExamples {
     int m = grid.length;
     int n = grid.length;
     boolean[][] isVisited = new boolean[m][n];
-
+    int[][] moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {1, -1}, {-1, 1}};
     int max = 0;
     for (int i = 0; i < m; i++) {
       for (int j = 0; j < n; j++) {
         if (!isVisited[i][j] && grid[i][j] == 1) {
-          isVisited[i][j] = true;
-          max = Math.max(max, 1 + dfs2(grid, i, j, isVisited));
+          max = Math.max(max, dfs2(grid, i, j, isVisited, moves));
         }
       }
     }
-
     return max;
   }
 
 
-
-  int dfs2(int[][] grid, int x, int y, boolean[][] isVisited) {
-    int count = 0;
-    int[][] moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {1, -1}, {-1, 1}};
-
-    for (int[] move : moves) {
-      int nextX = x + move[0];
-      int nextY = y + move[1];
-      if (isValidMove(grid, nextX, nextY, isVisited)) {
-        isVisited[nextX][nextY] = true;
-        count +=1 + dfs2(grid, nextX, nextY, isVisited);
+  int dfs2(int[][] grid, int x, int y, boolean[][] isVisited, int[][] moves) {
+    if (!isValidMove(grid, x, y, isVisited)) return 0;
+    else {
+      int count = 0;
+      isVisited[x][y] = true;
+      for (int[] move : moves) {
+        int nextX = x + move[0];
+        int nextY = y + move[1];
+        count += dfs2(grid, nextX, nextY, isVisited, moves);
       }
+      return 1 + count;
     }
-    return count;
+
   }
 
   int dfs(int[][] grid, int x, int y, boolean[][] isVisited) {

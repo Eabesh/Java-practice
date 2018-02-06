@@ -115,8 +115,8 @@ public class RecursionExamplesTest {
 
   @Test
   public void printKLengthString() throws Exception {
-    char[] array = {'a', 'b'};
-    new RecursionExamples().printKLengthString(array, 2, "");
+    char[] array = {'a', 'e', 'i','o','u' };
+    new RecursionExamples().printKLengthString(array, 3, "");
   }
 
   @Test

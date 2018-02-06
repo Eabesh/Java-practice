@@ -2,15 +2,57 @@ package algorithms.backtracking;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by abhay on 16/07/17.
  */
 public class BackTrackingExamplesTest {
+  @Test
+  public void graphColoring() throws Exception {
+    int graph[][] = {{0, 1, 1, 1},
+            {1, 0, 1, 0},
+            {1, 1, 0, 1},
+            {1, 0, 1, 0},
+    };
+    boolean result = new BackTrackingExamples().graphColoring(graph, 3);
+    System.out.println(result);
+
+  }
+
+  @Test
+  public void palindromicPartitions() throws Exception {
+    ArrayList<ArrayList<String>> result = new ArrayList<>();
+    new BackTrackingExamples().palindromicPartitions("aab", result, new ArrayList<>());
+//    for (ArrayList<String> strings : result) System.out.println(strings);
+    new BackTrackingExamples().palindromicPartitions2("aab", "");
+  }
+
+  @Test
+  public void combinationsOfdist() throws Exception {
+    int n = 3;
+    int[] board = new int[2 * n];
+    Arrays.fill(board, Integer.MIN_VALUE);
+    new BackTrackingExamples().combinationsOfdist(board, 1, n);
+  }
+
+  @Test
+  public void findCombinationSum() throws Exception {
+
+    int[] array = {2, 4, 6, 8};
+    new BackTrackingExamples().findCombinationSum(array, 8, "", array.length);
+  }
+
+  @Test
+  public void subSets() throws Exception {
+    ArrayList<Integer> set = new ArrayList<>();
+    for (int i = 1; i < 3; i++) set.add(i);
+    new BackTrackingExamples().subSets(set, "");
+  }
+
   @Test
   public void printPermutation() throws Exception {
     new BackTrackingExamples().printPermutation("", "abc");

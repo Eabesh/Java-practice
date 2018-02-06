@@ -622,6 +622,7 @@ public class DPExamples {
    * Given a positive integer N, count all possible distinct binary strings of length N such that there are no
    * consecutive 1’s.
    */
+
   int countStrings(int n) {
     return countWith1AtEnd(n) + countWith0AtEnd(n);
   }

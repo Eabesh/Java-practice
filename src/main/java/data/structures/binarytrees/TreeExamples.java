@@ -12,7 +12,6 @@ public class TreeExamples {
   private BSTExamples bstExamples = new BSTExamples();
 
 
-
   /**
    * 1.
    * Problem: Tree Traversals (Inorder, Pre-order and Post-order).
@@ -155,20 +154,19 @@ public class TreeExamples {
     else return root;
   }
 
-/**
- * Problem: Lowest Common Ancestor in a Binary Tree. (When both keys present.)
- */
- TreeNode findLCABT(TreeNode root, int k1, int k2) {
-   if (root == null) return null;
-   else if (root.data == k1 || root.data == k2) return root;
-   else {
-     TreeNode leftLCA = findLCABT(root.left, k1, k2);
-     TreeNode rightLCA = findLCABT(root.right, k1, k2);
-     if (leftLCA != null && rightLCA != null) return root;
-     return (leftLCA != null) ? leftLCA : rightLCA;
-   }
- }
-
+  /**
+   * Problem: Lowest Common Ancestor in a Binary Tree. (When both keys present.)
+   */
+  TreeNode findLCABT(TreeNode root, int k1, int k2) {
+    if (root == null) return null;
+    else if (root.data == k1 || root.data == k2) return root;
+    else {
+      TreeNode leftLCA = findLCABT(root.left, k1, k2);
+      TreeNode rightLCA = findLCABT(root.right, k1, k2);
+      if (leftLCA != null && rightLCA != null) return root;
+      return (leftLCA != null) ? leftLCA : rightLCA;
+    }
+  }
 
 
   /**
@@ -186,7 +184,8 @@ public class TreeExamples {
   TreeNode findLCA(TreeNode root, int k1, int k2) {
     KeyInfo keyInfo1 = new KeyInfo(false), keyInfo2 = new KeyInfo(false);
     TreeNode lca = LCAUtil(root, k1, k2, keyInfo1, keyInfo2);
-    if (keyInfo1.present && keyInfo2.present || keyInfo1.present && treeContains(root, k2) || keyInfo2.present && treeContains(root, k1)) return lca;
+    if (keyInfo1.present && keyInfo2.present || keyInfo1.present && treeContains(root, k2) || keyInfo2.present && treeContains(root, k1))
+      return lca;
     else return null;
   }
 
@@ -324,18 +323,18 @@ public class TreeExamples {
   }
 
 
-
   /**
    * 16.
    * Problem: Diameter of a Binary Tree
    */
   int diameter(TreeNode root) {
     if (root == null) return 0;
-    else return Utils.max(0,height(root.left) + 1 + height(root.right), diameter(root.left), diameter(root.right));
+    else return Utils.max(0, height(root.left) + 1 + height(root.right), diameter(root.left), diameter(root.right));
   }
 
-  class DiameterInfo{
+  class DiameterInfo {
     int height, diameter;
+
     DiameterInfo(int h, int d) {
       this.height = h;
       this.diameter = d;
@@ -348,7 +347,7 @@ public class TreeExamples {
       DiameterInfo left = diameterOpt1(root.left);
       DiameterInfo right = diameterOpt1(root.right);
       return new DiameterInfo(1 + Math.max(left.height, right.height),
-              Utils.max(0,left.height + 1 + right.height, left.diameter, right.diameter));
+              Utils.max(0, left.height + 1 + right.height, left.diameter, right.diameter));
     }
   }
 
@@ -357,8 +356,6 @@ public class TreeExamples {
    * Problem: How to determine if a binary tree is height-balanced?.
    * Solution:
    */
-
-
 
 
   /**
@@ -434,6 +431,7 @@ public class TreeExamples {
    * Problem: Construct Tree from given Inorder and Preorder traversals
    */
   int preIndex = 0;
+
   public TreeNode constructTree(int[] preOder, int[] inOrder, int inStart, int end) {
     if (inStart > end) return null;
     else {
@@ -450,9 +448,6 @@ public class TreeExamples {
       if (inorder[i] == key) return i;
     return -1;
   }
-
-
-
 
 
   /**
@@ -554,7 +549,6 @@ public class TreeExamples {
     else if (root == node) return level;
     else return getLevel(root.left, node, level + 1) + getLevel(root.right, node, level + 1);
   }
-
 
 
   /**
@@ -659,11 +653,12 @@ public class TreeExamples {
   }
 
   private void printLeaves(TreeNode root) {
-    if (root == null) return;
-    else if (isLeaf(root)) System.out.print(root.data + " ");
-    else {
-      printLeaves(root.left);
-      printLeaves(root.right);
+    if (root != null) {
+      if (isLeaf(root)) System.out.print(root.data + " ");
+      else {
+        printLeaves(root.left);
+        printLeaves(root.right);
+      }
     }
   }
 
@@ -690,7 +685,6 @@ public class TreeExamples {
       }
     }
   }
-
 
 
   /**
@@ -825,13 +819,14 @@ public class TreeExamples {
    * Problem: Print Left View of a Binary Tree.
    */
   public void printLeftView(TreeNode root, int level, int[] maxLevel) {
-    if (root == null) return;
-    else if (level > maxLevel[0]) {
-      System.out.print(root.data + " ");
-      maxLevel[0] = level;
-    } else {
-      printLeftView(root.left, level + 1, maxLevel);
-      printLeftView(root.right, level + 1, maxLevel);
+    if (root == null) {
+    if (level > maxLevel[0]) {
+        System.out.print(root.data + " ");
+        maxLevel[0] = level;
+      } else {
+        printLeftView(root.left, level + 1, maxLevel);
+        printLeftView(root.right, level + 1, maxLevel);
+      }
     }
   }
 
@@ -1200,15 +1195,13 @@ public class TreeExamples {
    */
 
   public boolean isMirror(TreeNode root1, TreeNode root2) {
-    if (root1 == null && root2 == null) return true;
-    else return root1 != null && root2 != null && root1.data == root2.data && isMirror(root1.left, root2.right) &&
-            isMirror(root1.right, root2.left);
+    return root1 == null && root2 == null ||  root1 != null && root2 != null && root1.data == root2.data
+            && isMirror(root1.left, root2.right) && isMirror(root1.right, root2.left);
   }
 
   public boolean isSymmetricTree(TreeNode root) {
     return isMirror(root, root);
   }
-
 
 
   /**
@@ -1288,7 +1281,6 @@ public class TreeExamples {
    * Problem: Inorder Non-threaded Binary Tree Traversal without Recursion or Stack.
    * Solution:
    */
-
 
 
   /**
@@ -1499,19 +1491,22 @@ public class TreeExamples {
   }
 
   void findMaxIdenticalSubTree(TreeNode root) {
-     IdenticalInfo identicalInfo = findLargestIdenticalSubTree(root);
+    IdenticalInfo identicalInfo = findLargestIdenticalSubTree(root);
     System.out.println(identicalInfo.maxNode.data + " " + identicalInfo.maxSize);
   }
+
   private IdenticalInfo findLargestIdenticalSubTree(TreeNode root) {
-    if (root == null) return new IdenticalInfo("", 0, 0,null);
+    if (root == null) return new IdenticalInfo("", 0, 0, null);
     else if (isLeaf(root)) return new IdenticalInfo("" + root.data, 0, 1, null);
     else {
       IdenticalInfo left = findLargestIdenticalSubTree(root.left);
       IdenticalInfo right = findLargestIdenticalSubTree(root.right);
       if (left.soFar.equals(right.soFar))
-          return new IdenticalInfo(left.soFar + right.soFar + root.data, 1 + left.size + right.size, 1 + left.size + right.size, root);
-      else if (left.maxSize > right.maxSize) return new IdenticalInfo(left.soFar + right.soFar + root.data, left.maxSize, 1 + left.size + right.size, left.maxNode);
-      else  return new IdenticalInfo(left.soFar + right.soFar + root.data,right.maxSize, 1 + left.size + right.size, right.maxNode);
+        return new IdenticalInfo(left.soFar + right.soFar + root.data, 1 + left.size + right.size, 1 + left.size + right.size, root);
+      else if (left.maxSize > right.maxSize)
+        return new IdenticalInfo(left.soFar + right.soFar + root.data, left.maxSize, 1 + left.size + right.size, left.maxNode);
+      else
+        return new IdenticalInfo(left.soFar + right.soFar + root.data, right.maxSize, 1 + left.size + right.size, right.maxNode);
 
     }
   }
@@ -1986,7 +1981,7 @@ public class TreeExamples {
    * of new tree.
    */
   TreeNode mergeTwoTrees(TreeNode root1, TreeNode root2) {
-    if (root1 == null ) return root2;
+    if (root1 == null) return root2;
     else if (root2 == null) return root1;
     else {
       TreeNode root;
@@ -2342,8 +2337,7 @@ public class TreeExamples {
       if (left || right) {
         sum[0] += root.data;
         return true;
-      }
-      else return false;
+      } else return false;
     }
   }
 
@@ -2406,7 +2400,7 @@ public class TreeExamples {
    * 265.
    * Problem: Pairwise Swap  leaf nodes in a binary tree.
    */
-  private class LeafInfo{
+  private class LeafInfo {
     int leafCount;
     TreeNode prevLeaf;
 
@@ -2415,6 +2409,7 @@ public class TreeExamples {
       this.prevLeaf = prevLeaf;
     }
   }
+
   void pairWiseSwap(TreeNode root) {
     pairwiseLeafSwap(root, new LeafInfo(0, null));
   }
@@ -2425,8 +2420,7 @@ public class TreeExamples {
         leafInfo.leafCount++;
         if (leafInfo.prevLeaf != null && leafInfo.leafCount % 2 == 0) swapNodes(root, leafInfo.prevLeaf);
         leafInfo.prevLeaf = root;
-      }
-      else {
+      } else {
         pairwiseLeafSwap(root.left, leafInfo);
         pairwiseLeafSwap(root.right, leafInfo);
       }
@@ -2472,7 +2466,8 @@ public class TreeExamples {
     else {
       int count = 0;
       for (NaryTreeNode child : root.children) {
-        if (parent != null && parent.children.size() < child.children.size()) count += 1 + countNaryTreeNodes(child, root);
+        if (parent != null && parent.children.size() < child.children.size())
+          count += 1 + countNaryTreeNodes(child, root);
         else count += countNaryTreeNodes(child, root);
       }
       return count;
@@ -2514,55 +2509,6 @@ public class TreeExamples {
    * Problem: Second Largest element in n-ary tree.
    * Solution:
    */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   /**
@@ -2640,12 +2586,6 @@ public class TreeExamples {
   }
 
 
-
-
-
-
-
-
   /**
    * 17.
    * Problem: How to determine if a binary tree is height-balanced?
@@ -2706,15 +2646,12 @@ public class TreeExamples {
    */
 
 
-
   /**
    * 27.
    * Problem: Applications of tree data structure
 
    * Solution:
    */
-
-
 
 
   /**
@@ -2984,9 +2921,6 @@ public class TreeExamples {
    */
 
 
-
-
-
   /**
    * 59.
    * Problem: Remove all nodes which don’t lie in any path with sum>= k
@@ -3031,8 +2965,6 @@ public class TreeExamples {
    * Problem: Find next right node of a given key
    * Solution:
    */
-
-
 
 
   /**
@@ -3199,10 +3131,10 @@ public class TreeExamples {
 
   /**
    * 78.
-
-
-
-  /**
+   * <p>
+   * <p>
+   * <p>
+   * /**
    * Page 6.
    * 85.
    * Problem: Print Nodes in Top View of Binary Tree
@@ -3317,12 +3249,6 @@ public class TreeExamples {
   }
 
 
-
-
-
-
-
-
   /**
    * 113.
    * Problem: Maximum difference between node and its ancestor in Binary Tree
@@ -3340,8 +3266,6 @@ public class TreeExamples {
       return Math.max(findAmplitude(root.left, newPath), findAmplitude(root.right, newPath));
     }
   }
-
-
 
 
   /**
@@ -3375,30 +3299,6 @@ public class TreeExamples {
     else if (parent.left != null && parent.right != null) return parent.left != node && parent.right != node;
     else if (parent.right != null) return parent.right != node;
     else return parent.left != node;
-  }
-
-  /**
-   * Page 1.
-   * 143. Problem: Print extreme nodes of each level of Binary Tree in alternate order
-   */
-  void printExtremeNodesAlt(TreeNode root) {
-    for (int i = 0; i < height(root); i++) printLevelSpiral(root, i, i % 2 == 0);
-  }
-
-  boolean printLevelSpiral(TreeNode root, int level, boolean flag) {
-    if (root == null) return true;
-    else if (level == 0) {
-      System.out.print(root.data + " ");
-      return true;
-    } else if (flag) {
-      if (printLevelSpiral(root.left, level - 1, flag)) return true;
-      else if (printLevelSpiral(root.right, level - 1, flag)) return true;
-      else return false;
-    } else {
-      if (printLevelSpiral(root.right, level - 1, flag)) return true;
-      else if (printLevelSpiral(root.left, level - 1, flag)) return true;
-      else return false;
-    }
   }
 
 

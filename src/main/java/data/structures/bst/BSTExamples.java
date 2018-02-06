@@ -948,8 +948,8 @@ public class BSTExamples {
       Info left = largestBSTinBT(root.left);
       Info right = largestBSTinBT(root.right);
       if (left.isBST && right.isBST && inRange(root, left.max, right.min))
-        return new Info(1 + left.size + right.size, Math.min(left.min, Math.min(right.min, root.data)),
-                Math.max(root.data, Math.max(left.max, right.max)), 1 + left.size + right.size, true);
+        return new Info(1 + left.size + right.size, Math.max(root.data, Math.max(left.max, right.max)),
+                Math.min(left.min, Math.min(right.min, root.data)), 1 + left.size + right.size, true);
       else return new Info(1 + left.size + right.size, 0, 0, Math.max(left.bstSoFar, right.bstSoFar), false);
     }
   }
@@ -1044,7 +1044,7 @@ public class BSTExamples {
    * Heap with the condition that all the values in the left subtree of a node should be less than all the values in the
    * right subtree of the node. This condition is applied on all the nodes in the so converted Min Heap.
    */
-  TreeNode bstToMinHeap(TreeNode root) {
+  public TreeNode bstToMinHeap(TreeNode root) {
     ArrayList arrayList = bstToArray(root);
     convertBstToMinHeap(root, arrayList);
     return root;

@@ -16,6 +16,37 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class GraphExamplesTest {
+class test {
+  int x;
+  test(int x) {this.x = x;}
+}
+  @Test
+  public void stringTest() {
+    String s1 = "cat";
+    String s2 = "cat";
+    String s3 = new String("cat");
+    s3.equals(s1);
+    System.out.println(new test(1).equals(new test(1)));;
+    boolean result1 = s1 == s2;
+    boolean result2 = s1 == s3;
+
+    assertEquals(result1, true);
+    assertEquals(result2, false);
+    char[] array = "123456".toCharArray();
+    reverse(array, 0, array.length - 1);
+    System.out.println(array);
+  }
+
+  void reverse(char[] array, int start, int end) {
+    if (start < end) {
+      char temp = array[start];
+      array[start] = array[end];
+      array[end] = temp;
+      reverse(array, start + 1, end - 1);
+    }
+
+  }
+
   @Test
   public void countPathsDG() throws Exception {
 

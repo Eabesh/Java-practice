@@ -1,5 +1,6 @@
 package data.structures.matrix;
 
+import algorithms.backtracking.BackTrackingExamples;
 import data.structures.graph.GraphExamples;
 import data.structures.queue.QueueExamples;
 import org.junit.Test;
@@ -7,6 +8,11 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class MatrixExamplesTest {
+  @Test
+  public void turnBy90() throws Exception {
+    int[][] mat = {{1, 2, 3}, {4, 5, 6}};
+    new MatrixExamples().turnBy90(mat);
+  }
 
   @Test
   public void rotOranges() throws Exception {

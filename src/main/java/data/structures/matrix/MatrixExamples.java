@@ -1,4 +1,5 @@
 package data.structures.matrix;
+
 import algorithms.dynamic.programming.DPExamples;
 import data.structures.stack.StackExamples;
 
@@ -10,7 +11,6 @@ public class MatrixExamples {
   /**
    * 1.
    * Problem: Maximum size square sub-matrix with all 1s.
-   * Solution:
    */
   int[][] maxSizeSubMatrix(int[][] mat, int[][] dp) {
     return new DPExamples().maxSizeSquareMat(mat, dp);
@@ -20,8 +20,24 @@ public class MatrixExamples {
   /**
    * 2.
    * Problem: Turn an image by 90 degree.
-   * Solution:
    */
+  void turnBy90(int[][] mat) {
+    int[][] rotatedMat = new int[mat[0].length][mat.length];
+    turnBy90(mat, rotatedMat);
+
+  }
+
+  private void turnBy90(int[][] mat, int[][] rotatedMat) {
+    for (int i = 0; i < mat.length; i++)
+      for (int j = 0; j < mat[0].length; j++) {
+        rotatedMat[j][rotatedMat[0].length - 1 - i] = mat[i][j];
+      }
+
+    for (int i = 0; i < rotatedMat.length; i++) {
+      for (int j = 0; j < rotatedMat[0].length; j++) System.out.print(rotatedMat[i][j] + " ");
+      System.out.println();
+    }
+  }
 
   /**
    * 3.
@@ -32,8 +48,26 @@ public class MatrixExamples {
   /**
    * 4.
    * Problem: Print a given matrix in spiral form.
-   * Solution:
    */
+  void spiralPrint(int[][] matrix) {
+    int startRow = 0, endRow = matrix.length - 1, startColumn = 0, endColumn = matrix[0].length - 1;
+
+    while (startRow < endRow && startColumn < endColumn) {
+      for (int i = startColumn; i < endColumn; i++) System.out.print(matrix[startRow][i]);
+      startRow++;
+      for (int i = startRow; i < endRow; i++) System.out.print(matrix[i][endColumn]);
+      endColumn--;
+      if (startRow < endRow) {
+        for (int i = endColumn; i >= startColumn; i--) System.out.print(matrix[endRow][i]);
+        endRow--;
+      }
+      if (startColumn < endColumn) {
+        for (int i = endRow; i >= startRow; i--) System.out.print(matrix[i][startColumn]);
+        startColumn++;
+      }
+    }
+
+  }
 
   /**
    * 5.
@@ -133,15 +167,15 @@ public class MatrixExamples {
    * Problem: Print all possible paths from top left to bottom right of a mXn matrix.
    * The problem is to print all the possible paths from top left to bottom right of a mXn matrix with the constraints
    * that from each cell you can either move only to right or down.
-   * Solution:
    */
   public void printAllPaths(int[][] mat, String path, int x, int y) {
-    if (x == mat.length - 1 && y == mat[0].length - 1) System.out.println(path + mat[mat.length - 1][mat[0].length - 1]);
+    if (x == mat.length - 1 && y == mat[0].length - 1)
+      System.out.println(path + mat[mat.length - 1][mat[0].length - 1]);
     else {
-      if (x < mat.length  && y < mat[0].length) {
-      printAllPaths(mat, path + mat[x][y], x + 1, y );
-      printAllPaths(mat, path + mat[x][y], x, y + 1);
-       }
+      if (x < mat.length && y < mat[0].length) {
+        printAllPaths(mat, path + mat[x][y], x + 1, y);
+        printAllPaths(mat, path + mat[x][y], x, y + 1);
+      }
     }
   }
   /**
@@ -149,6 +183,11 @@ public class MatrixExamples {
    * Problem: Count all possible paths from top left to bottom right of a mXn matrix.
    * Solution:
    */
+  int countPaths(int[][] mat, int x, int y) {
+    if (x == 0 && y == 0) return 1;
+    else if (x < 0 || y < 0) return 0;
+    else return countPaths(mat, x - 1, y) + countPaths(mat, x, y - 1);
+  }
 
   /**
    * 17.
@@ -372,7 +411,7 @@ public class MatrixExamples {
     if (x == 0 && y == 0 && k == mat[0][0]) return 1;
     else if (x < 0 || y < 0) return 0;
     else return countPathsKCoins(mat, x - 1, y, k - mat[x][y])
-              + countPathsKCoins(mat, x, y -1, k - mat[x][y]);
+              + countPathsKCoins(mat, x, y - 1, k - mat[x][y]);
   }
 
 
@@ -457,8 +496,19 @@ public class MatrixExamples {
   /**
    * 56.
    * Problem: Inplace rotate square matrix by 90 degrees | Set 1.
-   * Solution:
    */
+  void rotateSquareMat(int[][] mat, int n) {
+    for (int i = 0; i < n / 2; i++) {
+      for (int j = i; j < n - i - 1; j++) {
+        int temp = mat[i][j];
+        mat[i][j] = mat[j][n - 1 - i];
+        mat[j][n - 1 - i] = mat[n - 1 - i][n - 1 - j];
+        mat[n - 1 - i][n - 1 - j] = mat[n - 1 - j][i];
+        mat[n - 1 - j][i] = temp;
+
+      }
+    }
+  }
 
   /**
    * 57.
@@ -853,8 +903,33 @@ public class MatrixExamples {
   /**
    * 122.
    * Problem: Print matrix in antispiral form.
-   * Solution:
+   * Solution: The idea is simple, we traverse matrix in spiral form and put all traversed elements in a stack. Finally
+   * one by one elements from stack and print them.
    */
+  void printAntiSpiral(int[][] mat) {
+    Stack<Integer> stack = new Stack<>();
+    printAntiSpiral(mat, stack);
+  }
+
+  private void printAntiSpiral(int[][] mat, Stack<Integer> stack) {
+    int startRow = 0, endRow = mat[0].length - 1, startColumn = 0, endColumn = mat.length - 1;
+    while (startRow < endRow && startColumn < endColumn) {
+      for (int i = startColumn; i <= endColumn; i++) stack.push(mat[startRow][i]);
+      startRow++;
+      for (int i = startRow; i < endRow; i++) stack.push(mat[i][endColumn]);
+      endColumn--;
+
+      if (startRow < endRow) {
+        for (int i = endColumn; i >= startColumn; i--) stack.push(mat[endRow][i]);
+        endRow--;
+      }
+
+      if (startColumn < endColumn) {
+        for (int i = endRow; i >= startRow; i--) stack.push(mat[i][startColumn]);
+        startColumn++;
+      }
+    }
+  }
 
   /**
    * 123.
@@ -925,10 +1000,12 @@ public class MatrixExamples {
   int diagnalsDiff(int[][] mat) {
     return Math.abs(diagnalSum(mat, 0, 0) - antiDiagnalSum(mat, 0, mat[0].length - 1, 0));
   }
+
   private int diagnalSum(int[][] mat, int x, int sum) {
     if (x == mat.length - 1) return sum + mat[x][x];
     else return diagnalSum(mat, x + 1, sum + mat[x][x]);
   }
+
   private int antiDiagnalSum(int[][] mat, int x, int y, int sum) {
     if (x == mat.length - 1 && y == 0) return sum + mat[mat.length - 1][0];
     else return antiDiagnalSum(mat, x + 1, y - 1, sum + mat[x][y]);
@@ -971,7 +1048,6 @@ public class MatrixExamples {
    */
 
 
-
   /**
    * 1.
    * Problem: Search in a row wise and column wise sorted matrix.
@@ -985,25 +1061,7 @@ public class MatrixExamples {
    * Problem: Print a given matrix in spiral form.
    * Solution: Use 4 for loops.
    */
-  void spiralPrint(int[][] matrix) {
-    int startRow = 0, endRow = matrix.length-1, startColumn = 0, endColumn = matrix[0].length-1;
 
-    while (startRow < endRow && startColumn < endColumn) {
-      for (int i = startColumn; i < endColumn; i++) System.out.print(matrix[startRow][i]);
-      startRow++;
-      for (int i = startRow; i < endRow; i++) System.out.print(matrix[i][endColumn]);
-      endColumn--;
-      if (startRow < endRow) {
-        for (int i = endColumn; i >= startColumn; i--) System.out.print(matrix[endRow][i]);
-        endRow--;
-      }
-      if (startColumn < endColumn) {
-        for (int i = endRow; i >= startRow; i--) System.out.print(matrix[i][startColumn]);
-        startColumn++;
-      }
-    }
-
-  }
 
 
   /**
@@ -1039,9 +1097,9 @@ public class MatrixExamples {
     int rows = matrix.length;
     int columns = matrix[0].length;
     for (int line = 1; line <= rows + columns + 1; line++) {
-      int startColumn = Math.max(0,line - rows);
-      int count = Math.min(line,Math.min(columns-startColumn,rows));
-      for (int i = 0; i < count; i++) System.out.print(matrix[Math.min(rows,line)-i-1][startColumn+i]);
+      int startColumn = Math.max(0, line - rows);
+      int count = Math.min(line, Math.min(columns - startColumn, rows));
+      for (int i = 0; i < count; i++) System.out.print(matrix[Math.min(rows, line) - i - 1][startColumn + i]);
       System.out.println("");
     }
   }
@@ -1055,43 +1113,44 @@ public class MatrixExamples {
 
   /**
    * Problem: Collect maximum coins before hitting a dead end
-   Given a character matrix where every cell has one of the following values.
-
-   'C' -->  This cell has coin
-
-   '#' -->  This cell is a blocking cell.
-   We can not go anywhere from this.
-
-   'E' -->  This cell is empty. We don't get
-   a coin, but we can move from here.
-   Initial position is cell (0, 0) and initial direction is right.
-
-   Following are rules for movements across cells.
-
-   If face is Right, then we can move to below cells
-
-   1. Move one step ahead, i.e., cell (i, j+1) and direction remains right.
-   2. Move one step down and face left, i.e., cell (i+1, j) and direction becomes left.
-   If face is Left, then we can move to below cells
-
-   1. Move one step ahead, i.e., cell (i, j-1) and direction remains left.
-   2. Move one step down and face right, i.e., cell (i+1, j) and direction becomes right.
-   Final position can be anywhere and final direction can also be anything. The target is to collect maximum coins.
+   * Given a character matrix where every cell has one of the following values.
+   * <p>
+   * 'C' -->  This cell has coin
+   * <p>
+   * '#' -->  This cell is a blocking cell.
+   * We can not go anywhere from this.
+   * <p>
+   * 'E' -->  This cell is empty. We don't get
+   * a coin, but we can move from here.
+   * Initial position is cell (0, 0) and initial direction is right.
+   * <p>
+   * Following are rules for movements across cells.
+   * <p>
+   * If face is Right, then we can move to below cells
+   * <p>
+   * 1. Move one step ahead, i.e., cell (i, j+1) and direction remains right.
+   * 2. Move one step down and face left, i.e., cell (i+1, j) and direction becomes left.
+   * If face is Left, then we can move to below cells
+   * <p>
+   * 1. Move one step ahead, i.e., cell (i, j-1) and direction remains left.
+   * 2. Move one step down and face right, i.e., cell (i+1, j) and direction becomes right.
+   * Final position can be anywhere and final direction can also be anything. The target is to collect maximum coins.
    */
   int R = 5;
   int C = 5;
-  int maxCoinsRec(char[][] arr,  int i, int j, int dir) {
-    if (!isValid(i,j) || arr[i][j] == '#') return 0;
 
-    int result = (arr[i][j] == 'C')? 1: 0;
+  int maxCoinsRec(char[][] arr, int i, int j, int dir) {
+    if (!isValid(i, j) || arr[i][j] == '#') return 0;
 
-    if (dir == 1) return result + Math.max(maxCoinsRec(arr, i+1, j, 0), maxCoinsRec(arr, i, j+1, 1));
+    int result = (arr[i][j] == 'C') ? 1 : 0;
 
-    return  result + Math.max(maxCoinsRec(arr, i+1, j, 1), maxCoinsRec(arr, i, j-1, 0));
+    if (dir == 1) return result + Math.max(maxCoinsRec(arr, i + 1, j, 0), maxCoinsRec(arr, i, j + 1, 1));
+
+    return result + Math.max(maxCoinsRec(arr, i + 1, j, 1), maxCoinsRec(arr, i, j - 1, 0));
   }
 
   boolean isValid(int i, int j) {
-    return (i >=0 && i < R && j >=0 && j < C);
+    return (i >= 0 && i < R && j >= 0 && j < C);
   }
 
   /**
@@ -1119,15 +1178,11 @@ public class MatrixExamples {
    */
 
 
-
-
-
   /**
    * 12.
    * Problem: Print all elements in sorted order from row and column wise sorted matrix
 
    */
-
 
 
   /**
@@ -1162,15 +1217,11 @@ public class MatrixExamples {
    */
 
 
-
-
-
   /**
    * 18.
    * Problem: Find the largest rectangle of 1’s with swapping of columns allowed
 
    */
-
 
 
   /**
@@ -1205,9 +1256,6 @@ public class MatrixExamples {
    */
 
 
-
-
-
   /**
    * 24.
    * Problem: Find sum of all elements in a matrix except the elements in row and/or column of given cell?
@@ -1215,14 +1263,11 @@ public class MatrixExamples {
    */
 
 
-
   /**
    * 25.
    * Problem: Find a common element in all rows of a given row-wise sorted matrix
 
    */
-
-
 
 
   /**
@@ -1242,9 +1287,6 @@ public class MatrixExamples {
    * Problem: Submatrix Sum Queries
 
    */
-
-
-
 
 
   /**
@@ -1272,15 +1314,13 @@ public class MatrixExamples {
    * and update maximum area so far
    */
   int largestRect(int[][] mat) {
-   int maxArea = new StackExamples().maxRectangleArea(Arrays.copyOf(mat[0], mat[0].length));
+    int maxArea = new StackExamples().maxRectangleArea(Arrays.copyOf(mat[0], mat[0].length));
     for (int i = 1; i < mat.length; i++) {
       for (int j = 0; j < mat[0].length; j++) if (mat[i][j] == 1) mat[i][j] += mat[i - 1][j];
       maxArea = Math.max(maxArea, new StackExamples().maxRectangleArea(Arrays.copyOf(mat[i], mat[i].length)));
     }
     return maxArea;
   }
-
-
 
 
   /**
@@ -1294,9 +1334,6 @@ public class MatrixExamples {
    * Problem: Construct Ancestor Matrix from a Given Binary Tree
 
    */
-
-
-
 
 
   /**
@@ -1319,15 +1356,11 @@ public class MatrixExamples {
    */
 
 
-
-
-
   /**
    * 36.
    * Problem: Print maximum sum square sub-matrix of given size
 
    */
-
 
 
   /**
@@ -1341,9 +1374,6 @@ public class MatrixExamples {
    * Problem: Find orientation of a pattern in a matrix
 
    */
-
-
-
 
 
   /**
