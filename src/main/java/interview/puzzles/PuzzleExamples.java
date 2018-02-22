@@ -263,10 +263,7 @@ public class PuzzleExamples {
   /**
    * 44.
    * Problem: Puzzle 44 | Girl or Boy.
-   * What is the probability that Ankur’s brother has two boys if one boy was born on Tuesday? Assume an equal chance of giving birth to either sex and an equal chance to giving birth on any day.
-   * Solution: If you think the answer should be 1/2, you would be wrong. If you knew which child was a boy (say, the younger one), you would be closer to the truth.But since the boy could be either the younger or the older child, the analysis is more subtle. The answer would be 13/27.
-
-   There can be four cases, i.e. either his brother has two boys, or one boy(elder) and one girl, one girl(elder) and one boy, or both of them are girls. And there are 7 equally likely possibilities for any one of the children of taking birth on Tuesday for all these four cases. Therefore, the total cases are 7×4- 1(as there is repetition of two boys two times). The possibility for having two boys with both of them taking birth on Tuesday will be 7×2- 1. Therefore, the answer would be 13/27.
+   * Solution:
    */
 
   /**
@@ -560,6 +557,420 @@ public class PuzzleExamples {
   /**
    * 93.
    * Problem: Puzzle | Camels and Travelers.
+   * Solution:
+   */
+
+  /**
+   * 94.
+   * Problem: Puzzle | 10 identical bottles of pills.
+   * Solution:
+   */
+
+  /**
+   * 95.
+   * Problem: Puzzle | Yesterday Was Tomorrow.
+   * Solution:
+   */
+
+  /**
+   * 96.
+   * Problem: Puzzles | (River Crossing, Starting Money, Earrings, Matching Pair).
+   * Solution:
+   */
+
+  /**
+   * 97.
+   * Problem: Puzzle | Detective Sherlock.
+   * Solution:
+   */
+
+  /**
+   * 98.
+   * Problem: Puzzle | Heaven and Hell.
+   * Solution:
+   */
+
+  /**
+   * 99.
+   * Problem: Puzzle | Solve Quick.
+   * Solution:
+   */
+
+  /**
+   * 100.
+   * Problem: Puzzle | Two robot with parachute in a line.
+   * Solution:
+   */
+
+  /**
+   * 101.
+   * Problem: Puzzle | Guess the shape.
+   * Solution:
+   */
+
+  /**
+   * 102.
+   * Problem: Puzzles | (Cryptanalysis, Bottles Problem, Dinner Time, Mystery).
+   * Solution:
+   */
+
+  /**
+   * 103.
+   * Problem: Puzzle | Find the last ball to remain after the entire process.
+   * Solution:
+   */
+
+  /**
+   * 104.
+   * Problem: Puzzle | Japanese Ship mystery.
+   * Solution:
+   */
+
+  /**
+   * 105.
+   * Problem: Puzzles | (Age, Time and Distance, Guess the Word, Mystery).
+   * Solution:
+   */
+
+  /**
+   * 106.
+   * Problem: Puzzle | (When will the sheep be safe ).
+   * Solution:
+   */
+
+  /**
+   * 107.
+   * Problem: Puzzle | (Crack The Plan).
+   * Solution:
+   */
+
+  /**
+   * 108.
+   * Problem: Puzzle | (Basketball shots).
+   * Solution:
+   */
+
+  /**
+   * 109.
+   * Problem: Puzzle | (Round table coin game).
+   * Solution:
+   */
+
+  /**
+   * 110.
+   * Problem: Puzzle | Strict Pill Schedule.
+   * Solution:
+   */
+
+  /**
+   * 111.
+   * Problem: Puzzle | Measuring Block.
+   * Solution:
+   */
+
+  /**
+   * 112.
+   * Problem: Puzzle | Falling bear.
+   * Solution:
+   */
+
+  /**
+   * 113.
+   * Problem: Puzzle | Elevator Puzzle.
+   * Solution:
+   */
+
+  /**
+   * 114.
+   * Problem: Puzzle | Secret Mail Problem.
+   * Solution:
+   */
+
+  /**
+   * 115.
+   * Problem: Puzzle | 3 Priests and 3 devils Puzzle.
+   * Solution:
+   */
+
+  /**
+   * 116.
+   * Problem: Puzzle | ( Distance, Time and Work).
+   * Solution:
+   */
+
+  /**
+   * 117.
+   * Problem: Puzzle | City of Truth and Lies.
+   * Solution:
+   */
+
+  /**
+   * 118.
+   * Problem: Puzzle | Couples crossing the river.
+   * Solution:
+   */
+
+  /**
+   * 119.
+   * Problem: Puzzle | Measure 4L using given 3 buckets.
+   * Solution:
+   */
+
+  /**
+   * 120.
+   * Problem: Puzzle | Who was the murderer ?.
+   * Solution:
+   */
+
+  /**
+   * 121.
+   * Problem: Puzzle | Chemical Mystery.
+   * Solution:
+   */
+
+  /**
+   * 122.
+   * Problem: Puzzle | Find Number of matches.
+   * Solution:
+   */
+
+  /**
+   * 123.
+   * Problem: Puzzle | Who killed him?.
+   * Solution:
+   */
+
+  /**
+   * 124.
+   * Problem: Puzzle | Probability of a Truck Passing.
+   * Solution:
+   */
+
+  /**
+   * 125.
+   * Problem: Puzzle | The Pot of Beans.
+   * Solution:
+   */
+
+  /**
+   * 126.
+   * Problem: Puzzle | Mislabeled Jars.
+   * Solution:
+   */
+
+  /**
+   * 127.
+   * Problem: Puzzle | Women Murder.
+   * Solution:
+   */
+
+  /**
+   * 128.
+   * Problem: Puzzle | Marriage Party.
+   * Solution:
+   */
+
+  /**
+   * 129.
+   * Problem: Puzzle | Human Zombie.
+   * Solution:
+   */
+
+  /**
+   * 130.
+   * Problem: Puzzle | Brothers and Sisters.
+   * Solution:
+   */
+
+  /**
+   * 131.
+   * Problem: Puzzle | Gun, Missile and Robot.
+   * Solution:
+   */
+
+  /**
+   * 132.
+   * Problem: Puzzle | Words without &#8216;a&#8217;.
+   * Solution:
+   */
+
+  /**
+   * 133.
+   * Problem: Puzzle | Three Aliens Riddle.
+   * Solution:
+   */
+
+  /**
+   * 134.
+   * Problem: Puzzle | (Square and Right angles, Up the Ladder).
+   * Solution:
+   */
+
+  /**
+   * 135.
+   * Problem: Puzzle | Pirates and Gems.
+   * Solution:
+   */
+
+  /**
+   * 136.
+   * Problem: Puzzle | Luxury Cars.
+   * Solution:
+   */
+
+  /**
+   * 137.
+   * Problem: Puzzle | Black and White Balls.
+   * Solution:
+   */
+
+  /**
+   * 138.
+   * Problem: Puzzle | Truth and Lie.
+   * Solution:
+   */
+
+  /**
+   * 139.
+   * Problem: Puzzle | Find the cat.
+   * Solution:
+   */
+
+  /**
+   * 140.
+   * Problem: Puzzle | David and Goliath.
+   * Solution:
+   */
+
+  /**
+   * 141.
+   * Problem: Puzzle | Three Thief crossing river.
+   * Solution:
+   */
+
+  /**
+   * 142.
+   * Problem: Puzzle | Gift in a Box.
+   * Solution:
+   */
+
+  /**
+   * 143.
+   * Problem: Puzzle | Farmer, Goat, Wolf and Cabbage.
+   * Solution:
+   */
+
+  /**
+   * 144.
+   * Problem: Puzzle | Blow hot and blow cold.
+   * Solution:
+   */
+
+  /**
+   * 145.
+   * Problem: Puzzle |  Fill Brackets ( )+( )+( )+( )+( ) = 30.
+   * Solution:
+   */
+
+  /**
+   * 146.
+   * Problem: Puzzle | River Crossing.
+   * Solution:
+   */
+
+  /**
+   * 147.
+   * Problem: Puzzle | Draw 4 straight line in 3*3 matrix (9 dots).
+   * Solution:
+   */
+
+  /**
+   * 148.
+   * Problem: Puzzle | Legs.
+   * Solution:
+   */
+
+  /**
+   * 149.
+   * Problem: Puzzle | (Something for the marmalade , Number Game).
+   * Solution:
+   */
+
+  /**
+   * 150.
+   * Problem: Puzzle | The Egg Vendor and his Eggs.
+   * Solution:
+   */
+
+  /**
+   * 151.
+   * Problem: Puzzle | Mathematics Operation.
+   * Solution:
+   */
+
+  /**
+   * 152.
+   * Problem: Puzzle | (Six Matches ,  Right Foot Forward).
+   * Solution:
+   */
+
+  /**
+   * 153.
+   * Problem: Puzzle | That&#8217;s impossible.
+   * Solution:
+   */
+
+  /**
+   * 154.
+   * Problem: Puzzle | The Pizza Trouble.
+   * Solution:
+   */
+
+  /**
+   * 155.
+   * Problem: Puzzle | Water Jug Problem.
+   * Solution:
+   */
+
+  /**
+   * 156.
+   * Problem: Puzzle | (Help the Women,  Cross the River).
+   * Solution:
+   */
+
+  /**
+   * 157.
+   * Problem: Puzzle | Maximum number of Kings on Chessboard without under check.
+   * Solution:
+   */
+
+  /**
+   * 158.
+   * Problem: Puzzle | Who killed Rohan?.
+   * Solution:
+   */
+
+  /**
+   * 159.
+   * Problem: Puzzle | (Who killed the man?, Bird and the Train, Move the arrows).
+   * Solution:
+   */
+
+  /**
+   * 160.
+   * Problem: Puzzle | Random Seating.
+   * Solution:
+   */
+
+  /**
+   * 161.
+   * Problem: Puzzle | Haunted House Escape.
+   * Solution:
+   */
+
+  /**
+   * 162.
+   * Problem: Find time when hour and minute hands superimpose.
    * Solution:
    */
 
