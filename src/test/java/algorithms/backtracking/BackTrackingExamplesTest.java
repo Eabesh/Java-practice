@@ -2,10 +2,7 @@ package algorithms.backtracking;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by abhay on 16/07/17.
@@ -18,6 +15,20 @@ public class BackTrackingExamplesTest {
             {1, 1, 0, 1},
             {1, 0, 1, 0},
     };
+//    List list = new
+//    Map
+//    Deque
+    Collection set = new TreeSet();
+    String s1 = "I Love";
+    s1 += " Java";
+    String s2 = "I";
+    s2 += " Love Java";
+
+    String s3 = s1.intern();
+    String s4 = s2.intern();
+    System.out.println(s3 == s4);
+
+//    ArrayList
     boolean result = new BackTrackingExamples().graphColoring(graph, 3);
     System.out.println(result);
 

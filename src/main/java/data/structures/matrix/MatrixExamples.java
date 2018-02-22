@@ -221,7 +221,7 @@ public class MatrixExamples {
 
   /**
    * 22.
-   * Problem: C program to find transpose of a matrix.
+   * Problem: Program to find transpose of a matrix (Square Matrix).
    * Solution:
    */
 
@@ -1046,6 +1046,660 @@ public class MatrixExamples {
    * Problem: Program to print Lower triangular and Upper triangular matrix of an array.
    * Solution:
    */
+
+  /**
+   * 138.
+   * Problem: Print a given matrix in reverse spiral form.
+   * Solution:
+   */
+
+  /**
+   * 139.
+   * Problem: Program to print Lower triangular and Upper triangular matrix of an array.
+   * Solution:
+   */
+
+  /**
+   * 140.
+   * Problem: Matrix Multiplication | Recursive.
+   * Solution:
+   */
+
+  /**
+   * 141.
+   * Problem: Number of cells a queen can move with obstacles on the chessborad.
+   * Solution:
+   */
+
+  /**
+   * 142.
+   * Problem: Magic Square | Even Order.
+   * Solution:
+   */
+
+  /**
+   * 143.
+   * Problem: Maximize matrix as per given condition.
+   * Solution:
+   */
+
+  /**
+   * 144.
+   * Problem: Program to Interchange Diagonals of Matrix.
+   * Solution:
+   */
+
+  /**
+   * 145.
+   * Problem: Find median in row wise sorted matrix.
+   * Solution:
+   */
+
+  /**
+   * 146.
+   * Problem: Discrete Cosine Transform (Algorithm and Program).
+   * Solution:
+   */
+
+  /**
+   * 147.
+   * Problem: Maximum path sum in matrix.
+   * Solution:
+   */
+
+  /**
+   * 148.
+   * Problem: Print a given matrix in zigzag form.
+   * Solution:
+   */
+
+  /**
+   * 149.
+   * Problem: Matrix manipulation in Python.
+   * Solution:
+   */
+
+  /**
+   * 150.
+   * Problem: Print matrix in snake pattern.
+   * Solution:
+   */
+
+  /**
+   * 151.
+   * Problem: Construct a linked list from 2D matrix.
+   * Solution:
+   */
+
+  /**
+   * 152.
+   * Problem: Print a matrix in a spiral form starting from a point.
+   * Solution:
+   */
+
+  /**
+   * 153.
+   * Problem: Boundary elements of a Matrix.
+   * Solution:
+   */
+
+  /**
+   * 154.
+   * Problem: Efficiently compute sums of diagonals of a matrix.
+   * Solution:
+   */
+
+  /**
+   * 155.
+   * Problem: Largest rectangular sub-matrix whose sum is 0.
+   * Solution:
+   */
+
+  /**
+   * 156.
+   * Problem: Unique paths in a Grid with Obstacles.
+   * Solution:
+   */
+
+  /**
+   * 157.
+   * Problem: Minimum cells traversed to reach corner where every cell represents jumps.
+   * Solution:
+   */
+
+  /**
+   * 158.
+   * Problem: Find if a 2-D array is completely traversed or not by following the cell values.
+   * Solution:
+   */
+
+  /**
+   * 159.
+   * Problem: Find duplicate rows in a binary matrix.
+   * Solution:
+   */
+
+  /**
+   * 160.
+   * Problem: Program to check if a matrix is symmetric.
+   * Solution:
+   */
+
+  /**
+   * 161.
+   * Problem: Check if a grid can become row-wise and column-wise sorted after adjacent swaps.
+   * Solution:
+   */
+
+  /**
+   * 162.
+   * Problem: Best meeting point in 2D binary array.
+   * Solution:
+   */
+
+  /**
+   * 163.
+   * Problem: Find row number of a binary matrix having maximum number of 1s.
+   * Solution:
+   */
+
+  /**
+   * 164.
+   * Problem: Check if sums of i-th row and i-th column are same in matrix.
+   * Solution:
+   */
+
+  /**
+   * 165.
+   * Problem: Possible moves of knight.
+   * Solution:
+   */
+
+  /**
+   * 166.
+   * Problem: Print all palindromic paths from top left to bottom right in a matrix.
+   * Solution:
+   */
+
+  /**
+   * 167.
+   * Problem: Maximize the binary matrix by filpping submatrix once.
+   * Solution:
+   */
+
+  /**
+   * 168.
+   * Problem: Largest area rectangular sub-matrix with equal number of 1&#8217;s and 0&#8217;s.
+   * Solution:
+   */
+
+  /**
+   * 169.
+   * Problem: Program to Print Matrix in Z form.
+   * Solution:
+   */
+
+  /**
+   * 170.
+   * Problem: Maximum points from top left of matrix to bottom right and return back.
+   * Solution:
+   */
+
+  /**
+   * 171.
+   * Problem: Minimum cells required to reach destination with jumps equal to cell values.
+   * Solution:
+   */
+
+  /**
+   * 172.
+   * Problem: Row-wise common elements in two diagonals of a square matrix.
+   * Solution:
+   */
+
+  /**
+   * 173.
+   * Problem: Longest Increasing Path in Matrix.
+   * Solution:
+   */
+
+  /**
+   * 174.
+   * Problem: Check if a given matrix is sparse or not.
+   * Solution:
+   */
+
+  /**
+   * 175.
+   * Problem: Count entries equal to x in a special matrix.
+   * Solution:
+   */
+
+  /**
+   * 176.
+   * Problem: Unique cells in a binary matrix.
+   * Solution:
+   */
+
+  /**
+   * 177.
+   * Problem: Minimum cost to convert 3 X 3 matrix into magic square.
+   * Solution:
+   */
+
+  /**
+   * 178.
+   * Problem: Shortest distance between two cells in a matrix or grid.
+   * Solution:
+   */
+
+  /**
+   * 179.
+   * Problem: Doolittle Algorithm : LU Decomposition.
+   * Solution:
+   */
+
+  /**
+   * 180.
+   * Problem: Cholesky Decomposition : Matrix Decomposition.
+   * Solution:
+   */
+
+  /**
+   * 181.
+   * Problem: Mean and Median of a matrix.
+   * Solution:
+   */
+
+  /**
+   * 182.
+   * Problem: Counting sets of 1s and 0s in a binary matrix.
+   * Solution:
+   */
+
+  /**
+   * 183.
+   * Problem: Minimum cost to sort a matrix of numbers from 0 to n^2 &#8211; 1.
+   * Solution:
+   */
+
+  /**
+   * 184.
+   * Problem: Conway&#8217;s Game Of Life (Python Implementation).
+   * Solution:
+   */
+
+  /**
+   * 185.
+   * Problem: Sum 2D array in Python using map() function.
+   * Solution:
+   */
+
+  /**
+   * 186.
+   * Problem: Multiplication of two Matrices in Single line using Numpy in Python.
+   * Solution:
+   */
+
+  /**
+   * 187.
+   * Problem: Python program to add two Matrices.
+   * Solution:
+   */
+
+  /**
+   * 188.
+   * Problem: Minimum sum submatrix in a given 2D array.
+   * Solution:
+   */
+
+  /**
+   * 189.
+   * Problem: Count all 0s which are blocked by 1s in binary matrix.
+   * Solution:
+   */
+
+  /**
+   * 190.
+   * Problem: heapq in Python to print all elements in sorted order from row and column wise sorted matrix.
+   * Solution:
+   */
+
+  /**
+   * 191.
+   * Problem: Find all rectangles filled with 0.
+   * Solution:
+   */
+
+  /**
+   * 192.
+   * Problem: Rotate a Matrix by 180 degree.
+   * Solution:
+   */
+
+  /**
+   * 193.
+   * Problem: Print all n digit patterns formed by mobile Keypad.
+   * Solution:
+   */
+
+  /**
+   * 194.
+   * Problem: Find if there is a rectangle in binary matrix with corners as 1.
+   * Solution:
+   */
+
+  /**
+   * 195.
+   * Problem: Number of days until all chocolates become unhealthy.
+   * Solution:
+   */
+
+  /**
+   * 196.
+   * Problem: Printing string in plus ‘+’ pattern in the matrix.
+   * Solution:
+   */
+
+  /**
+   * 197.
+   * Problem: Python program to multiply two matrices.
+   * Solution:
+   */
+
+  /**
+   * 198.
+   * Problem: Mirror of matrix across diagonal.
+   * Solution:
+   */
+
+  /**
+   * 199.
+   * Problem: Ways of filling matrix such that product of all rows and all columns are equal to unity.
+   * Solution:
+   */
+
+  /**
+   * 200.
+   * Problem: Program to swap upper diagonal elements with lower diagonal elements of matrix..
+   * Solution:
+   */
+
+  /**
+   * 201.
+   * Problem: Minimum jumps to reach last building in a matrix.
+   * Solution:
+   */
+
+  /**
+   * 202.
+   * Problem: Number of elements greater than modified mean in matrix.
+   * Solution:
+   */
+
+  /**
+   * 203.
+   * Problem: Program for Identity Matrix.
+   * Solution:
+   */
+
+  /**
+   * 204.
+   * Problem: Frequencies of even and odd numbers in a matrix.
+   * Solution:
+   */
+
+  /**
+   * 205.
+   * Problem: Maximum sum path in a matrix from top to bottom.
+   * Solution:
+   */
+
+  /**
+   * 206.
+   * Problem: Find trace of matrix formed by adding Row-major and Column-major order of same matrix.
+   * Solution:
+   */
+
+  /**
+   * 207.
+   * Problem: Check if possible to cross the matrix with given power.
+   * Solution:
+   */
+
+  /**
+   * 208.
+   * Problem: Program to check if matrix is upper triangular.
+   * Solution:
+   */
+
+  /**
+   * 209.
+   * Problem: Count of possible hexagonal walks.
+   * Solution:
+   */
+
+  /**
+   * 210.
+   * Problem: Program to check if matrix is lower triangular.
+   * Solution:
+   */
+
+  /**
+   * 211.
+   * Problem: Pascal Matrix.
+   * Solution:
+   */
+
+  /**
+   * 212.
+   * Problem: Maximum product of 4 adjacent elements in matrix.
+   * Solution:
+   */
+
+  /**
+   * 213.
+   * Problem: Minimum flip required to make Binary Matrix symmetric.
+   * Solution:
+   */
+
+  /**
+   * 214.
+   * Problem: Multiplication of Matrix using pthreads.
+   * Solution:
+   */
+
+  /**
+   * 215.
+   * Problem: Count sub-matrices having sum divisible &#8216;k&#8217;.
+   * Solution:
+   */
+
+  /**
+   * 216.
+   * Problem: Diagonally Dominant Matrix.
+   * Solution:
+   */
+
+  /**
+   * 217.
+   * Problem: Minimum operations required to make each row and column of matrix equals.
+   * Solution:
+   */
+
+  /**
+   * 218.
+   * Problem: Python map function to find row with maximum number of 1&#8217;s.
+   * Solution:
+   */
+
+  /**
+   * 219.
+   * Problem: Find the Surface area of a 3D figure.
+   * Solution:
+   */
+
+  /**
+   * 220.
+   * Problem: Python | Print unique rows in a given boolean matrix using Set with tuples.
+   * Solution:
+   */
+
+  /**
+   * 221.
+   * Problem: Python heapq to find K&#8217;th smallest element in a 2D array.
+   * Solution:
+   */
+
+  /**
+   * 222.
+   * Problem: Python List Equality | Program to check if two given matrices are identical.
+   * Solution:
+   */
+
+  /**
+   * 223.
+   * Problem: Python Counter| Find duplicate rows in a binary matrix.
+   * Solution:
+   */
+
+  /**
+   * 224.
+   * Problem: Largest rectangular sub-matrix having sum divisible by k.
+   * Solution:
+   */
+
+  /**
+   * 225.
+   * Problem: Sparse Matrix Representations | Set 3 ( CSR ).
+   * Solution:
+   */
+
+  /**
+   * 226.
+   * Problem: Kronecker Product of two matrices.
+   * Solution:
+   */
+
+  /**
+   * 227.
+   * Problem: Operating System | Banker&#8217;s Algorithm : Print all the safe state (or safe sequences).
+   * Solution:
+   */
+
+  /**
+   * 228.
+   * Problem: Given 1&#8217;s, 2&#8217;s, 3&#8217;s &#8230;&#8230;k&#8217;s print them in zig zag way..
+   * Solution:
+   */
+
+  /**
+   * 229.
+   * Problem: Count frequency of k in a matrix of size n where matrix(i, j) = i+j.
+   * Solution:
+   */
+
+  /**
+   * 230.
+   * Problem: A square matrix as sum of symmetric and skew-symmetric matrices.
+   * Solution:
+   */
+
+  /**
+   * 231.
+   * Problem: Program to check diagonal matrix and scalar matrix.
+   * Solution:
+   */
+
+  /**
+   * 232.
+   * Problem: Addition and Subtraction of Matrix using pthreads.
+   * Solution:
+   */
+
+  /**
+   * 233.
+   * Problem: Check for possible path in 2D matrix.
+   * Solution:
+   */
+
+  /**
+   * 234.
+   * Problem: Count of number of given string in 2D character array.
+   * Solution:
+   */
+
+  /**
+   * 235.
+   * Problem: Program for Markov matrix.
+   * Solution:
+   */
+
+  /**
+   * 236.
+   * Problem: Row wise sorting in 2D array.
+   * Solution:
+   */
+
+  /**
+   * 237.
+   * Problem: Count elements smaller than or equal to x in a sorted matrix.
+   * Solution:
+   */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   /**
