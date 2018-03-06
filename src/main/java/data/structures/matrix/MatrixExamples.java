@@ -108,7 +108,7 @@ public class MatrixExamples {
   /**
    * 11.
    * Problem: Inplace (Fixed space) M x N size matrix transpose | Updated.
-   * Solution:
+   * Solution: For example
    */
 
   /**
