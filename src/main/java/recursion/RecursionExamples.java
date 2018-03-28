@@ -7,8 +7,6 @@ import java.util.*;
 
 public class RecursionExamples {
 
-
-
   /**
    * 1.
    * Problem: Exponent of a number
@@ -136,11 +134,11 @@ public class RecursionExamples {
    * 9.
    * Problem: N Queens Problems
    */
-  public void placeQueen(int[][] board, int row, int column) {
+  private void placeQueen(int[][] board, int row, int column) {
     board[row][column] = 1;
   }
 
-  public void removeQueen(int[][] board, int row, int column) {
+  private void removeQueen(int[][] board, int row, int column) {
     board[row][column] = 0;
   }
 
@@ -242,25 +240,6 @@ public class RecursionExamples {
     }
   }
 
-  class arrayComparator implements Comparator<Integer> {
-
-    @Override
-    public int compare(Integer X, Integer Y) {
-      String XY =  String.valueOf(X) + String.valueOf(Y);
-      String YX =  String.valueOf(Y) + String.valueOf(X);
-      return Integer.valueOf(XY) - Integer.valueOf(YX);
-    }
-  }
-  ArrayList<Integer> sortedArray(ArrayList<Integer> array) {
-    Collections.sort(array, new arrayComparator());
-    return array;
-  }
-  String largetNumber(ArrayList<Integer> array) {
-    String result = "";
-    ArrayList<Integer> sArray = sortedArray(array);
-    for (int i =  sArray.size() - 1; i >= 0; i--) result += sArray.get(i);
-    return result;
-  }
   /**
    * 6.
    * Problem: Tail Recursion
@@ -376,14 +355,11 @@ public class RecursionExamples {
     }
   }
 
-
-
   /**
    * 18.
    * Problem: String with additive sequence
    * Solution:
    */
-
 
   /**
    * 19.
@@ -392,7 +368,6 @@ public class RecursionExamples {
    * lexicographical order?
    * Solution:
    */
-
 
   /**
    * 20.
@@ -494,9 +469,6 @@ public class RecursionExamples {
     }
   }
 
-
-
-
   /**
    *  Problems from CareerCup.
    */
@@ -515,7 +487,7 @@ public class RecursionExamples {
     System.out.println(steppingNumbersSet);
   }
 
-  public void printSteppingNumber(int soFar, int n, int m, ArrayList<Integer> choices, HashSet<Integer> steppingNumbersSet) {
+  private void printSteppingNumber(int soFar, int n, int m, ArrayList<Integer> choices, HashSet<Integer> steppingNumbersSet) {
     if (soFar < m) {
       for (int choice : choices) {
         int steppingNumber = soFar * 10 + choice;
@@ -532,7 +504,5 @@ public class RecursionExamples {
    * 2.
    * Problem: Reverse a stack without using any other data structure or auxiliary space.
    */
-
-
 
 }
