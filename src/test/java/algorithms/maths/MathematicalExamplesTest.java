@@ -67,4 +67,8 @@ public class MathematicalExamplesTest {
     new MathematicalExamples().printPowerSet("abc", "");
   }
 
+  @Test
+  public void printUniqueDigitsNumbers() {
+    new MathematicalExamples().printUniqueDigitsNumbers(100, 200);
+  }
 }

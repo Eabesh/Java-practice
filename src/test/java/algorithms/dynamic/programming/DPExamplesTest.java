@@ -2,8 +2,7 @@ package algorithms.dynamic.programming;
 
 import org.junit.Test;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -65,6 +64,7 @@ public class DPExamplesTest {
     dictionary.add("i");
     dictionary.add("like");
     assertEquals(true, new DPExamples().wordBreak("ilike", dictionary));
+    assertEquals(true, new DPExamples().wordBreakDP("ilike", dictionary));
     assertEquals(true, new DPExamples().wordBreak("i", dictionary));
   }
 
@@ -88,6 +88,7 @@ public class DPExamplesTest {
     assertEquals(3, new DPExamples().minJumps(arr, 0, arr.length - 1));
     int[] arr2 = {1, 3, 6, 1, 0, 9};
     assertEquals(3, new DPExamples().minJumps(arr2, 0, arr2.length - 1));
+    assertEquals(3, new DPExamples().minJumpsDP(arr2));
   }
 
   @Test
@@ -155,10 +156,13 @@ public class DPExamplesTest {
 
   @Test
   public void LRS() throws Exception {
-    String str = "aab";
-    assertEquals(1, new DPExamples().LRS(str, str.length(), str.length()));
-  }
+    String str = "axxxy";
+    assertEquals(2, new DPExamples().LRS(str, str.length(), str.length()));
+    assertEquals(2, new DPExamples().LRSDP(str));
 
+   int res =  (new DPExamples().LRSDP("abab") >= 2) ? 1 : 0;
+    System.out.println(res);
+  }
   @Test
   public void countDigitSum() throws Exception {
 //    assertEquals(2, new DPExamples().countDigitSum(2, 2));
@@ -413,12 +417,15 @@ public class DPExamplesTest {
   public void editDistace() throws Exception {
     String str = "abc", str2 = "babc";
     assertEquals(1, new DPExamples().editDistance(str, str2, str.length(), str2.length()));
+    assertEquals(1, new DPExamples().editDistanceDP(str, str2));
   }
 
   @Test
   public void coinChange() throws Exception {
-    int[] coins = {2, 5, 3, 6};
-    assertEquals(5, new DPExamples().coinChange(coins, coins.length, 10));
+    int[] coins = {1, 2, 3};
+    assertEquals(4, new DPExamples().coinChange(coins, coins.length, 4));
+    assertEquals(4, new DPExamples().coinChangeDP(coins, 4));
+
   }
 
   @Test
@@ -458,4 +465,66 @@ public class DPExamplesTest {
     assertEquals(16, new DPExamples().maxDotProductBottomUp(A, B));
   }
 
+  @Test
+  public void maxLengthSub() {
+   int arr[] = {2, 5, 6, 3, 7, 6, 5, 8};
+   assertEquals(5, new DPExamples().maxLengthSub(arr));
+
+   int arr1[] = {-2, -1, 5, -1, 4, 0, 3};
+   assertEquals(4, new DPExamples().maxLengthSub(arr1));
+
+  }
+
+  @Test
+  public void longestAP() {
+    int array[] = {1, 7, 10, 13, 14, 19};
+    int [] array2 = {100, 10, 8, 300, 6, 1, 4, 2};
+    assertEquals(4, new DPExamples().longestAP(array2));
+  }
+
+  @Test
+  public void sumOfAllSquares() {
+    int[][] mat = {{0, 0}, {0, 0}};
+
+    int[][] mat2 = { {1, 0, 0, 1},
+                     {0, 0, 1, 0},
+                     {0, 0, 0, 0},};
+
+    int[][] mat3 = { { 1, 1, 1, 0, 1 },
+            { 1, 0, 0, 1, 0 },
+            { 1, 0, 0, 0, 1 },
+            { 0, 1, 1, 1, 1 } };
+//    assertEquals(5, new DPExamples().sumOfAllSquares(mat));
+    assertEquals(10, new DPExamples().sumOfAllSquares(mat2));
+  }
+
+  @Test
+  public void longestBS() {
+
+    Integer arr[] = {80, 60, 30, 40, 20, 10};
+    assertEquals(5, new DPExamples().longestBS(Arrays.asList(arr)));
+  }
+
+
+  @Test
+  public void countOccurence() {
+    String s = "rabbbit";
+    String t = "rabbit";
+    assertEquals(3, new DPExamples().countOccurence(s, t, s.length() - 1, t.length() - 1 ));
+    assertEquals(3, new DPExamples().countOccuranceDP(s, t));
+  }
+
+  @Test
+  public void isInterleaved() {
+    String s1 = "XY", s2 = "WZ", s3 = "WZXY";
+    assertTrue( new DPExamples().isInterleaved(s1, s2, s3, s1.length(), s2.length(), s3.length()));
+    assertTrue( new DPExamples().isInterleavedDP(s1, s2, s3));
+  }
+
+  @Test
+  public void numDecodings() {
+    HashMap<String, String> map = new HashMap<>();
+    for (int i = 0; i < 26; i++) map.put(String.valueOf(i + 1), Character.toString((char) (i + 65)));
+    assertEquals(2, new DPExamples().numDecodings("12", map));
+  }
 }

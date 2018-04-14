@@ -2574,6 +2574,24 @@ public class MathematicalExamples {
    * Problem: Numbers having Unique (or Distinct) digits.
    * Solution:
    */
+  void printUniqueDigitsNumbers(int left, int right) {
+
+    for (int i = left; i <= right; i++) if (isUnique(i)) System.out.print(i + " ");
+  }
+
+  private boolean isUnique(int num) {
+    boolean[] isVisited = new boolean[10];
+    return isUniqueRec(num / 10, isVisited, num % 10);
+  }
+
+  private boolean isUniqueRec(int num, boolean[] isVisited, int i) {
+     if (isVisited[i]) return false;
+    else if (num == 0) return true;
+    else {
+      isVisited[i] = true;
+      return isUniqueRec(num / 10, isVisited, num % 10);
+    }
+  }
 
   /**
    * 417.

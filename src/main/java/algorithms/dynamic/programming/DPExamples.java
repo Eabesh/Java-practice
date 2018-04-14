@@ -2,8 +2,8 @@ package algorithms.dynamic.programming;
 
 import recursion.RecursionExamples;
 
-import java.util.Arrays;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.IntStream;
 
 public class DPExamples {
 
@@ -102,9 +102,7 @@ public class DPExamples {
     for (int i = 1; i < dp.length; i++)
       for (int j = 0; j < i; j++) if (array[i] > array[j] && dp[i] < dp[j] + 1) dp[i] = dp[j] + 1;
 
-    int max = 0;
-    for (int i = 0; i < dp.length; i++) max = Math.max(max, dp[i]);
-    return max;
+    return IntStream.of(dp).max().getAsInt();
   }
 
   /**
@@ -150,6 +148,20 @@ public class DPExamples {
             n - 1);
     else return 1 + Math.min(editDistance(str1, str2, m, n - 1), Math.min(editDistance(str1, str2,
               m - 1, n), editDistance(str1, str2, m - 1, n - 1)));
+  }
+
+  int editDistanceDP(String str1, String str2) {
+    int[][] dp = new int[str1.length() + 1][str2.length() + 1];
+
+    for (int i = 0; i <= str1.length(); i++) {
+      for (int j = 0; j <= str2.length(); j++) {
+        if (i == 0) dp[i][j] = j;
+        else if (j == 0) dp[i][j] = i;
+        else if (str1.charAt(i - 1) == str2.charAt(j - 1)) dp[i][j] = dp[i - 1][j - 1];
+        else dp[i][j] = 1 + Math.min(dp[i][j - 1], Math.min(dp[i - 1][j], dp[i - 1][j - 1]));
+      }
+    }
+    return dp[str1.length()][str2.length()];
   }
 
 
@@ -217,6 +229,34 @@ public class DPExamples {
     }
   }
 
+  int minJumpsDP(int[] array) {
+    int[] dp = new int[array.length];
+    Arrays.fill(dp, Integer.MAX_VALUE);
+    dp[0] = 0;
+    if (array[0] == 0) return Integer.MAX_VALUE;
+    for (int i = 0; i < array.length; i++) {
+      for (int j = 1; j <= array[i]; j++) if (i + j < array.length) dp[i + j] = Math.min(dp[i + j], 1 + dp[i]);
+    }
+    return dp[dp.length - 1];
+  }
+
+  // O(n) Leetcode
+
+  int minJumpsDP2(int[] array) {
+    int maxReach = 0, prevReach = 0, minSteps = 0;
+
+    for (int i = 0; i <= maxReach && i < array.length; i++) {
+      if (i > prevReach) {
+        minSteps++;
+        prevReach = maxReach;
+      }
+      maxReach = Math.max(maxReach, array[i] + i);
+    }
+    if (maxReach < array.length - 1) return 0;
+    else return minSteps;
+
+  }
+
   /**
    * 13.
    * Problem: Dynamic Programming | Set 7 (Coin Change)
@@ -230,6 +270,29 @@ public class DPExamples {
               coinChange(coins, numOfCoins - 1, sum);
   }
 
+  int coinChangeDP(int coins[], int sum) {
+    int[]dp = new int[sum + 1];
+    dp[0] = 1;
+    for (int i = 0; i < coins.length; i++) {
+      for (int j = coins[i]; j <= sum; j++)
+        dp[j] += dp[j - coins[i]];
+    }
+    return dp[sum];
+  }
+
+
+  private void subSetSum(int[] candidates, int target, ArrayList<Integer> soFar, List<List<Integer>> result, int n) {
+    if (target == 0) result.add(new ArrayList<>(soFar));
+    else {
+      if (n > 0 && target >= candidates[n - 1]) {
+        soFar.add(candidates[n - 1]);
+        subSetSum(candidates, target - candidates[n - 1], soFar, result, n - 1);
+        soFar.remove(soFar.size() - 1);
+        subSetSum(candidates, target, soFar, result, n - 1);
+      }
+    }
+
+  }
 
   /**
    * 14.
@@ -249,12 +312,22 @@ public class DPExamples {
 
   int binomialCoefficientBottomUp(int n, int k) {
     int[][] dp = new int[n + 1][k + 1];
-    for (int i = 0; i < dp.length; i++)
+    for (int i = 0; i <= n; i++)
       for (int j = 0; j <= Math.min(i, k); j++) {
         if (i == j || j == 0) dp[i][j] = 1;
         else dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j];
       }
     return dp[n][k];
+  }
+
+
+  int combination(int n, int k) {
+    int[] dp = new int[k + 1];
+    dp[0] = 1;
+    for (int i = 1; i <= n; i++)
+      for (int j = Math.min(i, k); j > 0; j--) dp[j] = dp[j] + dp[j - 1];
+
+    return dp[k];
   }
 
 
@@ -273,7 +346,7 @@ public class DPExamples {
 
   int knapsackDP(int[] weight, int[] values, int capacity, int m) {
     int[][] dp = new int[m + 1][capacity + 1];
-    for (int n = 0; n <= m; n++){
+    for (int n = 0; n <= m; n++) {
       for (int c = 0; c <= capacity; c++) {
         if (n == 0 || c == 0) dp[n][c] = 0;
         else if (c < weight[n - 1]) dp[n][c] = dp[n - 1][c];
@@ -356,6 +429,22 @@ public class DPExamples {
    * Problem: Dynamic Programming | Set 15 (Longest Bitonic Subsequence)
    * Solution:
    */
+  int longestBS(List<Integer> array) {
+    int[] lis = new int[array.size()], lds = new int[array.size()];
+    Arrays.fill(lis, 1);
+    Arrays.fill(lds, 1);
+
+    for (int i = 1; i < lis.length; i++) {
+      for (int j = 0; j < i; j++) if (array.get(j) < array.get(i) && lis[i] < lis[j] + 1) lis[i] = 1 + lis[j];
+    }
+
+    for (int i = lds.length - 2; i >= 0; i--)
+      for (int j = lds.length - 1; j > i; j--) if (array.get(j) < array.get(i) && lds[i] < lds[j] + 1) lds[i] = 1 + lds[j];
+
+    int max = lis[0] + lds[0] - 1;
+    for (int i = 1; i < lis.length; i++) max = Math.max(max, lis[i] + lds[i] - 1);
+    return max;
+  }
 
   /**
    * 22.
@@ -539,10 +628,26 @@ public class DPExamples {
   boolean wordBreak(String str, Set<String> dictionary) {
     if (str.isEmpty()) return true;
     else {
-      for (int i = 0; i < str.length(); i++)
-        if (dictionary.contains(str.substring(0, i + 1)) && wordBreak(str.substring(i + 1), dictionary)) return true;
+      for (int i = 1; i <= str.length(); i++)
+        if (dictionary.contains(str.substring(0, i)) && wordBreak(str.substring(i), dictionary)) return true;
     }
     return false;
+  }
+
+   boolean wordBreakDP(String s, Set<String> wordDict) {
+    if(s == null) return false;
+    boolean[] dp = new boolean[s.length() + 1];
+    dp[0] = true;
+    for(int i = 1; i <= s.length(); i++) {
+      for(int j = 0; j < i; j++) {
+        String word = s.substring(j, i);
+        if(dp[j] && wordDict.contains(word)) {
+          dp[i] = true;
+          break;
+        }
+      }
+    }
+    return dp[s.length()];
   }
 
   /**
@@ -550,6 +655,30 @@ public class DPExamples {
    * Problem: Dynamic Programming | Set 33 (Find if a string is interleaved of two other strings)
    * Solution:
    */
+  boolean isInterleaved(String s1, String s2, String s3, int m, int n, int o) {
+    if (m + n != o) return false;
+    else if (m == 0 && n == 0 && o == 0) return true;
+    else if (m == 0 && s2.charAt(n - 1) == s3.charAt(o - 1)) return isInterleaved(s1, s2, s3, m, n - 1, o - 1);
+    else if (n == 0 && s1.charAt(m - 1) == s3.charAt(o - 1)) return isInterleaved(s1, s2, s3, m - 1, n, o - 1);
+    else  return (s1.charAt(m - 1) == s3.charAt(o - 1) && isInterleaved(s1, s2, s3, m - 1, n, o - 1) ||
+              (s2.charAt(n - 1) == s3.charAt(o - 1) && isInterleaved(s1, s2, s3, m, n - 1, o - 1)));
+  }
+
+  boolean isInterleavedDP(String s1, String s2, String s3) {
+    int m = s1.length(), n = s2.length();
+    if (m  + n != s3.length()) return false;
+    boolean[][] dp = new boolean[m + 1][n + 1];
+    dp[0][0] = true;
+    for(int i = 1; i <= m; i++) if(s1.charAt(i - 1) == s3.charAt(i - 1)) dp[i][0] = dp[i - 1][0];
+    for(int j = 1; j <= n; j++) if(s2.charAt(j - 1) == s3.charAt(j - 1)) dp[0][j] = dp[0][j - 1];
+    for (int i = 1; i <= m; i++) {
+      for (int j = 1; j <= n; j++) {
+        dp[i][j] = (s1.charAt(i - 1) == s3.charAt(i + j - 1) && dp[i - 1][j]) ||
+                 (s2.charAt(j - 1) == s3.charAt(i + j - 1) && dp[i][j - 1]);
+      }
+    }
+    return dp[m][n];
+  }
 
 
   /**
@@ -562,8 +691,65 @@ public class DPExamples {
   /**
    * 42.
    * Problem: Dynamic Programming | Set 35 (Longest Arithmetic Progression)
-   * Solution:
    */
+  int longestAP(int[] array) {
+    Arrays.sort(array);
+    int[][] dp = new int[array.length][array.length];
+    int max = 2;
+    for (int i = 0; i < array.length; i++) dp[i][array.length - 1] = 2;
+
+    for (int j = array.length - 2; j > 0; j--) {
+      int i = j - 1, k = j + 1;
+
+      while (i >= 0 && k < array.length) {
+        if (array[i] + array[k] < 2 * array[j]) k++;
+        else if (array[i] + array[k] > 2 * array[j]) {
+          dp[i][j] = 2;
+          i--;
+        } else {
+          dp[i][j] = dp[j][k] + 1;
+          max = Math.max(max, dp[i][j]);
+          i--;
+          k++;
+        }
+      }
+
+      while (i >= 0) {
+        dp[i][j] = 2;
+        i--;
+      }
+    }
+    return max;
+  }
+
+  int longestAp(List<Integer> array) {
+    Collections.sort(array);
+    int[][] dp = new int[array.size()][array.size()];
+    int max = 2;
+    for (int i = 0; i < dp.length; i++) dp[i][array.size() - 1] = 2;
+    for (int j = dp.length - 2; j > 0; j--) {
+      int i = j - 1, k = j + 1;
+
+      while (i >= 0 && k < dp.length) {
+        if (array.get(i) + array.get(k) < 2 * array.get(j)) k++;
+        else if (array.get(i) + array.get(k) > 2 * array.get(j)) {
+          dp[i][j] = 2;
+          i--;
+        }else {
+          dp[i][j] = 1 + dp[j][k];
+          max = Math.max(max, dp[i][j]);
+          i--;
+          k++;
+        }
+      }
+      while (i >= 0) {
+        dp[i][j] = 2;
+        i--;
+      }
+    }
+    return max;
+
+  }
 
   /**
    * 43.
@@ -643,6 +829,29 @@ public class DPExamples {
    * Problem: Count Possible Decodings of a given Digit Sequence
    * Solution:
    */
+  int numDecodings(String s) {
+    if(s == null || s.length() == 0){
+      return 0;
+    }
+    int n = s.length();
+    int[] dp = new int[n+1];
+    dp[0] = 1;
+    dp[1] = s.charAt(0) != '0' ? 1 : 0;
+
+    for(int i = 2; i <= n; i++){
+      int first = Integer.valueOf(s.substring(i-1,i));
+      int second = Integer.valueOf(s.substring(i-2,i));
+      if(first >= 1 && first <= 9){
+        dp[i] += dp[i-1];
+      }
+      if(second >= 10 && second <= 26){
+        dp[i] += dp[i-2];
+      }
+
+    }
+    return dp[n];
+  }
+
 
   /**
    * 51.
@@ -987,11 +1196,7 @@ public class DPExamples {
    * string character at same position, i.e., any i’th character in the two subsequences shouldn’t have the same index
    * in the original string.
    */
-  int LRS(String str, int m, int n) {
-    if (m == 0 || n == 0) return 0;
-    else if (str.charAt(m - 1) == str.charAt(n - 1) && m != n) return 1;
-    else return Math.max(LRS(str, m - 1, n), LRS(str, m, n - 1));
-  }
+
 
 
   /**
@@ -1410,7 +1615,26 @@ public class DPExamples {
    * Problem: Count distinct occurrences as a subsequence
    * Solution:
    */
+  int countOccurence(String s, String t, int m, int n) {
+    if (n == 0) return 1;
+    else if (m == 0) return 0;
+    else if (s.charAt(m - 1) == t.charAt(n - 1)) return countOccurence(s, t, m - 1, n) + countOccurence(s, t, m - 1, n - 1);
+    else return countOccurence(s, t, m - 1, n);
+  }
 
+  int countOccuranceDP(String s, String t) {
+    int[][] dp = new int[s.length() + 1][t.length() + 1];
+
+    for (int i = 0; i <= s.length(); i++) {
+      for (int j = 0 ; j <= t.length(); j++) {
+        if (j == 0) dp[i][j] = 1;
+        else if (i == 0) dp[i][j] = 0;
+        else if (s.charAt(i - 1) == t.charAt(j - 1)) dp[i][j] += dp[i - 1][j] + dp[i - 1][j - 1];
+        else dp[i][j] += dp[i - 1][j];
+      }
+    }
+    return dp[s.length()][t.length()];
+  }
 
   /**
    * 127.
@@ -1881,8 +2105,9 @@ public class DPExamples {
     for (int i = 0; i < dp.length; i++) {
       for (int j = 0; j < dp.length; j++) {
         if (i == 0 || j == 0) dp[i][j] = 1;
-        else if (sameNeighbours(mat[i][j], mat[i - 1][j], mat[i][j - 1], mat[i - 1][j - 1])) dp[i][j] = 1 + Math.min(dp[i - 1][j],
-                Math.min(dp[i][j - 1], dp[i - 1][j - 1]));
+        else if (sameNeighbours(mat[i][j], mat[i - 1][j], mat[i][j - 1], mat[i - 1][j - 1]))
+          dp[i][j] = 1 + Math.min(dp[i - 1][j],
+                  Math.min(dp[i][j - 1], dp[i - 1][j - 1]));
         else dp[i][j] = 1;
         result = Math.max(result, dp[i][j]);
       }
@@ -2327,5 +2552,648 @@ public class DPExamples {
     return dp[houseValues.length - 1];
   }
 
+  /**
+   * 218.
+   * Problem: Paper Cut into Minimum Number of Squares | Set 2.
+   * Solution:
+   */
+
+  /**
+   * 219.
+   * Problem: Non-decreasing subsequence of size k with minimum sum.
+   * Solution:
+   */
+
+  /**
+   * 220.
+   * Problem: Find length of longest subsequence of one string which is substring of another string.
+   * Solution:
+   */
+
+  /**
+   * 221.
+   * Problem: Ways of transforming one string to other by removing 0 or more characters.
+   * Solution:
+   */
+
+  /**
+   * 222.
+   * Problem: Smallest sum contiguous subarray.
+   * Solution:
+   */
+
+  /**
+   * 223.
+   * Problem: Convert to Strictly increasing array with minimum changes.
+   * Solution:
+   */
+
+  /**
+   * 224.
+   * Problem: Subset Sum Problem in O(sum) space.
+   * Solution:
+   */
+
+  /**
+   * 225.
+   * Problem: Maximum games played by winner.
+   * Solution:
+   */
+
+  /**
+   * 226.
+   * Problem: Shortest possible combination of two strings.
+   * Solution:
+   */
+
+  /**
+   * 227.
+   * Problem: Coin game winner where every player has three choices.
+   * Solution:
+   */
+
+  /**
+   * 228.
+   * Problem: Largest rectangular sub-matrix whose sum is 0.
+   * Solution:
+   */
+
+  /**
+   * 229.
+   * Problem: Unique paths in a Grid with Obstacles.
+   * Solution:
+   */
+
+  /**
+   * 230.
+   * Problem: Maximum length subsequence with difference between adjacent elements as either 0 or 1.
+   * Solution:
+   */
+  int maxLengthSub(int[] array) {
+    int[] dp = new int[array.length];
+    Arrays.fill(dp, 1);
+    for (int i = 1; i < array.length; i++)
+      for (int j = 0; j < i; j++)
+        if (Math.abs(array[j] - array[i]) == 0 || Math.abs(array[j] - array[i]) == 1 && dp[j] + 1 > dp[i])
+          dp[i] = dp[j] + 1;
+    return IntStream.of(dp).max().getAsInt();
+  }
+
+
+  /**
+   * 231.
+   * Problem: Count ways to build street under given constraints.
+   * Solution:
+   */
+
+  /**
+   * 232.
+   * Problem: Maximum sum bitonic subarray.
+   * Solution:
+   */
+
+  /**
+   * 233.
+   * Problem: Count all triplets whose sum is equal to a perfect cube.
+   * Solution:
+   */
+
+  /**
+   * 234.
+   * Problem: Maximize the binary matrix by filpping submatrix once.
+   * Solution:
+   */
+
+  /**
+   * 235.
+   * Problem: Remove array end element to maximize the sum of product.
+   * Solution:
+   */
+
+  /**
+   * 236.
+   * Problem: Value of continuous floor function : F(x) = F(floor(x/2)) + x.
+   * Solution:
+   */
+
+  /**
+   * 237.
+   * Problem: Largest area rectangular sub-matrix with equal number of 1&#8217;s and 0&#8217;s.
+   * Solution:
+   */
+
+  /**
+   * 238.
+   * Problem: Find longest bitonic sequence such that increasing and decreasing parts are from two different arrays.
+   * Solution:
+   */
+
+  /**
+   * 239.
+   * Problem: Maximum points from top left of matrix to bottom right and return back.
+   * Solution:
+   */
+
+  /**
+   * 240.
+   * Problem: Minimum cells required to reach destination with jumps equal to cell values.
+   * Solution:
+   */
+
+  /**
+   * 241.
+   * Problem: Longest Increasing Path in Matrix.
+   * Solution:
+   */
+
+  /**
+   * 242.
+   * Problem: Number of ways to arrange N items under given constraints.
+   * Solution:
+   */
+
+  /**
+   * 243.
+   * Problem: Count all subsequences having product less than K.
+   * Solution:
+   */
+
+  /**
+   * 244.
+   * Problem: Longest Common Subsequence with at most k changes allowed.
+   * Solution:
+   */
+
+  /**
+   * 245.
+   * Problem: Longest alternating sub-array starting from every index in a Binary Array.
+   * Solution:
+   */
+
+  /**
+   * 246.
+   * Problem: Sub-tree with minimum color difference in a 2-coloured tree.
+   * Solution:
+   */
+
+  /**
+   * 247.
+   * Problem: Longest Repeated Subsequence.
+   * Solution:
+   */
+  int LRS(String str, int m, int n) {
+    if (m == 0 || n == 0) return 0;
+    else if (str.charAt(m - 1) == str.charAt(n - 1) && m != n) return 1 + LRS(str, m - 1, n - 1);
+    else return Math.max(LRS(str, m - 1, n), LRS(str, m, n - 1));
+  }
+
+  int LRSDP(String str) {
+   int[][]dp = new int[str.length() + 1][str.length() + 1];
+
+    for (int i = 1; i < dp.length; i++) {
+      for (int j = 1; j < dp[0].length; j++) {
+        if (str.charAt(i - 1) == str.charAt(j - 1) && i != j) dp[i][j] = 1 + dp[i - 1][j - 1];
+        else dp[i][j] = Math.max(dp[i - 1][j ], dp[i][j - 1]);
+      }
+    }
+    return dp[str.length()][str.length()];
+  }
+
+
+
+  /**
+   * 248.
+   * Problem: Count of strings where adjacent characters are of difference one.
+   * Solution:
+   */
+
+  /**
+   * 249.
+   * Problem: Counting pairs when a person can form pair with at most one.
+   * Solution:
+   */
+
+  /**
+   * 250.
+   * Problem: Tile Stacking Problem.
+   * Solution:
+   */
+
+  /**
+   * 251.
+   * Problem: Length of Longest Balanced Subsequence.
+   * Solution:
+   */
+
+  /**
+   * 252.
+   * Problem: Number of NGEs to the right.
+   * Solution:
+   */
+
+  /**
+   * 253.
+   * Problem: Maximum sum subsequence with at-least k distant elements.
+   * Solution:
+   */
+
+  /**
+   * 254.
+   * Problem: Minimum sum submatrix in a given 2D array.
+   * Solution:
+   */
+
+  /**
+   * 255.
+   * Problem: Given a large number, check if a subsequence of digits is divisible by 8.
+   * Solution:
+   */
+
+  /**
+   * 256.
+   * Problem: The painter&#8217;s partition problem.
+   * Solution:
+   */
+
+  /**
+   * 257.
+   * Problem: Program for Bridge and Torch problem.
+   * Solution:
+   */
+
+  /**
+   * 258.
+   * Problem: Print Longest Palindromic Subsequence.
+   * Solution:
+   */
+
+  /**
+   * 259.
+   * Problem: Number of n digit stepping numbers.
+   * Solution:
+   */
+
+  /**
+   * 260.
+   * Problem: Minimum jumps to reach last building in a matrix.
+   * Solution:
+   */
+
+  /**
+   * 261.
+   * Problem: Maximum size subset with given sum.
+   * Solution:
+   */
+
+  /**
+   * 262.
+   * Problem: Minimum cost to make two strings identical by deleting the digits.
+   * Solution:
+   */
+
+  /**
+   * 263.
+   * Problem: Maximum sum path in a matrix from top to bottom.
+   * Solution:
+   */
+
+  /**
+   * 264.
+   * Problem: Largest divisible pairs subset.
+   * Solution:
+   */
+
+  /**
+   * 265.
+   * Problem: Minimum cost to make Longest Common Subsequence of length k.
+   * Solution:
+   */
+
+  /**
+   * 266.
+   * Problem: Check if possible to cross the matrix with given power.
+   * Solution:
+   */
+
+  /**
+   * 267.
+   * Problem: Number of palindromic subsequences of length k.
+   * Solution:
+   */
+
+  /**
+   * 268.
+   * Problem: Count of arrays having consecutive element with different values.
+   * Solution:
+   */
+
+  /**
+   * 269.
+   * Problem: WildCard pattern matching having three symbols ( * ,  + ,  ? ).
+   * Solution:
+   */
+
+  /**
+   * 270.
+   * Problem: Maximum difference of zeros and ones in binary string.
+   * Solution:
+   */
+
+  /**
+   * 271.
+   * Problem: Maximum value with the choice of either dividing or considering as it is.
+   * Solution:
+   */
+
+  /**
+   * 272.
+   * Problem: Longest alternating (positive and negative) subarray starting at every index.
+   * Solution:
+   */
+
+  /**
+   * 273.
+   * Problem: Delannoy Number.
+   * Solution:
+   */
+
+  /**
+   * 274.
+   * Problem: Longest Increasing Odd Even Subsequence.
+   * Solution:
+   */
+
+  /**
+   * 275.
+   * Problem: Number of ways to insert a character to increase the LCS by one.
+   * Solution:
+   */
+
+  /**
+   * 276.
+   * Problem: Lobb Number.
+   * Solution:
+   */
+
+  /**
+   * 277.
+   * Problem: Newman–Shanks–Williams prime.
+   * Solution:
+   */
+
+  /**
+   * 278.
+   * Problem: Eulerian Number.
+   * Solution:
+   */
+
+  /**
+   * 279.
+   * Problem: Count of possible hexagonal walks.
+   * Solution:
+   */
+
+  /**
+   * 280.
+   * Problem: Entringer Number.
+   * Solution:
+   */
+
+  /**
+   * 281.
+   * Problem: Different ways to sum n using numbers greater than or equal to m.
+   * Solution:
+   */
+
+  /**
+   * 282.
+   * Problem: Count number of increasing subsequences of size k.
+   * Solution:
+   */
+
+  /**
+   * 283.
+   * Problem: Hosoya&#8217;s Triangle.
+   * Solution:
+   */
+
+  /**
+   * 284.
+   * Problem: Number of ways to form a heap with n distinct integers.
+   * Solution:
+   */
+
+  /**
+   * 285.
+   * Problem: Maximum product of an increasing subsequence.
+   * Solution:
+   */
+
+  /**
+   * 286.
+   * Problem: Newman-Conway Sequence.
+   * Solution:
+   */
+
+  /**
+   * 287.
+   * Problem: Count ways to reach the nth stair using step 1,  2 or  3.
+   * Solution:
+   */
+
+  /**
+   * 288.
+   * Problem: Minimum number of deletions to make a string palindrome | Set 2.
+   * Solution:
+   */
+
+  /**
+   * 289.
+   * Problem: Largest rectangular sub-matrix having sum divisible by k.
+   * Solution:
+   */
+
+  /**
+   * 290.
+   * Problem: K maximum sums of non-overlapping contiguous sub-arrays.
+   * Solution:
+   */
+
+  /**
+   * 291.
+   * Problem: Jacobsthal and Jacobsthal-Lucas numbers.
+   * Solution:
+   */
+
+  /**
+   * 292.
+   * Problem: Check for possible path in 2D matrix.
+   * Solution:
+   */
+
+  /**
+   * 293.
+   * Problem: Longest palindrome subsequence  with O(n) space.
+   * Solution:
+   */
+
+  /**
+   * 294.
+   * Problem: Counting numbers of n digits that are montone.
+   * Solution:
+   */
+
+  /**
+   * 295.
+   * Problem: Maximum subarray sum in O(n) using prefix sum.
+   * Solution:
+   */
+
+  /**
+   * 296.
+   * Problem: Count ways to divide circle using N non-intersecting chords.
+   * Solution:
+   */
+
+  /**
+   * 297.
+   * Problem: K maximum sums of overlapping contiguous sub-arrays.
+   * Solution:
+   */
+
+  /**
+   * 298.
+   * Problem: Number of decimal numbers of length k, that are strict monotone.
+   * Solution:
+   */
+
+  /**
+   * 299.
+   * Problem: Maximum subarray sum in an array created after repeated concatenation.
+   * Solution:
+   */
+
+  /**
+   * 300.
+   * Problem: Count of different ways to express N as the sum of 1, 3 and 4.
+   * Solution:
+   */
+
+  /**
+   * 301.
+   * Problem: Probability of reaching a point with 2 or 3 steps at a time.
+   * Solution:
+   */
+
+  /**
+   * 302.
+   * Problem: Maximum difference of zeros and ones in binary string | Set 2 (O(n) time).
+   * Solution:
+   */
+
+  /**
+   * 303.
+   * Problem: Check if it is possible to transform one string to another.
+   * Solution:
+   */
+
+  /**
+   * 304.
+   * Problem: Balanced expressions such that given positions have opening brackets.
+   * Solution:
+   */
+
+  /**
+   * 305.
+   * Problem: Maximum number of trailing zeros in the product of the subsets of size k.
+   * Solution:
+   */
+
+  /**
+   * 306.
+   * Problem: LCS formed by consecutive segments of at least length K.
+   * Solution:
+   */
+
+  /**
+   * 307.
+   * Problem: Print Fibonacci Series in reverse order.
+   * Solution:
+   */
+
+  /**
+   * 308.
+   * Problem: Minimum sum of multiplications of n numbers.
+   * Solution:
+   */
+
+  /**
+   * 309.
+   * Problem: Print n terms of Newman-Conway Sequence.
+   * Solution:
+   */
+
+  /**
+   * 310.
+   * Problem: Sum of products of all combination taken (1 to n) at a time.
+   * Solution:
+   */
+
+  /**
+   * 311.
+   * Problem: Maximize the sum of selected numbers from an array to make it empty.
+   * Solution:
+   */
+
+  /**
+   * 312.
+   * Problem: Number of ordered pairs such that (Ai &amp; Aj) = 0.
+   * Solution:
+   */
+
+  /**
+   * 313.
+   * Problem: Maximum number of segments of lengths a, b and c.
+   * Solution:
+   */
+
+
+  /**
+   * CarrerCup Questions
+   */
+
+  /**
+   * Problem: Given a binary matrix. Your task is to count all the squares formed by zeros in the matrix.
+   */
+
+  public int sumOfAllSquares(int[][] mat) {
+    int[][] dp = new int[mat.length][mat[0].length];
+    for (int i = 0; i < dp.length; i++) {
+      for (int j = 0; j < dp[0].length; j++) {
+        if (i == 0 || j == 0) dp[i][j] = (mat[i][j] == 0) ? 1 : 0;
+        else if (mat[i][j] == 1) dp[i][j] = 0;
+        else dp[i][j] =  1 + Math.min(dp[i][j - 1], Math.min(dp[i - 1][j - 1], dp[i - 1][j]));
+      }
+    }
+    int sum = 0;
+    for (int i = 0; i < dp.length; i++)
+      for (int j = 0; j < dp[0].length; j++) if (dp[i][j] > 0) sum += dp[i][j];
+    return sum;
+  }
+
+
+  // Leetcode
+  //A message containing letters from A-Z is being encoded to numbers using the following mapping:
+
+  int numDecodings(String str, HashMap<String, String> map) {
+    if (str.isEmpty()) return 1;
+    else {
+      int sum = 0;
+      for (int i = 0; i < str.length(); i++) {
+        if (map.containsKey(str.substring(0, i + 1))) sum += numDecodings(str.substring(i + 1), map);
+      }
+      return sum;
+      }
+    }
 
 }

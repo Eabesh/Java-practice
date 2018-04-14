@@ -76,6 +76,13 @@ public class ADSExamples {
   /**
    * 12.
    * Problem: Implement LRU Cache.
+   * Solutions: Maintain two data structures. A linked list and a hash table.
+   * The hash table should contain the (key, pointer), where pointer is a pointer to the element in the
+   * linked list.
+   * LRU evicts the least recently used element from the cache.
+   * On removing an element, remove from both the linked list and the hash table.
+   * On requesting an element, move it to head of the linked list.
+   * This solution is O(1) time complexity. Space complexity is O(n)
    */
   class LRUCache {
     int capacity;
@@ -126,6 +133,55 @@ public class ADSExamples {
         map.put(key, newNode);
       }
     }
+  }
+
+
+   class petrolPump
+  {
+    int petrol;
+    int distance;
+
+    // constructor
+    public petrolPump(int petrol, int distance)
+    {
+      this.petrol = petrol;
+      this.distance = distance;
+    }
+  }
+
+
+  int printTour(petrolPump arr[], int n)
+  {
+    int start = 0;
+    int end = 1;
+    int curr_petrol = arr[start].petrol - arr[start].distance;
+
+    // If current amount of petrol in truck becomes less than 0, then
+    // remove the starting petrol pump from tour
+    while(end != start || curr_petrol < 0)
+    {
+
+      // If current amount of petrol in truck becomes less than 0, then
+      // remove the starting petrol pump from tour
+      while(curr_petrol < 0 && start != end)
+      {
+        // Remove starting petrol pump. Change start
+        curr_petrol -= arr[start].petrol - arr[start].distance;
+        start = (start + 1) % n;
+
+        // If 0 is being considered as start again, then there is no
+        // possible solution
+        if(start == 0)
+          return -1;
+      }
+      // Add a petrol pump to current tour
+      curr_petrol += arr[end].petrol - arr[end].distance;
+
+      end = (end + 1)%n;
+    }
+
+    // Return starting point
+    return start;
   }
 
   /**

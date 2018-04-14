@@ -833,4 +833,25 @@ public class TreeExamplesTest {
     System.out.println(max);
   }
 
+  @Test
+  public void maxSumPathUtil() {
+    TreeNode root = new TreeNode(10);
+    root.left = new TreeNode(-2);
+    root.right = new TreeNode(7);
+    root.left.left = new TreeNode(8);
+    root.left.right = new TreeNode(-4);
+
+    TreeExamples.MaxSumPath result = new TreeExamples().maxSumPathUtil(root);
+    System.out.println(result.getSum());
+    System.out.println(result.getPath().trim());
+  }
+
+  @Test
+  public void printPostOrder() {
+
+    int in[] = {4, 2, 5, 1, 3, 6};
+    int pre[] =  {1, 2, 4, 5, 3, 6};
+
+    new TreeExamples().printPostOrder(in, pre, 0, in.length - 1, new int[1]);
+  }
 }

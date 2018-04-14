@@ -4,6 +4,7 @@ import algorithms.dynamic.programming.DPExamples;
 import data.structures.stack.StackExamples;
 
 import java.awt.*;
+import java.io.PrintWriter;
 import java.util.*;
 
 public class MatrixExamples {
@@ -42,8 +43,37 @@ public class MatrixExamples {
   /**
    * 3.
    * Problem: Search in a row wise and column wise sorted matrix.
-   * Solution:
+   * Solution:1) Start with top right element
+   * 2) Loop: compare this element e with x
+   * ….i) if they are equal then return its position
+   * …ii) e < x then move it to down (if out of bound of matrix then break return false) ..iii) e > x then move it to left (if out of bound of matrix then break return false)
+   * 3) repeat the i), ii) and iii) till you find element or returned false
    */
+
+  void searchInMat(int[][] mat, int x) {
+    int i = 0, j = mat[0].length - 1;
+
+    while (i < mat.length  && j >= 0) {
+      if (mat[i][j] == x) {
+        System.out.println("Found At " + i + " " + j);
+        return;
+      } else if (mat[i][j] > x) j--;
+      else i++;
+    }
+    System.out.println("Element not Found");
+  }
+
+   boolean searchMatrix(int[][] matrix, int target) {
+    if (matrix.length == 0) return false;
+    int i = 0, j = matrix[0].length - 1;
+    while(i < matrix.length && j >= 0) {
+      if (matrix[i][j] == target) return true;
+      else if (matrix[i][j] > target) j--;
+      else i++;
+    }
+    return false;
+  }
+
 
   /**
    * 4.
@@ -52,22 +82,22 @@ public class MatrixExamples {
   void spiralPrint(int[][] matrix) {
     int startRow = 0, endRow = matrix.length - 1, startColumn = 0, endColumn = matrix[0].length - 1;
 
-    while (startRow < endRow && startColumn < endColumn) {
-      for (int i = startColumn; i < endColumn; i++) System.out.print(matrix[startRow][i]);
+    while (startRow <= endRow && startColumn <= endColumn) {
+      for (int i = startColumn; i <= endColumn; i++) System.out.print(matrix[startRow][i]);
       startRow++;
-      for (int i = startRow; i < endRow; i++) System.out.print(matrix[i][endColumn]);
+      for (int i = startRow; i <= endRow; i++) System.out.print(matrix[i][endColumn]);
       endColumn--;
-      if (startRow < endRow) {
+      if (startRow <= endRow) {
         for (int i = endColumn; i >= startColumn; i--) System.out.print(matrix[endRow][i]);
         endRow--;
       }
-      if (startColumn < endColumn) {
+      if (startColumn <= endColumn) {
         for (int i = endRow; i >= startRow; i--) System.out.print(matrix[i][startColumn]);
         startColumn++;
       }
     }
-
   }
+
 
   /**
    * 5.
@@ -168,7 +198,8 @@ public class MatrixExamples {
    * The problem is to print all the possible paths from top left to bottom right of a mXn matrix with the constraints
    * that from each cell you can either move only to right or down.
    */
-  public void printAllPaths(int[][] mat, String path, int x, int y) {
+  public void
+  printAllPaths(int[][] mat, String path, int x, int y) {
     if (x == mat.length - 1 && y == mat[0].length - 1)
       System.out.println(path + mat[mat.length - 1][mat[0].length - 1]);
     else {
@@ -192,8 +223,53 @@ public class MatrixExamples {
   /**
    * 17.
    * Problem: Kth smallest element in a row-wise and column-wise sorted 2D array | Set 1.
-   * Solution:
+   * Solution: Use Priority Queue
+   *
+   * To find the Kth largest element use max heap, 2) all last column 3) replace element with its row element.
    */
+  class ElementWithPos{
+    int data, i, j;
+
+    public ElementWithPos(int data, int i, int j) {
+      this.data = data;
+      this.i = i;
+      this.j = j;
+    }
+
+    public int getData() {
+      return data;
+    }
+
+    public int getI() {
+      return i;
+    }
+
+    public int getJ() {
+      return j;
+    }
+  }
+
+  int kSmallest(int[][] mat, int k) {
+    PriorityQueue<ElementWithPos> minHeap = new PriorityQueue<>(Comparator.comparingInt(ElementWithPos::getData));
+
+    for (int i = 0; i < mat.length; i++) minHeap.add(new ElementWithPos(mat[0][i], 0, i));
+    for (int j = 1; j < k ; j++) {
+      ElementWithPos min = minHeap.poll();
+      minHeap.add(new ElementWithPos(mat[min.getI() + 1][min.getJ()], min.getI() + 1, min.getJ()));
+    }
+    return minHeap.poll().getData();
+  }
+
+  int kLargest(int[][] mat, int k) {
+    PriorityQueue<ElementWithPos> maxHeap = new PriorityQueue<>((ElementWithPos e1, ElementWithPos e2) -> e2.getData() - e1.getData());
+    for (int j = 0; j < mat[0].length; j++) maxHeap.add(new ElementWithPos(mat[j][mat[0].length -1], j, mat[0].length - 1));
+    for (int i = 1; i <k; i++) {
+      ElementWithPos max = maxHeap.poll();
+      int x = max.getI(), y = max.getJ() - 1;
+      maxHeap.add(new ElementWithPos(mat[x][y], x, y));
+    }
+    return maxHeap.poll().getData();
+  }
 
   /**
    * 18.
@@ -839,6 +915,14 @@ public class MatrixExamples {
    * Problem: Find whether there is path between two cells in matrix.
    * Solution:
    */
+//  boolean isTherePath(int[][] mat, int i, int j) {
+//    if (mat[i][j] == 2) return true;
+//    else if (i < 0 || i > mat.length || j < 0 || j > mat[0].length) return false;
+//    else if (mat[i][j] == 3)
+//      return isTherePath(mat, i - 1, j) ||  isTherePath(mat, i + 1, j) ||  isTherePath(mat, i , j - 1) ||  isTherePath(mat, i , j + 1);
+//  }
+
+
 
   /**
    * 112.
@@ -1649,11 +1733,109 @@ public class MatrixExamples {
 
 
 
+  /**
+   * 238.
+   * Problem: Print matrix in zag-zag fashion.
+   * Solution:
+   */
+
+  /**
+   * 239.
+   * Problem: Maximum sum of elements from each row in the matrix.
+   * Solution:
+   */
+
+  /**
+   * 240.
+   * Problem: Removing row or column wise duplicates from matrix of characters.
+   * Solution:
+   */
+
+  /**
+   * 241.
+   * Problem: Sort the given matrix.
+   * Solution:
+   */
+
+  /**
+   * 242.
+   * Problem: Interchange elements of first and last rows in matrix.
+   * Solution:
+   */
+
+  /**
+   * 243.
+   * Problem: Sort the matrix row-wise and column-wise.
+   * Solution:
+   */
+
+  /**
+   * 244.
+   * Problem: Count pairs from two sorted matrices with given sum.
+   * Solution:
+   */
+
+  /**
+   * 245.
+   * Problem: Program to check idempotent matrix.
+   * Solution:
+   */
+
+  /**
+   * 246.
+   * Problem: Program to check Involutory Matrix.
+   * Solution:
+   */
+
+  /**
+   * 247.
+   * Problem: Print a matrix in Reverse Wave Form.
+   * Solution:
+   */
 
 
 
+//Given MxN matrix, which contains 1s and 0s only. Redraw the matrix so that, if any one position [i,j] contains 1, mark the entire row and column with 1. But make sure because of newly marked 1s, don’t do the same
 
+  void redrawMatrix(int[][] mat) {
+    HashSet<Integer> rows = new HashSet<>(), cols = new HashSet<>();
+    for (int i = 0; i < mat.length; i++) {
+      for (int j = 0; j < mat[0].length; j++) {
+        if (mat[i][j] == 1) {
+          rows.add(i);
+          cols.add(j);
+        }
+      }
+    }
 
+    for (int i = 0; i < mat.length; i++)
+      for (int j = 0; j < mat[0].length; j++)
+        if (rows.contains(i) || rows.contains(j)) mat[i][j] = 1;
+
+    for (int i = 0; i < mat.length; i++) {
+      for (int j = 0; j < mat[0].length; j++) System.out.print(mat[i][j] + " ");
+      System.out.println();
+    }
+  }
+
+  int[][] getMatrix(int row, int col, PrintWriter writer) {
+    int[][] mat = new int[row][col];
+    for (int i = 0; i < mat.length; i++) {
+      for (int j = 0; j < mat[0].length; j++) {
+        mat[i][j] = (int) Math.round(Math.random());
+      }
+    }
+
+    for (int i = 0; i < mat.length; i++) {
+      for (int j = 0; j < mat[0].length; j++) {
+        System.out.print(mat[i][j] + " ");
+        writer.print(mat[i][j] + " ");
+      }
+      System.out.println();
+      writer.println();
+    }
+    return mat;
+  }
 
 
 
@@ -1709,6 +1891,8 @@ public class MatrixExamples {
    * decide whether this x is in the matrix. The designed algorithm should have linear time complexity.
    * Solution: Start from top right corner. To get smaller element move left and for bigger elements go down.
    */
+
+
 
   /**
    * 2.

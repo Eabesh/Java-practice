@@ -1,6 +1,7 @@
 package algorithms.backtracking;
 
 import org.junit.Test;
+import sun.swing.BakedArrayList;
 
 import java.util.*;
 
@@ -37,7 +38,7 @@ public class BackTrackingExamplesTest {
   @Test
   public void palindromicPartitions() throws Exception {
     ArrayList<ArrayList<String>> result = new ArrayList<>();
-    new BackTrackingExamples().palindromicPartitions("aab", result, new ArrayList<>());
+//    new BackTrackingExamples().palindromicPartitions("aab", result, new ArrayList<>());
 //    for (ArrayList<String> strings : result) System.out.println(strings);
     new BackTrackingExamples().palindromicPartitions2("aab", "");
   }
@@ -111,4 +112,29 @@ public class BackTrackingExamplesTest {
 
   }
 
+  @Test
+  public void combinationSum2() {
+    int[] a = {10, 1, 2, 7, 6, 1, 5};
+//    List<List<Integer>> result = new BackTrackingExamples().combinationSum2(a, 8);
+//    result.forEach(System.out::println);
+  }
+
+  @Test
+  public void combine() {
+    List<List<Integer>> result = new BackTrackingExamples().combine(4, 2);
+    result.forEach(System.out::println);
+  }
+
+  @Test
+  public void letterCombinations() {
+    List<String> result = new BackTrackingExamples().letterCombinations("10123");
+    result.forEach(System.out::println);
+  }
+
+  @Test
+  public void subsets() {
+    int[] nums = {1,2,3};
+    List<List<Integer>> result = new BackTrackingExamples().subsets(nums);
+    result.forEach(System.out::println);
+  }
 }

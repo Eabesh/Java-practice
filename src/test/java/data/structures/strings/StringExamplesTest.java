@@ -46,4 +46,9 @@ public class StringExamplesTest {
     new StringExamples().printSpaces("A", "B");
   }
 
+  @Test
+  public void manipulationCount() {
+    assertEquals(2,  new StringExamples().manipulationCount("ddcf", "cedk"));
+    assertEquals(0,  new StringExamples().manipulationCount("aba", "baa"));
+  }
 }

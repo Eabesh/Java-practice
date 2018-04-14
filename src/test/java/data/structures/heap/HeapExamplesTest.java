@@ -16,13 +16,15 @@ public class HeapExamplesTest {
   @Test
   public void mergeKLists() throws Exception {
     ListNode[] lists = new ListNode[3];
-    Object object = new Object();
-
-
-//    lists[0] = new ListNode(1);
-//    lists[1] = new ListNode(2);
-//    lists[2] = new ListNode(3);
-    new HeapExamples().mergeKLists(lists);
+    lists[0] = new ListNode(1);
+    lists[1] = new ListNode(6);
+    lists[1].next = new ListNode(8);
+    lists[2] = new ListNode(4);
+    ListNode mergeList =  new HeapExamples().mergeKLists(lists);
+    while (mergeList != null) {
+      System.out.println(mergeList.data);
+      mergeList = mergeList.next;
+    }
   }
 
   @Test
@@ -32,4 +34,29 @@ public class HeapExamplesTest {
     new HeapExamples().mergeTwoMaxHeaps(a, b);
   }
 
+  @Test
+  public void stackp(){
+    HeapExamples.StackPriority stackPriority= new HeapExamples().new StackPriority();
+    stackPriority.push(1);
+    stackPriority.push(2);
+    stackPriority.push(3);
+
+    while (!stackPriority.isEmpty()) {
+      System.out.println(stackPriority.top());
+      stackPriority.pop();
+    }
+  }
+
+  @Test
+  public void minKProduct() {
+    int[] array = {198, 76, 544, 123, 154, 675};
+    assertEquals(9348, new HeapExamples().minKProduct(array, 2));
+
+  }
+
+  @Test
+  public void tripletProduct() {
+    int[] array =  {1, 2, 3, 4, 5};
+    new HeapExamples().tripletProduct(array, 3);
+  }
 }

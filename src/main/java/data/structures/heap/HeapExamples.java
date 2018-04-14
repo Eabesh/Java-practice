@@ -4,6 +4,9 @@ import data.structures.bst.BSTExamples;
 import utilities.ListNode;
 import utilities.TreeNode;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.PriorityQueue;
 
 public class HeapExamples {
@@ -54,8 +57,25 @@ public class HeapExamples {
   /**
    * 6.
    * Problem: Sort a nearly sorted (or K sorted) array.
-   * Solution:
+   * Given an array of n elements, where each element is at most k away from its target position, devise
+   * an algorithm that sorts in O(n log k) time
+   * Solution: We can use Insertion Sort to sort the elements efficiently.
+   * The inner loop will run at most k times. To move every element to its correct place, at most k elements
+   * need to be moved. So overall complexity will be O(nk)
    */
+  void insertionSort(int[] array) {
+    int key, j;
+    for (int i = 1; i < array.length; i++) {
+      key = array[i];
+      j = i - 1;
+      while (j > 0 && array[j] > key) {
+        array[j + 1] = array[j];
+        j--;
+      }
+      array[j + 1] = key;
+    }
+  }
+
 
   /**
    * 7.
@@ -218,42 +238,64 @@ public class HeapExamples {
    * Problem: How to implement stack using priority queue or heap?.
    * Solution:
    */
+  class StackPriority {
+
+
+    int priority = 0;
+    PriorityQueue<Element> priorityQueue = new PriorityQueue<>((Element e1, Element e2) -> e2.getCount() - e1.getCount());
+
+    void push(int value) {
+      priority++;
+      priorityQueue.add(new Element(value, priority));
+    }
+
+    void pop() {
+      if (!isEmpty()) {
+        priority--;
+        priorityQueue.poll();
+      }
+    }
+
+    int top() {
+      return priorityQueue.peek().getValue();
+    }
+
+    boolean isEmpty() {
+      return priorityQueue.isEmpty();
+    }
+  }
+
+  class Element {
+    int count;
+    int value;
+
+    public Element(int count, int value) {
+      this.count = count;
+      this.value = value;
+    }
+
+    public void setCount(int count) {
+      this.count = count;
+    }
+
+    public void setValue(int value) {
+      this.value = value;
+    }
+
+    public int getValue() {
+      return value;
+    }
+
+    public int getCount() {
+      return count;
+    }
+  }
 
   /**
    * 32.
    * Problem: Merge two binary Max Heaps.
    * Solution:
    */
-  void mergeTwoMaxHeaps(int[] maxHeap1, int[] maxHeap2) {
-    int[] maxHeap = new int[maxHeap1.length + maxHeap2.length];
-    System.arraycopy(maxHeap1, 0, maxHeap, 0, maxHeap1.length);
-    System.arraycopy(maxHeap2,0, maxHeap, maxHeap1.length, maxHeap2.length);
-    for (int i = maxHeap.length / 2 - 1; i >= 0; i--) maxHeapify(maxHeap, i);
-    for (int i : maxHeap) {
-      System.out.print(i + " ");
-    }
-  }
-  private void maxHeapify(int[] array, int i) {
-    if (i < array.length) {
-      int left = 2 * i + 1;
-      int right = 2 * i + 2;
-      int max;
-      if (left < array.length && array[left] > array[i] ) max = left;
-      else max = i;
-      if (right < array.length && array[right] > array[i]) max = right;
-      if (max != i) {
-        swapNode(array, max, i);
-        maxHeapify(array, max);
-      }
-    }
-  }
-
-  private void swapNode(int[] array, int x, int y) {
-    int temp = array[x];
-    array[x] = array[y];
-    array[y] = temp;
-  }
-
 
 
   /**
@@ -276,8 +318,279 @@ public class HeapExamples {
    * Solution:
    */
 
+
+
+
+  /**
+   * 1.
+   * Problem: k largest(or smallest) elements in an array | added Min Heap method.
+   * Solution:
+   */
+
+  /**
+   * 2.
+   * Problem: Applications of Heap Data Structure.
+   * Solution:
+   */
+
+  /**
+   * 3.
+   * Problem: Tournament Tree (Winner Tree) and Binary Heap.
+   * Solution:
+   */
+
+  /**
+   * 4.
+   * Problem: Time Complexity of building a heap.
+   * Solution:
+   */
+
+  /**
+   * 5.
+   * Problem: Median in a stream of integers (running integers).
+   * Solution:
+   */
+
+  /**
+   * 6.
+   * Problem: Sort a nearly sorted (or K sorted) array.
+   * Solution:
+   */
+
+  /**
+   * 7.
+   * Problem: Sort numbers stored on different machines.
+   * Solution:
+   */
+
+  /**
+   * 8.
+   * Problem: Design an efficient data structure for given operations.
+   * Solution:
+   */
+
+  /**
+   * 9.
+   * Problem: Heap Sort.
+   * Solution:
+   */
+
+  /**
+   * 10.
+   * Problem: Merge k sorted arrays | Set 1.
+   * Solution:
+   */
+
+  /**
+   * 11.
+   * Problem: Connect n ropes with minimum cost.
+   * Solution:
+   */
+
+  /**
+   * 12.
+   * Problem: Print all elements in sorted order from row and column wise sorted matrix.
+   * Solution:
+   */
+
+  /**
+   * 13.
+   * Problem: Binary Heap.
+   * Solution:
+   */
+
+  /**
+   * 14.
+   * Problem: Binomial Heap.
+   * Solution:
+   */
+
+  /**
+   * 15.
+   * Problem: K&#8217;th Smallest/Largest Element in Unsorted Array | Set 1.
+   * Solution:
+   */
+
+  /**
+   * 16.
+   * Problem: Where is Heap Sort used practically?.
+   * Solution:
+   */
+
+  /**
+   * 17.
+   * Problem: K&#8217;th largest element in a stream.
+   * Solution:
+   */
+
+  /**
+   * 18.
+   * Problem: Why is Binary Heap Preferred over BST for Priority Queue?.
+   * Solution:
+   */
+
+  /**
+   * 19.
+   * Problem: How to check if a given array represents a Binary Heap?.
+   * Solution:
+   */
+
+  /**
+   * 20.
+   * Problem: Fibonacci Heap | Set 1 (Introduction).
+   * Solution:
+   */
+
+  /**
+   * 21.
+   * Problem: Check if a given Binary Tree is Heap.
+   * Solution:
+   */
+
+  /**
+   * 22.
+   * Problem: K-ary Heap.
+   * Solution:
+   */
+
+  /**
+   * 23.
+   * Problem: Convert min Heap to max Heap.
+   * Solution:
+   */
+
+  /**
+   * 24.
+   * Problem: Heap in C++ STL | make_heap(), push_heap(), pop_heap(), sort_heap(), is_heap, is_heap_until().
+   * Solution:
+   */
+
+  /**
+   * 25.
+   * Problem: Minimum sum of two numbers formed from digits of an array.
+   * Solution:
+   */
+
+  /**
+   * 26.
+   * Problem: Sum of all elements between k1&#8217;th and k2&#8217;th smallest elements.
+   * Solution:
+   */
+
+  /**
+   * 27.
+   * Problem: Array Representation Of Binary Heap.
+   * Solution:
+   */
+
+  /**
+   * 28.
+   * Problem: Implementation of Binomial Heap.
+   * Solution:
+   */
+
+  /**
+   * 29.
+   * Problem: Rearrange characters in a string such that no two adjacent are same.
+   * Solution:
+   */
+
+  /**
+   * 30.
+   * Problem: Given level order traversal of a Binary Tree, check if the Tree is a Min-Heap.
+   * Solution:
+   */
+
+  /**
+   * 31.
+   * Problem: Applications of Priority Queue.
+   * Solution:
+   */
+
+  /**
+   * 32.
+   * Problem: How to implement stack using priority queue or heap?.
+   * Solution:
+   */
+
+  
+
+  /**
+   * 33.
+   * Problem: Merge two binary Max Heaps.
+   */
+  void mergeTwoMaxHeaps(int[] maxHeap1, int[] maxHeap2) {
+    int[] maxHeap = new int[maxHeap1.length + maxHeap2.length];
+    System.arraycopy(maxHeap1, 0, maxHeap, 0, maxHeap1.length);
+    System.arraycopy(maxHeap2, 0, maxHeap, maxHeap1.length, maxHeap2.length);
+    for (int i = maxHeap.length / 2 - 1; i >= 0; i--) maxHeapify(maxHeap, i);
+    for (int i : maxHeap) {
+      System.out.print(i + " ");
+    }
+  }
+
+  private void maxHeapify(int[] array, int i) {
+    if (i < array.length) {
+      int left = 2 * i + 1;
+      int right = 2 * i + 2;
+      int max;
+      if (left < array.length && array[left] > array[i]) max = left;
+      else max = i;
+      if (right < array.length && array[right] > array[i]) max = right;
+      if (max != i) {
+        swapNode(array, max, i);
+        maxHeapify(array, max);
+      }
+    }
+  }
+
+  private void swapNode(int[] array, int x, int y) {
+    int temp = array[x];
+    array[x] = array[y];
+    array[y] = temp;
+  }
+
+
+  /**
+   * 34.
+   * Problem: Convert BST to Min Heap.
+   * Solution:
+   */
+
+  /**
+   * 35.
+   * Problem: Find k numbers with most occurrences in the given array.
+   * Solution:
+   */
+
   /**
    * 36.
+   * Problem: Largest triplet product in a stream.
+   * Given a stream of integers represented as arr[]. For each index i from 0 to n-1, print the
+   * multiplication of largest, second largest, third largest element of the subarray arr[0…i]. If i < 2 print -1
+   */
+  void tripletProduct(int[] array, int k) {
+    PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+    int product = 1;
+    for (int i = 0; i < k; i++) {
+      minHeap.add(array[i]);
+      product *= array[i];
+      if (i < k -1) System.out.println(-1);
+      else System.out.println(product);
+    }
+
+    for (int i = k; i < array.length; i++) {
+      if (minHeap.peek() < array[i]) {
+        product /= minHeap.poll();
+        product *= array[i];
+        minHeap.add(array[i]);
+        System.out.println(product);
+      }
+    }
+  }
+
+  /**
+   * 37.
    * Problem: Merge k sorted linked lists | Set 2 (Using Min Heap).
    */
   ListNode mergeKLists(ListNode[] lists) {
@@ -290,7 +603,7 @@ public class HeapExamples {
       if (head == null) {
         head = top;
         tail = top;
-      }else {
+      } else {
         tail.next = top;
         tail = tail.next;
       }
@@ -298,5 +611,58 @@ public class HeapExamples {
     return head;
   }
 
+  /**
+   * 38.
+   * Problem: Median of Stream of Running Integers using STL.
+   * Solution:
+   */
+
+  /**
+   * 39.
+   * Problem: Leftist Tree / Leftist Heap.
+   * Solution:
+   */
+
+  /**
+   * 40.
+   * Problem: std::make_heap() in C++ STL.
+   * Solution:
+   */
+
+  /**
+   * 41.
+   * Problem: Adding elements of an array until every element becomes greater than or equal to k.
+   * Solution:
+   */
+
+  /**
+   * 42.
+   * Problem: Print all nodes less than a value x in a Min Heap..
+   * Solution:
+   */
+
+  /**
+   * 43.
+   * Problem: K-th Largest Sum Contiguous Subarray.
+   * Solution:
+   */
+
+  /**
+   * 44.
+   * Problem: Minimum product of k integers in  an array of positive Integers.
+   */
+  int minKProduct(int[] array, int k) {
+    PriorityQueue<Integer> maxHeap = new PriorityQueue<>(k, (x, y) -> y - x);
+    for (int i = 0; i < k; i++) maxHeap.add(array[i]);
+    for (int i = k; i < array.length; i++) {
+      if (maxHeap.peek() > array[i]) {
+        maxHeap.poll();
+        maxHeap.add(array[i]);
+      }
+    }
+    int product = 1;
+    while (!maxHeap.isEmpty()) product *= maxHeap.poll();
+    return product;
+  }
 
 }

@@ -799,8 +799,16 @@ public class TreeExamples {
   /**
    * 58.
    * Problem: Print Postorder traversal from given Inorder and Preorder traversals.
-   * Solution:
    */
+  void printPostOrder(int[] in, int[] pre, int inStart, int inEnd, int[] preIndex) {
+    if (inStart <= inEnd) {
+      int rootIndex = getInorderIndex(in, pre[preIndex[0]++]);
+      printPostOrder(in, pre, inStart, rootIndex - 1, preIndex);
+      printPostOrder(in, pre, rootIndex + 1, inEnd, preIndex);
+      System.out.print(in[rootIndex] + " ");
+    }
+  }
+
 
   /**
    * 59.
@@ -1180,6 +1188,7 @@ public class TreeExamples {
    * Problem: Maximum Path Sum in a Binary Tree.
    * Solution:
    */
+
 
   /**
    * 111.
@@ -2736,10 +2745,38 @@ public class TreeExamples {
    * The sums of these three paths are 16, 4 and 17 respectively. The maximum of them is 17 and the path for maximum is 7->10.
    * Solution:
    */
-  public int maxRootToLeaOfPath(TreeNode root) {
+  int maxRootToLeaOfPath(TreeNode root) {
     if (root == null) return 0;
     else return root.data + Math.max(maxRootToLeaOfPath(root.left), maxRootToLeaOfPath(root.right));
 
+  }
+
+  class MaxSumPath {
+    int sum;
+    String path;
+
+    public MaxSumPath(int sum, String path) {
+      this.sum = sum;
+      this.path = path;
+    }
+
+    public int getSum() {
+      return sum;
+    }
+
+    public String getPath() {
+      return path;
+    }
+
+  }
+
+  MaxSumPath maxSumPathUtil(TreeNode root) {
+    if (root == null) return new MaxSumPath(0, "");
+    else {
+      MaxSumPath left = maxSumPathUtil(root.left);
+      MaxSumPath right = maxSumPathUtil(root.right);
+      return (left.getSum() > right.getSum()) ? new MaxSumPath(left.getSum() + root.data, left.getPath() + " " + root.data) : new MaxSumPath(right.getSum() + root.data, right.getPath() + " " + root.data);
+    }
   }
 
 

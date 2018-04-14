@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class SearchingExamplesTest {
-
+  SearchingExamples searchingExamples = new SearchingExamples();
   @Test
   public void findMinElement() throws Exception {
     int[] array = {5, 6, 1, 2, 3, 4};
@@ -20,4 +20,15 @@ public class SearchingExamplesTest {
     assertEquals(4, new SearchingExamples().findMissingNumber(list2, 6));
   }
 
+  @Test
+  public void frequency() {
+    int arr[] = {1, 2, 2, 3, 3, 3, 3};
+    assertEquals(4, new SearchingExamples().frequency(arr, 3));
+  }
+
+  @Test
+  public void rotatedBinarySearch() {
+    int[] array = {4, 5, 6, 1, 2, 3};
+    assertEquals(1, searchingExamples.rotatedBinarySearch(array, 5));
+  }
 }

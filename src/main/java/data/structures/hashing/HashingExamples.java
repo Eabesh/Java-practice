@@ -1,6 +1,7 @@
 package data.structures.hashing;
 
-import java.util.HashMap;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class HashingExamples {
 
@@ -577,8 +578,71 @@ public class HashingExamples {
   /**
    * 96.
    * Problem: All unique triplets that sum up to a given value.
-   * Solution:
    */
+
+  //LeetCode
+
+  ArrayList<ArrayList<Integer>> anagrams(final List<String> words) {
+    Map<String, ArrayList<Integer>> map = new HashMap<>();
+    for(int i = 0; i < words.size(); i++) {
+     char[] chars = words.get(i).toCharArray();
+     Arrays.sort(chars);
+     String word = String.valueOf(chars);
+     if (map.get(word) != null) map.get(word).add(i + 1);
+     else {
+       ArrayList<Integer> list = new ArrayList<>();
+       list.add(i + 1);
+       map.put(word, list);
+     }
+    }
+    ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+    map.forEach((k, v) -> {
+      result.add(map.get(k));
+    });
+    return result;
+  }
+
+  //Two Sum
+  int[] twoSum(int[] nums, int target) {
+    Map<Integer, Integer> map = new HashMap<>();
+    int[] res = new int[2];
+    for (int i = 0; i < nums.length; i++) {
+      if (map.containsKey(target - nums[i])) {
+          res[0] = map.get(target - nums[i]);
+          res[1] = i;
+          return res;
+      }else {
+        map.put(nums[i], i);
+      }
+    }
+    return res;
+
+  }
+
+
+  int maxLen(int arr[])
+  {
+    HashMap<Integer, Integer> hM = new HashMap<Integer, Integer>();
+
+    int sum = 0;      // Initialize sum of elements
+    int max_len = 0;  // Initialize result
+
+    for (int i = 0; i < arr.length; i++)
+    {
+      sum += arr[i];
+      if (arr[i] == 0 && max_len == 0)
+        max_len = 1;
+      if (sum == 0)
+        max_len = i+1;
+      Integer prev_i = hM.get(sum);
+      if (prev_i != null)
+        max_len = Math.max(max_len, i-prev_i);
+      else  // Else put this sum in hash table
+        hM.put(sum, i);
+    }
+
+    return max_len;
+  }
 
 
 

@@ -4,8 +4,8 @@ import data.structures.graph.GraphExamples;
 import data.structures.matrix.MatrixExamples;
 import recursion.RecursionExamples;
 
-import java.util.ArrayList;
-import java.util.Set;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class BackTrackingExamples {
 
@@ -352,7 +352,6 @@ public class BackTrackingExamples {
   /**
    * 28.
    * Problem: Combinational Sum
-   * Solution:
    */
   void findCombinationSum(int[] array, int sum, String soFar, int n) {
     if (sum == 0) System.out.println(soFar);
@@ -413,5 +412,154 @@ public class BackTrackingExamples {
    * Problem: C++ program for Solving Cryptarithmetic Puzzles
    * Solution:
    */
+
+
+
+
+  /**
+   * LeetCode Questions
+   */
+
+  /**
+   *
+   * Problem: Given a set of candidate numbers (C) (without duplicates) and a target number (T), find all unique combinations
+   * in C where the candidate numbers sums to T.
+   * The same repeated number may be chosen from C unlimited number of times.
+   * Note:
+   * All numbers (including target) will be positive integers.
+   * The solution set must not contain duplicate combinations.
+   *
+   */
+   List<List<Integer>> combinationSum(int[] candidates, int target) {
+    List<List<Integer>> result = new ArrayList<>();
+    Set<Integer> set = new HashSet<>();
+    subSetPerm(candidates, target, new ArrayList<>(), result, 0);
+    return result;
+  }
+
+  private void subSetPerm(int[] candidates, int target, ArrayList<Integer> soFar, List<List<Integer>> result, int start) {
+    if (target == 0) result.add(new ArrayList<>(soFar));
+    else {
+      for (int i = start; i < candidates.length; i++){
+        if (target >= candidates[i]) {
+          soFar.add(candidates[i]);
+          subSetPerm(candidates, target - candidates[i], soFar, result, i);
+          soFar.remove(soFar.size() - 1);
+        }
+
+      }
+
+    }
+
+  }
+
+
+
+  List<List<Integer>> combinationSum2(ArrayList<Integer> candidates, int target) {
+    List<List<Integer>> result = new ArrayList<>();
+//    Arrays.sort(candidates);
+    Collections.sort(candidates);
+    subSetPerm2(candidates, target, new ArrayList<>(), result, 0, new HashSet<>());
+
+    return result;
+  }
+
+  private void subSetPerm2(ArrayList<Integer> candidates, int target, ArrayList<Integer> soFar, List<List<Integer>> result, int start, Set<ArrayList<Integer>> set) {
+    if (target == 0) {
+      if (!set.contains(soFar)) {
+        result.add(new ArrayList<>(soFar));
+        set.add(soFar);
+      }
+
+    }
+    else {
+      for (int i = start; i < candidates.size(); i++){
+        if (target >= candidates.get(i)) {
+          soFar.add(candidates.get(i));
+          subSetPerm2(candidates, target - candidates.get(i), soFar, result, i + 1, set);
+          soFar.remove(soFar.size() - 1);
+        }
+
+      }
+
+    }
+
+  }
+
+  // Given two integers n and k, return all possible combinations of k numbers out of 1 ... n.
+  //
+
+  public List<List<Integer>> combine(int n, int k) {
+    List<List<Integer>> result = new ArrayList<>();
+    combine(n, k, 1, new ArrayList<>(), result);
+    return result;
+  }
+
+  void combine(int n , int k, int start, ArrayList<Integer> soFar, List<List<Integer>> result) {
+     if (k == 0) result.add(new ArrayList<>(soFar));
+     else {
+       for (int i = start; i <= n; i++) {
+         soFar.add(i);
+         combine(n, k - 1, i + 1, soFar, result);
+         soFar.remove(soFar.size() - 1);
+       }
+     }
+  }
+
+  // Letter Combinations of a Phone Number
+
+  public List<String> letterCombinations(String digits) {
+    Map<Integer, String> dialpad = new HashMap<>();
+
+    dialpad.put(1, "1");
+    dialpad.put(2, "abc");
+    dialpad.put(3, "def");
+    dialpad.put(4, "ghi");
+    dialpad.put(5, "jkl");
+    dialpad.put(6, "mno");
+    dialpad.put(7, "pqrs");
+    dialpad.put(8, "tuv");
+    dialpad.put(9, "wxyz");
+    dialpad.put(0, "0");
+    ArrayList<String> result = new ArrayList<>();
+    if (digits == null || digits.length() == 0) return result;
+    else {
+      letterCombinationsUtil(digits, "", result, dialpad);
+      return result;
+    }
+
+  }
+  void letterCombinationsUtil(String digits, String soFar, ArrayList<String> result, Map<Integer, String> dialpad) {
+     if (digits.isEmpty()) {
+       result.add(soFar);
+     }else {
+       Integer digit = Integer.valueOf(digits.substring(0, 1));
+       String choices = dialpad.get(digit);
+       for (int i = 0; i < choices.length(); i++)
+         letterCombinationsUtil(digits.substring(1), soFar + choices.charAt(i), result, dialpad);
+     }
+  }
+
+// Given a set of distinct integers, nums, return all possible subsets (the power set).
+
+  public List<List<Integer>> subsets(int[] nums) {
+    List<List<Integer>> result = new ArrayList<>();
+    if (nums.length < 1) return result;
+    else {
+      subsets(nums, new ArrayList<Integer>(), result, nums.length);
+      return result;
+    }
+  }
+
+  void subsets(int[] nums, ArrayList<Integer> soFar, List<List<Integer>> result, int n) {
+     if (n == 0) result.add(new ArrayList<>(soFar));
+     else {
+       soFar.add(nums[n - 1]);
+       subsets(nums, soFar, result, n - 1);
+       soFar.remove(soFar.size() - 1);
+       subsets(nums, soFar, result, n - 1);
+     }
+  }
+
 
 }

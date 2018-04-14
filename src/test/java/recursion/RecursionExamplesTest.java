@@ -177,6 +177,14 @@ public class RecursionExamplesTest {
   }
 
 
+  @Test
+  public void printPossibleSeq() {
+    new RecursionExamples().printPossibleSeq(4, 2, "");
+  }
 
-
+  @Test
+  public void isReachable() {
+    assertTrue(new RecursionExamples().isReachable(2, 10, 26, 12));
+    assertFalse(new RecursionExamples().isReachable(20, 10, 6, 12));
+  }
 }

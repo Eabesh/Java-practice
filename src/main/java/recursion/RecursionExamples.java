@@ -32,7 +32,10 @@ public class RecursionExamples {
     else {
       int half = getExponentEfficient(base, exp / 2);
       if (exp % 2 == 0) return half * half;
-      else return base * half * half;
+      else {
+        if (exp > 0) return base * half * half;
+        else  return (half * half) / base;
+      }
     }
   }
 
@@ -534,5 +537,73 @@ public class RecursionExamples {
    */
 
 
+/**
+ * 3.
+ * Problem:Implement a queue using a Stack?
+ */
+ class myQueue {
+  java.util.Stack<Integer> stack = new java.util.Stack<Integer>();
+  public void enqueue(int item) {
+    stack.push(item);
+   }
 
+   public int dequeue() {
+    int top = stack.pop();
+    if (stack.isEmpty()) return top;
+    else {
+      int res = dequeue();
+      stack.push(top);
+      return res;
+    }
+   }
+}
+
+
+/**
+ * 4.
+ * Problem: Given a staircase that has 'n' step, and you climb the staircase by jumping over the steps. You can cover at max of 'k' steps in a single jump. List all the possible sequence of jumps you could take to climb the staircase.
+ */
+  void printPossibleSeq(int n, int k, String soFar) {
+    if (n == 0) System.out.println(soFar);
+    else
+        for (int i = 1; i <= k; i++) if(n >= 0) printPossibleSeq(n - i, k, soFar + i + " ");
+  }
+
+
+  //Check if a destination is reachable from source with two movements allowed
+
+  boolean isReachable(int x, int y, int destX, int destY) {
+    if (x == destX && y == destY) return true;
+    else if (x > destX || y > destY) return false;
+    else return isReachable(x + y, y, destX, destY) || isReachable(x, y + x, destX, destY);
+  }
+
+
+  //Search for a Range
+  int[] searchRange(int[] nums, int target) {
+    int[] range = {nums.length, -1};
+    binarySearch(nums, target, 0, nums.length - 1, range);
+    if (range[0] > range[0]) range[0] = -1;
+
+    return range;
+  }
+
+  void binarySearch(int[] nums, int target, int start, int end, int[] range) {
+    if (start <= end) {
+      int mid = start + (end - start) / 2;
+      if (nums[mid] == target) {
+        if (mid < range[0]) {
+          range[0] = mid;
+          binarySearch(nums, target, start, mid - 1, range);
+        }
+        if (mid > range[1]) {
+          range[1] =  mid;
+          binarySearch(nums, target, mid + 1, end,range);
+        }
+      }
+      else if (nums[mid] < target)  binarySearch(nums, target, mid + 1, end,range);
+      else binarySearch(nums, target, start, mid - 1, range);
+
+    }
+  }
 }
