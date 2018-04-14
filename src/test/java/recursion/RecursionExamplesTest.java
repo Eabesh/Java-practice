@@ -1,23 +1,15 @@
 package recursion;
+
 import org.junit.Test;
 import utilities.ListNode;
 import utilities.Stack;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 
 import static org.junit.Assert.*;
 
 public class RecursionExamplesTest {
-  @Test
-  public void largetNumber() throws Exception {
-    ArrayList<Integer> arrayList = new ArrayList<>();
-    arrayList.add(100);
-    arrayList.add(9);
-    arrayList.add(2);
-    System.out.println(new RecursionExamples().largetNumber(arrayList));
-  }
 
   @Test
   public void findMinSteps() throws Exception {
@@ -28,11 +20,11 @@ public class RecursionExamplesTest {
   @Test
   public void getExponent() throws Exception {
     assertEquals(9, new RecursionExamples().getExponent(3, 2));
-    assertEquals(9, new RecursionExamples().getExponentTR(3, 2, 1));
+    assertEquals(9, new RecursionExamples().getExponentTailRecursive(3, 2, 1));
   }
 
   @Test
-  public void getExpEff() throws Exception {
+  public void getExponentEfficient() throws Exception {
     assertEquals(9, new RecursionExamples().getExponentEfficient(3, 2));
   }
 
@@ -46,16 +38,16 @@ public class RecursionExamplesTest {
 
   @Test
   public void binarySearch() throws Exception {
-    int [] array = {1, 2, 3, 5};
-    assertEquals(1, new RecursionExamples().binarySearch(array,0, array.length - 1, 2));
-    assertEquals(0, new RecursionExamples().binarySearch(array,0, array.length - 1, 1));
-    assertEquals(-1, new RecursionExamples().binarySearch(array,0, array.length - 1, 4));
+    int[] array = {1, 2, 3, 5};
+    assertEquals(1, new RecursionExamples().binarySearch(array, 0, array.length - 1, 2));
+    assertEquals(0, new RecursionExamples().binarySearch(array, 0, array.length - 1, 1));
+    assertEquals(-1, new RecursionExamples().binarySearch(array, 0, array.length - 1, 4));
   }
 
   @Test
   public void combination() throws Exception {
-    assertEquals(1, new RecursionExamples().combination(1,0));
-    assertEquals(1, new RecursionExamples().combination(1,0));
+    assertEquals(1, new RecursionExamples().combination(1, 0));
+    assertEquals(1, new RecursionExamples().combination(1, 0));
   }
 
   @Test
@@ -65,17 +57,18 @@ public class RecursionExamplesTest {
 
   @Test
   public void printPermutations() throws Exception {
-    new RecursionExamples().printPermutations("","0123");
+    new RecursionExamples().printPermutations("", "0123");
   }
 
   @Test
   public void printSubsets() throws Exception {
-    new RecursionExamples().printSubsets("","ABC");
+    new RecursionExamples().printSubsets("", "ABC");
   }
 
   @Test
   public void isAnagram() throws Exception {
-    HashSet<String> dictionary = new HashSet<>(Arrays.asList("one","there","here","icecream","two"));
+    HashSet<String> dictionary =
+        new HashSet<>(Arrays.asList("one", "there", "here", "icecream", "two"));
     assertTrue(new RecursionExamples().isAnagram("", "creamice", dictionary));
     assertTrue(new RecursionExamples().isAnagram("", "owt", dictionary));
   }
@@ -85,9 +78,8 @@ public class RecursionExamplesTest {
     int[][] board = new int[4][4];
     new RecursionExamples().solveNQueen(board, 0);
     for (int i = 0; i < board.length; i++) {
-      for (int j = 0; j < board[0].length; j++)
-        System.out.print(board[i][j]);
-    System.out.println();
+      for (int j = 0; j < board[0].length; j++) System.out.print(board[i][j]);
+      System.out.println();
     }
   }
 
@@ -103,8 +95,8 @@ public class RecursionExamplesTest {
 
   @Test
   public void isPalindromeNumber() throws Exception {
-    assertTrue(new RecursionExamples().isPalindromeNumber(12321,12321, 0));
-    assertFalse(new RecursionExamples().isPalindromeNumber(12322,12322, 0));
+    assertTrue(new RecursionExamples().isPalindromeNumber(12321, 12321, 0));
+    assertFalse(new RecursionExamples().isPalindromeNumber(12322, 12322, 0));
   }
 
   @Test
@@ -115,7 +107,7 @@ public class RecursionExamplesTest {
 
   @Test
   public void printKLengthString() throws Exception {
-    char[] array = {'a', 'e', 'i','o','u' };
+    char[] array = {'a', 'e', 'i', 'o', 'u'};
     new RecursionExamples().printKLengthString(array, 3, "");
   }
 
@@ -129,7 +121,7 @@ public class RecursionExamplesTest {
   @Test
   public void factTailRecursive() throws Exception {
     assertEquals(1, new RecursionExamples().factTailRecursive(0, 1));
-    assertEquals(1, new RecursionExamples().factTailRecursive(1,1));
+    assertEquals(1, new RecursionExamples().factTailRecursive(1, 1));
     assertEquals(120, new RecursionExamples().factTailRecursive(5, 1));
   }
 
@@ -154,14 +146,13 @@ public class RecursionExamplesTest {
     assertEquals(3, new RecursionExamples().reverseList(node1).data);
   }
 
-
   @Test
   public void recamanSequence() throws Exception {
-//   assertEquals(2, new RecursionExamples().recamanSequence(4));
-//    assertEquals(3, new RecursionExamples().recamanSequence(2));
-//    assertEquals(6, new RecursionExamples().recamanSequence(3));
-//    assertEquals(2, new RecursionExamples().recamanSequence(4));
-//    assertEquals(7, new RecursionExamples().recamanSequence(5));
+    //   assertEquals(2, new RecursionExamples().recamanSequence(4));
+    //    assertEquals(3, new RecursionExamples().recamanSequence(2));
+    //    assertEquals(6, new RecursionExamples().recamanSequence(3));
+    //    assertEquals(2, new RecursionExamples().recamanSequence(4));
+    //    assertEquals(7, new RecursionExamples().recamanSequence(5));
     for (int i = 0; i < 11; i++) System.out.print(new RecursionExamples().recamanSequence(i) + " ");
   }
 
@@ -175,8 +166,4 @@ public class RecursionExamplesTest {
   public void printSteppingNumber() throws Exception {
     new RecursionExamples().printSteppingNumbers(0, 20);
   }
-
-
-
-
 }
