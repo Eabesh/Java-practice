@@ -3,30 +3,25 @@ package recursion;
 import utilities.ListNode;
 import utilities.Stack;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class RecursionExamples {
 
-
-
-  /**
-   * 1.
-   * Problem: Exponent of a number
-   * Solution: base*base^(exp - 1)
-   */
+  /** 1. Problem: Exponent of a number */
   int getExponent(int base, int exp) {
     if (exp == 0) return 1;
     else return base * getExponent(base, exp - 1);
   }
 
-  int getExponentTR(int base, int exp, int acc) {
+  int getExponentTailRecursive(int base, int exp, int acc) {
     if (exp == 0) return acc;
-    else return getExponentTR(base, exp - 1, acc * base);
+    else return getExponentTailRecursive(base, exp - 1, acc * base);
   }
 
-  /**
-   * More efficient.
-   */
+  /** More efficient. */
   int getExponentEfficient(int base, int exp) {
     if (exp == 0) return 1;
     else {
@@ -39,18 +34,14 @@ public class RecursionExamples {
     }
   }
 
-  /**
-   * 2.
-   * Problem: Given a string, check whether palindrome or not.
-   */
+  /** 2. Problem: Given a string, check whether palindrome or not. */
   public boolean isPalindrome(String str) {
-    return (str.length() <= 1) || str.charAt(0) == str.charAt(str.length() - 1) && isPalindrome(str.substring(1, str.length() - 1));
+    return (str.length() <= 1)
+        || str.charAt(0) == str.charAt(str.length() - 1)
+            && isPalindrome(str.substring(1, str.length() - 1));
   }
 
-  /**
-   * 3.
-   * Problem: BinarySearch
-   */
+  /** 3. Problem: BinarySearch to find a value in a sorted array */
   int binarySearch(int[] array, int startIndex, int endIndex, int value) {
     if (startIndex <= endIndex) {
       int midIndex = startIndex + (endIndex - startIndex) / 2;
@@ -60,20 +51,14 @@ public class RecursionExamples {
     } else return -1;
   }
 
-  /**
-   * 4.
-   * Problem: Combination
-   */
+  /** 4. Problem: Combination */
   int combination(int n, int k) {
     if (n == k || k == 0) return 1;
     else return combination(n - 1, k) + combination(n - 1, k - 1);
   }
 
-  /**
-   * 5.
-   * Problem: Tower of Hanoi
-   */
-  void towerOfHanoi(int disk, String source, String dest, String temp){
+  /** 5. Problem: Tower of Hanoi */
+  void towerOfHanoi(int disk, String source, String dest, String temp) {
     if (disk > 0) {
       towerOfHanoi(disk - 1, source, temp, dest);
       System.out.println(source + " -> " + dest);
@@ -81,22 +66,17 @@ public class RecursionExamples {
     }
   }
 
-  /**
-   * 6.
-   * Problem: Permutations of a string
-   */
- public void printPermutations(String soFar, String remaining) {
+  /** 6. Problem: Permutations of a string */
+  public void printPermutations(String soFar, String remaining) {
     if (remaining.isEmpty()) System.out.println(soFar);
     else {
       for (int i = 0; i < remaining.length(); i++)
-        printPermutations(soFar + remaining.charAt(i), remaining.substring(0, i) + remaining.substring(i + 1));
+        printPermutations(
+            soFar + remaining.charAt(i), remaining.substring(0, i) + remaining.substring(i + 1));
     }
   }
 
-  /**
-   * 7.
-   * Problem: Subset of String.
-   */
+  /** 7. Problem: Subset of String. */
   void printSubsets(String soFar, String remaining) {
     if (remaining.isEmpty()) System.out.println(soFar);
     else {
@@ -105,52 +85,34 @@ public class RecursionExamples {
     }
   }
 
-  /**
-   * 8.
-   * Problem: AnagramFinder
-   * Solution: Use backtracking
-   *  boolean solve(configuration conf) {
-   *    // BASE CASE
-   *    if (no more choices)
-   *      return (conf is in goal state);
-   *    else {
-   *      for (choice : choices) {
-   *        try one choice c;
-   *        // solve from here, if work out, you are done
-   *        if (solve(conf with choice c made) return true;
-   *        unmake choice c;
-   *      }
-   *      return false;  // tried all choices, no solution found.
-   *    }
-   *  }
-   */
+  /** 8. Problem: AnagramFinder */
   boolean isAnagram(String soFar, String remaining, HashSet<String> dictionary) {
     if (remaining.isEmpty()) return dictionary.contains(soFar);
     else {
       for (int i = 0; i < remaining.length(); i++) {
-        if (isAnagram(soFar + remaining.charAt(i), remaining.substring(0, i) + remaining.substring(i + 1), dictionary))
-          return true;
+        if (isAnagram(
+            soFar + remaining.charAt(i),
+            remaining.substring(0, i) + remaining.substring(i + 1),
+            dictionary)) return true;
       }
     }
     return false;
   }
 
-  /**
-   * 9.
-   * Problem: N Queens Problems
-   */
-  public void placeQueen(int[][] board, int row, int column) {
+  /** 9. Problem: N Queens Problems */
+  private void placeQueen(int[][] board, int row, int column) {
     board[row][column] = 1;
   }
 
-  public void removeQueen(int[][] board, int row, int column) {
+  private void removeQueen(int[][] board, int row, int column) {
     board[row][column] = 0;
   }
 
   public boolean isSafe(int[][] board, int row, int column) {
-    for (int c = column; c >= 0 ; c--) if (board[row][c] == 1) return false;
-    for (int r = row, c = column; r >= 0 && c >=0; r--, c--) if (board[r][c] == 1) return false;
-    for (int r = row, c = column; r < board.length && c >= 0; r++, c--) if(board[r][c] == 1) return false;
+    for (int c = column; c >= 0; c--) if (board[row][c] == 1) return false;
+    for (int r = row, c = column; r >= 0 && c >= 0; r--, c--) if (board[r][c] == 1) return false;
+    for (int r = row, c = column; r < board.length && c >= 0; r++, c--)
+      if (board[r][c] == 1) return false;
     return true;
   }
 
@@ -168,14 +130,9 @@ public class RecursionExamples {
     return false;
   }
 
-  /**
-   * Problems from Geeksforgeeks.
-   */
+  /** Problems from Geeksforgeeks. */
 
-  /**
-   * 1.
-   * Reverse a linked list using recursion.
-   */
+  /** 1. Reverse a linked list using recursion. */
   ListNode reverseList(ListNode current) {
     if (current == null || current.next == null) return current;
     else {
@@ -187,33 +144,30 @@ public class RecursionExamples {
   }
 
   /**
-   * 2.
-   * Problem: Reverse a stack using recursion. Or reverse a stack without using any other data structure or auxiliary
-   * space.
+   * 2. Problem: Reverse a stack using recursion. Or reverse a stack without using any other data
+   * structure or auxiliary space.
    */
   void reverseStack(Stack stack) {
-    if(!stack.isEmpty()) {
+    if (!stack.isEmpty()) {
       int top = stack.pop();
       reverseStack(stack);
-      insertAtBottom(stack,top);
+      insertAtBottom(stack, top);
     }
   }
 
   private void insertAtBottom(Stack stack, int elem) {
-    if (stack.isEmpty())
-      stack.push(elem);
+    if (stack.isEmpty()) stack.push(elem);
     else {
       int top = stack.pop();
-      insertAtBottom(stack,elem);
+      insertAtBottom(stack, elem);
       stack.push(top);
     }
   }
 
   /**
-   * 3.
-   * Problem: Check if a number is Palindrome
-   * Given an integer, write a function that returns true if the given number is palindrome, else false.
-   * For example, 12321 is palindrome, but 1451 is not palindrome.
+   * 3. Problem: Check if a number is Palindrome Given an integer, write a function that returns
+   * true if the given number is palindrome, else false. For example, 12321 is palindrome, but 1451
+   * is not palindrome.
    */
   boolean isPalindromeNumber(int num, int numCopy, int reverse) {
     if (numCopy == 0) return num == reverse;
@@ -221,10 +175,9 @@ public class RecursionExamples {
   }
 
   /**
-   * 4.
-   * Problem: Print all possible combinations of r elements in a given array of size n.
-   * For example, if input array is {1, 2, 3, 4} and r is 2, then output should be {1, 2}, {1, 3}, {1, 4}, {2, 3}, {2, 4} and
-   * {3,4}.
+   * 4. Problem: Print all possible combinations of r elements in a given array of size n. For
+   * example, if input array is {1, 2, 3, 4} and r is 2, then output should be {1, 2}, {1, 3}, {1,
+   * 4}, {2, 3}, {2, 4} and {3,4}.
    */
   void printCombinationOfArray(int[] array, String soFar, int r, int beginIndex) {
     if (r == 0) System.out.println("{" + soFar.substring(0, soFar.length() - 2) + "}");
@@ -234,143 +187,81 @@ public class RecursionExamples {
   }
 
   /**
-   * 5.
-   * Problem: Print all possible strings of length k that can be formed from a set of n characters
+   * 5. Problem: Print all possible strings of length k that can be formed from a set of n
+   * characters
    */
   void printKLengthString(char[] array, int length, String soFar) {
     if (length == 0) System.out.println(soFar);
     else {
-        for (char ch : array)
-        printKLengthString(array, length - 1, soFar + ch);
+      for (char ch : array) printKLengthString(array, length - 1, soFar + ch);
     }
   }
 
-  class arrayComparator implements Comparator<Integer> {
-
-    @Override
-    public int compare(Integer X, Integer Y) {
-      String XY =  String.valueOf(X) + String.valueOf(Y);
-      String YX =  String.valueOf(Y) + String.valueOf(X);
-      return Integer.valueOf(XY) - Integer.valueOf(YX);
-    }
-  }
-  ArrayList<Integer> sortedArray(ArrayList<Integer> array) {
-    Collections.sort(array, new arrayComparator());
-    return array;
-  }
-  String largetNumber(ArrayList<Integer> array) {
-    String result = "";
-    ArrayList<Integer> sArray = sortedArray(array);
-    for (int i =  sArray.size() - 1; i >= 0; i--) result += sArray.get(i);
-    return result;
-  }
   /**
-   * 6.
-   * Problem: Tail Recursion
-   * Solution: A recursive function is tail recursive when recursive call is the last thing executed by the function.
-   * Why do we care?
-   * The tail recursive functions considered better than non tail recursive functions as tail-recursion can be optimized
-   * by compiler. The idea used by compilers to optimize tail-recursive functions is simple, since the recursive call is
-   * the last statement, there is nothing left to do in the current function, so saving the current function’s stack
-   * frame is of no use.
+   * 6. Problem: Tail Recursion Solution: A recursive function is tail recursive when recursive call
+   * is the last thing executed by the function. Why do we care? The tail recursive functions
+   * considered better than non tail recursive functions as tail-recursion can be optimized by
+   * compiler. The idea used by compilers to optimize tail-recursive functions is simple, since the
+   * recursive call is the last statement, there is nothing left to do in the current function, so
+   * saving the current function’s stack frame is of no use.
    */
   int factorial(int num) {
     if (num == 0) return 1;
     else return num * factorial(num - 1);
   }
 
-  /**
-   * Tail recursive
-   */
+  /** Tail recursive */
   int factTailRecursive(int num, int accumulator) {
     if (num == 0) return accumulator;
     else return factTailRecursive(num - 1, accumulator * num);
   }
 
   /**
-   * 7.
-   * Problem: Print all increasing sequences of length k from first n natural numbers
-   * Input: k = 2, n = 3
-   * Output:
-   * 1 2
-   * 1 3
-   * 2 3
+   * 7. Problem: Print all increasing sequences of length k from first n natural numbers Input: k =
+   * 2, n = 3 Output: 1 2 1 3 2 3
    */
   void printIncreasingSequence(String soFar, int n, int k, int begin) {
     if (k == 0) System.out.println(soFar);
-    else
-      for (int i = begin; i <= n; i++)
-        printIncreasingSequence(soFar + i + " ", n, k - 1, i + 1);
+    else for (int i = begin; i <= n; i++) printIncreasingSequence(soFar + i + " ", n, k - 1, i + 1);
   }
 
   /**
-   * 8.
-   * Problem: Generate all possible sorted arrays from alternate elements of two given sorted arrays
+   * 8. Problem: Generate all possible sorted arrays from alternate elements of two given sorted
+   * arrays
    */
 
   /**
-   * 9.
-   * Problem: Minimum steps to reach a destination
-   * Given a number line from -infinity to +infinity. You start at 0 and can go either to the left or to the right. The
-   * condition is that in i’th move, you take i steps.
+   * 9. Problem: Minimum steps to reach a destination Given a number line from -infinity to
+   * +infinity. You start at 0 and can go either to the left or to the right. The condition is that
+   * in i’th move, you take i steps.
    */
-  int findMinSteps(int source, int dest, int minSteps, int n){
+  int findMinSteps(int source, int dest, int minSteps, int n) {
     if (Math.abs(source) > dest) return Integer.MAX_VALUE;
     else if (source == dest) return minSteps;
-    else return Math.min(findMinSteps(source + n, dest, minSteps + 1, n + 1),
-              findMinSteps(source - n, dest,minSteps + 1, n + 1));
+    else
+      return Math.min(
+          findMinSteps(source + n, dest, minSteps + 1, n + 1),
+          findMinSteps(source - n, dest, minSteps + 1, n + 1));
   }
 
+  /** 10. Problem: Given a string, print all possible palindromic partitions Solution: */
+
+  /** 11. Problem: Print a pattern without using any loop Solution: */
+
+  /** 12. Problem: Print all non-increasing sequences of sum equal to a given number x Solution: */
+
+  /** 13. Problem: Sort a stack using recursion Solution: */
+
+  /** 14. Problem: Print all n-digit strictly increasing numbers Solution: */
+
   /**
-   * 10.
-   * Problem: Given a string, print all possible palindromic partitions
+   * 15. Problem: Find all even length binary sequences with same sum of first and second half bits
    * Solution:
    */
 
+  /** 16. Problem: Print all possible expressions that evaluate to a target Solution: */
 
-  /**
-   * 11.
-   * Problem: Print a pattern without using any loop
-   * Solution:
-   */
-
-
-  /**
-   * 12.
-   * Problem: Print all non-increasing sequences of sum equal to a given number x
-   * Solution:
-   */
-
-
-  /**
-   * 13.
-   * Problem: Sort a stack using recursion
-   * Solution:
-   */
-
-
-  /**
-   * 14.
-   * Problem: Print all n-digit strictly increasing numbers
-   * Solution:
-   */
-
-  /**
-   * 15.
-   * Problem: Find all even length binary sequences with same sum of first and second half bits
-   * Solution:
-   */
-
-  /**
-   * 16.
-   * Problem: Print all possible expressions that evaluate to a target
-   * Solution:
-   */
-
-  /**
-   * 17.
-   * Problem: Print sums of all subsets of a given set
-   */
+  /** 17. Problem: Print sums of all subsets of a given set */
   void printSubsetSum(int sum, int[] set, int beginIndex) {
     if (beginIndex >= set.length) System.out.println(sum);
     else {
@@ -379,86 +270,43 @@ public class RecursionExamples {
     }
   }
 
-
-
-  /**
-   * 18.
-   * Problem: String with additive sequence
-   * Solution:
-   */
-
+  /** 18. Problem: String with additive sequence Solution: */
 
   /**
-   * 19.
-   * Problem: Print all longest common sub-sequences in lexicographical order
-   * You are given two strings.Now you have to print all longest common sub-sequences in
-   * lexicographical order?
-   * Solution:
-   */
-
-
-  /**
-   * 20.
-   * Problem: Program for Chocolate and Wrapper Puzzle
-   * Given following three values, the task is to find the total number of maximum chocolate
-   * you can eat.
-   * 1. money : Money you have to buy chocolates
-   * 2. price : Price of a chocolate.
-   * 3. wrap : Number of wrappers to be returned for getting one extra chocolate.
-   * Input :   money = 16, price = 2, wrap = 2
-   * Output :   15
-   * Price of a chocolate is 2. You can buy 8 chocolates from
-   * amount 16. You can return 8 wrappers back and get 4 more
-   * chocolates. Then you can return 4 wrappers and get 2 more
-   * chocolates. Finally you can return 2 wrappers to get 1
-   * more chocolate.
+   * 19. Problem: Print all longest common sub-sequences in lexicographical order You are given two
+   * strings.Now you have to print all longest common sub-sequences in lexicographical order?
    * Solution:
    */
 
   /**
-   * 21.
-   * Problem: Recursion
-   * Solution:
+   * 20. Problem: Program for Chocolate and Wrapper Puzzle Given following three values, the task is
+   * to find the total number of maximum chocolate you can eat. 1. money : Money you have to buy
+   * chocolates 2. price : Price of a chocolate. 3. wrap : Number of wrappers to be returned for
+   * getting one extra chocolate. Input : money = 16, price = 2, wrap = 2 Output : 15 Price of a
+   * chocolate is 2. You can buy 8 chocolates from amount 16. You can return 8 wrappers back and get
+   * 4 more chocolates. Then you can return 4 wrappers and get 2 more chocolates. Finally you can
+   * return 2 wrappers to get 1 more chocolate. Solution:
    */
 
-  /**
-   * 22.
-   * Problem:  program to implement Collatz Conjecture
-   * Solution:
-   */
+  /** 21. Problem: Recursion Solution: */
+
+  /** 22. Problem: program to implement Collatz Conjecture Solution: */
 
   /**
-   * 23.
-   * Problem: Generate all binary strings without consecutive 1’s.
-   * Given a integer K. Task is Print All binary string of size K (Given number).
-   * Solution:
+   * 23. Problem: Generate all binary strings without consecutive 1’s. Given a integer K. Task is
+   * Print All binary string of size K (Given number). Solution:
    */
 
-  /**
-   * 24.
-   * Problem: Recursive Bubble Sort
-   * Solution: Done in sorting examples.
-   */
+  /** 24. Problem: Recursive Bubble Sort Solution: Done in sorting examples. */
+
+  /** 25. Problem: Recursive Insertion Sort Solution: */
 
   /**
-   * 25.
-   * Problem: Recursive Insertion Sort
-   * Solution:
-   */
-
-  /**
-   * 26.
-   * Problem: Find ways an Integer can be expressed as sum of exponent-th power of unique natural
-   * numbers.
-   * Given two numbers sum and exponent, find number of ways sum can be expressed as sum of exponent-th power
-   * of unique natural numbers.
-   * Input  : sum = 100, exponent = 2
-   * Output : 3
-   * Explanation: 100 = 10^2
-   * OR 6^2 + 8^2
-   * OR 1^2 + 3^2 + 4^2 + 5^2 + 7^2
-   * Hence total 3 possibilities
-   * Solution:
+   * 26. Problem: Find ways an Integer can be expressed as sum of exponent-th power of unique
+   * natural numbers. Given two numbers sum and exponent, find number of ways sum can be expressed
+   * as sum of exponent-th power of unique natural numbers. Input : sum = 100, exponent = 2 Output :
+   * 3 Explanation: 100 = 10^2 OR 6^2 + 8^2 OR 1^2 + 3^2 + 4^2 + 5^2 + 7^2 Hence total 3
+   * possibilities Solution:
    */
   int findUniqueWays(int sum, int exponent, int start) {
     if (sum < 0) return 0;
@@ -466,59 +314,50 @@ public class RecursionExamples {
     else {
       int uniqueWays = 0;
       for (int i = start; i <= Math.sqrt(sum); i++)
-          uniqueWays += findUniqueWays(sum -  (int) Math.pow(i, exponent), exponent, i + 1);
+        uniqueWays += findUniqueWays(sum - (int) Math.pow(i, exponent), exponent, i + 1);
       return uniqueWays;
     }
   }
 
   /**
-   * 27.
-   * Problem: Recaman’s sequence
-   * Solution: a(n) = {a(n - 1) - n if (a(n - 1) - n > 0 && is new ; else a(n - 1) + n}
-   * a(1) = 1;
-   *
+   * 27. Problem: Recaman’s sequence Solution: a(n) = { a(n - 1) - n if (a(n - 1) - n > 0 && is new
+   * ; else a(n - 1) + n} a(1) = 1;
    */
   Set<Integer> set = new HashSet<>();
+
   int recamanSequence(int n) {
     if (n < 2) {
       set.add(n);
       return n;
-    }
-    else {
+    } else {
       int prevTerm = recamanSequence(n - 1);
       if (prevTerm - n > 0 && !set.contains(prevTerm - n)) {
         set.add(prevTerm - n);
         return prevTerm - n;
-      }
-      else {
+      } else {
         set.add(prevTerm + n);
         return prevTerm + n;
       }
     }
   }
 
-
-
-
-  /**
-   *  Problems from CareerCup.
-   */
+  /** Problems from CareerCup. */
 
   /**
-   * 1.
-   * Problem: Given two integers ‘n’ and ‘m’, find all the stepping numbers in range [n, m].
-   * A number is called as a stepping number if the adjacent digits are having a difference of 1.
-   * For eg. 8, 343, 545 are stepping numbers. While 890, 098 are not.
-   * The difference between a ‘9’ and ‘0’ should not be considered as 1.
+   * 1. Problem: Given two integers ‘n’ and ‘m’, find all the stepping numbers in range [n, m]. A
+   * number is called as a stepping number if the adjacent digits are having a difference of 1. For
+   * eg. 8, 343, 545 are stepping numbers. While 890, 098 are not. The difference between a ‘9’ and
+   * ‘0’ should not be considered as 1.
    */
   public void printSteppingNumbers(int n, int m) {
     HashSet<Integer> steppingNumbersSet = new HashSet<>();
-    ArrayList<Integer> choices = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9));
+    ArrayList<Integer> choices = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
     printSteppingNumber(0, n, m, choices, steppingNumbersSet);
     System.out.println(steppingNumbersSet);
   }
 
-  public void printSteppingNumber(int soFar, int n, int m, ArrayList<Integer> choices, HashSet<Integer> steppingNumbersSet) {
+  private void printSteppingNumber(
+      int soFar, int n, int m, ArrayList<Integer> choices, HashSet<Integer> steppingNumbersSet) {
     if (soFar < m) {
       for (int choice : choices) {
         int steppingNumber = soFar * 10 + choice;
@@ -531,6 +370,7 @@ public class RecursionExamples {
     }
   }
 
+  /** 2. Problem: Reverse a stack without using any other data structure or auxiliary space. */
   /**
    * 2.
    * Problem: Reverse a stack without using any other data structure or auxiliary space.
