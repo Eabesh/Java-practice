@@ -130,7 +130,7 @@ public class ArrayExamples {
    * 8. Problem: Program for array rotation using reversal algo. Solution: Let AB are the two parts
    * of the input array. Reverse A and B. Reverse all to get BA.
    */
-  void rotateArray(int[] array, int pivot) {
+  public void rotateArray(int[] array, int pivot) {
     reverseArray(array, 0, pivot);
     reverseArray(array, pivot + 1, array.length - 1);
     reverseArray(array, 0, array.length - 1);
