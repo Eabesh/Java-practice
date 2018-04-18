@@ -91,6 +91,7 @@ public class SearchingExamplesTest {
     searchingExamples.findTriplet(arr);
   }
 
+
   class MyTask {
     private int [] array;
     int start, end;

@@ -2,1764 +2,631 @@ package algorithms.sorting;
 
 class SortingExamples {
 
-  /**
-   * 1.
-   * Problem: Sort elements by frequency | Set 1.
-   * Print the elements of an array in the decreasing frequency if 2 numbers have same frequency then print the one which
-   * came first.
-
-   * Solution:
-   */
-
-  /**
-   * 2.
-   * Problem: Count Inversions in an array | Set 1 (Using Merge Sort).
-   * Solution:
-   */
-
-  /**
-   * 3.
-   * Problem: Merge Sort for Linked Lists.
-   * Solution:
-   */
-
-  /**
-   * 4.
-   * Problem: Sort an array of 0s, 1s and 2s.
-   * Solution:
-   */
-
-  /**
-   * 5.
-   * Problem: Find the Minimum length Unsorted Subarray, sorting which makes the complete array sorted.
-   * Solution:
-   */
-
-  /**
-   * 6.
-   * Problem: When does the worst case of Quicksort occur?.
-   * Solution: The answer depends on strategy for choosing pivot. In early versions of Quick Sort where leftmost (or rightmost)
-   * element is chosen as pivot, the worst occurs in following cases.
-   * 1) Array is already sorted in same order.
-   * 2) Array is already sorted in reverse order.
-   * 3) All elements are same (special case of case 1 and 2)
-   *
-   * Since these cases are very common use cases, the problem was easily solved by choosing either a random index for the pivot,
-   * choosing the middle index of the partition
-   *
-   */
-
-  /**
-   * 7.
-   * Problem: Stability in sorting algorithms.
-   * Solution: A sorting algorithm is said to be stable if two objects with equal keys appear in the same order in sorted
-   * output as they appear in the input array to be sorted.
-   *
-   *
-   * If we sort this data according to name only, then it is highly unlikely that the resulting dataset will be grouped
-   * according to sections as well.
-   * \\ (Alice, B)\\ (Carol, A)\\ (Dave, A)\\ (Eric, B)\\ (Ken, A)
-   * So we might have to sort again to obtain list of students section wise too. But in doing so, if the sorting algorithm
-   * is not stable, we might get a result like this-
-   \\ (Carol, A)\\ (Dave, A)\\ (Ken, A)\\(Eric, B)\\(Alice, B)
-   *
-   * In the name-sorted dataset, the tuple (Alice, B) was before (Eric, B),but since the sorting algorithm is not stable,
-   * the relative order is lost.
-   * Which sorting algorithms are stable?
-   * Some Sorting Algorithms are stable by nature, such as Insertion Sort, Merge Sort, Count Sort etc.
-   *
-   *
-   * Which sorting algorithms are unstable?
-   * Quick Sort, Heap Sort etc., can be made stable by also taking the position of the elements into consideration.
-   *
-   * Can we make any sorting algorithm stable?
-   * Any given sorting algo which is not stable can be modified to be stable.
-   */
-
-  /**
-   * 8.
-   * Problem: Which sorting algorithm makes minimum number of memory writes?.
-   * Solution:
-   */
-
-  /**
-   * 9.
-   * Problem: Lower bound for comparison based sorting algorithms.
-   * Solution:
-   */
-
-  /**
-   * 10.
-   * Problem: Find whether an array is subset of another array | Added Method 3.
-   * Solution:
-   */
-
-  /**
-   * 11.
-   * Problem: Sort a nearly sorted (or K sorted) array.
-   * Solution:
-   */
-
-  /**
-   * 12.
-   * Problem: Sort numbers stored on different machines.
-   * Solution:
-   */
-
-  /**
-   * 13.
-   * Problem: Iterative Quick Sort.
-   * Solution:
-   */
-
-  /**
-   * 14.
-   * Problem: Sort a linked list of 0s, 1s and 2s.
-   * Solution:
-   */
-
-  /**
-   * 15.
-   * Problem: Pancake sorting.
-   * Solution:
-   */
-
-  /**
-   * 16.
-   * Problem: A Pancake Sorting Problem.
-   * Solution:
-   */
-
-  /**
-   * 17.
-   * Problem: Insertion Sort.
-   * Solution:
-   */
-
-  /**
-   * 18.
-   * Problem: Merge Sort.
-   * Solution:
-   */
-
-  /**
-   * 19.
-   * Problem: Heap Sort.
-   * Solution:
-   */
-
-  /**
-   * 20.
-   * Problem: Counting Sort.
-   * Solution:
-   */
-
-  /**
-   * 21.
-   * Problem: Comparator function of qsort() in C.
-   * Solution:
-   */
-
-  /**
-   * 22.
-   * Problem: QuickSort on Doubly Linked List.
-   * Solution:
-   */
-
-  /**
-   * 23.
-   * Problem: Sort elements by frequency | Set 2.
-   * Solution:
-   */
-
-  /**
-   * 24.
-   * Problem: QuickSort on Singly Linked List.
-   * Solution:
-   */
-
-  /**
-   * 25.
-   * Problem: Radix Sort.
-   * Solution:
-   */
-
-  /**
-   * 26.
-   * Problem: Find number of pairs (x, y) in an array such that x^y > y^x.
-   * Solution:
-   */
-
-  /**
-   * 27.
-   * Problem: Count all distinct pairs with difference equal to k.
-   * Solution:
-   */
-
-  /**
-   * 28.
-   * Problem: QuickSort.
-   * Solution:
-   */
-
-  /**
-   * 29.
-   * Problem: Selection Sort.
-   * Solution:
-   */
-
-  /**
-   * 30.
-   * Problem: C Program for Bubble Sort on Linked List.
-   * Solution:
-   */
-
-  /**
-   * 31.
-   * Problem: Bubble Sort.
-   * Solution:
-   */
-
-  /**
-   * 32.
-   * Problem: Sort n numbers in range from 0 to n^2 &#8211; 1 in linear time.
-   * Solution:
-   */
-
-  /**
-   * 33.
-   * Problem: Bucket Sort.
-   * Solution:
-   */
-
-  /**
-   * 34.
-   * Problem: C Program to Sort an array of names or strings.
-   * Solution:
-   */
-
-  /**
-   * 35.
-   * Problem: ShellSort.
-   * Solution:
-   */
-
-  /**
-   * 36.
-   * Problem: Sorting Terminology.
-   * Solution:
-   */
-
-  /**
-   * 37.
-   * Problem: Binary Insertion Sort.
-   * Solution:
-   */
-
-  /**
-   * 38.
-   * Problem: Sort an array according to the order defined by another array.
-   * Solution:
-   */
-
-  /**
-   * 39.
-   * Problem: Given a sorted array and a number x, find the pair in array whose sum is closest to x.
-   * Solution:
-   */
-
-  /**
-   * 40.
-   * Problem: Time complexity of insertion sort when there are O(n) inversions?.
-   * Solution:
-   */
-
-  /**
-   * 41.
-   * Problem: Sort an array in wave form.
-   * Solution:
-   */
-
-  /**
-   * 42.
-   * Problem: Can QuickSort be implemented in O(nLogn) worst case time complexity?.
-   * Solution:
-   */
-
-  /**
-   * 43.
-   * Problem: Iterative Merge Sort.
-   * Solution:
-   */
-
-  /**
-   * 44.
-   * Problem: Check if any two intervals overlap among a given set of intervals.
-   * Solution:
-   */
-
-  /**
-   * 45.
-   * Problem: Merge Sort for Doubly Linked List.
-   * Solution:
-   */
-
-  /**
-   * 46.
-   * Problem: Why Quick Sort preferred for Arrays and Merge Sort for Linked Lists?.
-   * Solution:
-   */
-
-  /**
-   * 47.
-   * Problem: How to efficiently sort a big list dates in 20&#8217;s.
-   * Solution:
-   */
-
-  /**
-   * 48.
-   * Problem: Sort an almost sorted array where only two elements are swapped.
-   * Solution:
-   */
-
-  /**
-   * 49.
-   * Problem: Where is Heap Sort used practically?.
-   * Solution:
-   */
-
-  /**
-   * 50.
-   * Problem: Find memory conflicts among multiple threads.
-   * Solution:
-   */
-
-  /**
-   * 51.
-   * Problem: Find the point where maximum intervals overlap.
-   * Solution:
-   */
-
-  /**
-   * 52.
-   * Problem: How to sort a big array with many repetitions?.
-   * Solution:
-   */
-
-  /**
-   * 53.
-   * Problem: Sort a linked list that is sorted alternating ascending and descending orders?.
-   * Solution:
-   */
-
-  /**
-   * 54.
-   * Problem: 3-Way QuickSort (Dutch National Flag).
-   * Solution:
-   */
-
-  /**
-   * 55.
-   * Problem: C++ program for Sorting Dates using Selection Sort.
-   * Solution:
-   */
-
-  /**
-   * 56.
-   * Problem: How to sort an array of dates in C/C++?.
-   * Solution:
-   */
-
-  /**
-   * 57.
-   * Problem: Sorting Strings using Bubble Sort.
-   * Solution:
-   */
-
-  /**
-   * 58.
-   * Problem: Comb Sort.
-   * Solution:
-   */
-
-  /**
-   * 59.
-   * Problem: Pigeonhole Sort.
-   * Solution:
-   */
-
-  /**
-   * 60.
-   * Problem: QuickSort Tail Call Optimization (Reducing worst case space to Log n ).
-   * Solution:
-   */
-
-  /**
-   * 61.
-   * Problem: std::sort() in C++ STL.
-   * Solution:
-   */
-
-  /**
-   * 62.
-   * Problem: Find minimum difference between any two elements.
-   * Solution:
-   */
-
-  /**
-   * 63.
-   * Problem: Convert an array to reduced form | Set 1 (Simple and Hashing).
-   * Solution:
-   */
-
-  /**
-   * 64.
-   * Problem: External Sorting.
-   * Solution: External sorting is a term for a class of sorting algorithms that can handle massive amounts of data.
-   * External sorting is required when the data being sorted do not fit into the main memory of a computing device (usually RAM)
-   * and instead they must reside in the slower external memory (usually a hard drive). External sorting typically uses
-   * a hybrid sort-merge strategy.
-   * 1. In the sorting phase, chunks of data small enough to fit in main memory are read, sorted, and written out to a temporary file.
-   * 2. In the merge phase, the sorted sub-files are combined into a single larger file.
-   *
-   * One example of external sorting is the external merge sort algorithm, which sorts chunks that each fit in RAM, then
-   * merges the sorted chunks together. We first divide the file into runs such that the size of a run is small enough to
-   * fit into main memory. Then sort each run in main memory using merge sort sorting algorithm. Finally merge the resulting
-   * runs together into successively bigger runs, until the file is sorted.
-   */
-
-  /**
-   * 65.
-   * Problem: Cartesian Tree Sorting.
-   * Solution:
-   */
-
-  /**
-   * 66.
-   * Problem: Maximum product of a triplet (subsequnece of size 3) in array.
-   * Solution:
-   */
-
-  /**
-   * 67.
-   * Problem: Find missing elements of a range.
-   * Solution:
-   */
-
-  /**
-   * 68.
-   * Problem: Find a permutation that causes worst case of Merge Sort.
-   * Solution:
-   */
-
-  /**
-   * 69.
-   * Problem: C qsort() vs C++ sort().
-   * Solution:
-   */
-
-  /**
-   * 70.
-   * Problem: Bitonic Sort.
-   * Solution:
-   */
-
-  /**
-   * 71.
-   * Problem: Minimum sum of two numbers formed from digits of an array.
-   * Solution:
-   */
-
-  /**
-   * 72.
-   * Problem: Cocktail Sort.
-   * Solution:
-   */
-
-  /**
-   * 73.
-   * Problem: Know Your Sorting Algorithm | Set 1 (Sorting Weapons used by Programming Languages).
-   * Solution:
-   */
-
-  /**
-   * 74.
-   * Problem: Know Your Sorting Algorithm | Set 2  (Introsort- C++’s Sorting Weapon).
-   * Solution:
-   */
-
-  /**
-   * 75.
-   * Problem: Sleep Sort – The King of Laziness / Sorting while Sleeping.
-   * Solution:
-   */
-
-  /**
-   * 76.
-   * Problem: Gnome Sort.
-   * Solution:
-   */
-
-  /**
-   * 77.
-   * Problem: Sorting Vector of Pairs in C++ | Set 1 (Sort by first and second).
-   * Solution:
-   */
-
-  /**
-   * 78.
-   * Problem: Sorting Vector of Pairs in C++ | Set 2 (Sort in descending order by first and second).
-   * Solution:
-   */
-
-  /**
-   * 79.
-   * Problem: Odd-Even Sort / Brick Sort.
-   * Solution:
-   */
-
-  /**
-   * 80.
-   * Problem: BogoSort or Permutation Sort.
-   * Solution:
-   */
-
-  /**
-   * 81.
-   * Problem: Sorting 2D Vector in C++ | Set 2 (In descending order by row and column).
-   * Solution:
-   */
-
-  /**
-   * 82.
-   * Problem: Sorting 2D Vector in C++ | Set 3 (By number of columns).
-   * Solution:
-   */
-
-  /**
-   * 83.
-   * Problem: Find Surpasser Count of each element in array.
-   * Solution:
-   */
-
-  /**
-   * 84.
-   * Problem: Rearrange positive and negative numbers with constant extra space.
-   * Solution:
-   */
-
-  /**
-   * 85.
-   * Problem: Sort an array according to count of set bits.
-   * Solution:
-   */
-
-  /**
-   * 86.
-   * Problem: Structure Sorting (By Multiple Rules) in C++.
-   * Solution:
-   */
-
-  /**
-   * 87.
-   * Problem: Time Complexities of all Sorting Algorithms.
-   * Solution:
-   */
-
-  /**
-   * 88.
-   * Problem: Count distinct occurrences as a subsequence.
-   * Solution:
-   */
-
-  /**
-   * 89.
-   * Problem: Tree Sort.
-   * Solution:
-   */
-
-  /**
-   * 90.
-   * Problem: Minimum number of swaps required to sort an array.
-   * Solution:
-   */
-
-  /**
-   * 91.
-   * Problem: Number of swaps to sort when only adjacent swapping allowed.
-   * Solution:
-   */
-
-  /**
-   * 92.
-   * Problem: Minimum swaps to make two arrays identical.
-   * Solution:
-   */
-
-  /**
-   * 93.
-   * Problem: Find elements larger than half of the elements in an array.
-   * Solution:
-   */
-
-  /**
-   * 94.
-   * Problem: Count minimum number of subsets (or subsequences) with consecutive numbers.
-   * Solution:
-   */
-
-  /**
-   * 95.
-   * Problem: Sum of all elements between k1&#8217;th and k2&#8217;th smallest elements.
-   * Solution:
-   */
-
-  /**
-   * 96.
-   * Problem: Number of sextuplets (or six values) that satisfy an equation.
-   * Solution:
-   */
-
-  /**
-   * 97.
-   * Problem: Sort an array according to absolute difference with given value.
-   * Solution:
-   */
-
-  /**
-   * 98.
-   * Problem: Minimize the sum of product of two arrays with permutations allowed.
-   * Solution:
-   */
-
-  /**
-   * 99.
-   * Problem: Position of an element after stable sort.
-   * Solution:
-   */
-
-  /**
-   * 100.
-   * Problem: Asymptotic Analysis and comparison of sorting algorithms.
-   * Solution:
-   */
-
-  /**
-   * 101.
-   * Problem: Chocolate Distribution Problem.
-   * Solution:
-   */
-
-  /**
-   * 102.
-   * Problem: Sort even-placed elements in increasing and odd-placed in decreasing order.
-   * Solution:
-   */
-
-  /**
-   * 103.
-   * Problem: Permute two arrays such that sum of every pair is greater or equal to K.
-   * Solution:
-   */
-
-  /**
-   * 104.
-   * Problem: Chose k array elements such that difference of maximum and minimum is minimized.
-   * Solution:
-   */
-
-  /**
-   * 105.
-   * Problem: Sort an array when two halves are sorted.
-   * Solution:
-   */
-
-  /**
-   * 106.
-   * Problem: Find pair with greatest product in array.
-   * Solution:
-   */
-
-  /**
-   * 107.
-   * Problem: Minimum swap required to convert binary tree to binary search tree.
-   * Solution:
-   */
-
-  /**
-   * 108.
-   * Problem: K-th smallest element after removing some integers from natural numbers.
-   * Solution:
-   */
-
-  /**
-   * 109.
-   * Problem: Check whether Arithmetic Progression can be formed from the given array.
-   * Solution:
-   */
-
-  /**
-   * 110.
-   * Problem: Cycle Sort.
-   * Solution:
-   */
-
-  /**
-   * 111.
-   * Problem: Hoare&#8217;s vs Lomuto partition scheme in QuickSort.
-   * Solution:
-   */
-
-  /**
-   * 112.
-   * Problem: Bucket Sort To Sort an Array with Negative Numbers.
-   * Solution:
-   */
-
-  /**
-   * 113.
-   * Problem: Tag Sort (To get both sorted and original).
-   * Solution:
-   */
-
-  /**
-   * 114.
-   * Problem: Possible to form a triangle from array values.
-   * Solution:
-   */
-
-  /**
-   * 115.
-   * Problem: Maximum difference between frequency of two elements such that element having greater frequency is also greater.
-   * Solution:
-   */
-
-  /**
-   * 116.
-   * Problem: Recursive Bubble Sort.
-   * Solution:
-   */
-
-  /**
-   * 117.
-   * Problem: Check if reversing a sub array make the array sorted.
-   * Solution:
-   */
-
-  /**
-   * 118.
-   * Problem: Find all triplets with zero sum.
-   * Solution:
-   */
-
-  /**
-   * 119.
-   * Problem: An Insertion Sort time complexity question.
-   * Solution:
-   */
-
-  /**
-   * 120.
-   * Problem: Sort a Matrix in all way increasing order.
-   * Solution:
-   */
-
-  /**
-   * 121.
-   * Problem: Sort array after converting elements to their squares.
-   * Solution:
-   */
-
-  /**
-   * 122.
-   * Problem: Sort all even numbers in ascending order and then sort all odd numbers in descending order.
-   * Solution:
-   */
-
-  /**
-   * 123.
-   * Problem: Recursive Insertion Sort.
-   * Solution:
-   */
-
-  /**
-   * 124.
-   * Problem: Sorting Big Integers.
-   * Solution:
-   */
-
-  /**
-   * 125.
-   * Problem: Sort an array of large numbers.
-   * Solution:
-   */
-
-  /**
-   * 126.
-   * Problem: Sort 3 Integers without using if condition or using only max() function.
-   * Solution:
-   */
-
-  /**
-   * 127.
-   * Problem: Minimum difference between max and min of all K-size subsets.
-   * Solution:
-   */
-
-  /**
-   * 128.
-   * Problem: Minimum swaps to reach permuted array with at most 2 positions left swaps allowed.
-   * Solution:
-   */
-
-  /**
-   * 129.
-   * Problem: Convert an array to reduced form | Set 2 (Using vector of pairs).
-   * Solution:
-   */
-
-  /**
-   * 130.
-   * Problem: Find sum of non-repeating (distinct) elements in an array.
-   * Solution:
-   */
-
-  /**
-   * 131.
-   * Problem: Minimum sum of absolute difference of pairs of two arrays.
-   * Solution:
-   */
-
-  /**
-   * 132.
-   * Problem: Find the largest multiple of 3 from array of digits | Set 2 (In O(n) time and O(1) space).
-   * Solution:
-   */
-
-  /**
-   * 133.
-   * Problem: Stooge Sort.
-   * Solution:
-   */
-
-  /**
-   * 134.
-   * Problem: Serial Sort v/s Parallel Sort in Java.
-   * Solution:
-   */
-
-  /**
-   * 135.
-   * Problem: 3-way Merge Sort.
-   * Solution:
-   */
-
-  /**
-   * 136.
-   * Problem: Noble integers in an array (count of greater elements is equal to value).
-   * Solution:
-   */
-
-  /**
-   * 137.
-   * Problem: Find maximum height pyramid from the given array of objects.
-   * Solution:
-   */
-
-  /**
-   * 138.
-   * Problem: Program to check if an array is sorted or not (Iterative and Recursive).
-   * Solution:
-   */
-
-  /**
-   * 139.
-   * Problem: Smallest Difference Triplet from Three arrays.
-   * Solution:
-   */
-
-  /**
-   * 140.
-   * Problem: Program to print an array in Pendulum Arrangement.
-   * Solution:
-   */
-
-  /**
-   * 141.
-   * Problem: Smallest Difference pair of values between two unsorted Arrays.
-   * Solution:
-   */
-
-  /**
-   * 142.
-   * Problem: Find whether it is possible to make array elements same using one external number.
-   * Solution:
-   */
-
-  /**
-   * 143.
-   * Problem: Sort an array of strings  according to string lengths.
-   * Solution:
-   */
-
-  /**
-   * 144.
-   * Problem: Check if it is possible to sort an array with conditional swapping of adjacent allowed.
-   * Solution:
-   */
-
-  /**
-   * 145.
-   * Problem: TimSort.
-   * Solution:
-   */
-
-  /**
-   * 146.
-   * Problem: Sort an array after applying the given equation.
-   * Solution:
-   */
-
-  /**
-   * 147.
-   * Problem: Print array of strings in sorted order without copying one string into another.
-   * Solution:
-   */
-
-  /**
-   * 148.
-   * Problem: Sort elements on the basis of number of factors.
-   * Solution:
-   */
-
-  /**
-   * 149.
-   * Problem: Delete consecutive same words in a sequence.
-   * Solution:
-   */
-
-  /**
-   * 150.
-   * Problem: Bead Sort | A Natural Sorting Algorithm.
-   * Solution:
-   */
-
-  /**
-   * 151.
-   * Problem: C program to sort an array of strings using Selection Sort.
-   * Solution:
-   */
-
-  /**
-   * 152.
-   * Problem: Sum of minimum absolute difference of each array element.
-   * Solution:
-   */
-
-  /**
-   * 153.
-   * Problem: Longest Common Prefix | Set 6 (Sorting).
-   * Solution:
-   */
-
-  /**
-   * 154.
-   * Problem: Find shortest unique prefix for every word in a given list | Set 2 (Using Sorting).
-   * Solution:
-   */
-
-  /**
-   * 155.
-   * Problem: Maximizing Unique Pairs from two arrays.
-   * Solution:
-   */
-
-  /**
-   * 156.
-   * Problem: Check whether a given array is a k sorted array or not.
-   * Solution:
-   */
-
-  /**
-   * 157.
-   * Problem: Bubble sort using two Stacks.
-   * Solution:
-   */
-
-  /**
-   * 158.
-   * Problem: Count pairs from two sorted arrays whose sum is equal to a given value x.
-   * Solution:
-   */
-
-  /**
-   * 159.
-   * Problem: Recursive Selection Sort.
-   * Solution:
-   */
-
-  /**
-   * 160.
-   * Problem: Alternative Sorting.
-   * Solution:
-   */
-
-  /**
-   * 161.
-   * Problem: Find a pair of elements swapping which makes sum of two arrays same.
-   * Solution:
-   */
-
-  /**
-   * 162.
-   * Problem: Sort a stack using a temporary stack.
-   * Solution:
-   */
-
-  /**
-   * 163.
-   * Problem: Count pairs from two linked lists whose sum is equal to a given value.
-   * Solution:
-   */
-
-  /**
-   * 164.
-   * Problem: Find the Sub-array with sum closest to 0.
-   * Solution:
-   */
-
-  /**
-   * 165.
-   * Problem: Maximum product of subsequence of size k.
-   * Solution:
-   */
-
-  /**
-   * 166.
-   * Problem: Count quadruples from four sorted arrays whose sum is equal to a given value x.
-   * Solution:
-   */
-
-  /**
-   * 167.
-   * Problem: Insertion Sort for Doubly Linked List.
-   * Solution:
-   */
-
-  /**
-   * 168.
-   * Problem: Sort the biotonic doubly linked list.
-   * Solution:
-   */
-
-  /**
-   * 169.
-   * Problem: Why is it faster to process sorted array than an unsorted array ?.
-   * Solution: Branch Prediction.
-   * https://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array
-   */
-
-  /**
-   * 170.
-   * Problem: Recursive selection sort for singly linked list | Swapping node links.
-   * Solution:
-   */
-
-
-  /**
-   * 171.
-   * Problem: Why quicksort is better than mergesort ?
-
-   * Solution:
-   */
-
-  /**
-   * 172.
-   * Problem: Sorting Array Elements By Frequency | Set 3 (Using STL)
-
-   * Solution:
-   */
-
-
-  /**
-   * 173.
-   * Problem: Find first k natural numbers missing in given array
-
-   * Solution:
-   */
-
-
-  /**
-   * 174.
-   * Problem: Merging two unsorted arrays in sorted order
-
-   * Solution:
-   */
-
-  /**
-   * 175.
-   * Problem: Ways to sort list of dictionaries by values in Python – Using itemgetter
-
-   * Solution:
-   */
-
-
-  /**
-   * 176.
-   * Problem: Minimum number of distinct elements after removing m items
-
-   * Solution:
-   */
-
-
-
-
-
-
-  /**
-   * 177.
-   * Problem: Smallest element in an array that is repeated exactly ‘k’ times.
-
-   * Solution:
-   */
-
-  /**
-   * 178.
-   * Problem: Rearrange an array in order – smallest, largest, 2nd smallest, 2nd largest, ..
-
-   * Solution:
-   */
-
-
-  /**
-   * 179.
-   * Problem: Sort first half in ascending and second half in descending order
-
-   * Solution:
-   */
-
-
-
-
-
-
-
-
-  /**
-   * 180.
-   * Problem: Insertion sort using C++ STL
-
-   * Solution:
-   */
-
-  /**
-   * 181.
-   * Problem: Check if a grid can become row-wise and column-wise sorted after adjacent swaps
-
-   * Solution:
-   */
-
-
-  /**
-   * 182.
-   * Problem: Sort a linked list of 0s, 1s and 2s by changing links
-
-   * Solution:
-   */
-
-
-
-
-
-
-
-
-
-
-
-  /**
-   * 183.
-   * Problem: Sorting array of strings (or words) using Trie
-
-   * Solution:
-   */
-
-  /**
-   * 184.
-   * Problem: Sort an array according to absolute difference with a given value “using constant extra space”
-
-   * Solution:
-   */
-
-
-  /**
-   * 185.
-   * Problem: A sorting algorithm that slightly improves on selection sort
-
-   * Solution:
-   */
-
-
-
-
-
-
-
-
-
-
-  /**
-   * 186.
-   * Problem: How to make Mergesort to perform O(n) comparisons in best case?
-
-   * Solution:
-   */
-
-  /**
-   * 187.
-   * Problem: Dual pivot Quicksort
-
-   * Solution:
-   */
-
-
-  /**
-   * 188.
-   * Problem: Sort elements by frequency | Set 4 (Efficient approach using hash)
-
-   * Solution:
-   */
-
-
-
-  /**
-   * 189.
-   * Problem: Maximum area rectangle by picking four sides from array
-
-   * Solution:
-   */
-
-  /**
-   * 190.
-   * Problem: Check if given array is almost sorted (elements are at-most one position away)
-
-   * Solution:
-   */
-
-
-  /**
-   * 191.
-   * Problem: Sort a binary array using one traversal
-
-   * Solution:
-   */
-
-
-  /**
-   * 192.
-   * Problem: Count points covered by given intervals
-
-   * Solution:
-   */
-
-  /**
-   * 193.
-   * Problem: Difference between highest and least frequencies in an array
-
-   * Solution:
-   */
-
-
-  /**
-   * 194.
-   * Problem: Sort string of characters
-
-   * Solution:
-   */
-
-
-
-
-
-
-  /**
-   * 195.
-   * Problem: Minimum product pair an array of positive Integers
-
-   * Solution:
-   */
-
-  /**
-   * 196.
-   * Problem: Stable Selection Sort
-
-   * Solution:
-   */
-
-
-  /**
-   * 197.
-   * Problem: Circle Sort
-
-   * Solution:
-   */
-
-  /**
-   * 198.
-   * Problem: Sort a Rotated Sorted Array
-
-   * Solution:
-   */
-
-  /**
-   * 199.
-   * Problem: Pairs with Difference less than K
-
-   * Solution:
-   */
-
-
-  /**
-   * 200.
-   * Problem: Maximize the sum of arr[i]*i
-
-   * Solution:
-   */
-
-
-  /**
-   * 201.
-   * Problem: Sorting an array according to another array using pair in STL
-
-   * Solution:
-   */
-
-  /**
-   * 202.
-   * Problem: Median after K additional integers
-
-   * Solution:
-   */
-
-
-  /**
-   * 203.
-   * Problem: Rearrange positive and negative numbers using inbuilt sort function
-
-   * Solution:
-   */
-
-
-
-
-
-
-  /**
-   * 204.
-   * Problem: Minimum cost to sort a matrix of numbers from 0 to n^2 – 1
-   * Solution:
-   */
-
-  /**
-   * 205.
-   * Problem: Program to sort string in descending order
-
-   * Solution:
-   */
-
-
-  /**
-   * 206.
-   * Problem: Job Sequencing Problem – Loss Minimization
-
-   * Solution:
-   */
-
-  /**
-   * 207.
-   * Problem: Quickselect Algorithm
-
-   * Solution:
-   */
-
-  /**
-   * 208.
-   * Problem: Minimum number of elements to add to make median equals x
-
-   * Solution:
-   */
-
-
-  /**
-   * 209.
-   * Problem: Counting cross lines in an array
-
-   * Solution:
-   */
-
-
-  /**
-   * 210.
-   * Problem: Elements to be added so that all elements of a range are present in array
-
-   * Solution:
-   */
-
-  /**
-   * 211.
-   * Problem: Find array with k number of merge sort calls
-
-   * Solution:
-   */
-
-
-  /**
-   * 212.
-   * Problem: Sort an array with swapping only with a special element is allowed
-
-   * Solution:
-   */
-
-
-
-
-
-
-  /**
-   * 213.
-   * Problem: Sorting using trivial hash function
-
-   * Solution:
-   */
-
-  /**
-   * 214.
-   * Problem: Number of visible boxes after putting one inside another
-
-   * Solution:
-   */
-
-
-  /**
-   * 215.
-   * Problem: stable_sort() in C++ STL
-
-   * Solution:
-   */
-
-  /**
-   * 216.
-   * Problem: Maximum array from two given arrays keeping order same
-
-   * Solution:
-   */
-
-  /**
-   * 217.
-   * Problem: No of pairs (a[j] >= a[i]) with k numbers in range (a[i], a[j]) that are divisible by x
-
-   * Solution:
-   */
-
-
-  /**
-   * 218.
-   * Problem: Minimum De-arrangements present in array of AP (Arithmetic Progression)
-
-   * Solution:
-   */
-
-
-  /**
-   * 219.
-   * Problem: Python | Sort a List according to the Length of the Elements
-
-   * Solution:
-   */
-
-  /**
-   * 220.
-   * Problem: Alternate sorting of Linked list
-
-   * Solution:
-   */
-
-
-  /**
-   * 221.
-   * Problem: Print n smallest elements from given array in their original order
-
-   * Solution:
-   */
-
-
-
-  /**
-   * 222.
-   * Problem: De-arrangements for minimum product sum of two arrays
-
-   * Solution:
-   */
-
+  /** 1. Problem: Sort elements by frequency | Set 1. */
 
-  /**
-   * 223.
-   * Problem: Sort the words in lexicographical order in Python
+  /** 2. Problem: Count Inversions in an array | Set 1 (Using Merge Sort). */
 
-   * Solution:
-   */
+  /** 3. Problem: Merge Sort for Linked Lists. */
 
-  /**
-   * 224.
-   * Problem: Maximum sum of pairwise product in an array with negative allowed
+  /** 4. Problem: Sort an array of 0s, 1s and 2s. */
 
+  /** 5. Problem: Find the Minimum length Unsorted Subarray, sorting which makes the complete array sorted. */
 
-   * Solution:
-   */
-  /**
-   * 225.
-   * Problem: Rearrange array such that even positioned are greater than odd
+  /** 6. Problem: When does the worst case of Quicksort occur?. */
 
-   * Solution:
-   */
+  /** 7. Problem: Stability in sorting algorithms. */
 
+  /** 8. Problem: Which sorting algorithm makes minimum number of memory writes?. */
 
+  /** 9. Problem: Lower bound for comparison based sorting algorithms. */
 
+  /** 10. Problem: Find whether an array is subset of another array | Added Method 3. */
 
+  /** 11. Problem: Find four elements that sum to a given value | Set 2 ( O(n^2Logn) Solution). */
 
+  /** 12. Problem: Sort a nearly sorted (or K sorted) array. */
 
-  /**
-   * 226.
-   * Problem: Maximum triplet sum in array
+  /** 13. Problem: Sort numbers stored on different machines. */
 
-   * Solution:
-   */
+  /** 14. Problem: Iterative Quick Sort. */
 
+  /** 15. Problem: Sort a linked list of 0s, 1s and 2s. */
 
-  /**
-   * 227.
-   * Problem: Sum of Manhattan distances between all pairs of points
+  /** 16. Problem: Pancake sorting. */
 
-   * Solution:
-   */
+  /** 17. Problem: A Pancake Sorting Problem. */
 
+  /** 18. Problem: Insertion Sort. */
 
-  /**
-   * 228.
-   * Problem: Python | Sort Tuples in Increasing Order by any key
+  /** 19. Problem: Merge Sort. */
 
-   * Solution:
-   */
+  /** 20. Problem: Heap Sort. */
 
-  /**
-   * 229.
-   * Problem: Sorting array of strings (or words) using Trie | Set-2 (Handling Duplicates)
+  /** 21. Problem: Counting Sort. */
 
-   * Solution:
-   */
+  /** 22. Problem: Comparator function of qsort() in C. */
 
+  /** 23. Problem: QuickSort on Doubly Linked List. */
 
-  /**
-   * 230.
-   * Problem: Minimum number of subsets with distinct elements
+  /** 24. Problem: Sort elements by frequency | Set 2. */
 
-   * Solution:
-   */
+  /** 25. Problem: QuickSort on Singly Linked List. */
 
+  /** 26. Problem: Radix Sort. */
 
+  /** 27. Problem: Find number of pairs (x, y) in an array such that x^y > y^x. */
 
+  /** 28. Problem: Count all distinct pairs with difference equal to k. */
 
+  /** 29. Problem: Python Program for QuickSort. */
 
+  /** 30. Problem: Java Program for QuickSort. */
 
-  /**
-   * 231.
-   * Problem: k smallest elements in same order using O(1) extra space
+  /** 31. Problem: C++ Program for QuickSort. */
 
-   * Solution:
-   */
+  /** 32. Problem: QuickSort. */
 
-  /**
-   * 232.
-   * Problem: Job Selection Problem – Loss Minimization Strategy | Set 2
+  /** 33. Problem: Selection Sort. */
 
-   * Solution:
-   */
+  /** 34. Problem: C Program for Bubble Sort on Linked List. */
 
+  /** 35. Problem: Python Program for Bubble Sort. */
 
-  /**
-   * 233.
-   * Problem: Smallest subset with sum greater than all other elements
+  /** 36. Problem: Bubble Sort. */
 
-   * Solution:
-   */
+  /** 37. Problem: Java Program for Bubble Sort. */
 
-  /**
-   * 234.
-   * Problem: Minimum number of subtract operation to make an array decreasing
+  /** 38. Problem: C++ Program for Bubble Sort. */
 
+  /** 39. Problem: C Program for Bubble Sort. */
 
-   * Solution:
-   */
+  /** 40. Problem: Sort n numbers in range from 0 to n^2 &#8211; 1 in linear time. */
 
-  /**
-   * 235.
-   * Problem: Alternate Lower Upper String Sort
+  /** 41. Problem: Bucket Sort. */
 
+  /** 42. Problem: C Program to Sort an array of names or strings. */
 
+  /** 43. Problem: ShellSort. */
 
-   * Solution:
-   */
+  /** 44. Problem: Sorting Terminology. */
 
-  /**
-   * 236.
-   * Problem: Merge Sort using Multi-threading
+  /** 45. Problem: Binary Insertion Sort. */
 
+  /** 46. Problem: Python Program for Binary Insertion Sort. */
 
-   * Solution:
-   */
+  /** 47. Problem: Java Program for Binary Insertion Sort. */
 
-  /**
-   * 237.
-   * Problem: QuickSort using Random Pivoting
+  /** 48. Problem: C Program for Binary Insertion Sort. */
 
+  /** 49. Problem: Sort an array according to the order defined by another array. */
 
+  /** 50. Problem: Given a sorted array and a number x, find the pair in array whose sum is closest to x. */
 
-   * Solution:
-   */
+  /** 51. Problem: Time complexity of insertion sort when there are O(n) inversions?. */
 
+  /** 52. Problem: Sort an array in wave form. */
 
-  /**
-   * 238.
-   * Problem: Python | Sort a list according to the second element in sublist
+  /** 53. Problem: Can QuickSort be implemented in O(nLogn) worst case time complexity?. */
 
-   * Solution:
-   */
+  /** 54. Problem: Python Program for Iterative Merge Sort. */
 
+  /** 55. Problem: Iterative Merge Sort. */
 
-  /**
-   * 239.
-   * Problem: Python | Sort words of sentence in ascending order
+  /** 56. Problem: Java Program for Iterative Merge Sort. */
 
-   * Solution:
-   */
+  /** 57. Problem: Check if any two intervals overlap among a given set of intervals. */
 
+  /** 58. Problem: Merge Sort for Doubly Linked List. */
 
-  /**
-   * 240.
-   * Problem: sort() in Python
+  /** 59. Problem: Why Quick Sort preferred for Arrays and Merge Sort for Linked Lists?. */
 
-   * Solution:
-   */
+  /** 60. Problem: How to efficiently sort a big list dates in 20&#8217;s. */
 
+  /** 61. Problem: Sort an almost sorted array where only two elements are swapped. */
 
-  /**
-   * 241.
-   * Problem: Merge 3 Sorted Arrays
+  /** 62. Problem: Where is Heap Sort used practically?. */
 
-   * Solution:
-   */
+  /** 63. Problem: Find memory conflicts among multiple threads. */
 
+  /** 64. Problem: Find the point where maximum intervals overlap. */
 
-  /**
-   * 242.
-   * Problem: Sort an array of 0s, 1s and 2s (Simple Counting)
+  /** 65. Problem: How to sort a big array with many repetitions?. */
 
-   * Solution:
-   */
+  /** 66. Problem: Sort a linked list that is sorted alternating ascending and descending orders?. */
 
+  /** 67. Problem: 3-Way QuickSort (Dutch National Flag). */
 
-  /**
-   * 243.
-   * Problem: Rank of all elements in an array
+  /** 68. Problem: C++ program for Sorting Dates using Selection Sort. */
 
-   * Solution:
-   */
+  /** 69. Problem: How to sort an array of dates in C/C++?. */
 
+  /** 70. Problem: Sorting Strings using Bubble Sort. */
 
-  /**
-   * 244.
-   * Problem: Insertion Sort by Swapping Elements
+  /** 71. Problem: Comb Sort. */
 
+  /** 72. Problem: Pigeonhole Sort. */
 
-   * Solution:
-   */
+  /** 73. Problem: QuickSort Tail Call Optimization (Reducing worst case space to Log n ). */
 
+  /** 74. Problem: std::sort() in C++ STL. */
 
-  /**
-   * 245.
-   * Problem:    Closest numbers from a list of unsorted integers
-   * Solution:
-   */
+  /** 75. Problem: Find minimum difference between any two elements. */
 
+  /** 76. Problem: Convert an array to reduced form | Set 1 (Simple and Hashing). */
 
-  /**
-   * 246.
-   * Problem: Check if both halves of the string have at least one different character
+  /** 77. Problem: External Sorting. */
 
-   * Solution:
-   */
+  /** 78. Problem: Cartesian Tree Sorting. */
 
-  void quickSort1(int[] array, int start, int end) {
-    if (start < end) {
-      int pivot = partition1(array, start, end);
-      quickSort1(array, start, pivot - 1);
-      quickSort(array, pivot + 1, end);
-    }
-  }
+  /** 79. Problem: Maximum product of a triplet (subsequnece of size 3) in array. */
 
-  int partition1(int[] array, int start, int end) {
-    int pivot = array[end];
-    int soFar = start - 1;
-    for (int i = start; i < end; i++) {
-      if (array[i] <= pivot) {
-        soFar++;
-        swap(array, soFar, i);
-      }
-    }
-    swap(array, soFar + 1, end);
-    return soFar + 1;
+  /** 80. Problem: Find missing elements of a range. */
 
-  }
+  /** 81. Problem: Find a permutation that causes worst case of Merge Sort. */
 
+  /** 82. Problem: C qsort() vs C++ sort(). */
 
+  /** 83. Problem: Bitonic Sort. */
 
+  /** 84. Problem: Minimum sum of two numbers formed from digits of an array. */
 
-  /**
-   * 247.
-   * Problem: Find k maximum elements of array in original order
+  /** 85. Problem: Cocktail Sort. */
 
-   * Solution:
-   */
+  /** 86. Problem: Know Your Sorting Algorithm | Set 1 (Sorting Weapons used by Programming Languages). */
 
+  /** 87. Problem: Know Your Sorting Algorithm | Set 2  (Introsort- C++’s Sorting Weapon). */
 
+  /** 88. Problem: Sleep Sort – The King of Laziness / Sorting while Sleeping. */
 
-  /**
-   * 248.
-   * Problem: Median and Mode using Counting Sort
+  /** 89. Problem: Gnome Sort. */
 
-   * Solution:
-   */
+  /** 90. Problem: Sorting Vector of Pairs in C++ | Set 1 (Sort by first and second). */
 
+  /** 91. Problem: Sorting Vector of Pairs in C++ | Set 2 (Sort in descending order by first and second). */
 
+  /** 92. Problem: Odd-Even Sort / Brick Sort. */
 
-  /**
-   * 249.
-   * Problem: Find number of pairs in an array such that their XOR is 0
+  /** 93. Problem: BogoSort or Permutation Sort. */
 
-   * Solution:
-   */
+  /** 94. Problem: Sorting 2D Vector in C++ | Set 2 (In descending order by row and column). */
 
+  /** 95. Problem: Sorting 2D Vector in C++ | Set 3 (By number of columns). */
 
+  /** 96. Problem: Find Surpasser Count of each element in array. */
 
+  /** 97. Problem: Rearrange positive and negative numbers with constant extra space. */
 
+  /** 98. Problem: Sort an array according to count of set bits. */
 
+  /** 99. Problem: Structure Sorting (By Multiple Rules) in C++. */
 
+  /** 100. Problem: Time Complexities of all Sorting Algorithms. */
 
+  /** 101. Problem: Count distinct occurrences as a subsequence. */
 
+  /** 102. Problem: Tree Sort. */
 
+  /** 103. Problem: Minimum number of swaps required to sort an array. */
 
+  /** 104. Problem: Number of swaps to sort when only adjacent swapping allowed. */
 
+  /** 105. Problem: Minimum swaps to make two arrays identical. */
 
+  /** 106. Problem: Find elements larger than half of the elements in an array. */
+
+  /** 107. Problem: Count minimum number of subsets (or subsequences) with consecutive numbers. */
+
+  /** 108. Problem: Sum of all elements between k1&#8217;th and k2&#8217;th smallest elements. */
+
+  /** 109. Problem: Number of sextuplets (or six values) that satisfy an equation. */
+
+  /** 110. Problem: Sort an array according to absolute difference with given value. */
+
+  /** 111. Problem: Minimize the sum of product of two arrays with permutations allowed. */
+
+  /** 112. Problem: Position of an element after stable sort. */
+
+  /** 113. Problem: Asymptotic Analysis and comparison of sorting algorithms. */
+
+  /** 114. Problem: Chocolate Distribution Problem. */
+
+  /** 115. Problem: Sort even-placed elements in increasing and odd-placed in decreasing order. */
+
+  /** 116. Problem: Permute two arrays such that sum of every pair is greater or equal to K. */
+
+  /** 117. Problem: Choose k array elements such that difference of maximum and minimum is minimized. */
+
+  /** 118. Problem: Sort an array when two halves are sorted. */
+
+  /** 119. Problem: Find pair with greatest product in array. */
+
+  /** 120. Problem: Minimum swap required to convert binary tree to binary search tree. */
+
+  /** 121. Problem: K-th smallest element after removing some integers from natural numbers. */
+
+  /** 122. Problem: Check whether Arithmetic Progression can be formed from the given array. */
+
+  /** 123. Problem: Cycle Sort. */
+
+  /** 124. Problem: Python Program for Cycle Sort. */
+
+  /** 125. Problem: Java Program for Cycle Sort. */
+
+  /** 126. Problem: C++ Program for Cycle Sort. */
+
+  /** 127. Problem: Hoare&#8217;s vs Lomuto partition scheme in QuickSort. */
+
+  /** 128. Problem: Bucket Sort To Sort an Array with Negative Numbers. */
+
+  /** 129. Problem: Tag Sort (To get both sorted and original). */
+
+  /** 130. Problem: Possible to form a triangle from array values. */
+
+  /** 131. Problem: Maximum difference between frequency of two elements such that element having greater frequency is also greater. */
+
+  /** 132. Problem: Java Program for Recursive Bubble Sort. */
+
+  /** 133. Problem: C++ Program for Recursive Bubble Sort. */
+
+  /** 134. Problem: Recursive Bubble Sort. */
+
+  /** 135. Problem: Check if reversing a sub array make the array sorted. */
+
+  /** 136. Problem: Find all  triplets with zero sum. */
+
+  /** 137. Problem: An Insertion Sort time complexity question. */
+
+  /** 138. Problem: Sort a Matrix in all way increasing order. */
+
+  /** 139. Problem: Sort array after converting elements to their squares. */
+
+  /** 140. Problem: Sort all even numbers in ascending order and then sort all odd numbers in descending order. */
+
+  /** 141. Problem: Recursive Insertion Sort. */
+
+  /** 142. Problem: Python Program for Recursive Insertion Sort. */
+
+  /** 143. Problem: Java Program for Recursive Insertion Sort. */
+
+  /** 144. Problem: C Program for Recursive Insertion Sort. */
+
+  /** 145. Problem: Sorting Big Integers. */
+
+  /** 146. Problem: Sort an array of large numbers. */
+
+  /** 147. Problem: Sort 3 Integers without using if condition or using only max() function. */
+
+  /** 148. Problem: Minimum difference between max and min of all K-size subsets. */
+
+  /** 149. Problem: Minimum swaps to reach permuted array with at most 2 positions left swaps allowed. */
+
+  /** 150. Problem: Convert an array to reduced form | Set 2 (Using vector of pairs). */
+
+  /** 151. Problem: Find sum of non-repeating (distinct) elements in an array. */
+
+  /** 152. Problem: Minimum sum of absolute difference of pairs of two arrays. */
+
+  /** 153. Problem: Find the largest multiple of 3 from array of digits | Set 2 (In O(n) time and O(1) space). */
+
+  /** 154. Problem: C++ Program for Stooge Sort. */
+
+  /** 155. Problem: Python Program for Stooge Sort. */
+
+  /** 156. Problem: Stooge Sort. */
+
+  /** 157. Problem: Java Program for Stooge Sort. */
+
+  /** 158. Problem: Serial Sort v/s Parallel Sort in Java. */
+
+  /** 159. Problem: 3-way Merge Sort. */
+
+  /** 160. Problem: Noble integers in an array (count of greater elements is equal to value). */
+
+  /** 161. Problem: Find maximum height pyramid from the given array of objects. */
+
+  /** 162. Problem: Program to check if an array is sorted or not (Iterative and Recursive). */
+
+  /** 163. Problem: Smallest Difference Triplet from Three arrays. */
+
+  /** 164. Problem: Program to print an array in Pendulum Arrangement. */
+
+  /** 165. Problem: Smallest Difference pair of values between two unsorted Arrays. */
+
+  /** 166. Problem: Find whether it is possible to make array elements same using one external number. */
+
+  /** 167. Problem: Sort an array of strings  according to string lengths. */
+
+  /** 168. Problem: Check if it is possible to sort an array with conditional swapping of adjacent allowed. */
+
+  /** 169. Problem: TimSort. */
+
+  /** 170. Problem: Sort an array after applying the given equation. */
+
+  /** 171. Problem: Print array of strings in sorted order without copying one string into another. */
+
+  /** 172. Problem: Sort elements on the basis of number of factors. */
+
+  /** 173. Problem: Delete consecutive same words in a sequence. */
+
+  /** 174. Problem: Bead Sort | A Natural Sorting Algorithm. */
+
+  /** 175. Problem: C program to sort an array of strings using Selection Sort. */
+
+  /** 176. Problem: Sum of minimum absolute difference of each array element. */
+
+  /** 177. Problem: Longest Common Prefix | Set 6 (Sorting). */
+
+  /** 178. Problem: Find shortest unique prefix for every word in a given list | Set 2 (Using Sorting). */
+
+  /** 179. Problem: Maximizing Unique Pairs from two arrays. */
+
+  /** 180. Problem: Check whether a given array is a k sorted array or not. */
+
+  /** 181. Problem: Bubble sort using two Stacks. */
+
+  /** 182. Problem: Count pairs from two sorted arrays whose sum is equal to a given value x. */
+
+  /** 183. Problem: Recursive Selection Sort. */
+
+  /** 184. Problem: Alternative Sorting. */
+
+  /** 185. Problem: Find a pair of elements swapping which makes sum of two arrays same. */
+
+  /** 186. Problem: Sort a stack using a temporary stack. */
+
+  /** 187. Problem: Count pairs from two linked lists whose sum is equal to a given value. */
+
+  /** 188. Problem: Find the Sub-array with sum closest to 0. */
+
+  /** 189. Problem: Maximum product of subsequence of size k. */
+
+  /** 190. Problem: Count quadruples from four sorted arrays whose sum is equal to a given value x. */
+
+  /** 191. Problem: Insertion Sort for Doubly Linked List. */
+
+  /** 192. Problem: Sort the biotonic doubly linked list. */
+
+  /** 193. Problem: Why is it faster to process sorted array than an unsorted array ?. */
+
+  /** 194. Problem: Recursive selection sort for singly linked list | Swapping node links. */
+
+  /** 195. Problem: Why quicksort is better than mergesort ?. */
+
+  /** 196. Problem: Sorting Array Elements By Frequency | Set 3 (Using STL). */
+
+  /** 197. Problem: Find first k natural numbers missing in given array. */
+
+  /** 198. Problem: Merging two unsorted arrays in sorted order. */
+
+  /** 199. Problem: Ways to sort list of dictionaries by values in Python – Using itemgetter. */
+
+  /** 200. Problem: Minimum number of distinct elements after removing m items. */
+
+  /** 201. Problem: Smallest element in an array that is repeated exactly &#8216;k&#8217; times.. */
+
+  /** 202. Problem: Rearrange an array in order &#8211; smallest, largest, 2nd smallest, 2nd largest, ... */
+
+  /** 203. Problem: Sort first half in ascending and second half in descending order. */
+
+  /** 204. Problem: Insertion sort using C++ STL. */
+
+  /** 205. Problem: Check if a grid can become row-wise and column-wise sorted after adjacent swaps. */
+
+  /** 206. Problem: Sort a linked list of 0s, 1s and 2s by changing links. */
+
+  /** 207. Problem: Sorting array of strings (or words) using Trie. */
+
+  /** 208. Problem: Sort an array according to absolute difference with a given value &#8220;using constant extra space&#8221;. */
+
+  /** 209. Problem: A sorting algorithm that slightly improves on selection sort. */
+
+  /** 210. Problem: How to make Mergesort to perform O(n) comparisons in best case?. */
+
+  /** 211. Problem: Dual pivot Quicksort. */
+
+  /** 212. Problem: Sort elements by frequency | Set 4 (Efficient approach using hash). */
+
+  /** 213. Problem: Maximum area rectangle by picking four sides from array. */
+
+  /** 214. Problem: Check if given array is almost sorted (elements are at-most one position away). */
+
+  /** 215. Problem: Sort a binary array using one traversal. */
+
+  /** 216. Problem: Count points covered by given intervals. */
+
+  /** 217. Problem: Difference between highest and least frequencies in an array. */
+
+  /** 218. Problem: Sort string of characters. */
+
+  /** 219. Problem: Minimum product pair an array of positive Integers. */
+
+  /** 220. Problem: Stable Selection Sort. */
+
+  /** 221. Problem: Circle Sort. */
+
+  /** 222. Problem: Sort a Rotated Sorted Array. */
+
+  /** 223. Problem: Pairs with Difference less than K. */
+
+  /** 224. Problem: Maximize the sum of arr[i]*i. */
+
+  /** 225. Problem: Sorting an array according to another array using pair in STL. */
+
+  /** 226. Problem: Median after K additional integers. */
+
+  /** 227. Problem: Rearrange positive and negative numbers using inbuilt sort function. */
+
+  /** 228. Problem: Minimum cost to sort a matrix of numbers from 0 to n^2 &#8211; 1. */
+
+  /** 229. Problem: Program to sort string in descending order. */
+
+  /** 230. Problem: Job Sequencing Problem &#8211; Loss Minimization. */
+
+  /** 231. Problem: Quickselect Algorithm. */
+
+  /** 232. Problem: Minimum number of elements to add to make median equals x. */
+
+  /** 233. Problem: Counting cross lines in an array. */
+
+  /** 234. Problem: Elements to be added so that all elements of a range are present in array. */
+
+  /** 235. Problem: Find array with k number of merge sort calls. */
+
+  /** 236. Problem: Sort an array with swapping only with a special element is allowed. */
+
+  /** 237. Problem: Sorting using trivial hash function. */
+
+  /** 238. Problem: Number of visible boxes after putting one inside another. */
+
+  /** 239. Problem: std::stable_sort() in C++ STL. */
+
+  /** 240. Problem: Maximum array from two given arrays keeping order same. */
+
+  /** 241. Problem: No of pairs (a[j] >= a[i]) with k numbers in range (a[i], a[j]) that are divisible by x. */
+
+  /** 242. Problem: Minimum De-arrangements present in array of AP (Arithmetic Progression). */
+
+  /** 243. Problem: Python | Sort a List according to the Length of the Elements. */
+
+  /** 244. Problem: Alternate sorting of Linked list. */
+
+  /** 245. Problem: Print n smallest elements from given array in their original order. */
+
+  /** 246. Problem: De-arrangements for minimum product sum of two arrays. */
+
+  /** 247. Problem: Sort the words in lexicographical order in Python. */
+
+  /** 248. Problem: Maximum sum of pairwise product in an array with negative allowed. */
+
+  /** 249. Problem: Rearrange array such that even positioned are greater than odd. */
+
+  /** 250. Problem: Maximum triplet sum in array. */
+
+  /** 251. Problem: Sum of Manhattan distances between all pairs of points. */
+
+  /** 252. Problem: Python | Sort Tuples in Increasing Order by any key. */
+
+  /** 253. Problem: Sorting array of strings (or words) using Trie | Set-2 (Handling Duplicates). */
+
+  /** 254. Problem: Minimum number of subsets with distinct elements. */
+
+  /** 255. Problem: k smallest elements in same order using O(1) extra space. */
+
+  /** 256. Problem: Job Selection Problem &#8211; Loss Minimization Strategy | Set 2. */
+
+  /** 257. Problem: Smallest subset with sum greater than all other elements. */
+
+  /** 258. Problem: Minimum number of subtract operation to make an array decreasing. */
+
+  /** 259. Problem: Alternate Lower Upper String Sort. */
+
+  /** 260. Problem: Merge Sort using Multi-threading. */
+
+  /** 261. Problem: QuickSort using Random Pivoting. */
+
+  /** 262. Problem: Python | Sort a list according to the second element in sublist. */
+
+  /** 263. Problem: Python | Sort words of sentence in ascending order. */
+
+  /** 264. Problem: sort() in Python. */
+
+  /** 265. Problem: Merge 3 Sorted Arrays. */
+
+  /** 266. Problem: Sort an array of 0s, 1s and 2s (Simple Counting). */
+
+  /** 267. Problem: Rank of all elements in an array. */
+
+  /** 268. Problem: Insertion Sort by Swapping Elements. */
+
+  /** 269. Problem: Closest numbers from a list of unsorted integers. */
+
+  /** 270. Problem: Check if both halves of the string have at least one different character. */
+
+  /** 271. Problem: Find k maximum elements of array in original order. */
+
+  /** 272. Problem: Median and Mode using Counting Sort. */
+
+  /** 273. Problem: Find number of pairs in an array such that their XOR is 0. */
+
+  /** 274. Problem: Row wise sorting in 2D array. */
+
+  /** 275. Problem: Lexicographical concatenation of all substrings of a string. */
+
+  /** 276. Problem: Stable sort for descending order. */
+
+  /** 277. Problem: Ropes  left after every removal of smallest. */
+
+  /** 278. Problem: Sort an array using socket programming in C. */
+
+  /** 279. Problem: Sort the given matrix. */
+
+  /** 280. Problem: Sort the matrix row-wise and column-wise. */
+
+  /** 281. Problem: Program for sorting variables of any data type. */
+
+  /** 282. Problem: Insertion sort to sort even and odd positioned elements in different orders. */
+
+  /** 283. Problem: Sort on the basis of number of factors using STL. */
+
+  /** 284. Problem: Loop Invariant Condition with Examples of Sorting Algorithms. */
+
+  /** 285. Problem: Pairs such that one is a power multiple of other. */
+
+  /** 286. Problem: Sort the given string using character search. */
+
+  /** 287. Problem: Find k-th smallest element in given n ranges. */
+
+  /** 288. Problem: Iterative Heap Sort. */
+
+  /** 289. Problem: Sorting rows of matrix in ascending order followed by columns in descending order. */
+
+  /** 290. Problem: Maximum number of partitions that can be sorted individually to make sorted. */
+
+  /** 291. Problem: Sort 1 to N by swapping adjacent elements. */
+
+  /** 292. Problem: Most frequent element in an array. */
+
+  /** 293. Problem: Least frequent element in an array. */
+
+  /** 294. Problem: Shortest Un-ordered Subarray. */
+
+  /** 295. Problem: Print number in ascending order which contains 1, 2 and 3 in their digits.. */
+
+  /** 296. Problem: Heap Sort for decreasing order using min heap. */
+
+  /** 297. Problem: Strand Sort. */
+
+  /** 298. Problem: Sort the linked list in the order of elements appearing in the array. */
+
+  /** 299. Problem: Sorting | Natural Language Programming. */
+
+  /** 300. Problem: Sort an array containing two types of elements. */
+
+  /** 301. Problem: Sorting all array elements except one. */
+
+  /** 302. Problem: Minimum swaps required to Sort Binary array. */
+
+  /** 303. Problem: Sorting a Queue without extra space. */
+
+  /** 304. Problem: Pandigital Product. */
+
+  /** 305. Problem: Sorting array except elements in a subarray. */
+
+  /** 306. Problem: Smallest greater elements in whole array. */
+
+  /** 307. Problem: PHP | Sort array of strings in natural and standard orders. */
+
+  /** 308. Problem: Print sorted distinct elements of array in C++. */
+
+  /** 309. Problem: Comparisons involved in Modified Quicksort Using Merge Sort Tree. */
+
+  /** 310. Problem: Maximum possible difference of two subsets of an array. */
+
+  /** 311. Problem: Check if linked list is sorted (Iterative and Recursive). */
+
+  /** 312. Problem: Maximum sum of absolute difference of an array. */
+
+  /** 313. Problem: Sort an array which contain 1 to n values. */
 
 
 

@@ -23,6 +23,23 @@ public class SearchingExamples {
   }
 
   /** 3. Problem: Median of two sorted arrays of same size. */
+  int findMedian(int[] array1, int[] array2, int start1, int end1, int start2, int end2) {
+    if (array1.length == 1 && array2.length == 1) return (array1[0] + array1[0]) / 2;
+    else {
+      int median1 =
+          (end1 % 2 == 0)
+              ? array1[array1.length / 2] + array1[array1.length / 2 - 1]
+              : array1[array1.length / 2];
+      int median2 =
+          (array2.length % 2 == 0)
+              ? array2[array2.length / 2] + array2[array2.length / 2 - 1]
+              : array2[array2.length / 2];
+      if (median1 == median2) return median1;
+      else if (median1 < median2)
+        return findMedian(array1, array2, median1 + 1, end1, start2, median2 - 1);
+      else return findMedian(array1, array2, start1, median1 - 1, median2 + 1, end2);
+    }
+  }
 
   /** 4. Problem: Two elements whose sum is closest to zero. */
 
@@ -101,7 +118,6 @@ public class SearchingExamples {
    */
 
   /** 14. Problem: Find a pair with the given difference. */
-
 
   /** 15. Problem: Find four elements that sum to a given value | Set 1 (n^3 solution). */
 
@@ -293,10 +309,10 @@ public class SearchingExamples {
       int k = i + 1;
       while (0 <= j && k < array.length) {
         if (-array[i] == array[j] + array[k]) {
-          System.out.println(array[j] + " " + array[i] + " " + array[k] );
+          System.out.println(array[j] + " " + array[i] + " " + array[k]);
           j--;
           k++;
-        }else if (-array[i] < array[j] + array[k]) j--;
+        } else if (-array[i] < array[j] + array[k]) j--;
         else k++;
       }
     }
@@ -333,7 +349,6 @@ public class SearchingExamples {
   /** 86. Problem: Repeatedly search an element by doubling it after every successful search. */
 
   /** 87. Problem: Find a triplet such that sum of two equals to third element. */
-
   void findTriplet(int[] array) {
     Arrays.sort(array);
     for (int i = array.length - 1; i >= 0; i--) {
@@ -341,10 +356,10 @@ public class SearchingExamples {
       int k = i - 1;
       while (j < k) {
         if (array[j] + array[k] == array[i]) {
-          System.out.println(array[j] + " " + array[k] + " " + array[i] );
+          System.out.println(array[j] + " " + array[k] + " " + array[i]);
           j++;
           k--;
-        }else if (array[i] > array[j] + array[k]) j++;
+        } else if (array[i] > array[j] + array[k]) j++;
         else k--;
       }
     }
@@ -369,7 +384,7 @@ public class SearchingExamples {
         j--;
       }
     }
-    System.out.println("Row " + row + 1+ " Max count :" + (mat.length - (j + 1)));
+    System.out.println("Row " + row + 1 + " Max count :" + (mat.length - (j + 1)));
   }
 
   /** 91. Problem: Minimum product pair an array of positive Integers. */
@@ -380,7 +395,7 @@ public class SearchingExamples {
       if (array[i] < firstMin) {
         secondMin = firstMin;
         firstMin = array[i];
-      }else if (array[i] < secondMin) secondMin = array[i];
+      } else if (array[i] < secondMin) secondMin = array[i];
     }
     return firstMin * secondMin;
   }
@@ -525,10 +540,10 @@ public class SearchingExamples {
   /** 146. Problem: Maximum sum of elements from each row in the matrix. */
 
   /** 147. Problem: Linear search using Multi-threading. */
-
   class LinearSearchTask {
     int start, end, x;
     int[] array;
+
     LinearSearchTask(int[] array, int start, int end, int x) {
       this.array = array;
       this.start = start;
@@ -539,14 +554,9 @@ public class SearchingExamples {
     Callable<Integer> task = () -> linearSearch(array, start, end, x);
 
     private int linearSearch(int[] array, int start, int end, int x) {
-      return IntStream.range(start, end).filter(i -> array[i] == x) .findFirst().orElse(-1);
+      return IntStream.range(start, end).filter(i -> array[i] == x).findFirst().orElse(-1);
     }
   }
-
-
-
-
-
 
   /** 148. Problem: Count pairs from two sorted matrices with given sum. */
 
@@ -584,7 +594,7 @@ public class SearchingExamples {
     for (int i = 1; i < array.length; i++) {
       if (array[i] == maxima) {
         minDistance = Math.min(minDistance, i - prevIndex);
-      }else if (array[i] > maxima) {
+      } else if (array[i] > maxima) {
         maxima = array[i];
         minDistance = array.length;
         prevIndex = i;
@@ -680,4 +690,15 @@ public class SearchingExamples {
   /** 180. Problem: XOR of numbers that appeared even number of times in given Range. */
 
   /** 181. Problem: Immediate Smaller element in an N-ary Tree. */
+  String removeDuplicates(String str) {
+
+    int i = 0, j = 0;
+    String res = "";
+    while (i < str.length()) {
+      while (j < str.length() && str.charAt(i) == str.charAt(j)) j++;
+      res += str.charAt(i);
+      i = j;
+    }
+    return res;
+  }
 }

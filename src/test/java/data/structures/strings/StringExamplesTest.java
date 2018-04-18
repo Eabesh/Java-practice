@@ -18,6 +18,14 @@ public class StringExamplesTest {
   }
 
   @Test
+  public void removeDuplicates() {
+
+    String str = "azxxzy";
+    System.out.println(new StringExamples().removeDuplicates(str));
+  }
+
+
+  @Test
   public void reverseVowels() throws Exception {
     StringBuilder str = new StringBuilder("Hello");
     new StringExamples().reverseVowels(str, 0, str.length() - 1);
@@ -50,5 +58,11 @@ public class StringExamplesTest {
   public void manipulationCount() {
     assertEquals(2,  new StringExamples().manipulationCount("ddcf", "cedk"));
     assertEquals(0,  new StringExamples().manipulationCount("aba", "baa"));
+  }
+
+  @Test
+  public void removeAllDuplicates() {
+    String str = "aaaba";
+    System.out.println(new StringExamples().removeAllDuplicates(str));
   }
 }
