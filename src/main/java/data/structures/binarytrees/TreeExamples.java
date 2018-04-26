@@ -486,9 +486,7 @@ public class TreeExamples {
     int height = height(root);
     int[] levelWidth = new int[height];
     findMaxWidth(root, 0, levelWidth);
-    int max = Integer.MIN_VALUE;
-    for (int n : levelWidth) if (n > max) max = n;
-    return max;
+    return Arrays.stream(levelWidth).max().getAsInt();
   }
 
   public void findMaxWidth(TreeNode root, int level, int[] levelWidth) {
@@ -2327,6 +2325,7 @@ public class TreeExamples {
    * Solution:
    */
 
+
   /**
    * 260.
    * Problem: Sum of all the parent nodes having child node x.
@@ -2345,7 +2344,8 @@ public class TreeExamples {
       boolean right = sumOfParents(root.right, key, sum);
       if (left || right) {
         sum[0] += root.data;
-        return true;
+        if (root.data == key) return true;
+        else return false;
       } else return false;
     }
   }

@@ -51,7 +51,7 @@ public class StringExamplesTest {
 
   @Test
   public void printSpaces() throws Exception {
-    new StringExamples().printSpaces("A", "B");
+    new StringExamples().printSpaces("A", "BC");
   }
 
   @Test
@@ -63,6 +63,12 @@ public class StringExamplesTest {
   @Test
   public void removeAllDuplicates() {
     String str = "aaaba";
-    System.out.println(new StringExamples().removeAllDuplicates(str));
+//    System.out.println(new StringExamples().removeAllDuplicates(str));
+  }
+
+  @Test
+  public void printReverseString() {
+    String str = "ABC";
+    new StringExamples().printReverseString(str);
   }
 }

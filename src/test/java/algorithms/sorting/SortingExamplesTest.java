@@ -1,6 +1,7 @@
 package algorithms.sorting;
 
 import org.junit.Test;
+import utilities.ListNode;
 
 import static org.junit.Assert.*;
 
@@ -88,4 +89,20 @@ public class SortingExamplesTest {
     assertEquals(8, array[4]);
   }
 
+  @Test
+  public void isSortedList() {
+    ListNode head = new ListNode(8);
+    head.next = new ListNode(7);
+    head.next.next = new ListNode(6);
+    head.next.next.next = new ListNode(5);
+    head.next.next.next.next = new ListNode(7);
+    head.next.next.next.next.next = new ListNode(3);
+    assertTrue(new SortingExamples().isSortedList(head, null));
+  }
+
+  @Test
+  public void countInversion() {
+    int[] arr = {1, 20, 6, 4, 5};
+    System.out.println(new SortingExamples().countInversion(arr, 0, arr.length - 1));
+  }
 }

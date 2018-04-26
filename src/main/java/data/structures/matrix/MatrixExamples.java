@@ -304,8 +304,17 @@ public class MatrixExamples {
   /**
    * 22.
    * Problem: Program to find transpose of a matrix (Square Matrix).
-   * Solution:
    */
+  void transpose(int A[][])
+  {
+    for (int i = 0; i < A.length; i++)
+      for (int j = i+1; j < A.length; j++)
+      {
+        int temp = A[i][j];
+        A[i][j] = A[j][i];
+        A[j][i] = temp;
+      }
+  }
 
   /**
    * 23.

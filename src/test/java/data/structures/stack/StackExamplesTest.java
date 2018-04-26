@@ -33,10 +33,12 @@ public class StackExamplesTest {
 
   @Test
   public void maxRectangleArea() throws Exception {
-    int[] hist = {6, 2, 5, 4, 5, 1, 6};
-    assertEquals(12, new StackExamples().maxRectangleArea(hist));
-    int[] hist2 = {5};
-    assertEquals(5, new StackExamples().maxRectangleArea(hist2));
+    int[] hist = {2, 2, 5, 4, 5, 1, 6};
+    int[] hist1 = {2, 3, 4, 1};
+//    assertEquals(12, new StackExamples().maxRectangleArea(hist));
+//    int[] hist2 = {5};
+//    assertEquals(5, new StackExamples().maxRectangleArea(hist2));
+    assertEquals(6, new StackExamples().maxRectangleArea(hist1));
   }
 
   @Test

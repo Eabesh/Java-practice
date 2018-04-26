@@ -3,10 +3,6 @@ package data.structures.heap;
 import org.junit.Test;
 import utilities.ListNode;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
 import static org.junit.Assert.*;
 
 /**
@@ -58,5 +54,18 @@ public class HeapExamplesTest {
   public void tripletProduct() {
     int[] array =  {1, 2, 3, 4, 5};
     new HeapExamples().tripletProduct(array, 3);
+  }
+
+  @Test
+  public void test() {
+    String str = null;
+    str = getMeString();
+    System.out.println(str);
+  }
+
+  String getMeString() {
+    String str = "abhay";
+//    System.out.println(str);
+    return str;
   }
 }

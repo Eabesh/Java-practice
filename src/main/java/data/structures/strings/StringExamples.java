@@ -14,10 +14,18 @@ public class StringExamples {
 
   /** 5. Problem: A Program to check if strings are rotations of each other or not. */
   boolean areRotations(String str1, String str2) {
+    // There lengths must be same and str2 must be
+    //        // a substring of str1 concatenated with str1.
     return (str1.length() == str2.length()) && ((str1 + str1).indexOf(str2) != -1);
   }
 
   /** 6. Problem: Print reverse of a string using recursion. */
+  void printReverseString(String str) {
+    if (!str.isEmpty()) {
+      printReverseString(str.substring(1));
+      System.out.print(str.substring(0, 1));
+    }
+  }
 
   /** 7. Problem: Write a program to print all permutations of a given string. */
 

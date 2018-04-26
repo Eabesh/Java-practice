@@ -15,11 +15,8 @@ public class BackTrackingExamplesTest {
             {1, 0, 1, 0},
             {1, 1, 0, 1},
             {1, 0, 1, 0},
+
     };
-//    List list = new
-//    Map
-//    Deque
-    Collection set = new TreeSet();
     String s1 = "I Love";
     s1 += " Java";
     String s2 = "I";
@@ -27,20 +24,20 @@ public class BackTrackingExamplesTest {
 
     String s3 = s1.intern();
     String s4 = s2.intern();
-    System.out.println(s3 == s4);
-
-//    ArrayList
-    boolean result = new BackTrackingExamples().graphColoring(graph, 3);
-    System.out.println(result);
+//    System.out.println(s3 == s4);
+    int[][] graph1 ={{0, 1, 1, 0}, {1, 0, 0, 1},{1, 0, 0, 1}, {0, 1, 1, 0}};
+//    boolean result = new BackTrackingExamples().graphColoring(graph, 3);
+    boolean result1 = new BackTrackingExamples().graphColoring(graph1, 2);
+    System.out.println(result1);
 
   }
 
   @Test
   public void palindromicPartitions() throws Exception {
     ArrayList<ArrayList<String>> result = new ArrayList<>();
-//    new BackTrackingExamples().palindromicPartitions("aab", result, new ArrayList<>());
-//    for (ArrayList<String> strings : result) System.out.println(strings);
-    new BackTrackingExamples().palindromicPartitions2("aab", "");
+    //    new BackTrackingExamples().palindromicPartitions("aab", result, new ArrayList<>());
+    //    for (ArrayList<String> strings : result) System.out.println(strings);
+        new BackTrackingExamples().palindromicPartitions2("aba", "");
   }
 
   @Test

@@ -74,11 +74,11 @@ public class ArrayExamples {
       if (array[mid] == key) return mid;
       else {
         if (array[beginIndex] <= array[mid]) {
-          if (key >= array[beginIndex] && key <= array[mid])
+          if (inRange(array[beginIndex], array[mid], key))
             return binarySearchRotated(array, key, beginIndex, mid - 1);
           else return binarySearchRotated(array, key, mid + 1, endIndex);
         } else {
-          if (key >= array[mid] && key <= array[endIndex])
+          if (inRange(array[mid], array[endIndex], key))
             return binarySearchRotated(array, key, mid + 1, endIndex);
           else return binarySearchRotated(array, key, beginIndex, mid - 1);
         }
@@ -86,7 +86,9 @@ public class ArrayExamples {
     }
     return -1;
   }
-
+  private boolean inRange(int left, int right, int key) {
+    return left <= key && key <= right;
+  }
   /**
    * 5. Problem: Merge an array of size n into another array of size m+n. There are two sorted
    * arrays. First one is of size m+n containing only m elements. Another one is of size n and
@@ -1957,6 +1959,7 @@ public class ArrayExamples {
   /** 95. Problem: Find the subarray with least average. Solution: */
 
   /** 96. Problem: Count Inversions of size three in a given array. Solution: */
+
 
   /** 97. Problem: Longest Span with same Sum in two Binary arrays. Solution: */
 

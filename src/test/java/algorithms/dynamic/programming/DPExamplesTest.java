@@ -383,14 +383,13 @@ public class DPExamplesTest {
 
   @Test
   public void fibonnaciDP() throws Exception {
-    double t1 = System.currentTimeMillis();
-
-    double t2 = System.currentTimeMillis();
-    System.out.println("time taken in secs : " + (t2 - t1)/1000);
-    assertEquals(34, new DPExamples().fibonnaciDP(9));
-    assertEquals(55 , new DPExamples().fibonnaciDP(10));
-    assertEquals(34, new DPExamples().fibonnaciDP(9));
-    assertEquals(55 , new DPExamples().fibonnaciSpaceOpt(10, 0, 1));
+//    double t1 = System.currentTimeMillis();
+//
+//    double t2 = System.currentTimeMillis();
+//    System.out.println("time taken in secs : " + (t2 - t1)/1000);
+    assertEquals(102334155, new DPExamples().fibonacci(40));
+    assertEquals(102334155 , new DPExamples().fibonnaciDP(40));
+    assertEquals(102334155 , new DPExamples().fibonnaciSpaceOpt(40, 0, 1));
 
 
   }

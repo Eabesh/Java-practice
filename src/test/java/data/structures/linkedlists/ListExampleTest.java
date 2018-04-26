@@ -424,4 +424,25 @@ public class ListExampleTest {
 //    printList(newHead);
 
   }
+
+  @Test
+  public void findMajorityElement() {
+    ListNode head2 = new ListNode(1);
+    head2.next = new ListNode(2);
+    head2.next.next = new ListNode(3);
+    head2.next.next.next = new ListNode(3);
+    head2.next.next.next.next = new ListNode(3);
+    head2.next.next.next.next.next = new ListNode(1);
+    assertEquals(1, new ListExample().findMajorityElement(head2));
+  }
+
+  @Test
+  public void printPairs() {
+    ListNode head2 = new ListNode(1);
+    head2.next = new ListNode(2);
+    head2.next.next = new ListNode(3);
+    head2.next.next.next = new ListNode(4);
+    head2.next.next.next.next = new ListNode(5);
+    new ListExample().printPairs(head2, 3);
+  }
 }

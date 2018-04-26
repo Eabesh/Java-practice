@@ -55,13 +55,11 @@ public class StackExamples {
       stack2 = new Stack<>();
     }
 
-    void push(int x) {
+    void enque(int x) {
       stack1.push(x);
     }
 
-
-
-    int pop() {
+    int deque() {
       reverseStack(stack1, stack2);
       int front =  stack2.pop();
       reverseStack(stack2, stack1);
@@ -79,7 +77,6 @@ public class StackExamples {
     boolean empty() {
       return stack1.isEmpty();
     }
-
 
     private void reverseStack(Stack<Integer> stack1, Stack<Integer> stack2) {
       while (!stack1.isEmpty()) stack2.push(stack1.pop());
@@ -212,10 +209,10 @@ public class StackExamples {
     return maxArea;
   }
 
-  private int calculateArea(int[] array, Stack<Integer> integerStack, int currIndex) {
-    int topIndex = integerStack.pop();
-    if (integerStack.isEmpty()) return array[topIndex] * currIndex;
-    else return array[topIndex] * (currIndex - 1 - integerStack.peek());
+  private int calculateArea(int[] array, Stack<Integer> indexStack, int currIndex) {
+    int topIndex = indexStack.pop();
+    if (indexStack.isEmpty()) return array[topIndex] * currIndex;
+    else return array[topIndex] * (currIndex  - (indexStack.peek() + 1));
   }
 
   /**

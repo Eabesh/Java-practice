@@ -1,10 +1,42 @@
 package algorithms.sorting;
 
+import utilities.ListNode;
+
 class SortingExamples {
 
   /** 1. Problem: Sort elements by frequency | Set 1. */
 
   /** 2. Problem: Count Inversions in an array | Set 1 (Using Merge Sort). */
+  int countInversion(int[] array, int start, int end) {
+    if (start >= end) return 0;
+    else {
+      int mid = (start + end) / 2;
+      return countInversion(array, start, mid) + countInversion(array, mid + 1, end) + mergeInversions(array, start, mid, end);
+    }
+  }
+
+  int mergeInversions(int[] array, int start, int mid, int end) {
+    int inversions = 0;
+    int leftCount = mid - start + 1;
+    int rightCount = end - mid;
+    int[] leftArray = new int[leftCount + 1];
+    int[] rightArray = new int[rightCount + 1];
+    System.arraycopy(array, start, leftArray, 0, leftCount);
+    System.arraycopy(array, mid + 1, rightArray, 0, rightCount);
+    leftArray[leftCount] = Integer.MAX_VALUE;
+    rightArray[rightCount] = Integer.MAX_VALUE;
+    int left = 0;
+    int right = 0;
+    for (int i = start; i <= end; i++) {
+      if (leftArray[left] <= rightArray[right]) {
+        array[i] = leftArray[left++];
+      } else {
+        array[i] = rightArray[right++];
+        inversions += leftArray.length - 1 - left;
+      }
+    }
+    return inversions;
+  }
 
   /** 3. Problem: Merge Sort for Linked Lists. */
 
@@ -623,6 +655,11 @@ class SortingExamples {
   /** 310. Problem: Maximum possible difference of two subsets of an array. */
 
   /** 311. Problem: Check if linked list is sorted (Iterative and Recursive). */
+  boolean isSortedList(ListNode head, ListNode prev){
+    if (head == null) return true;
+    else if (prev != null && prev.data < head.data) return false;
+    else return isSortedList(head.next, head);
+  }
 
   /** 312. Problem: Maximum sum of absolute difference of an array. */
 

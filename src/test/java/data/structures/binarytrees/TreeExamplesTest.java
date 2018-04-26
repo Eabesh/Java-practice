@@ -108,7 +108,7 @@ public class TreeExamplesTest {
   @Test
   public void sumOfParentsNodes() throws Exception {
     TreeNode root = new TreeNode(4);
-    root.left = new TreeNode(2);
+    root.left = new TreeNode(4);
     root.right = new TreeNode(5);
     root.left.right = new TreeNode(2);
     root.left.left = new TreeNode(7);
