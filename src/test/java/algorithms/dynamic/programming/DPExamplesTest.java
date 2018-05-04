@@ -490,11 +490,20 @@ public class DPExamplesTest {
                      {0, 0, 0, 0},};
 
     int[][] mat3 = { { 1, 1, 1, 0, 1 },
-            { 1, 0, 0, 1, 0 },
-            { 1, 0, 0, 0, 1 },
-            { 0, 1, 1, 1, 1 } };
+                     { 1, 0, 0, 1, 0 },
+                     { 1, 0, 0, 0, 1 },
+                     { 0, 1, 1, 1, 1 } };
+
+
 //    assertEquals(5, new DPExamples().sumOfAllSquares(mat));
-    assertEquals(10, new DPExamples().sumOfAllSquares(mat2));
+    long millis = System.currentTimeMillis();
+    assertEquals(9, new DPExamples().squaresCount(mat));
+    long t2 = System.currentTimeMillis();
+    System.out.println((t2 - millis) + "");
+
+   assertEquals(9, new DPExamples().sumOfAllSquares(mat3));
+    long t3 = System.currentTimeMillis();
+    System.out.println((t3 - t2) + "");
   }
 
   @Test

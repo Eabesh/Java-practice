@@ -3182,6 +3182,43 @@ public class DPExamples {
   }
 
 
+  int squaresCount(int[][] mat) {
+    int ans = 0;
+    for(int i = 0; i< mat.length; i++) {
+      for(int j = 0; j< mat[i].length; j++) {
+        int size = 0;
+        while(isSquare(mat, i, j, i+size, j+size)) {
+          ans++;
+          size++;
+        }
+      }
+    }
+    return ans;
+  }
+  static boolean isSquare(int[][] mat, int i, int j, int ii, int jj) {
+    if(ii >= mat.length)
+      return false;
+    if(jj >= mat[0].length)
+      return false;
+    int tempi = ii;
+    int tempj = jj;
+    while(tempi>=i) {
+      if(mat[tempi][jj] != 0) {
+        return false;
+      } else {
+        tempi--;
+      }
+    }
+    while(tempj>=j) {
+      if(mat[ii][tempj] != 0) {
+        return false;
+      } else {
+        tempj--;
+      }
+    }
+    return true;
+  }
+
   // Leetcode
   //A message containing letters from A-Z is being encoded to numbers using the following mapping:
 
