@@ -1,11 +1,11 @@
 package design.patterns.creational.prototype;
 
 public class Dick extends Person{
-  final String name = "Dick";
+  private final String NAME = "Dick";
 
   @Override
   public String toString() {
-    return name;
+    return NAME;
   }
 
 }
