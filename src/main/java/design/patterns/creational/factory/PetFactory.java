@@ -1,6 +1,6 @@
 package design.patterns.creational.factory;
 
-public class PetFactory {
+public abstract class PetFactory {
   public static Pet getPet(PetType petType) {
     switch (petType) {
       case Bark: return new Dog();
