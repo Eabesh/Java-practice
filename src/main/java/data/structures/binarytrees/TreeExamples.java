@@ -3523,4 +3523,721 @@ public class TreeExamples {
    *      Return calculate(A, B, t.value)
    */
 
+  /** 1. Problem: Tree Traversals (Inorder, Preorder and Postorder). */
+
+  /** 2. Problem: Write a program to Calculate Size of a tree | Recursion. */
+
+  /** 3. Problem: Write Code to Determine if Two Trees are Identical. */
+
+  /** 4. Problem: Write a Program to Find the Maximum Depth or Height of a Tree. */
+
+  /** 5. Problem: Write a  program to Delete a Tree.. */
+
+  /** 6. Problem: Convert a Binary Tree into its Mirror Tree. */
+
+  /** 7. Problem: If you are given two traversal sequences, can you construct the binary tree?. */
+
+  /** 8. Problem: Given a binary tree, print out all of its root-to-leaf paths one per line.. */
+
+  /** 9. Problem: Lowest Common Ancestor in a Binary Search Tree.. */
+
+  /** 10. Problem: The Great Tree-List Recursion Problem.. */
+
+  /** 11. Problem: Level Order Tree Traversal. */
+
+  /** 12. Problem: Program to count leaf nodes in a binary tree. */
+
+  /** 13. Problem: Level order traversal in spiral form. */
+
+  /** 14. Problem: Check for Children Sum Property in a Binary Tree. */
+
+  /** 15. Problem: Convert an arbitrary Binary Tree to a tree that holds Children Sum Property. */
+
+  /** 16. Problem: Diameter of a Binary Tree. */
+
+  /** 17. Problem: How to determine if a binary tree is height-balanced?. */
+
+  /** 18. Problem: Inorder Tree Traversal without Recursion. */
+
+  /** 19. Problem: Inorder Tree Traversal without recursion and without stack!. */
+
+  /** 20. Problem: Root to leaf path sum equal to a given number. */
+
+  /** 21. Problem: Construct Tree from given Inorder and Preorder traversals. */
+
+  /** 22. Problem: Given a binary tree, print all root-to-leaf paths. */
+
+  /** 23. Problem: Double Tree. */
+
+  /** 24. Problem: Maximum width of a binary tree. */
+
+  /** 25. Problem: Foldable Binary Trees. */
+
+  /** 26. Problem: Print nodes at k distance from root. */
+
+  /** 27. Problem: Applications of tree data structure. */
+
+  /** 28. Problem: Get Level of a node in a Binary Tree. */
+
+  /** 29. Problem: Print Ancestors of a given node in Binary Tree. */
+
+  /** 30. Problem: Applications of Minimum Spanning Tree Problem. */
+
+  /** 31. Problem: Check if a given Binary Tree is SumTree. */
+
+  /** 32. Problem: Check if a binary tree is subtree of another binary tree | Set 1. */
+
+  /** 33. Problem: Connect nodes at same level. */
+
+  /** 34. Problem: Connect nodes at same level using constant extra space. */
+
+  /** 35. Problem: Populate Inorder Successor for all nodes. */
+
+  /** 36. Problem: Convert a given tree to its Sum Tree. */
+
+  /** 37. Problem: Vertical Sum in a given Binary Tree | Set 1. */
+
+  /** 38. Problem: Find the maximum sum leaf to root path in a Binary Tree. */
+
+  /** 39. Problem: Construct Special Binary Tree from given Inorder traversal. */
+
+  /** 40. Problem: Construct a special tree from given preorder traversal. */
+
+  /** 41. Problem: Check whether a given Binary Tree is Complete or not | Set 1 (Iterative Solution). */
+
+  /** 42. Problem: Boundary Traversal of binary tree. */
+
+  /** 43. Problem: Construct Full Binary Tree from given preorder and postorder traversals. */
+
+  /** 44. Problem: Iterative Preorder Traversal. */
+
+  /** 45. Problem: Morris traversal for Preorder. */
+
+  /** 46. Problem: Linked complete binary tree &#038; its creation. */
+
+  /** 47. Problem: Iterative Postorder Traversal | Set 1 (Using Two Stacks). */
+
+  /** 48. Problem: Iterative Postorder Traversal | Set 2 (Using One Stack). */
+
+  /** 49. Problem: Reverse Level Order Traversal. */
+
+  /** 50. Problem: Construct Complete Binary Tree from its Linked List Representation. */
+
+  /** 51. Problem: Binary Tree | Set 1 (Introduction). */
+
+  /** 52. Problem: Convert a given Binary Tree to Doubly Linked List | Set 1. */
+
+  /** 53. Problem: Tree Isomorphism Problem. */
+
+  /** 54. Problem: Iterative Method to find Height of Binary Tree. */
+
+  /** 55. Problem: Custom Tree Problem. */
+
+  /** 56. Problem: Convert a given Binary Tree to Doubly Linked List | Set 2. */
+
+  /** 57. Problem: Difference between sums of odd level and even level nodes of a Binary Tree. */
+
+  /** 58. Problem: Print Postorder traversal from given Inorder and Preorder traversals. */
+
+  /** 59. Problem: Find depth of the deepest odd level leaf node. */
+
+  /** 60. Problem: Check if all leaves are at same level. */
+
+  /** 61. Problem: Print Left View of a Binary Tree. */
+
+  /** 62. Problem: Remove all nodes which don&#8217;t lie in any path with sum>= k. */
+
+  /** 63. Problem: Extract Leaves of a Binary Tree in a Doubly Linked List. */
+
+  /** 64. Problem: Deepest left leaf node in a binary tree. */
+
+  /** 65. Problem: Find next right node of a given key. */
+
+  /** 66. Problem: Sum of all the numbers that are formed from root to leaf paths. */
+
+  /** 67. Problem: Convert a given Binary Tree to Doubly Linked List | Set 3. */
+
+  /** 68. Problem: Print all nodes that don&#8217;t have sibling. */
+
+  /** 69. Problem: Lowest Common Ancestor in a Binary Tree | Set 1. */
+
+  /** 70. Problem: Find distance between two nodes of a Binary Tree. */
+
+  /** 71. Problem: Print all nodes that are at distance k from a leaf node. */
+
+  /** 72. Problem: Check if a given Binary Tree is height balanced like a Red-Black Tree. */
+
+  /** 73. Problem: Print a Binary Tree in Vertical Order | Set 1. */
+
+  /** 74. Problem: Print all nodes at distance k from a given node. */
+
+  /** 75. Problem: Construct a tree from Inorder and Level order traversals | Set 1. */
+
+  /** 76. Problem: Print Right View of a Binary Tree. */
+
+  /** 77. Problem: Print a Binary Tree in Vertical Order | Set 2 (Map based Method). */
+
+  /** 78. Problem: Reverse alternate levels of a perfect binary tree. */
+
+  /** 79. Problem: Threaded Binary Tree. */
+
+  /** 80. Problem: Find the maximum path sum between two leaves of a binary tree. */
+
+  /** 81. Problem: Check if a binary tree is subtree of another binary tree | Set 2. */
+
+  /** 82. Problem: Check if two nodes are cousins in a Binary Tree. */
+
+  /** 83. Problem: Print level order traversal line by line | Set 1. */
+
+  /** 84. Problem: Convert left-right representation of a binary tree to down-right. */
+
+  /** 85. Problem: Minimum no. of iterations to pass information to all nodes in the tree. */
+
+  /** 86. Problem: Find Height of Binary Tree represented by Parent array. */
+
+  /** 87. Problem: Print nodes between two given level numbers of a binary tree. */
+
+  /** 88. Problem: Check if a given graph is tree or not. */
+
+  /** 89. Problem: Serialize and Deserialize a Binary Tree. */
+
+  /** 90. Problem: Serialize and Deserialize an N-ary Tree. */
+
+  /** 91. Problem: Convert a Binary Tree to Threaded binary tree | Set 1 (Using Queue). */
+
+  /** 92. Problem: Print Nodes in Top View of Binary Tree. */
+
+  /** 93. Problem: Perfect Binary Tree Specific Level Order Traversal. */
+
+  /** 94. Problem: Bottom View of a Binary Tree. */
+
+  /** 95. Problem: Diagonal Sum of a Binary Tree. */
+
+  /** 96. Problem: Find the closest leaf in a Binary Tree. */
+
+  /** 97. Problem: Remove nodes on root to leaf paths of length < K. */
+
+  /** 98. Problem: Find sum of all left leaves in a given Binary Tree. */
+
+  /** 99. Problem: Check whether a binary tree is a full binary tree or not. */
+
+  /** 100. Problem: Check whether a binary tree is a complete tree or not | Set 2 (Recursive Solution). */
+
+  /** 101. Problem: Given a binary tree, how do you remove all the half nodes?. */
+
+  /** 102. Problem: Find maximum (or minimum) in Binary Tree. */
+
+  /** 103. Problem: Iterative Search for a key &#8216;x&#8217; in Binary Tree. */
+
+  /** 104. Problem: Handshaking Lemma and Interesting Tree Properties. */
+
+  /** 105. Problem: Binary Tree | Set 2 (Properties). */
+
+  /** 106. Problem: Binary Tree | Set 3 (Types of Binary Tree). */
+
+  /** 107. Problem: AVL with duplicate keys. */
+
+  /** 108. Problem: Change a Binary Tree so that every node stores sum of all nodes in left subtree. */
+
+  /** 109. Problem: Expression Tree. */
+
+  /** 110. Problem: Maximum Path Sum in a Binary Tree. */
+
+  /** 111. Problem: Find Minimum Depth of a Binary Tree. */
+
+  /** 112. Problem: Symmetric Tree (Mirror Image of itself). */
+
+  /** 113. Problem: Construct Binary Tree from given Parent Array representation. */
+
+  /** 114. Problem: Succinct Encoding of Binary Tree. */
+
+  /** 115. Problem: Mirror of n-ary Tree. */
+
+  /** 116. Problem: Check if a given array can represent Preorder Traversal of Binary Search Tree. */
+
+  /** 117. Problem: Find Count of Single Valued Subtrees. */
+
+  /** 118. Problem: Enumeration of Binary Trees. */
+
+  /** 119. Problem: Find multiplication of sums of data of leaves at same levels. */
+
+  /** 120. Problem: Find LCA in Binary Tree using RMQ. */
+
+  /** 121. Problem: Find all possible binary trees with given Inorder Traversal. */
+
+  /** 122. Problem: Locking and Unlocking of Resources arranged in the form of n-ary Tree. */
+
+  /** 123. Problem: Closest leaf to a given node in Binary Tree. */
+
+  /** 124. Problem: Check if leaf traversal of two Binary Trees is same?. */
+
+  /** 125. Problem: Inorder Non-threaded Binary Tree Traversal without Recursion or Stack. */
+
+  /** 126. Problem: Maximum difference between node and its ancestor in Binary Tree. */
+
+  /** 127. Problem: BFS vs DFS for Binary Tree. */
+
+  /** 128. Problem: Construct a Binary Search Tree from given postorder. */
+
+  /** 129. Problem: Lowest Common Ancestor in a Binary Tree | Set 2 (Using Parent Pointer). */
+
+  /** 130. Problem: Check sum of Covered and Uncovered nodes of Binary Tree. */
+
+  /** 131. Problem: Check if removing an edge can divide a Binary Tree in two halves. */
+
+  /** 132. Problem: Print leftmost and rightmost nodes of a Binary Tree. */
+
+  /** 133. Problem: Vertical Sum in Binary Tree | Set 2 (Space Optimized). */
+
+  /** 134. Problem: Construct Ancestor Matrix from a Given Binary Tree. */
+
+  /** 135. Problem: Construct tree from ancestor matrix. */
+
+  /** 136. Problem: Perfect Binary Tree Specific Level Order Traversal | Set 2. */
+
+  /** 137. Problem: Convert a normal BST to Balanced BST. */
+
+  /** 138. Problem: Convert a given Binary Tree to Doubly Linked List | Set 4. */
+
+  /** 139. Problem: Diagonal Traversal of Binary Tree. */
+
+  /** 140. Problem: Print root to leaf paths without using recursion. */
+
+  /** 141. Problem: Non-recursive program to delete an entire binary tree. */
+
+  /** 142. Problem: Convert a Binary Tree into Doubly Linked List in spiral fashion. */
+
+  /** 143. Problem: Density of Binary Tree in One Traversal. */
+
+  /** 144. Problem: Number of ways to traverse an N-ary tree. */
+
+  /** 145. Problem: Sink Odd nodes in Binary Tree. */
+
+  /** 146. Problem: Print Binary Tree in 2-Dimensions. */
+
+  /** 147. Problem: Create a Doubly Linked List from a Ternary Tree. */
+
+  /** 148. Problem: Check if two trees are Mirror. */
+
+  /** 149. Problem: Construct a Binary Tree from Postorder and Inorder. */
+
+  /** 150. Problem: Find largest subtree having identical left and right subtrees. */
+
+  /** 151. Problem: Iterative function to check if two trees are identical. */
+
+  /** 152. Problem: Print cousins of a given node in Binary Tree. */
+
+  /** 153. Problem: Print extreme nodes of each level of Binary Tree in alternate order. */
+
+  /** 154. Problem: Evaluation of Expression Tree. */
+
+  /** 155. Problem: Find a number in minimum steps. */
+
+  /** 156. Problem: Find height of a special binary tree whose leaf nodes are connected. */
+
+  /** 157. Problem: Convert a Binary Tree to a Circular Doubly Link List. */
+
+  /** 158. Problem: Maximum Consecutive Increasing Path Length in Binary Tree. */
+
+  /** 159. Problem: Binary Indexed Tree : Range Updates and Point Queries. */
+
+  /** 160. Problem: Flip Binary Tree. */
+
+  /** 161. Problem: Longest consecutive sequence in Binary tree. */
+
+  /** 162. Problem: Swap Nodes in Binary tree of every k&#8217;th level. */
+
+  /** 163. Problem: Check if there is a root to leaf path with given sequence. */
+
+  /** 164. Problem: Find if there is a pair in root to a leaf path with sum equals to root&#8217;s data. */
+
+  /** 165. Problem: Continuous Tree. */
+
+  /** 166. Problem: Root to leaf paths having equal lengths in a Binary Tree. */
+
+  /** 167. Problem: Find maximum level sum in Binary Tree. */
+
+  /** 168. Problem: Maximum sum of nodes in Binary tree such that no two are adjacent. */
+
+  /** 169. Problem: Print all nodes in a binary tree having K leaves. */
+
+  /** 170. Problem: Subtree with given sum in a Binary Tree. */
+
+  /** 171. Problem: Number of full binary trees such that each node is product of its children. */
+
+  /** 172. Problem: Calculate depth of a full Binary tree from Preorder. */
+
+  /** 173. Problem: Depth of the deepest odd level node in Binary Tree. */
+
+  /** 174. Problem: LCA for general or n-ary trees  (Sparse Matrix DP approach < O(nlogn), O(logn)>). */
+
+  /** 175. Problem: Print all the paths from root, with a specified sum in Binary tree. */
+
+  /** 176. Problem: Depth of an N-Ary tree. */
+
+  /** 177. Problem: Diameter of an N-ary tree. */
+
+  /** 178. Problem: Minimum swap required to convert binary tree to binary search tree. */
+
+  /** 179. Problem: Convert a tree to forest of even nodes. */
+
+  /** 180. Problem: Print all k-sum paths in a binary tree. */
+
+  /** 181. Problem: Print a Binary Tree in Vertical Order | Set 3 (Using Level Order Traversal). */
+
+  /** 182. Problem: Sqrt (or Square Root) Decomposition | Set 2 (LCA of Tree in O(sqrt(height)) time). */
+
+  /** 183. Problem: Persistent Segment Tree | Set 1 (Introduction). */
+
+  /** 184. Problem: ScapeGoat Tree | Set 1 (Introduction and Insertion). */
+
+  /** 185. Problem: Convert a Binary Tree to Threaded binary tree | Set 2 (Efficient). */
+
+  /** 186. Problem: LCA for n-ary Tree | Constant Query O(1). */
+
+  /** 187. Problem: Longest path in an undirected tree. */
+
+  /** 188. Problem: Check if a Binary Tree contains duplicate subtrees of size 2 or more. */
+
+  /** 189. Problem: Print all root to leaf paths with there relative positions. */
+
+  /** 190. Problem: Maximum edge removal from tree to make even forest. */
+
+  /** 191. Problem: Find the Deepest Node in a Binary Tree. */
+
+  /** 192. Problem: Palindromic Tree | Introduction &amp; Implementation. */
+
+  /** 193. Problem: BK-Tree | Introduction &amp; Implementation. */
+
+  /** 194. Problem: Print all full nodes in a Binary Tree. */
+
+  /** 195. Problem: Iterative program to count leaf nodes in a Binary Tree. */
+
+  /** 196. Problem: Count half nodes in a Binary tree (Iterative and Recursive). */
+
+  /** 197. Problem: Prufer Code to Tree Creation. */
+
+  /** 198. Problem: Find first non matching leaves in two binary trees. */
+
+  /** 199. Problem: Sum of nodes at k-th level in a tree represented as string. */
+
+  /** 200. Problem: Number of subtrees having odd count of even numbers. */
+
+  /** 201. Problem: Given level order traversal of a Binary Tree, check if the Tree is a Min-Heap. */
+
+  /** 202. Problem: Level with maximum number of nodes. */
+
+  /** 203. Problem: Threaded Binary Tree | Insertion. */
+
+  /** 204. Problem: Find distance from root to given node in a binary tree. */
+
+  /** 205. Problem: Count full nodes in a Binary tree (Iterative and Recursive). */
+
+  /** 206. Problem: Largest BST in a Binary Tree | Set 2. */
+
+  /** 207. Problem: Left-Child Right-Sibling Representation of Tree. */
+
+  /** 208. Problem: Create loops of even and odd values in a binary tree. */
+
+  /** 209. Problem: Convert Ternary Expression to a Binary Tree. */
+
+  /** 210. Problem: Convert a given Binary tree to a tree that holds Logical AND property. */
+
+  /** 211. Problem: Check for Symmetric Binary Tree (Iterative Approach). */
+
+  /** 212. Problem: Level order traversal line by line | Set 2 (Using Two Queues). */
+
+  /** 213. Problem: Check whether a given binary tree is perfect or not. */
+
+  /** 214. Problem: Creating a tree with Left-Child Right-Sibling Representation. */
+
+  /** 215. Problem: Quad Tree. */
+
+  /** 216. Problem: Iterative method to check if two trees are mirror of each other. */
+
+  /** 217. Problem: Splay Tree | Set 3 (Delete). */
+
+  /** 218. Problem: Count Balanced Binary Trees of Height h. */
+
+  /** 219. Problem: Print path from root to a given node in a binary tree. */
+
+  /** 220. Problem: Find mirror of a given node in Binary tree. */
+
+  /** 221. Problem: Print the path common to the two paths from the root to the two given nodes. */
+
+  /** 222. Problem: Merge Two Binary Trees by doing Node Sum (Recursive and Iterative). */
+
+  /** 223. Problem: Print common nodes on path from root (or common ancestors). */
+
+  /** 224. Problem: Replace each node in binary tree with the sum of its inorder predecessor and successor. */
+
+  /** 225. Problem: Shortest path between two nodes in array like representation of  binary tree. */
+
+  /** 226. Problem: Query for ancestor-descendant relationship in a tree. */
+
+  /** 227. Problem: Maximum sum from a tree with adjacent levels not allowed. */
+
+  /** 228. Problem: Averages of Levels in Binary Tree. */
+
+  /** 229. Problem: Iterative method to find ancestors of a given binary tree. */
+
+  /** 230. Problem: Factor Tree of a given Number. */
+
+  /** 231. Problem: Print middle level of perfect binary tree without finding height. */
+
+  /** 232. Problem: Ternary Search Tree (Deletion). */
+
+  /** 233. Problem: Check if all levels of two trees are anagrams or not. */
+
+  /** 234. Problem: Get level of a node in binary tree | iterative approach. */
+
+  /** 235. Problem: Print nodes at k distance from root | Iterative. */
+
+  /** 236. Problem: Construct a complete binary tree from given array in level order fashion. */
+
+  /** 237. Problem: Check mirror in n-ary tree. */
+
+  /** 238. Problem: Leftist Tree / Leftist Heap. */
+
+  /** 239. Problem: Calculate number of nodes in all subtrees | Using DFS. */
+
+  /** 240. Problem: Number of turns to reach from one node to other in binary tree. */
+
+  /** 241. Problem: Find All Duplicate Subtrees. */
+
+  /** 242. Problem: Print Levels of all nodes in a Binary Tree. */
+
+  /** 243. Problem: Connect Nodes at same Level (Level Order Traversal). */
+
+  /** 244. Problem: Counting the number of words in a Trie. */
+
+  /** 245. Problem: Find right sibling of a binary tree with parent pointers. */
+
+  /** 246. Problem: Diameter of a tree using DFS. */
+
+  /** 247. Problem: Sum of all nodes in a binary tree. */
+
+  /** 248. Problem: Find sum of all right leaves in a given Binary Tree. */
+
+  /** 249. Problem: Sum of all leaf nodes of binary tree. */
+
+  /** 250. Problem: Construct the full k-ary tree from its preorder traversal. */
+
+  /** 251. Problem: Insertion in a Binary Tree. */
+
+  /** 252. Problem: Height of n-ary tree if parent array is given. */
+
+  /** 253. Problem: Find root of the tree where children id sum for every node is given. */
+
+  /** 254. Problem: Deletion in a  Binary Tree. */
+
+  /** 255. Problem: Implementation of Binary Search Tree in Javascript. */
+
+  /** 256. Problem: Diameter of a Binary Tree in O(n) [A new method]. */
+
+  /** 257. Problem: Print the nodes at odd levels of a tree. */
+
+  /** 258. Problem: Longest word in ternary search tree. */
+
+  /** 259. Problem: DFS for a n-ary tree (acyclic graph) represented as adjacency list. */
+
+  /** 260. Problem: Sum of all the parent nodes having child node x. */
+
+  /** 261. Problem: General Tree (Each node can have arbitrary number of children) Level Order Traversal. */
+
+  /** 262. Problem: K-th ancestor of a node in Binary Tree. */
+
+  /** 263. Problem: Sum of nodes on the longest path from root to leaf node. */
+
+  /** 264. Problem: Print all leaf nodes  of a Binary Tree from left to right. */
+
+  /** 265. Problem: Pairwise Swap  leaf nodes in a binary tree. */
+
+  /** 266. Problem: Right view of Binary Tree using Queue. */
+
+  /** 267. Problem: Check if given Preorder, Inorder and Postorder traversals are of same tree. */
+
+  /** 268. Problem: Given a n-ary tree, count number of nodes which have more number of children than parents. */
+
+  /** 269. Problem: Construct Full Binary Tree using its Preorder traversal and Preorder traversal of its mirror tree. */
+
+  /** 270. Problem: Inorder Successor of a node in Binary Tree. */
+
+  /** 271. Problem: Kth ancestor of a node in binary tree | Set 2. */
+
+  /** 272. Problem: Sub-tree with minimum color difference in a 2-coloured tree. */
+
+  /** 273. Problem: Node having maximum sum of immediate children and itself in n-ary tree. */
+
+  /** 274. Problem: Second Largest element in n-ary tree. */
+
+  /** 275. Problem: Next Larger element in n-ary tree. */
+
+  /** 276. Problem: Number of nodes greater than a given value in n-ary tree. */
+
+  /** 277. Problem: Number of Binary Trees for given Preorder Sequence length. */
+
+  /** 278. Problem: Decision Tree. */
+
+  /** 279. Problem: Replace node with depth in a binary tree. */
+
+  /** 280. Problem: Check if the given array can represent Level Order Traversal of Binary Search Tree. */
+
+  /** 281. Problem: Construct Binary Tree from String with bracket representation. */
+
+  /** 282. Problem: Root to leaf path with maximum distinct nodes. */
+
+  /** 283. Problem: Ways to color a skewed tree such that parent and child have different colors. */
+
+  /** 284. Problem: Binary tree to string with brackets. */
+
+  /** 285. Problem: Delete leaf nodes with value as x. */
+
+  /** 286. Problem: Iterative diagonal traversal of binary tree. */
+
+  /** 287. Problem: Diameter of n-ary tree using BFS. */
+
+  /** 288. Problem: Find n-th node of inorder traversal. */
+
+  /** 289. Problem: Binary Tree (Array implementation). */
+
+  /** 290. Problem: Count the number of nodes at given level in a tree using BFS.. */
+
+  /** 291. Problem: ZigZag Tree Traversal. */
+
+  /** 292. Problem: Deepest left leaf node in a binary tree | iterative approach. */
+
+  /** 293. Problem: Sum of leaf nodes at minimum level. */
+
+  /** 294. Problem: Count subtress that sum up to a given value x. */
+
+  /** 295. Problem: Check whether a binary tree is a full binary tree or not | Iterative Approach. */
+
+  /** 296. Problem: Possible edges of a tree  for given diameter, height and vertices. */
+
+  /** 297. Problem: Find next right node of a given key | Set 2. */
+
+  /** 298. Problem: Postorder traversal of Binary Tree without recursion and without stack. */
+
+  /** 299. Problem: Count Non-Leaf nodes in a Binary Tree. */
+
+  /** 300. Problem: Subtrees formed after bursting nodes. */
+
+  /** 301. Problem: Deepest right leaf node in a binary tree | Iterative approach. */
+
+  /** 302. Problem: Advantages of Trie Data Structure. */
+
+  /** 303. Problem: Height of binary tree considering even level leaves only. */
+
+  /** 304. Problem: Select a Random Node from a tree with equal probability. */
+
+  /** 305. Problem: Relationship between number of nodes and height of binary tree. */
+
+  /** 306. Problem: Complexity of different operations in Binary tree, Binary Search Tree and AVL tree. */
+
+  /** 307. Problem: Tilt of Binary Tree. */
+
+  /** 308. Problem: Path length having maximum number of bends. */
+
+  /** 309. Problem: Height of a generic tree from parent array. */
+
+  /** 310. Problem: Check if a Binary Tree (not BST) has duplicate values. */
+
+  /** 311. Problem: Largest value in each level of Binary Tree. */
+
+  /** 312. Problem: Largest value in each level of Binary Tree | Set-2 (Iterative Approach). */
+
+  /** 313. Problem: Print Binary Tree levels in sorted order. */
+
+  /** 314. Problem: Maximum spiral sum in Binary Tree. */
+
+  /** 315. Problem: Leaf nodes from Preorder of a Binary Search Tree (Using Recursion). */
+
+  /** 316. Problem: Modify a binary tree to get preorder traversal using right pointers only. */
+
+  /** 317. Problem: Print Binary Tree levels in sorted order | Set 2 (Using set). */
+
+  /** 318. Problem: Iterative program to Calculate Size of a tree. */
+
+  /** 319. Problem: Practice questions on Height balanced/AVL Tree. */
+
+  /** 320. Problem: Top three elements in binary tree. */
+
+  /** 321. Problem: Construct a tree from Inorder and Level order traversals | Set 2. */
+
+  /** 322. Problem: Level order traversal line by line | Set 3 (Using One Queue). */
+
+  /** 323. Problem: Lowest Common Ancestor in a Binary Tree | Set 3 (Using RMQ). */
+
+  /** 324. Problem: Longest Path with Same Values in a Binary Tree. */
+
+  /** 325. Problem: Product of nodes at k-th level in a tree represented as string. */
+
+  /** 326. Problem: Sum of heights of all individual nodes in a binary tree. */
+
+  /** 327. Problem: Smallest value in each level of Binary Tree. */
+
+  /** 328. Problem: Dynamic Programming on Trees | Set-1. */
+
+  /** 329. Problem: Check given array of size n can represent BST of n levels or not. */
+
+  /** 330. Problem: Dynamic Programming on Trees | Set 2. */
+
+  /** 331. Problem: Merge Sort Tree for Range Order Statistics. */
+
+  /** 332. Problem: Check if two trees are Mirror | Set 2. */
+
+  /** 333. Problem: Find sum of all nodes of the given perfect binary tree. */
+
+  /** 334. Problem: Get maximum left node in binary tree. */
+
+  /** 335. Problem: Vertical width of Binary tree | Set 1. */
+
+  /** 336. Problem: Binary Tree to Binary Search Tree Conversion using STL set. */
+
+  /** 337. Problem: Reverse tree path. */
+
+  /** 338. Problem: Sum of Interval and Update with Number of Divisors. */
+
+  /** 339. Problem: Sum of nodes at maximum depth of a Binary Tree. */
+
+  /** 340. Problem: Euler Tour of Tree. */
+
+  /** 341. Problem: Height of a complete binary tree (or Heap) with N nodes. */
+
+  /** 342. Problem: AA Trees | Set 1 (Introduction). */
+
+  /** 343. Problem: Range query for Largest Sum Contiguous Subarray. */
+
+  /** 344. Problem: Reverse Morris traversal using Threaded Binary Tree. */
+
+  /** 345. Problem: XOR of numbers that appeared even number of times in given Range. */
+
+  /** 346. Problem: Vertical width of Binary tree | Set 2. */
+
+  /** 347. Problem: Sum of all elements of N-ary Tree. */
+
+  /** 348. Problem: Immediate Smaller element in an N-ary Tree. */
+
+  /** 349. Problem: Pairs involved in Balanced Parentheses. */
+
+  /** 350. Problem: Level order traversal with direction change after every two levels. */
+
+  /** 351. Problem: Range and Update Query for Chessboard Pieces. */
+
+  /** 352. Problem: Euler Tour | Subtree Sum using Segment Tree. */
+
+  /** 353. Problem: Combinatorics on ordered trees. */
+
+  /** 354. Problem: Two Dimensional Segment Tree | Sub-Matrix Sum. */
+
+  /** 355. Problem: Find largest subtree sum in a tree. */
+
+  /** 356. Problem: Count elements which divide all numbers in range L-R. */
+
+  /** 357. Problem: Number of siblings of a given Node in n-ary Tree. */
+
+
+
+
 }
