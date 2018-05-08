@@ -12,120 +12,8 @@ public class TreeExamples {
   private BSTExamples bstExamples = new BSTExamples();
 
 
-  /**
-   * 1.
-   * Problem: Tree Traversals (Inorder, Pre-order and Post-order).
-   * Unlike linear data structures (Array, Linked List, Queues, Stacks, etc) which have only one logical way to
-   * traverse them, trees can be traversed in different ways.
-   * Depth First Traversals: In-order, Pre-order and Post-order
-   * Breadth First or Level Order Traversal
-   */
 
-  /**
-   * Uses of in-order
-   * In case of BST, in-order traversal gives nodes in non-decreasing order.To get nodes of BST in non-increasing order,
-   * a variation of in-order traversal where in-order is traversal's reversed, can be used.
-   */
-  public void inOrder(TreeNode root) {
-    if (root != null) {
-      inOrder(root.left);
-      System.out.print(root.data + " ");
-      inOrder(root.right);
-    }
-  }
 
-  /**
-   * Uses of Pre-order
-   * To create a copy of the tree.
-   * To get prefix expression on of an expression tree.
-   */
-  void preOrder(TreeNode root) {
-    if (root != null) {
-      System.out.print(root.data + " ");
-      preOrder(root.left);
-      preOrder(root.right);
-    }
-  }
-
-  /**
-   * Uses of Post-order
-   * To delete the tree.
-   * To get the postfix expression of an expression tree.
-   */
-  void postOrder(TreeNode root) {
-    if (root != null) {
-      postOrder(root.left);
-      postOrder(root.right);
-      System.out.print(root.data + " ");
-    }
-  }
-
-  /**
-   * 2.
-   * Problem: Write a program to Calculate Size of a tree.
-   */
-  int treeSize(TreeNode root) {
-    if (root == null) return 0;
-    else return 1 + treeSize(root.left) + treeSize(root.right);
-  }
-
-  /**
-   * 3.
-   * Problem: Write Code to Determine if Two Trees are Identical.
-   */
-  boolean areIdentical(TreeNode root1, TreeNode root2) {
-    return root1 == null && root2 == null || root1 != null && root2 != null && root1.data == root2.data &&
-            areIdentical(root1.left, root2.left) && areIdentical(root1.right, root2.right);
-  }
-
-  /**
-   * 4.
-   * Problem: Write a Program to Find the Maximum Depth or Height of a Tree.
-   */
-  int height(TreeNode node) {
-    if (node == null) return 0;
-    else return 1 + Math.max(height(node.left), height(node.right));
-  }
-
-  /**
-   * 5.
-   * Problem: Write a  program to Delete a Tree.
-   * Solution: Do a post order traversal and make the node as null.
-   * Postorder, because before deleting the parent node we should delete its children nodes first.
-   * Note: Java manipulates objects 'by reference,' but it passes object references to methods 'by value.'
-   */
-  void deleteTree(TreeNode root) {
-    if (root != null) {
-      deleteTree(root.left);
-      deleteTree(root.right);
-      root.left = root.right = null;
-    }
-  }
-
-  /**
-   * 6.
-   * Problem: Write an Efficient Function to Convert a Binary Tree into its Mirror Tree.
-   */
-  void mirror(TreeNode root) {
-    if (root != null) {
-      mirror(root.left);
-      mirror(root.right);
-      swapChildren(root);
-    }
-  }
-
-  private void swapChildren(TreeNode node) {
-    TreeNode temp = node.left;
-    node.left = node.right;
-    node.right = temp;
-  }
-
-  /**
-   * 7.
-   * Problem: If you are given two traversal sequences, can you construct the binary tree?.
-   * Solution: It depends on what traversals are given. If one of the traversal methods is Inorder then the tree can be
-   * constructed, otherwise not.
-   */
 
   /**
    * 8.
@@ -3525,16 +3413,73 @@ public class TreeExamples {
 
   /** 1. Problem: Tree Traversals (Inorder, Preorder and Postorder). */
 
+  public void inOrder(TreeNode root) {
+    if (root != null) {
+      inOrder(root.left);
+      System.out.print(root.data + " ");
+      inOrder(root.right);
+    }
+  }
+
+  void preOrder(TreeNode root) {
+    if (root != null) {
+      System.out.print(root.data + " ");
+      preOrder(root.left);
+      preOrder(root.right);
+    }
+  }
+
+  void postOrder(TreeNode root) {
+    if (root != null) {
+      postOrder(root.left);
+      postOrder(root.right);
+      System.out.print(root.data + " ");
+    }
+  }
+
+
   /** 2. Problem: Write a program to Calculate Size of a tree | Recursion. */
+  int treeSize(TreeNode root) {
+    if (root == null) return 0;
+    else return 1 + treeSize(root.left) + treeSize(root.right);
+  }
 
   /** 3. Problem: Write Code to Determine if Two Trees are Identical. */
+  boolean areIdentical(TreeNode root1, TreeNode root2) {
+    return root1 == null && root2 == null || root1 != null && root2 != null && root1.data == root2.data &&
+        areIdentical(root1.left, root2.left) && areIdentical(root1.right, root2.right);
+  }
+
 
   /** 4. Problem: Write a Program to Find the Maximum Depth or Height of a Tree. */
+  int height(TreeNode node) {
+    if (node == null) return 0;
+    else return 1 + Math.max(height(node.left), height(node.right));
+  }
 
   /** 5. Problem: Write a  program to Delete a Tree.. */
+  void deleteTree(TreeNode root) {
+    if (root != null) {
+      deleteTree(root.left);
+      deleteTree(root.right);
+      root.left = root.right = null;
+    }
+  }
 
   /** 6. Problem: Convert a Binary Tree into its Mirror Tree. */
+  void mirror(TreeNode root) {
+    if (root != null) {
+      mirror(root.left);
+      mirror(root.right);
+      swapChildren(root);
+    }
+  }
 
+  private void swapChildren(TreeNode node) {
+    TreeNode temp = node.left;
+    node.left = node.right;
+    node.right = temp;
+  }
   /** 7. Problem: If you are given two traversal sequences, can you construct the binary tree?. */
 
   /** 8. Problem: Given a binary tree, print out all of its root-to-leaf paths one per line.. */
@@ -4232,6 +4177,26 @@ public class TreeExamples {
   /** 354. Problem: Two Dimensional Segment Tree | Sub-Matrix Sum. */
 
   /** 355. Problem: Find largest subtree sum in a tree. */
+  class LargestSubTreeInfo{
+    int largestSum;
+
+    public LargestSubTreeInfo(int largestSum) {
+      this.largestSum = largestSum;
+    }
+  }
+  int largestSumSubTree(TreeNode root) {
+    return largestSumSubTreeUtil(root).largestSum;
+  }
+
+  LargestSubTreeInfo largestSumSubTreeUtil(TreeNode root) {
+   if (root == null) return new LargestSubTreeInfo(0);
+   else if (isLeaf(root)) return new LargestSubTreeInfo(1);
+   else {
+     LargestSubTreeInfo left = largestSumSubTreeUtil(root.left);
+     LargestSubTreeInfo right = largestSumSubTreeUtil(root.right);
+     return new LargestSubTreeInfo(Utils.max(left.largestSum, right.largestSum, (root.data + left.largestSum + right.largestSum)));
+   }
+  }
 
   /** 356. Problem: Count elements which divide all numbers in range L-R. */
 
