@@ -5,7 +5,6 @@ import utilities.NaryTreeNode;
 import utilities.TreeNode;
 import utilities.Utils;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class TreeExamples {
@@ -4073,6 +4072,19 @@ public class TreeExamples {
   /** 302. Problem: Advantages of Trie Data Structure. */
 
   /** 303. Problem: Height of binary tree considering even level leaves only. */
+  int heightEvenLeaves(TreeNode root) {
+    return heightEvenLeaves(root, 1);
+  }
+
+  private int heightEvenLeaves(TreeNode root, int level) {
+    if (root == null) return 0;
+    else if (isLeaf(root)) return (level % 2 == 0) ? 1 : 0;
+    else {
+    int left = heightEvenLeaves(root.left, level + 1);
+    int right = heightEvenLeaves(root.right, level + 1);
+    return (left == 0 && right == 0) ? 0 : 1 + Math.max(left, right);
+    }
+  }
 
   /** 304. Problem: Select a Random Node from a tree with equal probability. */
 
@@ -4089,6 +4101,20 @@ public class TreeExamples {
   /** 310. Problem: Check if a Binary Tree (not BST) has duplicate values. */
 
   /** 311. Problem: Largest value in each level of Binary Tree. */
+  void largestLevelValues(TreeNode root) {
+    HashMap<Integer, Integer> maxValues = new HashMap<>();
+    largestLevelValues(root, maxValues, 0);
+    //    System.out.println("abhay");
+    maxValues.forEach((x, y) -> System.out.print(y + " "));
+  }
+  private void largestLevelValues(TreeNode root, HashMap<Integer, Integer> maxValues, int level) {
+    if (root != null) {
+      if (maxValues.get(level) != null) maxValues.put(level, Math.max(maxValues.get(level), root.data));
+      else maxValues.put(level, root.data);
+      largestLevelValues(root.left, maxValues, level + 1);
+      largestLevelValues(root.right, maxValues, level + 1);
+    }
+  }
 
   /** 312. Problem: Largest value in each level of Binary Tree | Set-2 (Iterative Approach). */
 
@@ -4178,25 +4204,31 @@ public class TreeExamples {
 
   /** 355. Problem: Find largest subtree sum in a tree. */
   class LargestSubTreeInfo{
-    int largestSum;
+    int max, curr;
 
-    public LargestSubTreeInfo(int largestSum) {
-      this.largestSum = largestSum;
+    public LargestSubTreeInfo(int max, int curr) {
+      this.max = max;
+      this.curr = curr;
     }
   }
   int largestSumSubTree(TreeNode root) {
-    return largestSumSubTreeUtil(root).largestSum;
+    LargestSubTreeInfo info = largestSumSubTreeUtil(root);
+    System.out.println(info.curr + " " + info.max);
+    return info.max;
   }
 
   LargestSubTreeInfo largestSumSubTreeUtil(TreeNode root) {
-   if (root == null) return new LargestSubTreeInfo(0);
-   else if (isLeaf(root)) return new LargestSubTreeInfo(1);
+   if (root == null) return new LargestSubTreeInfo(0, 0);
+   else if (isLeaf(root)) return new LargestSubTreeInfo(root.data, root.data);
    else {
      LargestSubTreeInfo left = largestSumSubTreeUtil(root.left);
      LargestSubTreeInfo right = largestSumSubTreeUtil(root.right);
-     return new LargestSubTreeInfo(Utils.max(left.largestSum, right.largestSum, (root.data + left.largestSum + right.largestSum)));
+     return new LargestSubTreeInfo(Utils.max(0, left.max, right.max, left.curr, right.curr, root.data + left.curr + right.curr),
+         root.data + left.curr + right.curr);
    }
   }
+
+
 
   /** 356. Problem: Count elements which divide all numbers in range L-R. */
 

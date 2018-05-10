@@ -858,12 +858,35 @@ public class TreeExamplesTest {
   @Test
   public void largestSumSubTree() {
     TreeNode root = new TreeNode(1);
-    root.left = new TreeNode(-2);
+    root.left = new TreeNode(2);
     root.right = new TreeNode(3);
     root.left.left = new TreeNode(4);
     root.left.right = new TreeNode(5);
-    root.right.left = new TreeNode(-6);
-    root.right.right = new TreeNode(2);
-    assertEquals(8, new TreeExamples().largestSumSubTree(root));
+    root.right.left = new TreeNode(6);
+    root.right.right = new TreeNode(7);
+    assertEquals(28, new TreeExamples().largestSumSubTree(root));
+  }
+
+  @Test
+  public void heightEvenLeaves() {
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(3);
+    root.left.left = new TreeNode(4);
+    root.left.right = new TreeNode(5);
+    root.left.right.left = new TreeNode(6);
+    assertEquals(4, new TreeExamples().heightEvenLeaves(root));
+  }
+
+  @Test
+  public void largestLevelValues() {
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(3);
+    root.left.left = new TreeNode(4);
+    root.left.right = new TreeNode(5);
+    root.right.left = new TreeNode(6);
+    root.right.right = new TreeNode(7);
+    new TreeExamples().largestLevelValues(root);
   }
 }
