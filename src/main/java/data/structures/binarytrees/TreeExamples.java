@@ -1,7 +1,9 @@
 package data.structures.binarytrees;
 
+import algorithms.dynamic.programming.DPExamples;
 import data.structures.bst.BSTExamples;
 import utilities.NaryTreeNode;
+import utilities.Stack;
 import utilities.TreeNode;
 import utilities.Utils;
 
@@ -4119,8 +4121,62 @@ public class TreeExamples {
   /** 312. Problem: Largest value in each level of Binary Tree | Set-2 (Iterative Approach). */
 
   /** 313. Problem: Print Binary Tree levels in sorted order. */
+  void printSortedLevels(TreeNode root) {
+    HashMap<Integer, List<Integer>> levels = new HashMap<>();
+    printSortedLevels(root, levels, 0);
+    levels.forEach(
+        (level, list) -> {
+          Collections.sort(list);
+          list.forEach(x -> System.out.print(x + " "));
+          System.out.println();
+        });
+  }
+
+  private void printSortedLevels(TreeNode root, HashMap<Integer, List<Integer>> levels, int level) {
+    if (root != null) {
+      if (levels.get(level) == null) {
+        List<Integer> list = new LinkedList<>();
+        list.add(root.data);
+        levels.put(level, list);
+      }else {
+        List<Integer> list = levels.get(level);
+        list.add(root.data);
+      }
+      printSortedLevels(root.left, levels, level + 1);
+      printSortedLevels(root.right, levels, level + 1);
+    }
+  }
+
 
   /** 314. Problem: Maximum spiral sum in Binary Tree. */
+  int maxSpiralSum(TreeNode root) {
+    int[] array = spiralArray(root);
+    return new DPExamples().maxContiguousSubArray(array);
+  }
+
+  private int[] spiralArray(TreeNode root) {
+    java.util.Stack<TreeNode> level1 = new java.util.Stack<>();
+    java.util.Stack<TreeNode> level2 = new java.util.Stack<>();
+    level1.push(root);
+    ArrayList<Integer> arrayList = new ArrayList<>();
+    while (!level1.isEmpty() || ! level2.isEmpty()) {
+      while (!level1.isEmpty()) {
+        TreeNode temp = level1.pop();
+        arrayList.add(temp.data);
+        if (temp.right != null) level2.push(temp.right);
+        if (temp.left != null) level2.push(temp.left);
+      }
+
+      while (!level2.isEmpty()) {
+        TreeNode temp = level2.pop();
+        arrayList.add(temp.data);
+        if (temp.left != null) level1.push(temp.left);
+        if (temp.right != null) level1.push(temp.right);
+      }
+    }
+
+    return arrayList.stream().mapToInt(i -> i).toArray();
+  }
 
   /** 315. Problem: Leaf nodes from Preorder of a Binary Search Tree (Using Recursion). */
 
