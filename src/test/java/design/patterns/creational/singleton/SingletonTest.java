@@ -1,5 +1,6 @@
 package design.patterns.creational.singleton;
 
+import java.util.HashMap;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -12,5 +13,6 @@ public class SingletonTest {
   public void getInstance() throws Exception {
 
   }
+
 
 }

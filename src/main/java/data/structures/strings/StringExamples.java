@@ -1,6 +1,11 @@
 package data.structures.strings;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class StringExamples {
 
@@ -1684,6 +1689,36 @@ public class StringExamples {
   /** 586. Problem: Count special palindromes in a String. Solution: */
 
   /** 587. Problem: Evaluate an array expression with numbers, + and &#8211;. Solution: */
+  void subString(String str, int start) {
+
+    for (int i = start; i < str.length(); i++) {
+      System.out.print(str.substring(0, i + 1) + " ");
+//      subString(str, i + 1);
+    }
+  }
 
   /** 588. Problem: Number of strings of length N with no palindromic sub string. Solution: */
+
+  public String[] findRestaurant(String[] list1, String[] list2) {
+    Map<String, Integer> map = new HashMap<>();
+    Map<Integer, List<String>> result = new TreeMap<>();
+    for (int i = 0; i < list1.length; i++) map.put(list1[i], i);
+    for (int i = 0; i < list2.length; i++) {
+      if (map.containsKey(list2[i])) {
+        if (result.containsKey(map.get(list2[i]) + i)) {
+          List<String> list = result.get(map.get(list2[i]) + i);
+          list.add(list2[i]);
+          result.put(map.get(list2[i]) + i, list);
+        }else {
+          List<String> list = new LinkedList<>();
+          list.add(list2[i]);
+          result.put(map.get(list2[i]) + i, list);
+        }
+
+      }
+    }
+    return ((TreeMap<Integer, List<String>>) result).firstEntry().getValue().toArray(new String[0]);
+  }
+
+
 }

@@ -35,11 +35,24 @@ public class StackExamplesTest {
   public void maxRectangleArea() throws Exception {
     int[] hist = {2, 2, 5, 4, 5, 1, 6};
     int[] hist1 = {2, 3, 4, 1};
-//    assertEquals(12, new StackExamples().maxRectangleArea(hist));
+    int x = 0;
+    int i = 4;
+    x = ++i + ++i + ++i;
+    System.out.println(x);
+    assertEquals(12, new StackExamples().maxRectangleArea(hist));
 //    int[] hist2 = {5};
 //    assertEquals(5, new StackExamples().maxRectangleArea(hist2));
-    assertEquals(6, new StackExamples().maxRectangleArea(hist1));
+//    assertEquals(6, new StackExamples().maxRectangleArea(hist1));
   }
+  static int x;
+  public static void main(String[] args) {
+    String s = null;
+    byte b = 50;
+    boolean res = ("Welcome ".trim().intern() == "Welcome".trim());
+    System.out.println(res);
+    System.out.println("Hello" + args[0]);
+  }
+
 
   @Test
   public void findCeleb() throws Exception {

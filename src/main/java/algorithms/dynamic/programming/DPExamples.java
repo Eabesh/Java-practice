@@ -399,12 +399,21 @@ public class DPExamples {
     if (rodLength <= 0) return 0;
     else {
       int maxProfit = Integer.MIN_VALUE;
-      for (int i = 0; i < price.length; i++)
-        if (rodLength >= i + 1) maxProfit = Math.max(maxProfit, price[i] + rodCutting(price, rodLength - (i + 1)));
+      for (int i = 0; i < rodLength; i++) maxProfit = Math.max(maxProfit, price[i] + rodCutting(price, rodLength - (i + 1)));
       return maxProfit;
     }
   }
 
+  int rodCuttingDP(int[] price, int rodLength) {
+    int[] dp = new int[rodLength + 1];
+
+    for (int i = 1; i <= rodLength; i++) {
+      int maxProfit = Integer.MIN_VALUE;
+      for (int j = 0; j < i; j++) maxProfit = Math.max(maxProfit, price[j] + dp[i - (j+1)]);
+       dp[i] = maxProfit;
+    }
+    return dp[rodLength];
+  }
 
   /**
    * 20.
@@ -722,34 +731,6 @@ public class DPExamples {
     return max;
   }
 
-  int longestAp(List<Integer> array) {
-    Collections.sort(array);
-    int[][] dp = new int[array.size()][array.size()];
-    int max = 2;
-    for (int i = 0; i < dp.length; i++) dp[i][array.size() - 1] = 2;
-    for (int j = dp.length - 2; j > 0; j--) {
-      int i = j - 1, k = j + 1;
-
-      while (i >= 0 && k < dp.length) {
-        if (array.get(i) + array.get(k) < 2 * array.get(j)) k++;
-        else if (array.get(i) + array.get(k) > 2 * array.get(j)) {
-          dp[i][j] = 2;
-          i--;
-        }else {
-          dp[i][j] = 1 + dp[j][k];
-          max = Math.max(max, dp[i][j]);
-          i--;
-          k++;
-        }
-      }
-      while (i >= 0) {
-        dp[i][j] = 2;
-        i--;
-      }
-    }
-    return max;
-
-  }
 
   /**
    * 43.

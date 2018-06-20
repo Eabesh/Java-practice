@@ -421,9 +421,9 @@ public class DPExamplesTest {
 
   @Test
   public void coinChange() throws Exception {
-    int[] coins = {1, 2, 3};
-    assertEquals(4, new DPExamples().coinChange(coins, coins.length, 4));
-    assertEquals(4, new DPExamples().coinChangeDP(coins, 4));
+    int[] coins = {1, 2, 5};
+    assertEquals(11, new DPExamples().coinChange(coins, coins.length, 4));
+    assertEquals(11, new DPExamples().coinChangeDP(coins, 4));
 
   }
 

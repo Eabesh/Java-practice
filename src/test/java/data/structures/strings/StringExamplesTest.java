@@ -71,4 +71,18 @@ public class StringExamplesTest {
     String str = "ABC";
     new StringExamples().printReverseString(str);
   }
+
+  @Test
+  public void subString() {
+
+    new StringExamples().subString("abhay", 0);
+  }
+
+  @Test
+  public void findRestaurant() {
+    String[] list1 = {"Shogun", "Tapioca Express", "Burger King", "KFC"};
+    String[] list2 = {"Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"};
+
+    System.out.println(new StringExamples().findRestaurant(list1, list2)[0]);
+  }
 }

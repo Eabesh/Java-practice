@@ -197,6 +197,13 @@ public class StackExamples {
    * Find the largest rectangular area possible in a given histogram where the largest rectangle can
    * be made of a number of contiguous bars. For simplicity, assume that all bars have same width
    * and the width is 1 unit.
+   *
+   * values: 6, 2, 5, 4, 5, 1, 6
+   * indexStack 0, 1, 2
+   * maxArea = 5
+   * indexStack 0, 1, 3, 4
+   *
+   *
    */
   public int maxRectangleArea(int[] array) {
     Stack<Integer> indexStack = new Stack<>();
@@ -212,7 +219,10 @@ public class StackExamples {
   private int calculateArea(int[] array, Stack<Integer> indexStack, int currIndex) {
     int topIndex = indexStack.pop();
     if (indexStack.isEmpty()) return array[topIndex] * currIndex;
-    else return array[topIndex] * (currIndex  - (indexStack.peek() + 1));
+    else {
+      int leftIndex = indexStack.peek();
+      return array[topIndex] * (currIndex  - leftIndex - 1);
+    }
   }
 
   /**
