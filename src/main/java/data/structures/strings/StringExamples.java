@@ -1721,4 +1721,22 @@ public class StringExamples {
   }
 
 
+  public String shiftingLetters(String S, int[] shifts) {
+    char[] str = S.toCharArray();
+
+    for (int i = 0; i < shifts.length - 1; i++)
+      for (int j = i + 1; j < shifts.length; j++) shifts[i] += shifts[j];
+    shift(str, shifts);
+
+    return String.valueOf(str);
+  }
+
+  void shift(char[] str, int[] shifts) {
+    for (int i = 0; i < shifts.length; i++) {
+      int range = 'z' - 'a' + 1;
+      int mod = ((str[i] + shifts[i]) - 'a') % range;
+      if (mod < 0) mod += range;
+       str[i] = (char) ('a' + mod);
+    }
+  }
 }

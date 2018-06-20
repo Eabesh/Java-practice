@@ -85,4 +85,11 @@ public class StringExamplesTest {
 
     System.out.println(new StringExamples().findRestaurant(list1, list2)[0]);
   }
+
+  @Test
+  public void shiftingLetters() {
+    String str = "abc";
+    int[] shifts = {3,5,9};
+    System.out.println(new StringExamples().shiftingLetters(str, shifts));
+  }
 }
