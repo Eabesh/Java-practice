@@ -270,8 +270,8 @@ public class DPExamples {
               coinChange(coins, numOfCoins - 1, sum);
   }
 
-  int coinChangeDP(int coins[], int sum) {
-    int[]dp = new int[sum + 1];
+  long coinChangeDP(int coins[], int sum) {
+    long[]dp = new long[sum + 1];
     dp[0] = 1;
     for (int i = 0; i < coins.length; i++) {
       for (int j = coins[i]; j <= sum; j++)

@@ -48,7 +48,7 @@ class test {
   }
 
   @Test
-  public void countPathsDG() throws Exception {
+  public void countPathsDG() {
 
     int[][] graph = {{0, 1, 1, 0, 1},
             {0, 0, 0, 1, 1},
@@ -56,7 +56,8 @@ class test {
             {0, 0, 1, 0, 0},
             {0, 0, 0, 0, 0}};
     boolean[] visited = new boolean[graph.length];
-    assertEquals(4, new GraphExamples().countPathsDG(graph, 0, 4, visited));
+    int res= new GraphExamples().countPathsDG(graph, 0, 4, visited);
+    assertEquals(4, res);
 
   }
 

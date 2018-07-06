@@ -10,30 +10,18 @@ import java.util.Stack;
 
 public class GraphExamples {
 
-
   /**
-   * 1.
-   * Problem: Applications of Minimum Spanning Tree Problem.
-   * A min weight set of edges that connects all of the vertices.
+   * 1. Problem: Applications of Minimum Spanning Tree Problem. A min weight set of edges that
+   * connects all of the vertices.
+   *
+   * Prim’s algorithm,  Kruskal’s algorithm,
    */
 
-  /**
-   * 2.
-   * Problem: Applications of Depth First Search.
-   * Solution:
-   */
+  /** 2. Problem: Applications of Depth First Search. Solution: */
 
-  /**
-   * 3.
-   * Problem: Boruvka's algorithm for Minimum Spanning Tree.
-   * Solution:
-   */
+  /** 3. Problem: Boruvka's algorithm for Minimum Spanning Tree. Solution: */
 
-  /**
-   * 4.
-   * Problem: Depth First Traversal or DFS for a Graph.
-   * Solution:
-   */
+  /** 4. Problem: Depth First Traversal or DFS for a Graph. Solution: */
   void depthFS(int[][] mat) {
     boolean[] isVisited = new boolean[mat.length];
     for (int i = 0; i < mat.length; i++) if (!isVisited[i]) depthFirstSearch(mat, i, isVisited);
@@ -55,11 +43,10 @@ public class GraphExamples {
    */
   void bfs(int[][] graph) {
     boolean[] visited = new boolean[graph.length];
-    for (int i = 0; i < graph.length; i++) if (!visited[i]) breadthFirstSearch(graph, i);
+    for (int i = 0; i < graph.length; i++) if (!visited[i]) breadthFirstSearch(graph, i, visited);
   }
 
-  private void breadthFirstSearch(int[][] graph, int source) {
-    boolean[] visited = new boolean[graph.length];
+  private void breadthFirstSearch(int[][] graph, int source, boolean[] visited) {
     Queue<Integer> queue = new LinkedList<>();
     visited[source] = true;
     queue.add(source);
@@ -1696,12 +1683,13 @@ public class GraphExamples {
    * Count the total number of ways or paths that exist between two vertices in a directed graph.
    */
 
-  public int countPathsDG(int[][] graph, int source, int dest, boolean[] visited) {
-    int count = 0;
+  public int countPathsDG(int[][] graph, int source, int dest, boolean[] visited) { ;
     if (source == dest) return 1;
+    else if (visited[source]) return 0;
     else {
+      int count = 0;
       for (int i = 0; i < graph[0].length; i++) {
-        if (isValidNeighbour(graph, source, i, visited)) {
+        if (isNeigbour(graph, source, i)) {
           visited[source] = true;
           count += countPathsDG(graph, i, dest, visited);
           visited[source] = false;
@@ -1709,6 +1697,10 @@ public class GraphExamples {
       }
       return count;
     }
+  }
+
+  private boolean isNeigbour(int[][] graph, int u, int v) {
+    return graph[u][v] == 1;
   }
 
   /**

@@ -41,13 +41,17 @@ public class BackTrackingExamples {
    */
   void solveMaze(int[][] board) {
     int[][] solution = new int[board.length][board[0].length];
-    solveMazeUtil(solution, board, board.length - 1, board[0].length - 1);
+    if (solveMazeUtil(solution, board, board.length - 1, board[0].length - 1)) printMatrix(solution);
+
+  }
+
+  private void printMatrix(int[][] solution) {
     for (int i = 0; i < solution.length; i++) {
       for (int j = 0; j < solution[0].length; j++) System.out.print(solution[i][j]);
       System.out.println();
     }
-
   }
+
 
   boolean solveMazeUtil(int[][] solution, int[][] board, int i, int j) {
     if (i == 0 && j == 0 && board[0][0] == 1) {
@@ -293,11 +297,7 @@ public class BackTrackingExamples {
   }
 
   private void printBoard(int[][] board) {
-    for (int i = 0; i < board.length; i++) {
-      for (int j = 0; j < board[0].length; j++) System.out.print(board[i][j]);
-      System.out.println();
-    }
-    System.out.println();
+    printMatrix(board);
   }
 
   /**
@@ -547,18 +547,18 @@ public class BackTrackingExamples {
     List<List<Integer>> result = new ArrayList<>();
     if (nums.length < 1) return result;
     else {
-      subsets(nums, new ArrayList<Integer>(), result, nums.length);
+      subsets(nums, new ArrayList<>(), result, 0);
       return result;
     }
   }
 
   void subsets(int[] nums, ArrayList<Integer> soFar, List<List<Integer>> result, int n) {
-     if (n == 0) result.add(new ArrayList<>(soFar));
+     if (n == nums.length) result.add(new ArrayList<>(soFar));
      else {
-       soFar.add(nums[n - 1]);
-       subsets(nums, soFar, result, n - 1);
+       soFar.add(nums[n]);
+       subsets(nums, soFar, result, n + 1);
        soFar.remove(soFar.size() - 1);
-       subsets(nums, soFar, result, n - 1);
+       subsets(nums, soFar, result, n + 1);
      }
   }
 

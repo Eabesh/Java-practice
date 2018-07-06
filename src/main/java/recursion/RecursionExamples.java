@@ -1,5 +1,6 @@
 package recursion;
 
+import java.util.Map;
 import utilities.ListNode;
 import utilities.Stack;
 
@@ -380,7 +381,7 @@ public class RecursionExamples {
  * 3.
  * Problem:Implement a queue using a Stack?
  */
- class myQueue {
+ class Myqueue {
   java.util.Stack<Integer> stack = new java.util.Stack<Integer>();
   public void enqueue(int item) {
     stack.push(item);
@@ -405,7 +406,7 @@ public class RecursionExamples {
   void printPossibleSeq(int n, int k, String soFar) {
     if (n == 0) System.out.println(soFar);
     else
-        for (int i = 1; i <= k; i++) if(n >= 0) printPossibleSeq(n - i, k, soFar + i + " ");
+        for (int i = 1; i <= k; i++) if(n >= i) printPossibleSeq(n - i, k, soFar + i + " ");
   }
 
 

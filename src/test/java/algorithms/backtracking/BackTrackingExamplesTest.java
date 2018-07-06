@@ -1,5 +1,6 @@
 package algorithms.backtracking;
 
+import data.structures.graph.GraphExamplesTest;
 import org.junit.Test;
 import sun.swing.BakedArrayList;
 
@@ -133,5 +134,18 @@ public class BackTrackingExamplesTest {
     int[] nums = {1,2,3};
     List<List<Integer>> result = new BackTrackingExamples().subsets(nums);
     result.forEach(System.out::println);
+  }
+
+  @Test
+  public void countPathsDG() {
+
+
+    int[][] graph = {{0, 1, 1, 0, 1},
+        {0, 0, 0, 1, 1},
+        {0, 0, 0, 0, 1},
+        {0, 0, 1, 0, 0},
+        {0, 0, 0, 0, 0}};
+    boolean[] visited = new boolean[graph.length];
+    new BackTrackingExamples().countPathsDG(graph, 0, 4, visited);
   }
 }

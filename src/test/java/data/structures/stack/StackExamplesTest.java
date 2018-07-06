@@ -60,4 +60,15 @@ public class StackExamplesTest {
     assertEquals(2, new StackExamples().findCeleb(matrix));
   }
 
+  @Test
+  public void infixToPostFix() {
+    String infix = "((A+B)*C)";
+    System.out.println(new StackExamples().infixToPostFix(infix));
+  }
+
+  @Test
+  public void postFixToInfix() {
+    String postFix = "ab*c+";
+    System.out.println(new StackExamples().postFixToInfix(postFix));
+  }
 }

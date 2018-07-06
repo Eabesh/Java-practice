@@ -2778,6 +2778,31 @@ public class ArrayExamples {
    * 395. Problem: Maximum sum of lengths of non-overlapping subarrays with k as the max element..
    * Solution:
    */
+  static int findMaxSumLen(int array[], int n, int k) {
+    int result = 0;
+    int counter;
+
+    int flag;
+
+    for (int start = 0; start < n;) {
+      counter = 0;
+      flag = 0;
+
+      while (start < n && array[start] <= k) {
+        counter++;
+        if (array[start] == k)
+          flag = 1;
+        start++;
+      }
+
+      if (flag == 1)
+        result += counter;
+
+      while (start < n && array[start] > k)
+        start++;
+    }
+    return result;
+  }
 
   /** 396. Problem: Minimize cost of operation to equalize tower heights. Solution: */
 

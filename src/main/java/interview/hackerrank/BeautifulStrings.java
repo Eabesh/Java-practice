@@ -5,7 +5,7 @@ package interview.hackerrank;
  */
 public class BeautifulStrings {
 
-  public void beautifulString(String str, int n, String soFar, int start) {
+  static public void beautifulString(String str, int n, String soFar, int start) {
     if (n == 0) System.out.print(soFar + " ");
     else {
       for (int i = start; i < str.length(); i++) {
@@ -14,7 +14,7 @@ public class BeautifulStrings {
     }
   }
 
-  public int countBeautifulString(String str, int n, int start) {
+  static public int countBeautifulString(String str, int n, int start) {
     if (n == 0) return 1;
     else {
       int count = 0;
@@ -23,5 +23,9 @@ public class BeautifulStrings {
       }
       return count;
     }
+  }
+
+  public static void main(String[] args) {
+    System.out.println(countBeautifulString("aeiou", 100, 0));
   }
 }

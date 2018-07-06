@@ -95,7 +95,7 @@ public class SearchingExamples {
   }
 
   private boolean foundLeftInside(int[] array, int key, int mid) {
-    return 0 <= mid - 1 && array[mid - 1] < key && array[mid] == key;
+    return 0 < mid && array[mid - 1] < key && array[mid] == key;
   }
 
   private boolean foundOnRightEdge(int[] array, int key, int mid) {
