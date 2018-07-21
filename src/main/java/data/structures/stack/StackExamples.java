@@ -224,10 +224,37 @@ public class StackExamples {
   /** 109. Problem: Alternate Odd and Even Nodes in a Singly Linked List. */
 
   /** 110. Problem: Expression contains redundant bracket or not. */
+  boolean isRedundancy(String exp) {
+    Stack<Character> stack = new Stack<>();
+    for (char c : exp.toCharArray()) {
+      if (c == ')') {
+        char top = stack.pop();
+        boolean flag = true;
+        while (top != '(') {
+          if (top == '+' || top == '-' || top == '*' || top == '/') flag = false;
+          top = stack.pop();
+        }
+        if (flag) return true;
+      }else stack.push(c);
+    }
+    return false;
+  }
 
   /** 111. Problem: Modify a binary tree to get preorder traversal using right pointers only. */
 
   /** 112. Problem: Postfix to Infix. */
+  String postFixToInfix(String postFix) {
+    Stack<String> stack = new Stack<>();
+    for (char c : postFix.toCharArray()) {
+      if (Character.isLetterOrDigit(c)) stack.push(String.valueOf(c));
+      else {
+        String op1 = stack.pop();
+        String op2 = stack.pop();
+        stack.push("(" + op2 + c + op1 + ")");
+      }
+    }
+    return stack.pop();
+  }
 
   /** 113. Problem: Postfix to Prefix Conversion. */
 
@@ -240,6 +267,13 @@ public class StackExamples {
   /** 117. Problem: Print Bracket Number. */
 
   /** 118. Problem: Delete middle element of a stack. */
+  void removeMid(Stack<Integer> stack, int count) {
+    if (!stack.isEmpty()) {
+      int top = stack.pop();
+      removeMid(stack, count - 1);
+      if (count != 0) stack.push(top);
+    }
+  }
 
   /** 119. Problem: Delete array elements which are smaller than next or become smaller. */
 
@@ -263,6 +297,8 @@ public class StackExamples {
 
   /** 129. Problem: Check for balanced parenthesis without using stack. */
 
+
+  /** 130. Problem: Infix to Prefix conversion using two stacks. */
 
 
   /**
@@ -972,18 +1008,7 @@ public class StackExamples {
    * Problem: Postfix to Infix
    * Solution:
    */
-  String postFixToInfix(String postFix) {
-    Stack<String> stack = new Stack<>();
-    for (char c : postFix.toCharArray()) {
-      if (Character.isLetterOrDigit(c)) stack.push(String.valueOf(c));
-      else {
-        String op1 = stack.pop();
-        String op2 = stack.pop();
-        stack.push("(" + op2 + c + op1 + ")");
-      }
-    }
-    return stack.pop();
-  }
+
 
   /** 82. Problem: Postfix to Prefix Conversion Solution: */
 

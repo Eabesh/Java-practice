@@ -71,4 +71,10 @@ public class StackExamplesTest {
     String postFix = "ab*c+";
     System.out.println(new StackExamples().postFixToInfix(postFix));
   }
+
+  @Test
+  public void isRedundancy() {
+   String exp = "(a+b) + c";
+   assertTrue(new StackExamples().isRedundancy(exp));
+  }
 }
