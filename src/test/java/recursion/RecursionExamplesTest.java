@@ -57,7 +57,7 @@ public class RecursionExamplesTest {
 
   @Test
   public void printPermutations() throws Exception {
-    new RecursionExamples().printPermutations("", "0123");
+    new RecursionExamples().printPermutations("", "ABC");
   }
 
   @Test

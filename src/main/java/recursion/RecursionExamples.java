@@ -71,9 +71,11 @@ public class RecursionExamples {
   public void printPermutations(String soFar, String remaining) {
     if (remaining.isEmpty()) System.out.println(soFar);
     else {
-      for (int i = 0; i < remaining.length(); i++)
+      for (int i = 0; i < remaining.length(); i++) {
         printPermutations(
-            soFar + remaining.charAt(i), remaining.substring(0, i) + remaining.substring(i + 1));
+
+                soFar + remaining.charAt(i), remaining.substring(0, i) + remaining.substring(i + 1));
+      }
     }
   }
 

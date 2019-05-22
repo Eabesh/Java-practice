@@ -1,5 +1,7 @@
 package data.structures.binarytrees;
 
+import komal.InterviewQuestions;
+import komal.Trees;
 import org.junit.Test;
 import utilities.NaryTreeNode;
 import utilities.TreeNode;
@@ -340,6 +342,10 @@ public class TreeExamplesTest {
     TreeNode node2 = new TreeNode(3);
     root.left = node1;
     root.right = node2;
+    TreeNode node3 = new TreeNode(6);
+    TreeNode node4 = new TreeNode(7);
+    node1.right = node3;
+    node2.left = node4;
     return root;
   }
 
@@ -915,4 +921,125 @@ public class TreeExamplesTest {
     root.right.right.right = new TreeNode(2);
     assertEquals(7, new TreeExamples().maxSpiralSum(root));
   }
+
+
+  /*komal tests*/
+  @Test
+  public void printRootToleaf() throws Exception {
+    new Trees().printRootToleaf(createTree(), "");
+  }
+
+  @Test
+  public void LCABst() {
+    TreeNode root = new TreeNode(20);
+    root.left = new TreeNode(8);
+    root.right = new TreeNode(22);
+    root.left.left = new TreeNode(4);
+    root.left.right = new TreeNode(12);
+    root.left.right.left = new TreeNode(10);
+    root.left.right.right = new TreeNode(14);
+    //assertEquals(20, new Trees().LCABstIterative(root,4,22));
+    assertEquals(20, new Trees().LCABtRecursive(root,4,22));
+
+  }
+
+  @Test
+  public void inOrderTraversal(){
+    TreeNode root = new TreeNode(20);
+    root.left = new TreeNode(8);
+    root.right = new TreeNode(22);
+    root.left.left = new TreeNode(4);
+    root.left.right = new TreeNode(12);
+    root.left.right.left = new TreeNode(10);
+    root.left.right.right = new TreeNode(14);
+    new Trees().preOrderTraversalRec(root);
+    new Trees().preOrderTraversalIte(root);
+  }
+
+  @Test
+  public void sizeOfTree(){
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(8);
+    root.right = new TreeNode(22);
+    root.left.left = new TreeNode(4);
+    root.left.right = new TreeNode(12);
+    root.left.right.left = new TreeNode(10);
+    root.left.right.right = new TreeNode(100);
+    System.out.println("max is "+new Trees().maxInTree(root) );
+    //assertEquals(22,new Trees().maxInTree(root));
+  }
+
+  @Test
+  public void spiralFormPrint(){
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(3);
+    root.left.left = new TreeNode(7);
+    root.left.right = new TreeNode(6);
+    root.right.left = new TreeNode(5);
+    root.right.right = new TreeNode(4);
+    new Trees().printSpiralForm(root) ;
+   // new Trees().printLevelOrder(root);
+  }
+
+  @Test
+  public void diameterOfBinaryTree(){
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(3);
+    root.left.left = new TreeNode(7);
+    root.left.right = new TreeNode(6);
+    root.right.left = new TreeNode(5);
+    root.right.right = new TreeNode(4);
+    root.right.right.right = new TreeNode(9);
+    root.right.right.right.right = new TreeNode(13);
+    root.right.right.right.right.right = new TreeNode(14);
+    root.right.left.left = new TreeNode(10);
+    root.right.left.left.left = new TreeNode(11);
+    root.right.left.left.left.left = new TreeNode(12);
+    System.out.println(new Trees().width(root)) ;
+  }
+  @Test
+  public void printSwappedNodes(){
+    TreeNode root = new TreeNode(4);
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(3);
+    root.left.left = new TreeNode(7);
+    root.left.right = new TreeNode(6);
+    root.right.left = new TreeNode(5);
+    root.right.right = new TreeNode(4);
+    root.right.right.right = new TreeNode(9);
+    root.right.right.right.right = new TreeNode(13);
+    root.right.right.right.right.right = new TreeNode(14);
+    root.right.left.left = new TreeNode(10);
+    root.right.left.left.left = new TreeNode(11);
+    root.right.left.left.left.left = new TreeNode(12);
+    new InterviewQuestions().printTheSwappedNodes(root);
+   // System.out.println(new Trees().width(root)) ;
+  }
+
+  @Test
+  public void BtToDll(){
+    TreeNode root = new TreeNode(10);
+    root.left = new TreeNode(12);
+    root.right = new TreeNode(15);
+    root.left.left = new TreeNode(25);
+    root.left.right = new TreeNode(30);
+    root.right.left = new TreeNode(36);
+    TreeNode resultNode = new Trees().BtToDllDriver(root);
+    new Trees().printList(resultNode);
+  }
+
+  @Test
+  public void BtFlatten(){
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(5);
+    root.left.left = new TreeNode(3);
+    root.left.right = new TreeNode(4);
+    root.right.right = new TreeNode(6);
+    TreeNode resultNode = new Trees().flatten(root);
+    new Trees().inOrderTraversalRec(resultNode);
+  }
+
 }

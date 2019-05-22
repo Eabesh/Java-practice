@@ -67,11 +67,11 @@ public class ListExampleTest {
   public void removeDuplicatesUnsorted() {
    ListNode head;
    ListNode newNode = new ListNode(1);
-   head = newNode;
+
    newNode.next = new ListNode(2);
    newNode.next.next = new ListNode(1);
    newNode.next.next.next = new ListNode(2);
-
+    head = newNode;
     printList(head);
     ListNode newHead = new ListExample().removeDuplicatesUnsorted(head);
     printList(newHead);
